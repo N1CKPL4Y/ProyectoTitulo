@@ -13,14 +13,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     </head>
     <body>
-        <div class="ui container">
-            <div class="ui two column centered grid">
-                <div class="column">
-                    <img src="IMG/Login.png" alt="No disponible" width="500" height="200"/>
+        <div class="ui container centrado" style="position: relative">
+            <div class="ui segment"style="position: absolute; margin: auto">
+                <div class="ui two column very relaxed stackable grid">
+                    <div class="column">
+                        <img src="IMG/Login.png" alt="No disponible" width="500" height="200"/>
+                    </div>
+                    <div class="middle aligned column">
+                        <div class="ui form">
+                            <div class="field">
+                                <label>Username</label>
+                                <div class="ui left icon input">
+                                    <input type="text" placeholder="Username">
+                                    <i class="user icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Password</label>
+                                <div class="ui left icon input">
+                                    <input type="password">
+                                    <i class="lock icon"></i>
+                                </div>
+                            </div>
+                            <div class="ui blue submit button">Login</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="four column centered row">
-                    <div class="column">sadasd</div>
-                    <div class="column">asdasd</div>
+                <div class="ui vertical divider">
                 </div>
             </div>
         </div>
