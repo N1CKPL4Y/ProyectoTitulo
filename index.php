@@ -13,9 +13,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body>
         <div class="ui container">
-            <div class="column centered grid">
+            <div class="ui two column centered grid">
                 <div class="column">
-                    <img src="IMG/Login.png" width="400" height="170" alt="lo compro disney">
+                    <img src="IMG/Login.png" alt="No disponible" width="500" height="200"/>
+                </div>
+                <div class="four column centered row">
+                    <div class="column">sadasd</div>
+                    <div class="column">asdasd</div>
                 </div>
             </div>
         </div>
