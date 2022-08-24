@@ -21,21 +21,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </div>
                     <div class="middle aligned column">
                         <div class="ui form">
-                            <div class="field">
-                                <label>Username</label>
-                                <div class="ui left icon input">
-                                    <input type="text" placeholder="Username">
-                                    <i class="user icon"></i>
+                            <form name="login" action="controller/controllerLogin.php" method="post">
+                                <div class="field">
+                                    <label>Username</label>
+                                    <div class="ui left icon input">
+                                        <input type="text" placeholder="Username" name="txt_rut">
+                                        <i class="user icon"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="field">
-                                <label>Password</label>
-                                <div class="ui left icon input">
-                                    <input type="password">
-                                    <i class="lock icon"></i>
+                                <div class="field">
+                                    <label>Password</label>
+                                    <div class="ui left icon input">
+                                        <input type="password" name="txt_pass">
+                                        <i class="lock icon"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="ui blue submit button">Login</div>
+                                <div class="ui blue submit button">Login</div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -43,5 +45,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 </div>
             </div>
         </div>
+
     </body>
 </html>
