@@ -26,7 +26,7 @@ if ($rut && $pass) {
             $_SESSION['cargo'] = $key['cargo'];
         }
         
-        echo '<script language="javascript">alert("Bienvenida");window.location.href="../Home.php"</script>';
+        echo '<script language="javascript">alert("Bienvenida");window.location.href="../MenuPrincipal.php"</script>';
         
     } else if (!$valid) {
         echo 'ERROR';
