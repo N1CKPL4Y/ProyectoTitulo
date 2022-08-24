@@ -6,7 +6,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Fundacion Ave Fenix</title>
+        <link rel="icon" href="IMG/IconAveFenix.png"/>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->
@@ -14,17 +15,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     </head>
     <body>
         <div class="container">
-            <form action="controller/controllerLogin.php" method="post">
-                <div class="mb-3">
-                    <label for="rut" class="form-label">R.U.T</label>
-                    <input type="text" class="form-control" name="txt_rut" id="rut">
+            <div class="row" style="margin-top: 8%">
+                <div class="col">
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="txt_pass" id="password">
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <img src="IMG/Login.png" width="250" height="100" alt="Imagen no disponible"/>
+                        </div>
+                        <div class="card-body">
+                            <h2>Iniciar Sesion</h2>
+                            <form action="controller/controllerLogin.php" method="post">
+                                <div class="mb-3">
+                                    <label for="rut" class="form-label">R.U.T</label>
+                                    <input type="text" class="form-control" name="txt_rut" id="rut" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" name="txt_pass" id="password" required>
+                                </div>
+                                <button type="submit" class="btn" style="background-color: #d4db00">Iniciar Sesion</button>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Fundacion Ave Fenix - Derechos Reservados
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                <div class="col">
+                </div>
+            </div>
         </div>
     </body>
 </html>
