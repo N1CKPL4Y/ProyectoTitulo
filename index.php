@@ -18,7 +18,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <div class="forms">
                 <div class="form login">
                     <div class="row" style="justify-content: center; align-content: center">
-                        <img src="IMG/Login.png" width="250px" height="110px">
+                        <img src="IMG/Login.png" width="200px" height="110px">
                     </div>
                     <span class="titulo">Iniciar sesión</span>
                     <form name="login" action="controller/controllerLogin.php" method="post">
