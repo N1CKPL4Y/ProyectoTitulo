@@ -106,7 +106,7 @@ if ($rut && $pass) {
     if ($valid) {
         $rs = $data->getUserbyRut($rut);
         foreach ($rs as $key) {
-            $_SESSION['id'] = $key['id'];
+            $_SESSION['id'] = $key['ID'];
             $_SESSION['rut'] = $key['RUT'];
             $_SESSION['nombre'] = $key['nombre'];
             $_SESSION['apellido'] = $key['apellido'];
@@ -123,17 +123,25 @@ if ($rut && $pass) {
         switch ($_SESSION['tipo_u']) {
             case 1:
                 echo '<script>Admin();</script>';
+                break;
             case 2:
                 switch ($_SESSION['cargo']) {
                     case 1:
                         echo '<script>Gerencia();</script>';
+                        break;
                     case 2:
                         echo '<script>Secretaria();</script>';
+                        break;
                     case 3:
                         echo '<script>Profesional();</script>';
+                        break;
                     case 4:
                         echo '<script>Practicante();</script>';
+                        break;
+                    default :
+                        break;
                 }
+                break;
         }
     } else if (!$valid) {
         echo '<script>Error();</script>';
