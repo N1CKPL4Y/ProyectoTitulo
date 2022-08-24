@@ -1,3 +1,26 @@
+<?php
+error_reporting(E_NOTICE ^ E_ALL);
+
+include_once 'Model_Data.php';
+session_start();
+$rut = $_SESSION['rut'];
+$nombre = $_SESSION['nombre'];
+$apellido = $_SESSION['apellido'];
+$passwd = $_SESSION['passwd'];
+$correo = $_SESSION['email'];
+$area_u = $_SESSION['area_u'];
+
+
+
+if ($correo == null || "") {
+    echo '<script language="javascript">alert("Acceso invalido");</script>';
+    echo "<script> window.location.replace('index.php') </script>";
+}
+
+
+$data = new Data();
+?>
+
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -6,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Menú Secretaria</title>
         <!-- CSS only -->
         <link rel="stylesheet" href="css/materialize.css">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
@@ -28,8 +51,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <h1 class="visually-hidden">Sidebars examples</h1>
             <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 15%; min-height: 100vh;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <img src="IMG/IconAveFenix.png" width="75" height="75">
-                    <span class="fs-4">Nombre-Apellido</span>
+                    <!-- <img src="IMG/IconAveFenix.png" width="60" height="60"> -->
+                    <span class="fs-3" style="font-size: 1px">Bienvenido:</span>
+                    <a><span class="white-text name" style="font-size: 14px"><?php echo $nombre. ' '. $apellido?></span></a>
+                    <a><span class="white-text email" style="font-size: 14px"><?php echo $correo?></span></a>
+                    <a><span class="white-text name" style="font-size: 14px"><?php echo $area_u?></span></a>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
@@ -67,19 +93,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <img src="IMG/TextoFenix_1.png">
                 <hr>
                 <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="controller/controllerLogout.php" class="d-flex align-items-center text-white text-decoration-none">
                         <span class="material-symbols-outlined">
                             logout
                         </span>
-                        <strong>mdo</strong>
+                        <strong>Cerrar Sesion</strong>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
                 </div>
             </div>
         </main>

@@ -13,15 +13,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body style="background-image: url(IMG/FondoLogin.png); background-repeat: repeat-x">
         <div class="container">
-            <div class="row" style="margin-top: 8%">
+            <div class="row" style="margin-top: 25%">
                 <div class="col">
                 </div>
-                <div class="col">
+                <div class="col-6">
                     <div class="card text-center">
                         <div class="card-header">
-                            <img src="IMG/Login.png" width="250" height="100" alt="Imagen no disponible"/>
+                            <img src="IMG/Login.png" width="300" height="100" alt="Imagen no disponible"/>
                         </div>
                         <div class="card-body">
                             <h2>Iniciar Sesion</h2>
