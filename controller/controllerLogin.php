@@ -18,7 +18,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../index.php';
+                            window.location.href = '../MenuAdmin.php';
                         });
             }
 
