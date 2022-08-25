@@ -20,6 +20,10 @@
 .sidebar.open{
     width: 270px;
 }
+.move{
+    margin-left: 20px;
+    
+}
 .sidebar .logo-details{
     height: 60px;
     display: flex;
@@ -227,14 +231,18 @@
     background: #E4E9F7;
     min-height: 100vh;
     top: 0;
-    left: 78px;
-    width: calc(100% - 78px);
+    left: 270px;
+    width: calc(100% - 270px);
     transition: all 0.5s ease;
     z-index: 2;
 }
+.sidebar ~ .home-section{
+    left: 78px;
+    width: calc(100% - 78px);
+}
 .sidebar.open ~ .home-section{
     left: 250px;
-    width: calc(100% - 250px);
+    width: calc(100% - 270px);
 }
 .home-section .text{
     display: inline-block;

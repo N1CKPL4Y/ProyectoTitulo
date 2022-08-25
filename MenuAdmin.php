@@ -38,6 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,7 +118,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section">
+        <section class="home-section" id="section1">
             <nav>
                 <div class="nav-wrapper">
                     <a href="#" class="brand-logo center">Logo</a>
@@ -156,10 +157,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
-
+            let section = document.querySelector(".home-section");
+                    
             closeBtn.addEventListener("click", () => {
                 sidebar.classList.toggle("open");
                 menuBtnChange();//calling the function(optional)
+                section.classList.toggle("move");
             });
 
             searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
