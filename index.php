@@ -23,9 +23,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <div class="forms">
                 <div class="form login">
                     <span class="titulo">Iniciar sesión</span>
-                    <form name="login" action="Controller/controller_login.php" method="post">
+                    <form name="login" action="controller/controllerlogin.php" method="post">
                         <div class="input-field">
-                            <input type="text" name="txt_correo" placeholder="Correo electronico" id="email" required>
+                            <input type="text" name="txt_rut" placeholder="Rut" id="email" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <span id="emailVal"></span>
