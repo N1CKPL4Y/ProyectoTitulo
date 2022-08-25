@@ -44,7 +44,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../MenuPrincipal.php';
+                            window.location.href = '../MenuSecretaria.php';
                         });
             }
 
@@ -141,6 +141,9 @@ if ($rut && $pass) {
                     default :
                         break;
                 }
+                break;
+            default:
+                echo 'header("location: ../index.php");';
                 break;
         }
     } else if (!$valid) {
