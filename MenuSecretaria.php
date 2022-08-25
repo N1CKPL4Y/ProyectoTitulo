@@ -16,7 +16,7 @@ if ($correo == null || "") {
     echo "<script> window.location.replace('index.php') </script>";
 }
 
-switch ($_SESSION['cargo']){
+switch ($_SESSION['cargo']) {
     case 2:
         $area_u = "Secretari@";
         break;
@@ -40,6 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
         <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="Materialize/css/materialize.css">
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,8 +49,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <div class="sidebar ">
             <div class="logo-details">
                 <div class="logo_name">Fundacion Ave Fenix</div>
-                <i class='bx bx-menu' id="btn" ></i>
-                
+                <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
                 <li>
@@ -70,18 +70,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="profile-details">
                       <!--<img src="profile.jpg" alt="profileImg">-->
                         <div class="name_job">
-                            <div class="name"><?php echo $nombre. ' '. $apellido?></div>
-                            <div class="job"><?php echo $correo. ' | '. $area_u?></div>
-                            
+                            <div class="name"><?php echo $nombre . ' ' . $apellido . ' | ' . $area_u ?></div>
+                            <div class="job"><?php echo $correo ?></div>
+
                         </div>
                         <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
                     </div>
-                    
+
                 </li>
             </ul>
         </div>
         <section class="home-section">
-
+            <nav>
+                <div class="nav-wrapper" style="background-color: #05529a">
+                </div>
+            </nav>
+            
         </section>
         <script>
             let sidebar = document.querySelector(".sidebar");
