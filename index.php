@@ -13,13 +13,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     </head>
-    <body style="background-image: url(IMG/FondoLogin.png); background-repeat: repeat-x">
+    <body style="background-color:#F9FFB6">
         <header class="header">
             <div class="nav-cont logo-nav">
-                <img src="IMG/Login.png" width="500px" height="250px">
+                <img src="IMG/Login.png" width="500px" height="220px">
             </div>
         </header>
-        <div class="container">
+        <div class="container" style="margin-top: 1%">
             <div class="forms">
                 <div class="form login">
                     <span class="titulo">Iniciar sesión</span>
@@ -46,25 +46,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </form>
                     <div class="login-singup">
                         <span class="text">¿Olvidaste tu contraseña?
-                            <a href="#" class="text signup-link">Restablécela</a>
                         </span>
-                    </div>
-                </div>
-                <div class="form forgotpass">
-                    <span class="titulo">Reestablecer Contraseña</span>
-                    <form action="mail/enviar.php" method="post">
-                        <div class="input-field">
-                            <input type="text" name="mail" placeholder="Correo electronico" id="txt_email" required>
-                            <i class="uil uil-envelope icon"></i>
-                        </div>
-                        <span id="emailVal2"></span>
-                        <div class="input-field button">
-                            <input type="submit" name="btn_enviar" value="Restablecer">
-                        </div>
-                    </form>
-                    <div class="login-singup">
-                        <span class="text">
-                            <a href="#" class="text login-link">Cancelar</a>
+                        <br>
+                        <span class="text">Contacta al administrador
                         </span>
                     </div>
                 </div>
@@ -72,15 +56,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </div>
         <footer>
             <span>
-                SGV © Derechos Reservados - 2022
+                Fundacion Ave Fenix © Derechos Reservados - 2022
             </span>
         </footer>
         <script>
-            document.getElementById("email").focus();
             const container = document.querySelector(".container");
             passwdShowHide = document.querySelectorAll(".mostrarPass");
             passwdFields = document.querySelectorAll(".passwd");
-            singUp = document.querySelector(".signup-link");
             login = document.querySelector(".login-link");
 
             passwdShowHide.forEach(eyeIcon => {
@@ -100,45 +82,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     })
                 })
             })
-
-            singUp.addEventListener("click", () => {
-                container.classList.add("active");
-            })
-            login.addEventListener("click", () => {
-                container.classList.remove("active");
-            })
-            document.getElementById('email').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "El correo es válido";
-                } else {
-                    valido.innerText = "El correo no es válido";
-                }
-                if (campo.value === "") {
-                    valido.innerText = "";
-                }
-            }
-            );
-            document.getElementById('txt_email').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal2');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "El correo es válido";
-                } else {
-                    valido.innerText = "El correo no es válido";
-                }
-                if (campo.value === "") {
-                    valido.innerText = "";
-                }
-            }
-            );
         </script>
     </body>
 </html>
