@@ -28,28 +28,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <link rel="icon" href="img/iconAdmin.png"/>
+        <link rel="icon" href="IMG/IconAveFenix.png"/>
         <link rel="stylesheet" href="Materialize/css/materialize.css">
         <script src="Materialize/js/materialize.js"></script>
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="js/validarut.js"></script>
-        <script src="js/jquery.rut.js"></script>
+        
         <title>Menu Administrador</title>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
     </head>
-    <body style="background-color: white; background-image: url(img/imgAdmin.png); background-attachment: fixed; background-size: cover" >
+    <body style="background-color: white; background-image: url(IMG/FondoLogin.png); background-attachment: fixed; background-size: cover" >
         <section>
             <nav class="nav-extended" style="background-color: #1d1b31;">
                 <div class="nav-wrapper">
                     <a id="menu" href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons" style="font-size: 35px">menu</i></a>
-                    <img src="img/iconAdmin.png">
+                    <img src="IMG/IconAveFenix.png">
                     <span class="brand-logo">Menu Admin</span>
                 </div>
             </nav>
@@ -57,7 +57,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li><div class="user-view">
                         <div class="background" style="background-color: #1d1b31;">
                         </div>
-                        <a href="#user"><img class="circle" src="img/iconPerfil.png"></a>
+                        <a href="#user"><img class="circle" src="IMG/IconAveFenix.png"></a>
                         <a href="#name"><span class="white-text name" style="font-size: 20px"><?php echo $nombre . ' ' . $apellido ?></span></a>
                         <a href="#email"><span class="white-text email" style="font-size: 14px"><?php echo $correo ?></span></a>
                     </div></li>
@@ -76,36 +76,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li><div class="divider"></div></li>
                 <li><a href="Controller/controllerLogOut.php" class="waves-effect">Cerrar sesión<i class='bx bx-log-out white-text' style="font-size: 27px;"></i></a></li>
             </ul>
-            <div>
-                <!--Modal Structure-->
-                <div id="modal_1" class="modal" style="position: absolute; margin-top: 150px">
-                    <form class="col s12" action="controller/controllerUpdatepass.php" method="post">
-                        <div class="modal-content">
-                            <h4>Cambiar contraseña</h4>
-                            <p>Tu contraseña es temporal, reestablecela</p>
-                            <div class="row">
-
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input name="txt_pass" id="pass" type="password" required>
-                                        <label for="pass">Nueva contraseña</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input name="txt_pass2" id="pass2" type="password" required>
-                                        <label for="pass">Confirmar nueva contraseña</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Aceptar
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
             <div class="container">
                 <div class="row">
                     <div class="col s12">
@@ -316,109 +286,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </select>
 
             </div>
-        </footer>
-        <script>
-            $(document).ready(function () {
-                $('#datos').DataTable({
-                    responsive: true,
-                    autoWidth: false,
-                    "language": {
-                        "lengthMenu": "Mostrar " + '<select><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                        "zeroRecords": "No se han encontrado registros",
-                        "info": "Mostrando la página _PAGE_ de _PAGES_",
-                        "infoEmpty": "No hay registros disponibles",
-                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                        "search": "Buscar:",
-                        "paginate": {
-                            'next': 'Siguiente',
-                            'previous': 'Anterior',
-                        },
-                    }
-                });
-
-            });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#agregarUsuario').click(function () {
-                    rut = $('#rut').val();
-                    nombre = $('#nombre').val();
-                    apellido = $('#apellido').val();
-                    email = $('#email').val();
-                    telefono = $('#telefono').val();
-                    area = $('#area').val();
-                    tipo = $('#tipo').val();
-                    passwT = rut.substring(0, 6) + nombre.substring(0, 3);
-
-                    agregarUsuario(rut, nombre, apellido, email, telefono, area, tipo, passwT);
-                    location.reload(true);
-                });
-
-                $('#actualizar').click(function () {
-                    actualizarUsuario();
-                    location.reload(true);
-                });
-
-            });
-        </script>
+        </footer>   
+        <script src="js/script.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 M.AutoInit();
             });
-            var temporal = "<?php echo $passwd_t ?>";
-
-            if (temporal == 1) {
-                showModal();
-                console.log(temporal);
-            } else {
-                CloseModal();
-            }
-            function showModal() {
-                document.getElementById('modal_pass').style.display = 'block';
-                document.getElementById('menu').style.visibility = "hidden";
-            }
-
-            function CloseModal() {
-                document.getElementById('modal_pass').style.display = 'none';
-                document.getElementById('menu').style.visibility = "visible";
-
-            }
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
         </script>
-
-        <script src="js/script.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $("input#rut").rut({
-                    formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-                });
-                $(document).ready(function () {
-                    $('.sidenav').sidenav();
-                });
-                var input = document.getElementById('rut');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
-            })
-            document.getElementById('correo').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "Correo válido";
-                } else {
-                    valido.innerText = "Correo no válido";
-                }
-            }
-            );
-            let toggle = document.getElementById('add');
-            toggle.onclick = function () {
-                toggle.classList.toggle('active');
-            }
-        </script>
+        
     </body>
 </html>

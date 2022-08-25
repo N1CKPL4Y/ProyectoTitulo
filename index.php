@@ -16,10 +16,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body style="background-color:#F9FFB6">
         <header class="header">
             <div class="nav-cont logo-nav">
-                <img src="IMG/Login.png" width="500px" height="220px">
+                <img src="IMG/Login.png" width="500px" height="150px">
             </div>
         </header>
-        <div class="container" style="margin-top: 1%">
+        <div class="container" style="">
             <div class="forms">
                 <div class="form login">
                     <span class="titulo">Iniciar sesión</span>
