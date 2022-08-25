@@ -47,23 +47,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar ">
             <div class="logo-details">
-                <div class="logo_name"></div>
+                <div class="logo_name">Fundacion Ave Fenix</div>
                 <i class='bx bx-menu' id="btn" ></i>
+                
             </div>
             <ul class="nav-list">
                 <li>
                     <a href="#">
                         <i class='bx bx-user' ></i>
-                        <span class="links_name">User</span>
+                        <span class="links_name">Ingreso usuarios</span>
                     </a>
-                    <span class="tooltip">User</span>
+                    <span class="tooltip">Ingreso usuarios</span>
                 </li>
                 <li>
                     <a href="#">
                         <i class='bx bx-folder' ></i>
-                        <span class="links_name">File Manager</span>
+                        <span class="links_name">Registrar Entrevista</span>
                     </a>
-                    <span class="tooltip">Files</span>
+                    <span class="tooltip">Registrar Entrevista</span>
                 </li>
                 <li class="profile">
                     <div class="profile-details">
