@@ -18,7 +18,7 @@
     transition: all 0.5s ease;
 }
 .sidebar.open{
-    width: 250px;
+    width: 270px;
 }
 .sidebar .logo-details{
     height: 60px;
@@ -177,12 +177,12 @@
     left: 0;
     bottom: -8px;
     padding: 10px 14px;
-    background: #1d1b31;
+    background: #103869 ;
     transition: all 0.5s ease;
     overflow: hidden;
 }
 .sidebar.open li.profile{
-    width: 250px;
+    width: 270px;
 }
 .sidebar li .profile-details{
     display: flex;
