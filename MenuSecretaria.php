@@ -152,7 +152,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <select>
+                                                            <select name="cbo_genero">
                                                                 <option value="" disabled selected>Genero</option>
                                                                 <option value="1">Masculino</option>
                                                                 <option value="2">Femenino</option>
@@ -172,7 +172,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="file-field input-field col s6">
                                                             <div class="btn">
                                                                 <span style="font-size: 10px">Ingrese copia del carnet</span>
-                                                                <input type="file">
+                                                                <input type="file" name="file_carnet">
                                                             </div>
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text">
@@ -202,7 +202,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s6">
-                                                            <select>
+                                                            <select name="cbo_condicion">
                                                                 <option value="" disabled selected>Seleccione</option>
                                                                 <option value="1">TEA</option>
                                                                 <option value="2">TDA</option>
@@ -216,7 +216,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s5">
-                                                            <select>
+                                                            <select name="cbo_especialista">
                                                                 <option value="" disabled selected>Seleccione</option>
                                                                 <option value="1">Neurologo</option>
                                                                 <option value="2">Psicologo</option>
@@ -224,14 +224,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </select>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input placeholder="-- Seleccione: --" name="txt_Fnac" type="text" class="datepicker" id="datepicker" required>
+                                                            <input placeholder="-- Seleccione: --" name="txt_control" type="text" class="datepicker" id="datepicker" required>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn">
                                                                 <span>Copia informe ultimo control</span>
-                                                                <input type="file">
+                                                                <input type="file" name="file_control">
                                                             </div>
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text">
@@ -252,7 +252,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s4">
-                                                                <select>
+                                                                <select name="cbo_parent">
                                                                     <option value="" disabled selected>Parentezco</option>
                                                                     <option value="1">Padre</option>
                                                                     <option value="2">Madre</option>
@@ -272,7 +272,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s10">
                                                                 <div class="btn">
                                                                     <span>Copia carnet</span>
-                                                                    <input type="file">
+                                                                    <input type="file" name="file_tutor">
                                                                 </div>
                                                                 <div class="file-path-wrapper">
                                                                     <input class="file-path validate" type="text">
@@ -283,12 +283,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s8">
-                                                                <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_Fnac" type="text" class="datepicker" id="datepicker" required>
+                                                                <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_nacTutor" type="text" class="datepicker" id="datepicker" required>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s4">
-                                                                <select>
+                                                                <select name="cbo_nivel">
                                                                     <option value="" disabled selected>Nivel escolar</option>
                                                                     <option value="1">basica</option>
                                                                     <option value="2">media</option>
@@ -324,13 +324,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="diagnostico" type="radio"/>
+                                                                <input class="with-gap" value="1" name="direccTutor" type="radio"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s3">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="diagnostico" type="radio"/>
+                                                                <input class="with-gap" value="2" name="direccTutor" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -338,13 +338,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s10">
-                                                                <input id="direccionT" type="text" name="txt_direccionT" class="validate">
+                                                                <input id="direccionT" type="text" name="txt_direTutor" class="validate">
                                                                 <label class="active" for="direccionT">Indique la direccion del tutor</label>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s6">
-                                                                <input id="direccionT" type="text" name="txt_direccionT" class="validate">
+                                                                <input id="direccionT" type="text" name="txt_comuTutor" class="validate">
                                                                 <label class="active" for="direccionT">Comuna</label>
                                                             </div>
                                                         </div>
@@ -354,7 +354,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s5">
-                                                            <select>
+                                                            <select name="cbo_prevision">
                                                                 <option value="" disabled selected>Fonasa</option>
                                                                 <option value="1">Fonasa A</option>
                                                                 <option value="2">Fonasa B</option>
@@ -371,20 +371,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="teleton" type="radio"/>
+                                                                <input class="with-gap" value="1" name="txt_teleton" type="radio"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="teleton" type="radio"/>
+                                                                <input class="with-gap" value="2" name="txt_teleton" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="teleton" type="text" name="txt_teleton" class="validate">
+                                                            <input id="teleton" type="text" name="txt_Nteleton" class="validate">
                                                             <label class="active" for="teleton">Numero de registro Teleton</label>
                                                         </div>
                                                     </div>
@@ -413,14 +413,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s4">
-                                                            <input id="discapacidad" type="text" name="txt_discapacidad" class="validate">
+                                                            <input id="discapacidad" type="text" name="txt_credencial" class="validate">
                                                             <label class="active" for="discapacidad">Numero de credencial de discapacidad</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s8">
-                                                                <select>
+                                                                <select name="cbo_origenP">
                                                                     <option value="" disabled selected>Origen principal de discapacidad</option>
                                                                     <option value="1">Fisico</option>
                                                                     <option value="2">Sensorial Visual</option>

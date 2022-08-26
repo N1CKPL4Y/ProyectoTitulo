@@ -187,6 +187,7 @@
 }
 .sidebar.open li.profile{
     width: 270px;
+    height: 100px;
 }
 .sidebar li .profile-details{
     display: flex;

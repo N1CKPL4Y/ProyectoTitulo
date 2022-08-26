@@ -49,7 +49,27 @@ class Data {
         $sql = "INSERT INTO `beneficiario` (`id`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares) VALUES (null, `$rut`, `$nombre`, `$apellido`, `$fecha_nac`, `$genero`, `$direccion`, `$comuna`, `$c_identidad`, `$teleton`, `$pension`, `$pesion_S`, `$sub_M`, `$p_sobrev`, `$a_duplo`, `$ch_soli`, `$rs_hogar`);";
         $this->con->query($sql);
     }
-        
+    
+    public function addTutor($rut, $nombre, $apellido, $fecha_nac, $direccion, $comuna, $c_identidad, $n_escolar, $ocuapcion, $telefono, $email, $prevision) {
+        $sql = "INSERT INTO `tutor` (`id`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `n_escolar`, `ocupacion`, `telefono`, `email`, `prevision`) VALUES (null, `$rut`, `$nombre`, `$apellido`, `$fecha_nac`, `$genero`, `$direccion`, `$comuna`, `$c_identidad`, `$n_escolar`, `$ocuapcion`, `$telefono`, `$email`, `$prevision`);";
+        $this->con->query($sql);
+    }
+       
+    public function addParentezo($nombre, $beneficiario, $tutor) {
+        $sql = "INSERT INTO `parentezco` (`ID`, `nombre`, `beneficiario`, `tutor`) VALUES (null, `$nombre`, `$beneficiario`, `$tutor`);";
+        $this->con->query($sql);
+    }
+    
+    public function addRegisSocial($copia, $beneficiario) {
+        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `beneficiario`) VALUES (null, `$copia`, `$beneficiario`);";
+        $this->con->query($sql);
+    }
+    
+    public function addTeleton($registro, $beneficiario) {
+        $sql = "INSERT INTO `registro_teleton` (`ID`, `registro`, `beneficiario`) VALUES (null, `$registro`, `$beneficiario`);";
+        $this->con->query($sql);
+    }
+    
     public function addDiagnos($espec, $ultiControl, $inf_Diagnos, $benefi, $cod) {
         $sql = "INSERT INTO `diagnostico (`ID`, `especialista`, `fecha_u_control`, `informe_diagnostico`, `beneficiario`, `codigo_c`) VALUES (null, `$espec`, `$ultiControl`, `$inf_Diagnos`, `$benefi`, `$cod`)";
         $query = $this->con->query($sql);
@@ -62,6 +82,12 @@ class Data {
     
     public function getBenefi($rut) {
         $sql = "SELECT * FROM beneficiario where RUT = '$rut'";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getTutor($rut) {
+        $sql = "SELECT * FROM tutor where RUT = '$rut'";
         $query = $this->con->query($sql);
         return $query;
     }
