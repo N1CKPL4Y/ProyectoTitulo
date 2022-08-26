@@ -244,55 +244,71 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="collapsible-header">Datos del tutor</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="tutor" type="text" name="txt_ntutor" class="validate">
-                                                            <label class="active" for="tutor">Nombre completo del tutor</label>
-                                                        </div>
-                                                        <div class="input-field col s4">
-                                                            <select>
-                                                                <option value="" disabled selected>Parentezco</option>
-                                                                <option value="1">Padre</option>
-                                                                <option value="2">Madre</option>
-                                                                <option value="3">Otro</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s4">
-                                                            <input id="rutT" type="text" name="txt_rtutor" class="validate">
-                                                            <label class="active" for="rutT">R.U.T del tutor</label>
-                                                        </div>
-                                                        <div class="file-field input-field col s5">
-                                                            <div class="btn">
-                                                                <span>Copia carnet</span>
-                                                                <input type="file">
+                                                        <div class="col s6">
+                                                            <div class="input-field col s12">
+                                                                <input id="tutor" type="text" name="txt_ntutor" class="validate">
+                                                                <label class="active" for="tutor">Nombre completo del tutor</label>
                                                             </div>
-                                                            <div class="file-path-wrapper">
-                                                                <input class="file-path validate" type="text">
+                                                        </div>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s4">
+                                                                <select>
+                                                                    <option value="" disabled selected>Parentezco</option>
+                                                                    <option value="1">Padre</option>
+                                                                    <option value="2">Madre</option>
+                                                                    <option value="3">Otro</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="input-field col s4">
-                                                            <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_Fnac" type="text" class="datepicker" id="datepicker" required>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s12">
+                                                                <input id="rutT" type="text" name="txt_rtutor" class="validate">
+                                                                <label class="active" for="rutT">R.U.T del tutor</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-field col s4">
-                                                            <select>
-                                                                <option value="" disabled selected>Nivel escolar</option>
-                                                                <option value="1">basica</option>
-                                                                <option value="2">media</option>
-                                                                <option value="3">universitaria</option>
-                                                            </select>
+                                                        <div class="col s6">
+                                                            <div class="file-field input-field col s10">
+                                                                <div class="btn">
+                                                                    <span>Copia carnet</span>
+                                                                    <input type="file">
+                                                                </div>
+                                                                <div class="file-path-wrapper">
+                                                                    <input class="file-path validate" type="text">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="input-field col s4">
-                                                            <input id="ocupacion" type="text" name="txt_ocupacion" class="validate">
-                                                            <label class="active" for="ocupacion">Indique la ocupacion</label>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s8">
+                                                                <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_Fnac" type="text" class="datepicker" id="datepicker" required>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-field col s4">
-                                                            <input id="telefono" type="text" name="txt_telefono" class="validate">
-                                                            <label class="active" for="telefono">Indique el telefono del tutor</label>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s4">
+                                                                <select>
+                                                                    <option value="" disabled selected>Nivel escolar</option>
+                                                                    <option value="1">basica</option>
+                                                                    <option value="2">media</option>
+                                                                    <option value="3">universitaria</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s6">
+                                                            <div class="input-field col s8">
+                                                                <input id="ocupacion" type="text" name="txt_ocupacion" class="validate">
+                                                                <label class="active" for="ocupacion">Indique la ocupacion</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s8">
+                                                                <input id="telefono" type="text" name="txt_telefono" class="validate">
+                                                                <label class="active" for="telefono">Indique el telefono del tutor</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -303,6 +319,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <h6 class="col s6">¿El tutor vive con el beneficiario?</h6>
+
                                                     </div>
                                                     <div class="row">
                                                         <p class="col s2">
@@ -319,13 +336,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="input-field col s5">
-                                                            <input id="direccionT" type="text" name="txt_direccionT" class="validate">
-                                                            <label class="active" for="direccionT">Indique la direccion del tutor</label>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s10">
+                                                                <input id="direccionT" type="text" name="txt_direccionT" class="validate">
+                                                                <label class="active" for="direccionT">Indique la direccion del tutor</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-field col s4">
-                                                            <input id="direccionT" type="text" name="txt_direccionT" class="validate">
-                                                            <label class="active" for="direccionT">Comuna</label>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s6">
+                                                                <input id="direccionT" type="text" name="txt_direccionT" class="validate">
+                                                                <label class="active" for="direccionT">Comuna</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -397,50 +418,279 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                     </div>
                                                     <div class="row">
-
-                                                        <div class="input-field col s5">
-                                                            <select>
-                                                                <option value="" disabled selected>Origen principal de discapacidad</option>
-                                                                <option value="1">Fisico</option>
-                                                                <option value="2">Sensorial Visual</option>
-                                                                <option value="3">Sensorial Auditivo</option>
-                                                                <option value="3">Mental Psiquico</option>
-                                                                <option value="3">Mental Intelectual</option>
-                                                            </select>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s8">
+                                                                <select>
+                                                                    <option value="" disabled selected>Origen principal de discapacidad</option>
+                                                                    <option value="1">Fisico</option>
+                                                                    <option value="2">Sensorial Visual</option>
+                                                                    <option value="3">Sensorial Auditivo</option>
+                                                                    <option value="3">Mental Psiquico</option>
+                                                                    <option value="3">Mental Intelectual</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <h6 class="col s5">Origen secundario de la discapacidad:</h6>
-                                                        <div class="col s5">
-                                                            <p>
-                                                                <label>
-                                                                    <input type="checkbox" />
-                                                                    <span>Fisico</span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <label>
-                                                                    <input type="checkbox" />
-                                                                    <span>Sensorial visual</span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <label>
-                                                                    <input type="checkbox" />
-                                                                    <span>Sensorial Auditivo</span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <label>
-                                                                    <input type="checkbox" />
-                                                                    <span>Mental Psiquico</span>
-                                                                </label>
-                                                            </p>
+                                                        <div class="col s6">
+                                                            <h6 class="col s5">Origen secundario de la discapacidad:</h6>
+                                                            <div class="col s5">
+                                                                <p>
+                                                                    <label>
+                                                                        <input type="checkbox" />
+                                                                        <span>Fisico</span>
+                                                                    </label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>
+                                                                        <input type="checkbox" />
+                                                                        <span>Sensorial visual</span>
+                                                                    </label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>
+                                                                        <input type="checkbox" />
+                                                                        <span>Sensorial Auditivo</span>
+                                                                    </label>
+                                                                </p>
+                                                                <p>
+                                                                    <label>
+                                                                        <input type="checkbox" />
+                                                                        <span>Mental Psiquico</span>
+                                                                    </label>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="row">
+                                                        <div class="col s6">
                                                             <div class="input-field col s6">
                                                                 <input id="porcentaje_d" type="text" name="txt_porcentaje_d" class="validate">
                                                                 <label class="active" for="porcentaje_d">Porcentaje de discapacidad</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s6">
+                                                            <div class="input-field col s8">
+                                                                <select>
+                                                                    <option value="" disabled selected>Grado de discapacidad</option>
+                                                                    <option value="1">Leve</option>
+                                                                    <option value="2">Moderado</option>
+                                                                    <option value="3">Severo</option>
+                                                                    <option value="3">Profundo</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s4">
+                                                            <div class="input-field col s8">
+                                                                <select>
+                                                                    <option value="" disabled selected>Movilidad Reducida</option>
+                                                                    <option value="1">Leve</option>
+                                                                    <option value="2">Moderado</option>
+                                                                    <option value="3">Severo</option>
+                                                                    <option value="3">Profundo</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s6">
+                                                            <h6 class="col s9">C. Discapacidad (Parte delantera)</h6>
+                                                            <div class="file-field input-field col s12">
+                                                                <div class="btn">
+                                                                    <span>Seleccionar</span>
+                                                                    <input type="file">
+                                                                </div>
+                                                                <div class="file-path-wrapper">
+                                                                    <input class="file-path validate" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s6">
+                                                            <h6 class="col s9">C. Discapacidad (Parte Trasera)</h6>
+                                                            <div class="file-field input-field col s12">
+                                                                <div class="btn">
+                                                                    <span>Seleccionar</span>
+                                                                    <input type="file">
+                                                                </div>
+                                                                <div class="file-path-wrapper">
+                                                                    <input class="file-path validate" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header">Pensiones</div>
+                                                <div class="collapsible-body">
+                                                    <div class="row">
+                                                        <h6 class="col s5">¿Es beneficiario de alguna pension?</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="pension" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="pension" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h6 class="col s5">Pension basica solidaria de invalidez</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="pension1" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="pension1" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="3" name="pension1" type="radio"/>
+                                                                <span>En tramite</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h6 class="col s5">Subsidio a la discapacidad mental</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="pension2" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="pension2" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="3" name="pension2" type="radio"/>
+                                                                <span>En tramite</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h6 class="col s5">Pensión de sobrevivencia</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="pension3" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="pension3" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="3" name="pension3" type="radio"/>
+                                                                <span>En tramite</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h6 class="col s5">Asignación Duplo</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="pension4" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="pension4" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="3" name="pension4" type="radio"/>
+                                                                <span>En tramite</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <input id="otroP" type="text" name="txt_otroP" class="validate">
+                                                            <label class="active" for="otroP">Otro tipo de pension</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header">Beneficios Sociales</div>
+                                                <div class="collapsible-body">
+                                                    <div class="row">
+                                                        <h6 class="col s6">Pertenece a Chile solidario?</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="csolidario" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="csolidario" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h6 class="col s6">Tiene registro social de hogares?</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="hogares" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="hogares" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <input id="porcentajeH" type="text" name="txt_porcentajeF" class="validate">
+                                                            <label class="active" for="porcentajeF">Porcentaje en registro social de hogares</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="file-field input-field col s8">
+                                                            <div class="btn">
+                                                                <span>Fotografia del registro</span>
+                                                                <input type="file">
+                                                            </div>
+                                                            <div class="file-path-wrapper">
+                                                                <input class="file-path validate" type="text">
                                                             </div>
                                                         </div>
                                                     </div>
