@@ -112,94 +112,100 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </div>
                                 </form>
                             </div>
-                            <div class="row">
-                                <div class="col s6">
-                                    <h5 class="col s10">Datos del beneficiario:</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="rut_b1" type="text" name="txt_rutB1" class="validate" readonly="true">
-                                        <label class="active" for="rut_b1">R.U.T del beneficiario</label>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="nombre1" type="text" name="txt_n1" class="validate" readonly="true">
-                                        <label class="active" for="nombre1">Nombres del beneficiario</label>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="apellido1" type="text" name="txt_a1" class="validate" readonly="true">
-                                        <label class="active" for="apellido1">Apellidos del beneficiario</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input placeholder="-- Fecha Nacimiento: --" name="txt_nac" type="text" class="datepicker" id="datepicker" required readonly="true">
-                                    </div>
-                                </div>
-                                <div class="col s6">
-                                    <div class="input-field col s10">
-                                        <input id="direccion1" type="text" name="txt_dire" class="validate" readonly="true">
-                                        <label class="active" for="direccion1">Dirección del beneficiario</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s6">
-                                    <div class="input-field col s10">
-                                        <input id="cDis" type="text" name="txt_cDis" class="validate" readonly="true">
-                                        <label class="active" for="cDis">¿Cuenta con Credencial de discapacidad?</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s6">
-                                    <h5 class="col s10">Datos del tutor:</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="rut_tutor" type="text" name="txt_rutTutor" class="validate" readonly="true">
-                                        <label class="active" for="rut_tutor">R.U.T del tutor</label>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="nombreT" type="text" name="txt_nT" class="validate" readonly="true">
-                                        <label class="active" for="nombreT">Nombres del tutor</label>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="apellidoT" type="text" name="txt_aT" class="validate" readonly="true">
-                                        <label class="active" for="apellidoT">Apellidos del tutor</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s4">
-                                    <div class="input-field col s10">
-                                        <input id="telefonoT" type="text" name="txt_telefonoT" class="validate" readonly="true">
-                                        <label class="active" for="telefonoT">telefono del tutor</label>
-                                    </div>
-                                </div>
-                                <div class="col s4">
-                                    <div class="input-field col s11">
-                                        <input id="emailT" type="text" name="txt_emailT" class="validate" readonly="true">
-                                        <label class="active" for="emailT">correo electronico del tutor</label>
-                                    </div>
-                                </div>
-                            </div>
                             <?php
                             if (isset($_POST['buscar'])) {
-                                echo '';
+                                echo '
+                                    '
+                                ?>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <h5 class="col s10">Datos del beneficiario:</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="rut_b1" type="text" name="txt_rutB1" class="validate" readonly="true">
+                                            <label class="active" for="rut_b1">R.U.T del beneficiario</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="nombre1" type="text" name="txt_n1" class="validate" readonly="true">
+                                            <label class="active" for="nombre1">Nombres del beneficiario</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="apellido1" type="text" name="txt_a1" class="validate" readonly="true">
+                                            <label class="active" for="apellido1">Apellidos del beneficiario</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input placeholder="-- Fecha Nacimiento: --" name="txt_nac" type="text" class="datepicker" id="datepicker" required readonly="true">
+                                        </div>
+                                    </div>
+                                    <div class="col s6">
+                                        <div class="input-field col s10">
+                                            <input id="direccion1" type="text" name="txt_dire" class="validate" readonly="true">
+                                            <label class="active" for="direccion1">Dirección del beneficiario</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <div class="input-field col s10">
+                                            <input id="cDis" type="text" name="txt_cDis" class="validate" readonly="true">
+                                            <label class="active" for="cDis">¿Cuenta con Credencial de discapacidad?</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <h5 class="col s10">Datos del tutor:</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="rut_tutor" type="text" name="txt_rutTutor" class="validate" readonly="true">
+                                            <label class="active" for="rut_tutor">R.U.T del tutor</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="nombreT" type="text" name="txt_nT" class="validate" readonly="true">
+                                            <label class="active" for="nombreT">Nombres del tutor</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="apellidoT" type="text" name="txt_aT" class="validate" readonly="true">
+                                            <label class="active" for="apellidoT">Apellidos del tutor</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s4">
+                                        <div class="input-field col s10">
+                                            <input id="telefonoT" type="text" name="txt_telefonoT" class="validate" readonly="true">
+                                            <label class="active" for="telefonoT">telefono del tutor</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="input-field col s11">
+                                            <input id="emailT" type="text" name="txt_emailT" class="validate" readonly="true">
+                                            <label class="active" for="emailT">correo electronico del tutor</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                                '';
+                            }else{
+                                
                             }
                             ?>
                         </div>
