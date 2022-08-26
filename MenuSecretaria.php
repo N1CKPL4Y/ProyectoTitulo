@@ -73,8 +73,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="profile-details">
                       <!--<img src="profile.jpg" alt="profileImg">-->
                         <div class="name_job">
-                            <div class="row"></div>
-                            <div class="name"><?php echo $nombre . ' ' . $apellido . ' | ' . $area_u ?></div>
+                            <div class="name"><?php echo $nombre ?></div>
+                            <div class="name"><?php echo $apellido ?></div>
+                            <div class="name"><?php echo $area_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
 
                         </div>
