@@ -202,9 +202,44 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                 </div>
+                                <form>
+                                    <ul class="collapsible">
+                                        <li>
+                                            <div class="collapsible-header">Antecedentes relativos al desarrollo y a la salud del/la estudiante</div>
+                                            <div class="collapsible-body">
+                                                <div class="row">
+                                                    <div class="col s6">
+                                                        <h6 class="col s12">¿El o la estudiante tiene algun diagnostico previo?</h6>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="1" name="hogares" type="radio"/>
+                                                                <span>Si</span>
+                                                            </label>
+                                                        </p>
+                                                        <p class="col s2">
+                                                            <label>
+                                                                <input class="with-gap" value="2" name="hogares" type="radio"/>
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col s6">
+                                                        <div class="input-field col s12">
+                                                            <input id="diagnostico" type="text" name="txt_telefonoT" class="validate" readonly="true">
+                                                            <label class="active" for="telefonoT">Indique el diagnostico del o la estudiante:</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </form>
                                 <?php
                                 '';
-                            }else{
+                            } else {
                                 
                             }
                             ?>
