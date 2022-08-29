@@ -84,7 +84,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section">
+        <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #05529a">
                 </div>
@@ -701,7 +701,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </ul>
                                         <div class="row">
                                             <div class="col s12 center">
-                                                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
+                                                <button class="btn waves-effect" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
                                                     <i class="material-icons right"></i>
                                                 </button>
                                             </div>
