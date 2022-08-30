@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar ">
             <div class="logo-details">
-                <div class="logo_name">Fundacion Ave Fenix</div>
+                <div class="logo_name">Fundación Inclusiva</div>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
@@ -84,9 +84,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section">
+        <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
+                    <div class="container center">
+                        <a style="font-size: 30px">Ave</a>
+                        <img src="IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px">Fenix</a>
+                    </div>
                 </div>
             </nav>
             <div class="container-fluid">
@@ -171,8 +176,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input id="comuna" type="text" name="txt_comuna" class="validate">
                                                             <label class="active" for="comuna">Comuna</label>
                                                         </div>
-                                                        <div class="file-field input-field col s6">
-                                                            <div class="btn">
+                                                        <div class="file-field input-field col s6 ">
+                                                            <div class="btn light-green darken-3">
                                                                 <span style="font-size: 10px">Ingrese copia del carnet</span>
                                                                 <input type="file" name="file_carnet">
                                                             </div>
@@ -231,7 +236,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="file-field input-field col s8">
-                                                            <div class="btn">
+                                                            <div class="btn light-green darken-3">
                                                                 <span>Copia informe ultimo control</span>
                                                                 <input type="file" name="file_control">
                                                             </div>
@@ -272,7 +277,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="file-field input-field col s10">
-                                                                <div class="btn">
+                                                                <div class="btn light-green darken-3">
                                                                     <span>Copia carnet</span>
                                                                     <input type="file" name="file_tutor">
                                                                 </div>
@@ -481,7 +486,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col s6">
                                                             <h6 class="col s9">C. Discapacidad (Parte delantera)</h6>
                                                             <div class="file-field input-field col s12">
-                                                                <div class="btn">
+                                                                <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
                                                                     <input type="file" name="file_credenFront">
                                                                 </div>
@@ -493,7 +498,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col s6">
                                                             <h6 class="col s9">C. Discapacidad (Parte Trasera)</h6>
                                                             <div class="file-field input-field col s12">
-                                                                <div class="btn">
+                                                                <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
                                                                     <input type="file" name="file_credenBack">
                                                                 </div>
@@ -670,7 +675,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="file-field input-field col s8">
-                                                            <div class="btn">
+                                                            <div class="btn light-green darken-3">
                                                                 <span>Fotografia del registro</span>
                                                                 <input type="file" name="file_Hogar">
                                                             </div>
@@ -684,7 +689,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </ul>
                                         <div class="row">
                                             <div class="col s12 center">
-                                                <button class="btn waves-effect waves-light boton" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
+                                                <button class="btn waves-effect light-green darken-3" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
                                                     <i class="material-icons right"></i>
                                                 </button>
                                             </div>

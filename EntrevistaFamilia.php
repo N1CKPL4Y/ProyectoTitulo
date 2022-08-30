@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar ">
             <div class="logo-details">
-                <div class="logo_name">Fundacion Ave Fenix</div>
+                <div class="logo_name">Fundación Inclusiva</div>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
@@ -78,14 +78,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name"><?php echo $area_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out"></i></a>
                     </div>
                 </li>
             </ul>
         </div>
         <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
-                <div class="nav-wrapper" style="background-color: #05529a">
+                <div class="nav-wrapper" style="background-color: #00526a">
+                    <div class="container center">
+                        <a style="font-size: 30px">Ave</a>
+                        <img src="IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px">Fenix</a>
+                    </div>
                 </div>
             </nav>
             <div class="container-fluid">
@@ -105,7 +110,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                             <div class="col s5">
                                                 <div class="input-field col s12">
-                                                    <button class="btn waves-effect waves-light" type="submit" name="buscar">Buscar</button>
+                                                    <button class="btn waves-effect light-green darken-3" type="submit" name="buscar">Buscar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -2429,8 +2434,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </ul>
                                     <div class="row">
                                         <div class="col s12 center">
-                                            <button class="btn" type="submit" name="action" style="margin-bottom: 10px;">Registrar Entrevista
-                                                <i class="material-icons right"></i>
+                                            <button class="btn light-green darken-3" type="submit" name="action" style="margin-bottom: 10px;">Registrar Entrevista
                                             </button>
                                         </div>
                                     </div>

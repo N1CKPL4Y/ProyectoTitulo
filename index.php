@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     </head>
-    <body style="background-color:#F9FFB6">
+    <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
         <header class="header">
             <div class="nav-cont logo-nav">
                 <img src="IMG/Login.png" width="500px" height="150px">

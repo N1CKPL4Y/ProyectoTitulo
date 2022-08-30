@@ -5981,7 +5981,7 @@ body.keyboard-focused .dropdown-content li:focus {
     -webkit-tap-highlight-color: transparent;
     line-height: 1.5;
     padding: 1rem;
-    background-color: #fbb416;
+    background-color: #558b2f;
     border-bottom: 1px solid #ddd;
     color: white;
 }
