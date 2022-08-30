@@ -57,7 +57,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../index.php';
+                            window.location.href = '../MenuProfesional.php';
                         });
             }
 
@@ -70,7 +70,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../index.php';
+                            window.location.href = '../MenuPracticante.php';
                         });
             }
 

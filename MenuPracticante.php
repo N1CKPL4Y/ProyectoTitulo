@@ -16,9 +16,15 @@ if ($correo == null || "") {
     echo "<script> window.location.replace('index.php') </script>";
 }
 
-switch ($_SESSION['tipo_u']) {
+switch ($_SESSION['area_u']) {
     case 1:
-        $tipo_u = "Administrador";
+        $area_u = "Director Area Tecnica";
+        break;
+    case 2:
+        $area_u = "Fonoaudiolog@";
+        break;
+    case 3:
+        $area_u = "Terapeuta Ocupacional";
         break;
 }
 
@@ -30,19 +36,20 @@ $data = new Data();
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
-<!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
-<html lang="en" dir="ltr">
+<html>
     <head>
-        <title>Menú Administrador</title>
+        <title>Menú Practicante</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -54,17 +61,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <ul class="nav-list">
                 <li>
                     <a href="#">
-                        <i class='bx bx-user' ></i>
-                        <span class="links_name">Usuarios</span>
+                        <i class='bx bx-calendar' ></i>
+                        <span class="links_name">Visualizar Horario</span>
                     </a>
-                    <span class="tooltip">Usuarios</span>
+                    <span class="tooltip">Visualizar Horario</span>
                 </li>
                 <li>
                     <a href="#">
-                        <i class='bx bx-calendar'></i>
-                        <span class="links_name">Calendario Mensual</span>
+                        <i class='material-icons'>assignment</i>
+                        <span class="links_name">Generar Informe Integral</span>
                     </a>
-                    <span class="tooltip">Calendario Mensual</span>
+                    <span class="tooltip">Generar Informe Integral</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='material-icons'>assignment_turned_in</i>
+                        <span class="links_name">Registrar Bitacora</span>
+                    </a>
+                    <span class="tooltip">Registrar Bitacora</span>
                 </li>
                 <li class="profile">
                     <div class="profile-details">
@@ -72,7 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="name_job">
                             <div class="name"><?php echo $nombre ?></div>
                             <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $tipo_u ?></div>
+                            <div class="name"><?php echo $area_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
 
                         </div>
@@ -81,7 +95,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-image: url(IMG/4.jpg); background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(IMG/2.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">
@@ -120,4 +134,3 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </script>
     </body>
 </html>
-<!<!-- comment -->

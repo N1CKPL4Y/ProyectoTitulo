@@ -106,7 +106,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <ul class="collapsible">
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Datos Generales</div>
+                                                    Datos Generales</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <div class="input-field col s6">
@@ -139,7 +139,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </li>
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Datos del beneficiario</div>
+                                                    Datos del beneficiario</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <div class="input-field col s6">
@@ -193,7 +193,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </li>
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Diagnostico del beneficiario</div>
+                                                    Diagnostico del beneficiario</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <h6 class="col s5">¿El beneficiario presenta algun diagnostico?</h6>
@@ -253,7 +253,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </li>
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Datos del tutor</div>
+                                                    Datos del tutor</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <div class="col s6">
@@ -336,13 +336,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="direccTutor" type="radio"/>
+                                                                <input class="with-gap" value="1" name="direccTutor" type="radio" onclick="viveCon()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s3">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="direccTutor" type="radio"/>
+                                                                <input class="with-gap" value="0" name="direccTutor" type="radio" onclick="noViveCon()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -356,8 +356,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s6">
-                                                                <input id="direccionT" type="text" name="txt_comuTutor" class="validate">
-                                                                <label class="active" for="direccionT">Comuna</label>
+                                                                <input id="comuT" type="text" name="txt_comuTutor" class="validate">
+                                                                <label class="active" for="comuT">Comuna</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -404,7 +404,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </li>
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Datos de credencial de discapacidad</div>
+                                                    Datos de credencial de discapacidad</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <h6 class="col s5">Cuenta con credencial de discapacidad?:</h6>
@@ -518,7 +518,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </li>
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Pensiones</div>
+                                                    Pensiones</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <h6 class="col s5">¿Es beneficiario de alguna pension?</h6>
@@ -526,13 +526,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="pension" type="radio"/>
+                                                                <input id="siP" class="with-gap" value="1" name="pension" type="radio" onclick="tieneP()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="pension" type="radio"/>
+                                                                <input id="noP" class="with-gap" value="0" name="pension" type="radio" onclick="noTieneP()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -543,19 +543,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="pension1" type="radio"/>
+                                                                <input id="siP1"class="with-gap" value="1" name="pension1" type="radio" onclick="sip1()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="pension1" type="radio"/>
+                                                                <input id="noP1" class="with-gap" value="0" name="pension1" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension1" type="radio"/>
+                                                                <input id="Tp1" class="with-gap" value="2" name="pension1" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -566,19 +566,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="pension2" type="radio"/>
+                                                                <input id="siP2" class="with-gap" value="1" name="pension2" type="radio" onclick="sip2()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="pension2" type="radio"/>
+                                                                <input id="noP2" class="with-gap" value="0" name="pension2" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension2" type="radio"/>
+                                                                <input id="Tp2" class="with-gap" value="2" name="pension2" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -589,19 +589,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="pension3" type="radio"/>
+                                                                <input id="siP3" class="with-gap" value="1" name="pension3" type="radio" onclick="sip3()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="pension3" type="radio"/>
+                                                                <input id="noP3" class="with-gap" value="0" name="pension3" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension3" type="radio"/>
+                                                                <input id="Tp3" class="with-gap" value="2" name="pension3" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -612,19 +612,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="pension4" type="radio"/>
+                                                                <input id="siP4" class="with-gap" value="1" name="pension4" type="radio" onclick="sip4()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="pension4" type="radio"/>
+                                                                <input id="noP4" class="with-gap" value="0" name="pension4" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension4" type="radio"/>
+                                                                <input id="Tp4" class="with-gap" value="2" name="pension4" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -639,7 +639,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </li>
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                Beneficios Sociales</div>
+                                                    Beneficios Sociales</div>
                                                 <div class="collapsible-body">
                                                     <div class="row">
                                                         <h6 class="col s6">Pertenece a Chile solidario?</h6>
@@ -664,20 +664,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="hogares" type="radio"/>
+                                                                <input class="with-gap" value="1" name="hogares" type="radio" onclick="tieneR()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="hogares" type="radio"/>
+                                                                <input class="with-gap" value="0" name="hogares" type="radio" onclick="noTieneR()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="porcentajeH" type="text" name="txt_porcentajeF" class="validate">
+                                                            <input id="porcentajeF" type="text" name="txt_porcentajeF" class="validate">
                                                             <label class="active" for="porcentajeF">Porcentaje en registro social de hogares</label>
                                                         </div>
                                                     </div>
@@ -685,7 +685,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn light-green darken-3">
                                                                 <span>Fotografia del registro</span>
-                                                                <input type="file" name="file_Hogar">
+                                                                <input id="cR" type="file" name="file_Hogar">
                                                             </div>
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text">
@@ -773,6 +773,88 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     }
                 })
             })
+        </script>
+        <script>
+            var noP = document.getElementById('noP');
+            var noP1 = document.getElementById('noP1');
+            var noP2 = document.getElementById('noP2');
+            var noP3 = document.getElementById('noP3');
+            var noP4 = document.getElementById('noP4');
+            var siP = document.getElementById('siP');
+            //Scripts en input "vive con el beneficiario?"
+            function viveCon() {
+                document.getElementById('direccionT').disabled = true
+                document.getElementById('comuT').disabled = true
+            }
+            function noViveCon() {
+                document.getElementById('direccionT').disabled = false
+                document.getElementById('comuT').disabled = false
+            }
+            //Scripts en input "tiene registro social de hogares?"
+            function tieneR() {
+                document.getElementById('porcentajeF').disabled = false
+                document.getElementById('cR').disabled = false
+            }
+            function noTieneR() {
+                document.getElementById('porcentajeF').disabled = true
+                document.getElementById('cR').disabled = true
+            }
+            //Scripts en input "es beneficiario de alguna pension?"
+            function noTieneP() {
+                if (noP.checked) {
+                    document.getElementById('noP1').checked = true;
+                    document.getElementById('noP2').checked = true;
+                    document.getElementById('noP3').checked = true;
+                    document.getElementById('noP4').checked = true;
+                    document.getElementById('otroP').disabled = true;
+                }
+            }
+            function tieneP() {
+                if (siP.checked) {
+                    document.getElementById('noP1').checked = false;
+                    document.getElementById('noP2').checked = false;
+                    document.getElementById('noP3').checked = false;
+                    document.getElementById('noP4').checked = false;
+                    document.getElementById('siP1').checked = false;
+                    document.getElementById('siP2').checked = false;
+                    document.getElementById('siP3').checked = false;
+                    document.getElementById('siP4').checked = false;
+                    document.getElementById('otroP').disabled = true;
+                }
+            }
+            function sip1() {
+                if (siP1.checked) {
+                    document.getElementById('noP2').checked = true;
+                    document.getElementById('noP3').checked = true;
+                    document.getElementById('noP4').checked = true;
+                    document.getElementById('otroP').disabled = true;
+                }
+            }
+            function sip2() {
+                if (siP2.checked) {
+                    document.getElementById('noP1').checked = true;
+                    document.getElementById('noP3').checked = true;
+                    document.getElementById('noP4').checked = true;
+                    document.getElementById('otroP').disabled = true;
+                }
+            }
+            function sip3() {
+                if (siP3.checked) {
+                    document.getElementById('noP1').checked = true;
+                    document.getElementById('noP2').checked = true;
+                    document.getElementById('noP4').checked = true;
+                    document.getElementById('otroP').disabled = true;
+                }
+            }
+            function sip4() {
+                if (siP3.checked) {
+                    document.getElementById('noP1').checked = true;
+                    document.getElementById('noP2').checked = true;
+                    document.getElementById('noP3').checked = true;
+                    document.getElementById('otroP').disabled = true;
+                }
+            }
+
         </script>
     </body>
 </html>
