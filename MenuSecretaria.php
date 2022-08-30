@@ -84,9 +84,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
+        <section class="home-section">
             <nav>
-                <div class="nav-wrapper" style="background-color: #05529a">
+                <div class="nav-wrapper" style="background-color: #00526a">
                 </div>
             </nav>
             <div class="container-fluid">
@@ -95,7 +95,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="card" style="border-radius: 10px">
                             <h4 style="padding-top: 10px; padding-left: 10px">Ingresar nuevo Beneficiario</h4>
                             <div class="row">
-                                <form>
+                                <form method="post" action="controller/controllerIngreso.php" enctype="multipart/form-data">
                                     <div class="col s12">
                                         <ul class="collapsible">
                                             <li>
@@ -332,7 +332,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s3">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="direccTutor" type="radio"/>
+                                                                <input class="with-gap" value="0" name="direccTutor" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -361,8 +361,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <option value="1">Fonasa A</option>
                                                                 <option value="2">Fonasa B</option>
                                                                 <option value="3">Fonasa C</option>
-                                                                <option value="3">Fonasa D</option>
-                                                                <option value="3">Isapre</option>
+                                                                <option value="4">Fonasa D</option>
+                                                                <option value="5">Isapre</option>
                                                             </select>
                                                         </div>
 
@@ -373,13 +373,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="txt_teleton" type="radio"/>
+                                                                <input class="with-gap" value="1" name="rd_teleton" type="radio"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="txt_teleton" type="radio"/>
+                                                                <input class="with-gap" value="0" name="rd_teleton" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -407,7 +407,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="discapacidad" type="radio"/>
+                                                                <input class="with-gap" value="0" name="discapacidad" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -427,38 +427,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <option value="1">Fisico</option>
                                                                     <option value="2">Sensorial Visual</option>
                                                                     <option value="3">Sensorial Auditivo</option>
-                                                                    <option value="3">Mental Psiquico</option>
-                                                                    <option value="3">Mental Intelectual</option>
+                                                                    <option value="4">Mental Psiquico</option>
+                                                                    <option value="5">Mental Intelectual</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
-                                                            <h6 class="col s5">Origen secundario de la discapacidad:</h6>
-                                                            <div class="col s5">
-                                                                <p>
-                                                                    <label>
-                                                                        <input type="checkbox" />
-                                                                        <span>Fisico</span>
-                                                                    </label>
-                                                                </p>
-                                                                <p>
-                                                                    <label>
-                                                                        <input type="checkbox" />
-                                                                        <span>Sensorial visual</span>
-                                                                    </label>
-                                                                </p>
-                                                                <p>
-                                                                    <label>
-                                                                        <input type="checkbox" />
-                                                                        <span>Sensorial Auditivo</span>
-                                                                    </label>
-                                                                </p>
-                                                                <p>
-                                                                    <label>
-                                                                        <input type="checkbox" />
-                                                                        <span>Mental Psiquico</span>
-                                                                    </label>
-                                                                </p>
+                                                            <div class="input-field col s8">
+                                                                <select name="cbo_origenS">
+                                                                    <option value="" disabled selected>Origen Secundario de discapacidad</option>
+                                                                    <option value="1">Fisico</option>
+                                                                    <option value="2">Sensorial Visual</option>
+                                                                    <option value="3">Sensorial Auditivo</option>
+                                                                    <option value="4">Mental Psiquico</option>
+                                                                    <option value="5">Mental Intelectual</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -471,12 +454,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s8">
-                                                                <select>
+                                                                <select name="cbo_grado">
                                                                     <option value="" disabled selected>Grado de discapacidad</option>
                                                                     <option value="1">Leve</option>
                                                                     <option value="2">Moderado</option>
                                                                     <option value="3">Severo</option>
-                                                                    <option value="3">Profundo</option>
+                                                                    <option value="4">Profundo</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -484,12 +467,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s4">
                                                             <div class="input-field col s8">
-                                                                <select>
+                                                                <select name="cbo_movilidad">
                                                                     <option value="" disabled selected>Movilidad Reducida</option>
                                                                     <option value="1">Leve</option>
                                                                     <option value="2">Moderado</option>
                                                                     <option value="3">Severo</option>
-                                                                    <option value="3">Profundo</option>
+                                                                    <option value="4">Profundo</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -500,7 +483,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn">
                                                                     <span>Seleccionar</span>
-                                                                    <input type="file">
+                                                                    <input type="file" name="file_credenFront">
                                                                 </div>
                                                                 <div class="file-path-wrapper">
                                                                     <input class="file-path validate" type="text">
@@ -512,7 +495,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn">
                                                                     <span>Seleccionar</span>
-                                                                    <input type="file">
+                                                                    <input type="file" name="file_credenBack">
                                                                 </div>
                                                                 <div class="file-path-wrapper">
                                                                     <input class="file-path validate" type="text">
@@ -537,7 +520,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension" type="radio"/>
+                                                                <input class="with-gap" value="0" name="pension" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -554,13 +537,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension1" type="radio"/>
+                                                                <input class="with-gap" value="0" name="pension1" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="3" name="pension1" type="radio"/>
+                                                                <input class="with-gap" value="2" name="pension1" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -577,13 +560,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension2" type="radio"/>
+                                                                <input class="with-gap" value="0" name="pension2" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="3" name="pension2" type="radio"/>
+                                                                <input class="with-gap" value="2" name="pension2" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -600,13 +583,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension3" type="radio"/>
+                                                                <input class="with-gap" value="0" name="pension3" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="3" name="pension3" type="radio"/>
+                                                                <input class="with-gap" value="2" name="pension3" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -623,13 +606,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="pension4" type="radio"/>
+                                                                <input class="with-gap" value="0" name="pension4" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="3" name="pension4" type="radio"/>
+                                                                <input class="with-gap" value="2" name="pension4" type="radio"/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -657,7 +640,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="csolidario" type="radio"/>
+                                                                <input class="with-gap" value="0" name="csolidario" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -674,7 +657,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="hogares" type="radio"/>
+                                                                <input class="with-gap" value="0" name="hogares" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -689,7 +672,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn">
                                                                 <span>Fotografia del registro</span>
-                                                                <input type="file">
+                                                                <input type="file" name="file_Hogar">
                                                             </div>
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text">
@@ -701,7 +684,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </ul>
                                         <div class="row">
                                             <div class="col s12 center">
-                                                <button class="btn waves-effect" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
+                                                <button class="btn waves-effect waves-light boton" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
                                                     <i class="material-icons right"></i>
                                                 </button>
                                             </div>
@@ -755,7 +738,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 $('.datepicker').datepicker({
 
-                    format: 'dd-mm-yyyy'
+                    format: 'yyyy-mm-dd'
                 });
             });
             $(document).ready(function () {
@@ -765,7 +748,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             });
             $(function () {
                 $('#datepicker').datepicker({
-                    format: 'dd-mm-yyyy',
+                    format: 'yyyy-mm-dd',
                     i18n: {
                         months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                         monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],

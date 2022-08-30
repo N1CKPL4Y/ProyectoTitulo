@@ -4,6 +4,9 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+.boton{
+    background-color: #00526a;
+}
 .materialize-red {
     background-color: #e51c23 !important;
 }
@@ -5978,8 +5981,9 @@ body.keyboard-focused .dropdown-content li:focus {
     -webkit-tap-highlight-color: transparent;
     line-height: 1.5;
     padding: 1rem;
-    background-color: #3B93C8;
+    background-color: #fbb416;
     border-bottom: 1px solid #ddd;
+    color: white;
 }
 
 .collapsible-header:focus {

@@ -46,22 +46,22 @@ class Data {
     }
     
     public function addBenefi($rut, $nombre, $apellido, $fecha_nac, $genero, $direccion, $comuna, $c_identidad, $teleton, $pension, $pesion_S, $sub_M, $p_sobrev, $a_duplo, $ch_soli, $rs_hogar) {
-        $sql = "INSERT INTO `beneficiario` (`id`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares) VALUES (null, `$rut`, `$nombre`, `$apellido`, `$fecha_nac`, `$genero`, `$direccion`, `$comuna`, `$c_identidad`, `$teleton`, `$pension`, `$pesion_S`, `$sub_M`, `$p_sobrev`, `$a_duplo`, `$ch_soli`, `$rs_hogar`);";
+        $sql = "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha_nac', '$genero', '$direccion', '$comuna', '$c_identidad', '$teleton', '$pension', '$pesion_S', '$sub_M', '$p_sobrev', '$a_duplo', '$ch_soli', '$rs_hogar');";
         $this->con->query($sql);
     }
     
-    public function addTutor($rut, $nombre, $apellido, $fecha_nac, $direccion, $comuna, $c_identidad, $n_escolar, $ocuapcion, $telefono, $email, $prevision) {
-        $sql = "INSERT INTO `tutor` (`id`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `n_escolar`, `ocupacion`, `telefono`, `email`, `prevision`) VALUES (null, `$rut`, `$nombre`, `$apellido`, `$fecha_nac`, `$genero`, `$direccion`, `$comuna`, `$c_identidad`, `$n_escolar`, `$ocuapcion`, `$telefono`, `$email`, `$prevision`);";
+    public function addTutor($rut, $nombre, $fecha_nac, $direccion, $comuna, $c_identidad, $n_escolar, $ocuapcion, $telefono, $email, $prevision) {
+        $sql = "INSERT INTO `tutor` (`ID`, `RUT`, `nombre`, `fecha_nac`, `direccion`, `comuna`, `c_identidad`, `n_escolar`, `ocupacion`, `telefono`, `email`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$fecha_nac', '$direccion', '$comuna', '$c_identidad', '$n_escolar', '$ocuapcion', '$telefono', '$email', '$prevision');";
         $this->con->query($sql);
     }
        
     public function addParentezo($nombre, $beneficiario, $tutor) {
-        $sql = "INSERT INTO `parentezco` (`ID`, `nombre`, `beneficiario`, `tutor`) VALUES (null, `$nombre`, `$beneficiario`, `$tutor`);";
+        $sql = "INSERT INTO `parentezco` (`id`, `parecido`, `beneficiario`, `tutor`) VALUES (NULL, '$nombre', '$beneficiario', '$tutor');";
         $this->con->query($sql);
     }
     
-    public function addRegisSocial($copia, $beneficiario) {
-        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `beneficiario`) VALUES (null, `$copia`, `$beneficiario`);";
+    public function addRegisSocial($copia, $tipoDocu, $beneficiario) {
+        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `tipoDocumento`, `beneficiario`) VALUES (null, `$copia`, `$tipoDocu`, `$beneficiario`);";
         $this->con->query($sql);
     }
     
@@ -70,13 +70,13 @@ class Data {
         $this->con->query($sql);
     }
     
-    public function addDiagnos($espec, $ultiControl, $inf_Diagnos, $benefi, $cod) {
-        $sql = "INSERT INTO `diagnostico (`ID`, `especialista`, `fecha_u_control`, `informe_diagnostico`, `beneficiario`, `codigo_c`) VALUES (null, `$espec`, `$ultiControl`, `$inf_Diagnos`, `$benefi`, `$cod`)";
-        $query = $this->con->query($sql);
+    public function addDiagnos($espec, $ultiControl, $inf_Diagnos, $tipoDocu, $benefi, $cod) {
+        $sql = "INSERT INTO `diagnostico` (`id`, `especialista`, `fecha_u_control`, `informe_dignostico`, `tipoDocumento`, `beneficiario`, `codigo_c`) VALUES (NULL, '$espec', '$ultiControl', $inf_Diagnos, '$tipoDocu', '$benefi', '$cod');";
+        $this->con->query($sql);
     }
     
     public function addCredencialD($numCreden, $o_Princ, $o_Secund, $porcen, $grado, $movilidad, $creden_Front, $creden_Back, $benefi) {
-        $sql = "INSERT INTO `c_discapacidad (`ID`, `n_credencial`, `o_principal`, `o_secundario`, `porcentaje`, `grado`, `movilidad_reducida`, `c_parte_delantera`, `c_parte_trasera`, `beneficiario`) VALUES (null,`$numCreden`, `$o_Princ`, `$o_Secund`, `$porcen`, `$grado`, `$movilidad`, `$creden_Front`, `$creden_Back`, `$benefi`)";
+        $sql = "INSERT INTO `c_discapacidad` (`id`, `n_credencial`, `o_principal`, `o_secundario`, `porcentaje`, `grado`, `movilidad_reducida`, `c_parte_delantera`, `c_parte_trasera`, `beneficiario`) VALUES (NULL, '$numCreden', '$o_Princ', '$o_Secund', '$porcen', '$grado', '$movilidad', '$creden_Front', '$creden_Back', '$benefi');";
         $query = $this->con->query($sql);
     }
     
