@@ -18,7 +18,7 @@ if ($correo == null || "") {
 
 switch ($_SESSION['tipo_u']) {
     case 1:
-        $tipo_u = "Admin";
+        $tipo_u = "Administrador";
         break;
 }
 
@@ -44,121 +44,58 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="sidebar">
+        <div class="sidebar ">
             <div class="logo-details">
-                <div class="logo_name">Fundación Ave Fenix</div>
-                <i class='bx bx-menu' id="btn"></i>
+                <div class="logo_name">Fundación Inclusiva</div>
+                <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
-                <!--<li>
-                    <a href="#">
-                        <i class='bx bx-grid-alt'></i>
-                        <span class="links_name">Dashboard</span>
-                    </a>
-                    <span class="tooltip">Dashboard</span>
-                </li>-->
                 <li>
                     <a href="#">
                         <i class='bx bx-user' ></i>
-                        <span class="links_name">Usuarios</span>
+                        <span class="links_name">Ingreso usuarios</span>
                     </a>
-                    <span class="tooltip">Usuarios</span>
+                    <span class="tooltip">Ingreso usuarios</span>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class='bx bx-chat' ></i>
-                        <span class="links_name">Estudiantes</span>
-                    </a>
-                    <span class="tooltip">Estudiantes</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-calendar' ></i>
-                        <span class="links_name">Horario mensual</span>
-                    </a>
-                    <span class="tooltip">Horario mensual</span>
-                </li>
-                <!--<li>
-                    <a href="#">
+                    <a href="EntrevistaFamilia.php">
                         <i class='bx bx-folder' ></i>
-                        <span class="links_name">File Manager</span>
+                        <span class="links_name">Registrar Entrevista</span>
                     </a>
-                    <span class="tooltip">Files</span>
+                    <span class="tooltip">Registrar Entrevista</span>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-cart-alt' ></i>
-                        <span class="links_name">Order</span>
-                    </a>
-                    <span class="tooltip">Order</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-heart' ></i>
-                        <span class="links_name">Saved</span>
-                    </a>
-                    <span class="tooltip">Saved</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-cog' ></i>
-                        <span class="links_name">Setting</span>
-                    </a>
-                    <span class="tooltip">Setting</span>
-                </li>-->
                 <li class="profile">
                     <div class="profile-details">
                       <!--<img src="profile.jpg" alt="profileImg">-->
                         <div class="name_job">
-                            <div class="name"><?php echo $nombre . ' ' . $apellido ?></div>
-                            <div class="job"><?php echo $correo . ' | ' . $tipo_u ?></div>
+                            <div class="name"><?php echo $nombre ?></div>
+                            <div class="name"><?php echo $apellido ?></div>
+                            <div class="name"><?php echo $tipo_u ?></div>
+                            <div class="job"><?php echo $correo ?></div>
+
                         </div>
                         <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
                     </div>
                 </li>
             </ul>
         </div>
-        <section class="home-section" id="section1">
+        <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">Logo</a>
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">JavaScript</a></li>
-                    </ul>
+                <div class="nav-wrapper" style="background-color: #00526a">
+                    <div class="container center">
+                        <a style="font-size: 30px">Ave</a>
+                        <img src="IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px">Fenix</a>
+                    </div>
                 </div>
             </nav>
-            <!--<div class="container-fluid">
-                <div class="row">
-                    <div class="col s12">
-                        <nav>
-                            <div class="nav-wrapper">
-                                <a href="#" class="brand-logo center">Logo</a>
-                                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                                    <li><a href="sass.html">Sass</a></li>
-                                    <li><a href="badges.html">Components</a></li>
-                                    <li><a href="collapsible.html">JavaScript</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>-->
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col s1">
-                        <h1>Hello World!!!</h1>
-                    </div>
-                </div>
-            </div>
         </section>
         <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
             let section = document.querySelector(".home-section");
-                    
+
             closeBtn.addEventListener("click", () => {
                 sidebar.classList.toggle("open");
                 menuBtnChange();//calling the function(optional)

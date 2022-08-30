@@ -46,6 +46,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -210,7 +211,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <form>
                                     <ul class="collapsible">
                                         <li>
-                                            <div class="collapsible-header">Antecedentes relativos al desarrollo y a la salud del/la estudiante</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Antecedentes relativos al desarrollo y a la salud del/la estudiante</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -315,7 +317,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Antecedentes del embarazo</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Antecedentes del embarazo</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -389,7 +392,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Antecedentes del parto</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Antecedentes del parto</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -464,7 +468,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Antecedentes posteriores al parto</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Antecedentes posteriores al parto</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -649,7 +654,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Lactancia</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Lactancia</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -679,7 +685,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Desarrollo Sensoriomotriz</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Desarrollo Sensoriomotriz</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s4">
@@ -1074,7 +1081,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Vision</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Vision</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -1186,7 +1194,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Audición</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Audición</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -1304,7 +1313,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Desarrollo del lenguaje</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Desarrollo del lenguaje</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -1511,7 +1521,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Desarrollo Social</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Desarrollo Social</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -1670,7 +1681,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Salud</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Salud</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -2115,7 +2127,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Antecedentes familiares</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Antecedentes familiares</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s12">
@@ -2147,7 +2160,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Antecedentes escolares</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Antecedentes escolares</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -2254,7 +2268,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header">Actitud de la familia</div>
+                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
+                                            Actitud de la familia</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
