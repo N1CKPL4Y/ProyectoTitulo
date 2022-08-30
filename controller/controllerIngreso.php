@@ -85,14 +85,15 @@ if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
-    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png", "application/pdf", "application/msword");
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_control']['type'], $permitidos) && $_FILES['file_control']['size'] <= $limite_kb * 1024) {
         // Archivo temporal
         $imagen_temporal = $_FILES['file_control']['tmp_name'];
+        //$tipoArchi = $_FILES['file_control']['type'];
         // Tipo de archivo
-        $tipo = $_FILES['file_control']['type'];
+        $tipoArchi = $_FILES['file_control']['type'];
         // Leemos el contenido del archivo temporal en binario.
         $fp = fopen($imagen_temporal, 'r+b');
         $data_control = fread($fp, filesize($imagen_temporal));
@@ -277,18 +278,63 @@ $otraPen = isset($_POST['txt_otroP']) ? $_POST['txt_otroP'] : null;
 $chSolid = isset($_POST['csolidario']) ? $_POST['csolidario'] : null;
 $hogar = isset($_POST['hogares']) ? $_POST['hogares'] : null;
 $porcentHogar = isset($_POST['txt_porcentHogar']) ? $_POST['txt_porcentHogar'] : null;
-$hogarFile = isset($_POST['file_Hogar']) ? $_POST['file_Hogar'] : null;
+$hogarFile;
+
+if (!isset($_FILES["file_Hogar"]) || $_FILES["file_confile_Hogartrol"]["error"] > 0) {
+    echo "Ha ocurrido un error.";
+} else {
+    // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+    // y que el tamaño del archivo no exceda los 16MB
+    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png", "application/pdf", "application/msword");
+    $limite_kb = 16384;
+
+    if (in_array($_FILES['file_Hogar']['type'], $permitidos) && $_FILES['file_Hogar']['size'] <= $limite_kb * 1024) {
+        // Archivo temporal
+        $imagen_temporal = $_FILES['file_Hogar']['tmp_name'];
+        //$tipoArchi = $_FILES['file_control']['type'];
+        // Tipo de archivo
+        $tipoDocu = $_FILES['file_Hogar']['type'];
+        // Leemos el contenido del archivo temporal en binario.
+        $fp = fopen($imagen_temporal, 'r+b');
+        $hogarFile = fread($fp, filesize($imagen_temporal));
+        fclose($fp);
+        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+        // $data=file_get_contents($imagen_temporal);
+        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+        /* @var $data type */
+        
+        $hogarFile = mysqli_escape_string($conect, $hogarFile);
+        // Insertamos en la base de datos.
+        //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
+        
+        //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
+        /*if ($resultado) {
+            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+        } else {
+            echo "Ocurrió algun error al copiar el archivo.";
+        }*/
+    } else {
+        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+    }
+}
 
 /////////////////////////////////Insercion de datos///////////////////////////
-
-$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $penBase, $subMental, $penSobre, $asgDuplo, $chSolid, $hogar);
-$data->addDiagnos($especialista, $fecha_control, "0", "application/pdf", $rut, 3);
+$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar);
+$data->addPension($pension, $penBase, $subMental, $penSobre, $asgDuplo, $rut);
+$data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, 3);
 $data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
 $data->addTeleton($numeroTeleton, $rut);
 $data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
 $data->addParentezo($parentezco, $rut, $rutTutor);
-$data->addRegisSocial("0", "application/pdf", $rut);
+$data->addRegisSocial($hogarFile, $tipoDocu, $rut);
 
+echo '<br>'.$rut." ".$nombre." ".$apellido." ".$fecha." ".$genero." ".$direccion." ".$comuna." ".$teleton." ".$pension." ".$chSolid." ".$hogar."<br>";
+echo '<br>'.$pension." ".$penBase." ".$subMental." ".$penSobre." ".$asgDuplo;
+echo '<br>'.$rutTutor." ".$nombreTutor." ".$fecha_tutor." ".$direTutor." ".$comuTutor." ".$nivelE." ".$ocupacion." ".$telefono." ".$correoTutor." ".$prevision." ";
+echo '<br>'.$parentezco." ".$rut." ".$rutTutor;
+echo '<br>'.$numeroTeleton." ".$rut;
+echo '<br>'.$numeroCreden." ".$origenP." ".$origenS." ".$porcent." ".$grado." ".$movilidad." ".$rut;
+echo '<br>'.$especialista." ".$fecha_control." ".$rut." ".$condicion." ".$tipoArchi;
 echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
 
 ?>
