@@ -20,10 +20,7 @@
 .sidebar.open{
     width: 270px;
 }
-.move{
-    margin-left: 20px;
-    
-}
+
 .sidebar .logo-details{
     height: 60px;
     display: flex;

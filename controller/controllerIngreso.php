@@ -121,7 +121,7 @@ if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
 $nombreTutor = isset($_POST['txt_ntutor']) ? $_POST['txt_ntutor'] : null;
 $parentezco = isset($_POST['cbo_parent']) ? $_POST['cbo_parent'] : null;
 $rutTutor = isset($_POST['txt_rtutor']) ? $_POST['txt_rtutor'] : null;
-$carnetTutor = isset($_POST['file_tutor']) ? $_POST['file_tutor'] : null;
+$carnetTutor;
 $fecha_tutor = isset($_POST['txt_nacTutor']) ? $_POST['txt_nacTutor'] : null;
 $nivelE = isset($_POST['cbo_nivel']) ? $_POST['cbo_nivel'] : null;
 $ocupacion = isset($_POST['txt_ocupacion']) ? $_POST['txt_ocupacion'] : null;
@@ -134,9 +134,46 @@ $comuTutor;
 if ($equalDir == 1) {
     $direTutor = $direccion;
     $comuTutor = $comuna;
-} elseif ($equalDir == 2) {
+} elseif ($equalDir == 0) {
     $direTutor = isset($_POST['txt_direTutor']) ? $_POST['txt_direTutor'] : null;
     $comuTutor = isset($_POST['txt_comuTutor']) ? $_POST['txt_comuTutor'] : null;
+}
+
+if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
+    echo "Ha ocurrido un error.";
+} else {
+    // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+    // y que el tamaño del archivo no exceda los 16MB
+    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+    $limite_kb = 16384;
+
+    if (in_array($_FILES['file_tutor']['type'], $permitidos) && $_FILES['file_tutor']['size'] <= $limite_kb * 1024) {
+        // Archivo temporal
+        $imagen_temporal = $_FILES['file_control']['tmp_name'];
+        // Tipo de archivo
+        $tipo = $_FILES['file_tutor']['type'];
+        // Leemos el contenido del archivo temporal en binario.
+        $fp = fopen($imagen_temporal, 'r+b');
+        $carnetTutor = fread($fp, filesize($imagen_temporal));
+        fclose($fp);
+        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+        // $data=file_get_contents($imagen_temporal);
+        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+        /* @var $data type */
+        
+        $carnetTutor = mysqli_escape_string($conect, $carnetTutor);
+        // Insertamos en la base de datos.
+        //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
+        
+        //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
+        /*if ($resultado) {
+            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+        } else {
+            echo "Ocurrió algun error al copiar el archivo.";
+        }*/
+    } else {
+        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+    }
 }
 
 $prevision = isset($_POST['cbo_prevision']) ? $_POST['cbo_prevision'] : null;
@@ -150,8 +187,83 @@ $origenS = isset($_POST['cbo_origenS']) ? $_POST['cbo_origenS'] : null;
 $porcent = isset($_POST['txt_porcentaje_d']) ? $_POST['txt_porcentaje_d'] : null;
 $grado = isset($_POST['cbo_grado']) ? $_POST['cbo_grado'] : null;
 $movilidad = isset($_POST['cbo_movilidad']) ? $_POST['cbo_movilidad'] : null;
-$credenFileFront = isset($_POST['file_credenFront']) ? $_POST['file_credenFront'] : null;
-$credenFileBack = isset($_POST['file_credenBack']) ? $_POST['file_credenBack'] : null;
+$credenFileFront;
+$credenFileBack;
+
+
+if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] > 0) {
+    echo "Ha ocurrido un error.";
+} else {
+    // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+    // y que el tamaño del archivo no exceda los 16MB
+    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+    $limite_kb = 16384;
+
+    if (in_array($_FILES['file_credenFront']['type'], $permitidos) && $_FILES['file_credenFront']['size'] <= $limite_kb * 1024) {
+        // Archivo temporal
+        $imagen_temporal = $_FILES['file_credenFront']['tmp_name'];
+        // Tipo de archivo
+        $tipo = $_FILES['file_credenFront']['type'];
+        // Leemos el contenido del archivo temporal en binario.
+        $fp = fopen($imagen_temporal, 'r+b');
+        $credenFileFront = fread($fp, filesize($imagen_temporal));
+        fclose($fp);
+        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+        // $data=file_get_contents($imagen_temporal);
+        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+        /* @var $data type */
+        
+        $credenFileFront = mysqli_escape_string($conect, $credenFileFront);
+        // Insertamos en la base de datos.
+        //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
+        
+        //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
+        /*if ($resultado) {
+            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+        } else {
+            echo "Ocurrió algun error al copiar el archivo.";
+        }*/
+    } else {
+        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+    }
+}
+
+if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 0) {
+    echo "Ha ocurrido un error.";
+} else {
+    // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+    // y que el tamaño del archivo no exceda los 16MB
+    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+    $limite_kb = 16384;
+
+    if (in_array($_FILES['file_credenBack']['type'], $permitidos) && $_FILES['file_credenBack']['size'] <= $limite_kb * 1024) {
+        // Archivo temporal
+        $imagen_temporal = $_FILES['file_credenBack']['tmp_name'];
+        // Tipo de archivo
+        $tipo = $_FILES['file_credenBack']['type'];
+        // Leemos el contenido del archivo temporal en binario.
+        $fp = fopen($imagen_temporal, 'r+b');
+        $credenFileBack = fread($fp, filesize($imagen_temporal));
+        fclose($fp);
+        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+        // $data=file_get_contents($imagen_temporal);
+        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+        /* @var $data type */
+        
+        $credenFileBack = mysqli_escape_string($conect, $credenFileBack);
+        // Insertamos en la base de datos.
+        //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
+        
+        //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
+        /*if ($resultado) {
+            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+        } else {
+            echo "Ocurrió algun error al copiar el archivo.";
+        }*/
+    } else {
+        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+    }
+}
 
 /////////////////////////Pensiones
 $pension = isset($_POST['pension']) ? $_POST['pension'] : null;
@@ -171,23 +283,11 @@ $hogarFile = isset($_POST['file_Hogar']) ? $_POST['file_Hogar'] : null;
 
 $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $penBase, $subMental, $penSobre, $asgDuplo, $chSolid, $hogar);
 $data->addDiagnos($especialista, $fecha_control, "0", "application/pdf", $rut, 3);
-$data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, "0", $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
-$data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, "0", "0", $rut);
+$data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
+$data->addTeleton($numeroTeleton, $rut);
+$data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
 $data->addParentezo($parentezco, $rut, $rutTutor);
-
-echo $nombre . " " . $apellido . " " . $rut . " " . $fecha . " " . $genero . " " . $motivo . " " . $derivacion . " " . $tipo_atencion . " " . $direccion . " " . $comuna . " ";
-
-echo '<br>'.$especialista." ".$fecha_control." ".$rut." ".$condicion;
-
-
-echo '<br>' . $condicion . " " . $especialista . " " . $fecha_control . " " . "<br>";
-echo $nombreTutor . " " . $parentezco . " " . $rutTutor . " " . $carnetTutor . " " . $fecha_tutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $direTutor . " " . $comuTutor . " " . $prevision . " " . $numeroTeleton;
-echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $credenFileFront . " " . $credenFileBack . "<br>";
-echo $pension . " " . $penBase . " " . $subMental . " " . $penSobre . " " . $asgDuplo . " " . $otraPen . "<br>";
-echo $chSolid . " " . $hogar . " " . $porcentHogar . " " . $hogarFile;
-
-echo '<br>'.$parentezco." ".$rut." ".$rutTutor;
-
+$data->addRegisSocial("0", "application/pdf", $rut);
 
 echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
 

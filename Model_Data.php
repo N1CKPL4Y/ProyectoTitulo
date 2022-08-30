@@ -61,12 +61,12 @@ class Data {
     }
     
     public function addRegisSocial($copia, $tipoDocu, $beneficiario) {
-        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `tipoDocumento`, `beneficiario`) VALUES (null, `$copia`, `$tipoDocu`, `$beneficiario`);";
+        $sql = "INSERT INTO `registro_socialh` (`id`, `copia_cartola`, `tipoDocumento`, `beneficiario`) VALUES (NULL, $copia, '$tipoDocu', '$beneficiario');";
         $this->con->query($sql);
     }
     
     public function addTeleton($registro, $beneficiario) {
-        $sql = "INSERT INTO `registro_teleton` (`ID`, `registro`, `beneficiario`) VALUES (null, `$registro`, `$beneficiario`);";
+        $sql = "INSERT INTO `registro_teleton` (`id`, `registro`, `beneficiario`) VALUES (NULL, '$registro', '$beneficiario');";
         $this->con->query($sql);
     }
     
