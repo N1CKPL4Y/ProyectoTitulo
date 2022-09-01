@@ -12,6 +12,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href="Materialize/css/styleLogin.css" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
     </head>
     <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
         <header class="header">
@@ -23,9 +26,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <div class="forms">
                 <div class="form login">
                     <span class="titulo">Iniciar sesión</span>
-                    <form name="login" action="controller/controllerlogin.php" method="post">
+                    <form name="login" action="controller/controllerlogin.php" method="post" name="datosUser">
                         <div class="input-field">
-                            <input type="text" name="txt_rut" placeholder="Rut" id="email" required>
+                            <input id="rut" type="text" name="txt_rut" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" placeholder="Rut"  required >
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <span id="emailVal"></span>
@@ -34,12 +37,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <i class="uil uil-lock icon"></i>
                             <i class="uil uil-eye-slash mostrarPass"></i>
                         </div>
-                        <!--<div class="checkbox-text">
-                            <div class="checkbox-content">
-                                <input type="checkbox" id="remember">
-                                <label for="rememberme" class="text">Recordarme</label>
-                            </div>
-                        </div>-->
                         <div class="input-field button">
                             <input type="submit" value="Iniciar sesión" required>
                         </div>
@@ -80,6 +77,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             })
                         }
                     })
+                })
+            })
+
+
+        </script>
+        <script>
+            $(function () {
+                $("input#rut").rut({
+                    formatOn: 'keyup',
+                    minimumLength: 8, // validar largo mínimo; default: 2
+                    validateOn: 'change' // si no se quiere validar, pasar null
+                });
+
+                var input = document.getElementById('rut');
+                input.addEventListener('input', function () {
+                    if (this.value.length >= 13)
+                        this.value = this.value.slice(0, 12);
                 })
             })
         </script>

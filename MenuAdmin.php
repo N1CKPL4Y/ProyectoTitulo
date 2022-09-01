@@ -91,6 +91,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
             </nav>
+            <div>
+                <a target="_blank" href="Prueba.php">Pruebame</a>
+            </div>
         </section>
         <script>
             let sidebar = document.querySelector(".sidebar");
