@@ -1,4 +1,4 @@
-<?php
+    <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once 'Model_Data.php';
@@ -911,7 +911,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input id="mf4" type="checkbox"/>
+                                                                <input id="mf4" type="checkbox" />
                                                                 <span>Dibujar</span>
                                                             </label>
                                                         </p>

@@ -74,6 +74,7 @@ if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
 }
 
 //////////////Diagnostico
+$havediag= isset($_POST['diagnostico']) ? $_POST['diagnostico'] : null;
 $condicion = isset($_POST['cbo_condicion']) ? $_POST['cbo_condicion'] : null;
 $especialista = isset($_POST['cbo_especialista']) ? $_POST['cbo_especialista'] : null;
 $fecha_control = isset($_POST['txt_control']) ? $_POST['txt_control'] : null;
@@ -182,6 +183,7 @@ $teleton = isset($_POST['rd_teleton']) ? $_POST['rd_teleton'] : null;
 $numeroTeleton = isset($_POST['txt_Nteleton']) ? $_POST['txt_Nteleton'] : null;
 
 ////////////////////////////Credencial
+$haveCreden= isset($_POST['discapacidad']) ? $_POST['discapacidad'] : null;
 $numeroCreden = isset($_POST['txt_credencial']) ? $_POST['txt_credencial'] : null;
 $origenP = isset($_POST['cbo_origenP']) ? $_POST['cbo_origenP'] : null;
 $origenS = isset($_POST['cbo_origenS']) ? $_POST['cbo_origenS'] : null;
@@ -320,11 +322,31 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_confile_Hogartrol"]["error"] 
 
 /////////////////////////////////Insercion de datos///////////////////////////
 $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar);
-$data->addPension($pension, $penBase, $subMental, $penSobre, $asgDuplo, $rut);
-$data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, 3);
+if ($pension==1) {
+    $data->addPension($pension, $penBase, $subMental, $penSobre, $asgDuplo, $rut);
+}else{
+    
+}
+
+if ($havediag==1) {
+    $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion);
+} else {
+    
+}
+
 $data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
-$data->addTeleton($numeroTeleton, $rut);
-$data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
+if ($teleton==1) {
+    $data->addTeleton($numeroTeleton, $rut);
+} else {
+    
+}
+
+if ($haveCreden==1) {
+    $data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
+}else{
+    
+}
+
 $data->addParentezo($parentezco, $rut, $rutTutor);
 $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
 

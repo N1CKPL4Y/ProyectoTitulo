@@ -202,7 +202,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s5">¿Cual es el diagnostico que presenta el beneficiario?</h6>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col s6">
+                                                        <div class="col s5">
                                                             <p class="col s4" style="background-color: white; border-radius: 10px">
                                                                 <label>
                                                                     <input class="with-gap" value="1" name="diagnostico" type="radio"/>
@@ -217,12 +217,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </p>
                                                         </div>
                                                         <div class="col s6">
-                                                            <div class="input-field col s4" style="background-color: white; border-radius: 10px">
+                                                            <div class="input-field col s12" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_condicion">
                                                                     <option value="" disabled selected>Seleccione</option>
-                                                                    <option value="1">TEA</option>
-                                                                    <option value="2">TDA</option>
-                                                                    <option value="3">TDAH</option>
+                                                                    <?php
+                                                                    $condiciones = $data->getAllCondition();
+
+                                                                    foreach ($condiciones as $key) {
+                                                                        echo '<option value="' . $key['ID'] . '">' . $key['nombre'] . '</option>';
+                                                                    }
+                                                                    ?>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -354,7 +358,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                     </div>
                                                     <div class="row dirTutor">
-                                                        
+
                                                     </div>
                                                     <div class="row">
                                                         <h6 class="col s5">Indique el sistema de salud</h6>
@@ -378,22 +382,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="rd_teleton" type="radio"/>
+                                                                <input class="with-gap teleton" value="1" name="rd_teleton" type="radio"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="rd_teleton" type="radio"/>
+                                                                <input class="with-gap teleton" value="0" name="rd_teleton" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="teleton" type="text" name="txt_Nteleton" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="teleton">Numero de registro Teleton</label>
-                                                        </div>
+                                                    <div class="row tele">
+
                                                     </div>
                                                 </div>
                                             </li>
@@ -407,13 +408,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="discapacidad" type="radio"/>
+                                                                <input class="with-gap discapacidad" value="1" name="discapacidad" type="radio"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input class="with-gap" value="0" name="discapacidad" type="radio"/>
+                                                                <input class="with-gap discapacidad" value="0" name="discapacidad" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -421,14 +422,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s4">
-                                                            <input id="discapacidad" type="text" name="txt_credencial" class="validate" style="background-color: white; border-radius: 10px">
+                                                            <input id="discapacidad" type="text" name="txt_credencial" class="validate numCred" style="background-color: white; border-radius: 10px">
                                                             <label class="active" for="discapacidad">Numero de credencial de discapacidad</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s8" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_origenP">
+                                                                <select name="cbo_origenP" class="validate numCred">
                                                                     <option value="" disabled selected>Origen principal de discapacidad</option>
                                                                     <option value="1">Fisico</option>
                                                                     <option value="2">Sensorial Visual</option>
@@ -440,7 +441,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s8" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_origenS">
+                                                                <select name="cbo_origenS" class="validate numCred">
                                                                     <option value="" disabled selected>Origen Secundario de discapacidad</option>
                                                                     <option value="1">Fisico</option>
                                                                     <option value="2">Sensorial Visual</option>
@@ -454,13 +455,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s6">
-                                                                <input id="porcentaje_d" type="text" name="txt_porcentaje_d" class="validate" style="background-color: white; border-radius: 10px">
+                                                                <input id="porcentaje_d" type="text" name="txt_porcentaje_d" class="validate numCred" style="background-color: white; border-radius: 10px">
                                                                 <label class="active" for="porcentaje_d">Porcentaje de discapacidad</label>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="input-field col s8" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_grado">
+                                                                <select name="cbo_grado" class="validate numCred">
                                                                     <option value="" disabled selected>Grado de discapacidad</option>
                                                                     <option value="1">Leve</option>
                                                                     <option value="2">Moderado</option>
@@ -473,8 +474,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s4">
                                                             <div class="input-field col s8" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_movilidad">
-                                                                    <option value="" disabled selected>Movilidad Reducida</option>
+                                                                <select name="cbo_movilidad" class="validate numCred">
+                                                                    <option value="0" disabled >Movilidad Reducida</option>
                                                                     <option value="1">Leve</option>
                                                                     <option value="2">Moderado</option>
                                                                     <option value="3">Severo</option>
@@ -489,10 +490,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
-                                                                    <input type="file" name="file_credenFront">
+                                                                    <input type="file" name="file_credenFront" class="numCred">
                                                                 </div>
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                    <input class="file-path validate" type="text">
+                                                                    <input class="file-path validate numCred" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -501,10 +502,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
-                                                                    <input type="file" name="file_credenBack">
+                                                                    <input type="file" name="file_credenBack" class="numCred">
                                                                 </div>
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                    <input class="file-path validate" type="text">
+                                                                    <input class="file-path validate numCred" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -745,7 +746,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             $(document).ready(function () {
 
                 $('.datepicker').datepicker({
-
                     format: 'yyyy-mm-dd'
                 });
             });
@@ -895,26 +895,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     pensiones();
                 });
 
-                $('.discap').change(function () {
+                $('.discapacidad').change(function () {
                     credencial();
+                });
+
+                $('.teleton').change(function () {
+                    teleton();
                 });
             });
 
-            const n_cred = document.querySelector('.n_creden');
-            const disca = document.querySelector('.disca');
+            const n_cred = document.querySelectorAll('.numCred');
 
             function credencial() {
                 var creden = $("input[type=radio][name=discapacidad]").filter(":checked")[0];
 
                 if (creden.value == 1) {
-                    n_cred.innerHTML = '<div class="input-field col s4"><input id="discapacidad" type="text" name="txt_credencial" class="validate"><label class="active" for="discapacidad">Numero de credencial de discapacidad</label></div>';
-                    disca.innerHTML = '<div class="col s6"><div class="input-field col s8"><select name="cbo_origenP"><option value="" disabled selected>Origen principal de discapacidad</option><option value="1">Fisico</option><option value="2">Sensorial Visual</option><option value="3">Sensorial Auditivo</option><option value="4">Mental Psiquico</option><option value="5">Mental Intelectual</option></select></div></div><div class="col s6"><div class="input-field col s8"><select name="cbo_origenS"><option value="" disabled selected>Origen Secundario de discapacidad</option><option value="1">Fisico</option><option value="2">Sensorial Visual</option><option value="3">Sensorial Auditivo</option><option value="4">Mental Psiquico</option><option value="5">Mental Intelectual</option></select></div></div>';
+                    var z=0;
+                    n_cred.forEach(function (document){
+                        n_cred[z].disabled=false;
+                        z++;
+                    });
                 } else {
-                    n_cred.innerHTML = "";
-                    disca.innerHTML = "";
+                    var s=0;
+                    n_cred.forEach(function (document){
+                        n_cred[s].disabled=true;
+                        s++;
+                    });
                 }
             }
             ;
+
+            const inpTele = document.querySelector('.tele');
+            function teleton() {
+                var radioTeleton = $("input[type=radio][name=rd_teleton]").filter(":checked")[0];
+
+                if (radioTeleton.value == 1) {
+                    inpTele.innerHTML = '<div class="input-field col s6"><input id="teleton" type="text" name="txt_Nteleton" class="validate" style="background-color: white; border-radius: 10px"><label class="active" for="teleton">Numero de registro Teleton</label></div>';
+                } else {
+                    inpTele.innerHTML = "";
+                }
+            }
+
+
             var noP = document.getElementById('noP');
             var noP1 = document.getElementById('noP1');
             var noP2 = document.getElementById('noP2');
@@ -930,9 +952,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('comuT').disabled = true
             }
             function noViveCon() {
-                dirTutor.innerHTML = "<div class='col s6'><div class='input-field col s10'><input id='direccionT' type='text' name='txt_direTutor' class='validate'><label class='active' for='direccionT'>Indique la direccion del tutor</label></div></div><div class='col s6'><div class='input-field col s6'><input id='comuT' type='text' name='txt_comuTutor' class='validate'><label class='active' for='comuT'>Comuna</label></div> </div>";
-                document.getElementById('direccionT').disabled = false
-                document.getElementById('comuT').disabled = false
+                dirTutor.innerHTML = "<div class='col s6'><div class='input-field col s10'><input id='direccionT' style='background-color: white; border-radius: 10px' type='text' name='txt_direTutor' class='validate'><label class='active' for='direccionT'>Indique la direccion del tutor</label></div></div><div class='col s6'><div class='input-field col s6'><input id='comuT' style='background-color: white; border-radius: 10px' type='text' name='txt_comuTutor' class='validate'><label class='active' for='comuT'>Comuna</label></div> </div>";
             }
             //Scripts en input "tiene registro social de hogares?"
             function tieneR() {
