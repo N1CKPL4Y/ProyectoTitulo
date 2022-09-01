@@ -529,13 +529,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="siP" class="with-gap" value="1" name="pension" type="radio" onclick="tieneP()"/>
+                                                                <input id="siP" class="with-gap pension" value="1" name="pension" type="radio" onclick="tieneP()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="noP" class="with-gap" value="0" name="pension" type="radio" onclick="noTieneP()"/>
+                                                                <input id="noP" class="with-gap pension" value="0" name="pension" type="radio" onclick="noTieneP()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -546,19 +546,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="siP1"class="with-gap" value="1" name="pension1" type="radio" onclick="sip1()"/>
+                                                                <input id="siP1"class="with-gap pension1" value="1" name="pension1" type="radio" disabled onclick="sip1()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="noP1" class="with-gap" value="0" name="pension1" type="radio"/>
+                                                                <input id="noP1" class="with-gap pension1" value="0" name="pension1" type="radio" disabled/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="Tp1" class="with-gap" value="2" name="pension1" type="radio"/>
+                                                                <input id="Tp1" class="with-gap pension1" value="2" name="pension1" type="radio" disabled/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -569,19 +569,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="siP2" class="with-gap" value="1" name="pension2" type="radio" onclick="sip2()"/>
+                                                                <input id="siP2" class="with-gap pension2" value="1" name="pension2" type="radio" disabled onclick="sip2()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="noP2" class="with-gap" value="0" name="pension2" type="radio"/>
+                                                                <input id="noP2" class="with-gap pension2" value="0" name="pension2" type="radio" disabled/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="Tp2" class="with-gap" value="2" name="pension2" type="radio"/>
+                                                                <input id="Tp2" class="with-gap pension2" value="2" name="pension2" type="radio" disabled/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -592,19 +592,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="siP3" class="with-gap" value="1" name="pension3" type="radio" onclick="sip3()"/>
+                                                                <input id="siP3" class="with-gap pension3" value="1" name="pension3" type="radio" disabled onclick="sip3()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="noP3" class="with-gap" value="0" name="pension3" type="radio"/>
+                                                                <input id="noP3" class="with-gap pension3" value="0" name="pension3" type="radio" disabled/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="Tp3" class="with-gap" value="2" name="pension3" type="radio"/>
+                                                                <input id="Tp3" class="with-gap pension3" value="2" name="pension3" type="radio" disabled/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
@@ -615,26 +615,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="siP4" class="with-gap" value="1" name="pension4" type="radio" onclick="sip4()"/>
+                                                                <input id="siP4" class="with-gap pension4" value="1" name="pension4" type="radio" disabled onclick="sip4()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="noP4" class="with-gap" value="0" name="pension4" type="radio"/>
+                                                                <input id="noP4" class="with-gap pension4" value="0" name="pension4" type="radio" disabled/> 
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input id="Tp4" class="with-gap" value="2" name="pension4" type="radio"/>
+                                                                <input id="Tp4" class="with-gap pension4" value="2" name="pension4" type="radio" disabled/>
                                                                 <span>En tramite</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="otroP" type="text" name="txt_otroP" class="validate" style="background-color: white; border-radius: 10px">
+                                                            <input id="otroP" type="text" name="txt_otroP" class="validate otroP" disabled style="background-color: white; border-radius: 10px">
                                                             <label class="active" for="otroP">Otro tipo de pension</label>
                                                         </div>
                                                     </div>
@@ -778,18 +778,126 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             })
         </script>
         <script>
+            function pensiones() {
+
+                var radio = $("input[type=radio][name=pension]").filter(":checked")[0];
+                var radio1 = $("input[type=radio][name=pension1]").filter(":checked")[0];
+                var radio2 = $("input[type=radio][name=pension2]").filter(":checked")[0];
+                var radio3 = $("input[type=radio][name=pension3]").filter(":checked")[0];
+                var radio4 = $("input[type=radio][name=pension4]").filter(":checked")[0];
+
+                //const button = document.querySelectorAll('.pension');
+                const button1 = document.querySelectorAll('.pension1');
+                const button2 = document.querySelectorAll('.pension2');
+                const button3 = document.querySelectorAll('.pension3');
+                const button4 = document.querySelectorAll('.pension4');
+                const button5 = document.querySelector('.otroP');
+
+                console.log(button5);
+
+                if (radio.value == 1) {
+                    var a = 0, b = 0, c = 0, d = 0, e = 0;
+                    button1.forEach(function (document) {
+                        button1[a].disabled = false;
+                        a++;
+                    });
+                    button2.forEach(function (document) {
+                        button2[b].disabled = false;
+                        b++;
+                    });
+                    button3.forEach(function (document) {
+                        button3[c].disabled = false;
+                        c++;
+                    });
+                    button4.forEach(function (document) {
+                        button4[d].disabled = false;
+                        d++;
+                    });
+
+                    if (radio1.value == 0 && radio2.value == 0 && radio3.value == 0 && radio4.value == 0) {
+                        button5.disabled = false;
+                    } else {
+                        button5.disabled = true;
+                    }
+                } else {
+                    var a = 0, b = 0, c = 0, d = 0, e = 0;
+                    button1.forEach(function (document) {
+                        button1[a].disabled = true;
+                        button1[1].checked = true;
+                        a++;
+                    });
+                    button2.forEach(function (document) {
+                        button2[b].disabled = true;
+                        button2[1].checked = true;
+                        b++;
+                    });
+                    button3.forEach(function (document) {
+                        button3[c].disabled = true;
+                        button3[1].checked = true;
+                        c++;
+                    });
+                    button4.forEach(function (document) {
+                        button4[d].disabled = true;
+                        button4[1].checked = true;
+                        d++;
+                    });
+                    button5.disabled = true;
+                }
+            }
+
+            $(document).ready(function () {
+                $('.pension').change(function () {
+                    pensiones();
+                });
+                $('.pension1').change(function () {
+                    pensiones();
+                });
+                $('.pension2').change(function () {
+                    pensiones();
+                });
+                $('.pension3').change(function () {
+                    pensiones();
+                });
+                $('.pension4').change(function () {
+                    pensiones();
+                });
+
+                $('.discap').change(function () {
+                    credencial();
+                });
+            });
+
+            const n_cred = document.querySelector('.n_creden');
+            const disca = document.querySelector('.disca');
+
+            function credencial() {
+                var creden = $("input[type=radio][name=discapacidad]").filter(":checked")[0];
+
+                if (creden.value == 1) {
+                    n_cred.innerHTML = '<div class="input-field col s4"><input id="discapacidad" type="text" name="txt_credencial" class="validate"><label class="active" for="discapacidad">Numero de credencial de discapacidad</label></div>';
+                    disca.innerHTML = '<div class="col s6"><div class="input-field col s8"><select name="cbo_origenP"><option value="" disabled selected>Origen principal de discapacidad</option><option value="1">Fisico</option><option value="2">Sensorial Visual</option><option value="3">Sensorial Auditivo</option><option value="4">Mental Psiquico</option><option value="5">Mental Intelectual</option></select></div></div><div class="col s6"><div class="input-field col s8"><select name="cbo_origenS"><option value="" disabled selected>Origen Secundario de discapacidad</option><option value="1">Fisico</option><option value="2">Sensorial Visual</option><option value="3">Sensorial Auditivo</option><option value="4">Mental Psiquico</option><option value="5">Mental Intelectual</option></select></div></div>';
+                } else {
+                    n_cred.innerHTML = "";
+                    disca.innerHTML = "";
+                }
+            }
+            ;
             var noP = document.getElementById('noP');
             var noP1 = document.getElementById('noP1');
             var noP2 = document.getElementById('noP2');
             var noP3 = document.getElementById('noP3');
             var noP4 = document.getElementById('noP4');
             var siP = document.getElementById('siP');
+
+            const dirTutor = document.querySelector('.dirTutor');
             //Scripts en input "vive con el beneficiario?"
             function viveCon() {
+                dirTutor.innerHTML = "";
                 document.getElementById('direccionT').disabled = true
                 document.getElementById('comuT').disabled = true
             }
             function noViveCon() {
+                dirTutor.innerHTML = "<div class='col s6'><div class='input-field col s10'><input id='direccionT' type='text' name='txt_direTutor' class='validate'><label class='active' for='direccionT'>Indique la direccion del tutor</label></div></div><div class='col s6'><div class='input-field col s6'><input id='comuT' type='text' name='txt_comuTutor' class='validate'><label class='active' for='comuT'>Comuna</label></div> </div>";
                 document.getElementById('direccionT').disabled = false
                 document.getElementById('comuT').disabled = false
             }
@@ -803,34 +911,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('cR').disabled = true
             }
             //Scripts en input "es beneficiario de alguna pension?"
-            function noTieneP() {
-                if (noP.checked) {
-                    document.getElementById('noP1').checked = true;
-                    document.getElementById('noP2').checked = true;
-                    document.getElementById('noP3').checked = true;
-                    document.getElementById('noP4').checked = true;
-                    document.getElementById('otroP').disabled = true;
-                }
-            }
-            function tieneP() {
-                if (siP.checked) {
-                    document.getElementById('noP1').checked = false;
-                    document.getElementById('noP2').checked = false;
-                    document.getElementById('noP3').checked = false;
-                    document.getElementById('noP4').checked = false;
-                    document.getElementById('siP1').checked = false;
-                    document.getElementById('siP2').checked = false;
-                    document.getElementById('siP3').checked = false;
-                    document.getElementById('siP4').checked = false;
-                    document.getElementById('otroP').disabled = false;
-                }
-            }
+
             function sip1() {
                 if (siP1.checked) {
                     document.getElementById('noP2').checked = true;
                     document.getElementById('noP3').checked = true;
                     document.getElementById('noP4').checked = true;
-                    document.getElementById('otroP').disabled = true;
+
                 }
             }
             function sip2() {
@@ -838,7 +925,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     document.getElementById('noP1').checked = true;
                     document.getElementById('noP3').checked = true;
                     document.getElementById('noP4').checked = true;
-                    document.getElementById('otroP').disabled = true;
+
                 }
             }
             function sip3() {
@@ -846,17 +933,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     document.getElementById('noP1').checked = true;
                     document.getElementById('noP2').checked = true;
                     document.getElementById('noP4').checked = true;
-                    document.getElementById('otroP').disabled = true;
+
                 }
             }
             function sip4() {
-                if (siP3.checked) {
+                if (siP4.checked) {
                     document.getElementById('noP1').checked = true;
                     document.getElementById('noP2').checked = true;
                     document.getElementById('noP3').checked = true;
-                    document.getElementById('otroP').disabled = true;
+
                 }
             }
+
+
         </script>
     </body>
 </html>
