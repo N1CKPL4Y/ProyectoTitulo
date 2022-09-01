@@ -168,6 +168,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <label class="active" for="cDis">¿Cuenta con Credencial de discapacidad?</label>
                                         </div>
                                     </div>
+                                    <div class="col s6">
+                                        <div class="input-field col s10">
+                                            <input id="diag" type="text" name="txt_diag" class="validate" readonly="true">
+                                            <label class="active" for="diag">Diagnostico del beneficiario</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <div class="input-field col s10">
+                                            <input id="deriva" type="text" name="txt_deriva" class="validate" readonly="true">
+                                            <label class="active" for="deriva">Profesional que lo deriva</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col s6">
@@ -212,133 +226,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <ul class="collapsible">
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Antecedentes relativos al desarrollo y a la salud del/la estudiante</div>
-                                            <div class="collapsible-body">
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <h6 class="col s12">¿El o la estudiante tiene algun diagnostico previo?</h6>
-                                                        <p class="col s2">
-                                                            <label>
-                                                                <input class="with-gap" value="1" name="hogares" type="radio"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s2">
-                                                            <label>
-                                                                <input class="with-gap" value="2" name="hogares" type="radio"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12">
-                                                            <input id="diagnostico" type="text" name="txt_diagnostico" class="validate">
-                                                            <label class="active" for="diagnostico">Indique el diagnostico del o la estudiante:</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <h6 class="col s12">¿Que especialistas lo han evaluado?</h6>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Pediatra</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Kinesiologa</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Genético</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Fonoaudiología</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Neurologia</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Psicología</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Psiquiatría</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Psicopedagogía</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Terapia Ocupacional</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Ninguno de los anteriores</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Otro: </span>
-                                                            </label>
-                                                        </p>
-                                                        <div class="row">
-                                                            <div class="input-field col s12">
-                                                                <input id="otroE" type="text" name="txt_otroE" class="validate">
-                                                                <label class="active" for="otroE">Indique el tipo de especialista</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Antecedentes del embarazo</div>
+                                                Antecedentes del embarazo</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <h6 class="col s12">¿El embarazo fue controlado?</h6>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="embarazo1" type="radio"/>
+                                                                <input id="siE" class="with-gap" value="1" name="embarazo1" type="radio" onclick="controlado()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="embarazo1" type="radio"/>
+                                                                <input id="noE" class="with-gap" value="2" name="embarazo1" type="radio" onclick="noControlado()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="embarazo" type="text" name="txt_embarazo" class="validate">
+                                                            <input id="embarazo" type="text" name="txt_embarazo" class="validate" disabled="true">
                                                             <label class="active" for="embarazo">¿Quien realizó los controles? ¿Cada cuanto?</label>
                                                         </div>
                                                     </div>
@@ -348,20 +256,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">¿Consumió medicamentos, drogas y/o alcohol durante el embarazo?</h6>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="embarazo" type="radio"/>
+                                                                <input id="siE1" class="with-gap" value="1" name="embarazo2" type="radio" onclick="consumio()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="embarazo" type="radio"/>
+                                                                <input id="noE1" class="with-gap" value="2" name="embarazo2" type="radio" onclick="noConsumio()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="medicamentos" type="text" name="txt_medicamentos" class="validate">
+                                                            <input id="medicamentos" type="text" name="txt_medicamentos" class="validate" disabled="true">
                                                             <label class="active" for="medicamentos">Indique el tipo de medicamentos, drogas y/o alcohol consumió</label>
                                                         </div>
                                                     </div>
@@ -371,20 +279,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">¿Existieron complicaciones durante el embarazo?</h6>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="complicaciones" type="radio"/>
+                                                                <input id="siE2" class="with-gap" value="1" name="complicaciones" type="radio" onclick="conComplicaciones()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="complicaciones" type="radio"/>
+                                                                <input id="noE2" class="with-gap" value="2" name="complicaciones" type="radio" onclick="sinComplicaciones()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="complicaciones" type="text" name="txt_complicaciones" class="validate">
+                                                            <input id="complicaciones" type="text" name="txt_complicaciones" class="validate" disabled="true">
                                                             <label class="active" for="complicaciones">Indique el tipo de complicaciones durante el embarazo</label>
                                                         </div>
                                                     </div>
@@ -393,7 +301,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Antecedentes del parto</div>
+                                                Antecedentes del parto</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -409,7 +317,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="tipo" type="radio"/>
+                                                                    <input id="tipo1" class="with-gap" value="1" name="tipo" type="radio"/>
                                                                     <span>Normal</span>
                                                                 </label>
                                                             </p>    
@@ -417,7 +325,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="tipo" type="radio"/>
+                                                                    <input id="tipo2" class="with-gap" value="2" name="tipo" type="radio"/>
                                                                     <span>Inducido</span>
                                                                 </label>
                                                             </p>   
@@ -425,7 +333,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="3" name="tipo" type="radio"/>
+                                                                    <input id="tipo3" class="with-gap" value="3" name="tipo" type="radio"/>
                                                                     <span>Fórceps</span>
                                                                 </label>
                                                             </p>   
@@ -433,7 +341,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s6">
                                                                 <label>
-                                                                    <input class="with-gap" value="4" name="tipo" type="radio"/>
+                                                                    <input id="tipo4" class="with-gap" value="4" name="tipo" type="radio" onclick="cesarea()"/>
                                                                     <span>Cesárea (señalar motivo)</span>
                                                                 </label>
                                                             </p>   
@@ -443,8 +351,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="motivo" type="text" name="txt_motivo" class="validate">
-                                                            <label class="active" for="motivo">Motivo de la cesárea</label>
+                                                            <input id="motivoC" type="text" name="txt_motivo" class="validate" disabled="true">
+                                                            <label class="active" for="motivoC">Motivo de la cesárea</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -469,7 +377,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Antecedentes posteriores al parto</div>
+                                                Antecedentes posteriores al parto</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -504,20 +412,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">¿Quedó hospitalizado al nacer?</h6>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="hospitalizado" type="radio"/>
+                                                                <input id="siH" class="with-gap" value="1" name="hospitalizado" type="radio" onclick="hospitalizado()"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="hospitalizado" type="radio"/>
+                                                                <input id="noH" class="with-gap" value="2" name="hospitalizado" type="radio" onclick="noHospitalizado()"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="hospitalizado" type="text" name="txt_hospitalizado" class="validate">
+                                                            <input id="hospitalizado" type="text" name="txt_hospitalizado" class="validate" disabled="true">
                                                             <label class="active" for="hospitalizado" style="font-size: 12px">¿Cual es el motivo por el que quedó hospitalizado al nacer? ¿Cuanto tiempo?</label>
                                                         </div>
                                                     </div>
@@ -527,85 +435,85 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">Señale si antes de que cumpliera un año de vida el niño/a presentó (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma1" type="checkbox"/>
                                                                 <span>Desnutrición</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma2" type="checkbox"/>
                                                                 <span>Obesidad</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma3" type="checkbox"/>
                                                                 <span>Fiebre alta</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma4" type="checkbox"/>
                                                                 <span>Convulciones</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma5" type="checkbox"/>
                                                                 <span>Traumatismos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma6" type="checkbox"/>
                                                                 <span>Intoxicación</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma7" type="checkbox"/>
                                                                 <span>Enfermedades Respiratorias</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma8" type="checkbox"/>
                                                                 <span>Asma</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma9" type="checkbox"/>
                                                                 <span>Encefalitis</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma10" type="checkbox"/>
                                                                 <span>Meningitis</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma11" type="checkbox"/>
                                                                 <span>Hospitalizaciones</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma12" type="checkbox"/>
                                                                 <span>Ninguno de los anteriores</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sintoma13" type="checkbox" onclick="otro()"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="row">
                                                             <div class="input-field col s12">
-                                                                <input id="otro" type="text" name="txt_otro" class="validate">
+                                                                <input id="otro" type="text" name="txt_otro" class="validate" disabled="true">
                                                                 <label class="active" for="otro">Indique</label>
                                                             </div>
                                                         </div>
@@ -655,7 +563,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Lactancia</div>
+                                                Lactancia</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -686,7 +594,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Desarrollo Sensoriomotriz</div>
+                                                Desarrollo Sensoriomotriz</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s4">
@@ -843,13 +751,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">¿Necesita de asistencia para ir al baño?</h6>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="1" name="asistenciaB" type="radio"/>
+                                                                <input id="siA" class="with-gap" value="1" name="asistenciaB" type="radio"/>
                                                                 <span>Si</span>
                                                             </label>
                                                         </p>
                                                         <p class="col s2">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="asistenciaB" type="radio"/>
+                                                                <input id="noA" class="with-gap" value="2" name="asistenciaB" type="radio"/>
                                                                 <span>No</span>
                                                             </label>
                                                         </p>
@@ -857,8 +765,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                                 <div class="row">
                                                     <div class="input-field col s6">
-                                                        <input id="t_asistencia" type="text" name="txt_Tasistencia" class="validate">
-                                                        <label class="active" for="t_asistencia">Indique el tipo de asistencia que necesita</label>
+                                                        <input id="n_asistencia" type="text" name="txt_Tasistencia" class="validate">
+                                                        <label class="active" for="n_asistencia">Indique el tipo de asistencia que necesita</label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -985,43 +893,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6>En relacion con su motricidad Fina el niño(a)logra:</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf1" type="checkbox"/>
                                                                 <span>Agarrar</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf2" type="checkbox"/>
                                                                 <span>Ensartar</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf3" type="checkbox"/>
                                                                 <span>Presionar</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf4" type="checkbox"/>
                                                                 <span>Dibujar</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf5" type="checkbox"/>
                                                                 <span>Realizar pinza con indice y pulgar</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf6" type="checkbox"/>
                                                                 <span>Escribir</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="mf7" type="checkbox"/>
                                                                 <span>Ninguna de las anteriores</span>
                                                             </label>
                                                         </p>
@@ -1030,43 +938,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6>En relacion con algunso signos cognitivcos el niño(a):</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc1" type="checkbox"/>
                                                                 <span>Reacciona a voces o caras familiares</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc2" type="checkbox"/>
                                                                 <span>Demanda objetos y compañia</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc3" type="checkbox"/>
                                                                 <span>Sonrie, balbucea, grita, llora, indica o señala</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc4" type="checkbox"/>
                                                                 <span>Manipula y explora objetos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc5" type="checkbox"/>
                                                                 <span>Comprende prohibiciones</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc6" type="checkbox"/>
                                                                 <span>Posee evidente descoordinacion ojo-mano</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="sc7" type="checkbox"/>
                                                                 <span>Ninguna de las anteriores</span>
                                                             </label>
                                                         </p>
@@ -1082,56 +990,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Vision</div>
+                                                Vision</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <h6>Vision (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v1" type="checkbox"/>
                                                                 <span>Se interesa por los estimulos visuales (Colores, formas, movimientos, etc.)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v2" type="checkbox"/>
                                                                 <span>En ocaciones tiene los ojos irritados o llorosos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v3" type="checkbox"/>
                                                                 <span>Presenta dolores frecuentes de cabeza</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v4" type="checkbox"/>
                                                                 <span>Se acerca o aleja demasiado los objetos a la vista (frunce el ceño)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v5" type="checkbox"/>
                                                                 <span>Sigue con la vista el desplazamiento de los objetos o personas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v6" type="checkbox"/>
                                                                 <span>Presenta movimientos oculares "anormales"</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v7" type="checkbox"/>
                                                                 <span>Manifiesta conductas "erroneas" (tropiezos, choques)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="v8" type="checkbox"/>
                                                                 <span>Ninguna de las anteriores</span>
                                                             </label>
                                                         </p>
@@ -1140,37 +1048,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6>El estudiante presenta alguno de los siguientes diagnosticos</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="d1" type="checkbox"/>
                                                                 <span>Miopia</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="d2" type="checkbox"/>
                                                                 <span>Estrabismo</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="d3" type="checkbox"/>
                                                                 <span>Astigmatismo</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="d4" type="checkbox"/>
                                                                 <span>Ninguno</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="d5" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="obs1" type="text" name="txt_obs1" class="validate">
-                                                            <label class="active" for="obs1">Indique otro</label>
+                                                            <input id="d6" type="text" name="txt_obs1" class="validate" disabled="true">
+                                                            <label class="active" for="d6">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1195,50 +1103,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Audición</div>
+                                                Audición</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <h6>Audición (Marcar las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a1" type="checkbox"/>
                                                                 <span>Se interesa por los estimulos auditivos(ruidos, voces, musica, etc)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a2" type="checkbox"/>
                                                                 <span>Reacciona o reconoce voces o sonidos familiares</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a3" type="checkbox"/>
                                                                 <span>Gira la cabeza cuando se le llama o ante un ruido fuerte</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a4" type="checkbox"/>
                                                                 <span>Acerca los oidos a la TV, radio o fuente de sonido</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a5" type="checkbox"/>
                                                                 <span>En ocaciones se tapa o golpea los oidos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a6" type="checkbox"/>
                                                                 <span>La pronunciación oral es adecuada</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="a7" type="checkbox"/>
                                                                 <span>Ninguna de las anteriores</span>
                                                             </label>
                                                         </p>
@@ -1247,43 +1155,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6>El estudiante presenta alguno de los siguientes diagnosticos</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="da1" type="checkbox"/>
                                                                 <span>Hipoacusia Derecha</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="da2" type="checkbox"/>
                                                                 <span>Hipoacusia Izquierda</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="da3" type="checkbox"/>
                                                                 <span>Hipoacusia Bilateral</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="da4" type="checkbox"/>
                                                                 <span>Otitis Cronicas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="da5" type="checkbox"/>
                                                                 <span>Ninguna</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="da6" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="audicion" type="text" name="txt_audicion" class="validate">
-                                                            <label class="active" for="audicion">Indique otro</label>
+                                                            <input id="da7" type="text" name="txt_audicion" class="validate" disabled="true">
+                                                            <label class="active" for="da7">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1314,7 +1222,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Desarrollo del lenguaje</div>
+                                                Desarrollo del lenguaje</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -1322,95 +1230,95 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="comunicacion" type="radio"/>
+                                                                    <input id="c1" class="with-gap" value="1" name="comunicacion" type="radio"/>
                                                                     <span>Oral</span>
                                                                 </label>
                                                         </div>
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="comunicacion" type="radio"/>
+                                                                    <input id="c2" class="with-gap" value="2" name="comunicacion" type="radio"/>
                                                                     <span>Gestual</span>
                                                                 </label>
                                                         </div>
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="3" name="comunicacion" type="radio"/>
+                                                                    <input id="c3" class="with-gap" value="3" name="comunicacion" type="radio"/>
                                                                     <span>Mixto</span>
                                                                 </label>
                                                         </div>
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="4" name="comunicacion" type="radio"/>
+                                                                    <input id="c4" class="with-gap" value="4" name="comunicacion" type="radio"/>
                                                                     <span>Otro</span>
                                                                 </label>
                                                         </div>
                                                         <div class="input-field col s12">
-                                                            <input id="otroC" type="text" name="txt_otroC" class="validate">
-                                                            <label class="active" for="otroC">Indique otro</label>
+                                                            <input id="c5" type="text" name="txt_otroC" class="validate" disabled="true">
+                                                            <label class="active" for="c5">Indique otro</label>
                                                         </div>
                                                     </div>
                                                     <div class="col s6">
                                                         <h6>Caracteristicas del lenguaje expresivo (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc1" type="checkbox"/>
                                                                 <span>Balbucea (oral o señas) / emite sonidos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc2" type="checkbox"/>
                                                                 <span>Vocaliza/realiza gestos o señas aisladas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc3" type="checkbox"/>
                                                                 <span>Emite palabras/produce señas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc4" type="checkbox"/>
                                                                 <span>Emite/produce frases</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc5" type="checkbox"/>
                                                                 <span>Relata experiencias</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc6" type="checkbox"/>
                                                                 <span>La emision/pronunciacion/produccion es clara</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc7" type="checkbox"/>
                                                                 <span>Opcion 8 emite palabras sueltas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc8" type="checkbox"/>
                                                                 <span>Ninguna</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="dc9" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otroL" type="text" name="txt_otroL" class="validate">
-                                                            <label class="active" for="otroL">Indique otro</label>
+                                                            <input id="dc10" type="text" name="txt_otroL" class="validate" disabled="true">
+                                                            <label class="active" for="dc10">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1419,67 +1327,67 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6>Caracteristicas del lenguaje comprensivo (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl1" type="checkbox"/>
                                                                 <span>Identifica objetos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl2" type="checkbox"/>
                                                                 <span>Identifica personas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl3" type="checkbox"/>
                                                                 <span>Comprende conceptos abstractos (Amistad, Culpa, Cariño, etc)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl4" type="checkbox"/>
                                                                 <span>Responde en forma coherente preguntas de la vida diaria</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl5" type="checkbox"/>
                                                                 <span>Sigue instrucciones simples (traeme un auto, sientate, etc)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl6" type="checkbox"/>
                                                                 <span>Sigue instrucciones complejas (ven y sientate, ve a tu pieza y traeme tus zapatos)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl7" type="checkbox"/>
                                                                 <span>Sigue instrucciones grupales (niños siéntense, tome su mochila, etc)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl8"  type="checkbox"/>
                                                                 <span>Comprende relatos, noticias, cuentos cortos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl9"  type="checkbox"/>
                                                                 <span>Ninguna</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="cl10"  type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otroL1" type="text" name="txt_otroL1" class="validate">
-                                                            <label class="active" for="otroL1">Indique otro</label>
+                                                            <input id="cl11" type="text" name="txt_otroL1" class="validate" disabled="true">
+                                                            <label class="active" for="cl11">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1489,13 +1397,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="Plenguaje" type="radio"/>
+                                                                    <input id="pl1" class="with-gap" value="1" name="Plenguaje" type="radio"/>
                                                                     <span>Si</span>
                                                                 </label>
                                                             </p>
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="Plenguaje" type="radio"/>
+                                                                    <input id="pl2" class="with-gap" value="2" name="Plenguaje" type="radio"/>
                                                                     <span>No</span>
                                                                 </label>
                                                             </p>
@@ -1505,8 +1413,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="row">
                                                     <div class="col s10">
                                                         <div class="input-field col s12">
-                                                            <input id="perdidaL" type="text" name="txt_perdidaL" class="validate">
-                                                            <label class="active" for="perdidaL">Especifique edad y motivo de la pérdida de lenguaje oral</label>
+                                                            <input id="pl3" type="text" name="txt_perdidaL" class="validate" disabled="true">
+                                                            <label class="active" for="pl3">Especifique edad y motivo de la pérdida de lenguaje oral</label>
                                                         </div>
                                                     </div>    
                                                 </div>
@@ -1522,98 +1430,98 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Desarrollo Social</div>
+                                                Desarrollo Social</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <h6 class="col s12">Desarrollo Social (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds1" type="checkbox"/>
                                                                 <span>Se relaciona espontáneamente con las personas de su entorno natural</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds2" type="checkbox"/>
                                                                 <span>Explica razones de sus comportamientos y actitudes</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds3" type="checkbox"/>
                                                                 <span>Participa en actividades grupales</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds4" type="checkbox"/>
                                                                 <span>Opta por trabajo individual</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds5" type="checkbox"/>
                                                                 <span>Presenta lenguaje ecolálico</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds6" type="checkbox"/>
                                                                 <span>Exhibe dificultad para adaptarse a situaciones nuevas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds7" type="checkbox"/>
                                                                 <span>Se relaciona en forma colaborativa</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds8" type="checkbox"/>
                                                                 <span>Respeta normas sociales</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds9" type="checkbox"/>
                                                                 <span>Respeta normas escolares</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds10" type="checkbox"/>
                                                                 <span>Muestra sentido del humor</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds11" type="checkbox"/>
                                                                 <span>Movimientos estereotipados</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds12" type="checkbox"/>
                                                                 <span>Pataletas frecuentes</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds13" type="checkbox"/>
                                                                 <span>Ninguno</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ds14" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otroS" type="text" name="txt_otroS" class="validate">
-                                                            <label class="active" for="otroS">Indique otro</label>
+                                                            <input id="ds15" type="text" name="txt_otroS" class="validate" disabled="true">
+                                                            <label class="active" for="ds15">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1682,98 +1590,92 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Salud</div>
+                                                Salud</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <h6 class="col s12">Estado actual de salud del/la estudiante (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e1" type="checkbox"/>
                                                                 <span>Vacunas al dia</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e2" type="checkbox"/>
                                                                 <span>Epilepsia</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e3" type="checkbox"/>
                                                                 <span>Problemas Cardiacos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e4" type="checkbox"/>
                                                                 <span>Paraplejia</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e5" type="checkbox"/>
                                                                 <span>Perdida auditiva</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e6" type="checkbox"/>
                                                                 <span>Perdida visual</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e7" type="checkbox"/>
                                                                 <span>Trastorno Motor</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e8" type="checkbox"/>
                                                                 <span>Problemas bronco-respiratorio</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e9" type="checkbox"/>
                                                                 <span>Enfermedad infecto-contagiosa</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e10" type="checkbox"/>
                                                                 <span>Trastorno Emocional</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e11" type="checkbox"/>
                                                                 <span>Trastorno Conductual</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e12" type="checkbox"/>
                                                                 <span>Ninguno</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Ninguno</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="e13" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otroS2" type="text" name="txt_otroS2" class="validate">
-                                                            <label class="active" for="otroS2">Observaciones</label>
+                                                            <input id="e14" type="text" name="txt_otroS2" class="validate" disabled="true">
+                                                            <label class="active" for="e14">Observaciones</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1783,19 +1685,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="tratamiento" type="radio"/>
+                                                                    <input id="t1" class="with-gap" value="1" name="tratamiento" type="radio"/>
                                                                     <span>Si</span>
                                                                 </label>
                                                             </p>
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="tratamiento" type="radio"/>
+                                                                    <input id="t2" class="with-gap" value="2" name="tratamiento" type="radio"/>
                                                                     <span>No</span>
                                                                 </label>
                                                             </p>
                                                             <div class="input-field col s12">
-                                                                <input id="Ttratamiento" type="text" name="txt_Ttratamiento" class="validate">
-                                                                <label class="active" for="Ttratamiento">Indique el tipo de tratamiento</label>
+                                                                <input id="t3" type="text" name="txt_Ttratamiento" class="validate" disabled="true">
+                                                                <label class="active" for="t3">Indique el tipo de tratamiento</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1806,19 +1708,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="medicamento" type="radio"/>
+                                                                    <input id="m1" class="with-gap" value="1" name="medicamento" type="radio"/>
                                                                     <span>Si</span>
                                                                 </label>
                                                             </p>
                                                             <p class="col s2">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="medicamento" type="radio"/>
+                                                                    <input id="m2" class="with-gap" value="2" name="medicamento" type="radio"/>
                                                                     <span>No</span>
                                                                 </label>
                                                             </p>
                                                             <div class="input-field col s12">
-                                                                <input id="medicamento1" type="text" name="txt_medicamento" class="validate">
-                                                                <label class="active" for="medicamento1">Indique que medicamentos toma e indique la dosis </label>
+                                                                <input id="m3" type="text" name="txt_medicamento" class="validate" disabled="true">
+                                                                <label class="active" for="m3">Indique que medicamentos toma e indique la dosis </label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1829,7 +1731,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s4">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="alimentacion" type="radio"/>
+                                                                    <input id="al1" class="with-gap" value="1" name="alimentacion" type="radio"/>
                                                                     <span>Normal</span>
                                                                 </label>
                                                             </p>
@@ -1837,7 +1739,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s6">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="alimentacion" type="radio"/>
+                                                                    <input id="al2" class="with-gap" value="2" name="alimentacion" type="radio"/>
                                                                     <span>"Malo(a) para comer"</span>
                                                                 </label>
                                                             </p>
@@ -1845,7 +1747,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s6">
                                                                 <label>
-                                                                    <input class="with-gap" value="3" name="alimentacion" type="radio"/>
+                                                                    <input id="al3" class="with-gap" value="3" name="alimentacion" type="radio"/>
                                                                     <span>"Bueno(a) para comer"</span>
                                                                 </label>
                                                             </p>
@@ -1853,14 +1755,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s6">
                                                                 <label>
-                                                                    <input class="with-gap" value="4" name="alimentacion" type="radio"/>
+                                                                    <input id="al4" class="with-gap" value="4" name="alimentacion" type="radio"/>
                                                                     <span>Otro:</span>
                                                                 </label>
                                                             </p>
                                                         </div>
                                                         <div class="input-field col s12">
-                                                            <input id="otroA" type="text" name="txt_otroA" class="validate">
-                                                            <label class="active" for="otroA">Indique otro</label>
+                                                            <input id="al5" type="text" name="txt_otroA" class="validate" disabled="true">
+                                                            <label class="active" for="al5">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1995,6 +1897,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </p>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
                                                             <input id="especificar" type="text" name="especificar" class="validate">
@@ -2007,116 +1911,71 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">En la noche presenta (Marque las que correspondan)</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p1" type="checkbox"/>
                                                                 <span>Insomnio</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p2" type="checkbox"/>
                                                                 <span>Pesadillas</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p3" type="checkbox"/>
                                                                 <span>Terrores nocturnos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p4" type="checkbox"/>
                                                                 <span>Sonambulismo</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p5" type="checkbox"/>
                                                                 <span>Despierta de buen humor</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p6" type="checkbox"/>
                                                                 <span>Ninguna</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="p7" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otroN" type="text" name="otroN" class="validate">
-                                                            <label class="active" for="otroN">Indique otro</label>
+                                                            <input id="p8" type="text" name="otroN" class="validate" disabled="true">
+                                                            <label class="active" for="p8">Indique otro</label>
                                                         </div>
                                                     </div>
                                                     <div class="col s6">
                                                         <h6 class="col s12">Humor/comportamiento (señale el comportamiento habitual)</h6>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Alegre</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Jugueton/bromista</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Risueño(a)</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Triste</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Serio</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Rebelde</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Apático</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Violento(a)</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Ninguna</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input type="checkbox"/>
-                                                                <span>Otro:</span>
-                                                            </label>
-                                                        </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otroN1" type="text" name="otroN1" class="validate">
-                                                            <label class="active" for="otroN1">Indique otro</label>
+                                                            <select name="humor" id="humor">
+                                                                <option value="" disabled selected>--Seleccionar--</option>
+                                                                <option value="1">Alegre</option>
+                                                                <option value="2">Jugueton/bromista</option>
+                                                                <option value="3">Risueño</option>
+                                                                <option value="4">Triste</option>
+                                                                <option value="5">Serio</option>
+                                                                <option value="6">Rebelde</option>
+                                                                <option value="7">Apático</option>
+                                                                <option value="8">Violento(a)</option>
+                                                                <option value="9">Ninguna</option>
+                                                                <option value="10">Otro:</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input id="h1" type="text" name="otroN1" class="validate" disabled="true">
+                                                            <label class="active" for="h1">Indique otro</label>
                                                         </div>
                                                     </div>
                                                     <div class="input-field col s12">
@@ -2128,7 +1987,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Antecedentes familiares</div>
+                                                Antecedentes familiares</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s12">
@@ -2161,7 +2020,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Antecedentes escolares</div>
+                                                Antecedentes escolares</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -2226,7 +2085,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s4">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="repetir" type="radio"/>
+                                                                    <input id="r1" class="with-gap" value="1" name="repetir" type="radio"/>
                                                                     <span>Si</span>
                                                                 </label>
                                                             </p>
@@ -2234,7 +2093,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s4">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="repetir" type="radio"/>
+                                                                    <input id="r2" class="with-gap" value="2" name="repetir" type="radio"/>
                                                                     <span>No</span>
                                                                 </label>
                                                             </p>
@@ -2242,8 +2101,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col s8">
                                                         <div class="input-field col s12">
-                                                            <input id="repetir" type="text" name="repetir" class="validate">
-                                                            <label class="active" for="repetir">Curso y motivo por el que repitio</label>
+                                                            <input id="r3" type="text" name="repetir" class="validate" disabled="true">
+                                                            <label class="active" for="r3">Curso y motivo por el que repitio</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2269,7 +2128,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </li>
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                            Actitud de la familia</div>
+                                                Actitud de la familia</div>
                                             <div class="collapsible-body">
                                                 <div class="row">
                                                     <div class="col s6">
@@ -2277,7 +2136,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s4">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="descolar" type="radio"/>
+                                                                    <input id="ev1" class="with-gap" value="1" name="descolar" type="radio"/>
                                                                     <span>Satisfactorio</span>
                                                                 </label>
                                                             </p>
@@ -2285,7 +2144,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row">
                                                             <p class="col s4">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="descolar" type="radio"/>
+                                                                    <input id="ev2" class="with-gap" value="2" name="descolar" type="radio"/>
                                                                     <span>Insatisfactorio</span>
                                                                 </label>
                                                             </p>
@@ -2293,8 +2152,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="motivo1" type="text" name="motivo1" class="validate">
-                                                            <label class="active" for="motivo1">Si es insatisfactorio, por que motivo</label>
+                                                            <input id="ev3" type="text" name="motivo1" class="validate" disabled="true">
+                                                            <label class="active" for="ev3">Si es insatisfactorio, por que motivo</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2302,7 +2161,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="col s6">
                                                         <h6 class="col s12">Que hace cuando a su hijo(a) le va mal en el colegio</h6>
                                                         <div class="input-field col s12">
-                                                            <select>
+                                                            <select name="vaMal" id="vaMal">
                                                                 <option value="" disabled selected>Seleccionar</option>
                                                                 <option value="1">Lo apoyo</option>
                                                                 <option value="2">Lo castigo</option>
@@ -2313,8 +2172,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="otro1" type="text" name="otro1" class="validate">
-                                                            <label class="active" for="otro1">Indique otro</label>
+                                                            <input id="vM1" type="text" name="otro1" class="validate" disabled="true">
+                                                            <label class="active" for="vM1">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2322,7 +2181,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="col s6">
                                                         <h6 class="col s12">Que hace cuando a su hijo(a) le va bien en el colegio</h6>
                                                         <div class="input-field col s12">
-                                                            <select>
+                                                            <select name="vaBien" id="vaBien">
                                                                 <option value="" disabled selected>Seleccionar</option>
                                                                 <option value="1">Le entrego cariño</option>
                                                                 <option value="2">Le doy su comida favorita</option>
@@ -2337,8 +2196,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12">
-                                                            <input id="otro2" type="text" name="otro2" class="validate">
-                                                            <label class="active" for="otro2">Indique otro</label>
+                                                            <input id="vB1" type="text" name="otro2" class="validate" disabled="true">
+                                                            <label class="active" for="vB1">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2347,61 +2206,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">Quien apoya el proceso de aprendizaje y desarrollo de su hijo</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap1" type="checkbox"/>
                                                                 <span>Madre</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap2" type="checkbox"/>
                                                                 <span>Padre</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap3" type="checkbox"/>
                                                                 <span>Hermanos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap4" type="checkbox"/>
                                                                 <span>Abuelos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap5" type="checkbox"/>
                                                                 <span>Tios</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap6" type="checkbox"/>
                                                                 <span>Otros Familiares</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap7" type="checkbox"/>
                                                                 <span>Otros Profesionales</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap8" type="checkbox"/>
                                                                 <span>Ninguno</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="ap9" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otro3" type="text" name="otro3" class="validate">
-                                                            <label class="active" for="otro3">Indique otro</label>
+                                                            <input id="ap10" type="text" name="otro3" class="validate" disabled="true">
+                                                            <label class="active" for="ap10">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2410,37 +2269,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <h6 class="col s12">Su hijo cuenta con un ambiente fisico y emocional adecuado para su aprendizaje</h6>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="am1" type="checkbox"/>
                                                                 <span>Ambos</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="am2" type="checkbox"/>
                                                                 <span>Solo Fisico (espacios, materiales, ventilación, luminosidad, etc)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="am3" type="checkbox"/>
                                                                 <span>Solo Emocional (Tranquilidad, Comprensión, etc)</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="am4" type="checkbox"/>
                                                                 <span>Ninguno</span>
                                                             </label>
                                                         </p>
                                                         <p>
                                                             <label>
-                                                                <input type="checkbox"/>
+                                                                <input id="am5" type="checkbox"/>
                                                                 <span>Otro:</span>
                                                             </label>
                                                         </p>
                                                         <div class="input-field col s12">
-                                                            <input id="otro4" type="text" name="otro4" class="validate">
-                                                            <label class="active" for="otro4">Indique otro</label>
+                                                            <input id="am6" type="text" name="otro4" class="validate" disabled="true">
+                                                            <label class="active" for="am6">Indique otro</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2505,6 +2364,1019 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $('.timepicker').timepicker();
             });
             S
+        </script>
+        <script>
+            var siE = document.getElementById('siE');
+            var noE = document.getElementById('noE');
+            var justificar = document.getElementById('embarazo');
+
+            //scripts para input "el embarazo fue controlado?"
+            function controlado() {
+                if (siE.checked) {
+                    justificar.disabled = false;
+                }
+            }
+            function noControlado() {
+                if (noE.checked) {
+                    justificar.disabled = true;
+                }
+            }
+
+            var siE1 = document.getElementById('siE1');
+            var noE1 = document.getElementById('noE1');
+            var medicamentos = document.getElementById('medicamentos');
+
+            // scripts para input "consumio medicamentos durante el embarazo?"
+            function consumio() {
+                if (siE1.checked) {
+                    medicamentos.disabled = false;
+                }
+            }
+            function noConsumio() {
+                if (noE1.checked) {
+                    medicamentos.disabled = true;
+                }
+            }
+
+            var siE2 = document.getElementById('siE2');
+            var noE2 = document.getElementById('noE2');
+            var complicaciones = document.getElementById('complicaciones');
+
+            //scripts para input "tuvo complicaciones durante el embarazo?"
+            function conComplicaciones() {
+                if (siE2.checked) {
+                    complicaciones.disabled = false;
+                }
+            }
+            function sinComplicaciones() {
+                if (noE2.checked) {
+                    complicaciones.disabled = true;
+                }
+            }
+
+            var tipo1 = document.getElementById('tipo1');
+            var tipo2 = document.getElementById('tipo2');
+            var tipo3 = document.getElementById('tipo3');
+            var cesarea = document.getElementById('tipo4');
+            var motivoC = document.getElementById('motivoC');
+
+            //scripts par input "tipo de parto"
+            tipo1.addEventListener('click', function () {
+                if (tipo1.checked) {
+                    motivoC.disabled = true;
+                }
+            })
+
+            tipo2.addEventListener('click', function () {
+                if (tipo2.checked) {
+                    motivoC.disabled = true;
+                }
+            })
+
+            tipo3.addEventListener('click', function () {
+                if (tipo3.checked) {
+                    motivoC.disabled = true;
+                }
+            })
+
+            cesarea.addEventListener('click', function () {
+                if (cesarea.checked) {
+                    motivoC.disabled = false;
+                }
+            })
+
+            var siH = document.getElementById('siH');
+            var noH = document.getElementById('noH');
+            var hospitalizado = document.getElementById('hospitalizado');
+
+            //scripts para input "hospitalizado al nacer"
+            siH.addEventListener('click', function () {
+                if (siH.checked) {
+                    hospitalizado.disabled = false;
+                }
+            })
+            noH.addEventListener('click', function () {
+                if (noH.checked) {
+                    hospitalizado.disabled = true;
+                }
+            })
+
+            var sintoma1 = document.getElementById('sintoma1');
+            var sintoma2 = document.getElementById('sintoma2');
+            var sintoma3 = document.getElementById('sintoma3');
+            var sintoma4 = document.getElementById('sintoma4');
+            var sintoma5 = document.getElementById('sintoma5');
+            var sintoma6 = document.getElementById('sintoma6');
+            var sintoma7 = document.getElementById('sintoma7');
+            var sintoma8 = document.getElementById('sintoma8');
+            var sintoma9 = document.getElementById('sintoma9');
+            var sintoma10 = document.getElementById('sintoma10');
+            var sintoma11 = document.getElementById('sintoma11');
+            var sintoma12 = document.getElementById('sintoma12');
+            var sintoma13 = document.getElementById('sintoma13');
+            var otro = document.getElementById('otro');
+
+            //script para input "se;ale si antes de que cumpliera un a;o...."
+            sintoma13.addEventListener('click', function () {
+                if (sintoma13.checked) {
+                    otro.disabled = false;
+                } else {
+                    otro.disabled = true;
+                }
+            })
+
+            var siA = document.getElementById('siA');
+            var noA = document.getElementById('noA');
+            var n_asistencia = document.getElementById('n_asistencia');
+
+            //scripts para input "necesita de asistencia para ir al ba;o"
+            siA.addEventListener('click', function () {
+                if (siA.checked) {
+                    n_asistencia.disabled = false;
+                } else {
+                    n_asistencia.disabled = true;
+                }
+            })
+            noA.addEventListener('click', function () {
+                if (noA.checked) {
+                    n_asistencia.disabled = true;
+                } else {
+                    n_asistencia.disabled = false;
+                }
+            })
+
+            var mf1 = document.getElementById('mf1');
+            var mf2 = document.getElementById('mf2');
+            var mf3 = document.getElementById('mf3');
+            var mf4 = document.getElementById('mf4');
+            var mf5 = document.getElementById('mf5');
+            var mf6 = document.getElementById('mf6');
+            var mf7 = document.getElementById('mf7');
+            //script para input "en relacion con su motricidad fina..."
+            mf7.addEventListener('click', function () {
+                if (mf7.checked) {
+                    mf1.disabled = true;
+                    mf2.disabled = true;
+                    mf3.disabled = true;
+                    mf4.disabled = true;
+                    mf5.disabled = true;
+                    mf6.disabled = true;
+                } else {
+                    mf1.disabled = false;
+                    mf2.disabled = false;
+                    mf3.disabled = false;
+                    mf4.disabled = false;
+                    mf5.disabled = false;
+                    mf6.disabled = false;
+                }
+            })
+            mf1.addEventListener('click', function () {
+                if (mf1.checked) {
+                    mf7.disabled = true;
+                } else {
+                    mf7.disabled = false;
+                }
+            })
+            mf2.addEventListener('click', function () {
+                if (mf2.checked) {
+                    mf7.disabled = true;
+                } else {
+                    mf7.disabled = false;
+                }
+            })
+            mf3.addEventListener('click', function () {
+                if (mf3.checked) {
+                    mf7.disabled = true;
+                } else {
+                    mf7.disabled = false;
+                }
+            })
+            mf4.addEventListener('click', function () {
+                if (mf4.checked) {
+                    mf7.disabled = true;
+                } else {
+                    mf7.disabled = false;
+                }
+            })
+            mf5.addEventListener('click', function () {
+                if (mf5.checked) {
+                    mf7.disabled = true;
+                } else {
+                    mf7.disabled = false;
+                }
+            })
+            mf6.addEventListener('click', function () {
+                if (mf6.checked) {
+                    mf7.disabled = true;
+                } else {
+                    mf7.disabled = false;
+                }
+            })
+
+            var sc1 = document.getElementById('sc1');
+            var sc2 = document.getElementById('sc2');
+            var sc3 = document.getElementById('sc3');
+            var sc4 = document.getElementById('sc4');
+            var sc5 = document.getElementById('sc5');
+            var sc6 = document.getElementById('sc6');
+            var sc7 = document.getElementById('sc7');
+            //scripts para input "signos cognitivos"
+            sc7.addEventListener('click', function () {
+                if (sc7.checked) {
+                    sc1.disabled = true;
+                    sc2.disabled = true;
+                    sc3.disabled = true;
+                    sc4.disabled = true;
+                    sc5.disabled = true;
+                    sc6.disabled = true;
+                } else {
+                    sc1.disabled = false;
+                    sc2.disabled = false;
+                    sc3.disabled = false;
+                    sc4.disabled = false;
+                    sc5.disabled = false;
+                    sc6.disabled = false;
+                }
+            })
+
+            sc1.addEventListener('click', function () {
+                if (sc1.checked) {
+                    sc7.disabled = true;
+                } else {
+                    sc7.disabled = false;
+                }
+            })
+            sc2.addEventListener('click', function () {
+                if (sc2.checked) {
+                    sc7.disabled = true;
+                } else {
+                    sc7.disabled = false;
+                }
+            })
+            sc3.addEventListener('click', function () {
+                if (sc3.checked) {
+                    sc7.disabled = true;
+                } else {
+                    sc7.disabled = false;
+                }
+            })
+            sc4.addEventListener('click', function () {
+                if (sc4.checked) {
+                    sc7.disabled = true;
+                } else {
+                    sc7.disabled = false;
+                }
+            })
+            sc5.addEventListener('click', function () {
+                if (sc5.checked) {
+                    sc7.disabled = true;
+                } else {
+                    sc7.disabled = false;
+                }
+            })
+            sc6.addEventListener('click', function () {
+                if (sc6.checked) {
+                    sc7.disabled = true;
+                } else {
+                    sc7.disabled = false;
+                }
+            })
+
+
+            var v1 = document.getElementById('v1');
+            var v2 = document.getElementById('v2');
+            var v3 = document.getElementById('v3');
+            var v4 = document.getElementById('v4');
+            var v5 = document.getElementById('v5');
+            var v6 = document.getElementById('v6');
+            var v7 = document.getElementById('v7');
+            var v8 = document.getElementById('v8');
+            v8.addEventListener('click', function () {
+                if (v8.checked) {
+                    v1.disabled = true;
+                    v2.disabled = true;
+                    v3.disabled = true;
+                    v4.disabled = true;
+                    v5.disabled = true;
+                    v6.disabled = true;
+                    v7.disabled = true;
+                } else {
+                    v1.disabled = false;
+                    v2.disabled = false;
+                    v3.disabled = false;
+                    v4.disabled = false;
+                    v5.disabled = false;
+                    v6.disabled = false;
+                    v7.disabled = false;
+                }
+            })
+
+            v1.addEventListener('click', function () {
+                if (v1.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+            v2.addEventListener('click', function () {
+                if (v2.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+            v3.addEventListener('click', function () {
+                if (v3.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+            v4.addEventListener('click', function () {
+                if (v4.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+            v5.addEventListener('click', function () {
+                if (v5.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+            v6.addEventListener('click', function () {
+                if (v6.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+            v7.addEventListener('click', function () {
+                if (v7.checked) {
+                    v8.disabled = true;
+                } else {
+                    v8.disabled = false;
+                }
+            })
+
+
+            var d1 = document.getElementById('d1');
+            var d2 = document.getElementById('d2');
+            var d3 = document.getElementById('d3');
+            var d4 = document.getElementById('d4');
+            var d5 = document.getElementById('d5');
+            var d6 = document.getElementById('d6');
+            d4.addEventListener('click', function () {
+                if (d4.checked) {
+                    d1.disabled = true;
+                    d2.disabled = true;
+                    d3.disabled = true;
+                    d5.disabled = true;
+                    d6.disabled = true;
+                } else {
+                    d1.disabled = false;
+                    d2.disabled = false;
+                    d3.disabled = false;
+                    d5.disabled = false;
+                    d6.disabled = true;
+                }
+            })
+            d5.addEventListener('click', function () {
+                if (d5.checked) {
+                    d1.disabled = true;
+                    d2.disabled = true;
+                    d3.disabled = true;
+                    d4.disabled = true;
+                    d6.disabled = false;
+                } else {
+                    d1.disabled = false;
+                    d2.disabled = false;
+                    d3.disabled = false;
+                    d4.disabled = false;
+                    d6.disabled = true;
+                }
+            })
+
+            var a1 = document.getElementById('a1');
+            var a2 = document.getElementById('a2');
+            var a3 = document.getElementById('a3');
+            var a4 = document.getElementById('a4');
+            var a5 = document.getElementById('a5');
+            var a6 = document.getElementById('a6');
+            var a7 = document.getElementById('a7');
+
+            a1.addEventListener('click', function () {
+                if (a1.checked) {
+                    a7.disabled = true;
+                } else
+                    a7.disabled = false;
+            })
+            a2.addEventListener('click', function () {
+                if (a2.checked) {
+                    a7.disabled = true;
+                } else
+                    a7.disabled = false;
+            })
+            a3.addEventListener('click', function () {
+                if (a3.checked) {
+                    a7.disabled = true;
+                } else
+                    a7.disabled = false;
+            })
+            a4.addEventListener('click', function () {
+                if (a4.checked) {
+                    a7.disabled = true;
+                } else
+                    a7.disabled = false;
+            })
+            a5.addEventListener('click', function () {
+                if (a5.checked) {
+                    a7.disabled = true;
+                } else
+                    a7.disabled = false;
+            })
+            a6.addEventListener('click', function () {
+                if (a6.checked) {
+                    a7.disabled = true;
+                } else
+                    a7.disabled = false;
+            })
+            a7.addEventListener('click', function () {
+                if (a7.checked) {
+                    a1.disabled = true;
+                    a2.disabled = true;
+                    a3.disabled = true;
+                    a4.disabled = true;
+                    a5.disabled = true;
+                    a6.disabled = true;
+                } else {
+                    a1.disabled = false;
+                    a2.disabled = false;
+                    a3.disabled = false;
+                    a4.disabled = false;
+                    a5.disabled = false;
+                    a6.disabled = false;
+                }
+            })
+
+            var da1 = document.getElementById('da1');
+            var da2 = document.getElementById('da2');
+            var da3 = document.getElementById('da3');
+            var da4 = document.getElementById('da4');
+            var da5 = document.getElementById('da5');
+            var da6 = document.getElementById('da6');
+            var da7 = document.getElementById('da7');
+
+            da5.addEventListener('click', function () {
+                if (da5.checked) {
+                    da1.disabled = true;
+                    da2.disabled = true;
+                    da3.disabled = true;
+                    da4.disabled = true;
+                    da6.disabled = true;
+                    da7.disabled = true;
+                } else {
+                    da1.disabled = false;
+                    da2.disabled = false;
+                    da3.disabled = false;
+                    da4.disabled = false;
+                    da6.disabled = false;
+                    da7.disabled = false;
+                }
+            })
+            da6.addEventListener('click', function () {
+                if (da6.checked) {
+                    da1.disabled = true;
+                    da2.disabled = true;
+                    da3.disabled = true;
+                    da4.disabled = true;
+                    da5.disabled = true;
+                    da7.disabled = false;
+                } else {
+                    da1.disabled = false;
+                    da2.disabled = false;
+                    da3.disabled = false;
+                    da4.disabled = false;
+                    da5.disabled = false;
+                    da7.disabled = true;
+                }
+            })
+
+            var c1 = document.getElementById('c1');
+            var c2 = document.getElementById('c2');
+            var c3 = document.getElementById('c3');
+            var c4 = document.getElementById('c4');
+            var c5 = document.getElementById('c5');
+
+            c1.addEventListener('click', function () {
+                if (c1.checked) {
+                    c5.disabled = true;
+                }
+            })
+            c2.addEventListener('click', function () {
+                if (c2.checked) {
+                    c5.disabled = true;
+                }
+            })
+            c3.addEventListener('click', function () {
+                if (c3.checked) {
+                    c5.disabled = true;
+                }
+            })
+            c4.addEventListener('click', function () {
+                if (c4.checked) {
+                    c5.disabled = false;
+                } else {
+                    c5.disabled = true;
+                }
+            })
+
+            var dc1 = document.getElementById('dc1');
+            var dc2 = document.getElementById('dc2');
+            var dc3 = document.getElementById('dc3');
+            var dc4 = document.getElementById('dc4');
+            var dc5 = document.getElementById('dc5');
+            var dc6 = document.getElementById('dc6');
+            var dc7 = document.getElementById('dc7');
+            var dc8 = document.getElementById('dc8');
+            var dc9 = document.getElementById('dc9');
+            var dc10 = document.getElementById('dc10');
+
+            dc8.addEventListener('click', function () {
+                if (dc8.checked) {
+                    dc1.disabled = true;
+                    dc2.disabled = true;
+                    dc3.disabled = true;
+                    dc4.disabled = true;
+                    dc5.disabled = true;
+                    dc6.disabled = true;
+                    dc7.disabled = true;
+                    dc9.disabled = true;
+                    dc10.disabled = true;
+                } else {
+                    dc1.disabled = false;
+                    dc2.disabled = false;
+                    dc3.disabled = false;
+                    dc4.disabled = false;
+                    dc5.disabled = false;
+                    dc6.disabled = false;
+                    dc7.disabled = false;
+                    dc9.disabled = false;
+                    dc10.disabled = true;
+                }
+            })
+            dc9.addEventListener('click', function () {
+                if (dc9.checked) {
+                    dc10.disabled = false;
+                } else {
+                    dc10.disabled = true;
+                }
+            })
+
+            var cl1 = document.getElementById('cl1');
+            var cl2 = document.getElementById('cl2');
+            var cl3 = document.getElementById('cl3');
+            var cl4 = document.getElementById('cl4');
+            var cl5 = document.getElementById('cl5');
+            var cl6 = document.getElementById('cl6');
+            var cl7 = document.getElementById('cl7');
+            var cl8 = document.getElementById('cl8');
+            var cl9 = document.getElementById('cl9');
+            var cl10 = document.getElementById('cl10');
+            var cl11 = document.getElementById('cl11');
+
+            cl1.addEventListener('click', function () {
+                if (cl1.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl2.addEventListener('click', function () {
+                if (cl2.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl3.addEventListener('click', function () {
+                if (cl3.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl4.addEventListener('click', function () {
+                if (cl4.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl5.addEventListener('click', function () {
+                if (cl5.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl6.addEventListener('click', function () {
+                if (cl6.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl7.addEventListener('click', function () {
+                if (cl7.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl8.addEventListener('click', function () {
+                if (cl8.checked) {
+                    cl9.disabled = true;
+                } else {
+                    cl9.disabled = false;
+                }
+            })
+            cl9.addEventListener('click', function () {
+                if (cl9.checked) {
+                    cl1.disabled = true;
+                    cl2.disabled = true;
+                    cl3.disabled = true;
+                    cl4.disabled = true;
+                    cl5.disabled = true;
+                    cl6.disabled = true;
+                    cl7.disabled = true;
+                    cl8.disabled = true;
+                    cl10.disabled = true;
+                    cl11.disabled = true;
+                } else {
+                    cl1.disabled = false;
+                    cl2.disabled = false;
+                    cl3.disabled = false;
+                    cl4.disabled = false;
+                    cl5.disabled = false;
+                    cl6.disabled = false;
+                    cl7.disabled = false;
+                    cl8.disabled = false;
+                    cl10.disabled = false;
+                }
+            })
+            cl10.addEventListener('click', function () {
+                if (cl10.checked) {
+                    cl11.disabled = false;
+                } else {
+                    cl11.disabled = true;
+                }
+            })
+
+            var pl1 = document.getElementById('pl1');
+            var pl2 = document.getElementById('pl2');
+            var pl3 = document.getElementById('pl3');
+
+            pl2.addEventListener('click', function () {
+                if (pl2.checked) {
+                    pl3.disabled = true;
+                } else {
+                    pl3.disabled = false;
+                }
+            })
+            pl1.addEventListener('click', function () {
+                if (pl1.checked) {
+                    pl3.disabled = false;
+                } else {
+                    pl3.disabled = true;
+                }
+            })
+
+            var ds1 = document.getElementById('ds1');
+            var ds2 = document.getElementById('ds2');
+            var ds3 = document.getElementById('ds3');
+            var ds4 = document.getElementById('ds4');
+            var ds5 = document.getElementById('ds5');
+            var ds6 = document.getElementById('ds6');
+            var ds7 = document.getElementById('ds7');
+            var ds8 = document.getElementById('ds8');
+            var ds9 = document.getElementById('ds9');
+            var ds10 = document.getElementById('ds10');
+            var ds11 = document.getElementById('ds11');
+            var ds12 = document.getElementById('ds12');
+            var ds13 = document.getElementById('ds13');
+            var ds14 = document.getElementById('ds14');
+            var ds15 = document.getElementById('ds15');
+
+            ds13.addEventListener('click', function () {
+                if (ds13.checked) {
+                    ds1.disabled = true;
+                    ds2.disabled = true;
+                    ds3.disabled = true;
+                    ds4.disabled = true;
+                    ds5.disabled = true;
+                    ds6.disabled = true;
+                    ds7.disabled = true;
+                    ds8.disabled = true;
+                    ds9.disabled = true;
+                    ds10.disabled = true;
+                    ds11.disabled = true;
+                    ds12.disabled = true;
+                    ds14.disabled = true;
+                    ds15.disabled = true;
+                } else {
+                    ds1.disabled = false;
+                    ds2.disabled = false;
+                    ds3.disabled = false;
+                    ds4.disabled = false;
+                    ds5.disabled = false;
+                    ds6.disabled = false;
+                    ds7.disabled = false;
+                    ds8.disabled = false;
+                    ds9.disabled = false;
+                    ds10.disabled = false;
+                    ds11.disabled = false;
+                    ds12.disabled = false;
+                    ds14.disabled = false;
+                    ds15.disabled = true;
+                }
+            })
+
+            ds14.addEventListener('click', function () {
+                if (ds14.checked) {
+                    ds15.disabled = false;
+                } else {
+                    ds15.disabled = true;
+                }
+            })
+
+            var e1 = document.getElementById('e1');
+            var e2 = document.getElementById('e2');
+            var e3 = document.getElementById('e3');
+            var e4 = document.getElementById('e4');
+            var e5 = document.getElementById('e5');
+            var e6 = document.getElementById('e6');
+            var e7 = document.getElementById('e7');
+            var e8 = document.getElementById('e8');
+            var e9 = document.getElementById('e9');
+            var e10 = document.getElementById('e10');
+            var e11 = document.getElementById('e11');
+            var e12 = document.getElementById('e12');
+            var e13 = document.getElementById('e13');
+            var e14 = document.getElementById('e14');
+
+            e12.addEventListener('click', function () {
+                if (e12.checked) {
+                    e1.disabled = true;
+                    e2.disabled = true;
+                    e3.disabled = true;
+                    e4.disabled = true;
+                    e5.disabled = true;
+                    e6.disabled = true;
+                    e7.disabled = true;
+                    e8.disabled = true;
+                    e9.disabled = true;
+                    e10.disabled = true;
+                    e11.disabled = true;
+                    e13.disabled = true;
+                    e14.disabled = true;
+                } else {
+                    e1.disabled = false;
+                    e2.disabled = false;
+                    e3.disabled = false;
+                    e4.disabled = false;
+                    e5.disabled = false;
+                    e6.disabled = false;
+                    e7.disabled = false;
+                    e8.disabled = false;
+                    e9.disabled = false;
+                    e10.disabled = false;
+                    e11.disabled = false;
+                    e13.disabled = false;
+                    e14.disabled = true;
+                }
+            })
+            e13.addEventListener('click', function () {
+                if (e13.checked) {
+                    e14.disabled = false;
+                } else {
+                    e14.disabled = true;
+                }
+            })
+
+            var t1 = document.getElementById('t1');
+            var t2 = document.getElementById('t2');
+            var t3 = document.getElementById('t3');
+
+            t2.addEventListener('click', function () {
+                if (t2.checked) {
+                    t3.disabled = true;
+                }
+            })
+            t1.addEventListener('click', function () {
+                if (t1.checked) {
+                    t3.disabled = false;
+                }
+            })
+
+            var m1 = document.getElementById('m1');
+            var m2 = document.getElementById('m2');
+            var m3 = document.getElementById('m3');
+
+            m2.addEventListener('click', function () {
+                if (m2.checked) {
+                    m3.disabled = true;
+                }
+            })
+            m1.addEventListener('click', function () {
+                if (m1.checked) {
+                    m3.disabled = false;
+                }
+            })
+
+            var al1 = document.getElementById('al1');
+            var al2 = document.getElementById('al2');
+            var al3 = document.getElementById('al3');
+            var al4 = document.getElementById('al4');
+            var al5 = document.getElementById('al5');
+
+            al4.addEventListener('click', function () {
+                if (al4.checked) {
+                    al5.disabled = false;
+                }
+            })
+
+            var p1 = document.getElementById('p1');
+            var p2 = document.getElementById('p2');
+            var p3 = document.getElementById('p3');
+            var p4 = document.getElementById('p4');
+            var p5 = document.getElementById('p5');
+            var p6 = document.getElementById('p6');
+            var p7 = document.getElementById('p7');
+            var p8 = document.getElementById('p8');
+
+            p6.addEventListener('click', function () {
+                if (p6.checked) {
+                    p1.disabled = true;
+                    p2.disabled = true;
+                    p3.disabled = true;
+                    p4.disabled = true;
+                    p5.disabled = true;
+                    p7.disabled = true;
+                    p8.disabled = true;
+                } else {
+                    p1.disabled = false;
+                    p2.disabled = false;
+                    p3.disabled = false;
+                    p4.disabled = false;
+                    p5.disabled = false;
+                    p7.disabled = false;
+                }
+            })
+            p7.addEventListener('click', function () {
+                if (p7.checked) {
+                    p8.disabled = false;
+                } else {
+                    p8.disabled = true;
+                }
+            })
+            
+            var r1 = document.getElementById('r1');
+            var r2 = document.getElementById('r2');
+            var r3 = document.getElementById('r3');
+            r2.addEventListener('click', function(){
+                if(r2.checked){
+                    r3.disabled = true;
+                }
+            })
+            r1.addEventListener('click', function(){
+                if(r1.checked){
+                    r3.disabled = false;
+                }
+            })
+            
+            var ev1 = document.getElementById('ev1');
+            var ev2 = document.getElementById('ev2');
+            var ev3 = document.getElementById('ev3');
+            
+            ev2.addEventListener('click', function(){
+                if(ev2.checked){
+                    ev3.disabled = false;
+                }
+            })
+            ev1.addEventListener('click', function(){
+                if(ev1.checked){
+                    ev3.disabled = true;
+                }
+            })
+            
+            var ap1 = document.getElementById('ap1');
+            var ap2 = document.getElementById('ap2');
+            var ap3 = document.getElementById('ap3');
+            var ap4 = document.getElementById('ap4');
+            var ap5 = document.getElementById('ap5');
+            var ap6 = document.getElementById('ap6');
+            var ap7 = document.getElementById('ap7');
+            var ap8 = document.getElementById('ap8');
+            var ap9 = document.getElementById('ap9');
+            var ap10 = document.getElementById('ap10');
+            
+            ap8.addEventListener('click', function(){
+                if(ap8.checked){
+                    ap1.disabled = true;
+                    ap2.disabled = true;
+                    ap3.disabled = true;
+                    ap4.disabled = true;
+                    ap5.disabled = true;
+                    ap6.disabled = true;
+                    ap7.disabled = true;
+                    ap9.disabled = true;
+                }else{
+                    ap1.disabled = false;
+                    ap2.disabled = false;
+                    ap3.disabled = false;
+                    ap4.disabled = false;
+                    ap5.disabled = false;
+                    ap6.disabled = false;
+                    ap7.disabled = false;
+                    ap9.disabled = false;
+                }
+            })
+            ap9.addEventListener('click', function(){
+                if(ap9.checked){
+                    ap10.disabled = false;
+                }else{
+                    ap10.disabled = true;
+                }
+            })
+            
+            var am1 = document.getElementById('am1');
+            var am2 = document.getElementById('am2');
+            var am3 = document.getElementById('am3');
+            var am4 = document.getElementById('am4');
+            var am5 = document.getElementById('am5');
+            var am6 = document.getElementById('am6');
+            
+            am4.addEventListener('click', function(){
+                if(am4.checked){
+                    am1.disabled = true;
+                    am2.disabled = true;
+                    am3.disabled = true;
+                    am5.disabled = true;
+                }else{
+                    am1.disabled = false;
+                    am2.disabled = false;
+                    am3.disabled = false;
+                    am5.disabled = false;
+                }
+            })
+            am5.addEventListener('click', function(){
+                if(am5.checked){
+                    am6.disabled = false;
+                }else{
+                    am6.disabled = true;
+                }
+            })
+            
+            
+            const h1 = document.getElementById('h1');
+            function humor(){
+                var selectH = document.getElementById('humor').value;
+                if(selectH == 10){
+                    h1.disabled = false;
+                }else{
+                    h1.disabled = true;
+                }
+            }
+            
+            const vM1 = document.getElementById('vM1');
+            function vaMal(){
+                var selectM = document.getElementById('vaMal').value;
+                if(selectM == 4){
+                    vM1.disabled = false;
+                }else{
+                    vM1.disabled = true;
+                }
+            }
+            
+            const vB1 = document.getElementById('vB1');
+            function vaBien(){
+                var selectB = document.getElementById('vaBien').value;
+                if(selectB == 8){
+                    vB1.disabled = false;
+                }else{
+                    vB1.disabled = true;
+                }
+            }
+            
+            $(document).ready(function (){
+                $('#humor').change(function(){humor();});
+                $('#vaMal').change(function(){vaMal();});
+                $('#vaBien').change(function(){vaBien();})
+            });
+            
         </script>
     </body>
 </html>
