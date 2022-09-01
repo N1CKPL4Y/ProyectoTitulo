@@ -48,6 +48,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
     </head>
     <body>
         <div class="sidebar ">
@@ -99,7 +101,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <div class="row">
                     <div class="col s10 offset-s1">
                         <div class="card" style="border-radius: 10px">
-                            <h4 style="padding-top: 10px; padding-left: 10px">Ingresar nuevo Beneficiario</h4>
+                            <h4 style="padding-top: 10px; padding-left: 10px" class="center">Ingresar nuevo Beneficiario</h4>
                             <div class="row">
                                 <form method="post" action="controller/controllerIngreso.php" enctype="multipart/form-data">
                                     <div class="col s12">
@@ -153,7 +155,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 10px">
+                                                            <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 10px" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                             <label class="active" for="rut">R.U.T Beneficiario</label>
                                                         </div>
                                                         <div class="input-field col s6">
@@ -280,7 +282,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s12">
-                                                                <input id="rutT" type="text" name="txt_rtutor" class="validate" style="background-color: white; border-radius: 10px">
+                                                                <input id="rutT" type="text" name="txt_rtutor" class="validate" style="background-color: white; border-radius: 10px" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                                 <label class="active" for="rutT">R.U.T del tutor</label>
                                                             </div>
                                                         </div>
@@ -333,6 +335,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label class="active" for="correo">Indique el correo del tutor</label>
                                                         </div>
                                                     </div>
+                                                    <span id="emailVal"></span>
                                                     <div class="row">
                                                         <h6 class="col s6">¿El tutor vive con el beneficiario?</h6>
                                                     </div>
@@ -350,19 +353,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </label>
                                                         </p>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s10">
-                                                                <input id="direccionT" type="text" name="txt_direTutor" class="validate" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="direccionT">Indique la direccion del tutor</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="input-field col s6">
-                                                                <input id="comuT" type="text" name="txt_comuTutor" class="validate" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="comuT">Comuna</label>
-                                                            </div>
-                                                        </div>
+                                                    <div class="row dirTutor">
+                                                        
                                                     </div>
                                                     <div class="row">
                                                         <h6 class="col s5">Indique el sistema de salud</h6>
@@ -777,6 +769,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 })
             })
         </script>
+        <script type="text/javascript">
+            $(function () {
+                $("input#rut").rut({
+                    formatOn: 'keyup',
+                    minimumLength: 8, // validar largo mínimo; default: 2
+                    validateOn: 'change' // si no se quiere validar, pasar null
+                });
+
+                var input = document.getElementById('rut');
+                input.addEventListener('input', function () {
+                    if (this.value.length >= 13)
+                        this.value = this.value.slice(0, 12);
+                })
+            })
+            $(function () {
+                $("input#rutT").rut({
+                    formatOn: 'keyup',
+                    minimumLength: 8, // validar largo mínimo; default: 2
+                    validateOn: 'change' // si no se quiere validar, pasar null
+                });
+
+                var input = document.getElementById('rutT');
+                input.addEventListener('input', function () {
+                    if (this.value.length >= 13)
+                        this.value = this.value.slice(0, 12);
+                })
+            })
+            document.getElementById('correo').addEventListener('input', function () {
+                campo = event.target;
+                valido = document.getElementById('emailVal');
+                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+
+                if (emailRegex.test(campo.value)) {
+                    valido.innerText = "Correo válido";
+                } else {
+                    valido.innerText = "Correo no válido";
+                }
+            }
+            );
+        </script>
         <script>
             function pensiones() {
 
@@ -944,8 +977,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 }
             }
-
-
         </script>
     </body>
 </html>
