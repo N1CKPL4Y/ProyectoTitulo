@@ -1,4 +1,4 @@
-    <?php
+<?php
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once 'Model_Data.php';
@@ -100,12 +100,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="card" style="border-radius: 10px">
                             <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro de entrevistas</h4>
                             <div class="row">
-                                <form method="post">
+                                <form method="post" name="datosUser">
                                     <div class="col s6">
                                         <div class="row-centered">
                                             <div class="col s6">
                                                 <div class="input-field col s12" style="background-color: #E6E6E6; border-radius: 10px">
-                                                    <input id="rut_b" type="text" name="txt_rutB" class="validate">
+                                                    <input id="rut_b" type="text" name="txt_rutB" class="validate" onchange="javascript:return Rut(document.datosUser.txt_rutB.value)">
                                                     <label class="active" for="rut_b">R.U.T del beneficiario</label>
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="row-centered">
                                     <div class="col s4">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="rut_b1" type="text" name="txt_rutB1" class="validate" readonly="true" >
+                                            <input id="rut_b1" type="text" name="txt_rutB1" class="validate" readonly="true">
                                             <label class="active" for="rut_b1">R.U.T del beneficiario</label>
                                         </div>
                                     </div>
@@ -223,7 +223,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                 </div>
                                 <form>
                                     <ul class="collapsible">
@@ -516,8 +516,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <div class="row">
                                                             <div class="input-field col s12">
-                                                                <input id="otro" type="text" name="txt_otro" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="otro">Indique</label>
+                                                                <input id="sintoma14" type="text" name="txt_otro" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
+                                                                <label class="active" for="sintoma14">Indique</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2270,39 +2270,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="row">
                                                     <div class="col s6">
                                                         <h6 class="col s12">Su hijo cuenta con un ambiente fisico y emocional adecuado para su aprendizaje</h6>
-                                                        <p>
-                                                            <label>
-                                                                <input id="am1" type="checkbox"/>
-                                                                <span>Ambos</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input id="am2" type="checkbox"/>
-                                                                <span>Solo Fisico (espacios, materiales, ventilación, luminosidad, etc)</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input id="am3" type="checkbox"/>
-                                                                <span>Solo Emocional (Tranquilidad, Comprensión, etc)</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input id="am4" type="checkbox"/>
-                                                                <span>Ninguno</span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <label>
-                                                                <input id="am5" type="checkbox"/>
-                                                                <span>Otro:</span>
-                                                            </label>
-                                                        </p>
-                                                        <div class="input-field col s12">
-                                                            <input id="am6" type="text" name="otro4" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="am6">Indique otro</label>
+                                                        <div class="row">
+                                                            <p class="col s12" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" id="am1" name="ambiente" type="radio"  />
+                                                                    <span>Ambos</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p class="col s12" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" id="am2" name="ambiente" type="radio"  />
+                                                                    <span>Solo fisico (espacios, materiales, ventilación, luminosidad, etc)</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p class="col s12" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" id="am3" name="ambiente" type="radio"  />
+                                                                    <span>Solo emocional (Tranquilidad, Comprensión, etc)</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p class="col s12" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" id="am4" name="ambiente" type="radio"  />
+                                                                    <span>Ninguno</span>
+                                                                </label>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2477,16 +2475,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             var sintoma11 = document.getElementById('sintoma11');
             var sintoma12 = document.getElementById('sintoma12');
             var sintoma13 = document.getElementById('sintoma13');
-            var otro = document.getElementById('otro');
+            var sintoma14 = document.getElementById('sintoma14');
 
             //script para input "se;ale si antes de que cumpliera un a;o...."
-            sintoma13.addEventListener('click', function () {
-                if (sintoma13.checked) {
-                    otro.disabled = false;
+            sintoma12.addEventListener('click', function () {
+                if (sintoma12.checked) {
+                    sintoma1.disabled = true;
+                    sintoma2.disabled = true;
+                    sintoma3.disabled = true;
+                    sintoma4.disabled = true;
+                    sintoma5.disabled = true;
+                    sintoma6.disabled = true;
+                    sintoma7.disabled = true;
+                    sintoma8.disabled = true;
+                    sintoma9.disabled = true;
+                    sintoma10.disabled = true;
+                    sintoma11.disabled = true;
+                    sintoma13.disabled = true;
+                    sintoma1.checked = false;
+                    sintoma2.checked = false;
+                    sintoma3.checked = false;
+                    sintoma4.checked = false;
+                    sintoma5.checked = false;
+                    sintoma6.checked = false;
+                    sintoma7.checked = false;
+                    sintoma8.checked = false;
+                    sintoma9.checked = false;
+                    sintoma10.checked = false;
+                    sintoma11.checked = false;
+                    sintoma13.checked = false;
                 } else {
-                    otro.disabled = true;
+                    sintoma1.disabled = false;
+                    sintoma2.disabled = false;
+                    sintoma3.disabled = false;
+                    sintoma4.disabled = false;
+                    sintoma5.disabled = false;
+                    sintoma6.disabled = false;
+                    sintoma7.disabled = false;
+                    sintoma8.disabled = false;
+                    sintoma9.disabled = false;
+                    sintoma10.disabled = false;
+                    sintoma11.disabled = false;
+                    sintoma13.disabled = false;
                 }
             })
+            sintoma13.addEventListener('click', function () {
+                if (sintoma13.checked) {
+                    sintoma14.disabled = false;
+                } else {
+                    sintoma14.disabled = true;
+                }
+            })
+
+
 
             var siA = document.getElementById('siA');
             var noA = document.getElementById('noA');
@@ -2524,6 +2565,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     mf4.disabled = true;
                     mf5.disabled = true;
                     mf6.disabled = true;
+                    mf1.checked = false;
+                    mf2.checked = false;
+                    mf3.checked = false;
+                    mf4.checked = false;
+                    mf5.checked = false;
+                    mf6.checked = false;
                 } else {
                     mf1.disabled = false;
                     mf2.disabled = false;
@@ -2592,6 +2639,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     sc4.disabled = true;
                     sc5.disabled = true;
                     sc6.disabled = true;
+                    sc1.checked = false;
+                    sc2.checked = false;
+                    sc3.checked = false;
+                    sc4.checked = false;
+                    sc5.checked = false;
+                    sc6.checked = false;
                 } else {
                     sc1.disabled = false;
                     sc2.disabled = false;
@@ -2738,6 +2791,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     d3.disabled = true;
                     d5.disabled = true;
                     d6.disabled = true;
+                    d1.checked = false;
+                    d2.checked = false;
+                    d3.checked = false;
+                    d5.checked = false;
+                    d6.checked = false;
                 } else {
                     d1.disabled = false;
                     d2.disabled = false;
@@ -2918,6 +2976,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     dc7.disabled = true;
                     dc9.disabled = true;
                     dc10.disabled = true;
+                    dc1.checked = false;
+                    dc2.checked = false;
+                    dc3.checked = false;
+                    dc4.checked = false;
+                    dc5.checked = false;
+                    dc6.checked = false;
+                    dc7.checked = false;
+                    dc9.checked = false;
+                    dc10.checked = false;
                 } else {
                     dc1.disabled = false;
                     dc2.disabled = false;
@@ -3018,6 +3085,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     cl8.disabled = true;
                     cl10.disabled = true;
                     cl11.disabled = true;
+                    cl1.checked = false;
+                    cl2.checked = false;
+                    cl3.checked = false;
+                    cl4.checked = false;
+                    cl5.checked = false;
+                    cl6.checked = false;
+                    cl7.checked = false;
+                    cl8.checked = false;
+                    cl10.checked = false;
+                    cl11.checked = false;
                 } else {
                     cl1.disabled = false;
                     cl2.disabled = false;
@@ -3089,6 +3166,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     ds12.disabled = true;
                     ds14.disabled = true;
                     ds15.disabled = true;
+                    ds1.checked = false;
+                    ds2.checked = false;
+                    ds3.checked = false;
+                    ds4.checked = false;
+                    ds5.checked = false;
+                    ds6.checked = false;
+                    ds7.checked = false;
+                    ds8.checked = false;
+                    ds9.checked = false;
+                    ds10.checked = false;
+                    ds11.checked = false;
+                    ds12.checked = false;
+                    ds14.checked = false;
+                    ds15.checked = false;
                 } else {
                     ds1.disabled = false;
                     ds2.disabled = false;
@@ -3145,6 +3236,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     e11.disabled = true;
                     e13.disabled = true;
                     e14.disabled = true;
+                    e1.checked = false;
+                    e2.checked = false;
+                    e3.checked = false;
+                    e4.checked = false;
+                    e5.checked = false;
+                    e6.checked = false;
+                    e7.checked = false;
+                    e8.checked = false;
+                    e9.checked = false;
+                    e10.checked = false;
+                    e11.checked = false;
+                    e13.checked = false;
+                    e14.checked = false;
                 } else {
                     e1.disabled = false;
                     e2.disabled = false;
@@ -3229,6 +3333,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     p5.disabled = true;
                     p7.disabled = true;
                     p8.disabled = true;
+                    p1.checked = false;
+                    p2.checked = false;
+                    p3.checked = false;
+                    p4.checked = false;
+                    p5.checked = false;
+                    p7.checked = false;
+                    p8.checked = false;
                 } else {
                     p1.disabled = false;
                     p2.disabled = false;
@@ -3245,36 +3356,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     p8.disabled = true;
                 }
             })
-            
+
             var r1 = document.getElementById('r1');
             var r2 = document.getElementById('r2');
             var r3 = document.getElementById('r3');
-            r2.addEventListener('click', function(){
-                if(r2.checked){
+            r2.addEventListener('click', function () {
+                if (r2.checked) {
                     r3.disabled = true;
                 }
             })
-            r1.addEventListener('click', function(){
-                if(r1.checked){
+            r1.addEventListener('click', function () {
+                if (r1.checked) {
                     r3.disabled = false;
                 }
             })
-            
+
             var ev1 = document.getElementById('ev1');
             var ev2 = document.getElementById('ev2');
             var ev3 = document.getElementById('ev3');
-            
-            ev2.addEventListener('click', function(){
-                if(ev2.checked){
+
+            ev2.addEventListener('click', function () {
+                if (ev2.checked) {
                     ev3.disabled = false;
                 }
             })
-            ev1.addEventListener('click', function(){
-                if(ev1.checked){
+            ev1.addEventListener('click', function () {
+                if (ev1.checked) {
                     ev3.disabled = true;
                 }
             })
-            
+
             var ap1 = document.getElementById('ap1');
             var ap2 = document.getElementById('ap2');
             var ap3 = document.getElementById('ap3');
@@ -3285,9 +3396,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             var ap8 = document.getElementById('ap8');
             var ap9 = document.getElementById('ap9');
             var ap10 = document.getElementById('ap10');
-            
-            ap8.addEventListener('click', function(){
-                if(ap8.checked){
+
+            ap8.addEventListener('click', function () {
+                if (ap8.checked) {
                     ap1.disabled = true;
                     ap2.disabled = true;
                     ap3.disabled = true;
@@ -3296,7 +3407,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     ap6.disabled = true;
                     ap7.disabled = true;
                     ap9.disabled = true;
-                }else{
+                } else {
                     ap1.disabled = false;
                     ap2.disabled = false;
                     ap3.disabled = false;
@@ -3307,79 +3418,72 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     ap9.disabled = false;
                 }
             })
-            ap9.addEventListener('click', function(){
-                if(ap9.checked){
+            ap9.addEventListener('click', function () {
+                if (ap9.checked) {
                     ap10.disabled = false;
-                }else{
+                } else {
                     ap10.disabled = true;
                 }
             })
-            
-            var am1 = document.getElementById('am1');
-            var am2 = document.getElementById('am2');
-            var am3 = document.getElementById('am3');
-            var am4 = document.getElementById('am4');
-            var am5 = document.getElementById('am5');
-            var am6 = document.getElementById('am6');
-            
-            am4.addEventListener('click', function(){
-                if(am4.checked){
-                    am1.disabled = true;
-                    am2.disabled = true;
-                    am3.disabled = true;
-                    am5.disabled = true;
-                }else{
-                    am1.disabled = false;
-                    am2.disabled = false;
-                    am3.disabled = false;
-                    am5.disabled = false;
-                }
-            })
-            am5.addEventListener('click', function(){
-                if(am5.checked){
-                    am6.disabled = false;
-                }else{
-                    am6.disabled = true;
-                }
-            })
-            
-            
+
+
             const h1 = document.getElementById('h1');
-            function humor(){
+            function humor() {
                 var selectH = document.getElementById('humor').value;
-                if(selectH == 10){
+                if (selectH == 10) {
                     h1.disabled = false;
-                }else{
+                } else {
                     h1.disabled = true;
                 }
             }
-            
+
             const vM1 = document.getElementById('vM1');
-            function vaMal(){
+            function vaMal() {
                 var selectM = document.getElementById('vaMal').value;
-                if(selectM == 4){
+                if (selectM == 4) {
                     vM1.disabled = false;
-                }else{
+                } else {
                     vM1.disabled = true;
                 }
             }
-            
+
             const vB1 = document.getElementById('vB1');
-            function vaBien(){
+            function vaBien() {
                 var selectB = document.getElementById('vaBien').value;
-                if(selectB == 8){
+                if (selectB == 8) {
                     vB1.disabled = false;
-                }else{
+                } else {
                     vB1.disabled = true;
                 }
             }
-            
-            $(document).ready(function (){
-                $('#humor').change(function(){humor();});
-                $('#vaMal').change(function(){vaMal();});
-                $('#vaBien').change(function(){vaBien();})
+
+            $(document).ready(function () {
+                $('#humor').change(function () {
+                    humor();
+                });
+                $('#vaMal').change(function () {
+                    vaMal();
+                });
+                $('#vaBien').change(function () {
+                    vaBien();
+                })
             });
-            
+
+        </script>
+        <script>
+            $(function () {
+                $("input#rut").rut({
+                    formatOn: 'keyup',
+                    minimumLength: 8, // validar largo mínimo; default: 2
+                    validateOn: 'change' // si no se quiere validar, pasar null
+                });
+
+                var input = document.getElementById('rut_b');
+                input.addEventListener('input', function () {
+                    if (this.value.length >= 13)
+                        this.value = this.value.slice(0, 12);
+                })
+            })
         </script>
     </body>
 </html>

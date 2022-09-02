@@ -6919,12 +6919,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + span:after,
 [type="radio"].with-gap:checked + span:before,
 [type="radio"].with-gap:checked + span:after {
-    border: 2px solid #CDD60F;
+    border: 2px solid #558b2f;
 }
 
 [type="radio"]:checked + span:after,
 [type="radio"].with-gap:checked + span:after {
-    background-color: #CDD60F;
+    background-color: #558b2f;
 }
 
 [type="radio"]:checked + span:after {
@@ -7012,7 +7012,7 @@ textarea.materialize-textarea {
     width: 18px;
     height: 18px;
     z-index: 0;
-    border: 2px solid #5a5a5a;
+    border: 2px solid #558b2f;
     border-radius: 1px;
     margin-top: 3px;
     -webkit-transition: .2s;
@@ -7028,7 +7028,7 @@ textarea.materialize-textarea {
 
 [type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
     border: none;
-    background-color: rgba(205, 214, 15, 1);
+    background-color: rgba(85, 139, 47, 1);
 }
 
 [type="checkbox"].tabbed:focus + span:not(.lever):after {
@@ -7048,8 +7048,8 @@ textarea.materialize-textarea {
     height: 22px;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
-    border-right: 2px solid #CDD60F;
-    border-bottom: 2px solid #CDD60F;
+    border-right: 2px solid #558b2f;
+    border-bottom: 2px solid #558b2f;
     -webkit-transform: rotate(40deg);
     transform: rotate(40deg);
     -webkit-backface-visibility: hidden;
