@@ -219,8 +219,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col s6">
                                                             <div class="col s12" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_condicion" class="condicion">
-                                                                    <option value="" id="options">Seleccione</option>
+                                                                <select name="cbo_condicion">
+                                                                    <option value="0" id="options">Seleccione</option>
                                                                     <?php
                                                                     $condiciones = $data->getAllCondition();
 
@@ -239,7 +239,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s5" style="background-color: white; border-radius: 10px">
-                                                            <select name="cbo_especialista">
+                                                            <select name="cbo_especialista" class="condicion">
                                                                 <option value="" disabled selected>Seleccione</option>
                                                                 <option value="1">Neurologo</option>
                                                                 <option value="2">Psicologo</option>

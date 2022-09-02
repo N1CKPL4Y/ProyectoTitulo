@@ -35,7 +35,6 @@ $comuna = isset($_POST['txt_comuna']) ? $_POST['txt_comuna'] : null;
 
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
 
-
 if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
     echo "Ha ocurrido un error.";
 } else {
@@ -79,7 +78,6 @@ $condicion = isset($_POST['cbo_condicion']) ? $_POST['cbo_condicion'] : null;
 $especialista = isset($_POST['cbo_especialista']) ? $_POST['cbo_especialista'] : null;
 $fecha_control = isset($_POST['txt_control']) ? $_POST['txt_control'] : null;
 $data_control;
-
 
 if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
     echo "Ha ocurrido un error.";
