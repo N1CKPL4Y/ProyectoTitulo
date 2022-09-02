@@ -81,7 +81,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name"><?php echo $area_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out"></i></a>
+                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
                     </div>
                 </li>
             </ul>
@@ -107,11 +107,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="row-centered">
                                             <div class="col s6">
                                                 <div class="input-field col s12" style="background-color: #E6E6E6; border-radius: 10px">
-                                                    <input id="rut_b" type="text" name="txt_rut" class="validate" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                    <input id="rut_b" type="text" name="txt_rut" class="validate" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                     <label class="active" for="rut_b">R.U.T del beneficiario</label>
                                                 </div>
+                                                <div class="row-centered">
+                                                    <span style="color: grey; font-size: 13px">Si el R.U.T termina con K, reemplacelo con un 0.</span>
+                                                </div>
                                             </div>
-                                            <div class="col s5">
+                                            <div class="col s4">
                                                 <div class="input-field col s12">
                                                     <button class="btn waves-effect light-green darken-3" type="submit" name="buscar">Buscar</button>
                                                 </div>

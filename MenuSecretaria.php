@@ -189,6 +189,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                 <input class="file-path validate" type="text">
                                                             </div>
+                                                            <span style="color: grey">Debe ser en formato Imagen</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -259,6 +260,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                 <input class="file-path validate diag" type="text">
                                                             </div>
+                                                            <span style="color: grey">Debe ser en formato PDF</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -301,6 +303,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                     <input class="file-path validate" type="text">
                                                                 </div>
+                                                                <span style="color: grey">Debe ser en formato Imagen</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -497,6 +500,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                     <input class="file-path validate numCred" type="text">
                                                                 </div>
+                                                                <span style="color: grey">Debe ser en formato Imagen</span>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
@@ -509,6 +513,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                     <input class="file-path validate numCred" type="text">
                                                                 </div>
+                                                                <span style="color: grey">Debe ser en formato Imagen</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -688,6 +693,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                 <input class="file-path validate" type="text">
                                                             </div>
+                                                            <span style="color: grey">Debe ser en formato PDF</span>
                                                         </div>
                                                     </div>
                                                 </div>
