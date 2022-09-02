@@ -53,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="#">
+                    <a href="listUsuarios.php">
                         <i class='bx bx-user' ></i>
                         <span class="links_name">Usuarios</span>
                     </a>

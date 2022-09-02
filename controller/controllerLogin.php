@@ -77,7 +77,7 @@
             function Error() {
                 swal({
                     title: "ERROR",
-                    text: "El R.U.T y/o contraseña incorrectas, intentelo de nuevo",
+                    text: " Usuario desactivado o el R.U.T y/o contraseña incorrectas, intentelo de nuevo",
                     type: "error",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
@@ -116,35 +116,45 @@ if ($rut && $pass) {
             $_SESSION['tipo_u'] = $key['t_user'];
             $_SESSION['area_u'] = $key['a_user'];
             $_SESSION['cargo'] = $key['cargo'];
+            $_SESSION['activo'] = $key['activo'];
         }
 
         //echo '<script language="javascript">alert("Bienvenida");window.location.href="../MenuPrincipal.php"</script>';
 
-        switch ($_SESSION['tipo_u']) {
+        switch ($_SESSION['activo']) {
             case 1:
-                echo '<script>Admin();</script>';
-                break;
-            case 2:
-                switch ($_SESSION['cargo']) {
+                switch ($_SESSION['tipo_u']) {
                     case 1:
-                        echo '<script>Gerencia();</script>';
+                        echo '<script>Admin();</script>';
                         break;
                     case 2:
-                        echo '<script>Secretaria();</script>';
+                        switch ($_SESSION['cargo']) {
+                            case 1:
+                                echo '<script>Gerencia();</script>';
+                                break;
+                            case 2:
+                                echo '<script>Secretaria();</script>';
+                                break;
+                            case 3:
+                                echo '<script>Profesional();</script>';
+                                break;
+                            case 4:
+                                echo '<script>Practicante();</script>';
+                                break;
+                            default :
+                                break;
+                        }
                         break;
-                    case 3:
-                        echo '<script>Profesional();</script>';
-                        break;
-                    case 4:
-                        echo '<script>Practicante();</script>';
-                        break;
-                    default :
+                    default:
+                        echo 'header("location: ../index.php");';
                         break;
                 }
+            break;
+            case 0:
+                echo '<script>Error();</script>';
                 break;
             default:
                 echo 'header("location: ../index.php");';
-                break;
         }
     } else if (!$valid) {
         echo '<script>Error();</script>';
