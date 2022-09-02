@@ -151,7 +151,7 @@ if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
 
     if (in_array($_FILES['file_tutor']['type'], $permitidos) && $_FILES['file_tutor']['size'] <= $limite_kb * 1024) {
         // Archivo temporal
-        $imagen_temporal = $_FILES['file_control']['tmp_name'];
+        $imagen_temporal = $_FILES['file_tutor']['tmp_name'];
         // Tipo de archivo
         $tipo = $_FILES['file_tutor']['type'];
         // Leemos el contenido del archivo temporal en binario.
@@ -282,7 +282,7 @@ $hogar = isset($_POST['hogares']) ? $_POST['hogares'] : null;
 $porcentHogar = isset($_POST['txt_porcentHogar']) ? $_POST['txt_porcentHogar'] : null;
 $hogarFile;
 
-if (!isset($_FILES["file_Hogar"]) || $_FILES["file_confile_Hogartrol"]["error"] > 0) {
+if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
     echo "Ha ocurrido un error.";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
@@ -321,7 +321,10 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_confile_Hogartrol"]["error"] 
 }
 
 /////////////////////////////////Insercion de datos///////////////////////////
+
+
 $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar);
+$data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
 if ($pension==1) {
     $data->addPension($pension, $penBase, $subMental, $penSobre, $asgDuplo, $rut);
 }else{

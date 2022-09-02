@@ -125,8 +125,67 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             </div>
                             <?php
                             if (isset($_POST['buscar'])) {
-                                echo '
-                                    '
+
+                                $rutBuscado = isset($_POST['txt_rut']) ? $_POST['txt_rut'] : null;
+
+                                $beneficiario = $data->getBenefi($rutBuscado);
+                                $tutor = $data->getTutorForBen($rutBuscado);
+                                $diagValid = $data->getDiagValid($rutBuscado);
+                                $credencial = $data->getCreden($rutBuscado);
+
+                                $rutBd;
+                                $nombreBD;
+                                $apellidoBD;
+                                $fech_nacBD;
+                                $direccBD;
+                                $credenBD = 0;
+                                $diagBD;
+                                $profeBD;
+
+                                $rutTut;
+                                $nombTut;
+
+                                $teleTut;
+                                $corrTut;
+
+                                foreach ($beneficiario as $key) {
+                                    $rutBd = $key['RUT'];
+                                    $nombreBD = $key['nombre'];
+                                    $apellidoBD = $key['apellido'];
+                                    $fech_nacBD = $key['fecha_nac'];
+                                    $direccBD = $key['direccion'];
+                                }
+
+                                foreach ($tutor as $key2) {
+                                    $rutTut = $key2['RUT'];
+                                    $nombTut = $key2['nombre'];
+                                    $teleTut = $key2['telefono'];
+                                    $corrTut = $key2['email'];
+                                }
+
+
+                                if (!$credencial) {
+                                    $credenBD = "NO";
+                                } else {
+                                    $credenBD = "Si";
+                                }
+
+                                $diagnostico = $data->getDiagnostico($rutBuscado);
+
+                                if (!$diagValid) {
+                                    $diagBD = "NO posee diagnostico";
+                                    $profeBD = "N/A";
+                                } else {
+                                    foreach ($diagnostico as $key4) {
+
+                                        $condBD = $data->getConditionCode($key4['codigo']);
+                                        //echo '' . $data->getConditionCode($key4['codigo']);
+                                        foreach ($condBD as $value) {
+                                            $diagBD = $value['nombre'];
+                                        }
+                                        $profeBD = $key4['especialista'];
+                                    }
+                                }
                                 ?>
                                 <div class="row">
                                     <div class="col s6">
@@ -136,19 +195,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="row-centered">
                                     <div class="col s4">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="rut_b1" type="text" name="txt_rutB1" class="validate" readonly="true">
+                                            <input id="rut_b1" type="text" name="txt_rutB1" value="<?php echo $rutBd; ?>" class="validate" readonly="true">
                                             <label class="active" for="rut_b1">R.U.T del beneficiario</label>
                                         </div>
                                     </div>
                                     <div class="col s4">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="nombre1" type="text" name="txt_n1" class="validate" readonly="true">
+                                            <input id="nombre1" type="text" name="txt_n1" value="<?php echo $nombreBD ?>" class="validate" readonly="true">
                                             <label class="active" for="nombre1">Nombres del beneficiario</label>
                                         </div>
                                     </div>
                                     <div class="col s4">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="apellido1" type="text" name="txt_a1" class="validate" readonly="true">
+                                            <input id="apellido1" type="text" name="txt_a1" value="<?php echo $apellidoBD ?>" class="validate" readonly="true">
                                             <label class="active" for="apellido1">Apellidos del beneficiario</label>
                                         </div>
                                     </div>
@@ -156,12 +215,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="row-centered">
                                     <div class="col s4">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input placeholder="-- Fecha Nacimiento: --" name="txt_nac" type="text" class="datepicker" id="datepicker" required readonly="true">
+                                            <input placeholder="-- Fecha Nacimiento: --" name="txt_nac" value="<?php echo $fech_nacBD ?>" type="text" class="datepicker" id="datepicker" required readonly="true">
                                         </div>
                                     </div>
                                     <div class="col s6">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="direccion1" type="text" name="txt_dire" class="validate" readonly="true">
+                                            <input id="direccion1" type="text" name="txt_dire" value="<?php echo $direccBD ?>" class="validate" readonly="true">
                                             <label class="active" for="direccion1">Dirección del beneficiario</label>
                                         </div>
                                     </div>
@@ -169,13 +228,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="row-centered">
                                     <div class="col s6">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="cDis" type="text" name="txt_cDis" class="validate" readonly="true">
+                                            <input id="cDis" type="text" name="txt_cDis" value="<?php echo $credenBD ?>" class="validate" readonly="true">
                                             <label class="active" for="cDis">¿Cuenta con Credencial de discapacidad?</label>
                                         </div>
                                     </div>
                                     <div class="col s6">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="diag" type="text" name="txt_diag" class="validate" readonly="true">
+                                            <input id="diag" type="text" name="txt_diag" value="<?php echo $diagBD ?>" class="validate" readonly="true">
                                             <label class="active" for="diag">Diagnostico del beneficiario</label>
                                         </div>
                                     </div>
@@ -183,7 +242,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="row-centered">
                                     <div class="col s12">
                                         <div class="input-field col s6" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="deriva" type="text" name="txt_deriva" class="validate" readonly="true">
+                                            <input id="deriva" type="text" name="txt_deriva" value="<?php echo $profeBD ?>" class="validate" readonly="true">
                                             <label class="active" for="deriva">Profesional que lo deriva</label>
                                         </div>
                                     </div>
@@ -196,33 +255,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="row-centered">
                                     <div class="col s4">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="rut_tutor" type="text" name="txt_rutTutor" class="validate" readonly="true">
+                                            <input id="rut_tutor" type="text" name="txt_rutTutor" value="<?php echo $rutTut ?>" class="validate" readonly="true">
                                             <label class="active" for="rut_tutor">R.U.T del tutor</label>
                                         </div>
                                     </div>
-                                    <div class="col s4">
+                                    <div class="col s8">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="nombreT" type="text" name="txt_nT" class="validate" readonly="true">
-                                            <label class="active" for="nombreT">Nombres del tutor</label>
+                                            <input id="nombreT" type="text" name="txt_nT" value="<?php echo $nombTut ?>" class="validate" readonly="true">
+                                            <label class="active" for="nombreT">Nombre del tutor</label>
                                         </div>
                                     </div>
-                                    <div class="col s4">
-                                        <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="apellidoT" type="text" name="txt_aT" class="validate" readonly="true">
-                                            <label class="active" for="apellidoT">Apellidos del tutor</label>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="row-centered">
                                     <div class="col s6">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="telefonoT" type="text" name="txt_telefonoT" class="validate" readonly="true">
+                                            <input id="telefonoT" type="text" name="txt_telefonoT" value="<?php echo $teleTut ?>" class="validate" readonly="true">
                                             <label class="active" for="telefonoT">telefono del tutor</label>
                                         </div>
                                     </div>
                                     <div class="col s6">
                                         <div class="input-field col s10" style="background-color: #E6E6E6; border-radius: 10px">
-                                            <input id="emailT" type="text" name="txt_emailT" class="validate" readonly="true">
+                                            <input id="emailT" type="text" name="txt_emailT" value="<?php echo $corrTut ?>" class="validate" readonly="true">
                                             <label class="active" for="emailT">correo electronico del tutor</label>
                                         </div>
                                     </div>

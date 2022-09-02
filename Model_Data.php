@@ -85,6 +85,11 @@ class Data {
         $query = $this->con->query($sql);
     }
     
+    public function addGeneral($motivo,$derivacion,$atencion,$rut) {
+        $sql="INSERT INTO `datosgenerales` (`ID`, `motivo`, `derivacion`, `atencion`, `beneficiario`) VALUES (NULL, '$motivo', '$derivacion', '$atencion', '$rut');";
+        $query= $this->con->query($sql);
+    }
+    
     public function getBenefi($rut) {
         $sql = "SELECT * FROM beneficiario where RUT = '$rut'";
         $query = $this->con->query($sql);
@@ -97,8 +102,14 @@ class Data {
         return $query;
     }
     
+    public function getTutorForBen($rut) {
+        $sql = "SELECT * FROM tutor where  rut = (SELECT tutor from parentezco WHERE beneficiario = '$rut')";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
     public function getDiagnostico($rut) {
-        $sql = "SELECT * FROM diagnostico where beneficiario = (SELECT ID FROM beneficiario where RUT = '$rut')";
+        $sql = "SELECT * FROM diagnostico where beneficiario = '$rut';";
         $query = $this->con->query($sql);
         return $query;
     }
@@ -109,6 +120,39 @@ class Data {
         return $query;
     }
     
+    public function getConditionCode($code) {
+        $sql = "SELECT * FROM condicion where ID = '$code'";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getCreden($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM c_discapacidad
+	            WHERE beneficiario = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    
+    public function getDiagValid($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM diagnostico
+	            WHERE beneficiario = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
     
 }
 ?>

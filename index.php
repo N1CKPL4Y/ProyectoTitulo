@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="titulo">Iniciar sesión</span>
                     <form name="login" action="controller/controllerlogin.php" method="post" name="datosUser">
                         <div class="input-field">
-                            <input id="rut" type="text" name="txt_rut" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" placeholder="Rut"  required >
+                            <input id="rut" type="text" name="txt_rut" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" placeholder="Rut"  required >
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <span id="emailVal"></span>

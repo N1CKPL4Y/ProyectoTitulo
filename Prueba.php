@@ -10,7 +10,7 @@ include_once './Model_Data.php';
 $data = new Data();
 $conexion = $data->getConnection();
 
-$query = "SELECT * FROM `diagnostico` WHERE ID=2;";
+$query = "SELECT * FROM `diagnostico` WHERE ID=1;";
 
 $resul = $conexion->query($query) or die(mysql_error());
 

@@ -441,6 +441,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <option value="3">Sensorial Auditivo</option>
                                                                     <option value="4">Mental Psiquico</option>
                                                                     <option value="5">Mental Intelectual</option>
+                                                                    <option value="6">No aplica</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -453,6 +454,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <option value="3">Sensorial Auditivo</option>
                                                                     <option value="4">Mental Psiquico</option>
                                                                     <option value="5">Mental Intelectual</option>
+                                                                    <option value="6">No aplica</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -472,6 +474,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <option value="2">Moderado</option>
                                                                     <option value="3">Severo</option>
                                                                     <option value="4">Profundo</option>
+                                                                    <option value="5">No aplica</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -485,6 +488,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <option value="2">Moderado</option>
                                                                     <option value="3">Severo</option>
                                                                     <option value="4">Profundo</option>
+                                                                    <option value="5">No aplica</option>
                                                                 </select>
                                                             </div>
                                                         </div>
