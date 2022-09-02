@@ -48,6 +48,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
     </head>
     <body>
         <div class="sidebar ">
@@ -105,7 +107,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="row-centered">
                                             <div class="col s6">
                                                 <div class="input-field col s12" style="background-color: #E6E6E6; border-radius: 10px">
-                                                    <input id="rut_b" type="text" name="txt_rutB" class="validate" onchange="javascript:return Rut(document.datosUser.txt_rutB.value)">
+                                                    <input id="rut_b" type="text" name="txt_rut" class="validate" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                     <label class="active" for="rut_b">R.U.T del beneficiario</label>
                                                 </div>
                                             </div>
@@ -3472,7 +3474,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </script>
         <script>
             $(function () {
-                $("input#rut").rut({
+                $("input#rut_b").rut({
                     formatOn: 'keyup',
                     minimumLength: 8, // validar largo mínimo; default: 2
                     validateOn: 'change' // si no se quiere validar, pasar null
