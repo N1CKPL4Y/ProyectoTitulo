@@ -119,7 +119,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input id="derivacion" type="text" name="txt_derivacion" class="validate" style="background-color: white; border-radius: 10px">
                                                             <label class="active" for="derivacion">Derivación</label>
                                                         </div>
-                                                    </div>
+                                                    </div>  
                                                     <div class="row">
                                                         <h6 class="col s5">Seleccione el tipo de atencion:</h6>
                                                     </div>
@@ -132,7 +132,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                         <p class="col s5" style="background-color: white; border-radius: 10px">
                                                             <label>
-                                                                <input class="with-gap" value="2" name="t_atencion" type="radio"/>
+                                                                <input class="with-gap" value="0" name="t_atencion" type="radio"/>
                                                                 <span>Atención por programa pagado (Costo minimo asociado)</span>
                                                             </label>
                                                         </p>
@@ -205,28 +205,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col s5">
                                                             <p class="col s4" style="background-color: white; border-radius: 10px">
                                                                 <label>
-                                                                    <input class="with-gap" value="1" name="diagnostico" type="radio"/>
+                                                                    <input class="with-gap diagnostico" value="1" name="diagnostico" type="radio"/>
                                                                     <span>Si</span>
                                                                 </label>
                                                             </p>
                                                             <p class="col s4" style="background-color: white; border-radius: 10px">
                                                                 <label>
-                                                                    <input class="with-gap" value="2" name="diagnostico" type="radio"/>
+                                                                    <input class="with-gap diagnostico" value="0" name="diagnostico" type="radio"/>
                                                                     <span>No</span>
                                                                 </label>
                                                             </p>
                                                         </div>
                                                         <div class="col s6">
-                                                            <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_condicion">
-                                                                    <option value="" disabled selected>Seleccione</option>
+                                                            <div class="col s12" style="background-color: white; border-radius: 10px">
+                                                                <select name="cbo_condicion" class="condicion">
+                                                                    <option value="" id="options">Seleccione</option>
                                                                     <?php
                                                                     $condiciones = $data->getAllCondition();
 
                                                                     foreach ($condiciones as $key) {
-                                                                        echo '<option value="' . $key['ID'] . '">' . $key['nombre'] . '</option>';
+                                                                        echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
                                                                     }
                                                                     ?>
+                                                                    <option value="7" id="options">No posee un diagnostico</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -242,20 +243,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <option value="1">Neurologo</option>
                                                                 <option value="2">Psicologo</option>
                                                                 <option value="3">Otro</option>
+                                                                <option value="4">No posee Diagnostico</option>
                                                             </select>
                                                         </div>
                                                         <div class="input-field col s6" style="background-color: white; border-radius: 10px">
-                                                            <input placeholder="-- Seleccione: --" name="txt_control" type="text" class="datepicker" id="datepicker" required>
+                                                            <input placeholder="-- Seleccione: --" name="txt_control" type="text" class="datepicker diag" id="datepicker" required>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn light-green darken-3">
                                                                 <span>Copia informe ultimo control</span>
-                                                                <input type="file" name="file_control">
+                                                                <input type="file" class="diag" name="file_control">
                                                             </div>
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                <input class="file-path validate" type="text">
+                                                                <input class="file-path validate diag" type="text">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -902,7 +904,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $('.teleton').change(function () {
                     teleton();
                 });
+
+
+                $('.diagnostico').change(function () {
+                    diagnost();
+                });
             });
+
+            //const diag = document.querySelectorAll('#options');
+            //const sec = document.querySelector('.condicion');
+
+            const fecha = document.querySelectorAll('.diag');
+
+            function diagnost() {
+                var condi = $("input[type=radio][name=diagnostico]").filter(":checked")[0];
+
+                if (condi.value == 1) {
+                    console.log('Funca');
+                    var x = 0;
+                    fecha.forEach(function (document) {
+                        fecha[x].disabled=false;
+                        x++;
+                    });
+                } else {
+                    console.log('No Funca');
+                    var x = 0;
+                    fecha.forEach(function (document) {
+                        fecha[x].disabled=true;
+                        x++;
+                    });
+                }
+            }
 
             const n_cred = document.querySelectorAll('.numCred');
 
@@ -910,15 +942,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 var creden = $("input[type=radio][name=discapacidad]").filter(":checked")[0];
 
                 if (creden.value == 1) {
-                    var z=0;
-                    n_cred.forEach(function (document){
-                        n_cred[z].disabled=false;
+                    var z = 0;
+                    n_cred.forEach(function (document) {
+                        n_cred[z].disabled = false;
                         z++;
                     });
                 } else {
-                    var s=0;
-                    n_cred.forEach(function (document){
-                        n_cred[s].disabled=true;
+                    var s = 0;
+                    n_cred.forEach(function (document) {
+                        n_cred[s].disabled = true;
                         s++;
                     });
                 }
