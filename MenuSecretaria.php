@@ -155,8 +155,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 10px" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                            <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 10px" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                             <label class="active" for="rut">R.U.T Beneficiario</label>
+                                                            <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
                                                         </div>
                                                         <div class="input-field col s6">
                                                             <input placeholder="-- Fecha Nacimiento: --" name="txt_Fnac" type="text" class="datepicker" id="datepicker" required style="background-color: white; border-radius: 10px">
@@ -290,8 +291,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s12">
-                                                                <input id="rutT" type="text" name="txt_rtutor" class="validate" style="background-color: white; border-radius: 10px" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                                <input id="rutT" type="text" name="txt_rtutor" class="validate" style="background-color: white; border-radius: 10px" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                                 <label class="active" for="rutT">R.U.T del tutor</label>
+                                                                <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">

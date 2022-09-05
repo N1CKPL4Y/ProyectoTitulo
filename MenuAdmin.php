@@ -37,30 +37,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title>Menú Administrador</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
-
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
     </head>
     <body>
         <div class="sidebar ">
             <div class="logo-details">
-                <div class="logo_name">Fundación Inclusiva</div>
+                <a href="MenuAdmin.php"><div class="logo_name">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="listUsuarios.php">
+                    <a href="RNuevoUsuario.php">
                         <i class='bx bx-user' ></i>
-                        <span class="links_name">Usuarios</span>
+                        <span class="links_name">Registrar Usuario</span>
                     </a>
-                    <span class="tooltip">Usuarios</span>
+                    <span class="tooltip">Registrar Usuario</span>
                 </li>
                 <li>
                     <a href="#">
@@ -94,9 +90,66 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
             </nav>
-            <div>
-                <a target="_blank" href="Prueba.php">Pruebame</a>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card" style="border-radius: 10px">
+                            <h4 style="padding-top: 10px; padding-left: 10px" class="center">Usuarios Registrados</h4>
+                            <table class="table centered" id="usuarios">
+                                <thead style="font-size: 20px; text-align: center">
+                                    <tr>
+                                        <th>R.U.T</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>Correo</th>
+                                        <th>Telefono</th>
+                                        <th>Tipo de usuario</th>
+                                        <th>Area del Usuario</th>
+                                        <th>Cargo</th>
+                                        <th>Activo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $table = $data->getAllUsers();
+                                    $contador = 1;
+
+                                    foreach ($table as $key) {
+                                        $activo;
+                                        switch ($key['activo']) {
+                                            case 0:
+                                                $activo = 'No';
+                                                break;
+                                            case 1:
+                                                $activo = 'Si';
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $key['rut'] ?></td>
+                                            <td><?php echo $key['nombre'] ?></td>
+                                            <td><?php echo $key['apellido'] ?></td>
+                                            <td><?php echo $key['correo'] ?></td>
+                                            <td><?php echo $key['telefono'] ?></td>
+                                            <td><?php echo $key['tipo usuario'] ?></td>
+                                            <td><?php echo $key['area usuario'] ?></td>
+                                            <td><?php echo $key['cargo'] ?></td>
+                                            <td><?php echo $activo ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- <div>
+                <a target="_blank" href="Prueba.php">Pruebame</a>
+            </div>-->
         </section>
         <script>
             let sidebar = document.querySelector(".sidebar");
@@ -126,4 +179,3 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </script>
     </body>
 </html>
-<!<!-- comment -->

@@ -160,6 +160,29 @@ class Data {
         return $query;
     }
     
+    public function getAllT_users(){
+        $sql = "SELECT t_usuario.ID as 'id', t_usuario.nombre as 'nombre' from t_usuario;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getAllA_users(){
+        $sql = "SELECT a_usuario.ID as 'id', a_usuario.nombre as 'nombre' FROM a_usuario;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getAllCargos(){
+        $sql = "SELECT cargo.id as 'id', cargo.nombre as 'nombre' from cargo;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function addUser($rut, $nombre, $apellido, $correo, $passwd, $telefono, $t_user, $a_user, $c_user){
+        $sql = "INSERT INTO `usuario` (`ID`, `RUT`, `nombre`, `apellido`, `email`, `passwd`, `telefono`, `t_user`, `a_user`, `cargo`, `activo`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$correo', sha2('$passwd', 0), '$telefono', '$t_user', '$a_user', '$c_user', 1)";
+        $query= $this->con->query($sql);
+    }
+    
 }
 ?>
 

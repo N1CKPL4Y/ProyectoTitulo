@@ -39,7 +39,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
         <!-- Compiled and minified JavaScript -->
@@ -61,9 +60,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li>
                     <a href="MenuSecretaria.php">
                         <i class='bx bx-user' ></i>
-                        <span class="links_name">Ingreso usuarios</span>
+                        <span class="links_name">Ingreso Beneficiarios</span>
                     </a>
-                    <span class="tooltip">Ingreso usuarios</span>
+                    <span class="tooltip">Ingreso Beneficiarios</span>
                 </li>
                 <li>
                     <a href="EntrevistaFamilia.php">

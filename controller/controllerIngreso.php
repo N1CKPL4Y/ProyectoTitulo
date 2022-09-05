@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Iniciando Sesion</title>
+        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
     <body>
-
+        <script>
+            function Success() {
+                swal({
+                    title: "Registro Exitoso",
+                    text: "Beneficiario registrado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../MenuSecretaria.php';
+                        });
+            }
+            
+            function Error() {
+                swal({
+                    title: "ERROR",
+                    text: "Datos faltantes, incorrectos y/o ya existen en el sistema. Intentelo nuevamente",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../MenuSecretaria.php';
+                        });
+            }
+        </script>
     </body>
 </html>
 <?php
@@ -350,6 +375,12 @@ if ($haveCreden==1) {
 
 $data->addParentezo($parentezco, $rut, $rutTutor);
 $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
+
+if($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision){
+    echo '<script language="javascript">Success()</script>';
+}else{
+    echo '<script language="javascript">Error()</script>';
+}
 
 echo '<br>'.$rut." ".$nombre." ".$apellido." ".$fecha." ".$genero." ".$direccion." ".$comuna." ".$teleton." ".$pension." ".$chSolid." ".$hogar."<br>";
 echo '<br>'.$pension." ".$penBase." ".$subMental." ".$penSobre." ".$asgDuplo;
