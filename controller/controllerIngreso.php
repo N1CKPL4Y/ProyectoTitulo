@@ -389,6 +389,6 @@ echo '<br>'.$parentezco." ".$rut." ".$rutTutor;
 echo '<br>'.$numeroTeleton." ".$rut;
 echo '<br>'.$numeroCreden." ".$origenP." ".$origenS." ".$porcent." ".$grado." ".$movilidad." ".$rut;
 echo '<br>'.$especialista." ".$fecha_control." ".$rut." ".$condicion." ".$tipoArchi;
-echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+//echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
 
 ?>
