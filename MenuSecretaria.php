@@ -54,16 +54,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar ">
             <div class="logo-details">
-                <div class="logo_name">Fundación Inclusiva</div>
+                <a href="MenuSecretaria.php"><div class="logo_name">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
                 <li>
                     <a href="#">
                         <i class='bx bx-user' ></i>
-                        <span class="links_name">Ingreso usuarios</span>
+                        <span class="links_name">Registro Beneficiarios</span>
                     </a>
-                    <span class="tooltip">Ingreso usuarios</span>
+                    <span class="tooltip">Registro Beneficiarios</span>
                 </li>
                 <li>
                     <a href="EntrevistaFamilia.php">
