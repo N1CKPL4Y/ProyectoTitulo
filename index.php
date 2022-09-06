@@ -19,7 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
         <header class="header">
             <div class="nav-cont logo-nav">
-                <img src="IMG/Login.png" width="500px" height="150px">
+                <img src="IMG/ave.png" >
             </div>
         </header>
         <div class="container">

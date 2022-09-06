@@ -210,15 +210,15 @@ footer span{
         padding: 25px 0;
         width: 100%;
         background-color: 1d1b31;
-        height: 150px;
+        height: 100px;
         color: #fff;
     }
     .logo-nav{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 110px;
-        font-size: 10px;
+        height: 50px;
+        font-size: 50px;
         font-weight: 500;
         letter-spacing: 1px;
     }
