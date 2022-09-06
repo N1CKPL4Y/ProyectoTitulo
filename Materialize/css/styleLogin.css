@@ -278,4 +278,124 @@ footer span{
         background-repeat: no-repeat;
         background-size: auto;
     }
+    .container.active .login{
+        margin-left: -50%;
+        opacity: 0;
+        transition: margin-left .18s ease, opacity .15s ease;
+    }
+    .container .forgotpass{
+        opacity: 0;
+        transition: opacity .09s ease;
+    }
+    .container.active .forgotpass{
+        opacity: 1;
+        transition: opacity .2s ease;
+    }
+
+    .container .form .titulo{
+        font-size: 35px;
+        font-weight: 600;
+        position: relative;
+    }
+    .form .titulo::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 5px;
+        width: 50px;
+        background-color: #ccdc40;
+        border-radius: 50px;
+    }
+    .form .input-field{
+        position: relative;
+        height: 60px;
+        width: 100%;
+        margin-top: 40px;
+    }
+    .input-field input{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 0 10px;
+        font-size: 20px;
+        outline: none;
+        border: 1px solid gray;
+        border-radius: 4px;
+        transition: all .1s ease;
+    }
+    .input-field input:focus{
+        border: 2.5px solid #ccdc40;
+    }
+
+    .input-field i{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: #999;
+        transition: all .1s ease;
+    }
+    .input-field input:focus ~ i{
+        color: #ccdc40;
+    }
+
+    .input-field i.icon{
+        left: -8%;
+    }
+    .input-field i.mostrarPass{
+        right: 0;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .form .checkbox-text{
+        margin-top: 20px
+    }
+    .checkbox-content input{
+        margin: 0 5px -2px 0;
+        accent-color: #7d2ae8;
+    }
+    .form .text{
+        color: #333;
+        font-size: 18px;
+    }
+    .form a.text{
+        text-decoration: none;
+        color: #4070f4;
+    }
+    .form .button{
+        margin-top: 40px;
+    }
+    .form .button input{
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        border: none;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        background-color: #005568;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+    .button input:hover{
+        background-color: rgba(24, 70, 73);
+    }
+    .form .login-singup{
+        margin-top: 20px;
+        text-align: center;
+    }
+    footer{
+        text-align: center;
+        width: 100%;
+        background-color: #005568;
+        padding: 10px 0;
+        margin-top: auto;
+    }
+    footer span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: white;
+    }
 }
