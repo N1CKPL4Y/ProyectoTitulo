@@ -90,7 +90,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-image: url(IMG/4.jpg); background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-color: #C8E6C9; background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">

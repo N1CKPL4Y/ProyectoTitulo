@@ -51,12 +51,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="js/jquery.rut.js"></script>
     </head>
     <body>
-        <div class="sidebar ">
+        <div class="sidebar open">
             <div class="logo-details">
-                <a href="MenuSecretaria.php"><div class="logo_name">Fundación Inclusiva</div></a>
+                <a href="MenuSecretaria.php"><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
+                <li>
+                    <a href="MenuSecretaria.php">
+                        <i class='bx bx-home' ></i>
+                        <span class="links_name">Vover a Inicio</span>
+                    </a>
+                    <span class="tooltip">Volver a Inicio</span>
+                </li>
                 <li>
                     <a href="MenuSecretaria.php">
                         <i class='bx bx-user' ></i>
@@ -65,11 +72,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Registro Beneficiarios</span>
                 </li>
                 <li>
-                    <a href="EntrevistaFamilia.php">
-                        <i class='bx bx-folder' ></i>
-                        <span class="links_name">Registrar Entrevista</span>
+                    <a href="controller/controllerLogout.php">
+                        <i class="material-icons">power_settings_new</i>
+                        <span class="links_name">Cerrar Sesión</span>
                     </a>
-                    <span class="tooltip">Registrar Entrevista</span>
+                    <span class="tooltip">Cerrar Sesión</span>
                 </li>
                 <li class="profile">
                     <div class="profile-details">
@@ -80,7 +87,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name"><?php echo $area_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+                        <a><i id="log_out" ></i></a>
                     </div>
                 </li>
             </ul>

@@ -54,23 +54,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a href="MenuSecretaria.php"><div class="logo_name">Fundación Inclusiva</div></a>
+                <a href="#"><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
-                <li>
-                    <a href="#">
-                        <i class='bx bx-user' ></i>
-                        <span class="links_name">Registro Beneficiarios</span>
-                    </a>
-                    <span class="tooltip">Registro Beneficiarios</span>
-                </li>
+
                 <li>
                     <a href="EntrevistaFamilia.php">
                         <i class='bx bx-folder' ></i>
                         <span class="links_name">Registrar Entrevista</span>
                     </a>
                     <span class="tooltip">Registrar Entrevista</span>
+                </li>
+                <li>
+                    <a href="controller/controllerLogout.php">
+                        <i class="material-icons">power_settings_new</i>
+                        <span class="links_name">Cerrar Sesión</span>
+                    </a>
+                    <span class="tooltip">Cerrar Sesión</span>
                 </li>
                 <li class="profile">
                     <div class="profile-details">
@@ -82,7 +83,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="job"><?php echo $correo ?></div>
 
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+                        <a><i id="log_out" ></i></a>
                     </div>
                 </li>
             </ul>
