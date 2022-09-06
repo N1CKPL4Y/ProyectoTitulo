@@ -52,7 +52,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="js/jquery.rut.js"></script>
     </head>
     <body>
-        <div class="sidebar ">
+        <div class="sidebar open">
             <div class="logo-details">
                 <a href="MenuSecretaria.php"><div class="logo_name">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
@@ -193,6 +193,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <span style="color: grey">Debe ser en formato Imagen</span>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col s6">
+                                                            <div class="row">
+                                                                <h6 class="col s5">Participa en instituto Teleton:</h6>
+                                                            </div>
+                                                            <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap teleton" value="1" name="rd_teleton" type="radio"/>
+                                                                    <span>Si</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap teleton" value="0" name="rd_teleton" type="radio"/>
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col s6">
+                                                            <div class="row">
+                                                                <h6 class="col s10">Indique el sistema de salud</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s10" style="background-color: white; border-radius: 10px">
+                                                                    <select name="cbo_prevision1">
+                                                                        <option value="" disabled selected>Fonasa</option>
+                                                                        <option value="1">Fonasa A</option>
+                                                                        <option value="2">Fonasa B</option>
+                                                                        <option value="3">Fonasa C</option>
+                                                                        <option value="4">Fonasa D</option>
+                                                                        <option value="5">Isapre</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row tele">
+
+                                                    </div>
+
                                                 </div>
                                             </li>
                                             <li>
@@ -383,26 +424,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
 
                                                     </div>
-                                                    <div class="row">
-                                                        <h6 class="col s5">Participa en instituto Teleton:</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap teleton" value="1" name="rd_teleton" type="radio"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap teleton" value="0" name="rd_teleton" type="radio"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
-                                                    </div>
-                                                    <div class="row tele">
 
-                                                    </div>
                                                 </div>
                                             </li>
                                             <li>
@@ -935,14 +957,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     console.log('Funca');
                     var x = 0;
                     fecha.forEach(function (document) {
-                        fecha[x].disabled=false;
+                        fecha[x].disabled = false;
                         x++;
                     });
                 } else {
                     console.log('No Funca');
                     var x = 0;
                     fecha.forEach(function (document) {
-                        fecha[x].disabled=true;
+                        fecha[x].disabled = true;
                         x++;
                     });
                 }

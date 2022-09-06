@@ -57,6 +57,7 @@ $fecha = isset($_POST['txt_Fnac']) ? $_POST['txt_Fnac'] : null;
 $genero = isset($_POST['cbo_genero']) ? $_POST['cbo_genero'] : null;
 $direccion = isset($_POST['txt_direccion']) ? $_POST['txt_direccion'] : null;
 $comuna = isset($_POST['txt_comuna']) ? $_POST['txt_comuna'] : null;
+$previBene= isset($_POST['cbo_prevision1']) ? $_POST['cbo_prevision1'] : null;
 
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
 
@@ -346,7 +347,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 /////////////////////////////////Insercion de datos///////////////////////////
 
 
-$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar);
+$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
 $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
 if ($pension==1) {
     $data->addPension($pension, $penBase, $subMental, $penSobre, $asgDuplo, $rut);
@@ -376,7 +377,7 @@ if ($haveCreden==1) {
 $data->addParentezo($parentezco, $rut, $rutTutor);
 $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
 
-if($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision){
+if($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene){
     echo '<script language="javascript">Success()</script>';
 }else{
     echo '<script language="javascript">Error()</script>';

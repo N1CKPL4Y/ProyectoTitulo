@@ -58,7 +58,7 @@ session_start();
     
     //echo $rut.' '.$nombre.' '.$apellido.' '.$email.' '.$pass.' '.$t_user.' '.$a_user.' '.$cargo;
     if($rut && $nombre && $apellido && $email && $pass && $t_user && $a_user && $cargo){
-       $data->addUser($rut, $nombre, $apellido, $email, $passwd, $telefono, $t_user, $a_user, $cargo);
+       $data->addUser($rut, $nombre, $apellido, $email, $pass, $telefono, $t_user, $a_user, $cargo);
        echo '<script>Success()</script>';
     }else{
        echo '<script>Error()</script>';
