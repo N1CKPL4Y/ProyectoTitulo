@@ -53,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="sidebar ">
+        <div class="sidebar open">
             <div class="logo-details">
                 <div class="logo_name">Fundación Inclusiva</div>
                 <i class='bx bx-menu' id="btn" ></i>        

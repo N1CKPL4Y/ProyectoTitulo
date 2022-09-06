@@ -64,6 +64,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
                 <li>
                     <a href="#">
+                        <i class="material-icons">people</i>
+                        <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
+                    </a>
+                    <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
+                </li>
+                <li>
+                    <a href="#">
                         <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Mensual</span>
                     </a>
@@ -107,12 +114,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
                             <div class="row">
                                 <div class="col s10 offset-s1">
-                                    <form method="post" action="controller/controllerRegistroUsuarios.php" name="IngUser" style="margin-left: 15px; text-align: center">
+                                    <form method="post" action="controller/controllerRegistroUsuarios.php" name="IngUser" style="margin-left: 15px;">
                                         <div class="row" style="background-color: #C8E6C9; padding: 2%; border-radius: 10px">
                                             <div class="col s12">
                                                 <div class="row">
                                                     <div class="col s6">
-                                                        <div class="input-field col s12 m5 l11">
+                                                        <div class="input-field col s12 m5 l12">
                                                             <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required="">
                                                             <label for="rut">R.U.T</label>
                                                             <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
@@ -138,8 +145,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-field col s12 m5 l12">
                                                             <input id="correo" type="text" name="txt_correo" class="validate" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" required="">
                                                             <label for="correo">Correo Electronico</label>
+                                                            <span id="emailVal" style="color: gray"></span>
                                                         </div>
-                                                        <span id="emailVal" style="color: gray"></span>
                                                     </div>
                                                     <div class="col s6">
                                                         <div class="input-field col s12 m5 l12">

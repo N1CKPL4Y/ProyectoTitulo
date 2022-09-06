@@ -59,10 +59,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <ul class="nav-list">
                 <li>
                     <a href="RNuevoUsuario.php">
-                        <i class='bx bx-user' ></i>
-                        <span class="links_name">Registrar Usuario</span>
+                        <i class="material-icons">person_add</i>
+                        <span class="links_name">Registrar Usuarios</span>
                     </a>
-                    <span class="tooltip">Registrar Usuario</span>
+                    <span class="tooltip">Registrar Usuarios</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="material-icons">people</i>
+                        <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
+                    </a>
+                    <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
                 </li>
                 <li>
                     <a href="#">
