@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <img src="IMG/Login.png" width="500px" height="150px">
             </div>
         </header>
-        <div class="container" style="">
+        <div class="container">
             <div class="forms">
                 <div class="form login">
                     <span class="titulo">Iniciar sesión</span>

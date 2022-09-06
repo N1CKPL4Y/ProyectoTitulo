@@ -49,18 +49,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="js/jquery.rut.js"></script>
     </head>
     <body>
-        <div class="sidebar ">
+        <div class="sidebar open">
             <div class="logo-details">
-                <a href="MenuAdmin.php"><div class="logo_name">Fundación Inclusiva</div></a>
+                <a><div class="logo_name">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="RNuevoUsuario.php">
-                        <i class='bx bx-user' ></i>
-                        <span class="links_name">Registrar Usuarios</span>
+                    <a href="MenuAdmin.php">
+                        <i class='bx bx-home' ></i>
+                        <span class="links_name">Vover a Inicio</span>
                     </a>
-                    <span class="tooltip">Registrar Usuarios</span>
+                    <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
                     <a href="#">
@@ -68,6 +68,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="controller/controllerLogout.php">
+                        <i class="material-icons">power_settings_new</i>
+                        <span class="links_name">Cerrar Sesión</span>
+                    </a>
+                    <span class="tooltip">Cerrar Sesión</span>
                 </li>
                 <li class="profile">
                     <div class="profile-details">
@@ -78,7 +85,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name"><?php echo $tipo_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+                        <a><i id="log_out"></i></a>
                     </div>
                 </li>
             </ul>

@@ -37,17 +37,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title>Menú Administrador</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
     </head>
     <body>
-        <div class="sidebar ">
+        <div class="sidebar open">
             <div class="logo-details">
-                <a href="MenuAdmin.php"><div class="logo_name">Fundación Inclusiva</div></a>
+                <a href="#"><div class="logo_name">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
@@ -65,6 +71,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
+                <li>
+                    <a href="controller/controllerLogout.php">
+                        <i class="material-icons">power_settings_new</i>
+                        <span class="links_name">Cerrar Sesión</span>
+                    </a>
+                    <span class="tooltip">Cerrar Sesión</span>
+                </li>
                 <li class="profile">
                     <div class="profile-details">
                       <!--<img src="profile.jpg" alt="profileImg">-->
@@ -75,12 +88,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="job"><?php echo $correo ?></div>
 
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+                        <a><i id="log_out"></i></a>
                     </div>
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-image: url(IMG/4.jpg); background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">
