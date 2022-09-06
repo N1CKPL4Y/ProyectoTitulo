@@ -23,30 +23,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
         </header>
         <div class="container">
-            <div class="forms">
-                <div class="form login">
-                    <span class="titulo">Iniciar sesión</span>
-                    <form name="login" action="controller/controllerlogin.php" method="post" name="datosUser">
-                        <div class="input-field">
-                            <input id="rut" type="text" name="txt_rut" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" placeholder="Rut"  required >
-                            <i class="uil uil-envelope icon"></i>
+            <div class="row">
+                <div class="col s8 m6 l4">
+                    <div class="forms">
+                        <div class="form login">
+                            <span class="titulo">Iniciar sesión</span>
+                            <form name="login" action="controller/controllerlogin.php" method="post" name="datosUser">
+                                <div class="input-field">
+                                    <input id="rut" type="text" name="txt_rut" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" placeholder="Rut"  required >
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <span id="emailVal"></span>
+                                <div class="input-field">
+                                    <input type="password" name="txt_pass" class="passwd" placeholder="Contraseña" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash mostrarPass"></i>
+                                </div>
+                                <div class="input-field button">
+                                    <input type="submit" value="Iniciar sesión" required>
+                                </div>
+                            </form>
+                            <div class="login-singup">
+                                <span class="text">¿Olvidaste tu contraseña?
+                                </span>
+                                <br>
+                                <span class="text">Contacta al administrador
+                                </span>
+                            </div>
                         </div>
-                        <span id="emailVal"></span>
-                        <div class="input-field">
-                            <input type="password" name="txt_pass" class="passwd" placeholder="Contraseña" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash mostrarPass"></i>
-                        </div>
-                        <div class="input-field button">
-                            <input type="submit" value="Iniciar sesión" required>
-                        </div>
-                    </form>
-                    <div class="login-singup">
-                        <span class="text">¿Olvidaste tu contraseña?
-                        </span>
-                        <br>
-                        <span class="text">Contacta al administrador
-                        </span>
                     </div>
                 </div>
             </div>

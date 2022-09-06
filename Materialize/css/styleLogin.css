@@ -44,7 +44,7 @@ body{
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     overflow: hidden;
-    margin-top: auto;
+    margin-top: 10px;
 }
 .container .forms{
     width: 200%;
@@ -88,7 +88,7 @@ body{
     left: 0;
     bottom: 0;
     height: 5px;
-    width: 30px;
+    width: 50px;
     background-color: #ccdc40;
     border-radius: 50px;
 }
@@ -196,5 +196,84 @@ footer span{
         padding: 0px;
         *background-color: red;
         transition: all .2s ease;
+    }
+}
+
+@media only screen and (max-width: 1360px){
+    .nav-cont{
+        width: 30%;
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .header{
+        padding: 15px 0;
+        width: 100%;
+        background-color: 1d1b31;
+        color: #fff;
+    }
+    .logo-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    .container{
+        position: relative;
+        max-width: 500px;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+        overflow: hidden;
+        margin-top: 10px;
+    }
+    .container .form{
+        width: 50%;
+        padding: 55px;
+        background-color: white;
+        transition: margin-left .18s ease;
+    }
+    .container .forms{
+        width: 200%;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        transition: height .2s ease;
+    }
+    .container.active .login{
+        margin-left: -50%;
+        opacity: 0;
+        transition: margin-left .18s ease, opacity .15s ease;
+    }
+    .container .forgotpass{
+        opacity: 0;
+        transition: opacity .09s ease;
+    }
+    .container.active .forgotpass{
+        opacity: 1;
+        transition: opacity .2s ease;
+    }
+
+    .container .form .titulo{
+        font-size: 30px;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .input-field i.icon{
+        left: -10%;
+    }
+
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: auto;
     }
 }
