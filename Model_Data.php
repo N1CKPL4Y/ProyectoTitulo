@@ -167,7 +167,7 @@ class Data {
     }
     
     public function getAllA_users(){
-        $sql = "SELECT a_usuario.ID as 'id', a_usuario.nombre as 'nombre' FROM a_usuario;";
+        $sql = "SELECT a_usuario.ID as 'id', a_usuario.nombre as 'nombre' FROM a_usuario where activo = 1;";
         $query = $this->con->query($sql);
         return $query;
     }
@@ -183,6 +183,55 @@ class Data {
         $query= $this->con->query($sql);
     }
     
+    public function getAreasActivas(){
+        $sql = "SELECT a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getAreasNoActivas(){
+        $sql = "SELECT a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 0;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function addArea($nombre){
+        $sql = "INSERT INTO a_usuario (`ID`, `nombre`, `activo`) VALUES (null, '$nombre', 1)";
+        $query= $this->con->query($sql);
+    }
+    
+    public function existArea($nombre){
+        $sql = "SELECT COUNT(*) AS 'existe' FROM a_usuario where nombre = '$nombre'";
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    
+    public function addCondicion($nombre, $codigo, $descripcion){
+        $sql = "INSERT INTO condicion (`ID`, `nombre`, `codigo`, `descripcion`) VALUES (null, '$nombre', '$codigo', '$descripcion')";
+        $query= $this->con->query($sql);
+    }
+    
+    public function existCondicion($nombre){
+        $sql = "SELECT COUNT(*) AS 'existe' FROM condicion where nombre = '$nombre'";
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    
+    public function getAllCondiciones(){
+        $sql = "SELECT condicion.nombre as 'nombre', condicion.codigo as 'codigo', condicion.descripcion as 'descripcion' FROM condicion;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 }
 ?>
 

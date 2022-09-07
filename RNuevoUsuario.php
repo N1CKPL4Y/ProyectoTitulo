@@ -77,6 +77,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
+                    <a href="EditarDatos.php">
+                        <i class="material-icons">border_color</i>
+                        <span class="links_name">Editar Datos</span>
+                    </a>
+                    <span class="tooltip">Editar Datos</span>
+                </li>
+                <li>
                     <a href="controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>

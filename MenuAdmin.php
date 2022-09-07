@@ -53,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a href="#"><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
+                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
@@ -77,6 +77,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="EditarDatos.php">
+                        <i class="material-icons">border_color</i>
+                        <span class="links_name">Editar Datos</span>
+                    </a>
+                    <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
                     <a href="controller/controllerLogout.php">
