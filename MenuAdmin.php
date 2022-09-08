@@ -65,7 +65,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Registrar Usuarios</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="VisBeneficiario.php">
                         <i class="material-icons">people</i>
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </a>

@@ -44,83 +44,83 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function addBenefi($rut, $nombre, $apellido, $fecha_nac, $genero, $direccion, $comuna, $c_identidad, $teleton, $pension, $ch_soli, $rs_hogar ,$prevision) {
+
+    public function addBenefi($rut, $nombre, $apellido, $fecha_nac, $genero, $direccion, $comuna, $c_identidad, $teleton, $pension, $ch_soli, $rs_hogar, $prevision) {
         $sql = "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `chile_solidario`, `r_s_hogares`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha_nac', '$genero', '$direccion', '$comuna', '$c_identidad', '$teleton', '$pension', '$ch_soli', '$rs_hogar', '$prevision');";
         $this->con->query($sql);
     }
-        
+
     public function addTutor($rut, $nombre, $fecha_nac, $direccion, $comuna, $c_identidad, $n_escolar, $ocuapcion, $telefono, $email, $prevision) {
         $sql = "INSERT INTO `tutor` (`ID`, `RUT`, `nombre`, `fecha_nac`, `direccion`, `comuna`, `c_identidad`, `n_escolar`, `ocupacion`, `telefono`, `email`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$fecha_nac', '$direccion', '$comuna', '$c_identidad', '$n_escolar', '$ocuapcion', '$telefono', '$email', '$prevision');";
         $this->con->query($sql);
     }
-       
+
     public function addParentezo($nombre, $beneficiario, $tutor) {
         $sql = "INSERT INTO `parentezco` (`ID`, `parecido`, `beneficiario`, `tutor`) VALUES (NULL, '$nombre', '$beneficiario', '$tutor');";
         $this->con->query($sql);
     }
-    
+
     public function addRegisSocial($copia, $tipoDocu, $beneficiario) {
         $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `tipoDocumento`, `beneficiario`) VALUES (NULL, '$copia', '$tipoDocu', '$beneficiario');";
         $this->con->query($sql);
     }
-    
+
     public function addTeleton($registro, $beneficiario) {
         $sql = "INSERT INTO `registro_teleton` (`ID`, `registro`, `beneficiario`) VALUES (NULL, '$registro', '$beneficiario');";
         $this->con->query($sql);
     }
-    
+
     public function addDiagnos($espec, $ultiControl, $inf_Diagnos, $tipoDocu, $benefi, $cod) {
         $sql = "INSERT INTO `diagnostico` (`id`, `especialista`, `fecha_u_control`, `informe_diagnostico`, `tipoDocumento`, `beneficiario`, `codigo`) VALUES (NULL, '$espec', '$ultiControl', '$inf_Diagnos', '$tipoDocu', '$benefi', '$cod');";
         $this->con->query($sql);
     }
-    
+
     public function addCredencialD($numCreden, $o_Princ, $o_Secund, $porcen, $grado, $movilidad, $creden_Front, $creden_Back, $benefi) {
         $sql = "INSERT INTO `c_discapacidad` (`ID`, `n_credencial`, `o_principal`, `o_secundario`, `porcentaje`, `grado`, `movilidad`, `c_parte_delantera`, `c_parte_trasera`, `beneficiario`) VALUES (NULL, '$numCreden', '$o_Princ', '$o_Secund', '$porcen', '$grado', '$movilidad', '$creden_Front', '$creden_Back', '$benefi');";
         $query = $this->con->query($sql);
     }
-    
-    public function addGeneral($motivo,$derivacion,$atencion,$rut) {
-        $sql="INSERT INTO `datosgenerales` (`ID`, `motivo`, `derivacion`, `atencion`, `beneficiario`) VALUES (NULL, '$motivo', '$derivacion', '$atencion', '$rut');";
-        $query= $this->con->query($sql);
+
+    public function addGeneral($motivo, $derivacion, $atencion, $rut) {
+        $sql = "INSERT INTO `datosgenerales` (`ID`, `motivo`, `derivacion`, `atencion`, `beneficiario`) VALUES (NULL, '$motivo', '$derivacion', '$atencion', '$rut');";
+        $query = $this->con->query($sql);
     }
-    
+
     public function getBenefi($rut) {
         $sql = "SELECT * FROM beneficiario where RUT = '$rut'";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getTutor($rut) {
         $sql = "SELECT * FROM tutor where RUT = '$rut'";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getTutorForBen($rut) {
         $sql = "SELECT * FROM tutor where  rut = (SELECT tutor from parentezco WHERE beneficiario = '$rut')";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getDiagnostico($rut) {
         $sql = "SELECT * FROM diagnostico where beneficiario = '$rut';";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getAllCondition() {
         $sql = "SELECT * FROM condicion";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getConditionCode($code) {
         $sql = "SELECT * FROM condicion where ID = '$code'";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getCreden($rut) {
         $sql = "SELECT COUNT(*) AS 'existe' 
 	            FROM c_discapacidad
@@ -134,7 +134,7 @@ class Data {
 
         return false;
     }
-    
+
     public function getDiagValid($rut) {
         $sql = "SELECT COUNT(*) AS 'existe' 
 	            FROM diagnostico
@@ -148,54 +148,54 @@ class Data {
 
         return false;
     }
-    
-    public function getAllUsers(){
+
+    public function getAllUsers() {
         $sql = "SELECT usuario.RUT as 'rut', usuario.nombre as 'nombre', usuario.apellido as 'apellido', usuario.email as 'correo', usuario.telefono as 'telefono', t_usuario.nombre as 'tipo usuario', a_usuario.nombre as 'area usuario', cargo.nombre as 'cargo', usuario.activo as 'activo' FROM usuario INNER JOIN t_usuario ON t_usuario.id = usuario.t_user INNER JOIN a_usuario ON a_usuario.id = usuario.a_user INNER JOIN cargo ON cargo.id = usuario.cargo;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAllT_users(){
+
+    public function getAllT_users() {
         $sql = "SELECT t_usuario.ID as 'id', t_usuario.nombre as 'nombre' from t_usuario;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAllA_users(){
+
+    public function getAllA_users() {
         $sql = "SELECT a_usuario.ID as 'id', a_usuario.nombre as 'nombre' FROM a_usuario where activo = 1;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAllCargos(){
+
+    public function getAllCargos() {
         $sql = "SELECT cargo.id as 'id', cargo.nombre as 'nombre' from cargo;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function addUser($rut, $nombre, $apellido, $correo, $passwd, $telefono, $t_user, $a_user, $c_user){
+
+    public function addUser($rut, $nombre, $apellido, $correo, $passwd, $telefono, $t_user, $a_user, $c_user) {
         $sql = "INSERT INTO `usuario` (`ID`, `RUT`, `nombre`, `apellido`, `email`, `passwd`, `telefono`, `t_user`, `a_user`, `cargo`, `activo`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$correo', sha2('$passwd', 0), '$telefono', '$t_user', '$a_user', '$c_user', 1)";
-        $query= $this->con->query($sql);
+        $query = $this->con->query($sql);
     }
-    
-    public function getAreasActivas(){
+
+    public function getAreasActivas() {
         $sql = "SELECT a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 1;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAreasNoActivas(){
+
+    public function getAreasNoActivas() {
         $sql = "SELECT a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 0;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function addArea($nombre){
+
+    public function addArea($nombre) {
         $sql = "INSERT INTO a_usuario (`ID`, `nombre`, `activo`) VALUES (null, '$nombre', 1)";
-        $query= $this->con->query($sql);
+        $query = $this->con->query($sql);
     }
-    
-    public function existArea($nombre){
+
+    public function existArea($nombre) {
         $sql = "SELECT COUNT(*) AS 'existe' FROM a_usuario where nombre = '$nombre'";
         $query = $this->con->query($sql);
 
@@ -205,13 +205,13 @@ class Data {
 
         return false;
     }
-    
-    public function addCondicion($nombre, $codigo, $descripcion){
+
+    public function addCondicion($nombre, $codigo, $descripcion) {
         $sql = "INSERT INTO condicion (`ID`, `nombre`, `codigo`, `descripcion`) VALUES (null, '$nombre', '$codigo', '$descripcion')";
-        $query= $this->con->query($sql);
+        $query = $this->con->query($sql);
     }
-    
-    public function existCondicion($nombre){
+
+    public function existCondicion($nombre) {
         $sql = "SELECT COUNT(*) AS 'existe' FROM condicion where nombre = '$nombre'";
         $query = $this->con->query($sql);
 
@@ -221,25 +221,37 @@ class Data {
 
         return false;
     }
-    
-    public function getAllCondiciones(){
+
+    public function getAllCondiciones() {
         $sql = "SELECT condicion.nombre as 'nombre', condicion.codigo as 'codigo', condicion.descripcion as 'descripcion' FROM condicion;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function addPension($pension){
+
+    public function addPension($pension) {
         $sql = "INSERT INTO pension (`ID`, `nombre`) VALUES (null, '$pension')";
-        $query= $this->con->query($sql);
+        $query = $this->con->query($sql);
     }
-    
-    public function getAllPensiones(){
+
+    public function getAllPensiones() {
         $sql = "SELECT pension.nombre as 'nombre' FROM pension";
         $query = $this->con->query($sql);
         return $query;
     }
     
-    public function existPension($nombre){
+    public function getPrevForId($id) {
+        $sql = "SELECT nombre FROM t_prevision where ID =$id";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+
+    public function getAllPensionesForRut($rutb) {
+        $sql = "SELECT pension.nombre FROM beneficiario_pension INNER JOIN pension ON pension.ID=beneficiario_pension.ID WHERE beneficiario_pension.beneficiario='$rutb';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+
+    public function existPension($nombre) {
         $sql = "SELECT COUNT(*) AS 'existe' FROM pension where nombre = '$nombre'";
         $query = $this->con->query($sql);
 
@@ -249,7 +261,7 @@ class Data {
 
         return false;
     }
-    
+
 }
 ?>
 
