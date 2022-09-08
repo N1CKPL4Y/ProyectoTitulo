@@ -49,12 +49,7 @@ class Data {
         $sql = "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `chile_solidario`, `r_s_hogares`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha_nac', '$genero', '$direccion', '$comuna', '$c_identidad', '$teleton', '$pension', '$ch_soli', '$rs_hogar', '$prevision');";
         $this->con->query($sql);
     }
-    
-    public function addPension($pension,$pensionBas, $subsidioD, $p_sobrevi, $a_duplo, $rut) {
-        $sql = "INSERT INTO `pension` (`ID`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_dublo`, `beneficiario`) VALUES (NULL, '$pension', '$pensionBas', '$subsidioD', '$p_sobrevi', '$a_duplo', '$rut');";
-        $this->con->query($sql);
-    }
-    
+        
     public function addTutor($rut, $nombre, $fecha_nac, $direccion, $comuna, $c_identidad, $n_escolar, $ocuapcion, $telefono, $email, $prevision) {
         $sql = "INSERT INTO `tutor` (`ID`, `RUT`, `nombre`, `fecha_nac`, `direccion`, `comuna`, `c_identidad`, `n_escolar`, `ocupacion`, `telefono`, `email`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$fecha_nac', '$direccion', '$comuna', '$c_identidad', '$n_escolar', '$ocuapcion', '$telefono', '$email', '$prevision');";
         $this->con->query($sql);
@@ -232,6 +227,29 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function addPension($pension){
+        $sql = "INSERT INTO pension (`ID`, `nombre`) VALUES (null, '$pension')";
+        $query= $this->con->query($sql);
+    }
+    
+    public function getAllPensiones(){
+        $sql = "SELECT pension.nombre as 'nombre' FROM pension";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function existPension($nombre){
+        $sql = "SELECT COUNT(*) AS 'existe' FROM pension where nombre = '$nombre'";
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    
 }
 ?>
 

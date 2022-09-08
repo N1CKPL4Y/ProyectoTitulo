@@ -265,6 +265,55 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                         </li>
+                                        <li>
+                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Agregar Pensiones</div>
+                                            <div class="collapsible-body" style="background-color: #C8E6C9">
+                                                <div class="row">
+                                                    <form method="post" action="controller/controllerRegistroNPension.php">
+                                                        <div class="row">
+                                                            <div class="col s6">
+                                                                <div class="input-field col s12">
+                                                                    <input id="npension" type="text" name="txt_nPension" class="validate" style="background-color: white; border-radius: 10px" required="">
+                                                                    <label for="npension">Ingrese el nombre de la Pensión</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col s6">
+                                                                <div class="input-field col s12">
+                                                                    <button class="btn waves-effect light-green darken-3" type="submit" name="buscar" required>Registrar Nueva Pensión</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col s12">
+                                                        <div class="card" style="border-radius: 10px">
+                                                            <h5 class="center" style="padding-top: 20px">Pensiones Registradas</h5>
+                                                            <table class="table centered" id="areas_activas">
+                                                                <thead style="font-size: 20px; text-align: center">
+                                                                    <tr>
+                                                                        <th>Nombre</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    $pensiones = $data->getAllPensiones();
+
+                                                                    foreach ($pensiones as $key) {
+                                                                        ?>
+                                                                        <tr>
+                                                                            <td><?php echo $key['nombre'] ?></td>
+                                                                        </tr>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
