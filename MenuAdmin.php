@@ -55,8 +55,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
 
-
-
     </head>
     <body>
         <div class="sidebar open">
@@ -126,6 +124,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </nav>
             <div class="container-fluid">
+                <div id = "modalEdit" class = "modal">
+                    <div class = "modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class = "modal-footer">
+                        <a href = "#!" class = "modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col s12">
                         <div class="card" style="border-radius: 10px">
@@ -144,6 +151,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <th>Area del Usuario</th>
                                                 <th>Cargo</th>
                                                 <th>Activo</th>
+                                                <th>Editar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -152,6 +160,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             $contador = 1;
 
                                             foreach ($table as $key) {
+                                                $info = $key['rut'];
                                                 $activo;
                                                 switch ($key['activo']) {
                                                     case 0:
@@ -171,10 +180,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <td><?php echo $key['correo'] ?></td>
                                                     <td><?php echo $key['telefono'] ?></td>
                                                     <td><?php echo $key['tipo usuario'] ?></td>
-                                                    <td><?php echo $key['area usuario']  ?></td>
-                                                    <td><?php echo $key['cargo']  ?></td>
-                                                    <td><?php echo $activo  ?></td>
+                                                    <td><?php echo $key['area usuario'] ?></td>
+                                                    <td><?php echo $key['cargo'] ?></td>
+                                                    <td><?php echo $activo ?></td>
+                                                    <td><button class="waves-effect waves-light btn modal-trigger" data-target="#modalEdit" onclick="cargarDatos(<?php echo $info ?>)">EDITAR</button></td>
                                                 </tr>
+
                                                 <?php
                                             }
                                             ?>
@@ -192,9 +203,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </section>
         <script>
             $(document).ready(function () {
+                $('.modal').modal();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
                 $('#myTable').DataTable({
                     responsive: true,
-                    autoWidth: false,
+                    autoWidth: true,
                     "language": {
                         "lengthMenu": "Mostrar " + '<select><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
                         "zeroRecords": "No se han encontrado registros",
