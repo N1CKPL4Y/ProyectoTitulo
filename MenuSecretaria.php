@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
-include_once 'Model_Data.php';
+include_once 'DB/Model_Data.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];

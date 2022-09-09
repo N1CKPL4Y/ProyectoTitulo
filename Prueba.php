@@ -5,7 +5,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
-include_once './Model_Data.php';
+include_once 'DB/Model_Data.php';
 
 $data = new Data();
 $conexion = $data->getConnection();

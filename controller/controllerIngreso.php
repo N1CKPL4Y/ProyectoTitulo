@@ -38,7 +38,7 @@
     </body>
 </html>
 <?php
-include_once '../Model_Data.php';
+include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
