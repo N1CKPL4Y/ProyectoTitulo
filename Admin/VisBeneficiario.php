@@ -29,7 +29,7 @@ switch ($_SESSION['tipo_u']) {
 
 $data = new Data();
 
-$benefs=$data->getAllBenefi();
+$benefs = $data->getAllBenefi();
 ?>
 <html>
     <head>
@@ -37,12 +37,12 @@ $benefs=$data->getAllBenefi();
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
+
+
+
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
-        
+
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -126,7 +126,7 @@ $benefs=$data->getAllBenefi();
                 <div class="row">
                     <div class="col s10 offset-s1">
                         <div class="card" style="border-radius: 10px">
-                            <h4 style="padding-top: 10px; padding-left: 10px" class="center">Base de consulta</h4>
+                            <h1 style="padding-top: 10px; padding-left: 10px" class="center">Base de consulta</h1>
                             <div class="row">
                                 <div class="col s10 offset-s1">
                                     <table id="myTable" class="display">
@@ -142,18 +142,17 @@ $benefs=$data->getAllBenefi();
                                         </thead>
                                         <tbody>
                                             <?php
-                                                
-                                                foreach ($benefs as $key) {
-                                                    $rutb=$key['RUT'];
-                                                    echo '<tr>';
-                                                        echo '<td>'.$key['ID'].'</td>';
-                                                        echo '<td>'.$key['RUT'].'</td>';
-                                                        echo '<td>'.$key['nombre'].'</td>';
-                                                        echo '<td>'.$key['apellido'].'</td>';
-                                                        echo '<td>'.$key['direccion'].'</td>';
-                                                        echo '<td><a class="btn" href="VerDatos.php?rut='.$rutb.'">Holi</a></td>';
-                                                    echo '</tr>';
-                                                }
+                                            foreach ($benefs as $key) {
+                                                $rutb = $key['RUT'];
+                                                echo '<tr>';
+                                                echo '<td>' . $key['ID'] . '</td>';
+                                                echo '<td>' . $key['RUT'] . '</td>';
+                                                echo '<td>' . $key['nombre'] . '</td>';
+                                                echo '<td>' . $key['apellido'] . '</td>';
+                                                echo '<td>' . $key['direccion'] . '</td>';
+                                                echo '<td><a class="btn" href="VerDatos.php?rut=' . $rutb . '">Holi</a></td>';
+                                                echo '</tr>';
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
@@ -166,8 +165,25 @@ $benefs=$data->getAllBenefi();
         </section>
     </body>
     <script>
+        
         $(document).ready(function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                responsive: true,
+                autoWidth: false,
+                "language": {
+                    "lengthMenu": "Mostrar " + '<select><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                    "zeroRecords": "No se han encontrado registros",
+                    "info": "Mostrando la página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                    "search": "Buscar:",
+                    "paginate": {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior',
+                    },
+                }
+            });
+
         });
     </script>
 </html>
