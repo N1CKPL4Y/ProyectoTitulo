@@ -37,22 +37,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title>Menú Administrador</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="Materialize/css/materialize.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
-        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- Boxicons CDN Link -->
-        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
+
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="Materialize/css/materialize.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
+
+
+
     </head>
     <body>
         <div class="sidebar open">
@@ -126,54 +130,58 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="col s12">
                         <div class="card" style="border-radius: 10px">
                             <h4 style="padding-top: 10px; padding-left: 10px" class="center">Usuarios Registrados</h4>
-                            <table id="myTable" class="display">
-                                <thead style="font-size: 20px; text-align: center">
-                                    <tr>
-                                        <th>R.U.T</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>Correo</th>
-                                        <th>Telefono</th>
-                                        <th>Tipo de usuario</th>
-                                        <th>Area del Usuario</th>
-                                        <th>Cargo</th>
-                                        <th>Activo</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $table = $data->getAllUsers();
-                                    $contador = 1;
+                            <div class="row">
+                                <div class="col s10 offset-s1">
+                                    <table id="myTable" class="display" >
+                                        <thead>
+                                            <tr>
+                                                <th>R.U.T</th>
+                                                <th>Nombres</th>
+                                                <th>Apellidos</th>
+                                                <th>Correo</th>
+                                                <th>Telefono</th>
+                                                <th>Tipo de usuario</th>
+                                                <th>Area del Usuario</th>
+                                                <th>Cargo</th>
+                                                <th>Activo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $table = $data->getAllUsers();
+                                            $contador = 1;
 
-                                    foreach ($table as $key) {
-                                        $activo;
-                                        switch ($key['activo']) {
-                                            case 0:
-                                                $activo = 'No';
-                                                break;
-                                            case 1:
-                                                $activo = 'Si';
-                                                break;
-                                            default:
-                                                break;
-                                        }
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $key['rut'] ?></td>
-                                            <td><?php echo $key['nombre'] ?></td>
-                                            <td><?php echo $key['apellido'] ?></td>
-                                            <td><?php echo $key['correo'] ?></td>
-                                            <td><?php echo $key['telefono'] ?></td>
-                                            <td><?php echo $key['tipo usuario'] ?></td>
-                                            <td><?php echo $key['area usuario'] ?></td>
-                                            <td><?php echo $key['cargo'] ?></td>
-                                            <td><?php echo $activo ?></td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                            foreach ($table as $key) {
+                                                $activo;
+                                                switch ($key['activo']) {
+                                                    case 0:
+                                                        $activo = 'No';
+                                                        break;
+                                                    case 1:
+                                                        $activo = 'Si';
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $key['rut'] ?></td>
+                                                    <td><?php echo $key['nombre'] ?></td>
+                                                    <td><?php echo $key['apellido'] ?></td>
+                                                    <td><?php echo $key['correo'] ?></td>
+                                                    <td><?php echo $key['telefono'] ?></td>
+                                                    <td><?php echo $key['tipo usuario'] ?></td>
+                                                    <td><?php echo $key['area usuario']  ?></td>
+                                                    <td><?php echo $key['cargo']  ?></td>
+                                                    <td><?php echo $activo  ?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
