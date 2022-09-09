@@ -41,6 +41,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Boxicons CDN Link -->
@@ -122,7 +126,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="col s12">
                         <div class="card" style="border-radius: 10px">
                             <h4 style="padding-top: 10px; padding-left: 10px" class="center">Usuarios Registrados</h4>
-                            <table class="table centered" id="usuarios">
+                            <table id="myTable" class="display">
                                 <thead style="font-size: 20px; text-align: center">
                                     <tr>
                                         <th>R.U.T</th>
@@ -178,6 +182,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <a target="_blank" href="Prueba.php">Pruebame</a>
             </div>-->
         </section>
+        <script>
+            $(document).ready(function () {
+                $('#myTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    "language": {
+                        "lengthMenu": "Mostrar " + '<select><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                        "zeroRecords": "No se han encontrado registros",
+                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay registros disponibles",
+                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                        "search": "Buscar:",
+                        "paginate": {
+                            'next': 'Siguiente',
+                            'previous': 'Anterior',
+                        },
+                    }
+                });
+
+            });
+        </script>
         <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
