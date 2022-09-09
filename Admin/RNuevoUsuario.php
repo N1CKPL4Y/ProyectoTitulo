@@ -63,7 +63,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="VisBeneficiario.php">
                         <i class="material-icons">people</i>
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </a>
