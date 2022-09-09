@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
-include_once 'Model_Data.php';
+include_once '../DB/Model_Data.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
@@ -33,20 +33,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <title>Registrar Nuevo Usuario</title>
-        <link rel="icon" href="IMG/IconAveFenix.png"/>
+        <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="Materialize/css/materialize.css">
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Materialize/css/materialize.css">
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/validarut.js"></script>
-        <script src="js/jquery.rut.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="MenuAdmin.php">
+                    <a href="../MenuAdmin.php">
                         <i class='bx bx-home' ></i>
                         <span class="links_name">Vover a Inicio</span>
                     </a>
@@ -84,7 +84,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
-                    <a href="controller/controllerLogout.php">
+                    <a href="../controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
                     </a>
@@ -109,7 +109,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">
                         <a style="font-size: 30px">Ave</a>
-                        <img src="IMG/iconNavbar.png"/>
+                        <img src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px">Fenix</a>
                     </div>
                 </div>

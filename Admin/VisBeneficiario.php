@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
-include_once 'Model_Data.php';
+include_once '../DB/Model_Data.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
@@ -34,20 +34,20 @@ $benefs=$data->getAllBenefi();
 <html>
     <head>
         <title>Base de consultas</title>
-        <link rel="icon" href="IMG/IconAveFenix.png"/>
+        <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
         
-        <script src="js/validarut.js"></script>
-        <script src="js/jquery.rut.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
         
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="Materialize/css/materialize.css">
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Materialize/css/materialize.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
@@ -63,7 +63,7 @@ $benefs=$data->getAllBenefi();
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="MenuAdmin.php">
+                    <a href="../MenuAdmin.php">
                         <i class='bx bx-home' ></i>
                         <span class="links_name">Vover a Inicio</span>
                     </a>
@@ -91,7 +91,7 @@ $benefs=$data->getAllBenefi();
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
-                    <a href="controller/controllerLogout.php">
+                    <a href="../controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
                     </a>
@@ -117,7 +117,7 @@ $benefs=$data->getAllBenefi();
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">
                         <a style="font-size: 30px">Ave</a>
-                        <img src="IMG/iconNavbar.png"/>
+                        <img src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px">Fenix</a>
                     </div>
                 </div>

@@ -59,7 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="EntrevistaFamilia.php">
+                    <a href="Secretaria/EntrevistaFamilia.php">
                         <i class='bx bx-folder' ></i>
                         <span class="links_name">Registrar Entrevista</span>
                     </a>
@@ -543,38 +543,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                             </li>
-                                            <!--<li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Pensiones</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                    <div class="row">
-                                                        <h6 class="col s5">¿Es beneficiario de alguna pension?</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input id="siP" class="with-gap pension" value="1" name="pension" type="radio" onclick="tieneP()"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input id="noP" class="with-gap pension" value="0" name="pension" type="radio" onclick="noTieneP()"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
-                                                    </div>
-                                                    <div class="row">
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="otroP" type="text" name="txt_otroP" class="validate otroP" disabled style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="otroP">Otro tipo de pension</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>-->
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
                                                     Beneficios Sociales</div>

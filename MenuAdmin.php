@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
-include_once 'Model_Data.php';
+include_once 'DB/Model_Data.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
@@ -58,14 +58,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="RNuevoUsuario.php">
+                    <a href="Admin/RNuevoUsuario.php">
                         <i class="material-icons">person_add</i>
                         <span class="links_name">Registrar Usuarios</span>
                     </a>
                     <span class="tooltip">Registrar Usuarios</span>
                 </li>
                 <li>
-                    <a href="VisBeneficiario.php">
+                    <a href="Admin/VisBeneficiario.php">
                         <i class="material-icons">people</i>
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </a>
@@ -79,7 +79,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
-                    <a href="EditarDatos.php">
+                    <a href="Admin/EditarDatos.php">
                         <i class="material-icons">border_color</i>
                         <span class="links_name">Editar Datos</span>
                     </a>

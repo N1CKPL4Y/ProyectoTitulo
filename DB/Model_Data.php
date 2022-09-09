@@ -232,24 +232,24 @@ class Data {
         $sql = "INSERT INTO pension (`ID`, `nombre`) VALUES (null, '$pension')";
         $query = $this->con->query($sql);
     }
-    
-    public function addPensionBene($benef,$pension) {
+
+    public function addPensionBene($benef, $pension) {
         $sql = "INSERT INTO beneficiario_pension (`ID`, `beneficiario`, `pension`) VALUES (null, '$benef', '$pension')";
         $query = $this->con->query($sql);
     }
-
 
     public function getAllPensiones() {
         $sql = "SELECT pension.nombre as 'nombre' FROM pension";
         $query = $this->con->query($sql);
         return $query;
     }
+
     public function getAllPensionesAll() {
         $sql = "SELECT * FROM pension";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getPrevForId($id) {
         $sql = "SELECT nombre FROM t_prevision where ID =$id";
         $query = $this->con->query($sql);
@@ -271,6 +271,12 @@ class Data {
         }
 
         return false;
+    }
+
+    public function getAllBenefi() {
+        $sql = "SELECT * FROM beneficiario ";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
 }

@@ -92,7 +92,7 @@
 
 
 <?php
-include_once '../Model_Data.php';
+include_once '../DB/Model_Data.php';
 session_start();
 
 $rut = isset($_POST["txt_rut"]) ? $_POST["txt_rut"] : null;
