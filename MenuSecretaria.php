@@ -58,7 +58,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
-
                 <li>
                     <a href="EntrevistaFamilia.php">
                         <i class='bx bx-folder' ></i>
@@ -81,7 +80,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name"><?php echo $apellido ?></div>
                             <div class="name"><?php echo $area_u ?></div>
                             <div class="job"><?php echo $correo ?></div>
-
                         </div>
                         <a><i id="log_out" ></i></a>
                     </div>
@@ -186,7 +184,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="file-field input-field col s6" >
                                                             <div class="btn light-green darken-3">
                                                                 <span style="font-size: 10px">Ingrese copia del carnet</span>
-                                                                <input type="file" name="file_carnet">
+                                                                <input type="file" name="file_carnet" accept="image/*">
                                                             </div>
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                 <input class="file-path validate" type="text">
@@ -229,12 +227,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                     <div class="row tele">
-
                                                     </div>
-
                                                 </div>
                                             </li>
                                             <li>
@@ -298,7 +293,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn light-green darken-3">
                                                                 <span>Copia informe ultimo control</span>
-                                                                <input type="file" class="diag" name="file_control">
+                                                                <input type="file" class="diag" name="file_control" accept="application/pdf">
                                                             </div>
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                 <input class="file-path validate diag" type="text">
@@ -342,7 +337,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s10">
                                                                 <div class="btn light-green darken-3">
                                                                     <span>Copia carnet</span>
-                                                                    <input type="file" name="file_tutor">
+                                                                    <input type="file" name="file_tutor" accept="image/*">
                                                                 </div>
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                     <input class="file-path validate" type="text">
@@ -524,7 +519,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
-                                                                    <input type="file" name="file_credenFront" class="numCred">
+                                                                    <input type="file" name="file_credenFront" class="numCred" accept="image/*">
                                                                 </div>
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                     <input class="file-path validate numCred" type="text">
@@ -537,7 +532,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
-                                                                    <input type="file" name="file_credenBack" class="numCred">
+                                                                    <input type="file" name="file_credenBack" class="numCred" accept="image/*">
                                                                 </div>
                                                                 <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                     <input class="file-path validate numCred" type="text">
@@ -548,7 +543,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
+                                            <!--<li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
                                                     Pensiones</div>
                                                 <div class="collapsible-body" style="background-color: #C8E6C9">
@@ -570,7 +565,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                     </div>
                                                     <div class="row">
-                                                        
+
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
@@ -579,11 +574,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </li>-->
                                             <li>
                                                 <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
                                                     Beneficios Sociales</div>
                                                 <div class="collapsible-body" style="background-color: #C8E6C9">
+                                                    <div class="row">
+                                                        <h6 class="col s6">Posee alguna pensión</h6>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12 m4 l6" style="background-color: white; border-radius: 10px">
+                                                            <select name="cbo_pension">
+                                                                <option value="0">Selecciona una opción</option>
+                                                                <?php
+                                                                $pens = $data->getAllPensionesAll();
+                                                                foreach ($pens as $key1) {
+                                                                    echo '<option value="' . $key1['ID'] . '" >' . $key1['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                     <div class="row">
                                                         <h6 class="col s6">Pertenece a Chile solidario?</h6>
                                                     </div>
@@ -628,7 +639,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn light-green darken-3">
                                                                 <span>Fotografia del registro</span>
-                                                                <input id="cR" type="file" name="file_Hogar">
+                                                                <input id="cR" type="file" name="file_Hogar" accept="application/pdf">
                                                             </div>
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
                                                                 <input class="file-path validate" type="text">

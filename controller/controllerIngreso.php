@@ -293,13 +293,14 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
 }
 
 /////////////////////////Pensiones
-$pension = isset($_POST['pension']) ? $_POST['pension'] : null;
-$penBase = isset($_POST['pension1']) ? $_POST['pension1'] : null;
-$subMental = isset($_POST['pension2']) ? $_POST['pension2'] : null;
-$penSobre = isset($_POST['pension3']) ? $_POST['pension3'] : null;
-$asgDuplo = isset($_POST['pension4']) ? $_POST['pension4'] : null;
-$otraPen = isset($_POST['txt_otroP']) ? $_POST['txt_otroP'] : null;
+$pension = isset($_POST['cbo_pension']) ? $_POST['cbo_pension'] : null;
+$pensionbd;
 
+if ($pension==5) {
+    $pensionbd=0;
+}else{
+    $pensionbd=1;
+}
 /////////////////Beneficios Sociales
 $chSolid = isset($_POST['csolidario']) ? $_POST['csolidario'] : null;
 $hogar = isset($_POST['hogares']) ? $_POST['hogares'] : null;
@@ -347,13 +348,11 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 /////////////////////////////////Insercion de datos///////////////////////////
 
 
-$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
+$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pensionbd, $chSolid, $hogar, $previBene);
 $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
-if ($pension==1) {
-    $data->addPension($pension, $penBase, $subMental, $penSobre, $asgDuplo, $rut);
-}else{
-    
-}
+
+$data->addPensionBene($rut,$pension);
+
 
 if ($havediag==1) {
     $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion);
@@ -383,8 +382,8 @@ if($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna &&
     echo '<script language="javascript">Error()</script>';
 }
 
-echo '<br>'.$rut." ".$nombre." ".$apellido." ".$fecha." ".$genero." ".$direccion." ".$comuna." ".$teleton." ".$pension." ".$chSolid." ".$hogar."<br>";
-echo '<br>'.$pension." ".$penBase." ".$subMental." ".$penSobre." ".$asgDuplo;
+echo '<br>'.$rut." ".$nombre." ".$apellido." ".$fecha." ".$genero." ".$direccion." ".$comuna." ".$teleton." ".$pensionbd." ".$chSolid." ".$hogar."<br>";
+echo '<br>'.$rut." ".$pension;
 echo '<br>'.$rutTutor." ".$nombreTutor." ".$fecha_tutor." ".$direTutor." ".$comuTutor." ".$nivelE." ".$ocupacion." ".$telefono." ".$correoTutor." ".$prevision." ";
 echo '<br>'.$parentezco." ".$rut." ".$rutTutor;
 echo '<br>'.$numeroTeleton." ".$rut;
