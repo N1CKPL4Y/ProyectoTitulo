@@ -53,7 +53,6 @@ if ($pension == $existe){
 }else if($pension != $existe){
     $data->addPension($pension);
     echo '<script>Registrado()</script>';
-
 }
 ?>
 
