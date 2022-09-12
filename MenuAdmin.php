@@ -264,6 +264,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </div>
                                 </form>
                             </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat right" style="margin-right: 10px;margin-top: -10px;" disabled></a>
+                            </div>
                         </div>
                     </div>
                 </div>
