@@ -164,7 +164,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="passU" name="passU" type="password" class="validate" autocomplete="on">
+                                                <input id="passU" name="passU" type="password" class="validate" autocomplete="on" maxlength="8" minlength="4">
                                                 <label for="passU">Contraseña del usuario</label>
                                             </div>
                                             <span style="color: grey">La contraseña debe tener minimo 4 caracteres y maximo 8 caracteres</span>
