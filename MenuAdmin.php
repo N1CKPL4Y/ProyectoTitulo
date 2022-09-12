@@ -42,6 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
+        <script src="Materialize/js/materialize.js"></script>
 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -54,7 +55,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
-        <script src="Materialize/js/materialize.js"></script>
+
     </head>
     <body>
         <div class="sidebar open">
@@ -113,19 +114,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <div class="row">
-            <div class="col s6">
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
@@ -137,7 +125,148 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </nav>
             <div class="container-fluid">
-
+                <div class="row">
+                    <div class="col s6" style="z-index: 10000">
+                        <div id="modalEdit" class="modal">
+                            <div class="modal-content">
+                                <h2 class="center">Editar Datos de Usuario</h2>
+                                <form class="col s12 green lighten-4" action="action" style="border-radius: 10px; margin-bottom: 20px">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="nombresU" name="nombresU" type="text" class="validate">
+                                                <label for="nombresU">Nombres del usuario</label>
+                                            </div>
+                                        </div>
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="apellidosU" name="apellidosU" type="text" class="validate">
+                                                <label for="apellidosU">Apellidos del usuario</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="emailU" name="emailU" type="text" class="validate">
+                                                <label for="emailU">correo electronico del usuario</label>
+                                            </div>
+                                        </div>
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="passU" name="passU" type="password" class="validate">
+                                                <label for="passU">Contraseña del usuario</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="telefonoU" name="telefonoU" type="text" class="validate">
+                                                <label for="telefonoU">telefono del usuario</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="tipoU" name="tipoU" type="text" class="validate">
+                                                <label for="tipoU">Tipo de usuario actual</label>
+                                            </div>
+                                        </div>      
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" >
+                                                <select name="cbo_tUser">
+                                                    <option value="" disabled selected>Seleccione el tipo de usuario</option>
+                                                    <?php
+                                                    $tipoU = $data->getAllT_users();
+                                                    foreach ($tipoU as $key) {
+                                                        echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="areaU" name="areaU" type="text" class="validate">
+                                                <label for="areaU">Area actual del usuario</label>
+                                            </div>
+                                        </div>
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 50px" >
+                                                <select name="cbo_aUser">
+                                                    <option value="" disabled selected>Seleccione el area del usuario</option>
+                                                    <?php
+                                                    $areaU = $data->getAllA_users();
+                                                    foreach ($areaU as $key) {
+                                                        echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="cargoU" name="cargoU" type="text" class="validate">
+                                                <label for="cargoU">Cargo actual del usuario</label>
+                                            </div>
+                                        </div>
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 50px">
+                                                <select name="cbo_cUser">
+                                                    <option value="" disabled selected>Seleccione el cargo del usuario</option>
+                                                    <?php
+                                                    $cargo = $data->getAllCargos();
+                                                    foreach ($cargo as $key) {
+                                                        echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="estadoU" name="estadoU" type="text" class="validate">
+                                                <label for="estadoU">Estado actual del usuario</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <h3 id="desactivar">¿Desea desactivar/activar el usuario?</h3>
+                                        </div>
+                                        <div class="col s6">
+                                            <p class="col s2" style="background-color: white; border-radius: 50px">
+                                                <label>
+                                                    <input class="with-gap" id="Si" value="0" name="desactivar" type="radio"  />
+                                                    <span>Si</span>
+                                                </label>
+                                            </p>
+                                            <p class="col s2" style="background-color: white; border-radius: 50px">
+                                                <label>
+                                                    <input class="with-gap" id="No" value="1" name="desactivar" type="radio"  />
+                                                    <span>No</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12 center">
+                                            <button class="btn light-green darken-3" type="submit" name="action" style="margin-bottom: 10px; margin-top: 10px">Editar Usuario</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col s12">
                         <div class="card" style="border-radius: 10px">
@@ -188,7 +317,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <td><?php echo $key['area usuario'] ?></td>
                                                     <td><?php echo $key['cargo'] ?></td>
                                                     <td><?php echo $activo ?></td>
-                                                    <td><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a></td>
+                                                    <td><button data-target="modalEdit" class="btn light-green darken-3 modal-trigger">Modal</button></td>
                                                 </tr>
 
                                                 <?php

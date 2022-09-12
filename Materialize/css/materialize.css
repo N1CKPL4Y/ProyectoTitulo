@@ -9231,4 +9231,8 @@ input[type=range]::-ms-thumb {
     }
 
 }
+.a:hover{
+    background-color: white;
+}
+
 
