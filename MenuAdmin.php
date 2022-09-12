@@ -38,6 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
@@ -134,7 +135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="rutU" name="rutU" type="text" class="validate">
+                                                <input id="rutU" name="rutU" type="text" class="validate" readonly="">
                                                 <label for="rutU">R.U.T del usuario</label>
                                             </div>
                                         </div>
@@ -142,13 +143,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="nombresU" name="nombresU" type="text" class="validate">
+                                                <input id="nombresU" name="nombresU" type="text" class="validate" readonly="">
                                                 <label for="nombresU">Nombres del usuario</label>
                                             </div>
                                         </div>
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="apellidosU" name="apellidosU" type="text" class="validate">
+                                                <input id="apellidosU" name="apellidosU" type="text" class="validate" readonly="">
                                                 <label for="apellidosU">Apellidos del usuario</label>
                                             </div>
                                         </div>
@@ -159,12 +160,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <input id="emailU" name="emailU" type="text" class="validate">
                                                 <label for="emailU">correo electronico del usuario</label>
                                             </div>
+                                            <span id="emailVal" style="color: gray"></span>
                                         </div>
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
                                                 <input id="passU" name="passU" type="password" class="validate" autocomplete="on">
                                                 <label for="passU">Contraseña del usuario</label>
                                             </div>
+                                            <span style="color: grey">La contraseña debe tener minimo 4 caracteres y maximo 8 caracteres</span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -178,7 +181,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="tipoU" name="tipoU" type="text" class="validate">
+                                                <input id="tipoU" name="tipoU" type="text" class="validate" readonly="">
                                                 <label for="tipoU">Tipo de usuario actual</label>
                                             </div>
                                         </div>      
@@ -199,7 +202,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="areaU" name="areaU" type="text" class="validate">
+                                                <input id="areaU" name="areaU" type="text" class="validate" readonly="">
                                                 <label for="areaU">Area actual del usuario</label>
                                             </div>
                                         </div>
@@ -220,7 +223,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="cargoU" name="cargoU" type="text" class="validate">
+                                                <input id="cargoU" name="cargoU" type="text" class="validate" readonly="">
                                                 <label for="cargoU">Cargo actual del usuario</label>
                                             </div>
                                         </div>
@@ -241,7 +244,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="estadoU" name="estadoU" type="text" class="validate">
+                                                <input id="estadoU" name="estadoU" type="text" class="validate" readonly="">
                                                 <label for="estadoU">Estado actual del usuario</label>
                                             </div>
                                         </div>
@@ -355,10 +358,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <a target="_blank" href="Prueba.php">Pruebame</a>
             </div>-->
         </section>
+        <script>
+            document.getElementById('emailU').addEventListener('input', function () {
+                campo = event.target;
+                valido = document.getElementById('emailVal');
+                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+
+                if (emailRegex.test(campo.value)) {
+                    valido.innerText = "Correo válido";
+                } else {
+                    valido.innerText = "Correo no válido";
+                }
+            }
+            );
+        </script>
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function () {
                 M.AutoInit();
             });
+
         </script>
         <script>
 
