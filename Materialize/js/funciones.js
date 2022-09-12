@@ -32,33 +32,8 @@ function cargarDatos(datos) {
     $('#passU').val(d[4]);
     $('#telefonoU').val(d[5]);
     $('#tipoU').val(d[6]);
-    $('#telefonoU').val(d[4]);
-    area=0;
-    console.log(d[5]);
-    /*switch (d[5]) {
-        case 1:
-            area="bodega";
-            break;
-        case "seguridad":
-            area=2;
-            break;
-        case "RRHH":
-            area=3;
-            break;
-        case "zona_espera":
-            area=4;
-            break;
-        case "g_vuelos":
-            area=5;
-            break;
-        default:
-            area=0;
-            break;
-    }*/
-    $('#areaE').val(d[5]);
+    $('#telefonoU').val(d[7]);
     
-
-
 
 }
 

@@ -30,8 +30,7 @@ $data = new Data();
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
-<!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+
 <html lang="en" dir="ltr">
     <head>
         <title>Menú Administrador</title>
@@ -39,7 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
         <script src="Materialize/js/funciones.js"></script>
@@ -50,13 +49,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="Materialize/css/materialize.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
-
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -163,7 +162,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
-                                                <input id="passU" name="passU" type="password" class="validate">
+                                                <input id="passU" name="passU" type="password" class="validate" autocomplete="on">
                                                 <label for="passU">Contraseña del usuario</label>
                                             </div>
                                         </div>
@@ -318,23 +317,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     default:
                                                         break;
                                                 }
-                                                $datos = $key['rut']."||".$key['nombre']."||".$key['apellido']."||".$key['correo']."||".$key['telefono']."||".$key['tipo usuario']."||".$key['area usuario']."||".$key['cargo']."||".$key['activo'];
+                                                $datos = $key['rut'] . "||"
+                                                        . $key['nombre'] . "||"
+                                                        . $key['apellido'] . "||"
+                                                        . $key['correo'] . "||"
+                                                        . $key['telefono'] . "||"
+                                                        . $key['tipo usuario'] . "||"
+                                                        . $key['area usuario'] . "||"
+                                                        . $key['cargo'] . "||"
+                                                        . $key['activo'];
                                                 
-                                                ?>
-                                                <tr>
-                                                    <td><?php echo $key['rut'] ?></td>
-                                                    <td><?php echo $key['nombre'] ?></td>
-                                                    <td><?php echo $key['apellido'] ?></td>
-                                                    <td><?php echo $key['correo'] ?></td>
-                                                    <td><?php echo $key['telefono'] ?></td>
-                                                    <td><?php echo $key['tipo usuario'] ?></td>
-                                                    <td><?php echo $key['area usuario'] ?></td>
-                                                    <td><?php echo $key['cargo'] ?></td>
-                                                    <td><?php echo $activo ?></td>
-                                                    <td><button data-target="modalEdit" class="btn light-green darken-3 modal-trigger" onclick="cargarDatos(<?php echo $datos;?>)">Modal</button></td>
-                                                </tr>
-
-                                                <?php
+                                                
+                                                echo '<tr>';
+                                                echo '<td>'.$key['rut'].'</td>';
+                                                echo '<td>'.$key['nombre'].'</td>';
+                                                echo '<td>'.$key['apellido'].'</td>';
+                                                echo '<td>'.$key['correo'].'</td>';
+                                                echo '<td>'.$key['telefono'].'</td>';
+                                                echo '<td>'.$key['tipo usuario'].'</td>';
+                                                echo '<td>'.$key['area usuario'].'</td>';
+                                                echo '<td>'.$key['cargo'].'</td>';
+                                                echo '<td>'.$activo.'</td>';
+                                                echo '<td><button data-target="modalEdit" class="btn light-green darken-3 modal-trigger" onclick="(cargarDatos('.$datos.'))">Modal</button></td>';
+                                                echo '</tr>';
                                             }
                                             ?>
                                         </tbody>
