@@ -75,7 +75,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <span class="tooltip">Registrar Usuarios</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="VisBeneficiario.php">
                         <i class="material-icons">people</i>
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </a>
@@ -176,8 +176,17 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 <div class="row">
                     <div class="col s10 offset-s1">
                         <div class="card" style="border-radius: 10px">
-                            <h3 style="padding-top: 10px; padding-left: 10px" class="center"><?php echo $rutBase; ?></h3>
-                            <h4 style="padding-left: 10px" class="center"><?php echo $nombBase . " " . $apelBase; ?></h4>
+                            <div class="row">
+                                <div class="col s1" style="padding-top: 20px; padding-left: 30px">
+                                    <a class="btn" style="background-color: #005568;" href="VisBeneficiario.php">
+                                        <i class='bx bx-left-arrow-alt'>Volver</i>
+                                    </a>
+                                </div>
+                                <div class="col s10">
+                                    <h3 style="padding-top: 10px; padding-left: 10px" class="center"><?php echo $rutBase; ?></h3>
+                                    <h4 style="padding-left: 10px" class="center"><?php echo $nombBase . " " . $apelBase; ?></h4>
+                                </div> 
+                            </div>
                             <div class="row">
                                 <div class="col s10 offset-s1">
                                     <form method="post">

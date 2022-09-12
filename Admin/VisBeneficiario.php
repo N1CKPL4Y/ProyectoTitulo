@@ -129,7 +129,7 @@ $benefs = $data->getAllBenefi();
                             <h1 style="padding-top: 10px; padding-left: 10px" class="center">Base de consulta</h1>
                             <div class="row">
                                 <div class="col s10 offset-s1">
-                                    <table id="myTable" class="display">
+                                    <table id="myTable" class="display compact">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -150,7 +150,7 @@ $benefs = $data->getAllBenefi();
                                                 echo '<td>' . $key['nombre'] . '</td>';
                                                 echo '<td>' . $key['apellido'] . '</td>';
                                                 echo '<td>' . $key['direccion'] . '</td>';
-                                                echo '<td><a class="btn" href="VerDatos.php?rut=' . $rutb . '">Holi</a></td>';
+                                                echo '<td><a class="btn" style="background-color: #005568;" href="VerDatos.php?rut=' . $rutb . '"><i class="bx bx-right-arrow-alt">Ver</i></a></td>';
                                                 echo '</tr>';
                                             }
                                             ?>
@@ -169,9 +169,9 @@ $benefs = $data->getAllBenefi();
         $(document).ready(function () {
             $('#myTable').DataTable({
                 responsive: true,
-                autoWidth: false,
+                autoWidth: true,
                 "language": {
-                    "lengthMenu": "Mostrar " + '<select><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                    "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
                     "zeroRecords": "No se han encontrado registros",
                     "info": "Mostrando la página _PAGE_ de _PAGES_",
                     "infoEmpty": "No hay registros disponibles",

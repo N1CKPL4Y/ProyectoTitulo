@@ -54,7 +54,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
-
+        <script src="Materialize/js/materialize.js"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -113,6 +113,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
+        <div class="row">
+            <div class="col s6">
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
@@ -124,15 +137,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </nav>
             <div class="container-fluid">
-                <div id = "modalEdit" class = "modal">
-                    <div class = "modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
-                    </div>
-                    <div class = "modal-footer">
-                        <a href = "#!" class = "modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col s12">
                         <div class="card" style="border-radius: 10px">
@@ -183,7 +188,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <td><?php echo $key['area usuario'] ?></td>
                                                     <td><?php echo $key['cargo'] ?></td>
                                                     <td><?php echo $activo ?></td>
-                                                    <td><button class="waves-effect waves-light btn modal-trigger" data-target="#modalEdit" onclick="cargarDatos(<?php echo $info ?>)">EDITAR</button></td>
+                                                    <td><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a></td>
                                                 </tr>
 
                                                 <?php
@@ -196,18 +201,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- <div>
                 <a target="_blank" href="Prueba.php">Pruebame</a>
             </div>-->
         </section>
-        <script>
-            $(document).ready(function () {
-                $('.modal').modal();
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                M.AutoInit();
             });
         </script>
         <script>
+
             $(document).ready(function () {
+
                 $('#myTable').DataTable({
                     responsive: true,
                     autoWidth: true,
