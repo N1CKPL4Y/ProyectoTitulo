@@ -60,7 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
+                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusive</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
