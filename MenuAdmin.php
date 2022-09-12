@@ -42,6 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
+        <script src="Materialize/js/funciones.js"></script>
         <script src="Materialize/js/materialize.js"></script>
 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -131,6 +132,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="modal-content">
                                 <h2 class="center">Editar Datos de Usuario</h2>
                                 <form class="col s12 green lighten-4" action="action" style="border-radius: 10px; margin-bottom: 20px">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
+                                                <input id="rutU" name="rutU" type="text" class="validate">
+                                                <label for="rutU">R.U.T del usuario</label>
+                                            </div>
+                                        </div>
+                                    </div> 
                                     <div class="row">
                                         <div class="col s6">
                                             <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 10px">
@@ -309,6 +318,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     default:
                                                         break;
                                                 }
+                                                $datos = $key['rut']."||".$key['nombre']."||".$key['apellido']."||".$key['correo']."||".$key['telefono']."||".$key['tipo usuario']."||".$key['area usuario']."||".$key['cargo']."||".$key['activo'];
+                                                
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $key['rut'] ?></td>
@@ -320,7 +331,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <td><?php echo $key['area usuario'] ?></td>
                                                     <td><?php echo $key['cargo'] ?></td>
                                                     <td><?php echo $activo ?></td>
-                                                    <td><button data-target="modalEdit" class="btn light-green darken-3 modal-trigger">Modal</button></td>
+                                                    <td><button data-target="modalEdit" class="btn light-green darken-3 modal-trigger" onclick="cargarDatos(<?php echo $datos;?>)">Modal</button></td>
                                                 </tr>
 
                                                 <?php

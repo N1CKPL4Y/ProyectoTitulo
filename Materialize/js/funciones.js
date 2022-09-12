@@ -25,11 +25,14 @@ function agregarUsuario(rut, nombre, apellido, email, telefono, area, tipo, pass
 function cargarDatos(datos) {
     d = datos.split('||');
     console.log(d[0]);
-    $('#rutEdite').val(d[0]);
-    $('#nombreE').val(d[1]);
-    $('#apellidoE').val(d[2]);
-    $('#emailE').val(d[3]);
-    $('#telefonoE').val(d[4]);
+    $('#rutU').val(d[0]);
+    $('#nombresU').val(d[1]);
+    $('#apellidosU').val(d[2]);
+    $('#emailU').val(d[3]);
+    $('#passU').val(d[4]);
+    $('#telefonoU').val(d[5]);
+    $('#tipoU').val(d[6]);
+    $('#telefonoU').val(d[4]);
     area=0;
     console.log(d[5]);
     /*switch (d[5]) {
