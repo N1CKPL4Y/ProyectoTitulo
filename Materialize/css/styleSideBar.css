@@ -21,8 +21,16 @@
     transition: all 0.5s ease;
     
 }
+
+
+
 .sidebar.open{
     width: 250px;
+    overflow: hidden;
+}
+
+element-webkit-scrollbar{
+    display: none;
 }
 
 .sidebar .logo-details{

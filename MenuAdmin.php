@@ -43,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
 
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -58,7 +58,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
-        <div class="sidebar open">
+        <div class="sidebar open" >
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusive</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
@@ -128,7 +128,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
@@ -204,7 +204,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     echo '<td>' . $key['telefono'] . '</td>';
                                                     echo '<td>' . $key['tipo usuario'] . '</td>';
                                                     echo '<td>' . $activo . '</td>';
-                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</td>';
+                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
@@ -258,17 +258,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             $(function () {
                 $("#myTable").DataTable({
                     "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "language": {
+                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                        "zeroRecords": "No se han encontrado registros",
+                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay registros disponibles",
+                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                        "search": "Buscar:",
+                        "paginate": {
+                            'next': 'Siguiente',
+                            'previous': 'Anterior',
+                        }
+                    }
                 }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
-                $('#example2').DataTable({
-                    "paging": true,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": false,
-                    "responsive": true,
-                });
             });
         </script>
         <script>
