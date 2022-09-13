@@ -23,17 +23,30 @@ function agregarUsuario(rut, nombre, apellido, email, telefono, area, tipo, pass
 
 
 function cargarDatos(datos) {
-    d = datos.split('||');
-    console.log(d[0]);
+    d = datos.split('..');
+    console.log(d);
     $('#rutU').val(d[0]);
-    $('#nombresU').val(d[1]);
-    $('#apellidosU').val(d[2]);
+    $('#nombreU').val(d[1]);
+    $('#apellidoU').val(d[2]);
     $('#emailU').val(d[3]);
-    $('#passU').val(d[4]);
-    $('#telefonoU').val(d[5]);
-    $('#tipoU').val(d[6]);
-    $('#telefonoU').val(d[7]);
+    $('#telefonoU').val(d[4]);
+    $('#tipoU').val(d[5]);
+    $('#areaU').val(d[6]);
+    $('#cargoU').val(d[7]);
     
+    if (d[8]==1) {
+        $('#estadoU').val("Activo");
+        $('#labelDes').text("¿Desea desactivar el usuario?");
+        $('#desA').val(0);
+        $('#desB').val(1);
+        //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea desactivar el usuario?</label>');
+    }else{
+        $('#estadoU').val("Inactivo");
+        $('#labelDes').text("¿Desea activar el usuario?");
+        $('#desA').val(1);
+        $('#desB').val(0);
+        //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea activar el usuario?</label>');
+    }
 
 }
 

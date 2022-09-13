@@ -29,7 +29,7 @@
     overflow: hidden;
 }
 
-element-webkit-scrollbar{
+.sidebar.open-webkit-scrollbar{
     display: none;
 }
 

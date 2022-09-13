@@ -42,6 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
+        <script src="Materialize/js/funciones.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -184,7 +185,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">+56</span>
                                                         </div> 
-                                                        <input type="number" name="telefonoU" class="form-control" id="telefonoU">
+                                                        <input type="text" name="telefonoU" class="form-control" id="telefonoU">
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,16 +256,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <input type="text" name="estadoU" class="form-control" id="estadoU" readonly="">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-sm-10">
-                                                    <label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label">¿Desea desactivar el usuario?</label>
+                                                <div class="col-md-4 col-sm-10" id="estado">
+                                                    <label for="deshabilitar" id="labelDes" class="col-sm-10 col-form-label" >¿Desea desactivar el usuario?</label>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="deshabilitar" value="1">
+                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="desA" value="1">
                                                         <label class="form-check-label" for="deshabilitar">
                                                             Si
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="deshabilitar" value="0">
+                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="desB" value="0">
                                                         <label class="form-check-label" for="deshabilitar">
                                                             No
                                                         </label>
@@ -322,15 +323,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         default:
                                                             break;
                                                     }
-                                                    $datos = $key['rut'] . "||"
-                                                            . $key['nombre'] . "||"
-                                                            . $key['apellido'] . "||"
-                                                            . $key['correo'] . "||"
-                                                            . $key['telefono'] . "||"
-                                                            . $key['tipo usuario'] . "||"
-                                                            . $key['area usuario'] . "||"
-                                                            . $key['cargo'] . "||"
+                                                    $datos = $key['rut'] . ".."
+                                                            . $key['nombre'] . ".."
+                                                            . $key['apellido'] . ".."
+                                                            . $key['correo'] . ".."
+                                                            . $key['telefono'] . ".."
+                                                            . $key['tipo usuario'] . ".."
+                                                            . $key['area usuario'] . ".."
+                                                            . $key['cargo'] . ".."
                                                             . $key['activo'];
+                                                    
+                                                    $escaped= htmlspecialchars(json_encode($datos));
 
                                                     echo '<tr>';
                                                     echo '<td>' . $key['rut'] . '</td>';
@@ -340,7 +343,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     echo '<td>' . $key['telefono'] . '</td>';
                                                     echo '<td>' . $key['tipo usuario'] . '</td>';
                                                     echo '<td>' . $activo . '</td>';
-                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit"><i class="bi bi-pencil-square"></i></td>';
+                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>

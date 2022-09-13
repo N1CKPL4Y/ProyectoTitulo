@@ -37,7 +37,7 @@ $benefs = $data->getAllBenefi();
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 
         <script src="../js/validarut.js"></script>
@@ -46,14 +46,16 @@ $benefs = $data->getAllBenefi();
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="../AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="../AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="../Materialize/css/materialize.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+
     </head>
     <body>
         <div class="sidebar open">
@@ -113,49 +115,53 @@ $benefs = $data->getAllBenefi();
             </ul>
         </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
-            <nav>
-                <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
-                        <a style="font-size: 30px">Ave</a>
-                        <img src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+             <nav class="nav justify-content-center" style="background-color: #00526a">
+                <div class="nav-wrapper" >
+                    <div class="container mx-auto">
+                        <a style="font-size: 30px;color: white">Ave</a>
+                        <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px;color: white;">Fenix</a>
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid">
+            <div class="container-fluid" style="padding-top: 15px">
                 <div class="row">
-                    <div class="col s10 offset-s1">
+                    <div class="col-sm-12">
                         <div class="card" style="border-radius: 10px">
-                            <h1 style="padding-top: 10px; padding-left: 10px" class="center">Base de consulta</h1>
-                            <div class="row">
-                                <div class="col s10 offset-s1">
-                                    <table id="myTable" class="display compact">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Rut</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Direccion</th>
-                                                <th>Datos</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            foreach ($benefs as $key) {
-                                                $rutb = $key['RUT'];
-                                                echo '<tr>';
-                                                echo '<td>' . $key['ID'] . '</td>';
-                                                echo '<td>' . $key['RUT'] . '</td>';
-                                                echo '<td>' . $key['nombre'] . '</td>';
-                                                echo '<td>' . $key['apellido'] . '</td>';
-                                                echo '<td>' . $key['direccion'] . '</td>';
-                                                echo '<td><a class="btn" style="background-color: #005568;" href="VerDatos.php?rut=' . $rutb . '"><i class="bx bx-right-arrow-alt">Ver</i></a></td>';
-                                                echo '</tr>';
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
+                            <div class="card-header">
+                                <h3 class="card-title">Base de Consulta</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-sm-4 col-md-8">
+                                        <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>R.U.T</th>
+                                                    <th>Nombres</th>
+                                                    <th>Apellidos</th>
+                                                    <th>Dirección</th>
+                                                    <th>Datos</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                foreach ($benefs as $key) {
+                                                    $rutb = $key['RUT'];
+                                                    echo '<tr>';
+                                                    echo '<td>' . $key['ID'] . '</td>';
+                                                    echo '<td>' . $key['RUT'] . '</td>';
+                                                    echo '<td>' . $key['nombre'] . '</td>';
+                                                    echo '<td>' . $key['apellido'] . '</td>';
+                                                    echo '<td>' . $key['direccion'] . '</td>';
+                                                    echo '<td><a class="btn" style="background-color: #C8E6C9;" href="VerDatos.php?rut=' . $rutb . '"><i class="bx bx-right-arrow-alt">Ver</i></a></td>';
+                                                    echo '</tr>';
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,13 +169,31 @@ $benefs = $data->getAllBenefi();
                 </div>
             </div>
         </section>
+        <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables  & Plugins -->
+        <script src="../AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="../AdminLTE/plugins/jszip/jszip.min.js"></script>
+        <script src="../AdminLTE/plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="../AdminLTE/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="AdminLTE/dist/js/adminlte.min.js"></script>
     </body>
     <script>
-        
-        $(document).ready(function () {
-            $('#myTable').DataTable({
-                responsive: true,
-                autoWidth: true,
+        $(function () {
+            $("#myTable").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
                 "language": {
                     "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
                     "zeroRecords": "No se han encontrado registros",
@@ -180,9 +204,9 @@ $benefs = $data->getAllBenefi();
                     "paginate": {
                         'next': 'Siguiente',
                         'previous': 'Anterior',
-                    },
+                    }
                 }
-            });
+            }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
 
         });
     </script>
