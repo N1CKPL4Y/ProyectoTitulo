@@ -127,20 +127,156 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Understood</button>
-                                    </div>
+                                    <form action="action">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Usuario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="rutU" class="col-sm-8 col-form-label">R.U.T del usuario</label>
+                                                        <input type="text" name="txt_rut" class="form-control" id="rutU" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="">
+                                                        <small id="rut1" class="form-text text-muted"></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="nombreU" class="col-sm-8 col-form-label">Nombres del usuario</label>
+                                                        <input type="text" name="nombreU" class="form-control" id="nombreU" aria-describedby="nombre1" readonly="">
+                                                        <small id="nombre1" class="form-text text-muted"></small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="apellidoU" class="col-sm-8 col-form-label">Apellidos del usuario</label>
+                                                        <input type="text" name="apellidoU" class="form-control" id="apellidoU" aria-describedby="apellido1" readonly="">
+                                                        <small id="apellido1" class="form-text text-muted"></small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="emailU" class="col-sm-10 col-form-label">Correo electronico del usuario</label>
+                                                        <input type="text" name="emailU" class="form-control" id="emailU">
+                                                        <span id="emailVal" style="color: gray"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="passU" class="col-sm-10 col-form-label">Contraseña del usuario</label>
+                                                        <input type="password" name="passU" class="form-control" id="passU" maxlength="8" minlength="4">
+                                                        <small id="pass1" class="form-text text-muted">Debe tener minimo 4 caracteres y maximo 8</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <label for="telefonoU" class="col-sm-10 col-form-label">Telefono del usuario</label>
+                                                    <div class="input-group mb-3">      
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">+56</span>
+                                                        </div> 
+                                                        <input type="number" name="telefonoU" class="form-control" id="telefonoU">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="tipoU" class="col-sm-10 col-form-label">Tipo de usuario actual</label>
+                                                        <input type="text" name="tipoU" class="form-control" id="tipoU" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <label for="tipoU" class="col-sm-10 col-form-label">Seleccionar tipo de usuario</label>
+                                                    <select class="form-control">
+                                                        <option disabled selected="">--Seleccionar--</option>
+                                                        <?php
+                                                        $tipoU = $data->getAllT_users();
+                                                        foreach ($tipoU as $key) {
+                                                            echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="areaU" class="col-sm-10 col-form-label">Area actual del usuario</label>
+                                                        <input type="text" name="areaU" class="form-control" id="areaU" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <label for="areaU" class="col-sm-10 col-form-label">Seleccionar Area de usuario</label>
+                                                    <select class="form-control">
+                                                        <option disabled selected="">--Seleccionar--</option>
+                                                        <?php
+                                                        $areaU = $data->getAllA_users();
+                                                        foreach ($areaU as $key) {
+                                                            echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="cargoU" class="col-sm-10 col-form-label">Cargo actual del usuario</label>
+                                                        <input type="text" name="cargoU" class="form-control" id="cargoU" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <label for="areaU" class="col-sm-10 col-form-label">Seleccionar Cargo de usuario</label>
+                                                    <select class="form-control">
+                                                        <option disabled selected="">--Seleccionar--</option>
+                                                        <?php
+                                                        $cargo = $data->getAllCargos();
+                                                        foreach ($cargo as $key) {
+                                                            echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="estadoU" class="col-sm-10 col-form-label">Estado del usuario</label>
+                                                        <input type="text" name="estadoU" class="form-control" id="estadoU" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label">¿Desea desactivar el usuario?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="deshabilitar" value="1">
+                                                        <label class="form-check-label" for="deshabilitar">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="deshabilitar" value="0">
+                                                        <label class="form-check-label" for="deshabilitar">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -204,7 +340,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     echo '<td>' . $key['telefono'] . '</td>';
                                                     echo '<td>' . $key['tipo usuario'] . '</td>';
                                                     echo '<td>' . $activo . '</td>';
-                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-pencil-square"></i></td>';
+                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
@@ -239,6 +375,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="AdminLTE/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
+        <script type="text/javascript">
+                                                            var input = document.getElementById('telefonoU');
+                                                            input.addEventListener('input', function () {
+                                                                if (this.value.length > 9)
+                                                                    this.value = this.value.slice(0, 9);
+                                                            })
+        </script>
+
         <script>
             document.getElementById('emailU').addEventListener('input', function () {
                 campo = event.target;
