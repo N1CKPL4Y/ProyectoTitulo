@@ -131,7 +131,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
-                                    <form action="action">
+                                    <form action="controller/controllerUpdateUser.php" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Usuario</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -188,6 +188,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <input type="text" name="telefonoU" class="form-control" id="telefonoU">
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="pass" class="form-control" id="pass">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4 col-sm-10">
@@ -198,8 +203,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                                 <div class="col-md-4 col-sm-10">
                                                     <label for="tipoU" class="col-sm-10 col-form-label">Seleccionar tipo de usuario</label>
-                                                    <select class="form-control">
-                                                        <option disabled selected="">--Seleccionar--</option>
+                                                    <select class="form-control" name="cbo_tUser">
+                                                        <option disabled selected value="0">--Seleccionar--</option>
                                                         <?php
                                                         $tipoU = $data->getAllT_users();
                                                         foreach ($tipoU as $key) {
@@ -207,6 +212,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         }
                                                         ?>
                                                     </select>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="tUser" class="form-control" id="tUser" readonly="">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -218,8 +228,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                                 <div class="col-md-4 col-sm-10">
                                                     <label for="areaU" class="col-sm-10 col-form-label">Seleccionar Area de usuario</label>
-                                                    <select class="form-control">
-                                                        <option disabled selected="">--Seleccionar--</option>
+                                                    <select class="form-control" name="cbo_aUser">
+                                                        <option disabled selected value="0">--Seleccionar--</option>
                                                         <?php
                                                         $areaU = $data->getAllA_users();
                                                         foreach ($areaU as $key) {
@@ -227,6 +237,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         }
                                                         ?>
                                                     </select>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="aUser" class="form-control" id="aUser" readonly="">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -238,8 +253,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                                 <div class="col-md-4 col-sm-10">
                                                     <label for="areaU" class="col-sm-10 col-form-label">Seleccionar Cargo de usuario</label>
-                                                    <select class="form-control">
-                                                        <option disabled selected="">--Seleccionar--</option>
+                                                    <select class="form-control" name="cbo_cUser">
+                                                        <option disabled selected value="0">--Seleccionar--</option>
                                                         <?php
                                                         $cargo = $data->getAllCargos();
                                                         foreach ($cargo as $key) {
@@ -247,6 +262,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         }
                                                         ?>
                                                     </select>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="cUser" class="form-control" id="cUser" readonly="">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -275,7 +295,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                                         </div>
                                     </form>
                                 </div>
@@ -327,10 +347,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             . $key['nombre'] . ".."
                                                             . $key['apellido'] . ".."
                                                             . $key['correo'] . ".."
+                                                            . $key['passwd']. ".."
                                                             . $key['telefono'] . ".."
                                                             . $key['tipo usuario'] . ".."
+                                                            . $key['id_user']. ".."
                                                             . $key['area usuario'] . ".."
+                                                            . $key['a_user']. ".."
                                                             . $key['cargo'] . ".."
+                                                            . $key['c_user']. ".."
                                                             . $key['activo'];
                                                     
                                                     $escaped= htmlspecialchars(json_encode($datos));
@@ -341,7 +365,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     echo '<td>' . $key['apellido'] . '</td>';
                                                     echo '<td>' . $key['correo'] . '</td>';
                                                     echo '<td>' . $key['telefono'] . '</td>';
-                                                    echo '<td>' . $key['tipo usuario'] . '</td>';
+                                                    echo '<td>' . $key['tipo usuario'] .' - '. $key['id_user'].'</td>';
                                                     echo '<td>' . $activo . '</td>';
                                                     echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';

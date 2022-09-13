@@ -29,12 +29,16 @@ function cargarDatos(datos) {
     $('#nombreU').val(d[1]);
     $('#apellidoU').val(d[2]);
     $('#emailU').val(d[3]);
-    $('#telefonoU').val(d[4]);
-    $('#tipoU').val(d[5]);
-    $('#areaU').val(d[6]);
-    $('#cargoU').val(d[7]);
+    $('#pass').val(d[4]);
+    $('#telefonoU').val(d[5]);
+    $('#tipoU').val(d[6]);
+    $('#tUser').val(d[7]);
+    $('#areaU').val(d[8]);
+    $('#aUser').val(d[9]);
+    $('#cargoU').val(d[10]);
+    $('#cUser').val(d[11]);
     
-    if (d[8]==1) {
+    if (d[12]==1) {
         $('#estadoU').val("Activo");
         $('#labelDes').text("¿Desea desactivar el usuario?");
         $('#desA').val(0);

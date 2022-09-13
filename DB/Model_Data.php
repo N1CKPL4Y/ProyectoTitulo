@@ -150,7 +150,7 @@ class Data {
     }
 
     public function getAllUsers() {
-        $sql = "SELECT usuario.id as 'id', usuario.RUT as 'rut', usuario.nombre as 'nombre', usuario.apellido as 'apellido', usuario.email as 'correo', usuario.telefono as 'telefono', t_usuario.nombre as 'tipo usuario', a_usuario.nombre as 'area usuario', cargo.nombre as 'cargo', usuario.activo as 'activo' FROM usuario INNER JOIN t_usuario ON t_usuario.id = usuario.t_user INNER JOIN a_usuario ON a_usuario.id = usuario.a_user INNER JOIN cargo ON cargo.id = usuario.cargo;";
+        $sql = "SELECT usuario.id as 'id', usuario.RUT as 'rut', usuario.nombre as 'nombre', usuario.apellido as 'apellido', usuario.email as 'correo',usuario.passwd as 'passwd', usuario.telefono as 'telefono', t_usuario.nombre as 'tipo usuario', t_usuario.ID as 'id_user', a_usuario.nombre as 'area usuario', a_usuario.ID as 'a_user', cargo.nombre as 'cargo', cargo.id as 'c_user', usuario.activo as 'activo' FROM usuario INNER JOIN t_usuario ON t_usuario.id = usuario.t_user INNER JOIN a_usuario ON a_usuario.id = usuario.a_user INNER JOIN cargo ON cargo.id = usuario.cargo;";
         $query = $this->con->query($sql);
         return $query;
     }
@@ -277,6 +277,11 @@ class Data {
         $sql = "SELECT * FROM beneficiario ";
         $query = $this->con->query($sql);
         return $query;
+    }
+    
+    public function updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo){
+        $sql = "UPDATE `usuario` SET `email` = '$email', `passwd` = sha2('$passwd',0), `telefono` = '$telefono', `t_user` = '$t_user', `a_user` = '$a_user', `cargo` = '$cargo', `activo` = '$activo' WHERE `usuario`.`RUT` = '$rut';";
+        $query = $this->con->query($sql);
     }
 
 }
