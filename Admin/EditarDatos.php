@@ -126,7 +126,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="col s12">
                                     <ul class="collapsible">
                                         <li>
-                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Añadir/Habilitar/Deshabilitar Areas de usuario</div>
+                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Agregar /Habilitar /Deshabilitar Areas de usuario</div>
                                             <div class="collapsible-body" style="background-color: #C8E6C9">
                                                 <div class="row">
                                                     <form method="post" action="../controller/controllerRegistroNArea.php">

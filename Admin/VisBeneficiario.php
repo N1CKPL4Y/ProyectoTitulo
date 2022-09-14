@@ -44,6 +44,7 @@ $benefs = $data->getAllBenefi();
         <script src="../js/jquery.rut.js"></script>
 
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -155,7 +156,7 @@ $benefs = $data->getAllBenefi();
                                                     echo '<td>' . $key['nombre'] . '</td>';
                                                     echo '<td>' . $key['apellido'] . '</td>';
                                                     echo '<td>' . $key['direccion'] . '</td>';
-                                                    echo '<td><a class="btn" style="background-color: #C8E6C9;" href="VerDatos.php?rut=' . $rutb . '"><i class="bx bx-right-arrow-alt">Ver</i></a></td>';
+                                                    echo '<td><a class="btn bg-success" style="background-color: #C8E6C9;" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-eye"></i></a></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
