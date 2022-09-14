@@ -178,8 +178,8 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="card" style="border-radius: 10px">
                             <div class="row">
                                 <div class="col s1" style="padding-top: 20px; padding-left: 30px">
-                                    <a class="btn" style="background-color: #005568;" href="VisBeneficiario.php">
-                                        <i class='bx bx-left-arrow-alt'>Volver</i>
+                                    <a class="btn" style="background-color: #558b2f;" href="VisBeneficiario.php">
+                                        <i class='bx bx-arrow-to-left'></i>
                                     </a>
                                 </div>
                                 <div class="col s10">
