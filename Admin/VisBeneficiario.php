@@ -189,7 +189,7 @@ $benefs = $data->getAllBenefi();
         <!-- AdminLTE App -->
         <script src="AdminLTE/dist/js/adminlte.min.js"></script>
         <script>
-            let sidebar = document.querySelector(".sidebar");
+            /*let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
             let section = document.querySelector(".home-section");
@@ -212,7 +212,7 @@ $benefs = $data->getAllBenefi();
                 } else {
                     closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
                 }
-            }
+            }*/
         </script>
     </body>
     <script>

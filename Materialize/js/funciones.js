@@ -41,14 +41,14 @@ function cargarDatos(datos) {
     if (d[12]==1) {
         $('#estadoU').val("Activo");
         $('#labelDes').text("¿Desea desactivar el usuario?");
-        $('#desA').val(0);
+        $('#desA').val(2);
         $('#desB').val(1);
         //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea desactivar el usuario?</label>');
     }else{
         $('#estadoU').val("Inactivo");
         $('#labelDes').text("¿Desea activar el usuario?");
         $('#desA').val(1);
-        $('#desB').val(0);
+        $('#desB').val(2);
         //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea activar el usuario?</label>');
     }
 
