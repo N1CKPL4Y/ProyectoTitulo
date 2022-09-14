@@ -18,20 +18,20 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../EditarDatos.php';
+                            window.location.href = '../Admin/EditarDatos.php';
                         });
             }
 
             function Error() {
                 swal({
                     title: "ERROR",
-                    text: "Esta area ya existe, revise si es que está habilitada",
+                    text: "Esta area ya existe, compruebe si es que está habilitada",
                     type: "error",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../EditarDatos.php';
+                            window.location.href = '../Admin/EditarDatos.php';
                         });
             }
         </script>

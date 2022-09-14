@@ -367,7 +367,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     echo '<td>' . $key['telefono'] . '</td>';
                                                     echo '<td>' . $key['tipo usuario'] .' - '. $key['id_user'].'</td>';
                                                     echo '<td>' . $activo . '</td>';
-                                                    echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
+                                                    echo '<td><button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>

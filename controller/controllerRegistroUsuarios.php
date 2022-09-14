@@ -18,7 +18,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../RNuevoUsuario.php';
+                            window.location.href = '../Admin/RNuevoUsuario.php';
                         });
             }
             
@@ -31,7 +31,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../RNuevoUsuario.php';
+                            window.location.href = '../Admin/RNuevoUsuario.php';
                         });
             }
         </script>

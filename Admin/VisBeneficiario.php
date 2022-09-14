@@ -43,6 +43,7 @@ $benefs = $data->getAllBenefi();
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
 
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,7 +54,6 @@ $benefs = $data->getAllBenefi();
         <link rel="stylesheet" href="../AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 
     </head>
@@ -115,7 +115,7 @@ $benefs = $data->getAllBenefi();
             </ul>
         </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
-             <nav class="nav justify-content-center" style="background-color: #00526a">
+            <nav class="nav justify-content-center" style="background-color: #00526a">
                 <div class="nav-wrapper" >
                     <div class="container mx-auto">
                         <a style="font-size: 30px;color: white">Ave</a>
@@ -188,6 +188,32 @@ $benefs = $data->getAllBenefi();
         <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <!-- AdminLTE App -->
         <script src="AdminLTE/dist/js/adminlte.min.js"></script>
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let closeBtn = document.querySelector("#btn");
+            let searchBtn = document.querySelector(".bx-search");
+            let section = document.querySelector(".home-section");
+
+            closeBtn.addEventListener("click", () => {
+                sidebar.classList.toggle("open");
+                menuBtnChange();//calling the function(optional)
+                section.classList.toggle("move");
+            });
+
+            searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+                sidebar.classList.toggle("open");
+                menuBtnChange(); //calling the function(optional)
+            });
+
+            // following are the code to change sidebar button(optional)
+            function menuBtnChange() {
+                if (sidebar.classList.contains("open")) {
+                    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+                } else {
+                    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+                }
+            }
+        </script>
     </body>
     <script>
         $(function () {

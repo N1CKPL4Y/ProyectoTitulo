@@ -179,13 +179,13 @@ class Data {
     }
 
     public function getAreasActivas() {
-        $sql = "SELECT a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 1;";
+        $sql = "SELECT a_usuario.id as 'id', a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 1;";
         $query = $this->con->query($sql);
         return $query;
     }
 
     public function getAreasNoActivas() {
-        $sql = "SELECT a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 0;";
+        $sql = "SELECT a_usuario.id as 'id', a_usuario.nombre as 'nombre' FROM a_usuario WHERE activo = 0;";
         $query = $this->con->query($sql);
         return $query;
     }
@@ -281,6 +281,11 @@ class Data {
     
     public function updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo){
         $sql = "UPDATE `usuario` SET `email` = '$email', `passwd` = sha2('$passwd',0), `telefono` = '$telefono', `t_user` = '$t_user', `a_user` = '$a_user', `cargo` = '$cargo', `activo` = '$activo' WHERE `usuario`.`RUT` = '$rut';";
+        $query = $this->con->query($sql);
+    }
+    
+    public function updateArea($id, $p){
+        $sql = "UPDATE `a_usuario` SET `activo` = '$p' WHERE `a_usuario`.`ID` = '$id';";
         $query = $this->con->query($sql);
     }
 

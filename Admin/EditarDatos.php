@@ -126,7 +126,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="col s12">
                                     <ul class="collapsible">
                                         <li>
-                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Editar Areas de los profesionales</div>
+                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Añadir/Habilitar/Deshabilitar Areas de usuario</div>
                                             <div class="collapsible-body" style="background-color: #C8E6C9">
                                                 <div class="row">
                                                     <form method="post" action="../controller/controllerRegistroNArea.php">
@@ -152,21 +152,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <thead style="font-size: 20px; text-align: center">
                                                                     <tr>
                                                                         <th>Areas Habilitadas</th>
+                                                                        <th></th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
-                                                                    <?php
-                                                                    $AreaA = $data->getAreasActivas();
-
-                                                                    foreach ($AreaA as $key) {
-                                                                        ?>
-                                                                        <tr>
-                                                                            <td><?php echo $key['nombre'] ?></td>
-                                                                        </tr>
+                                                                    <tbody>
                                                                         <?php
-                                                                    }
-                                                                    ?>
-                                                                </tbody>
+                                                                        $AreaA = $data->getAreasActivas();
+
+                                                                        foreach ($AreaA as $key) {
+                                                                            $id_a = $key['id'];
+                                                                            ?>
+                                                                            <tr>
+                                                                                <td hidden=""><?php echo $key['id'] ?></td>
+                                                                                <td><?php echo $key['nombre'] ?></td>
+                                                                                <td><?php echo '<a href="../controller/controllerUpdateArea.php?id='.$id_a.'&p=0"><button name="btn_deshabilitar" class="btn waves-effect light-green darken-3">Deshabilitar</button></a>'?></td>
+                                                                            </tr>
+                                                                            <?php
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -183,9 +187,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     $AreaNA = $data->getAreasNoActivas();
 
                                                                     foreach ($AreaNA as $key) {
+                                                                        $id_a = $key['id'];
                                                                         ?>
                                                                         <tr>
                                                                             <td><?php echo $key['nombre'] ?></td>
+                                                                            <td><?php echo '<a href="../controller/controllerUpdateArea.php?id='.$id_a.'&p=1"><button name="btn_deshabilitar" class="btn waves-effect light-green darken-3">habilitar</button></a>'?></td>
                                                                         </tr>
                                                                         <?php
                                                                     }
@@ -198,7 +204,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Editar Condiciones existentes</div>
+                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i>Agregar Condiciones nuevas</div>
                                             <div class="collapsible-body" style="background-color: #C8E6C9">
                                                 <div class="row">
                                                     <form method="post" action="controller/controllerRegistroNCondicion.php">

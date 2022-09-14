@@ -2,17 +2,17 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Iniciando Sesion</title>
+        <title>Actualizando Usuario</title>
         <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
     <body>
         <script>
-            function Registrado() {
+            function habilitar() {
                 swal({
-                    title: "Registrado!",
-                    text: "Nueva Pensión registrada correctamente",
+                    title: "Habilitación Exitosa",
+                    text: "Area habilitada exitosamente",
                     type: "success",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
@@ -21,11 +21,24 @@
                             window.location.href = '../Admin/EditarDatos.php';
                         });
             }
-
+            
+            function deshabilitar() {
+                swal({
+                    title: "Deshabilitación Exitosa",
+                    text: "Area deshabilitada exitosamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Admin/EditarDatos.php';
+                        });
+            }
+            
             function Error() {
                 swal({
                     title: "ERROR",
-                    text: "Esta Pensión ya existe",
+                    text: "No se puede realizar esta acción",
                     type: "error",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
@@ -39,20 +52,28 @@
 </html>
 
 <?php
+
 include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
 session_start();
 
-$pension = isset($_POST["txt_nPension"]) ? $_POST["txt_nPension"] : null;
-//echo $pension;
-$existe = $data->existPension($pension);
-if ($pension == $existe){
-    echo '<script>Error()</script>';
-}else if($pension != $existe){
-    $data->addPension($pension);
-    echo '<script>Registrado()</script>';
-}
+    $area = $_GET['id'];
+    $p = $_GET['p'];
+    //echo $area.' '.$p;
+    
+    if($p == 0){
+        $data->updateArea($area, $p);
+        echo '<script>deshabilitar()</script>';
+        //echo 'hola';
+    }else if ($p ==1){
+        $data->updateArea($area, $p);
+        echo '<script>habilitar()</script>';
+        //echo 'adios';
+    }else{
+        //echo 'no llega na oe';
+    }
 ?>
+
 

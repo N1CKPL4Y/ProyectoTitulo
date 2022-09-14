@@ -18,7 +18,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../EditarDatos.php';
+                            window.location.href = '../Admin/EditarDatos.php';
                         });
             }
 
@@ -31,7 +31,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../EditarDatos.php';
+                            window.location.href = '../Admin/EditarDatos.php';
                         });
             }
         </script>
