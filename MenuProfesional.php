@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
-include_once 'Model_Data.php';
+include_once './DB/Model_Data.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
@@ -18,13 +18,13 @@ if ($correo == null || "") {
 
 switch ($_SESSION['area_u']) {
     case 1:
-        $area_u = "Director Area Tecnica";
-        break;
-    case 2:
         $area_u = "Fonoaudiolog@";
         break;
+    case 2:
+        $area_u = "Oculista";
+        break;
     case 3:
-        $area_u = "Terapeuta Ocupacional";
+        $area_u = "";
         break;
 }
 

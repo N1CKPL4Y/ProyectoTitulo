@@ -285,10 +285,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="desB" value="0">
+                                                        <input class="form-check-input" type="radio" name="deshabilitar" id="desB" value="2">
                                                         <label class="form-check-label" for="deshabilitar">
                                                             No
                                                         </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-10">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="estado_a" class="form-control" id="estado_a" readonly="">
                                                     </div>
                                                 </div>
                                             </div>

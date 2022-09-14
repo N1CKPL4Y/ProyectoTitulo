@@ -54,7 +54,10 @@ $telefono = isset($_POST["telefonoU"]) ? $_POST["telefonoU"] : null;
 $t_user = isset($_POST["cbo_tUser"]) ? $_POST["cbo_tUser"] : null;
 $a_user = isset($_POST["cbo_aUser"]) ? $_POST["cbo_aUser"] : null;
 $cargo = isset($_POST["cbo_cUser"]) ? $_POST["cbo_cUser"] : null;
-$activo = isset($_POST["deshabilitar"]) ? $_POST["deshabilitar"] : null;
+$activo = isset($_POST["deshabilitar"]);
+
+var_dump($activo);
+echo $activo;
 
 //input escondido pass
 if(empty($_POST["passU"])){
@@ -98,13 +101,16 @@ if($cargo == 0){
     //echo $cargo;
 }
 
-if($rut && $nombre && $apellido && $email && $passwd && $telefono && $t_user && $a_user && $cargo && $activo == 0 || $activo == 1){
+
+
+
+/*if($rut && $nombre && $apellido && $email && $passwd && $telefono && $t_user && $a_user && $cargo && $activo == 0 || $activo == 1){
     //echo $rut.' '.$nombre.' '.$apellido.' '.$email.' '.$passwd.' '.$telefono.' '.$t_user. ' '.$a_user.' '.$cargo.' '.$activo;
     echo '<script>Success()</script>';
     $data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo);
 }else{
     echo '<script>Error()</script>';
-}
+}*/
 
 
 
