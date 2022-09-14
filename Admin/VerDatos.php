@@ -163,14 +163,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             foreach ($sisPrev as $value1) {
                 $textPrevi = $value1['nombre'];
             }
-            if ($pensBase == 1) {
+            /*if ($pensBase == 1) {
                 $sispens = $data->getAllPensionesForRut($rutBase);
                 $textPens;
 
                 foreach ($sispens as $value) {
                     $textPens = $value['nombre'];
                 }
-            }
+            }*/
             ?>
             <div class="container-fluid">
                 <div class="row">
