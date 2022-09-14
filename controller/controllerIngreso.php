@@ -348,10 +348,10 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 /////////////////////////////////Insercion de datos///////////////////////////
 
 
-$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pensionbd, $chSolid, $hogar, $previBene);
+$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
 $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
 
-$data->addPensionBene($rut,$pension);
+//$data->addPensionBene($rut,$pension);
 
 
 if ($havediag==1) {
