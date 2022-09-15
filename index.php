@@ -25,7 +25,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <a class="navbar-brand"><img src="IMG/Login.png" width="350" height="100" alt="Login"/></a>
             </div>
         </nav>
-        <div class="container-fluid" style="margin-top: 50px">
+        <div class="container-fluid" style="margin-top: 30px">
             <div class="row" style="display: flex; align-items: center; justify-content: center;">
                 <div class="col-sm-12 col-md-10 w-50">
                     <div class="card">
