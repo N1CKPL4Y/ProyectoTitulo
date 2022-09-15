@@ -21,8 +21,6 @@
     transition: all 0.5s ease;
 }
 
-
-
 .sidebar.open{
     width: 250px;
     overflow: hidden;
@@ -80,6 +78,7 @@
 .sidebar .nav-list{
     margin-top: 20px;
     height: 100%;
+    padding-left: -3rem;
 }
 .sidebar li{
     position: relative;

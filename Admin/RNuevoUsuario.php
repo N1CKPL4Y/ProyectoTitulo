@@ -26,27 +26,30 @@ $data = new Data();
 ?>
 
 <!DOCTYPE html>
+
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
+
 <html>
     <head>
         <title>Registrar Nuevo Usuario</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="../Materialize/css/materialize.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- Boxicons CDN Link -->
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
+        <script src="Materialize/js/funciones.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../js/validarut.js"></script>
-        <script src="../js/jquery.rut.js"></script>
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -109,117 +112,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">
                         <a style="font-size: 30px">Ave</a>
-                        <img src="../IMG/iconNavbar.png"/>
+                        <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px">Fenix</a>
                     </div>
                 </div>
-            </nav>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col s10 offset-s1">
-                        <div class="card" style="border-radius: 10px">
-                            <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
-                            <div class="row">
-                                <div class="col s10 offset-s1">
-                                    <form method="post" action="../controller/controllerRegistroUsuarios.php" name="IngUser" style="margin-left: 15px;">
-                                        <div class="row" style="background-color: #C8E6C9; padding: 2%; border-radius: 10px">
-                                            <div class="col s12">
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12">
-                                                            <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required="">
-                                                            <label for="rut">R.U.T</label>
-                                                            <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12">
-                                                            <input id="nombreUser" type="text" name="txt_nombre" class="validate" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" required="">
-                                                            <label for="nombreUser">Nombres</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12">
-                                                            <input id="apellidoUser" type="text" name="txt_apellido" class="validate" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" required="">
-                                                            <label for="apellidoUser">Apellidos</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12">
-                                                            <input id="correo" type="text" name="txt_correo" class="validate" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" required="">
-                                                            <label for="correo">Correo Electronico</label>
-                                                            <span id="emailVal" style="color: gray"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12">
-                                                            <input id="passwdUser" type="password" name="txt_pass" class="validate" maxlength="8" minlength="4" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" required="">
-                                                            <label for="passwdUser">Contraseña</label>
-                                                            <span style="color: grey">La contraseña debe tener minimo 4 caracteres y maximo 8 caracteres</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12">
-                                                            <input id="telefonoUser" type="text" name="telefono" class="validate" maxlength="9" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" required="">
-                                                            <label for="telefonoUser">Numero de Telefono</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" >
-                                                            <select name="cbo_tUser">
-                                                                <option value="" disabled selected>Seleccione el tipo de usuario</option>
-                                                                <?php
-                                                                $tipoU = $data->getAllT_users();
-                                                                foreach ($tipoU as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" >
-                                                            <select name="cbo_aUser">
-                                                                <option value="" disabled selected>Seleccione el area del usuario</option>
-                                                                <?php
-                                                                $areaU = $data->getAllA_users();
-                                                                foreach ($areaU as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <div class="input-field col s12 m5 l12" style="background-color: white; border-radius: 50px; border-bottom: none; text-indent: 18px;" >
-                                                            <select name="cbo_cUser">
-                                                                <option value="" disabled selected>Seleccione el cargo del usuario</option>
-                                                                <?php
-                                                                $cargo = $data->getAllCargos();
-                                                                foreach ($cargo as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12 center">
-                                                <button class="btn light-green darken-3" type="submit" name="action" style="margin-bottom: 10px; margin-top: 10px">Registrar Nuevo Usuario</button>
-                                            </div>
-                                        </div>
-                                    </form>
+            </nav>  
+            <div class="container-fluid" style="padding-top: 10px;"> 
+                <div class="row justify-content-around">
+                    <div class="col-sm-12 col-md-10 col-lg-10">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-10 col-md-10 col-lg-10">
+                                        <form method="post" action="../controller/controllerRegistroUsuarios.php" name="IngUser">
+                                            
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -227,77 +138,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </div>
         </section>
-        <script type="text/javascript">
-            $(function () {
-                $("input#rut").rut({
-                    formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-                });
-
-                var input = document.getElementById('rut');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
-            })
-            $(function () {
-                $("input#rutT").rut({
-                    formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-                });
-
-                var input = document.getElementById('rutT');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
-            })
-            document.getElementById('correo').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "Correo válido";
-                } else {
-                    valido.innerText = "Correo no válido";
-                }
-            }
-            );
-        </script>
-        <script>
-            $(document).ready(function () {
-                $('select').formSelect();
-            });
-        </script>
-        <script>
-            let sidebar = document.querySelector(".sidebar");
-            let closeBtn = document.querySelector("#btn");
-            let searchBtn = document.querySelector(".bx-search");
-            let section = document.querySelector(".home-section");
-
-            closeBtn.addEventListener("click", () => {
-                sidebar.classList.toggle("open");
-                menuBtnChange();//calling the function(optional)
-                section.classList.toggle("move");
-            });
-
-            searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-                sidebar.classList.toggle("open");
-                menuBtnChange(); //calling the function(optional)
-            });
-
-            // following are the code to change sidebar button(optional)
-            function menuBtnChange() {
-                if (sidebar.classList.contains("open")) {
-                    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-                } else {
-                    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
-                }
-            }
-        </script>
     </body>
 </html>

@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </nav>
         <div class="container-fluid" style="margin-top: 30px">
             <div class="row" style="display: flex; align-items: center; justify-content: center;">
-                <div class="col-sm-12 col-md-10 w-auto">
+                <div class="col-sm-12 col-md-10 col-lg-6 w-auto">
                     <div class="card">
                         <div class="card-header text-center">
                             <h4>Iniciar Sesión</h4>
