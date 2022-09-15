@@ -58,7 +58,8 @@ $genero = isset($_POST['cbo_genero']) ? $_POST['cbo_genero'] : null;
 $direccion = isset($_POST['txt_direccion']) ? $_POST['txt_direccion'] : null;
 $comuna = isset($_POST['txt_comuna']) ? $_POST['txt_comuna'] : null;
 $previBene = isset($_POST['cbo_prevision1']) ? $_POST['cbo_prevision1'] : null;
-$existeBene = $data->existBeneficiario($rut);
+//$existeBene = $data->existBeneficiario($rut);
+$existeBene = $data->getExistBen($rut);
 
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
 
@@ -341,13 +342,15 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 
 /////////////////////////////////Insercion de datos///////////////////////////
 
-/*if ($rut != $existeBene) {
+if ($rut != $existeBene) {
     if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene) {
         echo '<script language="javascript">Success()</script>';
         //insert datos generales
-        $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
+        
         //insert datos beneficiario
         $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
+        
+        $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
         //insert datos diagnostico beneficiario
         if ($havediag == 1) {
             $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion);
@@ -364,7 +367,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
         } else {
             
         }
-        $data->addPensionBene($rut, $pension);
+        //$data->addPensionBene($rut, $pension);
 
         if ($teleton == 1) {
             $data->addTeleton($numeroTeleton, $rut);
@@ -378,7 +381,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
     }
 } else if ($rut == $existeBene) {
     echo '<script language="javascript">Error()</script>';
-}*/
+}
 
 
   //echo $existeBene.'<br>';
@@ -389,5 +392,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
   echo '<br>' . $numeroTeleton . " " . $rut;
   echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
   echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
+  
+  echo '<br>'.$existeBene;
   //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>

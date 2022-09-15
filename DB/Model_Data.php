@@ -292,6 +292,20 @@ class Data {
     public function existBeneficiario($rut){
         $sql = "SELECT beneficiario.RUT as 'rut' FROM beneficiario WHERE RUT = '$rut';"; 
     }
+    
+    public function getExistBen($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM beneficiario
+	            WHERE RUT = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
 }
 ?>
 
