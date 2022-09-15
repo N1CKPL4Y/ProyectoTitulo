@@ -39,8 +39,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="js/validarut.js"></script>
-        <script src="js/jquery.rut.js"></script>
+        
         <script src="Materialize/js/funciones.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -49,7 +48,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -120,15 +122,127 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <div class="container-fluid" style="padding-top: 10px;"> 
                 <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-10 col-lg-10">
-                        <div class="card">
+                        <div class="card" style="border-radius: 10px;">
                             <div class="card-header">
                                 <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
                             </div>
                             <div class="card-body">
-                                <div class="row">
+                                <div class="row justify-content-around">
                                     <div class="col-sm-10 col-md-10 col-lg-10">
-                                        <form method="post" action="../controller/controllerRegistroUsuarios.php" name="IngUser">
-                                            
+                                        <form method="post" action="../controller/controllerRegistroUsuarios.php" name="datosUser">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="rut_input">Rut</label>
+                                                        <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="nombre_U">Nombre</label>
+                                                        <input type="text" class="form-control" name="txt_nombre" id="nombre_U" style="border-radius: 50px; text-indent: 18px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="apellido_U">Apellido</label>
+                                                        <input type="text" class="form-control" name="txt_apellido" id="apellido_U" style="border-radius: 50px; text-indent: 18px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="correo">Correo electronico</label>
+                                                        <input type="email" class="form-control" name="txt_correo" id="correo" style="border-radius: 50px; text-indent: 18px;">
+                                                        <span id="emailVal" style="color: gray"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="pass_u">Contraseña</label>
+                                                        <input type="password" class="form-control" name="txt_pass" maxlength="8" minlength="4" id="pass_u" style="border-radius: 50px; text-indent: 18px;">
+                                                        <span style="color: grey">La contraseña debe tener minimo 4 caracteres y maximo 8 caracteres</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="telefonoUser">Telefono</label>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">+56</span>
+                                                        </div>
+                                                        <input type="number" name="telefono" class="form-control" id="telefonoUser" aria-label="Username" aria-describedby="basic-addon1" style="border-radius: 0 50px 50px 0;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="tipo_user">Tipo de Usuario</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Tipo</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01" name="cbo_tUser" style="border-radius: 0 50px 50px 0;">
+                                                                <option value="" disabled selected>Seleccione el tipo de usuario</option>
+                                                                <?php
+                                                                $tipoU = $data->getAllT_users();
+                                                                foreach ($tipoU as $key) {
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="area_user">Area de Usuario</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Area</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01" name="cbo_aUser" style="border-radius: 0 50px 50px 0;">
+                                                                <option value="" disabled selected>Seleccione el area del usuario</option>
+                                                                <?php
+                                                                $areaU = $data->getAllA_users();
+                                                                foreach ($areaU as $key) {
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="apellido_U">Cargo del Usuario</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Cargo</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01" name="cbo_cUser" style="border-radius: 0 50px 50px 0;">
+                                                                <option value="" disabled selected>Seleccione el cargo del usuario</option>
+                                                                <?php
+                                                                $cargo = $data->getAllCargos();
+                                                                foreach ($cargo as $key) {
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-lg-center">
+                                                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
+                                                    <button type="submit" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Registrar</button>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -138,5 +252,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </div>
         </section>
+        <script>
+            $(function () {
+                $("input#rut_input").rut({
+                    formatOn: 'keyup',
+                    minimumLength: 8, // validar largo mínimo; default: 2
+                    validateOn: 'change' // si no se quiere validar, pasar null
+                });
+
+                var input = document.getElementById('rut_input');
+                input.addEventListener('input', function () {
+                    if (this.value.length >= 13)
+                        this.value = this.value.slice(0, 12);
+                })
+            });
+
+            document.getElementById('correo').addEventListener('input', function () {
+                campo = event.target;
+                valido = document.getElementById('emailVal');
+                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+
+                if (emailRegex.test(campo.value)) {
+                    valido.innerText = "Correo válido";
+                } else {
+                    valido.innerText = "Correo no válido";
+                }
+            }
+            );
+        </script>
     </body>
 </html>

@@ -87,7 +87,7 @@ $benefs = $data->getAllBenefi();
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
-                    <a href="Admin/EditarDatos.php">
+                    <a href="EditarDatos.php">
                         <i class="material-icons">border_color</i>
                         <span class="links_name">Editar Datos</span>
                     </a>

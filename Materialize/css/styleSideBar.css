@@ -7,9 +7,6 @@
     font-family: "Poppins" , sans-serif;
 }
 
-.ol,ul{
-    padding-left: -2rem !important;
-}
 
 .sidebar{
     overflow: hidden;
@@ -81,8 +78,9 @@
 .sidebar .nav-list{
     margin-top: 20px;
     height: 100%;
-    padding-left: -3rem;
 }
+
+
 .sidebar li{
     position: relative;
     margin: 8px 0;

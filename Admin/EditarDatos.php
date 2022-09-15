@@ -38,7 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -49,6 +49,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -56,7 +58,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
-            <ul class="nav-list">
+            <ul class="nav-list" style="margin-left: -2rem;">
                 <li>
                     <a href="../MenuAdmin.php">
                         <i class='bx bx-home' ></i>
