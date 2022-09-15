@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Fundacion Ave Fenix</title>
+        <title>Fundación Ave Fénix</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <!-- CSS only -->
@@ -52,7 +52,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                                         </div> 
-                                        <input type="password" placeholder="Debe contener minimo 4 caracteres y maximo 8" name="txt_pass" class="form-control" id="passwd" required="">
+                                        <input type="password" placeholder="Debe contener minimo 4 caracteres y maximo 8" name="txt_pass" class="form-control" id="passwd" minlength="4" maxlength="8" required="">
                                     </div>
                                     <span style="color: grey">¿Has olvidado tu contraseña? Contacta al Administrador.</span>
                                     <br>
