@@ -106,9 +106,12 @@ $condicion = isset($_POST['cbo_condicion']) ? $_POST['cbo_condicion'] : null;
 $especialista = isset($_POST['cbo_especialista']) ? $_POST['cbo_especialista'] : null;
 $fecha_control = isset($_POST['txt_control']) ? $_POST['txt_control'] : null;
 $data_control;
+$tipoArchi;
 
 if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
-    echo "Ha ocurrido un error. 2";
+    //echo "Ha ocurrido un error. 2";
+    $data_control=null;
+    $tipoArchi=null;
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -218,7 +221,8 @@ $credenFileFront;
 $credenFileBack;
 
 if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] > 0) {
-    echo "Ha ocurrido un error. 4";
+    //echo "Ha ocurrido un error. 4";
+    $credenFileFront=null;
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -254,7 +258,8 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
 }
 
 if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 0) {
-    echo "Ha ocurrido un error. 5";
+    //echo "Ha ocurrido un error. 5";
+    $credenFileBack=null;
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
