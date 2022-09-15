@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container" style="display: flex; align-items: center; justify-content: center;">
-                <a class="navbar-brand"><img src="IMG/Login.png" width="350" height="100" alt="Login"/></a>
+                <a class="navbar-brand"><img src="IMG/Login.png" width="350" height="110" alt="Login"/></a>
             </div>
         </nav>
         <div class="container-fluid" style="margin-top: 30px">
@@ -60,7 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                                 <div class="form-group" style="display: flex; align-items: center; justify-content: center;">
                                     <div class="col-md-12 col-sm-10">
-                                        <button type="submit" class="btn btn-success btn-lg btn-block">Iniciar Sesión</button>
+                                        <button type="submit" class="btn btn-success btn-lg">Iniciar Sesión</button>
                                     </div>
                                 </div>
                             </form>
