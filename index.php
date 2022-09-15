@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </nav>
         <div class="container-fluid" style="margin-top: 30px">
             <div class="row" style="display: flex; align-items: center; justify-content: center;">
-                <div class="col-sm-12 col-md-10 w-50">
+                <div class="col-sm-12 col-md-10 w-auto">
                     <div class="card">
                         <div class="card-header text-center">
                             <h4>Iniciar Sesión</h4>
@@ -41,7 +41,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                             </div> 
-                                            <input type="text" placeholder="ej: 15.111.222-3" name="txt_rut" class="form-control" id="rut" required="">
+                                            <input type="text" placeholder="Ej: 15.111.222-3" name="txt_rut" class="form-control" id="rut" required="">
                                         </div>  
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                                         </div> 
-                                        <input type="password" placeholder="Debe contener minimo 4 caracteres y maximo 8" name="txt_pass" class="form-control" id="passwd" minlength="4" maxlength="8" required="">
+                                        <input type="password" placeholder="Ingrese su contraseña" name="txt_pass" class="form-control" id="passwd" minlength="4" maxlength="8" required="">
                                     </div>
                                     <span style="color: grey">¿Has olvidado tu contraseña? Contacta al Administrador.</span>
                                     <br>
