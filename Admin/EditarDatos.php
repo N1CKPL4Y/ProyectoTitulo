@@ -41,8 +41,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -117,50 +117,231 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid">
+            <div class="container-fluid" style="padding-top: 30px">
                 <div class="row">
                     <div class="col s10 offset-s1">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
-                                <div class="card-header" id="headingOne">
+                                <div class="card-header" id="headingOne" style="background-color: #558b2f">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Collapsible Group Item #1
+                                        <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white">
+                                            Agregar /Habilitar /Deshabilitar Areas de usuario
                                         </button>
                                     </h2>
                                 </div>
-
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                                        <div class="row">
+                                            <form action="../controller/controllerRegistroNArea.php" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-10">
+                                                        <div class="form-group">
+                                                            <input type="text" name="txt_narea" placeholder="Ingrese nombre del Area" class="form-control" id="nArea" aria-describedby="narea" required="">
+                                                            <small id="narea" class="form-text text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-10">
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-10">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered">
+                                                        <thead style="font-size: 20px; text-align: center">
+                                                            <tr>
+                                                                <th>Areas Habilitadas</th>
+                                                                <th>Deshabilitar</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align: center">
+                                                            <?php
+                                                            $AreaA = $data->getAreasActivas();
+
+                                                            foreach ($AreaA as $key) {
+                                                                $id_a = $key['id'];
+                                                                ?>
+                                                                <tr>
+                                                                    <td hidden=""><?php echo $key['id'] ?></td>
+                                                                    <td><?php echo $key['nombre'] ?></td>
+                                                                    <td><?php echo '<a href="../controller/controllerUpdateArea.php?id=' . $id_a . '&p=0"><button name="btn_deshabilitar" class="btn btn-success">Deshabilitar</button></a>' ?></td>
+                                                                </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-10">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered">
+                                                        <thead style="font-size: 20px; text-align: center">
+                                                            <tr>
+                                                                <th>Areas Deshabilitadas</th>
+                                                                <th>Habilitar</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align: center">
+                                                            <?php
+                                                            $AreaNA = $data->getAreasNoActivas();
+
+                                                            foreach ($AreaNA as $key) {
+                                                                $id_a = $key['id'];
+                                                                ?>
+                                                                <tr>
+                                                                    <td><?php echo $key['nombre'] ?></td>
+                                                                    <td><?php echo '<a href="../controller/controllerUpdateArea.php?id=' . $id_a . '&p=1"><button name="btn_deshabilitar" class="btn btn-success">habilitar</button></a>' ?></td>
+                                                                </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingTwo">
+                                <div class="card-header" id="headingTwo" style="background-color: #558b2f">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Collapsible Group Item #2
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white">
+                                            Agregar Condiciones nuevas
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Some placeholder content for the second accordion panel. This panel is hidden by default.
+                                        <div class="row">
+                                            <form action="../controller/controllerRegistroNCondicion.php" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-10">
+                                                        <div class="form-group">
+                                                            <input type="text" name="txt_nCondicion" placeholder="Ingrese nombre de la condición" class="form-control" id="nCondicion" aria-describedby="ncondicion" required="">
+                                                            <small id="ncondicion" class="form-text text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-10">
+                                                        <div class="form-group">
+                                                            <input type="text" name="txt_nCodigo" placeholder="Ingrese el codigo de la condición" class="form-control" id="nCondigo" aria-describedby="ncodigo" required="">
+                                                            <small id="ncodigo" class="form-text text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-10 center">
+                                                        <div class="form-group">
+                                                            <label>Ingrese la descripción de la condición</label>
+                                                            <textarea class="form-control" id="textdesc" name="descripcion"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-10 center">
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-10 center">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered">
+                                                        <thead style="font-size: 20px; text-align: center">
+                                                            <tr>
+                                                                <th>Nombre</th>
+                                                                <th>Codigo</th>
+                                                                <th>Descripción</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align: center">
+                                                            <?php
+                                                            $condicion = $data->getAllCondiciones();
+
+                                                            foreach ($condicion as $key) {
+                                                                ?>
+                                                                <tr>
+                                                                    <td><?php echo $key['nombre'] ?></td>
+                                                                    <td><?php echo $key['codigo'] ?></td>
+                                                                    <td><?php echo $key['descripcion'] ?></td>
+                                                                </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingThree">
+                                <div class="card-header" id="headingThree" style="background-color: #558b2f">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Collapsible Group Item #3
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white">
+                                            Agregar Pensiones
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                                        <div class="row">
+                                            <form action="../controller/controllerRegistroNPension.php" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-sm-10">
+                                                        <div class="form-group">
+                                                            <input type="text" name="txt_nPension" placeholder="Ingrese nombre de la Pensión" class="form-control" id="nPension" aria-describedby="npension" required="">
+                                                            <small id="npension" class="form-text text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-10 center">
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-10 center">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered">
+                                                        <thead style="font-size: 20px; text-align: center">
+                                                            <tr>
+                                                                <th>Pensiones Registradas</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align: center">
+                                                            <?php
+                                                            $pensiones = $data->getAllPensiones();
+
+                                                            foreach ($pensiones as $key) {
+                                                                ?>
+                                                                <tr>
+                                                                    <td><?php echo $key['nombre'] ?></td>
+                                                                </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
