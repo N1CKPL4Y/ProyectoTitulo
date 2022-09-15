@@ -44,7 +44,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <input type="text" placeholder="ej: 15.111.222-3" name="txt_rut" class="form-control" id="rut" required="">
                                         </div>  
                                     </div>
-                                    <br>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Contraseña del usuario</label>
