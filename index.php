@@ -35,7 +35,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="card-body">
                             <form action="controller/controllerLogin.php" method="post">
                                 <div class="form-group">
-                                    <div class="col-md-12 col-sm-10">
+                                    <div class="col-md-12 col-sm-10 ">
                                         <label for="exampleInputEmail1">R.U.T del usuario</label>
                                         <div class="input-group mb-3">      
                                             <div class="input-group-prepend">
@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                                         </div> 
-                                        <input type="password" placeholder="Ingrese su contraseña" name="txt_pass" class="form-control" id="passwd" minlength="4" maxlength="8" required="">
+                                        <input type="password" placeholder="Ingrese su contraseña" name="txt_pass" class="form-control" id="passwd" required="">
                                     </div>
                                     <span style="color: grey">¿Has olvidado tu contraseña? Contacta al Administrador.</span>
                                     <br>
