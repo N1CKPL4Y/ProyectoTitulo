@@ -8,8 +8,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
         <title>Fundacion Ave Fenix</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <!-- CSS only -->
-        <link href="Materialize/css/styleLogin.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,49 +20,58 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="js/jquery.rut.js"></script>
     </head>
     <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
-        <header class="header">
-            <div class="nav-cont logo-nav">
-                <img src="IMG/ave.png" >
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container" style="display: flex; align-items: center; justify-content: center;">
+                <a class="navbar-brand"><img src="IMG/Login.png" width="350" height="100" alt="Login"/></a>
             </div>
-        </header>
-        <div class="container">
-            <div class="row">
-                <div class="col s8 m6 l4">
-                    <div class="forms">
-                        <div class="form login">
-                            <span class="titulo">Iniciar sesión</span>
-                            <form name="login" action="controller/controllerlogin.php" method="post" name="datosUser">
-                                <div class="input-field">
-                                    <input id="rut" type="text" name="txt_rut" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" placeholder="Rut"  required >
-                                    <i class="uil uil-envelope icon"></i>
+        </nav>
+        <div class="container-fluid" style="margin-top: 50px">
+            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                <div class="col-sm-12 col-md-10 w-50">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4>Iniciar Sesión</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="controller/controllerLogin.php" method="post">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-10">
+                                        <label for="exampleInputEmail1">R.U.T del usuario</label>
+                                        <div class="input-group mb-3">      
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+                                            </div> 
+                                            <input type="text" placeholder="ej: 15.111.222-3" name="txt_rut" class="form-control" id="rut" required="">
+                                        </div>  
+                                    </div>
+                                    <br>
                                 </div>
-                                <span id="emailVal"></span>
-                                <div class="input-field">
-                                    <input type="password" name="txt_pass" class="passwd" placeholder="Contraseña" required>
-                                    <i class="uil uil-lock icon"></i>
-                                    <i class="uil uil-eye-slash mostrarPass"></i>
+                                <div class="form-group">
+                                    <label for="password">Contraseña del usuario</label>
+                                    <div class="input-group mb-3">      
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                                        </div> 
+                                        <input type="password" placeholder="Debe contener minimo 4 caracteres y maximo 8" name="txt_pass" class="form-control" id="passwd" required="">
+                                    </div>
+                                    <span style="color: grey">¿Has olvidado tu contraseña? Contacta al Administrador.</span>
+                                    <br>
+                                    <br>
                                 </div>
-                                <div class="input-field button">
-                                    <input type="submit" value="Iniciar sesión" required>
+                                <div class="form-group" style="display: flex; align-items: center; justify-content: center;">
+                                    <div class="col-md-12 col-sm-10">
+                                        <button type="submit" class="btn btn-success btn-lg btn-block">Iniciar Sesión</button>
+                                    </div>
                                 </div>
                             </form>
-                            <div class="login-singup">
-                                <span class="text">¿Olvidaste tu contraseña?
-                                </span>
-                                <br>
-                                <span class="text">Contacta al administrador
-                                </span>
-                            </div>
+                        </div>
+                        <div class="card-footer text-center" style="background-color: #0B4C5F; color: white">
+                            Fundacion Ave Fenix © Derechos Reservados - 2022
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <span>
-                Fundacion Ave Fenix © Derechos Reservados - 2022
-            </span>
-        </footer>
         <script>
             const container = document.querySelector(".container");
             passwdShowHide = document.querySelectorAll(".mostrarPass");

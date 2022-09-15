@@ -2,7 +2,8 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Iniciando Sesion</title>
+        <link rel="icon" href="../IMG/IconAveFenix.png"/>
+        <title>Registrando Nuevo Beneficiario</title>
         <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
@@ -64,7 +65,7 @@ $existeBene = $data->getExistBen($rut);
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
 
 if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
-    echo "Ha ocurrido un error.";
+    echo "Ha ocurrido un error. 1";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -107,7 +108,7 @@ $fecha_control = isset($_POST['txt_control']) ? $_POST['txt_control'] : null;
 $data_control;
 
 if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
-    echo "Ha ocurrido un error.";
+    echo "Ha ocurrido un error. 2";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -166,7 +167,7 @@ if ($equalDir == 1) {
 }
 
 if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
-    echo "Ha ocurrido un error.";
+    echo "Ha ocurrido un error. 3";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -217,7 +218,7 @@ $credenFileFront;
 $credenFileBack;
 
 if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] > 0) {
-    echo "Ha ocurrido un error.";
+    echo "Ha ocurrido un error. 4";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -253,7 +254,7 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
 }
 
 if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 0) {
-    echo "Ha ocurrido un error.";
+    echo "Ha ocurrido un error. 5";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -304,7 +305,7 @@ $porcentHogar = isset($_POST['txt_porcentHogar']) ? $_POST['txt_porcentHogar'] :
 $hogarFile;
 
 if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
-    echo "Ha ocurrido un error.";
+    echo "Ha ocurrido un error. 6";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB

@@ -81,17 +81,17 @@ $benefs = $data->getAllBenefi();
                 </li>
                 <li>
                     <a href="#">
-                        <i class="material-icons">people</i>
-                        <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
-                    </a>
-                    <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
-                </li>
-                <li>
-                    <a href="#">
                         <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="Admin/EditarDatos.php">
+                        <i class="material-icons">border_color</i>
+                        <span class="links_name">Editar Datos</span>
+                    </a>
+                    <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">

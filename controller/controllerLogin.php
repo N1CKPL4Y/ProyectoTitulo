@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <title>Iniciando Sesion</title>
         <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
