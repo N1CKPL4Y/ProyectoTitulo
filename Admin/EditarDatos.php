@@ -38,11 +38,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="../Materialize/css/materialize.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -108,235 +108,72 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </ul>
         </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
-            <nav>
+            <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center">
-                        <a style="font-size: 30px">Ave</a>
-                        <img src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+                        <a style="font-size: 30px;color: white;padding-left: 500px">Ave</a>
+                        <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px;color: white;">Fenix</a>
                     </div>
                 </div>
             </nav>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col s10 offset-s1">
-                        <div class="card" style="border-radius: 10px">
-                            <h4 style="padding-top: 10px; padding-left: 10px" class="center">Editar Datos</h4>
-                            <div class="row">
-                                <div class="col s12">
-                                    <ul class="collapsible">
-                                        <li>
-                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Agregar /Habilitar /Deshabilitar Areas de usuario</div>
-                                            <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                <div class="row">
-                                                    <form method="post" action="../controller/controllerRegistroNArea.php">
-                                                        <div class="row">
-                                                            <div class="col s6">
-                                                                <div class="input-field col s12">
-                                                                    <input id="nArea" type="text" name="txt_narea" class="validate" style="background-color: white; border-radius: 10px" required="">
-                                                                    <label for="nArea">Ingrese el nombre para la nueva area</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col s6">
-                                                                <div class="input-field col s12">
-                                                                    <button class="btn waves-effect light-green darken-3" type="submit" name="buscar" required>Registrar Nueva Area</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <div class="card" style="border-radius: 10px">
-                                                            <table class="table centered" id="areas_activas">
-                                                                <thead style="font-size: 20px; text-align: center">
-                                                                    <tr>
-                                                                        <th>Areas Habilitadas</th>
-                                                                        <th></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                    <tbody>
-                                                                        <?php
-                                                                        $AreaA = $data->getAreasActivas();
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Collapsible Group Item #1
+                                        </button>
+                                    </h2>
+                                </div>
 
-                                                                        foreach ($AreaA as $key) {
-                                                                            $id_a = $key['id'];
-                                                                            ?>
-                                                                            <tr>
-                                                                                <td hidden=""><?php echo $key['id'] ?></td>
-                                                                                <td><?php echo $key['nombre'] ?></td>
-                                                                                <td><?php echo '<a href="../controller/controllerUpdateArea.php?id='.$id_a.'&p=0"><button name="btn_deshabilitar" class="btn waves-effect light-green darken-3">Deshabilitar</button></a>'?></td>
-                                                                            </tr>
-                                                                            <?php
-                                                                        }
-                                                                        ?>
-                                                                    </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <div class="card" style="border-radius: 10px">
-                                                            <table class="table centered" id="areas_activas">
-                                                                <thead style="font-size: 20px; text-align: center">
-                                                                    <tr>
-                                                                        <th>Areas Deshabilitadas</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php
-                                                                    $AreaNA = $data->getAreasNoActivas();
-
-                                                                    foreach ($AreaNA as $key) {
-                                                                        $id_a = $key['id'];
-                                                                        ?>
-                                                                        <tr>
-                                                                            <td><?php echo $key['nombre'] ?></td>
-                                                                            <td><?php echo '<a href="../controller/controllerUpdateArea.php?id='.$id_a.'&p=1"><button name="btn_deshabilitar" class="btn waves-effect light-green darken-3">habilitar</button></a>'?></td>
-                                                                        </tr>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i>Agregar Condiciones nuevas</div>
-                                            <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                <div class="row">
-                                                    <form method="post" action="controller/controllerRegistroNCondicion.php">
-                                                        <div class="row">
-                                                            <div class="col s6">
-                                                                <div class="input-field col s12">
-                                                                    <input id="ncondicion" type="text" name="txt_nCondicion" class="validate" style="background-color: white; border-radius: 10px" required="">
-                                                                    <label for="ncondicion">Ingrese el nombre de la condición</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col s6">
-                                                                <div class="input-field col s12">
-                                                                    <input id="ncodigo" type="text" name="txt_nCodigo" class="validate" style="background-color: white; border-radius: 10px" required="">
-                                                                    <label for="ncodigo">Ingrese el codigo identificador de la condición</label>
-                                                                    <span style="color: gray">Pueden ser las iniciales de la condición</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col s12">
-                                                                <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                                    <textarea id="textdesc" name="descripcion" class="materialize-textarea" required=""></textarea>
-                                                                    <label for="textdesc">Ingrese la descripción de la condición</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="input-field col s12 center">
-                                                                <button class="btn waves-effect light-green darken-3" type="submit" name="buscar" required>Registrar Condición</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s12">
-                                                        <div class="card" style="border-radius: 10px">
-                                                            <h5 class="center" style="padding-top: 20px">Condiciones Registradas</h5>
-                                                            <table class="table centered" id="areas_activas">
-                                                                <thead style="font-size: 20px; text-align: center">
-                                                                    <tr>
-                                                                        <th>Nombre</th>
-                                                                        <th>Codigo</th>
-                                                                        <th>Descripción</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php
-                                                                    $condicion = $data->getAllCondiciones();
-
-                                                                    foreach ($condicion as $key) {
-                                                                        ?>
-                                                                        <tr>
-                                                                            <td><?php echo $key['nombre'] ?></td>
-                                                                            <td><?php echo $key['codigo'] ?></td>
-                                                                            <td><?php echo $key['descripcion'] ?></td>
-                                                                        </tr>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="collapsible-header"><i class="material-icons" style="color: white;">keyboard_arrow_down</i> Agregar Pensiones</div>
-                                            <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                <div class="row">
-                                                    <form method="post" action="controller/controllerRegistroNPension.php">
-                                                        <div class="row">
-                                                            <div class="col s6">
-                                                                <div class="input-field col s12">
-                                                                    <input id="npension" type="text" name="txt_nPension" class="validate" style="background-color: white; border-radius: 10px" required="">
-                                                                    <label for="npension">Ingrese el nombre de la Pensión</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col s6">
-                                                                <div class="input-field col s12">
-                                                                    <button class="btn waves-effect light-green darken-3" type="submit" name="buscar" required>Registrar Nueva Pensión</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s12">
-                                                        <div class="card" style="border-radius: 10px">
-                                                            <h5 class="center" style="padding-top: 20px">Pensiones Registradas</h5>
-                                                            <table class="table centered" id="areas_activas">
-                                                                <thead style="font-size: 20px; text-align: center">
-                                                                    <tr>
-                                                                        <th>Nombre</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php
-                                                                    $pensiones = $data->getAllPensiones();
-
-                                                                    foreach ($pensiones as $key) {
-                                                                        ?>
-                                                                        <tr>
-                                                                            <td><?php echo $key['nombre'] ?></td>
-                                                                        </tr>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Collapsible Group Item #2
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Some placeholder content for the second accordion panel. This panel is hidden by default.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Collapsible Group Item #3
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div>
-                <a target="_blank" href="Prueba.php">Pruebame</a>
-            </div>-->
         </section>
         <script>
-            $(document).ready(function () {
-                M.updateTextFields();
-            });
-            $(document).ready(function () {
-                $('.collapsible').collapsible();
+            $('document').ready(function () {
+                $('#collapseOne').collapse({
+                    toggle: false
+                })
             });
         </script>
         <script>
