@@ -288,7 +288,10 @@ class Data {
         $sql = "UPDATE `a_usuario` SET `activo` = '$p' WHERE `a_usuario`.`ID` = '$id';";
         $query = $this->con->query($sql);
     }
-
+    
+    public function existBeneficiario($rut){
+        $sql = "SELECT beneficiario.RUT as 'rut' FROM beneficiario WHERE RUT = '$rut';"; 
+    }
 }
 ?>
 

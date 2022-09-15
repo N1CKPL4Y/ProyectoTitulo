@@ -121,7 +121,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
                             <div class="row">
                                 <div class="col s10 offset-s1">
-                                    <form method="post" action="controller/controllerRegistroUsuarios.php" name="IngUser" style="margin-left: 15px;">
+                                    <form method="post" action="../controller/controllerRegistroUsuarios.php" name="IngUser" style="margin-left: 15px;">
                                         <div class="row" style="background-color: #C8E6C9; padding: 2%; border-radius: 10px">
                                             <div class="col s12">
                                                 <div class="row">

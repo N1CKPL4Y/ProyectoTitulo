@@ -21,7 +21,7 @@
                             window.location.href = '../MenuSecretaria.php';
                         });
             }
-            
+
             function Error() {
                 swal({
                     title: "ERROR",
@@ -57,7 +57,8 @@ $fecha = isset($_POST['txt_Fnac']) ? $_POST['txt_Fnac'] : null;
 $genero = isset($_POST['cbo_genero']) ? $_POST['cbo_genero'] : null;
 $direccion = isset($_POST['txt_direccion']) ? $_POST['txt_direccion'] : null;
 $comuna = isset($_POST['txt_comuna']) ? $_POST['txt_comuna'] : null;
-$previBene= isset($_POST['cbo_prevision1']) ? $_POST['cbo_prevision1'] : null;
+$previBene = isset($_POST['cbo_prevision1']) ? $_POST['cbo_prevision1'] : null;
+$existeBene = $data->existBeneficiario($rut);
 
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
 
@@ -82,24 +83,23 @@ if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
         // $data=file_get_contents($imagen_temporal);
         // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
         /* @var $data type */
-        
+
         $dataFile = mysqli_escape_string($conect, $dataFile);
         // Insertamos en la base de datos.
         //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        
         //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /*if ($resultado) {
-            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-        } else {
-            echo "Ocurrió algun error al copiar el archivo.";
-        }*/
+        /* if ($resultado) {
+          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+          } else {
+          echo "Ocurrió algun error al copiar el archivo.";
+          } */
     } else {
         echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
 }
 
 //////////////Diagnostico
-$havediag= isset($_POST['diagnostico']) ? $_POST['diagnostico'] : null;
+$havediag = isset($_POST['diagnostico']) ? $_POST['diagnostico'] : null;
 $condicion = isset($_POST['cbo_condicion']) ? $_POST['cbo_condicion'] : null;
 $especialista = isset($_POST['cbo_especialista']) ? $_POST['cbo_especialista'] : null;
 $fecha_control = isset($_POST['txt_control']) ? $_POST['txt_control'] : null;
@@ -127,17 +127,16 @@ if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
         // $data=file_get_contents($imagen_temporal);
         // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
         /* @var $data type */
-        
+
         $data_control = mysqli_escape_string($conect, $data_control);
         // Insertamos en la base de datos.
         //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        
         //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /*if ($resultado) {
-            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-        } else {
-            echo "Ocurrió algun error al copiar el archivo.";
-        }*/
+        /* if ($resultado) {
+          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+          } else {
+          echo "Ocurrió algun error al copiar el archivo.";
+          } */
     } else {
         echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
@@ -186,17 +185,16 @@ if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
         // $data=file_get_contents($imagen_temporal);
         // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
         /* @var $data type */
-        
+
         $carnetTutor = mysqli_escape_string($conect, $carnetTutor);
         // Insertamos en la base de datos.
         //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        
         //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /*if ($resultado) {
-            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-        } else {
-            echo "Ocurrió algun error al copiar el archivo.";
-        }*/
+        /* if ($resultado) {
+          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+          } else {
+          echo "Ocurrió algun error al copiar el archivo.";
+          } */
     } else {
         echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
@@ -207,7 +205,7 @@ $teleton = isset($_POST['rd_teleton']) ? $_POST['rd_teleton'] : null;
 $numeroTeleton = isset($_POST['txt_Nteleton']) ? $_POST['txt_Nteleton'] : null;
 
 ////////////////////////////Credencial
-$haveCreden= isset($_POST['discapacidad']) ? $_POST['discapacidad'] : null;
+$haveCreden = isset($_POST['discapacidad']) ? $_POST['discapacidad'] : null;
 $numeroCreden = isset($_POST['txt_credencial']) ? $_POST['txt_credencial'] : null;
 $origenP = isset($_POST['cbo_origenP']) ? $_POST['cbo_origenP'] : null;
 $origenS = isset($_POST['cbo_origenS']) ? $_POST['cbo_origenS'] : null;
@@ -216,7 +214,6 @@ $grado = isset($_POST['cbo_grado']) ? $_POST['cbo_grado'] : null;
 $movilidad = isset($_POST['cbo_movilidad']) ? $_POST['cbo_movilidad'] : null;
 $credenFileFront;
 $credenFileBack;
-
 
 if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] > 0) {
     echo "Ha ocurrido un error.";
@@ -239,17 +236,16 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
         // $data=file_get_contents($imagen_temporal);
         // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
         /* @var $data type */
-        
+
         $credenFileFront = mysqli_escape_string($conect, $credenFileFront);
         // Insertamos en la base de datos.
         //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        
         //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /*if ($resultado) {
-            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-        } else {
-            echo "Ocurrió algun error al copiar el archivo.";
-        }*/
+        /* if ($resultado) {
+          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+          } else {
+          echo "Ocurrió algun error al copiar el archivo.";
+          } */
     } else {
         echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
@@ -276,17 +272,16 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
         // $data=file_get_contents($imagen_temporal);
         // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
         /* @var $data type */
-        
+
         $credenFileBack = mysqli_escape_string($conect, $credenFileBack);
         // Insertamos en la base de datos.
         //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        
         //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /*if ($resultado) {
-            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-        } else {
-            echo "Ocurrió algun error al copiar el archivo.";
-        }*/
+        /* if ($resultado) {
+          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+          } else {
+          echo "Ocurrió algun error al copiar el archivo.";
+          } */
     } else {
         echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
@@ -296,10 +291,10 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
 $pension = isset($_POST['cbo_pension']) ? $_POST['cbo_pension'] : null;
 $pensionbd;
 
-if ($pension==5) {
-    $pensionbd=0;
-}else{
-    $pensionbd=1;
+if ($pension == 5) {
+    $pensionbd = 0;
+} else {
+    $pensionbd = 1;
 }
 /////////////////Beneficios Sociales
 $chSolid = isset($_POST['csolidario']) ? $_POST['csolidario'] : null;
@@ -329,17 +324,16 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
         // $data=file_get_contents($imagen_temporal);
         // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
         /* @var $data type */
-        
+
         $hogarFile = mysqli_escape_string($conect, $hogarFile);
         // Insertamos en la base de datos.
         //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        
         //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /*if ($resultado) {
-            echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-        } else {
-            echo "Ocurrió algun error al copiar el archivo.";
-        }*/
+        /* if ($resultado) {
+          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+          } else {
+          echo "Ocurrió algun error al copiar el archivo.";
+          } */
     } else {
         echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
@@ -347,48 +341,53 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 
 /////////////////////////////////Insercion de datos///////////////////////////
 
+/*if ($rut != $existeBene) {
+    if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene) {
+        echo '<script language="javascript">Success()</script>';
+        //insert datos generales
+        $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
+        //insert datos beneficiario
+        $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
+        //insert datos diagnostico beneficiario
+        if ($havediag == 1) {
+            $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion);
+        } else {
+            
+        }
+        //insert datos tutor
+        $data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
+        //insert datos parentesco
+        $data->addParentezo($parentezco, $rut, $rutTutor);
+        //insert datos credencial d.
+        if ($haveCreden == 1) {
+            $data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
+        } else {
+            
+        }
+        $data->addPensionBene($rut, $pension);
 
-$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
-$data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
+        if ($teleton == 1) {
+            $data->addTeleton($numeroTeleton, $rut);
+        } else {
+            
+        }
 
-//$data->addPensionBene($rut,$pension);
-
-
-if ($havediag==1) {
-    $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion);
-} else {
-    
-}
-
-$data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
-if ($teleton==1) {
-    $data->addTeleton($numeroTeleton, $rut);
-} else {
-    
-}
-
-if ($haveCreden==1) {
-    $data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
-}else{
-    
-}
-
-$data->addParentezo($parentezco, $rut, $rutTutor);
-$data->addRegisSocial($hogarFile, $tipoDocu, $rut);
-
-if($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene){
-    echo '<script language="javascript">Success()</script>';
-}else{
+        $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
+    } else {
+        echo '<script language="javascript">Error()</script>';
+    }
+} else if ($rut == $existeBene) {
     echo '<script language="javascript">Error()</script>';
-}
+}*/
 
-echo '<br>'.$rut." ".$nombre." ".$apellido." ".$fecha." ".$genero." ".$direccion." ".$comuna." ".$teleton." ".$pensionbd." ".$chSolid." ".$hogar."<br>";
-echo '<br>'.$rut." ".$pension;
-echo '<br>'.$rutTutor." ".$nombreTutor." ".$fecha_tutor." ".$direTutor." ".$comuTutor." ".$nivelE." ".$ocupacion." ".$telefono." ".$correoTutor." ".$prevision." ";
-echo '<br>'.$parentezco." ".$rut." ".$rutTutor;
-echo '<br>'.$numeroTeleton." ".$rut;
-echo '<br>'.$numeroCreden." ".$origenP." ".$origenS." ".$porcent." ".$grado." ".$movilidad." ".$rut;
-echo '<br>'.$especialista." ".$fecha_control." ".$rut." ".$condicion." ".$tipoArchi;
-//echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
 
+  //echo $existeBene.'<br>';
+  echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar . "<br>";
+  echo '<br>' . $rut . " " . $pension;
+  echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
+  echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
+  echo '<br>' . $numeroTeleton . " " . $rut;
+  echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
+  echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
+  //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>
