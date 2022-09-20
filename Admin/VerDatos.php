@@ -84,7 +84,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="Calendario.php">
                         <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Mensual</span>
                     </a>
