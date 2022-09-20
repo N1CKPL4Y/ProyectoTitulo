@@ -98,7 +98,7 @@ class Data {
     }
 
     public function getTutorForBen($rut) {
-        $sql = "SELECT * FROM tutor where  rut = (SELECT tutor from parentezco WHERE beneficiario = '$rut')";
+        $sql = "SELECT * FROM tutor where  rut = (SELECT tutor from parentesco WHERE beneficiario = '$rut')";
         $query = $this->con->query($sql);
         return $query;
     }
