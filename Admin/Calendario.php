@@ -23,14 +23,25 @@ switch ($_SESSION['tipo_u']) {
 }
 
 $data = new Data();
+$eventoA = array();
+$eventos = $data->getAllEvent();
+foreach ($eventos as $value) {
+    $value['title'] . '<br>';
+    $value['start'] . '<br>';
+    $value['color'] . '<br>';
+    array_push($eventoA, $value);
+}
+$eventJson = json_encode($eventoA);
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>AdminLTE 3 | Calendar</title>
+        <title>Calendario Mensual</title>
+        <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -117,26 +128,47 @@ $data = new Data();
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
+                                    <form name="form" id="form1" method="" action="">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="input-group mb-3" id="id_event">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">#</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_id" id="id" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
-                                                <input type="text" class="form-control" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Titulo</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_title" id="title" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                                                    </div>
+                                                    <input type="color" class="form-control" name="txt_color" id="color" aria-label="Username"aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" id="btn_Action" class="btn btn-success">Registrar</button>
+                                                <button type="button" id="btn_Delete" class="btn btn-danger" >Eliminar</button>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Understood</button>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +192,10 @@ $data = new Data();
         <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
         <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
         <script  src="../Fullcalendar/lib/locales/es.js"></script>
-        <script>
+        <script type="text/javascript">
+            var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+            let form = document.getElementById('form1');
+            let del = document.getElementById('btn_Delete');
             document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -169,12 +204,39 @@ $data = new Data();
                     selectable: true,
                     locale: 'es',
                     height: 'auto',
+                    events: <?php echo $eventJson; ?>,
+                    editable: true,
+                    droppable: true,
                     // funcion recibe info
-                    dateClick: function() {
+                    dateClick: function(info) {
+                    form.reset();
+                    document.getElementById('id').value = '';
+                    del.classList.add('d-none');
+                    document.getElementById('id_event').classList.add('d-none');
+                    document.getElementById('startEvent').value = info.dateStr;
+                    document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
+                    document.getElementById('btn_Action').textContent = 'Registrar';
+                    form.action = "../controller/controllerEvento.php?p=1";
+                    form.method = 'POST';
+                    modal.show();
                     //traer input con id startEvent y darle el valor info.dateStr
                     //info es el data de calendar y dateStr es la fecha tipo string
                     //abrir modal
 
+                    },
+                    eventClick: function(info) {
+                    document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
+                    document.getElementById('btn_Action').textContent = 'Modificar';
+                    document.getElementById('id_event').classList.remove('d-none');
+                    del.classList.remove('d-none');
+                    document.getElementById('id').value = info.event.id;
+                    document.getElementById('title').value = info.event.title;
+                    document.getElementById('startEvent').value = info.event.startStr;
+                    document.getElementById('color').value = info.event.backgroundColor;
+                    form.action = "../controller/controllerEvento.php?p=2";
+                    form.method = 'POST';
+                    console.log(info);
+                    modal.show();
                     },
                     //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     headerToolbar: {
@@ -182,10 +244,37 @@ $data = new Data();
                             center: 'title',
                             right: 'dayGridMonth,timeGridWeek,timeGridDay'
                     }
-
             });
             calendar.render();
+            del.addEventListener('click', function () {
+            modal.hide();
+            Swal.fire({
+            title: 'Estas seguro?',
+                    text: "Se borrara el evento",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Borrar!',
+                    cancelButtonText: 'Cancelar',
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+            /*Swal.fire(
+             'Deleted!',
+             'Your file has been deleted.',
+             'success'
+             );*/
+            const url = 'controller/controllerEvento.php?p=' + 3;
+            const http = new XMLHttpRequest();
+            http.open('GET', url, true);
+            /*form.action = "../controller/controllerEvento.php?p=3";
+             form.method = 'POST';*/
+            }
+            })
             });
+            });
+
         </script>
     </body>
 </html>

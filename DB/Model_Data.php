@@ -278,21 +278,23 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo){
+
+    public function updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo) {
         $sql = "UPDATE `usuario` SET `email` = '$email', `passwd` = sha2('$passwd',0), `telefono` = '$telefono', `t_user` = '$t_user', `a_user` = '$a_user', `cargo` = '$cargo', `activo` = '$activo' WHERE `usuario`.`RUT` = '$rut';";
         $query = $this->con->query($sql);
     }
-    
-    public function updateArea($id, $p){
+
+    public function updateArea($id, $p) {
         $sql = "UPDATE `a_usuario` SET `activo` = '$p' WHERE `a_usuario`.`ID` = '$id';";
         $query = $this->con->query($sql);
     }
-    
-    public function existBeneficiario($rut){
-        $sql = "SELECT beneficiario.RUT as 'rut' FROM beneficiario WHERE RUT = '$rut';"; 
+
+    public function existBeneficiario($rut) {
+        $sql = "SELECT beneficiario.RUT as 'rut' FROM beneficiario WHERE RUT = '$rut';";
+        $query = $this->con->query($sql);
+        return $query;
     }
-    
+
     public function getExistBen($rut) {
         $sql = "SELECT COUNT(*) AS 'existe' 
 	            FROM beneficiario
@@ -306,6 +308,18 @@ class Data {
 
         return false;
     }
+
+    public function addEvento($title, $fecha, $color) {
+        $sql = "INSERT INTO `evento` (`id`, `title`, `start`, `color`) VALUES (NULL, '$title', '$fecha', '$color');";
+        $query = $this->con->query($sql);
+    }
+
+    public function getAllEvent() {
+        $sql = "SELECT * FROM evento";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+
 }
 ?>
 
