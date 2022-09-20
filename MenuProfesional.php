@@ -106,7 +106,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </nav>
         </section>
-        <script>
+        <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
@@ -131,6 +131,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
                 }
             }
-        </script>
+        </script> -->
     </body>
 </html>

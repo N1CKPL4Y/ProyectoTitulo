@@ -116,9 +116,9 @@ $benefs = $data->getAllBenefi();
             </ul>
         </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
-            <nav class="nav justify-content-center" style="background-color: #00526a">
+            <nav style="background-color: #00526a">
                 <div class="nav-wrapper" >
-                    <div class="container mx-auto">
+                    <div class="container" style="display: flex; align-items: center; justify-content: center;">
                         <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px;color: white;">Fenix</a>
@@ -189,7 +189,7 @@ $benefs = $data->getAllBenefi();
         <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <!-- AdminLTE App -->
         <script src="AdminLTE/dist/js/adminlte.min.js"></script>
-        <script>
+         <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
@@ -214,7 +214,7 @@ $benefs = $data->getAllBenefi();
                     closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
                 }
             }
-        </script>
+        </script> -->
     </body>
     <script>
         $(function () {

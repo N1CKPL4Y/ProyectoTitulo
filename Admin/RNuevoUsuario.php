@@ -112,14 +112,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <section class="home-section" style="background-color: #C8E6C9; background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
+                    <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px">Fenix</a>
                     </div>
                 </div>
             </nav>  
-            <div class="container-fluid" style="padding-top: 10px;"> 
+            <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px"> 
                 <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px;">
@@ -135,6 +135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="form-group">
                                                         <label for="rut_input">Rut</label>
                                                         <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
+                                                        <span style="color: grey">Si el RUT termina en K, reemplacelo por un 0</span>
                                                     </div>
                                                 </div>
                                             </div>

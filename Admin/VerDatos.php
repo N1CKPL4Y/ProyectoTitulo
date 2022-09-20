@@ -38,12 +38,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="../Materialize/css/materialize.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <!--<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
@@ -111,12 +113,12 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             </ul>
         </div>
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
-            <nav>
-                <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
-                        <a style="font-size: 30px">Ave</a>
-                        <img src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+            <nav style="background-color: #00526a">
+                <div class="nav-wrapper" >
+                    <div class="container" style="display: flex; align-items: center; justify-content: center;">
+                        <a style="font-size: 30px;color: white">Ave</a>
+                        <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px;color: white;">Fenix</a>
                     </div>
                 </div>
             </nav>
@@ -163,32 +165,34 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             foreach ($sisPrev as $value1) {
                 $textPrevi = $value1['nombre'];
             }
-            /*if ($pensBase == 1) {
-                $sispens = $data->getAllPensionesForRut($rutBase);
-                $textPens;
+            /* if ($pensBase == 1) {
+              $sispens = $data->getAllPensionesForRut($rutBase);
+              $textPens;
 
-                foreach ($sispens as $value) {
-                    $textPens = $value['nombre'];
-                }
-            }*/
+              foreach ($sispens as $value) {
+              $textPens = $value['nombre'];
+              }
+              } */
             ?>
-            <div class="container-fluid">
-                <div class="row">
+            <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
+                <div class="row justify-content-around">
                     <div class="col s10 offset-s1">
                         <div class="card" style="border-radius: 10px">
-                            <div class="row">
-                                <div class="col s1" style="padding-top: 20px; padding-left: 30px">
-                                    <a class="btn" style="background-color: #558b2f;" href="VisBeneficiario.php">
-                                        <i class='bx bx-arrow-to-left'></i>
-                                    </a>
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col s1" style="padding-top: 20px; padding-left: 30px">
+                                        <a class="btn" style="background-color: #558b2f;" href="VisBeneficiario.php">
+                                            <i class="bi bi-arrow-left-circle-fill"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col s10">
+                                        <h3 style="padding-top: 10px; padding-left: 10px; padding-right: 100px" class="center"><?php echo $rutBase; ?></h3>
+                                        <h4 style="padding-left: 10px" class="center"><?php echo $nombBase . " " . $apelBase; ?></h4>
+                                    </div> 
                                 </div>
-                                <div class="col s10">
-                                    <h3 style="padding-top: 10px; padding-left: 10px" class="center"><?php echo $rutBase; ?></h3>
-                                    <h4 style="padding-left: 10px" class="center"><?php echo $nombBase . " " . $apelBase; ?></h4>
-                                </div> 
                             </div>
                             <div class="row">
-                                <div class="col s10 offset-s1">
+                                <div class="col-sm-12 col-md-10 col-lg-10">
                                     <form method="post">
                                         <div class="row">
                                             <div class="col s6">

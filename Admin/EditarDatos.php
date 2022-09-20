@@ -112,8 +112,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
             <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
-                        <a style="font-size: 30px;color: white;padding-left: 500px">Ave</a>
+                    <div class="container" style="display: flex; align-items: center; justify-content: center;">
+                        <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px;color: white;">Fenix</a>
                     </div>
@@ -359,7 +359,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 })
             });
         </script>
-        <script>
+         <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
@@ -384,6 +384,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
                 }
             }
-        </script>
+        </script> -->
     </body>
 </html>

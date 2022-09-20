@@ -632,14 +632,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
         </section>
-        <script>
+        <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
+            let section = document.querySelector(".home-section");
 
             closeBtn.addEventListener("click", () => {
                 sidebar.classList.toggle("open");
                 menuBtnChange();//calling the function(optional)
+                section.classList.toggle("move");
             });
 
             searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
@@ -655,7 +657,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
                 }
             }
-        </script>
+        </script> -->
         <script>
             $(document).ready(function () {
                 M.updateTextFields();
