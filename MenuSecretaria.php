@@ -195,15 +195,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="row">
-                                                                <h6 class="col s5">Participa en instituto Teleton:</h6>
+                                                                <h6 class="col s8">Participa en instituto Teleton:</h6>
                                                             </div>
-                                                            <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                            <br>
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
                                                                 <label>
                                                                     <input class="with-gap teleton" value="1" name="rd_teleton" type="radio"/>
                                                                     <span>Si</span>
                                                                 </label>
                                                             </p>
-                                                            <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
                                                                 <label>
                                                                     <input class="with-gap teleton" value="0" name="rd_teleton" type="radio"/>
                                                                     <span>No</span>
@@ -211,20 +212,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </p>
                                                         </div>
                                                         <div class="col s6">
-                                                            <div class="row">
-                                                                <h6 class="col s10">Indique el sistema de salud</h6>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                    <select name="cbo_prevision1">
-                                                                        <option value="" disabled selected>Fonasa</option>
-                                                                        <option value="1">Fonasa A</option>
-                                                                        <option value="2">Fonasa B</option>
-                                                                        <option value="3">Fonasa C</option>
-                                                                        <option value="4">Fonasa D</option>
-                                                                        <option value="5">Isapre</option>
-                                                                    </select>
-                                                                </div>
+                                                            <h6 class="col s10">Indique el sistema de salud</h6>
+                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
+                                                                <select name="cbo_prevision1">
+                                                                    <option value="" disabled selected>Fonasa</option>
+                                                                    <option value="1">Fonasa A</option>
+                                                                    <option value="2">Fonasa B</option>
+                                                                    <option value="3">Fonasa C</option>
+                                                                    <option value="4">Fonasa D</option>
+                                                                    <option value="5">Isapre</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -237,11 +234,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     Diagnostico del beneficiario</div>
                                                 <div class="collapsible-body" style="background-color: #C8E6C9">
                                                     <div class="row">
-                                                        <h6 class="col s5">¿El beneficiario presenta algun diagnostico?</h6>
-                                                        <h6 class="col s5">¿Cual es el diagnostico que presenta el beneficiario?</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s5">
+                                                        <div class="col s6">
+                                                            <h6 class="col s10">¿El beneficiario presenta algun diagnostico?</h6>
                                                             <p class="col s4" style="background-color: white; border-radius: 10px">
                                                                 <label>
                                                                     <input class="with-gap diagnostico" value="1" name="diagnostico" type="radio"/>
@@ -256,6 +250,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </p>
                                                         </div>
                                                         <div class="col s6">
+                                                            <h6 class="col s10">¿Cual es el diagnostico que presenta el beneficiario?</h6>
                                                             <div class="col s12" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_condicion">
                                                                     <option value="0" id="options">Seleccione</option>
@@ -272,21 +267,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <h6 class="col s5">Indique el especialista que emite el diagnostico</h6>
-                                                        <h6 class="col s5">Indique fecha del ultimo control con el especialista</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s5" style="background-color: white; border-radius: 10px">
-                                                            <select name="cbo_especialista" class="condicion">
-                                                                <option value="" disabled selected>Seleccione</option>
-                                                                <option value="1">Neurologo</option>
-                                                                <option value="2">Psicologo</option>
-                                                                <option value="3">Otro</option>
-                                                                <option value="4">No posee Diagnostico</option>
-                                                            </select>
+                                                        <div class="col s6">
+                                                            <h6 class="col s10">Indique el especialista que emite el diagnostico</h6>
+                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
+                                                                <select name="cbo_especialista" class="condicion">
+                                                                    <option value="" disabled selected>Seleccione</option>
+                                                                    <option value="1">Neurologo</option>
+                                                                    <option value="2">Psicologo</option>
+                                                                    <option value="3">Otro</option>
+                                                                    <option value="4">No posee Diagnostico</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-field col s6" style="background-color: white; border-radius: 10px">
-                                                            <input placeholder="-- Seleccione: --" name="txt_control" type="text" class="datepicker diag" id="datepicker" required>
+                                                        <div class="col s6">
+                                                            <h6 class="col s10">Indique fecha del ultimo control con el especialista</h6>
+                                                            <div class="input-field col s12" style="background-color: white; border-radius: 10px">
+                                                                <input placeholder="-- Seleccione: --" name="txt_control" type="text" class="datepicker diag" id="datepicker1" required>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -349,11 +346,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col s6">
                                                             <div class="input-field col s8">
-                                                                <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_nacTutor" type="text" class="datepicker" id="datepicker" required style="background-color: white; border-radius: 10px">
+                                                                <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_nacTutor" type="text" class="datepicker" id="datepicker2" required style="background-color: white; border-radius: 10px">
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
-                                                            <div class="input-field col s4" style="background-color: white; border-radius: 10px">
+                                                            <div class="input-field col s6" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_nivel">
                                                                     <option value="" disabled selected>Nivel escolar</option>
                                                                     <option value="1">basica</option>
@@ -365,7 +362,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="col s6">
-                                                            <div class="input-field col s8">
+                                                            <div class="input-field col s10">
                                                                 <input id="ocupacion" type="text" name="txt_ocupacion" class="validate" style="background-color: white; border-radius: 10px">
                                                                 <label class="active" for="ocupacion">Indique la ocupacion</label>
                                                             </div>
@@ -385,42 +382,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <span id="emailVal"></span>
                                                     <div class="row">
-                                                        <h6 class="col s6">¿El tutor vive con el beneficiario?</h6>
+                                                        <div class="col s6">
+                                                            <h6 class="col s12">¿El tutor vive con el beneficiario?</h6>
+                                                            <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" value="1" name="direccTutor" type="radio" onclick="viveCon()"/>
+                                                                    <span>Si</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="col s3" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" value="0" name="direccTutor" type="radio" onclick="noViveCon()"/>
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="1" name="direccTutor" type="radio" onclick="viveCon()"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s3" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="0" name="direccTutor" type="radio" onclick="noViveCon()"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
-                                                    </div>
+                                                    <br>
                                                     <div class="row dirTutor">
 
                                                     </div>
                                                     <div class="row">
-                                                        <h6 class="col s5">Indique el sistema de salud</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s5" style="background-color: white; border-radius: 10px">
-                                                            <select name="cbo_prevision">
-                                                                <option value="" disabled selected>Fonasa</option>
-                                                                <option value="1">Fonasa A</option>
-                                                                <option value="2">Fonasa B</option>
-                                                                <option value="3">Fonasa C</option>
-                                                                <option value="4">Fonasa D</option>
-                                                                <option value="5">Isapre</option>
-                                                            </select>
+                                                        <div class="col s6">
+                                                            <h6 class="col s12">Indique el sistema de salud</h6>
+                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
+                                                                <select name="cbo_prevision">
+                                                                    <option value="" disabled selected>Fonasa</option>
+                                                                    <option value="1">Fonasa A</option>
+                                                                    <option value="2">Fonasa B</option>
+                                                                    <option value="3">Fonasa C</option>
+                                                                    <option value="4">Fonasa D</option>
+                                                                    <option value="5">Isapre</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-
                                                     </div>
-
                                                 </div>
                                             </li>
                                             <li>
@@ -428,32 +424,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     Datos de credencial de discapacidad</div>
                                                 <div class="collapsible-body" style="background-color: #C8E6C9">
                                                     <div class="row">
-                                                        <h6 class="col s5">Cuenta con credencial de discapacidad?:</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap discapacidad" value="1" name="discapacidad" type="radio"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap discapacidad" value="0" name="discapacidad" type="radio"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s4">
-                                                            <input id="discapacidad" type="text" name="txt_credencial" class="validate numCred" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="discapacidad">Numero de credencial de discapacidad</label>
+                                                        <div class="col s12 m4 l6">
+                                                            <h6 class="col s12">Cuenta con credencial de discapacidad?:</h6>
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap discapacidad" value="1" name="discapacidad" type="radio"/>
+                                                                    <span>Si</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap discapacidad" value="0" name="discapacidad" type="radio"/>
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col s12 m4 l6">
+                                                            <div class="col s12">
+                                                                <div class="input-field col s12">
+                                                                    <input id="discapacidad" type="text" name="txt_credencial" class="validate numCred" style="background-color: white; border-radius: 10px" disabled="">
+                                                                    <label class="active" for="discapacidad">Numero de credencial de discapacidad</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s8" style="background-color: white; border-radius: 10px">
+                                                        <div class="col s12 m4 l6">
+                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_origenP" class="validate numCred">
                                                                     <option value="" disabled selected>Origen principal de discapacidad</option>
                                                                     <option value="1">Fisico</option>
@@ -466,7 +463,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
-                                                            <div class="input-field col s8" style="background-color: white; border-radius: 10px">
+                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_origenS" class="validate numCred">
                                                                     <option value="" disabled selected>Origen Secundario de discapacidad</option>
                                                                     <option value="1">Fisico</option>
@@ -481,13 +478,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="col s6">
-                                                            <div class="input-field col s6">
+                                                            <div class="input-field col s10">
                                                                 <input id="porcentaje_d" type="text" name="txt_porcentaje_d" class="validate numCred" style="background-color: white; border-radius: 10px">
                                                                 <label class="active" for="porcentaje_d">Porcentaje de discapacidad</label>
                                                             </div>
                                                         </div>
                                                         <div class="col s6">
-                                                            <div class="input-field col s8" style="background-color: white; border-radius: 10px">
+                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_grado" class="validate numCred">
                                                                     <option value="" disabled selected>Grado de discapacidad</option>
                                                                     <option value="1">Leve</option>
@@ -500,7 +497,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col s4">
+                                                        <div class="col s6">
+                                                            <h6 class="col s12">Movilidad Reducida</h6>
                                                             <div class="input-field col s8" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_movilidad" class="validate numCred">
                                                                     <option value="0" disabled >Movilidad Reducida</option>
@@ -515,7 +513,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="row">
                                                         <div class="col s6">
-                                                            <h6 class="col s9">C. Discapacidad (Parte delantera)</h6>
+                                                            <h6 class="col s12">C. Discapacidad (Parte delantera)</h6>
                                                             <div class="file-field input-field col s12">
                                                                 <div class="btn light-green darken-3">
                                                                     <span>Seleccionar</span>
@@ -548,54 +546,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     Beneficios Sociales</div>
                                                 <div class="collapsible-body" style="background-color: #C8E6C9">
                                                     <div class="row">
-                                                        <h6 class="col s6">Posee alguna pensión</h6>
+
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col s12 m4 l6" style="background-color: white; border-radius: 10px">
-                                                            <select name="cbo_pension">
-                                                                <option value="0">Selecciona una opción</option>
-                                                                <?php
-                                                                $pens = $data->getAllPensionesAll();
-                                                                foreach ($pens as $key1) {
-                                                                    echo '<option value="' . $key1['ID'] . '" >' . $key1['nombre'] . '</option>';
-                                                                }
-                                                                ?>
-                                                            </select>
+                                                        <div class="col s8">
+                                                            <h6 class="col s12">¿Posee alguna pensión?</h6>
+                                                            <div class="col s12 m4 l6" style="background-color: white; border-radius: 10px">
+                                                                <select name="cbo_pension">
+                                                                    <option value="0">Selecciona una opción</option>
+                                                                    <?php
+                                                                    $pens = $data->getAllPensionesAll();
+                                                                    foreach ($pens as $key1) {
+                                                                        echo '<option value="' . $key1['ID'] . '" >' . $key1['nombre'] . '</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <h6 class="col s6">Pertenece a Chile solidario?</h6>
                                                     </div>
                                                     <div class="row">
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="1" name="csolidario" type="radio"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="0" name="csolidario" type="radio"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
+                                                        <div class="col s6">
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" value="1" name="csolidario" type="radio"/>
+                                                                    <span>Si</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" value="0" name="csolidario" type="radio"/>
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
-                                                        <h6 class="col s6">Tiene registro social de hogares?</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="1" name="hogares" type="radio" onclick="tieneR()"/>
-                                                                <span>Si</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="0" name="hogares" type="radio" onclick="noTieneR()"/>
-                                                                <span>No</span>
-                                                            </label>
-                                                        </p>
+                                                        <div class="col s6">
+                                                            <h6 class="col s12">Tiene registro social de hogares?</h6>
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" value="1" name="hogares" type="radio" onclick="tieneR()"/>
+                                                                    <span>Si</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                                <label>
+                                                                    <input class="with-gap" value="0" name="hogares" type="radio" onclick="noTieneR()"/>
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
@@ -606,7 +609,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="file-field input-field col s8">
                                                             <div class="btn light-green darken-3">
-                                                                <span>Fotografia del registro</span>
+                                                                <span>Copia del registro</span>
                                                                 <input id="cR" type="file" name="file_Hogar" accept="application/pdf">
                                                             </div>
                                                             <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
@@ -685,6 +688,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             });
             $(function () {
                 $('#datepicker').datepicker({
+                    format: 'yyyy-mm-dd',
+                    i18n: {
+                        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles,', 'Jueves', 'Viernes', 'Sábado'],
+                        weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'],
+                        weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        cancel: ['Cancelar'],
+                        done: ['Aceptar']
+                    }
+                })
+                $('#datepicker1').datepicker({
+                    format: 'yyyy-mm-dd',
+                    i18n: {
+                        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles,', 'Jueves', 'Viernes', 'Sábado'],
+                        weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'],
+                        weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        cancel: ['Cancelar'],
+                        done: ['Aceptar']
+                    }
+                })
+                $('#datepicker2').datepicker({
                     format: 'yyyy-mm-dd',
                     i18n: {
                         months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],

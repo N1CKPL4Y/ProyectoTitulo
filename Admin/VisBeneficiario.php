@@ -126,15 +126,15 @@ $benefs = $data->getAllBenefi();
                 </div>
             </nav>
             <div class="container-fluid" style="padding-top: 15px;">
-                <div class="row">
-                    <div class="col-sm-12">
+                <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                    <div class="col-sm-12 col-md-10">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-header">
                                 <h3 class="card-title">Base de Consulta</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row justify-content-md-center">
-                                    <div class="col-sm-4 col-md-8">
+                                    <div class="col-sm-4 col-md-10">
                                         <table id="myTable" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
