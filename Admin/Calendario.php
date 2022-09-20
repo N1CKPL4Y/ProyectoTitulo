@@ -159,27 +159,29 @@ $data = new Data();
         <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
         <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
         <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
+        <script  src="../Fullcalendar/lib/locales/es.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
+                    themeSystem: 'bootstrap',
                     selectable: true,
                     locale: 'es',
                     height: 'auto',
                     // funcion recibe info
                     dateClick: function() {
-                        //traer input con id startEvent y darle el valor info.dateStr
-                        //info es el data de calendar y dateStr es la fecha tipo string
-                        //abrir modal
-                        
+                    //traer input con id startEvent y darle el valor info.dateStr
+                    //info es el data de calendar y dateStr es la fecha tipo string
+                    //abrir modal
+
+                    },
+                    //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+                    headerToolbar: {
+                    left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
                     }
-            //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-            headerToolbar: {
-            left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            }
 
             });
             calendar.render();
