@@ -135,7 +135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="form-group">
                                                         <label for="rut_input">Rut</label>
                                                         <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
-                                                        <span style="color: grey">Si el RUT termina en K, reemplacelo por un 0</span>
+                                                        <span style="color: grey; font-size: 14px">Si el RUT termina en K, reemplacelo por un 0</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -165,7 +165,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="form-group">
                                                         <label for="pass_u">Contraseña</label>
                                                         <input type="password" class="form-control" name="txt_pass" maxlength="8" minlength="4" id="pass_u" style="border-radius: 50px; text-indent: 18px;">
-                                                        <span style="color: grey">La contraseña debe tener minimo 4 caracteres y maximo 8 caracteres</span>
+                                                        <span style="color: grey; font-size: 14px">La contraseña debe tener minimo 4 caracteres y maximo 8 caracteres</span>
                                                     </div>
                                                 </div>
                                             </div>

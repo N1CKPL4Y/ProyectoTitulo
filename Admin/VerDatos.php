@@ -61,7 +61,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
-            <ul class="nav-list">
+            <ul class="nav-list" style="margin-left: -2rem">
                 <li>
                     <a href="../MenuAdmin.php">
                         <i class='bx bx-home' ></i>
@@ -89,6 +89,13 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="EditarDatos.php">
+                        <i class="material-icons">border_color</i>
+                        <span class="links_name">Editar Datos</span>
+                    </a>
+                    <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">
@@ -176,61 +183,75 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             ?>
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
                 <div class="row justify-content-around">
-                    <div class="col s10 offset-s1">
+                    <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col s1" style="padding-top: 20px; padding-left: 30px">
-                                        <a class="btn" style="background-color: #558b2f;" href="VisBeneficiario.php">
-                                            <i class="bi bi-arrow-left-circle-fill"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col s10">
-                                        <h3 style="padding-top: 10px; padding-left: 10px; padding-right: 100px" class="center"><?php echo $rutBase; ?></h3>
-                                        <h4 style="padding-left: 10px" class="center"><?php echo $nombBase . " " . $apelBase; ?></h4>
-                                    </div> 
-                                </div>
+                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                                <h3>Datos del beneficiario</h3>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-10 col-lg-10">
-                                    <form method="post">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="nArea" type="text" name="txt_narea" value="<?php echo $fechBase; ?>" class="validate" style="background-color: white; border-radius: 10px" readonly>
-                                                    <!--<label for="nArea">Fecha de nacimiento</label>-->
-                                                </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">R.U.T</span>
                                             </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $rutBase; ?>" readonly="">
                                         </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="nArea" type="text" name="txt_narea" value="<?php echo $direBase; ?>" class="validate" style="background-color: white; border-radius: 10px" readonly>
-                                                    <!--<label for="nArea">Fecha de nacimiento</label>-->
-                                                </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Nombres</span>
                                             </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="nArea" type="text" name="txt_narea" value="<?php echo $comuBase; ?>" class="validate" style="background-color: white; border-radius: 10px" readonly>
-                                                    <!--<label for="nArea">Fecha de nacimiento</label>-->
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $nombBase; ?>" readonly="">
                                         </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="nArea" type="text" name="txt_narea" value="<?php echo $geneBase; ?>" class="validate" style="background-color: white; border-radius: 10px" readonly>
-                                                    <!--<label for="nArea">Fecha de nacimiento</label>-->
-                                                </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Apellidos</span>
                                             </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="nArea" type="text" name="txt_narea" value="<?php echo $textPrevi; ?>" class="validate" style="background-color: white; border-radius: 10px" readonly>
-                                                    <!--<label for="nArea">Fecha de nacimiento</label>-->
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $apelBase; ?>" readonly="">
                                         </div>
-                                    </form>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Fecha Nacimiento</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Previsión</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $prevBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Dirección</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $direBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Comuna</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $comuBase; ?>" readonly="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

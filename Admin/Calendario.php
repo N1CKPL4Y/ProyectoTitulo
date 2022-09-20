@@ -104,8 +104,8 @@ $data = new Data();
         <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
             <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
-                        <a style="font-size: 30px;color: white;padding-left: 500px">Ave</a>
+                    <div class="container center" style="display: flex; align-items: center; justify-content: center;">
+                        <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
                         <a style="font-size: 30px;color: white;">Fenix</a>
                     </div>
@@ -114,7 +114,7 @@ $data = new Data();
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-12 col-md-10 col-lg-8">
+                        <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">

@@ -125,7 +125,7 @@ $benefs = $data->getAllBenefi();
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid" style="padding-top: 15px">
+            <div class="container-fluid" style="padding-top: 15px;">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card" style="border-radius: 10px">
