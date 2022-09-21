@@ -331,6 +331,19 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    public function updEvento($id, $title, $fecha, $color) {
+        $sql = "UPDATE `evento` SET `title` = '$title', `start` = '$fecha', `color` = '$color' WHERE `evento`.`id` = $id;";
+        $query = $this->con->query($sql);
+    }
+    public function dropEvent($id, $fecha) {
+        $sql = "UPDATE `evento` SET `start` = '$fecha' WHERE `evento`.`id` = $id;";
+        $query = $this->con->query($sql);
+    }
+
+    public function delEvento($id) {
+        $sql = "DELETE from evento WHERE id = '$id';";
+        $query = $this->con->query($sql);
+    }
 
 }
 ?>

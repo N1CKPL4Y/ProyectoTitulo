@@ -373,7 +373,7 @@ if (!$existeBene) {
         //insert datos generales
         
         //insert datos beneficiario
-        $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $pension, $chSolid, $hogar, $previBene);
+        $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $haveCreden, $pension, $chSolid, $hogar, $previBene);
         
         $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
         //insert datos diagnostico beneficiario

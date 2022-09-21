@@ -176,8 +176,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             $sispens = $data->getPensionById($pensBase);
             $textPens;
 
-            $exisDiag = $data->getDiagValid($rutBase);
-            switch ($exisDiag) {
+            $exisDiagn = $data->getDiagValid($rutBase);
+            $exisDiag;
+            switch ($exisDiagn) {
                 case 1:
                     $exisDiag = 'SI';
                     break;
@@ -188,12 +189,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     break;
             }
 
-            $diag;
-            if ($exisDiag) {
-                $diag = $data->getDiagnostico($rutBase);
-            } else {
-                
-            }
+
 
             foreach ($sispens as $value) {
                 $textPens = $value['nombre'];
@@ -343,7 +339,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
+                                        <a href="Datos/Cartola.php?rut=<?php echo $rutBase;?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -392,68 +388,91 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     </div>
                                 </div>
                                 <?php
-                                foreach ($diag as $value) {
-                                    $esp = $value['especialista'];
-                                    $array = $data->getEspecialista($esp);
-                                    $textEsp;
-                                    foreach ($array as $valor1) {
-                                        $textEsp = $valor1['nombre'];
+                                $diag;
+                                echo $exisDiagn;
+                                if ($exisDiagn) {
+                                    $diag = $data->getDiagnostico($rutBase);
+                                    foreach ($diag as $value) {
+                                        $esp = $value['especialista'];
+                                        $array = $data->getEspecialista($esp);
+                                        $textEsp;
+                                        foreach ($array as $valor1) {
+                                            $textEsp = $valor1['nombre'];
+                                        }
+                                        $codigo = $value['codigo'];
+                                        $array1 = $data->getConditionCode($codigo);
+                                        $code;
+                                        $name;
+                                        foreach ($array1 as $valor2) {
+                                            $name = $valor2['nombre'];
+                                            $code = $valor2['codigo'];
+                                        }
+                                        ?>
+                                        <div class="row" style="padding-top: 10px">
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <div class="input-group flex-nowrap">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="addon-wrapping">Posee Diagnostico:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $exisDiag; ?>" readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <a href="Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 10px">
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <div class="input-group flex-nowrap">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="addon-wrapping">Especialista</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textEsp; ?>" readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <div class="input-group flex-nowrap">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="addon-wrapping">Fecha Ultimo Control</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $value['fecha_u_control']; ?>" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 10px">
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <div class="input-group flex-nowrap">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="addon-wrapping">Codigo Condición</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $code; ?>" readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <div class="input-group flex-nowrap">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="addon-wrapping">Nombre Condición</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $name; ?>" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
                                     }
-                                    $codigo = $value['codigo'];
-                                    $array1 = $data->getConditionCode($codigo);
-                                    $code;
-                                    $name;
-                                    foreach ($array1 as $valor2) {
-                                        $name = $valor2['nombre'];
-                                        $code = $valor2['codigo'];
-                                    }
+                                } else {
                                     ?>
-                                    <div class="row" style="padding-top: 10px">
+                                    <div class="row justify-content-around" style="padding-top: 10px">
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">Posee Diagnostico:</span>
+                                            <div class="card text-center">
+                                                <div class="card-header">
+                                                    Registro
                                                 </div>
-                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $exisDiag; ?>" readonly="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 10px">
-                                        <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">Especialista</span>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">El beneficiario no posee un diagnostico asociado</h5>
                                                 </div>
-                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textEsp; ?>" readonly="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">Fecha Ultimo Control</span>
+                                                <div class="card-footer text-muted">
+                                                    ...
                                                 </div>
-                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $value['fecha_u_control']; ?>" readonly="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 10px">
-                                        <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">Codigo Condición</span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $code; ?>" readonly="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">Nombre Condición</span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $name; ?>" readonly="">
                                             </div>
                                         </div>
                                     </div>

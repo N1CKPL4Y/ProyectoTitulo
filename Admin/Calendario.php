@@ -91,7 +91,7 @@ $eventJson = json_encode($eventoA);
                     <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
-                    <a href="controller/controllerLogout.php">
+                    <a href="../controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
                     </a>
@@ -128,7 +128,7 @@ $eventJson = json_encode($eventoA);
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form name="form" id="form1" method="" action="">
+                                    <form name="form" id="form1" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
@@ -141,7 +141,7 @@ $eventJson = json_encode($eventoA);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">#</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_id" id="id" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" readonly name="txt_id" id="id" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -203,8 +203,26 @@ $eventJson = json_encode($eventoA);
                     themeSystem: 'bootstrap',
                     selectable: true,
                     locale: 'es',
+                    contentHeight: 'auto',
+                    handleWindowResize: true,
                     height: 'auto',
-                    events: <?php echo $eventJson; ?>,
+                    eventSources: [
+
+                            // your event source
+                            //{
+                            /*events: [ // put the array in the `events` property
+                            
+                                    color: 'black', // an option!
+                                    textColor: 'yellow' // an option!
+                            },*/
+                            {
+                                events: <?php echo $eventJson;  ?>
+                            }
+
+                    // any other event sources...
+
+                    ],
+                    //events: <?php //echo $eventJson;  ?>,
                     editable: true,
                     droppable: true,
                     // funcion recibe info
@@ -212,6 +230,7 @@ $eventJson = json_encode($eventoA);
                     form.reset();
                     document.getElementById('id').value = '';
                     del.classList.add('d-none');
+                    document.getElementById('startEvent').readOnly = true;
                     document.getElementById('id_event').classList.add('d-none');
                     document.getElementById('startEvent').value = info.dateStr;
                     document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
@@ -229,6 +248,7 @@ $eventJson = json_encode($eventoA);
                     document.getElementById('btn_Action').textContent = 'Modificar';
                     document.getElementById('id_event').classList.remove('d-none');
                     del.classList.remove('d-none');
+                    document.getElementById('startEvent').readOnly = false;
                     document.getElementById('id').value = info.event.id;
                     document.getElementById('title').value = info.event.title;
                     document.getElementById('startEvent').value = info.event.startStr;
@@ -237,6 +257,12 @@ $eventJson = json_encode($eventoA);
                     form.method = 'POST';
                     console.log(info);
                     modal.show();
+                    },
+                    eventDrop: function(info) {
+                    const id = info.event.id;
+                    const fecha = info.event.startStr;
+                    window.location = '../controller/controllerEvento.php?p=4&id=' + id + '&fecha=' + fecha;
+                    console.log(id, fecha);
                     },
                     //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     headerToolbar: {
@@ -259,17 +285,15 @@ $eventJson = json_encode($eventoA);
                     cancelButtonText: 'Cancelar',
             }).then((result) => {
             if (result.isConfirmed) {
-
+            console.log('peeee');
             /*Swal.fire(
              'Deleted!',
              'Your file has been deleted.',
              'success'
              );*/
-            const url = 'controller/controllerEvento.php?p=' + 3;
-            const http = new XMLHttpRequest();
-            http.open('GET', url, true);
-            /*form.action = "../controller/controllerEvento.php?p=3";
-             form.method = 'POST';*/
+            var id = document.getElementById('id').value;
+            console.log(id);
+            window.location = '../controller/controllerEvento.php?p=3&id=' + id;
             }
             })
             });
