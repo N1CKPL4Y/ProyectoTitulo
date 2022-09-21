@@ -344,7 +344,26 @@ class Data {
         $sql = "DELETE from evento WHERE id = '$id';";
         $query = $this->con->query($sql);
     }
+    
+    public function existEsp($nombre){
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM especialista
+	            WHERE nombre = '$nombre';";
 
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    
+    public function addEsp($nombre){
+        $sql = "INSERT INTO `especialista` (`ID`, `nombre`) VALUES (null, '$nombre');";
+        $query = $this->con->query($sql);
+    }
+    
 }
 ?>
 

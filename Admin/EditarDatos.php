@@ -38,7 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
+
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -127,7 +127,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="card-header" id="headingOne" style="background-color: #558b2f">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white">
-                                            Agregar /Habilitar /Deshabilitar Areas de usuario
+                                            Agregar / Habilitar / Deshabilitar Areas de usuario
                                         </button>
                                     </h2>
                                 </div>
@@ -319,7 +319,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-md-12 col-sm-10 center">
+                                            <div class="col-md-12 col-sm-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
                                                         <thead style="font-size: 20px; text-align: center">
@@ -332,6 +332,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             $pensiones = $data->getAllPensiones();
 
                                                             foreach ($pensiones as $key) {
+                                                                ?>
+                                                                <tr>
+                                                                    <td><?php echo $key['nombre'] ?></td>
+                                                                </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree" style="background-color: #558b2f">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="color: white">
+                                            Agregar Areas de Especialistas
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <form action="../controller/controllerRegistroNEsp.php" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-sm-10">
+                                                        <div class="form-group">
+                                                            <input type="text" name="txt_nEsp" placeholder="Ingrese Nombre del area del especialista" class="form-control" id="nEsp" aria-describedby="nEsp" required="">
+                                                            <small id="nEsp" class="form-text text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-10 center">
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12" style="display: flex; align-items: center; justify-content: center;">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered">
+                                                        <thead style="font-size: 20px; text-align: center">
+                                                            <tr>
+                                                                <th>Areas de Especialistas registradas</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align: center">
+                                                            <?php
+                                                            $esp = $data->getAllEspecialista();
+
+                                                            foreach ($esp as $key) {
                                                                 ?>
                                                                 <tr>
                                                                     <td><?php echo $key['nombre'] ?></td>
