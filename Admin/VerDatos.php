@@ -161,6 +161,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 $comuBase = $key['comuna'];
                 $imgBase = $key['c_identidad'];
                 $teleBase = $key['teleton'];
+                $discBase = $key['c_discapacidad'];
                 $pensBase = $key['pension'];
                 $chilBase = $key['chile_solidario'];
                 $regiBase = $key['r_s_hogares'];
@@ -172,14 +173,75 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             foreach ($sisPrev as $value1) {
                 $textPrevi = $value1['nombre'];
             }
-            /* if ($pensBase == 1) {
-              $sispens = $data->getAllPensionesForRut($rutBase);
-              $textPens;
+            $sispens = $data->getPensionById($pensBase);
+            $textPens;
 
-              foreach ($sispens as $value) {
-              $textPens = $value['nombre'];
-              }
-              } */
+            $exisDiag = $data->getDiagValid($rutBase);
+            switch ($exisDiag) {
+                case 1:
+                    $exisDiag = 'SI';
+                    break;
+                case 0:
+                    $exisDiag = 'No Aplica';
+                    break;
+                default:
+                    break;
+            }
+
+            $diag;
+            if ($exisDiag) {
+                $diag = $data->getDiagnostico($rutBase);
+            } else {
+                
+            }
+
+            foreach ($sispens as $value) {
+                $textPens = $value['nombre'];
+            }
+
+            switch ($discBase) {
+                case 1:
+                    $discBase = 'SI';
+                    break;
+                case 0:
+                    $discBase = 'No Aplica';
+                    break;
+                default:
+                    break;
+            }
+
+            switch ($regiBase) {
+                case 1:
+                    $regiBase = 'SI';
+                    break;
+                case 0:
+                    $regiBase = 'No Aplica';
+                    break;
+                default:
+                    break;
+            }
+
+            switch ($teleBase) {
+                case 1:
+                    $teleBase = 'SI';
+                    break;
+                case 0:
+                    $teleBase = 'No Aplica';
+                    break;
+                default:
+                    break;
+            }
+
+            switch ($chilBase) {
+                case 1:
+                    $chilBase = 'SI';
+                    break;
+                case 0:
+                    $chilBase = 'No Aplica';
+                    break;
+                default:
+                    break;
+            }
             ?>
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
                 <div class="row justify-content-around">
@@ -189,6 +251,11 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 <h3>Datos del beneficiario</h3>
                             </div>
                             <div class="card-body">
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <h4>Datos Personales:</h4>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
@@ -197,6 +264,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             </div>
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $rutBase; ?>" readonly="">
                                         </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -229,21 +299,13 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Previsión</span>
-                                            </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $prevBase; ?>" readonly="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" style="padding-top: 10px">
-                                    <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <div class="input-group flex-nowrap">
-                                            <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Dirección</span>
                                             </div>
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $direBase; ?>" readonly="">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
                                             <div class="input-group-prepend">
@@ -253,6 +315,151 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Previsión</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textPrevi; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Pensión</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textPens; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">R. Social Hogares</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $regiBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Posee C. Discapacidad</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $discBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <h4>Beneficios Sociales:</h4>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Participa en Teletón</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $teleBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Pertenece a Chile Solidario</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $chilBase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <h4>Datos de Diagnostico:</h4>
+                                    </div>
+                                </div>
+                                <?php
+                                foreach ($diag as $value) {
+                                    $esp = $value['especialista'];
+                                    $array = $data->getEspecialista($esp);
+                                    $textEsp;
+                                    foreach ($array as $valor1) {
+                                        $textEsp = $valor1['nombre'];
+                                    }
+                                    $codigo = $value['codigo'];
+                                    $array1 = $data->getConditionCode($codigo);
+                                    $code;
+                                    $name;
+                                    foreach ($array1 as $valor2) {
+                                        $name = $valor2['nombre'];
+                                        $code = $valor2['codigo'];
+                                    }
+                                    ?>
+                                    <div class="row" style="padding-top: 10px">
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">Posee Diagnostico:</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $exisDiag; ?>" readonly="">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 10px">
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">Especialista</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textEsp; ?>" readonly="">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">Fecha Ultimo Control</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $value['fecha_u_control']; ?>" readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 10px">
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">Codigo Condición</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $code; ?>" readonly="">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">Nombre Condición</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $name; ?>" readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

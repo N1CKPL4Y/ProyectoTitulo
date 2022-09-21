@@ -256,8 +256,8 @@ class Data {
         return $query;
     }
 
-    public function getAllPensionesForRut($rutb) {
-        $sql = "SELECT pension.nombre FROM beneficiario_pension INNER JOIN pension ON pension.ID=beneficiario_pension.ID WHERE beneficiario_pension.beneficiario='$rutb';";
+    public function getPensionById($id) {
+        $sql = "SELECT * FROM pension where ID = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
@@ -316,6 +316,18 @@ class Data {
 
     public function getAllEvent() {
         $sql = "SELECT * FROM evento";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getAllEspecialista() {
+        $sql = "SELECT * FROM especialista";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getEspecialista($id) {
+        $sql = "SELECT * FROM especialista where id = $id";
         $query = $this->con->query($sql);
         return $query;
     }

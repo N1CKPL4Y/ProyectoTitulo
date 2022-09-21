@@ -272,10 +272,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-field col s10" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_especialista" class="condicion">
                                                                     <option value="" disabled selected>Seleccione</option>
-                                                                    <option value="1">Neurologo</option>
-                                                                    <option value="2">Psicologo</option>
-                                                                    <option value="3">Otro</option>
-                                                                    <option value="4">No posee Diagnostico</option>
+                                                                    <?php
+                                                                    $especialista = $data->getAllEspecialista();
+
+                                                                    foreach ($especialista as $key) {
+                                                                        echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                    }
+                                                                    ?>
                                                                 </select>
                                                             </div>
                                                         </div>
