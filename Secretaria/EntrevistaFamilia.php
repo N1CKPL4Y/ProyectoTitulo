@@ -327,13 +327,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col s6">
                                                     <h6 class="col s12">¿El embarazo fue controlado?</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="siE" class="with-gap" value="1" name="embarazo1" type="radio" onclick="controlado()"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="noE" class="with-gap" value="2" name="embarazo1" type="radio" onclick="noControlado()"/>
                                                             <span>No</span>
@@ -350,13 +350,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col s6">
                                                     <h6 class="col s12">¿Consumió medicamentos, drogas y/o alcohol durante el embarazo?</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="siE1" class="with-gap" value="1" name="embarazo2" type="radio" onclick="consumio()"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="noE1" class="with-gap" value="2" name="embarazo2" type="radio" onclick="noConsumio()"/>
                                                             <span>No</span>
@@ -366,20 +366,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="col s6">
                                                     <div class="input-field col s12">
                                                         <input id="medicamentos" type="text" name="txt_medicamentos" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                        <label class="active" for="medicamentos">Indique el tipo de medicamentos, drogas y/o alcohol consumió</label>
+                                                        <label class="active" for="medicamentos" style="font-size: 11px">Indique el tipo de medicamentos, drogas y/o alcohol consumió</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col s6">
                                                     <h6 class="col s12">¿Existieron complicaciones durante el embarazo?</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="siE2" class="with-gap" value="1" name="complicaciones" type="radio" onclick="conComplicaciones()"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="noE2" class="with-gap" value="2" name="complicaciones" type="radio" onclick="sinComplicaciones()"/>
                                                             <span>No</span>
@@ -389,7 +389,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="col s6">
                                                     <div class="input-field col s12">
                                                         <input id="complicaciones" type="text" name="txt_complicaciones" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                        <label class="active" for="complicaciones">Indique el tipo de complicaciones durante el embarazo</label>
+                                                        <label class="active" for="complicaciones" style="font-size: 12px">Indique el tipo de complicaciones durante el embarazo</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -455,13 +455,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col s6">
                                                     <h6 class="col s12">¿Tuvo asistencia medica durante el parto?</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input class="with-gap" value="1" name="asistencia" type="radio"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input class="with-gap" value="2" name="asistencia" type="radio"/>
                                                             <span>No</span>
@@ -476,13 +476,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             Antecedentes posteriores al parto</div>
                                         <div class="collapsible-body" style="background-color: #C8E6C9">
                                             <div class="row">
-                                                <div class="col s7">
+                                                <div class="col s9">
                                                     <div class="input-field col s12">
                                                         <input id="peso" type="text" name="txt_peso" class="validate" style="background-color: white; border-radius: 10px">
-                                                        <label class="active" for="peso" style="font-size: 12px">Peso al nacer en gramos (Esta informacion puede encontrarse en carnet control sano)</label>
+                                                        <label class="active" for="peso" style="font-size: 11px">Peso al nacer en gramos (Esta informacion puede encontrarse en carnet control sano)</label>
                                                     </div>
                                                 </div>
-                                                <div class="col s7">
+                                                <div class="col s9">
                                                     <div class="input-field col s12">
                                                         <input id="talla" type="text" name="txt_talla" class="validate" style="background-color: white; border-radius: 10px">
                                                         <label class="active" for="talla" style="font-size: 12px">Talla al nacer en Cm (Esta informacion puede encontrarse en carnet control sano)</label>
@@ -490,13 +490,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col s6">
+                                                <div class="col s9">
                                                     <div class="input-field col s12">
                                                         <input id="apgar1" type="text" name="txt_apgar1" class="validate" style="background-color: white; border-radius: 10px">
                                                         <label class="active" for="apgar1" style="font-size: 12px">A.P.G.A.R al minuto (Esta informacion puede encontrarse en carnet control sano)</label>
                                                     </div>
                                                 </div>
-                                                <div class="col s7">
+                                                <div class="col s9">
                                                     <div class="input-field col s12">
                                                         <input id="apgar2" type="text" name="txt_apgar2" class="validate" style="background-color: white; border-radius: 10px">
                                                         <label class="active" for="apgar2" style="font-size: 12px">A.P.G.A.R a los 5 minutos (Esta informacion puede encontrarse en carnet control sano)</label>
@@ -506,13 +506,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col s6">
                                                     <h6 class="col s12">¿Quedó hospitalizado al nacer?</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="siH" class="with-gap" value="1" name="hospitalizado" type="radio" onclick="hospitalizado()"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input id="noH" class="with-gap" value="2" name="hospitalizado" type="radio" onclick="noHospitalizado()"/>
                                                             <span>No</span>
@@ -616,15 +616,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col s6">
+                                                <div class="col s7">
                                                     <h6 class="col s12">¿Se realizaron controles periodicos de salud?</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input class="with-gap" value="1" name="controles" type="radio"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input class="with-gap" value="2" name="controles" type="radio"/>
                                                             <span>No</span>
@@ -633,13 +633,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                                 <div class="col s6">
                                                     <h6 class="col s12">Vacunas</h6>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input class="with-gap" value="1" name="vacunas" type="radio"/>
                                                             <span>Si</span>
                                                         </label>
                                                     </p>
-                                                    <p class="col s2" style="background-color: white; border-radius: 10px">
+                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
                                                         <label>
                                                             <input class="with-gap" value="2" name="vacunas" type="radio"/>
                                                             <span>No</span>
@@ -1631,7 +1631,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span>Natural</span>
                                                             </label>
                                                         </p>
-                                                        <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
                                                             <label>
                                                                 <input class="with-gap" value="2" name="reaccion" type="radio"/>
                                                                 <span>Desmesurada</span>
@@ -1648,7 +1648,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span>Natural</span>
                                                             </label>
                                                         </p>
-                                                        <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
                                                             <label>
                                                                 <input class="with-gap" value="2" name="reaccion1" type="radio"/>
                                                                 <span>Desmesurada</span>
@@ -1667,7 +1667,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span>Natural</span>
                                                             </label>
                                                         </p>
-                                                        <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
                                                             <label>
                                                                 <input class="with-gap" value="2" name="reaccion2" type="radio"/>
                                                                 <span>Desmesurada</span>
@@ -1985,7 +1985,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                     </div>
                                                     <div class="row">
-                                                        <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
                                                             <label>
                                                                 <input class="with-gap" value="2" name="conQuienDuerme" type="radio"/>
                                                                 <span>Acompañado</span>
@@ -2230,7 +2230,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="col s6">
                                                     <h6 class="col s12">¿Como evalúa usted el Desempeño Escolar de su hijo?</h6>
                                                     <div class="row">
-                                                        <p class="col s4" style="background-color: white; border-radius: 10px"> 
+                                                        <p class="col s5" style="background-color: white; border-radius: 10px"> 
                                                             <label>
                                                                 <input id="ev1" class="with-gap" value="1" name="descolar" type="radio"/>
                                                                 <span>Satisfactorio</span>
@@ -2238,7 +2238,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </p>
                                                     </div>
                                                     <div class="row">
-                                                        <p class="col s4" style="background-color: white; border-radius: 10px">
+                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
                                                             <label>
                                                                 <input id="ev2" class="with-gap" value="2" name="descolar" type="radio"/>
                                                                 <span>Insatisfactorio</span>
