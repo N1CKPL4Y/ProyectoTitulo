@@ -319,22 +319,24 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getAllEspecialista() {
         $sql = "SELECT * FROM especialista";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getEspecialista($id) {
         $sql = "SELECT * FROM especialista where id = $id";
         $query = $this->con->query($sql);
         return $query;
     }
+
     public function updEvento($id, $title, $fecha, $color) {
         $sql = "UPDATE `evento` SET `title` = '$title', `start` = '$fecha', `color` = '$color' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
     }
+
     public function dropEvent($id, $fecha) {
         $sql = "UPDATE `evento` SET `start` = '$fecha' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
@@ -344,8 +346,8 @@ class Data {
         $sql = "DELETE from evento WHERE id = '$id';";
         $query = $this->con->query($sql);
     }
-    
-    public function existEsp($nombre){
+
+    public function existEsp($nombre) {
         $sql = "SELECT COUNT(*) AS 'existe' 
 	            FROM especialista
 	            WHERE nombre = '$nombre';";
@@ -358,12 +360,18 @@ class Data {
 
         return false;
     }
-    
-    public function addEsp($nombre){
+
+    public function addEsp($nombre) {
         $sql = "INSERT INTO `especialista` (`ID`, `nombre`) VALUES (null, '$nombre');";
         $query = $this->con->query($sql);
     }
-    
+
+    public function getParentesco($rut) {
+        $sql = "SELECT * FROM parentesco WHERE beneficiario = '$rut';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+
 }
 ?>
 

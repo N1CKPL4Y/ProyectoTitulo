@@ -126,6 +126,83 @@ $benefs = $data->getAllBenefi();
                 </div>
             </nav>
             <div class="container-fluid" style="padding-top: 15px;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form action="controller/controllerUpdateUser.php" method="Post">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="rutU" class="col-sm-8 col-form-label">R.U.T del beneficiario</label>
+                                                        <input type="text" name="txt_rut" class="form-control" id="rutU" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="">
+                                                        <small id="rut1" class="form-text text-muted"></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="nombreB" class="col-sm-8 col-form-label">Nombres del beneficiario</label>
+                                                        <input type="text" name="nombreB" class="form-control" id="nombreB" aria-describedby="nombreB" readonly="">
+                                                        <small id="nombreB" class="formtext text-muted"></small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="apellidoB" class="col-sm-8 col-form-label">Apellidos del beneficiario</label>
+                                                        <input type="text" name="apellidoB" class="form-control" id="apellidoB" aria-describedby="apellidoB" readonly="">
+                                                        <small id="apellidoB" class="form-text text-muted"></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="direccionA" class="col-sm-10 col-form-label">Dirección actual del beneficiario</label>
+                                                        <input type="text" name="direccionA" class="form-control" id="direccionA" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="direccionB" class="col-sm-10 col-form-label">Nueva dirección del beneficiario</label>
+                                                        <input type="text" name="direccionB" class="form-control" id="direccionB">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="comunaA" class="col-sm-10 col-form-label">Comuna actual de residencia</label>
+                                                        <input type="text" name="comunaA" class="form-control" id="comunaA" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="comunaB" class="col-sm-10 col-form-label">Nueva Comuna de residencia</label>
+                                                        <input type="text" name="comunaB" class="form-control" id="comunaB">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row" style="display: flex; align-items: center; justify-content: center;">
                     <div class="col-sm-12 col-md-10">
                         <div class="card" style="border-radius: 10px">
@@ -144,6 +221,7 @@ $benefs = $data->getAllBenefi();
                                                     <th>Apellidos</th>
                                                     <th>Dirección</th>
                                                     <th>Datos</th>
+                                                    <th>Editar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -157,6 +235,7 @@ $benefs = $data->getAllBenefi();
                                                     echo '<td>' . $key['apellido'] . '</td>';
                                                     echo '<td>' . $key['direccion'] . '</td>';
                                                     echo '<td><a class="btn bg-success" style="background-color: #C8E6C9;" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-eye"></i></a></td>';
+                                                    echo '<td><button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-pencil-square"></i></a></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
@@ -217,24 +296,24 @@ $benefs = $data->getAllBenefi();
         </script> -->
     </body>
     <script>
-        $(function () {
-            $("#myTable").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "language": {
-                    "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                    "zeroRecords": "No se han encontrado registros",
-                    "info": "Mostrando la página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No hay registros disponibles",
-                    "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                    "search": "Buscar:",
-                    "paginate": {
-                        'next': 'Siguiente',
-                        'previous': 'Anterior',
-                    }
-                }
-            }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+                                                            $(function () {
+                                                                $("#myTable").DataTable({
+                                                                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                                                                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                                                                    "language": {
+                                                                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                                                                        "zeroRecords": "No se han encontrado registros",
+                                                                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                                                                        "infoEmpty": "No hay registros disponibles",
+                                                                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                                                                        "search": "Buscar:",
+                                                                        "paginate": {
+                                                                            'next': 'Siguiente',
+                                                                            'previous': 'Anterior',
+                                                                        }
+                                                                    }
+                                                                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
 
-        });
+                                                            });
     </script>
 </html>

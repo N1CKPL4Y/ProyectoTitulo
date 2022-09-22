@@ -339,7 +339,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/Cartola.php?rut=<?php echo $rutBase;?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
+                                        <a href="Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -389,7 +389,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <?php
                                 $diag;
-                                echo $exisDiagn;
+                                //echo $exisDiagn;
                                 if ($exisDiagn) {
                                     $diag = $data->getDiagnostico($rutBase);
                                     foreach ($diag as $value) {
@@ -479,6 +479,188 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     <?php
                                 }
                                 ?>
+                                <br>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <h4>Datos del tutor asociado:</h4>
+                                    </div>
+                                </div>
+                                <?php
+                                $tutor = $data->getParentesco($rutBase);
+                                $parecido;
+                                $Rtutorbase;
+                                foreach ($tutor as $valor3) {
+                                    $parecido = $valor3['parecido'];
+                                    $Rtutorbase = $valor3['tutor'];
+                                }
+                                switch ($parecido) {
+                                    case 1:
+                                        $parecido = 'Padre';
+                                        break;
+                                    case 2:
+                                        $parecido = 'Madre';
+                                        break;
+                                    case 3:
+                                        $parecido = 'Otro';
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                                $tutor1 = $data->getTutor($Rtutorbase);
+                                $nombreT;
+                                $f_nacT;
+                                $direccionT;
+                                $comunaT;
+                                $n_escolar;
+                                $ocupacionT;
+                                $telefonoT;
+                                $emailT;
+                                $previsionT;
+                                foreach ($tutor1 as $valor4) {
+                                    $nombreT = $valor4['nombre'];
+                                    $f_nacT = $valor4['fecha_nac'];
+                                    $direccionT = $valor4['direccion'];
+                                    $comunaT = $valor4['comuna'];
+                                    $n_escolar = $valor4['n_escolar'];
+                                    $ocupacionT = $valor4['ocupacion'];
+                                    $telefonoT = $valor4['telefono'];
+                                    $emailT = $valor4['email'];
+                                    $previsionT = $valor4['prevision'];
+                                }
+                                
+                                $prevT = $data->getPrevForId($previsionT);
+                                $prev;
+                                foreach($prevT as $valor5){
+                                    $prev = $valor5['nombre'];
+                                }
+                                
+                                switch($n_escolar){
+                                    case 1:
+                                        $n_escolar = 'Basica';
+                                        break;
+                                    case 2:
+                                        $n_escolar = 'Media';
+                                        break;
+                                    case 3:
+                                        $n_escolar = 'Universitario';
+                                        break;
+                                    default:
+                                        break;
+                                    
+                                }
+                                ?>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">R.U.T</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $Rtutorbase; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Parentesco</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $parecido; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-8">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Nombre Completo</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $nombreT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Fecha nacimiento</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $f_nacT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Dirección</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $direccionT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Comuna</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $comunaT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Nivel Escolar</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $n_escolar; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-8">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Ocupación</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $ocupacionT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Telefono</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $telefonoT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-10">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Correo Electronico</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $emailT; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Previsión</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $prev; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

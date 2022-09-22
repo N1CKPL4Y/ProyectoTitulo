@@ -125,12 +125,5 @@ if($rut && $nombre && $apellido && $email && $passwd && $telefono && $t_user && 
 }else{
     echo '<script>Error()</script>';
 }
-
-
-
-
-
-
-
 ?>
 

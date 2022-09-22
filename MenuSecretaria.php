@@ -317,7 +317,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col s6">
                                                             <div class="input-field col s4" style="background-color: white; border-radius: 10px">
                                                                 <select name="cbo_parent">
-                                                                    <option value="" disabled selected>Parentezco</option>
+                                                                    <option value="" disabled selected>Parentesco</option>
                                                                     <option value="1">Padre</option>
                                                                     <option value="2">Madre</option>
                                                                     <option value="3">Otro</option>
