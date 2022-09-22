@@ -30,8 +30,6 @@ switch ($_SESSION['tipo_u']) {
 $data = new Data();
 
 $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
-
-
 ?>
 <html>
     <head>
@@ -61,9 +59,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
 
     </head>
     <body>
-        <?php
-            //echo $_SESSION['ben'];
-        ?>
+<?php
+//echo $_SESSION['ben'];
+?>
         <div class="sidebar open">
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
@@ -137,125 +135,125 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     </div>
                 </div>
             </nav>
-            <?php
-            $rutBase;
-            $nombBase;
-            $apelBase;
-            $fechBase;
-            $direBase;
-            $comuBase;
-            $geneBase;
-            $prevBase;
-            $imgBase;
-            $teleBase;
-            $pensBase;
-            $chilBase;
-            $regiBase;
+<?php
+$rutBase;
+$nombBase;
+$apelBase;
+$fechBase;
+$direBase;
+$comuBase;
+$geneBase;
+$prevBase;
+$imgBase;
+$teleBase;
+$pensBase;
+$chilBase;
+$regiBase;
 
-            $resulData = $data->getBenefi($rutBen);
-            foreach ($resulData as $key) {
-                $rutBase = $key['RUT'];
-                $nombBase = $key['nombre'];
-                $apelBase = $key['apellido'];
-                $fechBase = $key['fecha_nac'];
-                if ($key['genero'] == 1) {
-                    $geneBase = "Masculino";
-                } else if ($key['genero'] == 2) {
-                    $geneBase = "Femenino";
-                } else {
-                    $geneBase = "Otro";
-                }
-                $direBase = $key['direccion'];
-                $comuBase = $key['comuna'];
-                $imgBase = $key['c_identidad'];
-                $teleBase = $key['teleton'];
-                $discBase = $key['c_discapacidad'];
-                $pensBase = $key['pension'];
-                $chilBase = $key['chile_solidario'];
-                $regiBase = $key['r_s_hogares'];
-                $prevBase = $key['prevision'];
-            }
-            //echo $prevBase." holi";
+$resulData = $data->getBenefi($rutBen);
+foreach ($resulData as $key) {
+    $rutBase = $key['RUT'];
+    $nombBase = $key['nombre'];
+    $apelBase = $key['apellido'];
+    $fechBase = $key['fecha_nac'];
+    if ($key['genero'] == 1) {
+        $geneBase = "Masculino";
+    } else if ($key['genero'] == 2) {
+        $geneBase = "Femenino";
+    } else {
+        $geneBase = "Otro";
+    }
+    $direBase = $key['direccion'];
+    $comuBase = $key['comuna'];
+    $imgBase = $key['c_identidad'];
+    $teleBase = $key['teleton'];
+    $discBase = $key['c_discapacidad'];
+    $pensBase = $key['pension'];
+    $chilBase = $key['chile_solidario'];
+    $regiBase = $key['r_s_hogares'];
+    $prevBase = $key['prevision'];
+}
+//echo $prevBase." holi";
 
-            $sisPrev = $data->getPrevForId($prevBase);
-            $textPrev;
-            
-            foreach ($sisPrev as $value1) {
-                $textPrevi = $value1['nombre'];
-            }
-            $sispens = $data->getPensionById($pensBase);
-            $textPens;
+$sisPrev = $data->getPrevForId($prevBase);
+$textPrev;
 
-            $exisDiagn = $data->getDiagValid($rutBase);
-            $exisDiag;
-            switch ($exisDiagn) {
-                case 1:
-                    $exisDiag = 'SI';
-                    break;
-                case 0:
-                    $exisDiag = 'No Aplica';
-                    break;
-                default:
-                    break;
-            }
+foreach ($sisPrev as $value1) {
+    $textPrevi = $value1['nombre'];
+}
+$sispens = $data->getPensionById($pensBase);
+$textPens;
+
+$exisDiagn = $data->getDiagValid($rutBase);
+$exisDiag;
+switch ($exisDiagn) {
+    case 1:
+        $exisDiag = 'SI';
+        break;
+    case 0:
+        $exisDiag = 'No Aplica';
+        break;
+    default:
+        break;
+}
 
 
 
-            foreach ($sispens as $value) {
-                $textPens = $value['nombre'];
-            }
+foreach ($sispens as $value) {
+    $textPens = $value['nombre'];
+}
 
-            switch ($discBase) {
-                case 1:
-                    $discBase = 'SI';
-                    break;
-                case 0:
-                    $discBase = 'No Aplica';
-                    break;
-                default:
-                    break;
-            }
+switch ($discBase) {
+    case 1:
+        $discBase = 'SI';
+        break;
+    case 0:
+        $discBase = 'No Aplica';
+        break;
+    default:
+        break;
+}
 
-            switch ($regiBase) {
-                case 1:
-                    $regiBase = 'SI';
-                    break;
-                case 0:
-                    $regiBase = 'No Aplica';
-                    break;
-                default:
-                    break;
-            }
+switch ($regiBase) {
+    case 1:
+        $regiBase = 'SI';
+        break;
+    case 0:
+        $regiBase = 'No Aplica';
+        break;
+    default:
+        break;
+}
 
-            switch ($teleBase) {
-                case 1:
-                    $teleBase = 'SI';
-                    break;
-                case 0:
-                    $teleBase = 'No Aplica';
-                    break;
-                default:
-                    break;
-            }
+switch ($teleBase) {
+    case 1:
+        $teleBase = 'SI';
+        break;
+    case 0:
+        $teleBase = 'No Aplica';
+        break;
+    default:
+        break;
+}
 
-            switch ($chilBase) {
-                case 1:
-                    $chilBase = 'SI';
-                    break;
-                case 0:
-                    $chilBase = 'No Aplica';
-                    break;
-                default:
-                    break;
-            }
-            ?>
+switch ($chilBase) {
+    case 1:
+        $chilBase = 'SI';
+        break;
+    case 0:
+        $chilBase = 'No Aplica';
+        break;
+    default:
+        break;
+}
+?>
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateTutor.php?rut=<?php echo $rutBen;?>" method="Post">
+                                    <form action="../controller/controllerUpdateTutor.php?rut=<?php echo $rutBen; ?>" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                         </div>
@@ -348,12 +346,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                     <div class="form-group">
                                                         <label for="emailAT" class="col-sm-10 col-form-label">Correo electronico actual</label>
                                                         <input type="text" name="emailAT" class="form-control" id="emailAT" readonly="" style="background-color: #e9ecef">
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
                                                         <label for="emailT" class="col-sm-10 col-form-label">Nuevo correo electronico</label>
                                                         <input type="text" name="emailT" class="form-control" id="emailT">
+                                                        <span id="emailVal" style="color: gray"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -479,17 +479,17 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $discBase; ?>" readonly="">
                                         </div>
                                     </div>
-                                    <?php
-                                    if ($discBase == "SI") {
-                                        ?>
+<?php
+if ($discBase == "SI") {
+    ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
                                             <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
                                         </div>
-                                        <?php
-                                    } else {
-                                        
-                                    }
-                                    ?>
+    <?php
+} else {
+    
+}
+?>
                                 </div>
                                 <br>
                                 <div class="row" style="padding-top: 10px">
@@ -506,13 +506,13 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $teleBase; ?>" readonly="">
                                         </div>
                                     </div>
-                                    <?php
-                                    if ($teleBase = "SI") {
-                                        $teletonV = $data->getTeletonbyRut($rutBase);
-                                        $numero;
-                                        foreach ($teletonV as $key2) {
-                                            $numero = $key2['registro'];
-                                            ?>
+<?php
+if ($teleBase = "SI") {
+    $teletonV = $data->getTeletonbyRut($rutBase);
+    $numero;
+    foreach ($teletonV as $key2) {
+        $numero = $key2['registro'];
+        ?>
                                             <div class="col-sm-12 col-md-10 col-lg-6">
                                                 <div class="input-group flex-nowrap">
                                                     <div class="input-group-prepend">
@@ -521,12 +521,12 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                     <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $numero; ?>" readonly="">
                                                 </div>
                                             </div>
-                                            <?php
-                                        }
-                                    } else {
-                                        
-                                    }
-                                    ?>
+        <?php
+    }
+} else {
+    
+}
+?>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
@@ -544,27 +544,27 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         <h4>Datos de Diagnostico:</h4>
                                     </div>
                                 </div>
-                                <?php
-                                $diag;
-                                //echo $exisDiagn;
-                                if ($exisDiagn) {
-                                    $diag = $data->getDiagnostico($rutBase);
-                                    foreach ($diag as $value) {
-                                        $esp = $value['especialista'];
-                                        $array = $data->getEspecialista($esp);
-                                        $textEsp;
-                                        foreach ($array as $valor1) {
-                                            $textEsp = $valor1['nombre'];
-                                        }
-                                        $codigo = $value['codigo'];
-                                        $array1 = $data->getConditionCode($codigo);
-                                        $code;
-                                        $name;
-                                        foreach ($array1 as $valor2) {
-                                            $name = $valor2['nombre'];
-                                            $code = $valor2['codigo'];
-                                        }
-                                        ?>
+<?php
+$diag;
+//echo $exisDiagn;
+if ($exisDiagn) {
+    $diag = $data->getDiagnostico($rutBase);
+    foreach ($diag as $value) {
+        $esp = $value['especialista'];
+        $array = $data->getEspecialista($esp);
+        $textEsp;
+        foreach ($array as $valor1) {
+            $textEsp = $valor1['nombre'];
+        }
+        $codigo = $value['codigo'];
+        $array1 = $data->getConditionCode($codigo);
+        $code;
+        $name;
+        foreach ($array1 as $valor2) {
+            $name = $valor2['nombre'];
+            $code = $valor2['codigo'];
+        }
+        ?>
                                         <div class="row" style="padding-top: 10px">
                                             <div class="col-sm-12 col-md-10 col-lg-6">
                                                 <div class="input-group flex-nowrap">
@@ -614,10 +614,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php
-                                    }
-                                } else {
-                                    ?>
+        <?php
+    }
+} else {
+    ?>
                                     <div class="row justify-content-around" style="padding-top: 10px">
                                         <div class="col-sm-12 col-md-10 col-lg-6">
                                             <div class="card text-center">
@@ -633,89 +633,88 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                                }
-                                ?>
+    <?php
+}
+?>
                                 <br>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <h4>Datos del tutor asociado:</h4>
                                     </div>
                                 </div>
-                                <?php
-                                $tutor = $data->getParentesco($rutBase);
-                                $parecido;
-                                $Rtutorbase;
-                                foreach ($tutor as $valor3) {
-                                    $parecido = $valor3['parecido'];
-                                    $Rtutorbase = $valor3['tutor'];
-                                }
-                                switch ($parecido) {
-                                    case 1:
-                                        $parecido = 'Padre';
-                                        break;
-                                    case 2:
-                                        $parecido = 'Madre';
-                                        break;
-                                    case 3:
-                                        $parecido = 'Otro';
-                                        break;
-                                    default:
-                                        break;
-                                }
+<?php
+$tutor = $data->getParentesco($rutBase);
+$parecido;
+$Rtutorbase;
+foreach ($tutor as $valor3) {
+    $parecido = $valor3['parecido'];
+    $Rtutorbase = $valor3['tutor'];
+}
+switch ($parecido) {
+    case 1:
+        $parecido = 'Padre';
+        break;
+    case 2:
+        $parecido = 'Madre';
+        break;
+    case 3:
+        $parecido = 'Otro';
+        break;
+    default:
+        break;
+}
 
-                                $tutor1 = $data->getTutor($Rtutorbase);
-                                $nombreT;
-                                $f_nacT;
-                                $direccionT;
-                                $comunaT;
-                                $n_escolar;
-                                $ocupacionT;
-                                $telefonoT;
-                                $emailT;
-                                $previsionT;
-                                foreach ($tutor1 as $valor4) {
-                                    $nombreT = $valor4['nombre'];
-                                    $f_nacT = $valor4['fecha_nac'];
-                                    $direccionT = $valor4['direccion'];
-                                    $comunaT = $valor4['comuna'];
-                                    $n_escolar = $valor4['n_escolar'];
-                                    $ocupacionT = $valor4['ocupacion'];
-                                    $telefonoT = $valor4['telefono'];
-                                    $emailT = $valor4['email'];
-                                    $previsionT = $valor4['prevision'];
-                                }
+$tutor1 = $data->getTutor($Rtutorbase);
+$nombreT;
+$f_nacT;
+$direccionT;
+$comunaT;
+$n_escolar;
+$ocupacionT;
+$telefonoT;
+$emailT;
+$previsionT;
+foreach ($tutor1 as $valor4) {
+    $nombreT = $valor4['nombre'];
+    $f_nacT = $valor4['fecha_nac'];
+    $direccionT = $valor4['direccion'];
+    $comunaT = $valor4['comuna'];
+    $n_escolar = $valor4['n_escolar'];
+    $ocupacionT = $valor4['ocupacion'];
+    $telefonoT = $valor4['telefono'];
+    $emailT = $valor4['email'];
+    $previsionT = $valor4['prevision'];
+}
 
-                                $prevT = $data->getPrevForId($previsionT);
-                                $prev;
-                                foreach ($prevT as $valor5) {
-                                    $prev = $valor5['nombre'];
-                                }
+$prevT = $data->getPrevForId($previsionT);
+$prev;
+foreach ($prevT as $valor5) {
+    $prev = $valor5['nombre'];
+}
 
-                                switch ($n_escolar) {
-                                    case 1:
-                                        $n_escolar = 'Basica';
-                                        break;
-                                    case 2:
-                                        $n_escolar = 'Media';
-                                        break;
-                                    case 3:
-                                        $n_escolar = 'Universitario';
-                                        break;
-                                    default:
-                                        break;
-                                }
-                                $datos = $valor4['RUT'] . ".."
-                                        . $valor4['nombre'] . ".."
-                                        . $valor4['fecha_nac'] . ".."
-                                        . $valor4['direccion'] . ".."
-                                        . $valor4['comuna'].".."
-                                        . $valor4['ocupacion'].".."
-                                        . $valor4['telefono'].".."
-                                        . $valor4['email'];
-                                $escaped = htmlspecialchars(json_encode($datos));
-                                
-                                ?>
+switch ($n_escolar) {
+    case 1:
+        $n_escolar = 'Basica';
+        break;
+    case 2:
+        $n_escolar = 'Media';
+        break;
+    case 3:
+        $n_escolar = 'Universitario';
+        break;
+    default:
+        break;
+}
+$datos = $valor4['RUT'] . ".."
+        . $valor4['nombre'] . ".."
+        . $valor4['fecha_nac'] . ".."
+        . $valor4['direccion'] . ".."
+        . $valor4['comuna'] . ".."
+        . $valor4['ocupacion'] . ".."
+        . $valor4['telefono'] . ".."
+        . $valor4['email'];
+$escaped = htmlspecialchars(json_encode($datos));
+?>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
@@ -829,7 +828,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <div class="row justify-content-start" style="padding-top: 10px;">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped?>)" style="color: white">Editar datos del tutor</button>
+                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped ?>)" style="color: white">Editar datos del tutor</button>
                                     </div>
                                 </div>
                             </div>
@@ -839,5 +838,19 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             </div>
         </section>
     </body>
+    <script>
+        document.getElementById('emailT').addEventListener('input', function () {
+            campo = event.target;
+            valido = document.getElementById('emailVal');
+            emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+            //Se muestra un texto a modo de ejemplo, luego va a ser un icono
 
+            if (emailRegex.test(campo.value)) {
+                valido.innerText = "Correo válido";
+            } else {
+                valido.innerText = "Correo no válido";
+            }
+        }
+        );
+    </script>
 </html>
