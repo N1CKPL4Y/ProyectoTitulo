@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
+    
+?><!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -10,6 +13,7 @@
     </head>
     <body>
         <script>
+            let rut = '<?php echo $rutBen;?>';
             function Success() {
                 swal({
                     title: "Actualización Exitosa",
@@ -19,7 +23,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../Admin/VerDatos.php';
+                            window.location.href = '../Admin/VerDatos.php?rut='+rut;
                         });
             }
             
@@ -32,7 +36,7 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../Admin/VerDatos.php';
+                            window.location.href = '../Admin/VerDatos.php?rut='+rut;
                         });
             }
         </script>

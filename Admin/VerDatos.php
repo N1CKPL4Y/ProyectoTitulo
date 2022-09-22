@@ -30,7 +30,8 @@ switch ($_SESSION['tipo_u']) {
 $data = new Data();
 
 $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
-$_SESSION['ben'] = $rutBen; 
+
+
 ?>
 <html>
     <head>
@@ -60,6 +61,9 @@ $_SESSION['ben'] = $rutBen;
 
     </head>
     <body>
+        <?php
+            //echo $_SESSION['ben'];
+        ?>
         <div class="sidebar open">
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
@@ -148,7 +152,7 @@ $_SESSION['ben'] = $rutBen;
             $chilBase;
             $regiBase;
 
-            $resulData = $data->getBenefi($_SESSION['ben']);
+            $resulData = $data->getBenefi($rutBen);
             foreach ($resulData as $key) {
                 $rutBase = $key['RUT'];
                 $nombBase = $key['nombre'];
@@ -171,7 +175,7 @@ $_SESSION['ben'] = $rutBen;
                 $regiBase = $key['r_s_hogares'];
                 $prevBase = $key['prevision'];
             }
-            echo $prevBase;
+            //echo $prevBase." holi";
 
             $sisPrev = $data->getPrevForId($prevBase);
             $textPrev;
@@ -251,7 +255,7 @@ $_SESSION['ben'] = $rutBen;
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateTutor.php" method="Post">
+                                    <form action="../controller/controllerUpdateTutor.php?rut=<?php echo $rutBen;?>" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                         </div>
@@ -329,13 +333,13 @@ $_SESSION['ben'] = $rutBen;
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
                                                         <label for="telefonoAT" class="col-sm-10 col-form-label">Numero de telefono actual</label>
-                                                        <input type="text" name="telefonoAT" class="form-control" id="telefonoAT" readonly="" style="background-color: #e9ecef">
+                                                        <input type="number" name="telefonoAT" class="form-control" id="telefonoAT" readonly="" style="background-color: #e9ecef">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
                                                         <label for="telefonoT" class="col-sm-10 col-form-label">Nuevo numero de telefono</label>
-                                                        <input type="text" name="telefonoT" class="form-control" id="telefonoT">
+                                                        <input type="number" name="telefonoT"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" on id="telefonoT">
                                                     </div>
                                                 </div>
                                             </div>
