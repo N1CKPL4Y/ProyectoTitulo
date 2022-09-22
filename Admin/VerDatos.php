@@ -262,7 +262,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <a href="Datos/Carnet.php?rut=<?php echo $rutBase; ?>" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -351,9 +351,17 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $discBase; ?>" readonly="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
-                                    </div>
+                                    <?php
+                                    if ($discBase == "SI") {
+                                        ?>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
+                                        </div>
+                                        <?php
+                                    }else{
+                                        
+                                    }
+                                    ?>
                                 </div>
                                 <br>
                                 <div class="row" style="padding-top: 10px">
@@ -528,14 +536,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     $emailT = $valor4['email'];
                                     $previsionT = $valor4['prevision'];
                                 }
-                                
+
                                 $prevT = $data->getPrevForId($previsionT);
                                 $prev;
-                                foreach($prevT as $valor5){
+                                foreach ($prevT as $valor5) {
                                     $prev = $valor5['nombre'];
                                 }
-                                
-                                switch($n_escolar){
+
+                                switch ($n_escolar) {
                                     case 1:
                                         $n_escolar = 'Basica';
                                         break;
@@ -547,7 +555,6 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         break;
                                     default:
                                         break;
-                                    
                                 }
                                 ?>
                                 <div class="row" style="padding-top: 10px">

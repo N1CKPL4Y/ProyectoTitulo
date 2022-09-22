@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <title>Registrando Nuevo Beneficiario</title>
-    </head>
-    <body>
-    </body>
-</html>
 <?php
 include_once '../../DB/Model_Data.php';
 
