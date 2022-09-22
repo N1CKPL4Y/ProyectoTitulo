@@ -358,7 +358,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
                                         </div>
                                         <?php
-                                    }else{
+                                    } else {
                                         
                                     }
                                     ?>
@@ -378,6 +378,25 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $teleBase; ?>" readonly="">
                                         </div>
                                     </div>
+                                    <?php
+                                    if ($teleBase = "SI") {
+                                        $teletonV=$data->getTeletonbyRut($rutBase);
+                                        $numero;
+                                        foreach ($teletonV as $key2) {
+                                            $numero=$key2['registro'];
+                                        }
+                                        ?>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">Númerop de registro</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $numero; ?>" readonly="">
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">

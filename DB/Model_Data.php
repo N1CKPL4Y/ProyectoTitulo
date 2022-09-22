@@ -371,6 +371,12 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function getTeletonbyRut($rut) {
+        $sql = "SELECT * FROM registro_teleton where beneficiario = '$rut'";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
 }
 ?>
