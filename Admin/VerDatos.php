@@ -336,7 +336,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/Carnet.php?rut=<?php echo $rutBase; ?>" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <a href="Datos/Carnet.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -429,7 +429,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
+                                            <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
                                         </div>
                                         <?php
                                     } else {
@@ -454,23 +454,22 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     </div>
                                     <?php
                                     if ($teleBase = "SI") {
-                                        $teletonV=$data->getTeletonbyRut($rutBase);
+                                        $teletonV = $data->getTeletonbyRut($rutBase);
                                         $numero;
                                         foreach ($teletonV as $key2) {
-                                            $numero=$key2['registro'];
-                                        
-                                        ?>
-                                        <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">Número de registro</span>
+                                            $numero = $key2['registro'];
+                                            ?>
+                                            <div class="col-sm-12 col-md-10 col-lg-6">
+                                                <div class="input-group flex-nowrap">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="addon-wrapping">Número de registro</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $numero; ?>" readonly="">
                                                 </div>
-                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $numero; ?>" readonly="">
                                             </div>
-                                        </div>
-                                        <?php
+                                            <?php
                                         }
-                                    }else{
+                                    } else {
                                         
                                     }
                                     ?>
@@ -659,11 +658,11 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">R.U.T</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $Rtutorbase; ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $Rtutorbase; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
