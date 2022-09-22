@@ -54,6 +54,16 @@ function cargarDatos(datos) {
 
 }
 
+function updateBene(datos){
+    d = datos.split('..');
+    console.log(d);
+    $('#rutU').val(d[0]);
+    $('#nombreB').val(d[1]);
+    $('#apellidoB').val(d[2]);
+    $('#direccionA').val(d[3]);
+    $('#comunaA').val(d[4]);   
+}
+
 function actualizarUsuario() {
 
     rut = $('#rutEdite').val();

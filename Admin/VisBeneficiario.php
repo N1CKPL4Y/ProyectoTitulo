@@ -42,6 +42,7 @@ $benefs = $data->getAllBenefi();
 
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
+        <script src="../Materialize/js/funciones.js"></script>
 
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -131,7 +132,7 @@ $benefs = $data->getAllBenefi();
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="controller/controllerUpdateUser.php" method="Post">
+                                    <form action="../controller/controllerUpdateBene.php" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -228,6 +229,12 @@ $benefs = $data->getAllBenefi();
                                                 <?php
                                                 foreach ($benefs as $key) {
                                                     $rutb = $key['RUT'];
+                                                    $datos = $key['RUT'] . ".."
+                                                            . $key['nombre'] . ".."
+                                                            . $key['apellido'] . ".."
+                                                            . $key['direccion']. ".."
+                                                            . $key['comuna'];
+                                                    $escaped= htmlspecialchars(json_encode($datos));
                                                     echo '<tr>';
                                                     echo '<td>' . $key['ID'] . '</td>';
                                                     echo '<td>' . $key['RUT'] . '</td>';
@@ -235,7 +242,7 @@ $benefs = $data->getAllBenefi();
                                                     echo '<td>' . $key['apellido'] . '</td>';
                                                     echo '<td>' . $key['direccion'] . '</td>';
                                                     echo '<td><a class="btn bg-success" style="background-color: #C8E6C9;" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-eye"></i></a></td>';
-                                                    echo '<td><button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-pencil-square"></i></a></td>';
+                                                    echo '<td><button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateBene('.$escaped.')"><i class="bi bi-pencil-square"></i></a></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
@@ -267,7 +274,7 @@ $benefs = $data->getAllBenefi();
         <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="AdminLTE/dist/js/adminlte.min.js"></script>
+        <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
          <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
