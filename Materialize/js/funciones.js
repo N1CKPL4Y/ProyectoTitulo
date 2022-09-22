@@ -64,6 +64,21 @@ function updateBene(datos){
     $('#comunaA').val(d[4]);   
 }
 
+function updateTutor(datos){
+    d = datos.split('..');
+    console.log(d);
+    $('#rutT').val(d[0]);
+    $('#nombreT').val(d[1]);
+    $('#fecha_nacT').val(d[2]);
+    $('#direccionA').val(d[3]);
+    $('#comunaAT').val(d[4]);
+    $('#ocupacionAT').val(d[5]);
+    $('#telefonoAT').val(d[6]);
+    $('#emailAT').val(d[7]); 
+}
+
+
+
 function actualizarUsuario() {
 
     rut = $('#rutEdite').val();

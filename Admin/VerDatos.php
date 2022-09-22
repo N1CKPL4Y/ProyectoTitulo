@@ -30,6 +30,7 @@ switch ($_SESSION['tipo_u']) {
 $data = new Data();
 
 $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
+$_SESSION['ben'] = $rutBen; 
 ?>
 <html>
     <head>
@@ -37,6 +38,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../Materialize/js/funciones.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -54,6 +56,8 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         <script src="../js/jquery.rut.js"></script>
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+
     </head>
     <body>
         <div class="sidebar open">
@@ -144,7 +148,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             $chilBase;
             $regiBase;
 
-            $resulData = $data->getBenefi($rutBen);
+            $resulData = $data->getBenefi($_SESSION['ben']);
             foreach ($resulData as $key) {
                 $rutBase = $key['RUT'];
                 $nombBase = $key['nombre'];
@@ -167,9 +171,11 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 $regiBase = $key['r_s_hogares'];
                 $prevBase = $key['prevision'];
             }
+            echo $prevBase;
 
             $sisPrev = $data->getPrevForId($prevBase);
             $textPrev;
+            
             foreach ($sisPrev as $value1) {
                 $textPrevi = $value1['nombre'];
             }
@@ -253,8 +259,8 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="rutU" class="col-sm-8 col-form-label">R.U.T del beneficiario</label>
-                                                        <input type="text" name="txt_rut" class="form-control" id="rutU" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="">
+                                                        <label for="rutU" class="col-sm-8 col-form-label">R.U.T del Tutor</label>
+                                                        <input type="text" name="rutT" class="form-control" id="rutT" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="" style="background-color: #e9ecef">
                                                         <small id="rut1" class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
@@ -262,15 +268,17 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="nombreB" class="col-sm-8 col-form-label">Nombres del beneficiario</label>
-                                                        <input type="text" name="nombreB" class="form-control" id="nombreB" aria-describedby="nombreB" readonly="">
+                                                        <label for="nombreB" class="col-sm-8 col-form-label">Nombre completo del tutor</label>
+                                                        <input type="text" name="nombreT" class="form-control" id="nombreT" aria-describedby="nombreB" readonly="" style="background-color: #e9ecef">
                                                         <small id="nombreB" class="formtext text-muted"></small>
                                                     </div>
-                                                </div>
+                                                </div> 
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="apellidoB" class="col-sm-8 col-form-label">Apellidos del beneficiario</label>
-                                                        <input type="text" name="apellidoB" class="form-control" id="apellidoB" aria-describedby="apellidoB" readonly="">
+                                                        <label for="apellidoB" class="col-sm-8 col-form-label">Fecha nacimiento tutor</label>
+                                                        <input type="text" name="fecha_nacT" class="form-control" id="fecha_nacT" aria-describedby="fecha_nacT" readonly="" style="background-color: #e9ecef">
                                                         <small id="apellidoB" class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
@@ -278,28 +286,70 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="direccionA" class="col-sm-10 col-form-label">Dirección actual del beneficiario</label>
-                                                        <input type="text" name="direccionA" class="form-control" id="direccionA" readonly="">
+                                                        <label for="direccionA" class="col-sm-10 col-form-label">Dirección actual del tutor</label>
+                                                        <input type="text" name="direccionA" class="form-control" id="direccionA" readonly="" style="background-color: #e9ecef">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="direccionB" class="col-sm-10 col-form-label">Nueva dirección del beneficiario</label>
-                                                        <input type="text" name="direccionB" class="form-control" id="direccionB">
+                                                        <label for="direccionT" class="col-sm-10 col-form-label">Nueva dirección del tutor</label>
+                                                        <input type="text" name="direccionT" class="form-control" id="direccionT">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="comunaA" class="col-sm-10 col-form-label">Comuna actual de residencia</label>
-                                                        <input type="text" name="comunaA" class="form-control" id="comunaA" readonly="">
+                                                        <label for="comunaAT" class="col-sm-10 col-form-label">Comuna actual de residencia</label>
+                                                        <input type="text" name="comunaAT" class="form-control" id="comunaAT" readonly=""style="background-color: #e9ecef">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="comunaB" class="col-sm-10 col-form-label">Nueva Comuna de residencia</label>
-                                                        <input type="text" name="comunaB" class="form-control" id="comunaB">
+                                                        <label for="comunaT" class="col-sm-10 col-form-label">Nueva Comuna de residencia</label>
+                                                        <input type="text" name="comunaT" class="form-control" id="comunaT">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="ocupacionAT" class="col-sm-10 col-form-label">Ocupación actual</label>
+                                                        <input type="text" name="ocupacionAT" class="form-control" id="ocupacionAT" readonly="" style="background-color: #e9ecef">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="ocupacionT" class="col-sm-10 col-form-label">Nueva ocupación</label>
+                                                        <input type="text" name="ocupacionT" class="form-control" id="ocupacionT">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="telefonoAT" class="col-sm-10 col-form-label">Numero de telefono actual</label>
+                                                        <input type="text" name="telefonoAT" class="form-control" id="telefonoAT" readonly="" style="background-color: #e9ecef">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="telefonoT" class="col-sm-10 col-form-label">Nuevo numero de telefono</label>
+                                                        <input type="text" name="telefonoT" class="form-control" id="telefonoT">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="emailAT" class="col-sm-10 col-form-label">Correo electronico actual</label>
+                                                        <input type="text" name="emailAT" class="form-control" id="emailAT" readonly="" style="background-color: #e9ecef">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="emailT" class="col-sm-10 col-form-label">Nuevo correo electronico</label>
+                                                        <input type="text" name="emailT" class="form-control" id="emailT">
                                                     </div>
                                                 </div>
                                             </div>
@@ -651,6 +701,16 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     default:
                                         break;
                                 }
+                                $datos = $valor4['RUT'] . ".."
+                                        . $valor4['nombre'] . ".."
+                                        . $valor4['fecha_nac'] . ".."
+                                        . $valor4['direccion'] . ".."
+                                        . $valor4['comuna'].".."
+                                        . $valor4['ocupacion'].".."
+                                        . $valor4['telefono'].".."
+                                        . $valor4['email'];
+                                $escaped = htmlspecialchars(json_encode($datos));
+                                
                                 ?>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
@@ -765,7 +825,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <div class="row justify-content-start" style="padding-top: 10px;">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" style="color: white">Editar datos del tutor</button>
+                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped?>)" style="color: white">Editar datos del tutor</button>
                                     </div>
                                 </div>
                             </div>
@@ -774,14 +834,6 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 </div>
             </div>
         </section>
-        <script>
-            $(document).ready(function () {
-                M.updateTextFields();
-            });
-            $(document).ready(function () {
-                $('.collapsible').collapsible();
-            });
-        </script>
     </body>
 
 </html>

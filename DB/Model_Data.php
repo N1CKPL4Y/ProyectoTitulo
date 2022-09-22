@@ -377,7 +377,18 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-
+    
+    public function updateBene($rut, $direccionB, $comunaB){
+        $sql = "UPDATE `beneficiario` SET `direccion` = '$direccionB', `comuna` = '$comunaB' WHERE RUT = '$rut'";
+        $query = $this->con->query($sql);
+    }
+    
+    public function updateTutor($rut, $direccionT, $comunaT, $ocupacionT, $telefonoT, $emailT){
+        $sql = "UPDATE `tutor` SET `direccion` = '$direccionT', `comuna` = '$comunaT', `ocupacion` = '$ocupacionT', `telefono` = '$telefonoT', `email` = '$emailT' WHERE RUT = '$rut'";
+        $query = $this->con->query($sql);
+    }
+    
+    
 }
 ?>
 
