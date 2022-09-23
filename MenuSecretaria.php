@@ -39,25 +39,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="Materialize/css/materialize.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
+        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a href="#"><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
+                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
-            <ul class="nav-list">
+            <ul class="nav-list" style="margin-left: -2rem">
                 <li>
                     <a href="Secretaria/EntrevistaFamilia.php">
                         <i class='bx bx-folder' ></i>
@@ -89,546 +91,240 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
+                    <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
-                        <img src="IMG/iconNavbar.png"/>
+                        <img width="40" height="40" style="padding-bottom: 5px" src="IMG/iconNavbar.png"/>
                         <a style="font-size: 30px">Fenix</a>
                     </div>
                 </div>
             </nav>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col s10 offset-s1">
+                <div class="row justify-content-around" style="padding-top: 25px">
+                    <div class="col-sm-12 col-md-10">
                         <div class="card" style="border-radius: 10px">
-                            <h4 style="padding-top: 10px; padding-left: 10px" class="center">Ingresar nuevo Beneficiario</h4>
-                            <div class="row">
-                                <form method="post" action="controller/controllerIngreso.php" enctype="multipart/form-data">
-                                    <div class="col s12">
-                                        <ul class="collapsible">
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Datos Generales</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
+                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                                <h3 class="card-title">Registrar nuevo beneficiario</h3>
+                            </div>
+                            <div class="card" style="border-radius: 10px">
+                                <form action="controller/controllerIngreso.php" method="post" enctype="multipart/form-data">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne" style="background-color: #558b2f">
+                                                <h2 class="mb-0">
+                                                    <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne" style="color: white">
+                                                        Datos Generales
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
                                                     <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="motivo" type="text" name="txt_motivo" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="motivo">Motivo de acercamiento</label>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="txt_motivo" style="margin-left: 10px">Motivo de acercamiento</label>
+                                                                <input type="text" class="form-control" name="txt_motivo" id="motivo" required>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="derivacion" type="text" name="txt_derivacion" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="derivacion">Derivación</label>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="txt_derivacion" style="margin-left: 10px">Derivación</label>
+                                                                <input type="text" class="form-control" name="txt_derivacion" id="derivacion" required>
+                                                            </div>
                                                         </div>
-                                                    </div>  
-                                                    <div class="row">
-                                                        <h6 class="col s5">Seleccione el tipo de atencion:</h6>
                                                     </div>
                                                     <div class="row">
-                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="1" name="t_atencion" type="radio" />
-                                                                <span>Atención por beneficio (Programas sociales previo evaluación social)</span>
-                                                            </label>
-                                                        </p>
-                                                        <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                            <label>
-                                                                <input class="with-gap" value="0" name="t_atencion" type="radio"/>
-                                                                <span>Atención por programa pagado (Costo minimo asociado)</span>
-                                                            </label>
-                                                        </p>
+                                                        <div class="col-md-10 col-sm-10">
+                                                            <label for="deshabilitar" id="labelDes" class="col-sm-10 col-form-label" >Seleccione el tipo de atencion:</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="t_atencion" value="1">
+                                                                <label class="form-check-label" for="t_atencion">
+                                                                    Atención por beneficio (Programas sociales previo evaluación social)
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="t_atencion" value="0">
+                                                                <label class="form-check-label" for="t_atencion">
+                                                                    Atención por programa pagado (Costo minimo asociado)
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Datos del beneficiario</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo" style="background-color: #558b2f">
+                                                <h2 class="mb-0">
+                                                    <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo" style="color: white">
+                                                        Datos del beneficiario
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                <div class="card-body">
                                                     <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="nombre" type="text" name="txt_nombre" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="nombre">Nombres Beneficiario</label>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="apellido" type="text" name="txt_apellido" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="apellido">Apellidos Beneficiario</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="rut" type="text" name="txt_rut" class="validate" style="background-color: white; border-radius: 10px" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-                                                            <label class="active" for="rut">R.U.T Beneficiario</label>
-                                                            <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input placeholder="-- Fecha Nacimiento: --" name="txt_Fnac" type="text" class="datepicker" id="datepicker" required style="background-color: white; border-radius: 10px">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6" style="background-color: white; border-radius: 10px">
-                                                            <select name="cbo_genero">
-                                                                <option value="" disabled selected>Genero</option>
-                                                                <option value="1">Masculino</option>
-                                                                <option value="2">Femenino</option>
-                                                                <option value="3">Otro</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="direccion" type="text" name="txt_direccion" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="direccion">Direccion</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="comuna" type="text" name="txt_comuna" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="comuna">Comuna</label>
-                                                        </div>
-                                                        <div class="file-field input-field col s6" >
-                                                            <div class="btn light-green darken-3">
-                                                                <span style="font-size: 10px">Ingrese copia del carnet</span>
-                                                                <input type="file" name="file_carnet" accept="image/*">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="nombre" style="margin-left: 10px">Nombres Beneficiario</label>
+                                                                <input type="text" class="form-control" name="txt_nombre" id="nombre" required>
                                                             </div>
-                                                            <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                <input class="file-path validate" type="text">
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="apellido" style="margin-left: 10px">Apellidos Beneficiario</label>
+                                                                <input type="text" class="form-control" name="txt_apellido" id="apellido" required>
                                                             </div>
-                                                            <span style="color: grey">Debe ser en formato Imagen</span>
                                                         </div>
                                                     </div>
+                                                    <br>
                                                     <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="row">
-                                                                <h6 class="col s8">Participa en instituto Teleton:</h6>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="rut" style="margin-left: 10px">R.U.T Beneficiario</label>
+                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                                <span style="color: grey; margin-left: 10px">Si el R.U.T termina con K, reemplacelo con un 0</span>
                                                             </div>
-                                                            <br>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap teleton" value="1" name="rd_teleton" type="radio"/>
-                                                                    <span>Si</span>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group dates">
+                                                                <label for="datepicker">Nombre</label>
+                                                                <input type="text" autocomplete="off" class="form-control"  name="txt_nombre" id="datepicker" style="border-radius: 50px; text-indent: 18px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="tipo_user"></label>
+                                                                <div class="input-group mb-6">
+                                                                    <div class="input-group-prepend">
+                                                                        <label class="input-group-text" for="inputGroupSelect01">Genero</label>
+                                                                    </div>
+                                                                    <select class="custom-select" id="inputGroupSelect01" name="cbo_genero">
+                                                                        <option value="" disabled selected> -- Seleccione Genero -- </option>
+                                                                        <option value="1">Masculino</option>
+                                                                        <option value="2">Femenino</option>
+                                                                        <option value="3">Otro</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="direccion" style="margin-left: 10px">Dirección</label>
+                                                                <input type="text" class="form-control" name="txt_direccion" id="direccion" required >
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="comuna" style="margin-left: 10px">Comuna</label>
+                                                                <input type="text" class="form-control" name="txt_comuna" id="comuna" required >
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="input-group mb-3">
+                                                                <div class="custom-file">
+                                                                    <label>Ingrese copia carnet</label>
+                                                                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="file_carnet" accept="image/*">
+                                                                </div>
+                                                                <span style="color: grey">Debe ser formato de imagen</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-10 col-form-label" >Participa en instituto Teleton:</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="rd_teleton" value="1">
+                                                                <label class="form-check-label" for="rd_teleton">
+                                                                    SI
                                                                 </label>
-                                                            </p>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap teleton" value="0" name="rd_teleton" type="radio"/>
-                                                                    <span>No</span>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="rd_teleton" value="0">
+                                                                <label class="form-check-label" for="rd_teleton">
+                                                                    NO
                                                                 </label>
-                                                            </p>
+                                                            </div>
                                                         </div>
-                                                        <div class="col s6">
-                                                            <h6 class="col s10">Indique el sistema de salud</h6>
-                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_prevision1">
-                                                                    <option value="" disabled selected>Fonasa</option>
-                                                                    <option value="1">Fonasa A</option>
-                                                                    <option value="2">Fonasa B</option>
-                                                                    <option value="3">Fonasa C</option>
-                                                                    <option value="4">Fonasa D</option>
-                                                                    <option value="5">Isapre</option>
-                                                                </select>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="tipo_user"></label>
+                                                                <div class="input-group mb-6">
+                                                                    <div class="input-group-prepend">
+                                                                        <label class="input-group-text" for="inputGroupSelect01">Sistema de salud</label>
+                                                                    </div>
+                                                                    <select class="custom-select" id="inputGroupSelect01" name="cbo_prevision1">
+                                                                        <option value="" disabled selected> -- Seleccione -- </option>
+                                                                        <?php
+                                                                        $prevision = $data->getAllPrevision();
+                                                                        foreach ($prevision as $key) {
+                                                                            echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row tele">
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Diagnostico del beneficiario</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree" style="background-color: #558b2f">
+                                                <h2 class="mb-0">
+                                                    <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white">
+                                                        Diagnostico del beneficiario
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s10">¿El beneficiario presenta algun diagnostico?</h6>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap diagnostico" value="1" name="diagnostico" type="radio"/>
-                                                                    <span>Si</span>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-10 col-form-label" >¿El beneficiario presenta algun diagnostico?</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="diagnostico" value="1">
+                                                                <label class="form-check-label" for="diagnostico">
+                                                                    SI
                                                                 </label>
-                                                            </p>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap diagnostico" value="0" name="diagnostico" type="radio"/>
-                                                                    <span>No</span>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="diagnostico" value="0">
+                                                                <label class="form-check-label" for="diagnostico">
+                                                                    NO
                                                                 </label>
-                                                            </p>
+                                                            </div>
                                                         </div>
-                                                        <div class="col s6">
-                                                            <h6 class="col s10">¿Cual es el diagnostico que presenta el beneficiario?</h6>
-                                                            <div class="col s12" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_condicion">
-                                                                    <option value="0" id="options">Seleccione</option>
-                                                                    <?php
-                                                                    $condiciones = $data->getAllCondition();
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="cbo_condicion">¿Cual es el diagnostico que presenta el beneficiario?</label>
+                                                                <div class="input-group mb-6">
+                                                                    <select class="custom-select" id="inputGroupSelect01" name="cbo_condicion">
+                                                                        <option value="" disabled selected> -- Seleccione -- </option>
+                                                                        <?php
+                                                                        $condiciones = $data->getAllCondition();
 
-                                                                    foreach ($condiciones as $key) {
-                                                                        echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
-                                                                    }
-                                                                    ?>
-                                                                    <option value="7" id="options">No posee un diagnostico</option>
-                                                                </select>
+                                                                        foreach ($condiciones as $key) {
+                                                                            echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s10">Indique el especialista que emite el diagnostico</h6>
-                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_especialista" class="condicion">
-                                                                    <option value="" disabled selected>Seleccione</option>
-                                                                    <?php
-                                                                    $especialista = $data->getAllEspecialista();
 
-                                                                    foreach ($especialista as $key) {
-                                                                        echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <h6 class="col s10">Indique fecha del ultimo control con el especialista</h6>
-                                                            <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                                <input placeholder="-- Seleccione: --" name="txt_control" type="text" class="datepicker diag" id="datepicker1" required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="file-field input-field col s8">
-                                                            <div class="btn light-green darken-3">
-                                                                <span>Copia informe ultimo control</span>
-                                                                <input type="file" class="diag" name="file_control" accept="application/pdf">
-                                                            </div>
-                                                            <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                <input class="file-path validate diag" type="text">
-                                                            </div>
-                                                            <span style="color: grey">Debe ser en formato PDF</span>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Datos del tutor</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s12">
-                                                                <input id="tutor" type="text" name="txt_ntutor" class="validate" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="tutor">Nombre completo del tutor</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="input-field col s4" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_parent">
-                                                                    <option value="" disabled selected>Parentesco</option>
-                                                                    <option value="1">Padre</option>
-                                                                    <option value="2">Madre</option>
-                                                                    <option value="3">Otro</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s12">
-                                                                <input id="rutT" type="text" name="txt_rtutor" class="validate" style="background-color: white; border-radius: 10px" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-                                                                <label class="active" for="rutT">R.U.T del tutor</label>
-                                                                <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="file-field input-field col s10">
-                                                                <div class="btn light-green darken-3">
-                                                                    <span>Copia carnet</span>
-                                                                    <input type="file" name="file_tutor" accept="image/*">
-                                                                </div>
-                                                                <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                    <input class="file-path validate" type="text">
-                                                                </div>
-                                                                <span style="color: grey">Debe ser en formato Imagen</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s8">
-                                                                <input placeholder="-- Fecha Nacimiento tutor: --" name="txt_nacTutor" type="text" class="datepicker" id="datepicker2" required style="background-color: white; border-radius: 10px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="input-field col s6" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_nivel">
-                                                                    <option value="" disabled selected>Nivel escolar</option>
-                                                                    <option value="1">basica</option>
-                                                                    <option value="2">media</option>
-                                                                    <option value="3">universitaria</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s10">
-                                                                <input id="ocupacion" type="text" name="txt_ocupacion" class="validate" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="ocupacion">Indique la ocupacion</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="input-field col s8">
-                                                                <input id="telefono" type="text" name="txt_telefono" class="validate" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="telefono">Indique el telefono del tutor</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s5">
-                                                            <input id="correo" type="text" name="txt_correo" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="correo">Indique el correo del tutor</label>
-                                                        </div>
-                                                    </div>
-                                                    <span id="emailVal"></span>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s12">¿El tutor vive con el beneficiario?</h6>
-                                                            <p class="col s2" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap" value="1" name="direccTutor" type="radio" onclick="viveCon()"/>
-                                                                    <span>Si</span>
-                                                                </label>
-                                                            </p>
-                                                            <p class="col s3" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap" value="0" name="direccTutor" type="radio" onclick="noViveCon()"/>
-                                                                    <span>No</span>
-                                                                </label>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <br>
-                                                    <div class="row dirTutor">
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s12">Indique el sistema de salud</h6>
-                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_prevision">
-                                                                    <option value="" disabled selected>Fonasa</option>
-                                                                    <option value="1">Fonasa A</option>
-                                                                    <option value="2">Fonasa B</option>
-                                                                    <option value="3">Fonasa C</option>
-                                                                    <option value="4">Fonasa D</option>
-                                                                    <option value="5">Isapre</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Datos de credencial de discapacidad</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                    <div class="row">
-                                                        <div class="col s12 m4 l6">
-                                                            <h6 class="col s12">Cuenta con credencial de discapacidad?:</h6>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap discapacidad" value="1" name="discapacidad" type="radio"/>
-                                                                    <span>Si</span>
-                                                                </label>
-                                                            </p>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap discapacidad" value="0" name="discapacidad" type="radio"/>
-                                                                    <span>No</span>
-                                                                </label>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col s12 m4 l6">
-                                                            <div class="col s12">
-                                                                <div class="input-field col s12">
-                                                                    <input id="discapacidad" type="text" name="txt_credencial" class="validate numCred" style="background-color: white; border-radius: 10px" disabled="">
-                                                                    <label class="active" for="discapacidad">Numero de credencial de discapacidad</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s12 m4 l6">
-                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_origenP" class="validate numCred">
-                                                                    <option value="" disabled selected>Origen principal de discapacidad</option>
-                                                                    <option value="1">Fisico</option>
-                                                                    <option value="2">Sensorial Visual</option>
-                                                                    <option value="3">Sensorial Auditivo</option>
-                                                                    <option value="4">Mental Psiquico</option>
-                                                                    <option value="5">Mental Intelectual</option>
-                                                                    <option value="6">No aplica</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_origenS" class="validate numCred">
-                                                                    <option value="" disabled selected>Origen Secundario de discapacidad</option>
-                                                                    <option value="1">Fisico</option>
-                                                                    <option value="2">Sensorial Visual</option>
-                                                                    <option value="3">Sensorial Auditivo</option>
-                                                                    <option value="4">Mental Psiquico</option>
-                                                                    <option value="5">Mental Intelectual</option>
-                                                                    <option value="6">No aplica</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <div class="input-field col s10">
-                                                                <input id="porcentaje_d" type="text" name="txt_porcentaje_d" class="validate numCred" style="background-color: white; border-radius: 10px">
-                                                                <label class="active" for="porcentaje_d">Porcentaje de discapacidad</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <div class="input-field col s10" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_grado" class="validate numCred">
-                                                                    <option value="" disabled selected>Grado de discapacidad</option>
-                                                                    <option value="1">Leve</option>
-                                                                    <option value="2">Moderado</option>
-                                                                    <option value="3">Severo</option>
-                                                                    <option value="4">Profundo</option>
-                                                                    <option value="5">No aplica</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s12">Movilidad Reducida</h6>
-                                                            <div class="input-field col s8" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_movilidad" class="validate numCred">
-                                                                    <option value="0" disabled >Movilidad Reducida</option>
-                                                                    <option value="1">Leve</option>
-                                                                    <option value="2">Moderado</option>
-                                                                    <option value="3">Severo</option>
-                                                                    <option value="4">Profundo</option>
-                                                                    <option value="5">No aplica</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s12">C. Discapacidad (Parte delantera)</h6>
-                                                            <div class="file-field input-field col s12">
-                                                                <div class="btn light-green darken-3">
-                                                                    <span>Seleccionar</span>
-                                                                    <input type="file" name="file_credenFront" class="numCred" accept="image/*">
-                                                                </div>
-                                                                <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                    <input class="file-path validate numCred" type="text">
-                                                                </div>
-                                                                <span style="color: grey">Debe ser en formato Imagen</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col s6">
-                                                            <h6 class="col s9">C. Discapacidad (Parte Trasera)</h6>
-                                                            <div class="file-field input-field col s12">
-                                                                <div class="btn light-green darken-3">
-                                                                    <span>Seleccionar</span>
-                                                                    <input type="file" name="file_credenBack" class="numCred" accept="image/*">
-                                                                </div>
-                                                                <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                    <input class="file-path validate numCred" type="text">
-                                                                </div>
-                                                                <span style="color: grey">Debe ser en formato Imagen</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                                    Beneficios Sociales</div>
-                                                <div class="collapsible-body" style="background-color: #C8E6C9">
-                                                    <div class="row">
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s8">
-                                                            <h6 class="col s12">¿Posee alguna pensión?</h6>
-                                                            <div class="col s12 m4 l6" style="background-color: white; border-radius: 10px">
-                                                                <select name="cbo_pension">
-                                                                    <option value="0">Selecciona una opción</option>
-                                                                    <?php
-                                                                    $pens = $data->getAllPensionesAll();
-                                                                    foreach ($pens as $key1) {
-                                                                        echo '<option value="' . $key1['ID'] . '" >' . $key1['nombre'] . '</option>';
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <h6 class="col s6">Pertenece a Chile solidario?</h6>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap" value="1" name="csolidario" type="radio"/>
-                                                                    <span>Si</span>
-                                                                </label>
-                                                            </p>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap" value="0" name="csolidario" type="radio"/>
-                                                                    <span>No</span>
-                                                                </label>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col s6">
-                                                            <h6 class="col s12">Tiene registro social de hogares?</h6>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap" value="1" name="hogares" type="radio" onclick="tieneR()"/>
-                                                                    <span>Si</span>
-                                                                </label>
-                                                            </p>
-                                                            <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                                <label>
-                                                                    <input class="with-gap" value="0" name="hogares" type="radio" onclick="noTieneR()"/>
-                                                                    <span>No</span>
-                                                                </label>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="porcentajeF" type="text" name="txt_porcentajeF" class="validate" style="background-color: white; border-radius: 10px">
-                                                            <label class="active" for="porcentajeF">Porcentaje en registro social de hogares</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="file-field input-field col s8">
-                                                            <div class="btn light-green darken-3">
-                                                                <span>Copia del registro</span>
-                                                                <input id="cR" type="file" name="file_Hogar" accept="application/pdf">
-                                                            </div>
-                                                            <div class="file-path-wrapper" style="background-color: white; border-radius: 10px">
-                                                                <input class="file-path validate" type="text">
-                                                            </div>
-                                                            <span style="color: grey">Debe ser en formato PDF</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="row">
-                                            <div class="col s12 center">
-                                                <button class="btn waves-effect light-green darken-3" type="submit" name="action" style="margin-bottom: 10px">Ingresar Usuario
-                                                    <i class="material-icons right"></i>
-                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -637,7 +333,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         </div>
                     </div>
                 </div>
-        </section>
+            </div>
         <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
@@ -664,328 +360,292 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 }
             }
         </script> -->
-        <script>
-            $(document).ready(function () {
-                M.updateTextFields();
-            });
-
-            $(document).ready(function () {
-                $('select').formSelect();
-            });
-
-            $(document).ready(function () {
-                $('.collapsible').collapsible();
-            });
-        </script>
-        <script>
-            $(document).ready(function () {
-
-                $('.datepicker').datepicker({
-                    format: 'yyyy-mm-dd'
-                });
-            });
-            $(document).ready(function () {
-                $('.timepicker').timepicker({
-                    twelveHour: false
-                });
-            });
-            $(function () {
-                $('#datepicker').datepicker({
-                    format: 'yyyy-mm-dd',
-                    i18n: {
-                        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                        monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                        weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles,', 'Jueves', 'Viernes', 'Sábado'],
-                        weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'],
-                        weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-                        cancel: ['Cancelar'],
-                        done: ['Aceptar']
-                    }
-                })
-                $('#datepicker1').datepicker({
-                    format: 'yyyy-mm-dd',
-                    i18n: {
-                        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                        monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                        weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles,', 'Jueves', 'Viernes', 'Sábado'],
-                        weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'],
-                        weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-                        cancel: ['Cancelar'],
-                        done: ['Aceptar']
-                    }
-                })
-                $('#datepicker2').datepicker({
-                    format: 'yyyy-mm-dd',
-                    i18n: {
-                        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                        monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                        weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles,', 'Jueves', 'Viernes', 'Sábado'],
-                        weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'],
-                        weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-                        cancel: ['Cancelar'],
-                        done: ['Aceptar']
-                    }
-                })
-            })
-        </script>
-        <script type="text/javascript">
-            $(function () {
-                $("input#rut").rut({
-                    formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-                });
-
-                var input = document.getElementById('rut');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
-            })
-            $(function () {
-                $("input#rutT").rut({
-                    formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-                });
-
-                var input = document.getElementById('rutT');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
-            })
-            document.getElementById('correo').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "Correo válido";
-                } else {
-                    valido.innerText = "Correo no válido";
-                }
-            }
-            );
-        </script>
-        <script>
-            function pensiones() {
-
-                var radio = $("input[type=radio][name=pension]").filter(":checked")[0];
-                var radio1 = $("input[type=radio][name=pension1]").filter(":checked")[0];
-                var radio2 = $("input[type=radio][name=pension2]").filter(":checked")[0];
-                var radio3 = $("input[type=radio][name=pension3]").filter(":checked")[0];
-                var radio4 = $("input[type=radio][name=pension4]").filter(":checked")[0];
-
-                //const button = document.querySelectorAll('.pension');
-                const button1 = document.querySelectorAll('.pension1');
-                const button2 = document.querySelectorAll('.pension2');
-                const button3 = document.querySelectorAll('.pension3');
-                const button4 = document.querySelectorAll('.pension4');
-                const button5 = document.querySelector('.otroP');
-
-                console.log(button5);
-
-                if (radio.value == 1) {
-                    var a = 0, b = 0, c = 0, d = 0, e = 0;
-                    button1.forEach(function (document) {
-                        button1[a].disabled = false;
-                        a++;
+            <script>
+                $(function () {
+                    $('.dates #datepicker').datepicker({
+                        'format': 'yyyy-mm-dd',
+                        'autoclose': true
                     });
-                    button2.forEach(function (document) {
-                        button2[b].disabled = false;
-                        b++;
+                });
+            </script>
+            <script type="text/javascript">
+                $('document').ready(function () {
+                    $('#collapseOne').collapse({
+                        toggle: false
+                    })
+                });
+            </script>
+            <script>
+                $(document).ready(function () {
+
+                    $('.datepicker').datepicker({
+                        format: 'yyyy-mm-dd'
                     });
-                    button3.forEach(function (document) {
-                        button3[c].disabled = false;
-                        c++;
+                });
+                $(document).ready(function () {
+                    $('.timepicker').timepicker({
+                        twelveHour: false
                     });
-                    button4.forEach(function (document) {
-                        button4[d].disabled = false;
-                        d++;
+                });
+            </script>
+            <script type="text/javascript">
+                $(function () {
+                    $("input#rut").rut({
+                        formatOn: 'keyup',
+                        minimumLength: 8, // validar largo mínimo; default: 2
+                        validateOn: 'change' // si no se quiere validar, pasar null
                     });
 
-                    if (radio1.value == 0 && radio2.value == 0 && radio3.value == 0 && radio4.value == 0) {
-                        button5.disabled = false;
+                    var input = document.getElementById('rut');
+                    input.addEventListener('input', function () {
+                        if (this.value.length >= 13)
+                            this.value = this.value.slice(0, 12);
+                    })
+                })
+                $(function () {
+                    $("input#rutT").rut({
+                        formatOn: 'keyup',
+                        minimumLength: 8, // validar largo mínimo; default: 2
+                        validateOn: 'change' // si no se quiere validar, pasar null
+                    });
+
+                    var input = document.getElementById('rutT');
+                    input.addEventListener('input', function () {
+                        if (this.value.length >= 13)
+                            this.value = this.value.slice(0, 12);
+                    })
+                })
+                document.getElementById('correo').addEventListener('input', function () {
+                    campo = event.target;
+                    valido = document.getElementById('emailVal');
+                    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+
+                    if (emailRegex.test(campo.value)) {
+                        valido.innerText = "Correo válido";
                     } else {
+                        valido.innerText = "Correo no válido";
+                    }
+                }
+                );
+            </script>
+            <script>
+                function pensiones() {
+
+                    var radio = $("input[type=radio][name=pension]").filter(":checked")[0];
+                    var radio1 = $("input[type=radio][name=pension1]").filter(":checked")[0];
+                    var radio2 = $("input[type=radio][name=pension2]").filter(":checked")[0];
+                    var radio3 = $("input[type=radio][name=pension3]").filter(":checked")[0];
+                    var radio4 = $("input[type=radio][name=pension4]").filter(":checked")[0];
+
+                    //const button = document.querySelectorAll('.pension');
+                    const button1 = document.querySelectorAll('.pension1');
+                    const button2 = document.querySelectorAll('.pension2');
+                    const button3 = document.querySelectorAll('.pension3');
+                    const button4 = document.querySelectorAll('.pension4');
+                    const button5 = document.querySelector('.otroP');
+
+                    console.log(button5);
+
+                    if (radio.value == 1) {
+                        var a = 0, b = 0, c = 0, d = 0, e = 0;
+                        button1.forEach(function (document) {
+                            button1[a].disabled = false;
+                            a++;
+                        });
+                        button2.forEach(function (document) {
+                            button2[b].disabled = false;
+                            b++;
+                        });
+                        button3.forEach(function (document) {
+                            button3[c].disabled = false;
+                            c++;
+                        });
+                        button4.forEach(function (document) {
+                            button4[d].disabled = false;
+                            d++;
+                        });
+
+                        if (radio1.value == 0 && radio2.value == 0 && radio3.value == 0 && radio4.value == 0) {
+                            button5.disabled = false;
+                        } else {
+                            button5.disabled = true;
+                        }
+                    } else {
+                        var a = 0, b = 0, c = 0, d = 0, e = 0;
+                        button1.forEach(function (document) {
+                            button1[a].disabled = true;
+                            button1[1].checked = true;
+                            a++;
+                        });
+                        button2.forEach(function (document) {
+                            button2[b].disabled = true;
+                            button2[1].checked = true;
+                            b++;
+                        });
+                        button3.forEach(function (document) {
+                            button3[c].disabled = true;
+                            button3[1].checked = true;
+                            c++;
+                        });
+                        button4.forEach(function (document) {
+                            button4[d].disabled = true;
+                            button4[1].checked = true;
+                            d++;
+                        });
                         button5.disabled = true;
                     }
-                } else {
-                    var a = 0, b = 0, c = 0, d = 0, e = 0;
-                    button1.forEach(function (document) {
-                        button1[a].disabled = true;
-                        button1[1].checked = true;
-                        a++;
-                    });
-                    button2.forEach(function (document) {
-                        button2[b].disabled = true;
-                        button2[1].checked = true;
-                        b++;
-                    });
-                    button3.forEach(function (document) {
-                        button3[c].disabled = true;
-                        button3[1].checked = true;
-                        c++;
-                    });
-                    button4.forEach(function (document) {
-                        button4[d].disabled = true;
-                        button4[1].checked = true;
-                        d++;
-                    });
-                    button5.disabled = true;
                 }
-            }
 
-            $(document).ready(function () {
-                $('.pension').change(function () {
-                    pensiones();
-                });
-                $('.pension1').change(function () {
-                    pensiones();
-                });
-                $('.pension2').change(function () {
-                    pensiones();
-                });
-                $('.pension3').change(function () {
-                    pensiones();
-                });
-                $('.pension4').change(function () {
-                    pensiones();
+                $(document).ready(function () {
+                    $('.pension').change(function () {
+                        pensiones();
+                    });
+                    $('.pension1').change(function () {
+                        pensiones();
+                    });
+                    $('.pension2').change(function () {
+                        pensiones();
+                    });
+                    $('.pension3').change(function () {
+                        pensiones();
+                    });
+                    $('.pension4').change(function () {
+                        pensiones();
+                    });
+
+                    $('.discapacidad').change(function () {
+                        credencial();
+                    });
+
+                    $('.teleton').change(function () {
+                        teleton();
+                    });
+
+
+                    $('.diagnostico').change(function () {
+                        diagnost();
+                    });
                 });
 
-                $('.discapacidad').change(function () {
-                    credencial();
-                });
+                //const diag = document.querySelectorAll('#options');
+                //const sec = document.querySelector('.condicion');
 
-                $('.teleton').change(function () {
-                    teleton();
-                });
+                const fecha = document.querySelectorAll('.diag');
 
+                function diagnost() {
+                    var condi = $("input[type=radio][name=diagnostico]").filter(":checked")[0];
 
-                $('.diagnostico').change(function () {
-                    diagnost();
-                });
-            });
-
-            //const diag = document.querySelectorAll('#options');
-            //const sec = document.querySelector('.condicion');
-
-            const fecha = document.querySelectorAll('.diag');
-
-            function diagnost() {
-                var condi = $("input[type=radio][name=diagnostico]").filter(":checked")[0];
-
-                if (condi.value == 1) {
-                    console.log('Funca');
-                    var x = 0;
-                    fecha.forEach(function (document) {
-                        fecha[x].disabled = false;
-                        x++;
-                    });
-                } else {
-                    console.log('No Funca');
-                    var x = 0;
-                    fecha.forEach(function (document) {
-                        fecha[x].disabled = true;
-                        x++;
-                    });
+                    if (condi.value == 1) {
+                        console.log('Funca');
+                        var x = 0;
+                        fecha.forEach(function (document) {
+                            fecha[x].disabled = false;
+                            x++;
+                        });
+                    } else {
+                        console.log('No Funca');
+                        var x = 0;
+                        fecha.forEach(function (document) {
+                            fecha[x].disabled = true;
+                            x++;
+                        });
+                    }
                 }
-            }
 
-            const n_cred = document.querySelectorAll('.numCred');
+                const n_cred = document.querySelectorAll('.numCred');
 
-            function credencial() {
-                var creden = $("input[type=radio][name=discapacidad]").filter(":checked")[0];
+                function credencial() {
+                    var creden = $("input[type=radio][name=discapacidad]").filter(":checked")[0];
 
-                if (creden.value == 1) {
-                    var z = 0;
-                    n_cred.forEach(function (document) {
-                        n_cred[z].disabled = false;
-                        z++;
-                    });
-                } else {
-                    var s = 0;
-                    n_cred.forEach(function (document) {
-                        n_cred[s].disabled = true;
-                        s++;
-                    });
+                    if (creden.value == 1) {
+                        var z = 0;
+                        n_cred.forEach(function (document) {
+                            n_cred[z].disabled = false;
+                            z++;
+                        });
+                    } else {
+                        var s = 0;
+                        n_cred.forEach(function (document) {
+                            n_cred[s].disabled = true;
+                            s++;
+                        });
+                    }
                 }
-            }
-            ;
+                ;
 
-            const inpTele = document.querySelector('.tele');
-            function teleton() {
-                var radioTeleton = $("input[type=radio][name=rd_teleton]").filter(":checked")[0];
+                const inpTele = document.querySelector('.tele');
+                function teleton() {
+                    var radioTeleton = $("input[type=radio][name=rd_teleton]").filter(":checked")[0];
 
-                if (radioTeleton.value == 1) {
-                    inpTele.innerHTML = '<div class="input-field col s6"><input id="teleton" type="text" name="txt_Nteleton" class="validate" style="background-color: white; border-radius: 10px"><label class="active" for="teleton">Numero de registro Teleton</label></div>';
-                } else {
-                    inpTele.innerHTML = "";
+                    if (radioTeleton.value == 1) {
+                        inpTele.innerHTML = '<div clas="col-sm-12 col-md-6 col-lg-6"><div class="form-group"><label for="comuna" style="margin-left: 10px">Numero registro Teletón</label><input type="text" class="form-control" name="txt_Nteleton" id="teleton" required ></div></div>';
+                    } else {
+                        inpTele.innerHTML = "";
+                    }
                 }
-            }
 
 
-            var noP = document.getElementById('noP');
-            var noP1 = document.getElementById('noP1');
-            var noP2 = document.getElementById('noP2');
-            var noP3 = document.getElementById('noP3');
-            var noP4 = document.getElementById('noP4');
-            var siP = document.getElementById('siP');
+                var noP = document.getElementById('noP');
+                var noP1 = document.getElementById('noP1');
+                var noP2 = document.getElementById('noP2');
+                var noP3 = document.getElementById('noP3');
+                var noP4 = document.getElementById('noP4');
+                var siP = document.getElementById('siP');
 
-            const dirTutor = document.querySelector('.dirTutor');
-            //Scripts en input "vive con el beneficiario?"
-            function viveCon() {
-                dirTutor.innerHTML = "";
-                document.getElementById('direccionT').disabled = true
-                document.getElementById('comuT').disabled = true
-            }
-            function noViveCon() {
-                dirTutor.innerHTML = "<div class='col s6'><div class='input-field col s10'><input id='direccionT' style='background-color: white; border-radius: 10px' type='text' name='txt_direTutor' class='validate'><label class='active' for='direccionT'>Indique la direccion del tutor</label></div></div><div class='col s6'><div class='input-field col s6'><input id='comuT' style='background-color: white; border-radius: 10px' type='text' name='txt_comuTutor' class='validate'><label class='active' for='comuT'>Comuna</label></div> </div>";
-            }
-            //Scripts en input "tiene registro social de hogares?"
-            function tieneR() {
-                document.getElementById('porcentajeF').disabled = false
-                document.getElementById('cR').disabled = false
-            }
-            function noTieneR() {
-                document.getElementById('porcentajeF').disabled = true
-                document.getElementById('cR').disabled = true
-            }
-            //Scripts en input "es beneficiario de alguna pension?"
-
-            function sip1() {
-                if (siP1.checked) {
-                    document.getElementById('noP2').checked = true;
-                    document.getElementById('noP3').checked = true;
-                    document.getElementById('noP4').checked = true;
-
+                const dirTutor = document.querySelector('.dirTutor');
+                //Scripts en input "vive con el beneficiario?"
+                function viveCon() {
+                    dirTutor.innerHTML = "";
+                    document.getElementById('direccionT').disabled = true
+                    document.getElementById('comuT').disabled = true
                 }
-            }
-            function sip2() {
-                if (siP2.checked) {
-                    document.getElementById('noP1').checked = true;
-                    document.getElementById('noP3').checked = true;
-                    document.getElementById('noP4').checked = true;
-
+                function noViveCon() {
+                    dirTutor.innerHTML = "<div class='col s6'><div class='input-field col s10'><input id='direccionT' style='background-color: white; border-radius: 10px' type='text' name='txt_direTutor' class='validate'><label class='active' for='direccionT'>Indique la direccion del tutor</label></div></div><div class='col s6'><div class='input-field col s6'><input id='comuT' style='background-color: white; border-radius: 10px' type='text' name='txt_comuTutor' class='validate'><label class='active' for='comuT'>Comuna</label></div> </div>";
                 }
-            }
-            function sip3() {
-                if (siP3.checked) {
-                    document.getElementById('noP1').checked = true;
-                    document.getElementById('noP2').checked = true;
-                    document.getElementById('noP4').checked = true;
-
+                //Scripts en input "tiene registro social de hogares?"
+                function tieneR() {
+                    document.getElementById('porcentajeF').disabled = false
+                    document.getElementById('cR').disabled = false
                 }
-            }
-            function sip4() {
-                if (siP4.checked) {
-                    document.getElementById('noP1').checked = true;
-                    document.getElementById('noP2').checked = true;
-                    document.getElementById('noP3').checked = true;
-
+                function noTieneR() {
+                    document.getElementById('porcentajeF').disabled = true
+                    document.getElementById('cR').disabled = true
                 }
-            }
-        </script>
+                //Scripts en input "es beneficiario de alguna pension?"
+
+                function sip1() {
+                    if (siP1.checked) {
+                        document.getElementById('noP2').checked = true;
+                        document.getElementById('noP3').checked = true;
+                        document.getElementById('noP4').checked = true;
+
+                    }
+                }
+                function sip2() {
+                    if (siP2.checked) {
+                        document.getElementById('noP1').checked = true;
+                        document.getElementById('noP3').checked = true;
+                        document.getElementById('noP4').checked = true;
+
+                    }
+                }
+                function sip3() {
+                    if (siP3.checked) {
+                        document.getElementById('noP1').checked = true;
+                        document.getElementById('noP2').checked = true;
+                        document.getElementById('noP4').checked = true;
+
+                    }
+                }
+                function sip4() {
+                    if (siP4.checked) {
+                        document.getElementById('noP1').checked = true;
+                        document.getElementById('noP2').checked = true;
+                        document.getElementById('noP3').checked = true;
+
+                    }
+                }
+            </script>
     </body>
 </html>

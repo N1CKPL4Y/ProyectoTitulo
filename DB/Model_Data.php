@@ -388,6 +388,11 @@ class Data {
         $query = $this->con->query($sql);
     }
     
+    public function getAllPrevision(){
+        $sql = "SELECT * FROM `t_prevision`;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
     
 }
 ?>
