@@ -241,8 +241,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-sm-12 col-md-3 col-lg-3">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-3 col-lg-3 align-self-start">
                                                             <label for="rd_teleton" id="labelteleton" class="col-sm-12 col-form-label" >Participa en instituto Teleton:</label>
                                                             <div class="form-check">
                                                                 <input class="form-check-input teleton" type="radio" name="rd_teleton" value="1">
@@ -257,13 +257,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <div class="tele">
+                                                        <div class="tele col-sm-12 col-md-3 col-lg-3 align-self-center">
 
                                                         </div>
-                                                        <div class="col-sm-12  col-md-6 col-lg-6 align-self-end">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6 align-self-end">
                                                             <div class="form-group">
                                                                 <label for="tipo_user"></label>
-                                                                <div class="input-group mb-6">
+                                                                <div class="input-group mb-12">
                                                                     <div class="input-group-prepend">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Sistema de salud</label>
                                                                     </div>
@@ -580,7 +580,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     var radioTeleton = $("input[type=radio][name=rd_teleton]").filter(":checked")[0];
 
                     if (radioTeleton.value == 1) {
-                        inpTele.innerHTML = '<div clas="col-sm-12 col-md-4 col-lg-4"><div class="form-group"><label for="comuna" style="margin-left: 10px">Numero registro Teletón</label><input style="margin-left: 10px" type="text" class="form-control" name="txt_Nteleton" id="teleton" required ></div></div>';
+                        inpTele.innerHTML = '<div class="form-group"><label for="comuna">Numero registro Teletón</label><input type="text" class="form-control" name="txt_Nteleton" id="teleton" required ></div>';
                     } else {
                         inpTele.innerHTML = "";
                     }
