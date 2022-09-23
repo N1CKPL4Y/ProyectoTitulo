@@ -372,7 +372,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 
 /////////////////////////////////Insercion de datos///////////////////////////
 
-/*if (!$existeBene) {
+if (!$existeBene) {
     if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton==0 && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor
             && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene) {
         echo '<script language="javascript">Success()</script>';
@@ -410,12 +410,12 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
     }
 } else if ($existeBene) {
     echo '<script language="javascript">ErrorExistencia()</script>';
-}*/
+}
 
-echo $previBene;
+echo $previBene."<br>";
 echo $prevision;
   //echo $existeBene.'<br>';
-  /*echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar ." ".$previBene. "<br>";
+  echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar ." ".$previBene. "<br>";
   echo '<br>' . $rut . " " . $pension;
   echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
   echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
@@ -423,6 +423,6 @@ echo $prevision;
   echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
   echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
   
-  echo '<br>'.$haveCreden;*/
+  echo '<br>'.$haveCreden;
   //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>

@@ -273,7 +273,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <?php
                                                                         $prevision = $data->getAllPrevision();
                                                                         foreach ($prevision as $key) {
-                                                                            echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                            echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -498,7 +498,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <?php
                                                                         $prevision = $data->getAllPrevision();
                                                                         foreach ($prevision as $key) {
-                                                                            echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                            echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
                                                                         }
                                                                         ?>
                                                                     </select>
