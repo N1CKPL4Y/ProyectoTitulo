@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Registrando Nuevo Beneficiario</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <!-- <link rel="stylesheet" href="../Materialize/css/styleBody.css"/> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -85,6 +85,7 @@ if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_carnet']['type'], $permitidos) && $_FILES['file_carnet']['size'] <= $limite_kb * 1024) {
+        echo 'carnet bene <br>';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_carnet']['tmp_name'];
         // Tipo de archivo
@@ -131,6 +132,7 @@ if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_control']['type'], $permitidos) && $_FILES['file_control']['size'] <= $limite_kb * 1024) {
+        echo 'informe control <br>';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_control']['tmp_name'];
         //$tipoArchi = $_FILES['file_control']['type'];
@@ -190,6 +192,7 @@ if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_tutor']['type'], $permitidos) && $_FILES['file_tutor']['size'] <= $limite_kb * 1024) {
+        echo 'carnet tutor <br>';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_tutor']['tmp_name'];
         // Tipo de archivo
@@ -248,6 +251,7 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_credenFront']['type'], $permitidos) && $_FILES['file_credenFront']['size'] <= $limite_kb * 1024) {
+        echo 'creden A';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_credenFront']['tmp_name'];
         // Tipo de archivo
@@ -285,6 +289,7 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_credenBack']['type'], $permitidos) && $_FILES['file_credenBack']['size'] <= $limite_kb * 1024) {
+        echo 'archivo creden b';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_credenBack']['tmp_name'];
         // Tipo de archivo
@@ -336,6 +341,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_Hogar']['type'], $permitidos) && $_FILES['file_Hogar']['size'] <= $limite_kb * 1024) {
+        echo 'archivo hogar';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_Hogar']['tmp_name'];
         //$tipoArchi = $_FILES['file_control']['type'];
@@ -366,7 +372,7 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 
 /////////////////////////////////Insercion de datos///////////////////////////
 
-if (!$existeBene) {
+/*if (!$existeBene) {
     if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton==0 && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor
             && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene) {
         echo '<script language="javascript">Success()</script>';
@@ -404,18 +410,19 @@ if (!$existeBene) {
     }
 } else if ($existeBene) {
     echo '<script language="javascript">ErrorExistencia()</script>';
-}
+}*/
 
-
+echo $previBene;
+echo $prevision;
   //echo $existeBene.'<br>';
-  echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar . "<br>";
+  /*echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar ." ".$previBene. "<br>";
   echo '<br>' . $rut . " " . $pension;
   echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
-  /*echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
+  echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
   echo '<br>' . $numeroTeleton . " " . $rut;
   echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
   echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
-  */
-  echo '<br>'.$haveCreden;
+  
+  echo '<br>'.$haveCreden;*/
   //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>
