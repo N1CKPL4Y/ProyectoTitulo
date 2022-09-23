@@ -35,22 +35,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr">
     <head>
-        <title>Menú Secretaria</title>
+        <title>Menu Secretaria</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/validarut.js"></script>
+        <script src="Materialize/datepicke.js"></script>
         <script src="js/jquery.rut.js"></script>
         <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="Materialize/datepick.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
@@ -59,7 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
-            <ul class="nav-list" style="margin-left: -2rem">
+            <ul class="nav-list" >
                 <li>
                     <a href="Secretaria/EntrevistaFamilia.php">
                         <i class='bx bx-folder' ></i>
@@ -111,7 +113,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="card">
                                             <div class="card-header" id="headingOne" style="background-color: #558b2f">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne" style="color: white">
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne" style="color: white">
                                                         Datos Generales
                                                     </button>
                                                 </h2>
@@ -155,7 +157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="card">
                                             <div class="card-header" id="headingTwo" style="background-color: #558b2f">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo" style="color: white">
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo" style="color: white">
                                                         Datos del beneficiario
                                                     </button>
                                                 </h2>
@@ -166,13 +168,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="nombre" style="margin-left: 10px">Nombres Beneficiario</label>
-                                                                <input type="text" class="form-control" name="txt_nombre" id="nombre" required>
+                                                                <input type="text" class="form-control" placeholder="Nombres" name="txt_nombre" id="nombre" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="apellido" style="margin-left: 10px">Apellidos Beneficiario</label>
-                                                                <input type="text" class="form-control" name="txt_apellido" id="apellido" required>
+                                                                <input type="text" class="form-control" placeholder="Apellidos" name="txt_apellido" id="apellido" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -187,16 +189,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
-                                                                <label for="datepicker">Nombre</label>
-                                                                <input type="text" autocomplete="off" class="form-control"  name="txt_nombre" id="datepicker" style="border-radius: 50px; text-indent: 18px;">
+                                                                <label for="datepicker">Fecha de nacimiento</label>
+                                                                <input type="text" autocomplete="off" class="form-control"  name="txt_nombre" id="datepicker" style=" text-indent: 18px;">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br>
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
+
                                                             <div class="form-group">
-                                                                <label for="tipo_user"></label>
+                                                                <label for="tipo_user">Genero</label>
                                                                 <div class="input-group mb-6">
                                                                     <div class="input-group-prepend">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Genero</label>
@@ -228,33 +231,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <label style="margin-left: 10px">Carnet</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <label>Ingrese copia carnet</label>
-                                                                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="file_carnet" accept="image/*">
+                                                                    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                                                                 </div>
-                                                                <span style="color: grey">Debe ser formato de imagen</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
-                                                        <div class="col-sm-12 col-md-6 col-lg-6">
-                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-10 col-form-label" >Participa en instituto Teleton:</label>
+                                                    <div class="row justify-content-between">
+                                                        <div class="col-sm-12 col-md-3 col-lg-3">
+                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-12 col-form-label" >Participa en instituto Teleton:</label>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="rd_teleton" value="1">
+                                                                <input class="form-check-input teleton" type="radio" name="rd_teleton" value="1">
                                                                 <label class="form-check-label" for="rd_teleton">
                                                                     SI
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="rd_teleton" value="0">
+                                                                <input class="form-check-input teleton" type="radio" name="rd_teleton" value="0">
                                                                 <label class="form-check-label" for="rd_teleton">
                                                                     NO
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="tele">
+
+                                                        </div>
+                                                        <div class="col-sm-12  col-md-6 col-lg-6 align-self-end">
                                                             <div class="form-group">
                                                                 <label for="tipo_user"></label>
                                                                 <div class="input-group mb-6">
@@ -274,15 +280,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row tele">
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card">
                                             <div class="card-header" id="headingThree" style="background-color: #558b2f">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white">
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white">
                                                         Diagnostico del beneficiario
                                                     </button>
                                                 </h2>
@@ -307,7 +311,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
-                                                                <label for="cbo_condicion">¿Cual es el diagnostico que presenta el beneficiario?</label>
+                                                                <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnostico que presenta el beneficiario?</label>
                                                                 <div class="input-group mb-6">
                                                                     <select class="custom-select" id="inputGroupSelect01" name="cbo_condicion">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
@@ -323,7 +327,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -339,18 +342,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
             let section = document.querySelector(".home-section");
-
+    
             closeBtn.addEventListener("click", () => {
                 sidebar.classList.toggle("open");
                 menuBtnChange();//calling the function(optional)
                 section.classList.toggle("move");
             });
-
+    
             searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
                 sidebar.classList.toggle("open");
                 menuBtnChange(); //calling the function(optional)
             });
-
+    
             // following are the code to change sidebar button(optional)
             function menuBtnChange() {
                 if (sidebar.classList.contains("open")) {
@@ -370,9 +373,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </script>
             <script type="text/javascript">
                 $('document').ready(function () {
-                    $('#collapseOne').collapse({
-                        toggle: false
-                    })
+                    $('.collapse').collapse();
                 });
             </script>
             <script>
@@ -579,7 +580,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     var radioTeleton = $("input[type=radio][name=rd_teleton]").filter(":checked")[0];
 
                     if (radioTeleton.value == 1) {
-                        inpTele.innerHTML = '<div clas="col-sm-12 col-md-6 col-lg-6"><div class="form-group"><label for="comuna" style="margin-left: 10px">Numero registro Teletón</label><input type="text" class="form-control" name="txt_Nteleton" id="teleton" required ></div></div>';
+                        inpTele.innerHTML = '<div clas="col-sm-12 col-md-4 col-lg-4"><div class="form-group"><label for="comuna" style="margin-left: 10px">Numero registro Teletón</label><input style="margin-left: 10px" type="text" class="form-control" name="txt_Nteleton" id="teleton" required ></div></div>';
                     } else {
                         inpTele.innerHTML = "";
                     }
