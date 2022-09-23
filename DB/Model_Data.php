@@ -45,8 +45,8 @@ class Data {
         return $query;
     }
 
-    public function addBenefi($rut, $nombre, $apellido, $fecha_nac, $genero, $direccion, $comuna, $c_identidad, $teleton, $pension, $ch_soli, $rs_hogar, $prevision) {
-        $sql = "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `chile_solidario`, `r_s_hogares`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha_nac', '$genero', '$direccion', '$comuna', '$c_identidad', '$teleton', '$pension', '$ch_soli', '$rs_hogar', '$prevision');";
+    public function addBenefi($rut, $nombre, $apellido, $fecha_nac, $genero, $direccion, $comuna, $c_identidad, $teleton, $creden , $pension, $ch_soli, $rs_hogar, $prevision) {
+        $sql = "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `c_discapacidad`, `pension`, `chile_solidario`, `r_s_hogares`, `prevision`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha_nac', '$genero', '$direccion', '$comuna', '$c_identidad', '$teleton', '$creden', '$pension', '$ch_soli', '$rs_hogar', '$prevision');";
         $this->con->query($sql);
     }
 

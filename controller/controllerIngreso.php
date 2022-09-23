@@ -123,8 +123,8 @@ $tipoArchi;
 
 if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
     //echo "Ha ocurrido un error. 2";
-    $data_control=null;
-    $tipoArchi=null;
+    $data_control = null;
+    $tipoArchi = null;
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -224,10 +224,10 @@ $prevision = isset($_POST['cbo_prevision']) ? $_POST['cbo_prevision'] : null;
 $teleton = isset($_POST['rd_teleton']) ? $_POST['rd_teleton'] : null;
 $numeroTeleton;
 
-if ($teleton==1){
+if ($teleton == 1) {
     $numeroTeleton = isset($_POST['txt_Nteleton']) ? $_POST['txt_Nteleton'] : null;
-}else{
-    $numeroTeleton=0;
+} else {
+    $numeroTeleton = 0;
 }
 
 ////////////////////////////Credencial
@@ -243,7 +243,7 @@ $credenFileBack;
 
 if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] > 0) {
     //echo "Ha ocurrido un error. 4";
-    $credenFileFront=null;
+    $credenFileFront = null;
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -281,7 +281,7 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
 
 if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 0) {
     //echo "Ha ocurrido un error. 5";
-    $credenFileBack=null;
+    $credenFileBack = null;
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -373,14 +373,12 @@ if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
 /////////////////////////////////Insercion de datos///////////////////////////
 
 if (!$existeBene) {
-    if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton==0 && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor
-            && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene) {
+    if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $teleton == 0 && $pension && $chSolid && $hogar && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $correoTutor && $prevision && $previBene) {
         echo '<script language="javascript">Success()</script>';
         //insert datos generales
-        
         //insert datos beneficiario
         $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $haveCreden, $pension, $chSolid, $hogar, $previBene);
-        
+
         $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
         //insert datos diagnostico beneficiario
         if ($havediag == 1) {
@@ -412,17 +410,17 @@ if (!$existeBene) {
     echo '<script language="javascript">ErrorExistencia()</script>';
 }
 
-echo $previBene."<br>";
+echo $previBene . "<br>";
 echo $prevision;
-  //echo $existeBene.'<br>';
-  echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar ." ".$previBene. "<br>";
-  echo '<br>' . $rut . " " . $pension;
-  echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
-  echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
-  echo '<br>' . $numeroTeleton . " " . $rut;
-  echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
-  echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
-  
-  echo '<br>'.$haveCreden;
-  //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
+//echo $existeBene.'<br>';
+echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar . " " . $previBene . "<br>";
+echo '<br>' . $rut . " " . $pension;
+echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
+echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
+echo '<br>' . $numeroTeleton . " " . $rut;
+echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
+echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
+
+echo '<br>' . $haveCreden;
+//echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>
