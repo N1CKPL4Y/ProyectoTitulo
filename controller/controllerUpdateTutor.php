@@ -113,9 +113,9 @@ if (empty($_POST["emailT"])) {
 if ($direccionT && $comunaT && $ocupacionT && $telefonoT && $emailT) {
     
     $data->updateTutor($rut, $direccionT, $comunaT, $ocupacionT, $telefonoT, $emailT);
-    if ($ar == 1) {
+    if ($dis == 1) {
         echo '<script>Success();</script>';
-    } else if ($ar == 2) {
+    } else if ($dis == 2) {
         echo '<script>SuccessDir();</script>';
     }
 } else {

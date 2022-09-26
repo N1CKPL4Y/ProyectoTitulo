@@ -289,7 +289,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                              );*/
                             var id = document.getElementById('id').value;
                             console.log(id);
-                            window.location = '../controller/controllerEvento.php?p=3&a=1&id=' + id;
+                            window.location = '../controller/controllerEvento.php?p=3&a=2&id=' + id;
                         }
                     })
                 });

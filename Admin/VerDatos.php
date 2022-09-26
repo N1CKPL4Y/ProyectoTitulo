@@ -273,9 +273,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateTutor.php?rut=<?php echo $rutBen; ?>" method="Post">
+                                    <form action="../controller/controllerUpdateTutor.php?dis=1&rut=<?php echo $rutBen; ?>" method="Post">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Tutor</h5>
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
@@ -397,7 +397,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                             <div class="card-body">
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <h4>Beneficios Generales:</h4>
+                                        <h4>Datos Generales:</h4>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
