@@ -133,7 +133,7 @@ $benefs = $data->getAllBenefi();
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <form action="../controller/controllerUpdateBene.php?dis=1" method="Post">
-                                        <div class="modal-header">
+                                        <div class="modal-header" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                         </div>
                                         <div class="modal-body">
@@ -204,8 +204,8 @@ $benefs = $data->getAllBenefi();
                 <div class="row" style="display: flex; align-items: center; justify-content: center;">
                     <div class="col-sm-12 col-md-10">
                         <div class="card" style="border-radius: 10px">
-                            <div class="card-header">
-                                <h3 class="card-title">Base de Consulta</h3>
+                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                                <h3 class="card-title center" style="font-size: 24px">Beneficiarios Registrados</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row justify-content-md-center">

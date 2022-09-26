@@ -274,7 +274,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <form action="../controller/controllerUpdateTutor.php?dis=1&rut=<?php echo $rutBen; ?>" method="Post">
-                                        <div class="modal-header">
+                                        <div class="modal-header" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Tutor</h5>
                                         </div>
                                         <div class="modal-body">
@@ -286,8 +286,6 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                         <small id="rut1" class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
                                                         <label for="nombreB" class="col-sm-8 col-form-label">Nombre completo del tutor</label>

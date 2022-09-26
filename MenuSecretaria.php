@@ -120,7 +120,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </h2>
                                             </div>
                                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                <div class="card-body">
+                                                <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
@@ -164,7 +164,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </h2>
                                             </div>
                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                                <div class="card-body">
+                                                <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
@@ -191,14 +191,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
                                                                 <label for="datepicker">Fecha de nacimiento</label>
-                                                                <input type="text" autocomplete="off" placeholder="--Seleccione--" class="form-control"  name="txt_Fnac" id="datepicker" style=" text-indent: 18px;">
+                                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="txt_Fnac" id="datepicker" style=" text-indent: 18px;">
+                                                                <span style="color: grey">Formato Año-Mes-Dia</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br>
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
-
                                                             <div class="form-group">
                                                                 <label for="tipo_user">Genero</label>
                                                                 <div class="input-group mb-6">
@@ -235,8 +235,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> Copia Carnet (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" name="file_carnet" accept="image/*" id="customFileLang" lang="es">
-                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                                                    <input type="file" class="custom-file-input" name="file_carnet" accept="image/*" id="copiaCarnetBene" lang="es">
+                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -293,7 +293,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </h2>
                                             </div>
                                             <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                                <div class="card-body">
+                                                <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <label for="rd_teleton" id="labelteleton" class="col-sm-10 col-form-label" >¿El beneficiario presenta algun diagnostico?</label>
@@ -314,7 +314,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-group">
                                                                 <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnostico que presenta el beneficiario?</label>
                                                                 <div class="input-group mb-6">
-                                                                    <select class="custom-select diag" id="inputGroupSelect01" name="cbo_condicion">
+                                                                    <select class="custom-select diag" id="inputGroupSelect01" name="cbo_condicion" disabled="">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
                                                                         <?php
                                                                         $condiciones = $data->getAllCondition();
@@ -333,7 +333,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-group">
                                                                 <label for="cbo_especialista" class="col-sm-10 col-form-label">Indique el especialista que emite el diagnostico</label>
                                                                 <div class="input-group mb-6">
-                                                                    <select class="custom-select diag" id="inputGroupSelect01" name="cbo_especialista">
+                                                                    <select class="custom-select diag" id="inputGroupSelect01" name="cbo_especialista" disabled="">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
                                                                         <?php
                                                                         $especialista = $data->getAllEspecialista();
@@ -349,17 +349,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
                                                                 <label for="datepicker" class="col-sm-10 col-form-label">Indique fecha del ultimo control con el especialista</label>
-                                                                <input type="text" autocomplete="off" placeholder="--Seleccione--" class="form-control diag"  name="txt_control" id="datepicker" style=" text-indent: 18px;">
+                                                                <input type="text" autocomplete="off" placeholder="--Seleccione--" class="form-control diag"  name="txt_control" id="datepicker" style=" text-indent: 18px;" disabled="">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="col-sm-12 col-md-8 col-lg-8">
                                                             <label style="margin-left: 10px">Copia informe ultimo control (PDF)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file ">
-                                                                    <input type="file" name="file_control" accept="application/pdf" class="custom-file-input diag" id="customFileLang" lang="es">
-                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                                                    <input type="file" name="file_control" accept="application/pdf" class="custom-file-input diag" id="copiaUltimoInforme" lang="es" disabled="">
+                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="copiaUltimoInforme">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -376,7 +376,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </h2>
                                             </div>
                                             <div id="collapsefour" class="collapse show" aria-labelledby="headingfour" data-parent="#accordionExample">
-                                                <div class="card-body">
+                                                <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
@@ -411,8 +411,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> Copia Carnet (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" name="file_tutor" accept="image/*" id="customFileLang" lang="es">
-                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                                                    <input type="file" class="custom-file-input" name="file_tutor" accept="image/*" id="copiaCarnetTutor" lang="es">
+                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetTutor">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
                                                         </div>
@@ -421,7 +421,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
                                                                 <label for="datepicker" class="col-sm-10 col-form-label">Fecha nacimiento tutor</label>
-                                                                <input type="text" autocomplete="off" placeholder="--Seleccionar--" class="form-control"  name="txt_nacTutor" id="datepicker" style=" text-indent: 18px;">
+                                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="txt_nacTutor" id="datepicker" style=" text-indent: 18px;">
+                                                                <span style="color: grey">Formato Año-Mes-Dia</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -518,7 +519,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </h2>
                                             </div>
                                             <div id="collapsefive" class="collapse show" aria-labelledby="headingfour" data-parent="#accordionExample">
-                                                <div class="card-body">
+                                                <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <label for="discapacidad" id="labeldisc">¿Cuenta con credencial de discapacidad?</label>
@@ -551,7 +552,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Origen principal</label>
                                                                     </div>
-                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_origenP">
+                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_origenP" disabled="">
                                                                         <option value="" disabled selected>-- Seleccione --</option>
                                                                         <option value="1">Fisico</option>
                                                                         <option value="2">Sensorial Visual</option>
@@ -570,7 +571,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Origen Secundario</label>
                                                                     </div>
-                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_origenS">
+                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_origenS" disabled="">
                                                                         <option value="" disabled selected>-- Seleccione --</option>
                                                                         <option value="1">Fisico</option>
                                                                         <option value="2">Sensorial Visual</option>
@@ -587,7 +588,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="porcentaje_d" style="margin-left: 10px">Porcentaje de discapacidad</label>
-                                                                <input type="text" class="form-control numCred" name="txt_porcentaje_d" id="porcentaje_d" required>
+                                                                <input type="text" class="form-control numCred" name="txt_porcentaje_d" id="porcentaje_d" required disabled="">
                                                                 <span style="color: grey"></span>
                                                             </div>
                                                         </div>
@@ -598,7 +599,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Grado de discapacidad</label>
                                                                     </div>
-                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_grado">
+                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_grado" disabled="">
                                                                         <option value="" disabled selected>-- Seleccione --</option>
                                                                         <option value="1">Leve</option>
                                                                         <option value="2">Moderado</option>
@@ -618,7 +619,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Movilidad Reducida</label>
                                                                     </div>
-                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_movilidad">
+                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_movilidad" disabled="">
                                                                         <option value="" disabled selected>-- Seleccione --</option>
                                                                         <option value="1">Leve</option>
                                                                         <option value="2">Moderado</option>
@@ -635,8 +636,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> C. Discapacidad (Parte delantera) (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input numCred" name="file_credenFront" accept="image/*" id="customFileLang" lang="es">
-                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                                                    <input type="file" class="custom-file-input numCred" name="file_credenFront" accept="image/*" id="credenFront" lang="es" disabled="">
+                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="credenFront">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
                                                         </div>
@@ -644,8 +645,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> C. Discapacidad (Parte trasera) (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input numCred" name="file_credenBack" accept="image/*" id="customFileLang" lang="es">
-                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                                                    <input type="file" class="custom-file-input numCred" name="file_credenBack" accept="image/*" id="credenBack" lang="es" disabled="">
+                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="credenBack">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
                                                         </div>
@@ -662,7 +663,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </h2>
                                             </div>
                                             <div id="collapsesix" class="collapse show" aria-labelledby="headingfour" data-parent="#accordionExample">
-                                                <div class="card-body">
+                                                <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6 align-self-end">
                                                             <div class="form-group">
@@ -721,19 +722,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="porcentajeF" style="margin-left: 10px">Porcentaje en registro social de hogares</label>
-                                                                <input type="text" class="form-control numCred" name="txt_porcentajeF" id="porcentajeF" required disabled="">
+                                                                <input type="text" class="form-control" name="txt_porcentajeF" id="porcentajeF" required disabled="">
                                                                 <span style="color: grey"></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br>
                                                     <div class="row">
-                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="col-sm-12 col-md-8 col-lg-8">
                                                             <label style="margin-left: 10px">Copia del registro (PDF)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" name="file_Hogar" accept="application/pdf" id="customFileLang" lang="es">
-                                                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                                                    <input type="file" class="custom-file-input" name="file_Hogar" accept="application/pdf" id="cR" disabled="">
+                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="cR">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
                                                         </div>
@@ -779,6 +780,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 }
             }
         </script> -->
+            <script>
+                $(document).ready(function () {
+
+                    $("#copiaCarnetBene").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $("#copiaUltimoInforme").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $("#copiaCarnetTutor").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $("#credenFront").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $("#credenBack").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $("#cR").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                });
+            </script>
             <script>
                 $(function () {
                     $('.dates #datepicker').datepicker({

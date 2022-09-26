@@ -124,7 +124,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px;">
                             <div class="card-header">
-                                <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
+                                <h4 class="center" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row justify-content-around">
