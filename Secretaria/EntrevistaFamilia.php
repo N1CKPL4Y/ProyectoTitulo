@@ -558,7 +558,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                             <div class="card-body">
-                                                
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

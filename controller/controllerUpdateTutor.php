@@ -1,7 +1,8 @@
 <?php
-    $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
-    
-?><!DOCTYPE html>
+$rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
+$dis = isset($_GET['dis']) ? $_GET['dis'] : null;
+?>
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -13,7 +14,7 @@
     </head>
     <body>
         <script>
-            let rut = '<?php echo $rutBen;?>';
+            let rut = '<?php echo $rutBen; ?>';
             function Success() {
                 swal({
                     title: "Actualización Exitosa",
@@ -23,10 +24,23 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../Admin/VerDatos.php?rut='+rut;
+                            window.location.href = '../Admin/VerDatos.php?rut=' + rut;
                         });
             }
             
+            function SuccessDir() {
+                swal({
+                    title: "Actualización Exitosa",
+                    text: "Tutor actualizado exitosamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirVerDatos.php?rut=' + rut;
+                        });
+            }
+
             function Error() {
                 swal({
                     title: "ERROR",
@@ -36,7 +50,20 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../Admin/VerDatos.php?rut='+rut;
+                            window.location.href = '../Admin/VerDatos.php?rut=' + rut;
+                        });
+            }
+            
+            function ErrorDir() {
+                swal({
+                    title: "ERROR",
+                    text: "Algun dato es incorrecto, reintente",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirVerDatos.php?rut=' + rut;
                         });
             }
         </script>
@@ -44,7 +71,6 @@
 </html>
 
 <?php
-
 include_once '../DB/Model_Data.php';
 $data = new Data();
 
@@ -53,42 +79,51 @@ session_start();
 
 $rut = isset($_POST["rutT"]) ? $_POST["rutT"] : null;
 
-if (empty($_POST["direccionT"])){
+if (empty($_POST["direccionT"])) {
     $direccionT = isset($_POST["direccionA"]) ? $_POST["direccionA"] : null;
-}else{
+} else {
     $direccionT = isset($_POST["direccionT"]) ? $_POST["direccionT"] : null;
 }
 
-if(empty($_POST["comunaT"])){
+if (empty($_POST["comunaT"])) {
     $comunaT = isset($_POST["comunaAT"]) ? $_POST["comunaAT"] : null;
-}else{
+} else {
     $comunaT = isset($_POST["comunaT"]) ? $_POST["comunaT"] : null;
 }
 
-if(empty($_POST["ocupacionT"])){
+if (empty($_POST["ocupacionT"])) {
     $ocupacionT = isset($_POST["ocupacionAT"]) ? $_POST["ocupacionAT"] : null;
-}else{
+} else {
     $ocupacionT = isset($_POST["ocupacionT"]) ? $_POST["ocupacionT"] : null;
 }
 
-if(empty($_POST["telefonoT"])){
+if (empty($_POST["telefonoT"])) {
     $telefonoT = isset($_POST["telefonoAT"]) ? $_POST["telefonoAT"] : null;
-}else{
+} else {
     $telefonoT = isset($_POST["telefonoT"]) ? $_POST["telefonoT"] : null;
 }
 
-if(empty($_POST["emailT"])){
+if (empty($_POST["emailT"])) {
     $emailT = isset($_POST["emailAT"]) ? $_POST["emailAT"] : null;
-}else{
+} else {
     $emailT = isset($_POST["emailT"]) ? $_POST["emailT"] : null;
 }
 
 //echo $direccionT.' '.$comunaT.' '.$ocupacionT.' '.$telefonoT.' '.$emailT;
-if($direccionT && $comunaT && $ocupacionT && $telefonoT && $emailT ){
-    echo '<script>Success()</script>';
+if ($direccionT && $comunaT && $ocupacionT && $telefonoT && $emailT) {
+    
     $data->updateTutor($rut, $direccionT, $comunaT, $ocupacionT, $telefonoT, $emailT);
-}else{
-    echo '<script>Error()</script>';
+    if ($ar == 1) {
+        echo '<script>Success();</script>';
+    } else if ($ar == 2) {
+        echo '<script>SuccessDir();</script>';
+    }
+} else {
+    if ($dis == 1) {
+        echo '<script>Error();</script>';
+    } else if ($dis == 2) {
+        echo '<script>ErrorDir();</script>';
+    }
 }
 ?>
 

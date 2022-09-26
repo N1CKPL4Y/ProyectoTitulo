@@ -251,7 +251,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateTutor.php?rut=<?php echo $rutBen; ?>" method="Post">
+                                    <form action="../controller/controllerUpdateTutor.php?dis=1&rut=<?php echo $rutBen; ?>" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                         </div>
