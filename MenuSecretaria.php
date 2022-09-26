@@ -460,9 +460,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-group">
                                                                 <label for="correo" style="margin-left: 10px">Indique el correo electronico del tutor</label>
                                                                 <input type="text" class="form-control" name="txt_correo" id="correo" required >
-                                                                <span style="color: grey"></span>
+                                                                <span id="emailVal" style="color: grey"></span>
                                                             </div>
-                                                            <span id="emailVal"></span>
                                                         </div>
                                                     </div>
                                                     <div class="row">
