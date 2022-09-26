@@ -222,7 +222,7 @@ $eventJson = json_encode($eventoA);
                                     // any other event sources...
 
                                     ],
-                                            //events: <?php //echo $eventJson;   ?>,
+                                            //events: <?php //echo $eventJson;    ?>,
                                             editable: true,
                                             droppable: true,
                                             // funcion recibe info
@@ -235,7 +235,7 @@ $eventJson = json_encode($eventoA);
                                             document.getElementById('startEvent').value = info.dateStr;
                                             document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
                                             document.getElementById('btn_Action').textContent = 'Registrar';
-                                            form.action = "../controller/controllerEvento.php?p=1";
+                                            form.action = "../controller/controllerEvento.php?p=1&a=1";
                                             form.method = 'POST';
                                             modal.show();
                                             //traer input con id startEvent y darle el valor info.dateStr
@@ -253,7 +253,7 @@ $eventJson = json_encode($eventoA);
                                             document.getElementById('title').value = info.event.title;
                                             document.getElementById('startEvent').value = info.event.startStr;
                                             document.getElementById('color').value = info.event.backgroundColor;
-                                            form.action = "../controller/controllerEvento.php?p=2";
+                                            form.action = "../controller/controllerEvento.php?p=2&a=1";
                                             form.method = 'POST';
                                             console.log(info);
                                             modal.show();
@@ -261,7 +261,7 @@ $eventJson = json_encode($eventoA);
                                             eventDrop: function(info) {
                                             const id = info.event.id;
                                             const fecha = info.event.startStr;
-                                            window.location = '../controller/controllerEvento.php?p=4&id=' + id + '&fecha=' + fecha;
+                                            window.location = '../controller/controllerEvento.php?p=4&a=1&id=' + id + '&fecha=' + fecha;
                                             console.log(id, fecha);
                                             },
                                             //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
@@ -293,7 +293,7 @@ $eventJson = json_encode($eventoA);
                              );*/
                             var id = document.getElementById('id').value;
                             console.log(id);
-                            window.location = '../controller/controllerEvento.php?p=3&id=' + id;
+                            window.location = '../controller/controllerEvento.php?p=3&a=1&id=' + id;
                             }
                             })
                             });

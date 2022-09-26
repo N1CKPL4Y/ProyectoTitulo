@@ -75,7 +75,7 @@ $benefs = $data->getAllBenefi();
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
-                    <a href="../controller/controllerLogout.php">
+                    <a href="controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
                     </a>
@@ -112,7 +112,7 @@ $benefs = $data->getAllBenefi();
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="controller/controllerUpdateBene.php" method="Post">
+                                    <form action="controller/controllerUpdateBene.php?dis=2" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

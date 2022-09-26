@@ -23,6 +23,19 @@
                         });
             }
 
+            function SuccessDir() {
+                swal({
+                    title: "Registro Exitoso",
+                    text: "Evento registrado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirCalendario.php';
+                        });
+            }
+
             function SuccessUp() {
                 swal({
                     title: "Actualización Exitosa",
@@ -33,6 +46,19 @@
                 },
                         function () {
                             window.location.href = '../Admin/Calendario.php';
+                        });
+            }
+
+            function SuccessUpDir() {
+                swal({
+                    title: "Actualización Exitosa",
+                    text: "Evento actualizado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirCalendario.php';
                         });
             }
 
@@ -49,6 +75,19 @@
                         });
             }
 
+            function SuccessDelDir() {
+                swal({
+                    title: "Eliminación Exitosa",
+                    text: "Evento eliminado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirCalendario.php';
+                        });
+            }
+
             function Error() {
                 swal({
                     title: "ERROR",
@@ -58,21 +97,23 @@
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../MenuSecretaria.php';
+                            window.location.href = '../Admin/Calendario.php';
                         });
             }
-            function ErrorExistencia() {
+
+            function ErrorDir() {
                 swal({
                     title: "ERROR",
-                    text: "Datos faltantes, incorrectos y/o ya existen en el sistema. Intentelo nuevamente",
+                    text: "Intentelo nuevamente",
                     type: "error",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../MenuSecretaria.php';
+                            window.location.href = '../Direccion/DirCalendario.php';
                         });
             }
+
         </script>
     </body>
 </html>
@@ -82,6 +123,7 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $param = isset($_GET['p']) ? $_GET['p'] : null;
+$ar = isset($_GET['a']) ? $_GET['a'] : null;
 
 if ($param == 1) {
     $title = isset($_POST['txt_title']) ? $_POST['txt_title'] : null;
@@ -102,8 +144,12 @@ if ($param == 1) {
     }
     /* print_r($eventoA);
       $popo = json_encode($eventoA);
-      echo '<br>' . $popo;*/
-      echo '<script>Success();</script>'; 
+      echo '<br>' . $popo; */
+    if ($ar == 1) {
+        echo '<script>Success();</script>';
+    } else if ($ar == 2) {
+        echo '<script>SuccessDir();</script>';
+    }
 } else if ($param == 2) {
     echo 'hola';
     $id = isset($_POST['txt_id']) ? $_POST['txt_id'] : null;
@@ -126,20 +172,39 @@ if ($param == 1) {
       print_r($eventoA);
       $popo = json_encode($eventoA); */
 //echo '<br>' . $popo;
-    echo '<script>SuccessUp();</script>';
+    if ($ar == 1) {
+        echo '<script>SuccessUp();</script>';
+    } else if ($ar == 2) {
+        echo '<script>SuccessUpDir();</script>';
+    }
 } else if ($param == 3) {
     echo 'edio';
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $data->delEvento($id);
     echo '<br>' . $id;
-    echo '<script>SuccessDel();</script>';
-} else if ($param==4){
+    if ($ar==1){
+       echo '<script>SuccessDel();</script>'; 
+   }else if($ar==2){
+       echo '<script>SuccessDelDir();</script>'; 
+   }
+} else if ($param == 4) {
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $fecha = isset($_GET['fecha']) ? $_GET['fecha'] : null;
-    echo '<br>'.$id.'<br>'.$fecha;
+    echo '<br>' . $id . '<br>' . $fecha;
     $data->dropEvent($id, $fecha);
-    echo '<script>SuccessUp();</script>';
-}else {
-    echo '<script>Error();</script>';
+    
+    if ($ar == 1) {
+        echo '<script>SuccessUp();</script>';
+    } else if ($ar == 2) {
+        echo '<script>SuccessUpDir();</script>';
+    }
+    
+} else {
+    
+    if ($ar == 1) {
+        echo '<script>Error();</script>';
+    } else if ($ar == 2) {
+        echo '<script>ErrorDir();</script>';
+    }
 }
 ?>

@@ -59,14 +59,22 @@ $activo = isset($_POST['deshabilitar']) ? $_POST['deshabilitar'] : null;
 
 /*var_dump($activo);
 echo $activo;*/
-$estado;
+$estado = isset($_POST['estado_a']) ? $_POST['estado_a'] : null;
 if (!empty($activo)){
     echo 'holi<br>';
+    
+    //$estado=$activo;
+    if($activo==2){
+        $activo=0;
+    }else{
+        $activo=1;
+    }
     echo $activo;
-    $estado=$activo;
 }else{
     echo 'putito <br>';
-    $estado=false;
+    //$estado=false;
+    $activo=3;
+    echo $activo."<br>".$estado;
 }
 
 //input escondido pass
@@ -114,14 +122,15 @@ if($cargo == 0){
 
 
 
-if($rut && $nombre && $apellido && $email && $passwd && $telefono && $t_user && $a_user && $cargo && $estado !== false){
+if($rut && $nombre && $apellido && $email && $passwd && $telefono && $t_user && $a_user && $cargo){
     //echo $rut.' '.$nombre.' '.$apellido.' '.$email.' '.$passwd.' '.$telefono.' '.$t_user. ' '.$a_user.' '.$cargo.' '.$activo;
-    echo '<script>Success()</script>';
-    if ($activo==2){
-        $data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, 0);
+    
+    if ($activo==3){
+        $data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $estado);
     } else {
         $data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo);
     }
+    echo '<script>Success()</script>';
 }else{
     echo '<script>Error()</script>';
 }

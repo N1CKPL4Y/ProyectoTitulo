@@ -23,6 +23,16 @@ switch ($_SESSION['cargo']) {
 }
 
 $data = new Data();
+
+$eventoA = array();
+$eventos = $data->getAllEvent();
+foreach ($eventos as $value) {
+    $value['title'] . '<br>';
+    $value['start'] . '<br>';
+    $value['color'] . '<br>';
+    array_push($eventoA, $value);
+}
+$eventJson = json_encode($eventoA);
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +50,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="js/validarut.js"></script>
-        <script src="js/jquery.rut.js"></script>
-        <script src="Materialize/js/funciones.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
+        <script src="../Materialize/js/funciones.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -56,13 +66,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!-- Theme style -->
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
         <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
-
         <link rel="stylesheet" href="../AdminLTE/plugins/fullcalendar/main.css">
-
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css?v=3.2.0">
-        <script nonce="dad866f0-7b4e-459c-92df-8e1fe510a0c2">(function(w, d){!function(a, e, t, r){a.zarazData = a.zarazData || {}; a.zarazData.executed = []; a.zaraz = {deferred:[], listeners:[]}; a.zaraz.q = []; a.zaraz._f = function(e){return function(){var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({m:e, a:t})}}; for (const e of["track", "set", "debug"])a.zaraz[e] = a.zaraz._f(e); a.zaraz.init = () => {var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0]; n && (a.zarazData.t = e.getElementsByTagName("title")[0].text); a.zarazData.x = Math.random(); a.zarazData.w = a.screen.width; a.zarazData.h = a.screen.height; a.zarazData.j = a.innerHeight; a.zarazData.e = a.innerWidth; a.zarazData.l = a.location.href; a.zarazData.r = e.referrer; a.zarazData.k = a.screen.colorDepth; a.zarazData.n = e.characterSet; a.zarazData.o = (new Date).getTimezoneOffset(); a.zarazData.q = []; for (; a.zaraz.q.length; ){const e = a.zaraz.q.shift(); a.zarazData.q.push(e)}z.defer = !0; for (const e of[localStorage, sessionStorage])Object.keys(e || {}).filter((a => a.startsWith("_zaraz_"))).forEach((t => {try{a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t))} catch {a.zarazData["z_" + t.slice(7)] = e.getItem(t)}})); z.referrerPolicy = "origin"; z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))); t.parentNode.insertBefore(z, t)}; ["complete", "interactive"].includes(e.readyState)?zaraz.init():a.addEventListener("DOMContentLoaded", zaraz.init)}(w, d, 0, "script"); })(window, document);</script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        
     </head>
     <body>
         <div class="sidebar open">
@@ -209,7 +218,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         // any other event sources...
 
                     ],
-                    //events: <?php //echo $eventJson;    ?>,
+                    //events: ,
                     editable: true,
                     droppable: true,
                     // funcion recibe info
@@ -222,7 +231,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         document.getElementById('startEvent').value = info.dateStr;
                         document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
                         document.getElementById('btn_Action').textContent = 'Registrar';
-                        form.action = "../controller/controllerEvento.php?p=1";
+                        form.action = "../controller/controllerEvento.php?p=1&a=2";
                         form.method = 'POST';
                         modal.show();
                         //traer input con id startEvent y darle el valor info.dateStr
@@ -240,7 +249,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         document.getElementById('title').value = info.event.title;
                         document.getElementById('startEvent').value = info.event.startStr;
                         document.getElementById('color').value = info.event.backgroundColor;
-                        form.action = "../controller/controllerEvento.php?p=2";
+                        form.action = "../controller/controllerEvento.php?p=2&a=2";
                         form.method = 'POST';
                         console.log(info);
                         modal.show();
@@ -248,7 +257,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     eventDrop: function (info) {
                         const id = info.event.id;
                         const fecha = info.event.startStr;
-                        window.location = '../controller/controllerEvento.php?p=4&id=' + id + '&fecha=' + fecha;
+                        window.location = '../controller/controllerEvento.php?p=4&a=2&id=' + id + '&fecha=' + fecha;
                         console.log(id, fecha);
                     },
                     //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
@@ -280,7 +289,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                              );*/
                             var id = document.getElementById('id').value;
                             console.log(id);
-                            window.location = '../controller/controllerEvento.php?p=3&id=' + id;
+                            window.location = '../controller/controllerEvento.php?p=3&a=1&id=' + id;
                         }
                     })
                 });

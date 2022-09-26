@@ -132,7 +132,7 @@ $benefs = $data->getAllBenefi();
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateBene.php" method="Post">
+                                    <form action="../controller/controllerUpdateBene.php?dis=1" method="Post">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

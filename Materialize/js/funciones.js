@@ -37,7 +37,7 @@ function cargarDatos(datos) {
     $('#aUser').val(d[9]);
     $('#cargoU').val(d[10]);
     $('#cUser').val(d[11]);
-    
+    $('#estado_a').val(d[12]);
     if (d[12]==1) {
         $('#estadoU').val("Activo");
         $('#labelDes').text("¿Desea desactivar el usuario?");
