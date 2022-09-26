@@ -63,6 +63,13 @@ $eventJson = json_encode($eventoA);
             </div>
             <ul class="nav-list">
                 <li>
+                    <a href="../MenuAdmin.php">
+                        <i class='bx bx-home' ></i>
+                        <span class="links_name">Vover a Inicio</span>
+                    </a>
+                    <span class="tooltip">Volver a Inicio</span>
+                </li>
+                <li>
                     <a href="RNuevoUsuario.php">
                         <i class="material-icons">person_add</i>
                         <span class="links_name">Registrar Usuarios</span>
@@ -75,13 +82,6 @@ $eventJson = json_encode($eventoA);
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </a>
                     <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
-                </li>
-                <li>
-                    <a href="Calendario.php">
-                        <i class='bx bx-calendar'></i>
-                        <span class="links_name">Calendario Mensual</span>
-                    </a>
-                    <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
                     <a href="EditarDatos.php">
@@ -209,95 +209,95 @@ $eventJson = json_encode($eventoA);
                     eventSources: [
 
                             // your event source
-                            //{
-                            /*events: [ // put the array in the `events` property
-                            
-                                    color: 'black', // an option!
-                                    textColor: 'yellow' // an option!
-                            },*/
-                            {
-                                events: <?php echo $eventJson;  ?>
+                                    //{
+                                            /*events: [ // put the array in the `events` property
+                                             
+                                             color: 'black', // an option!
+                                             textColor: 'yellow' // an option!
+                                             },*/
+                                            {
+                                            events: <?php echo $eventJson; ?>
+                                            }
+
+                                    // any other event sources...
+
+                                    ],
+                                            //events: <?php //echo $eventJson;   ?>,
+                                            editable: true,
+                                            droppable: true,
+                                            // funcion recibe info
+                                            dateClick: function(info) {
+                                            form.reset();
+                                            document.getElementById('id').value = '';
+                                            del.classList.add('d-none');
+                                            document.getElementById('startEvent').readOnly = true;
+                                            document.getElementById('id_event').classList.add('d-none');
+                                            document.getElementById('startEvent').value = info.dateStr;
+                                            document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
+                                            document.getElementById('btn_Action').textContent = 'Registrar';
+                                            form.action = "../controller/controllerEvento.php?p=1";
+                                            form.method = 'POST';
+                                            modal.show();
+                                            //traer input con id startEvent y darle el valor info.dateStr
+                                            //info es el data de calendar y dateStr es la fecha tipo string
+                                            //abrir modal
+
+                                            },
+                                            eventClick: function(info) {
+                                            document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
+                                            document.getElementById('btn_Action').textContent = 'Modificar';
+                                            document.getElementById('id_event').classList.remove('d-none');
+                                            del.classList.remove('d-none');
+                                            document.getElementById('startEvent').readOnly = false;
+                                            document.getElementById('id').value = info.event.id;
+                                            document.getElementById('title').value = info.event.title;
+                                            document.getElementById('startEvent').value = info.event.startStr;
+                                            document.getElementById('color').value = info.event.backgroundColor;
+                                            form.action = "../controller/controllerEvento.php?p=2";
+                                            form.method = 'POST';
+                                            console.log(info);
+                                            modal.show();
+                                            },
+                                            eventDrop: function(info) {
+                                            const id = info.event.id;
+                                            const fecha = info.event.startStr;
+                                            window.location = '../controller/controllerEvento.php?p=4&id=' + id + '&fecha=' + fecha;
+                                            console.log(id, fecha);
+                                            },
+                                            //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+                                            headerToolbar: {
+                                            left: 'prev,next today',
+                                                    center: 'title',
+                                                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                                            }
+                                    });
+                            calendar.render();
+                            del.addEventListener('click', function () {
+                            modal.hide();
+                            Swal.fire({
+                            title: 'Estas seguro?',
+                                    text: "Se borrara el evento",
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Si, Borrar!',
+                                    cancelButtonText: 'Cancelar',
+                            }).then((result) => {
+                            if (result.isConfirmed) {
+                            console.log('peeee');
+                            /*Swal.fire(
+                             'Deleted!',
+                             'Your file has been deleted.',
+                             'success'
+                             );*/
+                            var id = document.getElementById('id').value;
+                            console.log(id);
+                            window.location = '../controller/controllerEvento.php?p=3&id=' + id;
                             }
-
-                    // any other event sources...
-
-                    ],
-                    //events: <?php //echo $eventJson;  ?>,
-                    editable: true,
-                    droppable: true,
-                    // funcion recibe info
-                    dateClick: function(info) {
-                    form.reset();
-                    document.getElementById('id').value = '';
-                    del.classList.add('d-none');
-                    document.getElementById('startEvent').readOnly = true;
-                    document.getElementById('id_event').classList.add('d-none');
-                    document.getElementById('startEvent').value = info.dateStr;
-                    document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
-                    document.getElementById('btn_Action').textContent = 'Registrar';
-                    form.action = "../controller/controllerEvento.php?p=1";
-                    form.method = 'POST';
-                    modal.show();
-                    //traer input con id startEvent y darle el valor info.dateStr
-                    //info es el data de calendar y dateStr es la fecha tipo string
-                    //abrir modal
-
-                    },
-                    eventClick: function(info) {
-                    document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
-                    document.getElementById('btn_Action').textContent = 'Modificar';
-                    document.getElementById('id_event').classList.remove('d-none');
-                    del.classList.remove('d-none');
-                    document.getElementById('startEvent').readOnly = false;
-                    document.getElementById('id').value = info.event.id;
-                    document.getElementById('title').value = info.event.title;
-                    document.getElementById('startEvent').value = info.event.startStr;
-                    document.getElementById('color').value = info.event.backgroundColor;
-                    form.action = "../controller/controllerEvento.php?p=2";
-                    form.method = 'POST';
-                    console.log(info);
-                    modal.show();
-                    },
-                    eventDrop: function(info) {
-                    const id = info.event.id;
-                    const fecha = info.event.startStr;
-                    window.location = '../controller/controllerEvento.php?p=4&id=' + id + '&fecha=' + fecha;
-                    console.log(id, fecha);
-                    },
-                    //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-                    headerToolbar: {
-                    left: 'prev,next today',
-                            center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    }
-            });
-            calendar.render();
-            del.addEventListener('click', function () {
-            modal.hide();
-            Swal.fire({
-            title: 'Estas seguro?',
-                    text: "Se borrara el evento",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Borrar!',
-                    cancelButtonText: 'Cancelar',
-            }).then((result) => {
-            if (result.isConfirmed) {
-            console.log('peeee');
-            /*Swal.fire(
-             'Deleted!',
-             'Your file has been deleted.',
-             'success'
-             );*/
-            var id = document.getElementById('id').value;
-            console.log(id);
-            window.location = '../controller/controllerEvento.php?p=3&id=' + id;
-            }
-            })
-            });
-            });
+                            })
+                            });
+                            });
 
         </script>
     </body>

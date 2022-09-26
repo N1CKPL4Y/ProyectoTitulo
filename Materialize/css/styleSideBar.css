@@ -7,10 +7,6 @@
     font-family: "Poppins" , sans-serif;
 }
 
-.card-body{
-    background-color: #C8E6C9;
-}
-
 .sidebar{
     overflow: hidden;
     position: fixed;

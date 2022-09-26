@@ -152,6 +152,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <br>
                                         <div class="row">
+                                            <span style="color: grey">Estas areas corresponden a las areas que posee cada profesional y practicante</span>
+                                        </div>
+                                        <br>
+                                        <div class="row">
                                             <div class="col-md-6 col-sm-10">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
@@ -258,6 +262,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <br>
                                         <div class="row">
+                                            <span style="color: grey">Estas condiciones estan asociadas a cada beneficiario registrado en el sistema</span>
+                                        </div>
+                                        <br>
+                                        <div class="row">
                                             <div class="col-md-12 col-sm-10 center">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
@@ -319,6 +327,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <br>
                                         <div class="row">
+                                            <span style="color: grey">Estas pensiones estan asociadas a los beneficiarios registrados en el sistema</span>
+                                        </div>
+                                        <br>
+                                        <div class="row">
                                             <div class="col-md-12 col-sm-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
@@ -373,6 +385,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                             </form>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <span style="color: grey">Estas areas de especialistas corresponden a los especialistas que derivan al beneficiario previo al registro en el sistema</span>
                                         </div>
                                         <br>
                                         <div class="row">

@@ -246,6 +246,26 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 default:
                     break;
             }
+
+            $Dgenerales = $data->getDatosGenerales($rutBase);
+            $txtMotivo;
+            $txtDerivacion;
+            $txtAtencion;
+            foreach ($Dgenerales as $value2) {
+                $txtMotivo = $value2['motivo'];
+                $txtDerivacion = $value2['derivacion'];
+                $txtAtencion = $value2['atencion'];
+            }
+            switch ($txtAtencion) {
+                case 1:
+                    $txtAtencion = 'Atención por beneficio (Programas sociales previo evaluación social)';
+                    break;
+                case 2:
+                    $txtAtencion = 'Atención por programa pagado (Costo minimo asociado)';
+                    break;
+                default:
+                    break;
+            }
             ?>
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
                 <div class="row">
@@ -375,6 +395,39 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 <h3>Datos del beneficiario</h3>
                             </div>
                             <div class="card-body">
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <h4>Beneficios Generales:</h4>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Motivo</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $txtMotivo; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Derivación</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $txtDerivacion; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping">Tipo de atención</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $txtAtencion; ?>" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <h4>Datos Personales:</h4>
@@ -844,7 +897,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             valido = document.getElementById('emailVal');
             emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
             //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
+            
             if (emailRegex.test(campo.value)) {
                 valido.innerText = "Correo válido";
             } else {

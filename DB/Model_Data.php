@@ -394,6 +394,12 @@ class Data {
         return $query;
     }
     
+    public function getDatosGenerales($rut){
+        $sql = "SELECT * FROM `datosgenerales` WHERE beneficiario = '$rut';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
 }
 ?>
 

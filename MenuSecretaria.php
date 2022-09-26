@@ -145,7 +145,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="t_atencion" value="0">
+                                                                <input class="form-check-input" type="radio" name="t_atencion" value="2">
                                                                 <label class="form-check-label" for="t_atencion">
                                                                     Atención por programa pagado (Costo minimo asociado)
                                                                 </label>

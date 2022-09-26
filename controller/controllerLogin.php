@@ -26,13 +26,13 @@
             function Gerencia() {
                 swal({
                     title: "Bienvenido",
-                    text: "Gerente",
+                    text: "Dirección",
                     type: "success",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../index.php';
+                            window.location.href = '../menuDireccion.php';
                         });
             }
 

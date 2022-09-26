@@ -309,14 +309,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
                 <div class="row justify-content-around" style="padding-top: 25px">
-                    <div class="col-sm-12 col-md-10">
+                    <div class="col-sm-12 col-md-12">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-header">
                                 <h3 class="card-title">Usuarios Registrados</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row justify-content-md-center">
-                                    <div class="col-sm-4 col-md-12">
+                                    <div class="col-sm-4 col-md-10">
                                         <table id="myTable" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
