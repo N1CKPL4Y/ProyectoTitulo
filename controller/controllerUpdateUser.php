@@ -61,7 +61,7 @@ $activo = isset($_POST['deshabilitar']) ? $_POST['deshabilitar'] : null;
 echo $activo;*/
 $estado = isset($_POST['estado_a']) ? $_POST['estado_a'] : null;
 if (!empty($activo)){
-    echo 'holi<br>';
+    //echo 'holi<br>';
     
     //$estado=$activo;
     if($activo==2){
@@ -69,12 +69,12 @@ if (!empty($activo)){
     }else{
         $activo=1;
     }
-    echo $activo;
+    //echo $activo;
 }else{
-    echo 'putito <br>';
+    //echo 'putito <br>';
     //$estado=false;
     $activo=3;
-    echo $activo."<br>".$estado;
+    //echo $activo."<br>".$estado;
 }
 
 //input escondido pass
