@@ -386,6 +386,33 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase;?></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row justify-content-around">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <img name="hola" width="700" height="400" src="data:image/jpeg;base64,<?php echo base64_encode($imgBase) ?>"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn btn-success btn-primary">Descargar copia carnet</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px">
@@ -441,7 +468,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/Carnet.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <button type="button" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#staticBackdrop">
+                                            Ver Copia Carnet
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -895,7 +924,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             valido = document.getElementById('emailVal');
             emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
             //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-            
+
             if (emailRegex.test(campo.value)) {
                 valido.innerText = "Correo válido";
             } else {

@@ -31,9 +31,9 @@ if ($row = $resul->fetch_array()) {
         
     </head>
     <body>
-        <a >
+        <a href="#" download="carnet.jpeg">
 <?php
-echo '<img name="hola" width="400" height="700" src="data:' . $tipo . ';base64,' . base64_encode($contenido) . '" style="transform:rotate(-90deg);"/>';
+echo '<img name="hola" width="700" height="400" download="hola" src="data:image/jpeg;charset=utf-8;base64,' . base64_encode($contenido) . '" />';
 ?>
         </a>
     </body>
