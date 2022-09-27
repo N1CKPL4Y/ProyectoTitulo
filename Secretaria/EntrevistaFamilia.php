@@ -210,149 +210,149 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 }
                             }
                             ?>
-
+                            <div class="row" style="margin-top: 15px">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del beneficiario:</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Rut</span>
+                                                        </div>
+                                                        <input type="text" id="rut_b1" name="txt_rutb1" value="<?php echo $rutBd; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Nombres</span>
+                                                        </div>
+                                                        <input type="text" id="nombre1" name="txt_nombre1" value="<?php echo $nombreBD; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Apellidos</span>
+                                                        </div>
+                                                        <input type="text" id="apellido1" name="txt_a1" value="<?php echo $apellidoBD; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3 dates">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Fecha de nacimiento</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="datepicker" readonly value="<?php echo $fech_nacBD ?>" name="txt_nac"  aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Dirección</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_dire" value="<?php echo $direccBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">¿Posee credencial de discapacidad?</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_cDis" value="<?php echo $credenBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Diagnostico</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $diagBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                                    <?php
+                                                    $array = $data->getEspecialista($profeBD);
+                                                    $textEsp;
+                                                    foreach ($array as $valor1) {
+                                                        $textEsp = $valor1['nombre'];
+                                                    }
+                                                    ?>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Profesional que lo deriva</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $textEsp ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del tutor:</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Rut</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $rutTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $nombTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Telefono</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $teleTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Correo electronico</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $corrTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <?php
                         } else {
                             
                         }
                         ?>
-                        <!--<div class="row" style="margin-top: 15px">
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del beneficiario:</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut</span>
-                                                    </div>
-                                                    <input type="text" id="rut_b1" name="txt_rutb1" value="<?php echo $rutBd; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Nombres</span>
-                                                    </div>
-                                                    <input type="text" id="nombre1" name="txt_nombre1" value="<?php echo $nombreBD; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Apellidos</span>
-                                                    </div>
-                                                    <input type="text" id="apellido1" name="txt_a1" value="<?php echo $apellidoBD; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="input-group mb-3 dates">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Fecha de nacimiento</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="datepicker" readonly value="<?php echo $fech_nacBD ?>" name="txt_nac"  aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Dirección</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_dire" value="<?php echo $direccBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">¿Posee credencial de discapacidad?</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_cDis" value="<?php echo $credenBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Diagnostico</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_diag" value="<?php echo $diagBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12 col-lg-6">
-                        <?php
-                        $array = $data->getEspecialista($profeBD);
-                        $textEsp;
-                        foreach ($array as $valor1) {
-                            $textEsp = $valor1['nombre'];
-                        }
-                        ?>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Profesional que lo deriva</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_diag" value="<?php echo $textEsp ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del tutor:</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $rutTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $nombTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Telefono</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $teleTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Correo electronico</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $corrTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
+
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <form>
