@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Registrando Nuevo Beneficiario</title>
-        <!-- <link rel="stylesheet" href="../Materialize/css/styleBody.css"/> -->
+        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -410,7 +410,7 @@ if (!$existeBene) {
     echo '<script language="javascript">ErrorExistencia()</script>';
 }
 
-echo $previBene . "<br>";
+/*echo $previBene . "<br>";
 echo $prevision;
 //echo $existeBene.'<br>';
 echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pensionbd . " " . $chSolid . " " . $hogar . " " . $previBene . "<br>";
@@ -421,6 +421,6 @@ echo '<br>' . $numeroTeleton . " " . $rut;
 echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
 echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
 
-echo '<br>' . $haveCreden;
+echo '<br>' . $haveCreden;*/
 //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>

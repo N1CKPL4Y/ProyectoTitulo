@@ -38,7 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title>Registrar Entrevista</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- CSS only -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -216,7 +216,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             
                         }
                         ?>
-                        <div class="row" style="margin-top: 15px">
+                        <!--<div class="row" style="margin-top: 15px">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -287,13 +287,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12 col-lg-6">
-                                                <?php
-                                                $array = $data->getEspecialista($profeBD);
-                                                $textEsp;
-                                                foreach ($array as $valor1) {
-                                                    $textEsp = $valor1['nombre'];
-                                                }
-                                                ?>
+                        <?php
+                        $array = $data->getEspecialista($profeBD);
+                        $textEsp;
+                        foreach ($array as $valor1) {
+                            $textEsp = $valor1['nombre'];
+                        }
+                        ?>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Profesional que lo deriva</span>
@@ -352,7 +352,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <form>
@@ -484,7 +484,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-12">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Tipo de embarazo</span>
@@ -558,9 +558,2549 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                             <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Peso al nacer</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
+
+                                                        </div>
+                                                        <span id="basic-addon1">Peso en gramos</span>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Talla al nacer</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
+
+                                                        </div>
+                                                        <span id="basic-addon1">Talla en centimetros</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+
+                                                        </div>
+                                                        <span id="basic-addon1">Al minuto</span>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+
+                                                        </div>
+                                                        <span id="basic-addon1">A los 5 minutos</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                        <span id="basic-addon1">Al minuto</span>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                        <span id="basic-addon1">A los 5 minutos</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-1">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="basic-addon1">¿El embarazo fue controlado?</span>
+                                                                </div>
+                                                                <div class="form-control">
+                                                                    <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                    <label class="form-control-label" for="siE">
+                                                                        Si
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-control">
+                                                                    <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                    <label class="form-control-label" for="noE">
+                                                                        No
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="mb-1">
+                                                            <div class="mb-3">
+                                                                <div>
+                                                                    <span id="basic-addon1">Señale si antes de que cumpliera un año de vida el/la niño/a presentó (Marque las que correspondan)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
-                                                    <div class="col-sm-12 col-md-12">
-                                                        
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Desnutrición</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Obesidad</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Fiebre Alta</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Convulsiones</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Traumatismos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Intoxicación</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Enfermedades Respiratorias</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Asma</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Encefalitis</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Meningitis</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Hospitalizaciones</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de los anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" placeholder="Indique" class="form-control" aria-label="Text input with checkbox">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Controles periodicos de salud?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Vacunas</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones primeros 12 meses de vida</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingFour">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Lactancia</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseFour" class="collapse" aria-labelledby="collapseFour" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Indique el periodo de Lactancia. (Si no hubo este tipo de lactancia, indique "No existió este tipo de lactancia")</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Con leche materna exclusiva</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Mixta: Leche materna y Relleno</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Con Relleno y Formula de leche</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingFive">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Desarrollo Sensoriomotriz</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseFive" class="collapse" aria-labelledby="collapseFive" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3 ml-2">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Indique la edad en que el/la niño/a:</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Controla la cabeza</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Se sienta solo</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Comienza a gatear</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Camina con apoyo</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Camina sin apoyo</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Emite sus 1ras palabras</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Emite sus 1ras frases</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Se viste solo/a</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Controla esfinter vesical Diurno</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Controla esfinter vesical Nocturno</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Controla esfinter anal Diurno</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Controla esfinter anal Nocturno</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Utiliza pañales?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Utiliza pañal de entrenamiento?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Necesita asistencia para ir al baño?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Actividad motora general</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" >
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Normal
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" >
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Activo
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo3" value="3" >
+                                                                <label class="form-control-label" for="tipo3">
+                                                                    Hiperactivo
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4" >
+                                                                <label class="form-control-label" for="tipo4">
+                                                                    Hipoactivo
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Tono muscular general</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" >
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Normal
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" >
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Hiperactivo
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo3" value="3" >
+                                                                <label class="form-control-label" for="tipo3">
+                                                                    Hipoactivo
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Es estable al caminar</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Se cae con frecuencia</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Dominancia lateral</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="siE" type="radio" value="1" >
+                                                                <label class="form-control-label" for="siE">
+                                                                    Derecha
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0">
+                                                                <label class="form-control-label" for="noE">
+                                                                    Izquierda
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3 ml-2">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>
+                                                            En relacion con su motricidad Fina el niño(a)logra:
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Agarrar</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ensartar</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Presionar</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Dibujar</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Realizar pinza con indice y pulgar</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Escribir</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3 ml-2">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>
+                                                            En relacion con algunso signos cognitivcos el niño(a):
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Reacciona a voces o caras familiares</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Demanda objetos y compañia</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Sonrie, balbucea, grita, llora, indica o señala</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Manipula y explora objetos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Comprende prohibiciones</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Posee evidente descoordinacion ojo-mano</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingSix">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Visión</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseSix" class="collapse" aria-labelledby="collapseSix" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Vision (Marque las que correspondan)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Se interesa por los estimulos visuales</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">En ocaciones tiene los ojos irritados o llorosos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Presenta dolores frecuentes de cabeza</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Se acerca o aleja demasiado los objetos</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Sigue el desplazamiento de los objetos o personas</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Presenta movimientos oculares "anormales"</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Manifiesta conductas "erroneas" (tropiezos, choques)</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>El estudiante presenta alguno de los siguientes diagnosticos</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Miopia</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Estrabismo</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Astigmatismo</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguno</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿El niño/a utiliza lentes opticos?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="siE2">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="noE2">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingSeven">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Audición</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseSeven" class="collapse" aria-labelledby="collapseSeven" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Audición (Marque las que correspondan)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Se interesa por los estimulos auditivos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Reacciona o reconoce voces o sonidos familiares</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Gira la cabeza cuando se le llama o ante un ruido fuerte</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Acerca los oidos a la TV, radio o fuente de sonido</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">En ocaciones se tapa o golpea los oidos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">La pronunciación oral es adecuada</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>El estudiante presenta alguno de los siguientes diagnosticos</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Hipoacusia Derecha</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Hipoacusia Izquierda</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Hipoacusia Bilateral</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otitis Cronicas</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguno</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿El niño/a utiliza audifono?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="siE2">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="noE2">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingEigth">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEigth" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Desarrollo del lenguaje</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseEigth" class="collapse" aria-labelledby="collapseEigth" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>El niño(a) se comunica preferentemente en forma:</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Comunicación</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Oral
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Gestual
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo3" value="3" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo3">
+                                                                    Mixto
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo4">
+                                                                    Otro
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3 ml-2">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>
+                                                            Caracteristicas del lenguaje expresivo (Marque las que correspondan)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Balbucea (oral o señas) / emite sonidos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Vocaliza/realiza gestos o señas aisladas</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Emite palabras/produce señas</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Emite/produce frases</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Relata experiencias</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">La emision/pronunciacion/produccion es clara</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Opcion 8 emite palabras sueltas</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3 ml-2">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>
+                                                            Caracteristicas del lenguaje comprensivo (Marque las que correspondan)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Identifica objetos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Identifica personas</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Comprende conceptos abstractos (Amistad, Culpa, Cariño, etc)</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Responde en forma coherente preguntas de la vida diaria</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Sigue instrucciones simples (traeme un auto, sientate, etc)</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Sigue instrucciones complejas (ven y sientate, ve a tu pieza y traeme tus zapatos)</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Sigue instrucciones grupales (niños siéntense, tome su mochila, etc)</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Comprende relatos, noticias, cuentos cortos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Manifestó perdida de lenguaje oral</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingNine">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Desarrollo Social</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseNine" class="collapse" aria-labelledby="collapseNine" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Desarrollo Social (Marque las que correspondan)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Se relaciona espontáneamente con las personas de su entorno natural</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Explica razones de sus comportamientos y actitudes</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Participa en actividades grupales</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Opta por trabajo individual</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Presenta lenguaje ecolálico</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Exhibe dificultad para adaptarse a situaciones nuevas</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Se relaciona en forma colaborativa</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Respeta normas sociales</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Respeta normas escolares</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Muestra sentido del humor</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Movimientos estereotipados</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Pataletas frecuentes</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Nincuna de las anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Cuando se prende una luz, reacciona de forma...</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="siE2">
+                                                                    Natural
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="noE2">
+                                                                    Desmesurada
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Cuando escucha un sonido, reacciona de forma...</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="siE2">
+                                                                    Natural
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="noE2">
+                                                                    Desmesurada
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Cuando una persona extraña se le acerca, reacciona de forma...</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="siE2">
+                                                                    Natural
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="noE2">
+                                                                    Desmesurada
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTen">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Salud</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseTen" class="collapse" aria-labelledby="collapseTen" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Estado actual de salud del/la estudiante (Marque las que correspondan)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Vacunas al dia</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Epilepsia</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Problemas Cardiacos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Paraplejia</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Perdida auditiva</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Perdida visual</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Trastorno Motor</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Problemas bronco-respiratorio</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Enfermedad infecto-contagiosa</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Trastorno Emocional</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Trastorno Conductual</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">El o los problemas de salud reciben tratamientos</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Indique</span>
+                                                            </div>
+                                                            <input class="form-control" aria-label="Checkbox for following text input"></input>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Toma algun medicamento?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Indique</span>
+                                                            </div>
+                                                            <input class="form-control" aria-label="Checkbox for following text input"></input>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>En cuanto a la alimentación (apreciación del informante)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Comunicación</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Normal
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    "Malo(a) para comer"
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo3" value="3" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo3">
+                                                                    "Bueno(a) para comer"
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo4">
+                                                                    Otro
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Estatura Actual</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Peso Actual</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Peso</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Normal
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Bajo de peso
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Obesidad
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Come solo?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Que alimentos le gusta comer?</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Que alimentos no le gusta comer?</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">En cuanto al sueño</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Normal
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Tranquilo
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Inquieto
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Duerme..</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Solo
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Acompañado
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-end">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Especifique la respuesta anterior</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Estado actual de salud del/la estudiante (Marque las que correspondan)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Insomnio</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Pesadillas</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Terrores nocturnos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Sonambulismo</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Despierta de buen humor</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01">Humor/comportamiento</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                                <option value="" selected>--Seleccionar--</option>
+                                                                <option value="1">Alegre</option>
+                                                                <option value="2">Jugueton/bromista</option>
+                                                                <option value="3">Risueño</option>
+                                                                <option value="4">Triste</option>
+                                                                <option value="5">Serio</option>
+                                                                <option value="6">Rebelde</option>
+                                                                <option value="7">Apático</option>
+                                                                <option value="8">Violento(a)</option>
+                                                                <option value="9">Ninguna</option>
+                                                                <option value="10">Otro:</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingEleven">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Antecedentes familiares</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseEleven" class="collapse" aria-labelledby="collapseEleven" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="row mb-3">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <span>Personas que viven con el/la niño/a y/o que son responsables de su cuidado</span>
+                                                                <br>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Indique</span>
+                                                            </div>
+                                                            <textarea class="form-control" placeholder="Escribir nombre, parentezco, edad, escolaridad y ocupacion.&#10;Ejemplo: Juan Perez, Papa, 45, 4 medio y obrero" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="row mb-3">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <span>Antecedentes de salud de la familia.</span>
+                                                                <br>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Indique</span>
+                                                            </div>
+                                                            <textarea class="form-control" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Observaciones</span>
+                                                            </div>
+                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwelve">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Antecedentes escolares</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseTwelve" class="collapse" aria-labelledby="collapseTwelve" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Indique</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Edad de ingreso al sistema escolar</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Asistió a jardin infantil?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Indique</span>
+                                                            </div>
+                                                            <textarea class="form-control" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01">Modalidad de esneñanza</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                                <option value="" selected>Seleccionar</option>
+                                                                <option value="1">Regular</option>
+                                                                <option value="2">Especial</option>
+                                                                <option value="3">Tecnica</option>
+                                                                <option value="3">Ninguna</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Motivo de cambio del ultimo colegio</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">¿Ha repetido curso?</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Si
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Curso y motivo por el que repitio</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01">Situación</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                                <option value="" selected>Seleccionar</option>
+                                                                <option value="1">Asiste al colegio regularmente</option>
+                                                                <option value="2">Presenta dificultades de aprendizaje</option>
+                                                                <option value="3">Asiste al colegio con agrado</option>
+                                                                <option value="3">Presenta dificultades para participar en actividades</option>
+                                                                <option value="4">Existe apoyo familiar en tareas</option>
+                                                                <option value="5">Presenta conductas disruptivas</option>
+                                                                <option value="6">Tienes amigos(as)</option>
+                                                                <option value="7">Ninguna</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThirdteen">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThirdteen" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="bi bi-caret-down-fill">Actitud de la familia</i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseThirdteen" class="collapse" aria-labelledby="collapseThirdteen" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>¿Como evalúa usted el Desempeño Escolar de su hijo?</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Desempeño</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Satisdactorio
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Insatisfactorio
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Si es insatisfactorio, por que motivo</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01">¿Que hace cuando a su hijo(a) le va mal en el colegio?</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                                <option value="" selected>Seleccionar</option>
+                                                                <option value="1">Lo apoyo</option>
+                                                                <option value="2">Lo castigo</option>
+                                                                <option value="3">Ninguno</option>
+                                                                <option value="4">Otro</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique otro</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01">¿Que hace cuando a su hijo(a) le va bien en el colegio?</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                                <option value="" selected>Seleccionar</option>
+                                                                <option value="1">Le entrego cariño</option>
+                                                                <option value="2">Le doy su comida favorita</option>
+                                                                <option value="3">Lo dejo ver televisión</option>
+                                                                <option value="4">Lo dejo usar el celular</option>
+                                                                <option value="5">Lo dejo salir a la calle</option>
+                                                                <option value="6">Le compro un juguete</option>
+                                                                <option value="7">Salgo de paseo con el</option>
+                                                                <option value="8">Otro</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique otro</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>¿Quien apoya el proceso de aprendizaje y desarrollo de su hijo?</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Madre</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Padre</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Hermanos</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Abuelos</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Tios</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otros Familiares</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otros Profesionales</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                                                </div>
+                                                            </div>
+                                                            <span class="input-group-text" id="basic-addon1">Otro</span>
+                                                            <input type="text" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <span>Su hijo cuenta con un ambiente fisico y emocional adecuado para su aprendizaje</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <label class="form-control-label" for="tipo1">
+                                                                    Ambos
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Solo fisico 
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Solo emocional 
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <label class="form-control-label" for="tipo2">
+                                                                    Ninguno
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -569,1945 +3109,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                             </div>
                         </div>
-                        <form>
-                            <ul class="collapsible">
-                                
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Antecedentes posteriores al parto</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s9">
-                                                <div class="input-field col s12">
-                                                    <input id="peso" type="text" name="txt_peso" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="peso" style="font-size: 11px">Peso al nacer en gramos (Esta informacion puede encontrarse en carnet control sano)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s9">
-                                                <div class="input-field col s12">
-                                                    <input id="talla" type="text" name="txt_talla" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="talla" style="font-size: 12px">Talla al nacer en Cm (Esta informacion puede encontrarse en carnet control sano)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s9">
-                                                <div class="input-field col s12">
-                                                    <input id="apgar1" type="text" name="txt_apgar1" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="apgar1" style="font-size: 12px">A.P.G.A.R al minuto (Esta informacion puede encontrarse en carnet control sano)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s9">
-                                                <div class="input-field col s12">
-                                                    <input id="apgar2" type="text" name="txt_apgar2" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="apgar2" style="font-size: 12px">A.P.G.A.R a los 5 minutos (Esta informacion puede encontrarse en carnet control sano)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿Quedó hospitalizado al nacer?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input id="siH" class="with-gap" value="1" name="hospitalizado" type="radio" onclick="hospitalizado()"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input id="noH" class="with-gap" value="2" name="hospitalizado" type="radio" onclick="noHospitalizado()"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="hospitalizado" type="text" name="txt_hospitalizado" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="hospitalizado" style="font-size: 12px">¿Cual es el motivo por el que quedó hospitalizado al nacer? ¿Cuanto tiempo?</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Señale si antes de que cumpliera un año de vida el niño/a presentó (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma1" type="checkbox"/>
-                                                        <span>Desnutrición</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma2" type="checkbox"/>
-                                                        <span>Obesidad</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma3" type="checkbox"/>
-                                                        <span>Fiebre alta</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma4" type="checkbox"/>
-                                                        <span>Convulciones</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma5" type="checkbox"/>
-                                                        <span>Traumatismos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma6" type="checkbox"/>
-                                                        <span>Intoxicación</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma7" type="checkbox"/>
-                                                        <span>Enfermedades Respiratorias</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma8" type="checkbox"/>
-                                                        <span>Asma</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma9" type="checkbox"/>
-                                                        <span>Encefalitis</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma10" type="checkbox"/>
-                                                        <span>Meningitis</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma11" type="checkbox"/>
-                                                        <span>Hospitalizaciones</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma12" type="checkbox"/>
-                                                        <span>Ninguno de los anteriores</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sintoma13" type="checkbox" onclick="otro()"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="sintoma14" type="text" name="txt_otro" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                        <label class="active" for="sintoma14">Indique</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s7">
-                                                <h6 class="col s12">¿Se realizaron controles periodicos de salud?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="controles" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="controles" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">Vacunas</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="vacunas" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="vacunas" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="input-field col s12">
-                                                    <input id="meses" type="text" name="txt_meses" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="meses">Observaciones de los primeros 12 meses de vida</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                        Por favor verificar toda la informacion ingresada antes de registrar
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Lactancia</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Indique el periodo de Lactancia con leche materna exclusiva</h6>
-                                                <div class="input-field col s12">
-                                                    <input id="lactancia" type="text" name="txt_lactancia" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="lactancia" style="font-size: 12px">Si no hubo este tipo de lactancia, indique "No existió este tipo de lactancia"</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">Indique el periodo de Lactancia Mixta: Leche materna y Relleno</h6>
-                                                <div class="input-field col s12">
-                                                    <input id="mixto" type="text" name="txt_mixto" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="mixto" style="font-size: 12px">Si no hubo este tipo de lactancia, indique "No existió este tipo de lactancia"</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Indique el periodo de Lactancia con Relleno y Formula de leche</h6>
-                                                <div class="input-field col s12">
-                                                    <input id="relleno" type="text" name="txt_relleno" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="relleno" style="font-size: 12px">Si no hubo este tipo de lactancia, indique "No existió este tipo de lactancia"</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="card-body">
+                                        <button type="button" class="btn btn-success">
+                                            Registrar entrevista
+                                        </button>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Desarrollo Sensoriomotriz</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="c_cabeza" type="text" name="txt_Ccabeza" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="c_cabeza">Edad en que el niño(a) controla la cabeza</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="s_solo" type="text" name="txt_Ssolo" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="s_solo">Edad en que el niño(a) se sienta solo(a)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="gatear" type="text" name="txt_gatear" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="gatear">Edad en que el niño(a) comienza a Gatear</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="c_apoyo" type="text" name="txt_Capoyo" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="c_apoyo">Edad en que el niño(a) camina con apoyo</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="s_apoyo" type="text" name="txt_Sapoyo" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="s_apoyo">Edad en que el niño(a) camina sin apoyo</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="p_palabras" type="text" name="txt_Ppalabras" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="p_palabras" style="font-size: 12px">Edad en que el niño(a) emite sus primeras palabras</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="p_frases" type="text" name="txt_Pfrases" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="p_frases" style="font-size: 12px">Edad en que el niño(a) emite sus primeras frases</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s5">
-                                                <div class="input-field col s12">
-                                                    <input id="v_solo" type="text" name="txt_Vsolo" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="v_solo">Edad en que el niño(a) se viste solo/a</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s4">
-                                                <h6 class="col s12">Controla Esfinter Vesical Diurno</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="EsfinterVD" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="EsfinterVD" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s4">
-                                                <h6 class="col s12">Controla Esfinter Vesical Nocturno</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="EsfinterVN" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="EsfinterVN" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s4">
-                                                <h6 class="col s12">Controla Esfinter Anal Diurno</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="EsfinterAD" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="EsfinterAD" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s4">
-                                                <h6 class="col s12">Controla Esfinter Anal Nocturno</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="EsfinterAN" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="EsfinterAN" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s4">
-                                                <h6 class="col s12">¿Utiliza pañales?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="Pañales" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="Pañales" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s4">
-                                                <h6 class="col s12">¿Utiliza pañal de entrenamiento?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="PañalE" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="PañalE" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿Necesita de asistencia para ir al baño?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input id="siA" class="with-gap" value="1" name="asistenciaB" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input id="noA" class="with-gap" value="2" name="asistenciaB" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <input id="n_asistencia" type="text" name="txt_Tasistencia" class="validate" style="background-color: white; border-radius: 10px">
-                                                <label class="active" for="n_asistencia">Indique el tipo de asistencia que necesita</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="obs" type="text" name="txt_obs" class="validate" style="background-color: white; border-radius: 10px">
-                                                <label class="active" for="obs">Observaciones</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">En su actividad motora general se aprecia:</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="Amotora" type="radio"/>
-                                                            <span>Normal</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="Amotora" type="radio"/>
-                                                            <span>Activo</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="3" name="Amotora" type="radio"/>
-                                                            <span>Hiperactivo</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="4" name="Amotora" type="radio"/>
-                                                            <span>Hipoactivo</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">Su tono muscular general se aprecia:</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="Tmuscular" type="radio"/>
-                                                            <span>Normal</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="Tmuscular" type="radio"/>
-                                                            <span>Hipertonico</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="3" name="Tmuscular" type="radio"/>
-                                                            <span>Hipotonico</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Es estable al caminar:</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="Ecaminar" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="Ecaminar" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">Se cae con frecuencia:</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="Cfrecuencia" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="Cfrecuencia" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Dominancia lateral:</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="dominancia" type="radio"/>
-                                                        <span>Derecha</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="dominancia" type="radio"/>
-                                                        <span>Izquierda</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6>En relacion con su motricidad Fina el niño(a)logra:</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf1" type="checkbox"/>
-                                                        <span>Agarrar</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf2" type="checkbox"/>
-                                                        <span>Ensartar</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf3" type="checkbox"/>
-                                                        <span>Presionar</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf4" type="checkbox" />
-                                                        <span>Dibujar</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf5" type="checkbox"/>
-                                                        <span>Realizar pinza con indice y pulgar</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf6" type="checkbox"/>
-                                                        <span>Escribir</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="mf7" type="checkbox"/>
-                                                        <span>Ninguna de las anteriores</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6>En relacion con algunso signos cognitivcos el niño(a):</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc1" type="checkbox"/>
-                                                        <span>Reacciona a voces o caras familiares</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc2" type="checkbox"/>
-                                                        <span>Demanda objetos y compañia</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc3" type="checkbox"/>
-                                                        <span>Sonrie, balbucea, grita, llora, indica o señala</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc4" type="checkbox"/>
-                                                        <span>Manipula y explora objetos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc5" type="checkbox"/>
-                                                        <span>Comprende prohibiciones</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc6" type="checkbox"/>
-                                                        <span>Posee evidente descoordinacion ojo-mano</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="sc7" type="checkbox"/>
-                                                        <span>Ninguna de las anteriores</span>
-                                                    </label>
-                                                </p>
-                                            </div> 
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="obs1" type="text" name="txt_obs1" class="validate" style="background-color: white; border-radius: 10px">
-                                                <label class="active" for="obs1">Observaciones</label>
-                                            </div>
-                                        </div>
+                                    <div class="card-footer text-muted">
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Vision</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6>Vision (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="v1" type="checkbox"/>
-                                                        <span>Se interesa por los estimulos visuales (Colores, formas, movimientos, etc.)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v2" type="checkbox"/>
-                                                        <span>En ocaciones tiene los ojos irritados o llorosos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v3" type="checkbox"/>
-                                                        <span>Presenta dolores frecuentes de cabeza</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v4" type="checkbox"/>
-                                                        <span>Se acerca o aleja demasiado los objetos a la vista (frunce el ceño)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v5" type="checkbox"/>
-                                                        <span>Sigue con la vista el desplazamiento de los objetos o personas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v6" type="checkbox"/>
-                                                        <span>Presenta movimientos oculares "anormales"</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v7" type="checkbox"/>
-                                                        <span>Manifiesta conductas "erroneas" (tropiezos, choques)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="v8" type="checkbox"/>
-                                                        <span>Ninguna de las anteriores</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6>El estudiante presenta alguno de los siguientes diagnosticos</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="d1" type="checkbox"/>
-                                                        <span>Miopia</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="d2" type="checkbox"/>
-                                                        <span>Estrabismo</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="d3" type="checkbox"/>
-                                                        <span>Astigmatismo</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="d4" type="checkbox"/>
-                                                        <span>Ninguno</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="d5" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="d6" type="text" name="txt_obs1" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="d6">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿El niño/a utiliza lentes opticos?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="vision" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="vision" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Audición</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6>Audición (Marcar las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="a1" type="checkbox"/>
-                                                        <span>Se interesa por los estimulos auditivos(ruidos, voces, musica, etc)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="a2" type="checkbox"/>
-                                                        <span>Reacciona o reconoce voces o sonidos familiares</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="a3" type="checkbox"/>
-                                                        <span>Gira la cabeza cuando se le llama o ante un ruido fuerte</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="a4" type="checkbox"/>
-                                                        <span>Acerca los oidos a la TV, radio o fuente de sonido</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="a5" type="checkbox"/>
-                                                        <span>En ocaciones se tapa o golpea los oidos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="a6" type="checkbox"/>
-                                                        <span>La pronunciación oral es adecuada</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="a7" type="checkbox"/>
-                                                        <span>Ninguna de las anteriores</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6>El estudiante presenta alguno de los siguientes diagnosticos</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="da1" type="checkbox"/>
-                                                        <span>Hipoacusia Derecha</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="da2" type="checkbox"/>
-                                                        <span>Hipoacusia Izquierda</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="da3" type="checkbox"/>
-                                                        <span>Hipoacusia Bilateral</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="da4" type="checkbox"/>
-                                                        <span>Otitis Cronicas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="da5" type="checkbox"/>
-                                                        <span>Ninguna</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="da6" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="da7" type="text" name="txt_audicion" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="da7">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿El niño/a utiliza audifono?</h6>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="1" name="audicion" type="radio"/>
-                                                        <span>Si</span>
-                                                    </label>
-                                                </p>
-                                                <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                    <label>
-                                                        <input class="with-gap" value="2" name="audicion" type="radio"/>
-                                                        <span>No</span>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="obs2" type="text" name="txt_obs2" class="validate" style="background-color: white; border-radius: 10px">
-                                                <label class="active" for="obs2">Observaciones</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Desarrollo del lenguaje</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">El niño(a) se comunica preferentemente en forma:</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="c1" class="with-gap" value="1" name="comunicacion" type="radio"/>
-                                                            <span>Oral</span>
-                                                        </label>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="c2" class="with-gap" value="2" name="comunicacion" type="radio"/>
-                                                            <span>Gestual</span>
-                                                        </label>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="c3" class="with-gap" value="3" name="comunicacion" type="radio"/>
-                                                            <span>Mixto</span>
-                                                        </label>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="c4" class="with-gap" value="4" name="comunicacion" type="radio"/>
-                                                            <span>Otro</span>
-                                                        </label>
-                                                </div>
-                                                <div class="input-field col s12">
-                                                    <input id="c5" type="text" name="txt_otroC" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="c5">Indique otro</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6>Caracteristicas del lenguaje expresivo (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc1" type="checkbox"/>
-                                                        <span>Balbucea (oral o señas) / emite sonidos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc2" type="checkbox"/>
-                                                        <span>Vocaliza/realiza gestos o señas aisladas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc3" type="checkbox"/>
-                                                        <span>Emite palabras/produce señas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc4" type="checkbox"/>
-                                                        <span>Emite/produce frases</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc5" type="checkbox"/>
-                                                        <span>Relata experiencias</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc6" type="checkbox"/>
-                                                        <span>La emision/pronunciacion/produccion es clara</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc7" type="checkbox"/>
-                                                        <span>Opcion 8 emite palabras sueltas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc8" type="checkbox"/>
-                                                        <span>Ninguna</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="dc9" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="dc10" type="text" name="txt_otroL" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="dc10">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6>Caracteristicas del lenguaje comprensivo (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl1" type="checkbox"/>
-                                                        <span>Identifica objetos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl2" type="checkbox"/>
-                                                        <span>Identifica personas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl3" type="checkbox"/>
-                                                        <span>Comprende conceptos abstractos (Amistad, Culpa, Cariño, etc)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl4" type="checkbox"/>
-                                                        <span>Responde en forma coherente preguntas de la vida diaria</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl5" type="checkbox"/>
-                                                        <span>Sigue instrucciones simples (traeme un auto, sientate, etc)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl6" type="checkbox"/>
-                                                        <span>Sigue instrucciones complejas (ven y sientate, ve a tu pieza y traeme tus zapatos)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl7" type="checkbox"/>
-                                                        <span>Sigue instrucciones grupales (niños siéntense, tome su mochila, etc)</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl8"  type="checkbox"/>
-                                                        <span>Comprende relatos, noticias, cuentos cortos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl9"  type="checkbox"/>
-                                                        <span>Ninguna</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="cl10"  type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="cl11" type="text" name="txt_otroL1" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="cl11">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Manifestó perdida de lenguaje oral</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="pl1" class="with-gap" value="1" name="Plenguaje" type="radio"/>
-                                                            <span>Si</span>
-                                                        </label>
-                                                    </p>
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="pl2" class="with-gap" value="2" name="Plenguaje" type="radio"/>
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s10">
-                                                <div class="input-field col s12">
-                                                    <input id="pl3" type="text" name="txt_perdidaL" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="pl3">Especifique edad y motivo de la pérdida de lenguaje oral</label>
-                                                </div>
-                                            </div>    
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s10">
-                                                <div class="input-field col s12">
-                                                    <input id="obs3" type="text" name="txt_obs3" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="obs3">Observaciones</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Desarrollo Social</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Desarrollo Social (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds1" type="checkbox"/>
-                                                        <span>Se relaciona espontáneamente con las personas de su entorno natural</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds2" type="checkbox"/>
-                                                        <span>Explica razones de sus comportamientos y actitudes</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds3" type="checkbox"/>
-                                                        <span>Participa en actividades grupales</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds4" type="checkbox"/>
-                                                        <span>Opta por trabajo individual</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds5" type="checkbox"/>
-                                                        <span>Presenta lenguaje ecolálico</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds6" type="checkbox"/>
-                                                        <span>Exhibe dificultad para adaptarse a situaciones nuevas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds7" type="checkbox"/>
-                                                        <span>Se relaciona en forma colaborativa</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds8" type="checkbox"/>
-                                                        <span>Respeta normas sociales</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds9" type="checkbox"/>
-                                                        <span>Respeta normas escolares</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds10" type="checkbox"/>
-                                                        <span>Muestra sentido del humor</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds11" type="checkbox"/>
-                                                        <span>Movimientos estereotipados</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds12" type="checkbox"/>
-                                                        <span>Pataletas frecuentes</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds13" type="checkbox"/>
-                                                        <span>Ninguno</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ds14" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="ds15" type="text" name="txt_otroS" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="ds15">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Cuando se prende una luz, reacciona de forma...</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="reaccion" type="radio"/>
-                                                            <span>Natural</span>
-                                                        </label>
-                                                    </p>
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="reaccion" type="radio"/>
-                                                            <span>Desmesurada</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">Cuando escucha un sonido, reacciona de forma...</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="reaccion1" type="radio"/>
-                                                            <span>Natural</span>
-                                                        </label>
-                                                    </p>
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="reaccion1" type="radio"/>
-                                                            <span>Desmesurada</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Cuando una persona extraña se le acerca, reacciona de forma...</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="reaccion2" type="radio"/>
-                                                            <span>Natural</span>
-                                                        </label>
-                                                    </p>
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="reaccion2" type="radio"/>
-                                                            <span>Desmesurada</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="obs4" type="text" name="txt_obs4" class="validate" style="background-color: white; border-radius: 10px">
-                                                <label class="active" for="obs4">Observaciones</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Salud</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Estado actual de salud del/la estudiante (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="e1" type="checkbox"/>
-                                                        <span>Vacunas al dia</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e2" type="checkbox"/>
-                                                        <span>Epilepsia</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e3" type="checkbox"/>
-                                                        <span>Problemas Cardiacos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e4" type="checkbox"/>
-                                                        <span>Paraplejia</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e5" type="checkbox"/>
-                                                        <span>Perdida auditiva</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e6" type="checkbox"/>
-                                                        <span>Perdida visual</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e7" type="checkbox"/>
-                                                        <span>Trastorno Motor</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e8" type="checkbox"/>
-                                                        <span>Problemas bronco-respiratorio</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e9" type="checkbox"/>
-                                                        <span>Enfermedad infecto-contagiosa</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e10" type="checkbox"/>
-                                                        <span>Trastorno Emocional</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e11" type="checkbox"/>
-                                                        <span>Trastorno Conductual</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e12" type="checkbox"/>
-                                                        <span>Ninguno</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="e13" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="e14" type="text" name="txt_otroS2" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="e14">Observaciones</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s10">
-                                                <h6 class="col s12">El o los problemas de salud reciben tratamientos</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="t1" class="with-gap" value="1" name="tratamiento" type="radio"/>
-                                                            <span>Si</span>
-                                                        </label>
-                                                    </p>
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="t2" class="with-gap" value="2" name="tratamiento" type="radio"/>
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                    <div class="input-field col s12">
-                                                        <input id="t3" type="text" name="txt_Ttratamiento" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                        <label class="active" for="t3">Indique el tipo de tratamiento</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s10">
-                                                <h6 class="col s12">Toma algun medicamento?</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="m1" class="with-gap" value="1" name="medicamento" type="radio"/>
-                                                            <span>Si</span>
-                                                        </label>
-                                                    </p>
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="m2" class="with-gap" value="2" name="medicamento" type="radio"/>
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                    <div class="input-field col s12">
-                                                        <input id="m3" type="text" name="txt_medicamento" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                        <label class="active" for="m3">Indique que medicamentos toma e indique la dosis </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">En cuanto a la alimentación (apreciación del informante)</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="al1" class="with-gap" value="1" name="alimentacion" type="radio"/>
-                                                            <span>Normal</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s6" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="al2" class="with-gap" value="2" name="alimentacion" type="radio"/>
-                                                            <span>"Malo(a) para comer"</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s6" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="al3" class="with-gap" value="3" name="alimentacion" type="radio"/>
-                                                            <span>"Bueno(a) para comer"</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s6" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="al4" class="with-gap" value="4" name="alimentacion" type="radio"/>
-                                                            <span>Otro:</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="input-field col s12">
-                                                    <input id="al5" type="text" name="txt_otroA" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="al5">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="pesoA" type="text" name="txt_pesoA" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="pesoA">Peso Actual</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="estaturaA" type="text" name="txt_estaturaA" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="estaturaA">Estatura Actual</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">En cuanto al peso (su apreciación)</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="peso" type="radio"/>
-                                                            <span>Normal</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="peso" type="radio"/>
-                                                            <span>Bajo peso</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="3" name="peso" type="radio"/>
-                                                            <span>Obesidad</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿Come solo?</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="comeSolo" type="radio"/>
-                                                            <span>Si</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="comeSolo" type="radio"/>
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="gustaComer" type="text" name="txt_gustaComer" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="gustaComer">¿Que alimentos le gusta comer?</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="nogustaComer" type="text" name="txt_nogustaComer" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="nogustaComer">¿Que alimentos no le gusta comer?</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">En cuanto al sueño</h6>
-                                                <div class="row">
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="dormir" type="radio"/>
-                                                            <span>Normal</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="dormir" type="radio"/>
-                                                            <span>Tranquilo</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="3" name="dormir" type="radio"/>
-                                                            <span>Inquieto</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col s2">
-                                                <div class="row">
-                                                    <h6 class="col s12">Hora a la que se duerme</h6>
-                                                    <input placeholder="--Seleccionar--" type="text" class="timepicker" style="background-color: white; border-radius: 10px">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Duerme...</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="conQuienDuerme" type="radio"/>
-                                                            <span>Solo</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="conQuienDuerme" type="radio"/>
-                                                            <span>Acompañado</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="especificar" type="text" name="especificar" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="especificar">Especifique la respuesta anterior</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">En la noche presenta (Marque las que correspondan)</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="p1" type="checkbox"/>
-                                                        <span>Insomnio</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="p2" type="checkbox"/>
-                                                        <span>Pesadillas</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="p3" type="checkbox"/>
-                                                        <span>Terrores nocturnos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="p4" type="checkbox"/>
-                                                        <span>Sonambulismo</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="p5" type="checkbox"/>
-                                                        <span>Despierta de buen humor</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="p6" type="checkbox"/>
-                                                        <span>Ninguna</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="p7" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="p8" type="text" name="otroN" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="p8">Indique otro</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">Humor/comportamiento (señale el comportamiento habitual)</h6>
-                                                <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                    <select name="humor" id="humor">
-                                                        <option value="" disabled selected>--Seleccionar--</option>
-                                                        <option value="1">Alegre</option>
-                                                        <option value="2">Jugueton/bromista</option>
-                                                        <option value="3">Risueño</option>
-                                                        <option value="4">Triste</option>
-                                                        <option value="5">Serio</option>
-                                                        <option value="6">Rebelde</option>
-                                                        <option value="7">Apático</option>
-                                                        <option value="8">Violento(a)</option>
-                                                        <option value="9">Ninguna</option>
-                                                        <option value="10">Otro:</option>
-                                                    </select>
-                                                </div>
-                                                <div class="input-field col s12">
-                                                    <input id="h1" type="text" name="otroN1" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="h1">Indique otro</label>
-                                                </div>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <input id="obs5" type="text" name="obs5" class="validate" style="background-color: white; border-radius: 10px">
-                                                <label class="active" for="obs5">Observaciones</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Antecedentes familiares</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="input-field col s12">
-                                                    <input id="integrantes" type="text" name="integrantes" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="integrantes" style="font-size: 11px">Personas que viven con eel niño oniña y/o que son responsables de su cuidado (Escribir
-                                                        nombre, parentezco, edad, escolaridad y ocupacion. Ejemplo: Juan Perez, Papa, 45, 4 medio y
-                                                        obrero)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="input-field col s12">
-                                                    <input id="Asalud" type="text" name="Asalud" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="Asalud" style="font-size: 13px">Antecedentes de salud de la familia. (Señale aquellos antecedentes que son relevantes en
-                                                        función de la entrega de apoyo que requiere el o la estudiante)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="input-field col s12">
-                                                    <input id="obs6" type="text" name="obs6" class="validate"style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="obs6" style="font-size: 14px">Observaciones</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Antecedentes escolares</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="edadE" type="text" name="edadE" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="edadE">Edad de ingreso al sistema escolar</label>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿Asistió a jardin infantil?</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="1" name="jardin" type="radio"/>
-                                                            <span>Si</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" value="2" name="jardin" type="radio"/>
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="input-field col s12">
-                                                    <input id="colegios" type="text" name="colegios" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="colegios">Nombre de todos los colegios en los que ha estado</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Modalidad de enseñanza</h6>
-                                                <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                    <select>
-                                                        <option value="" disabled selected>Seleccionar</option>
-                                                        <option value="1">Regular</option>
-                                                        <option value="2">Especial</option>
-                                                        <option value="3">Tecnica</option>
-                                                        <option value="3">Ninguna</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <div class="input-field col s12">
-                                                    <input id="colegios1" type="text" name="colegios1" class="validate" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="colegios1">Motivo de cambio del ultimo colegio</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿Ha repetido curso?</h6>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="r1" class="with-gap" value="1" name="repetir" type="radio"/>
-                                                            <span>Si</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s4" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="r2" class="with-gap" value="2" name="repetir" type="radio"/>
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col s8">
-                                                <div class="input-field col s12">
-                                                    <input id="r3" type="text" name="repetir" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="r3">Curso y motivo por el que repitio</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Situación</h6>
-                                                <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                    <select>
-                                                        <option value="" disabled selected>Seleccionar</option>
-                                                        <option value="1">Asiste al colegio regularmente</option>
-                                                        <option value="2">Presenta dificultades de aprendizaje</option>
-                                                        <option value="3">Asiste al colegio con agrado</option>
-                                                        <option value="3">Presenta dificultades para participar en actividades</option>
-                                                        <option value="4">Existe apoyo familiar en tareas</option>
-                                                        <option value="5">Presenta conductas disruptivas</option>
-                                                        <option value="6">Tienes amigos(as)</option>
-                                                        <option value="7">Ninguna</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons" id="add" style="color: white;">add</i>
-                                        Actitud de la familia</div>
-                                    <div class="collapsible-body" style="background-color: #C8E6C9">
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">¿Como evalúa usted el Desempeño Escolar de su hijo?</h6>
-                                                <div class="row">
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px"> 
-                                                        <label>
-                                                            <input id="ev1" class="with-gap" value="1" name="descolar" type="radio"/>
-                                                            <span>Satisfactorio</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s5" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input id="ev2" class="with-gap" value="2" name="descolar" type="radio"/>
-                                                            <span>Insatisfactorio</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="ev3" type="text" name="motivo1" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="ev3">Si es insatisfactorio, por que motivo</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Que hace cuando a su hijo(a) le va mal en el colegio</h6>
-                                                <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                    <select name="vaMal" id="vaMal">
-                                                        <option value="" disabled selected>Seleccionar</option>
-                                                        <option value="1">Lo apoyo</option>
-                                                        <option value="2">Lo castigo</option>
-                                                        <option value="3">Ninguno</option>
-                                                        <option value="4">Otro</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="vM1" type="text" name="otro1" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="vM1">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Que hace cuando a su hijo(a) le va bien en el colegio</h6>
-                                                <div class="input-field col s12" style="background-color: white; border-radius: 10px">
-                                                    <select name="vaBien" id="vaBien">
-                                                        <option value="" disabled selected>Seleccionar</option>
-                                                        <option value="1">Le entrego cariño</option>
-                                                        <option value="2">Le doy su comida favorita</option>
-                                                        <option value="3">Lo dejo ver televisión</option>
-                                                        <option value="4">Lo dejo usar el celular</option>
-                                                        <option value="5">Lo dejo salir a la calle</option>
-                                                        <option value="6">Le compro un juguete</option>
-                                                        <option value="7">Salgo de paseo con el</option>
-                                                        <option value="8">Otro</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="input-field col s12">
-                                                    <input id="vB1" type="text" name="otro2" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="vB1">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Quien apoya el proceso de aprendizaje y desarrollo de su hijo</h6>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap1" type="checkbox"/>
-                                                        <span>Madre</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap2" type="checkbox"/>
-                                                        <span>Padre</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap3" type="checkbox"/>
-                                                        <span>Hermanos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap4" type="checkbox"/>
-                                                        <span>Abuelos</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap5" type="checkbox"/>
-                                                        <span>Tios</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap6" type="checkbox"/>
-                                                        <span>Otros Familiares</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap7" type="checkbox"/>
-                                                        <span>Otros Profesionales</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap8" type="checkbox"/>
-                                                        <span>Ninguno</span>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>
-                                                        <input id="ap9" type="checkbox"/>
-                                                        <span>Otro:</span>
-                                                    </label>
-                                                </p>
-                                                <div class="input-field col s12">
-                                                    <input id="ap10" type="text" name="otro3" class="validate" disabled="true" style="background-color: white; border-radius: 10px">
-                                                    <label class="active" for="ap10">Indique otro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="col s12">Su hijo cuenta con un ambiente fisico y emocional adecuado para su aprendizaje</h6>
-                                                <div class="row">
-                                                    <p class="col s12" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" id="am1" name="ambiente" type="radio"  />
-                                                            <span>Ambos</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s12" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" id="am2" name="ambiente" type="radio"  />
-                                                            <span>Solo fisico (espacios, materiales, ventilación, luminosidad, etc)</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s12" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" id="am3" name="ambiente" type="radio"  />
-                                                            <span>Solo emocional (Tranquilidad, Comprensión, etc)</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="col s12" style="background-color: white; border-radius: 10px">
-                                                        <label>
-                                                            <input class="with-gap" id="am4" name="ambiente" type="radio"  />
-                                                            <span>Ninguno</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="row">
-                                <div class="col s12 center">
-                                    <button class="btn light-green darken-3" type="submit" name="action" style="margin-bottom: 10px;">Registrar Entrevista
-                                    </button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2518,18 +3135,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
         let section = document.querySelector(".home-section");
-
+    
         closeBtn.addEventListener("click", () => {
             sidebar.classList.toggle("open");
             menuBtnChange();//calling the function(optional)
             section.classList.toggle("move");
         });
-
+    
         searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
             sidebar.classList.toggle("open");
             menuBtnChange(); //calling the function(optional)
         });
-
+    
         // following are the code to change sidebar button(optional)
         function menuBtnChange() {
             if (sidebar.classList.contains("open")) {
