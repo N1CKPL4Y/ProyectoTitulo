@@ -57,8 +57,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <br>
                                     <br>
                                 </div>
-                                <div class="form-group" style="display: flex; align-items: center; justify-content: center;">
-                                    <div class="col-md-12 col-sm-10">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-10" style="display: flex; align-items: center; justify-content: center;">
                                         <button type="submit" class="btn btn-success btn-lg">Iniciar Sesión</button>
                                     </div>
                                 </div>
