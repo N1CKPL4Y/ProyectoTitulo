@@ -283,6 +283,11 @@ class Data {
         $sql = "UPDATE `usuario` SET `email` = '$email', `passwd` = sha2('$passwd',0), `telefono` = '$telefono', `t_user` = '$t_user', `a_user` = '$a_user', `cargo` = '$cargo', `activo` = '$activo' WHERE `usuario`.`RUT` = '$rut';";
         $query = $this->con->query($sql);
     }
+    
+    public function updatePUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo) {
+        $sql = "UPDATE `usuario` SET `email` = '$email', `passwd` = '$passwd', `telefono` = '$telefono', `t_user` = '$t_user', `a_user` = '$a_user', `cargo` = '$cargo', `activo` = '$activo' WHERE `usuario`.`RUT` = '$rut';";
+        $query = $this->con->query($sql);
+    }
 
     public function updateArea($id, $p) {
         $sql = "UPDATE `a_usuario` SET `activo` = '$p' WHERE `a_usuario`.`ID` = '$id';";
