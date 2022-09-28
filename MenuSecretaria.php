@@ -235,7 +235,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> Copia Carnet (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" name="file_carnet" accept="image/*" id="copiaCarnetBene" lang="es">
+                                                                    <input type="file" class="custom-file-input" name="file_carnet" accept="image/jpeg" id="copiaCarnetBene" lang="es">
                                                                     <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>
@@ -411,7 +411,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> Copia Carnet (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" name="file_tutor" accept="image/*" id="copiaCarnetTutor" lang="es">
+                                                                    <input type="file" class="custom-file-input" name="file_tutor" accept="image/jpeg" id="copiaCarnetTutor" lang="es">
                                                                     <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetTutor">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
@@ -635,7 +635,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> C. Discapacidad (Parte delantera) (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input numCred" name="file_credenFront" accept="image/*" id="credenFront" lang="es" disabled="">
+                                                                    <input type="file" class="custom-file-input numCred" name="file_credenFront" accept="image/jpeg" id="credenFront" lang="es" disabled="">
                                                                     <label class="custom-file-label" data-browse="Seleccionar" for="credenFront">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
@@ -644,7 +644,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <label style="margin-left: 10px"> C. Discapacidad (Parte trasera) (Imagen)</label>
                                                             <div class="input-group mb-3">
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input numCred" name="file_credenBack" accept="image/*" id="credenBack" lang="es" disabled="">
+                                                                    <input type="file" class="custom-file-input numCred" name="file_credenBack" accept="image/jpeg" id="credenBack" lang="es" disabled="">
                                                                     <label class="custom-file-label" data-browse="Seleccionar" for="credenBack">Seleccionar Archivo</label>
                                                                 </div>
                                                             </div>                                                            
