@@ -799,7 +799,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     $f_nacT = $valor4['fecha_nac'];
                                     $direccionT = $valor4['direccion'];
                                     $comunaT = $valor4['comuna'];
-                                    $c_identTutor=$valor4['c_identidad'];
+                                    $c_identTutor = $valor4['c_identidad'];
                                     $n_escolar = $valor4['n_escolar'];
                                     $ocupacionT = $valor4['ocupacion'];
                                     $telefonoT = $valor4['telefono'];
@@ -842,7 +842,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
-                                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase . ' ' . $apelBase; ?></h5>
+                                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombreT; ?></h5>
                                                     </div>
                                                     <div class="modal-body Cuerpo">
                                                         <div class="row justify-content-around">
@@ -853,7 +853,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                     </div>
                                                     <div class="modal-footer HeaderModal">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn submitModal btn-primary">Descargar copia carnet</a>
+                                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submitModal btn-primary">Descargar copia carnet</a>
                                                     </div>
                                                 </div>
                                             </div>

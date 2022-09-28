@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 include_once '../../DB/Model_Data.php';
 
@@ -32,11 +32,12 @@ $img = explode(',', $dataUrl, 2)[1];
 $pic = 'data://text/plain;base64,' . $img;
 
 $dataUrlB = "data:image/jpeg;base64," . base64_encode($contenidoB) . "";
-$imgB = explode(',', $dataUrl, 2)[1];
-$picB = 'data://text/plain;base64,' . $img;
+$imgB = explode(',', $dataUrlB, 2)[1];
+$picB = 'data://text/plain;base64,' . $imgB;
 
 $pdf = new FPDF();
 $pdf->AddPage('P', 'Legal');
+$pdf->SetTitle("Copia Credencial");
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->SetXY(70, 10);
 $pdf->Cell(60, 7, 'Copia Cedula de identidad');
