@@ -69,7 +69,7 @@ $pdf->SetFont('Arial', '', 10);
 $pdf->MultiCell(180, 6, utf8_decode('Se presenta la copia de la cedula de identidad de: ' . $rut . ' correspondiente a Don: ' . $nom));
 $pdf->Ln();
 $pdf->Image($pic, 20, 50, 130, 80, 'jpg');
-$pdf->Output('Contrato.pdf', 'I');
+$pdf->Output('CarnetTutor'.$rut.'.pdf', 'I');
 echo "<script language='javascript'>function disableIE() {
     if (document.all) {
         return false;

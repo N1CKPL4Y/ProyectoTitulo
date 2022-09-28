@@ -47,7 +47,7 @@ $pdf->MultiCell(180, 6, utf8_decode('Se presenta la copia de la cedula de identi
 $pdf->Ln();
 $pdf->Image($pic, 20, 50, 130, 80, 'jpg');
 $pdf->Image($picB, 20, 140, 130, 80, 'jpg');
-$pdf->Output('Contrato.pdf', 'I');
+$pdf->Output('Credencial.pdf', 'D');
 ?>
 
 
