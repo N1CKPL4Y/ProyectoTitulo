@@ -105,10 +105,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <div class="row" style="padding-top: 15px">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #558b2f; color: white">
                                 <h4 class="center" style="padding-top: 10px; padding-left: 10px">Registro de entrevistas</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body Cuerpo">
                                 <form method="post" name="datosUser">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -123,7 +123,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-6">
-                                            <button type="submit" name="buscar" class="btn btn-success">Buscar</button>
+                                            <button type="submit" name="buscar" class="btn submit">Buscar</button>
                                         </div>
                                     </div>
                                 </form>
@@ -213,10 +213,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="row" style="margin-top: 15px">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header" style="background-color: #558b2f; color: white">
                                             <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del beneficiario:</h5>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body" style="background-color: #C8E6C9">
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-4 col-lg-4">
                                                     <div class="input-group mb-3">
@@ -302,11 +302,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <div class="card">
-                                        <div class="card-header">
+                                    <div class="card"> 
+                                        <div class="card-header" style="background-color: #558b2f; color: white">
                                             <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del tutor:</h5>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body" style="background-color: #C8E6C9">
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                                     <div class="input-group mb-3">
@@ -364,15 +364,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="accordion" id="accordionExample">
                                     <div class="card">
-                                        <div class="card-header" id="headingOne" >
+                                        <div class="card-header Header" id="headingOne">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Antecedentes del embarazo</i>
+                                                    <i class="bi Titulo bi-caret-down-fill">Antecedentes del embarazo</i>
                                                 </button>
                                             </h2>
                                         </div>
-                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                                         <div class="input-group mb-3">
@@ -464,15 +464,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingTwo">
+                                        <div class="card-header Header" id="headingTwo" >
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Antecedentes del Parto</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Antecedentes del Parto</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                                         <div class="input-group mb-3">
@@ -510,7 +510,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-control">
                                                                 <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4" onclick="sinComplicaciones()">
                                                                 <label class="form-control-label" for="tipo4">
-                                                                    Cesarea (Indique porque)
+                                                                    Cesarea (Indique)
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -549,15 +549,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingThree">
+                                        <div class="card-header Header" id="headingThree">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Antecedentes del Post Parto</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Antecedentes del Post Parto</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                                         <div class="input-group mb-1">
@@ -598,26 +598,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
 
-                                                        </div>
-                                                        <span id="basic-addon1">A los 5 minutos</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col-sm-12 col-md-12 col-lg-6">
-                                                        <div class="input-group mb-1">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
-                                                            </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                                                        </div>
-                                                        <span id="basic-addon1">Al minuto</span>
-                                                    </div>
-                                                    <div class="col-sm-12 col-md-12 col-lg-6">
-                                                        <div class="input-group mb-1">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
-                                                            </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                         <span id="basic-addon1">A los 5 minutos</span>
                                                     </div>
@@ -821,15 +801,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingFour">
+                                        <div class="card-header Header" id="headingFour">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Lactancia</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Lactancia</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseFour" class="collapse" aria-labelledby="collapseFour" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Indique el periodo de Lactancia. (Si no hubo este tipo de lactancia, indique "No existió este tipo de lactancia")</span>
@@ -867,15 +847,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingFive">
+                                        <div class="card-header Header" id="headingFive">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Desarrollo Sensoriomotriz</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Desarrollo Sensoriomotriz</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseFive" class="collapse" aria-labelledby="collapseFive" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3 ml-2">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Indique la edad en que el/la niño/a:</span>
@@ -1295,7 +1275,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="row mb-3 ml-2">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>
-                                                            En relacion con algunso signos cognitivcos el niño(a):
+                                                            En relacion con algunos signos cognitivcos el niño(a):
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1377,15 +1357,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingSix">
+                                        <div class="card-header Header" id="headingSix">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Visión</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Visión</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseSix" class="collapse" aria-labelledby="collapseSix" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Vision (Marque las que correspondan)</span>
@@ -1551,15 +1531,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingSeven">
+                                        <div class="card-header Header" id="headingSeven" >
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Audición</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Audición</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseSeven" class="collapse" aria-labelledby="collapseSeven" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Audición (Marque las que correspondan)</span>
@@ -1724,15 +1704,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingEigth">
+                                        <div class="card-header Header" id="headingEigth">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEigth" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Desarrollo del lenguaje</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Desarrollo del lenguaje</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseEigth" class="collapse" aria-labelledby="collapseEigth" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>El niño(a) se comunica preferentemente en forma:</span>
@@ -2006,15 +1986,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingNine">
+                                        <div class="card-header Header" id="headingNine">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Desarrollo Social</i>
+                                                    <i class="bi Titulo bi-caret-down-fill">Desarrollo Social</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseNine" class="collapse" aria-labelledby="collapseNine" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Desarrollo Social (Marque las que correspondan)</span>
@@ -2216,15 +2196,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingTen">
+                                        <div class="card-header Header" id="headingTen">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Salud</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Salud</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseTen" class="collapse" aria-labelledby="collapseTen" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Estado actual de salud del/la estudiante (Marque las que correspondan)</span>
@@ -2701,15 +2681,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingEleven">
+                                        <div class="card-header Header" id="headingEleven">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Antecedentes familiares</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Antecedentes familiares</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseEleven" class="collapse" aria-labelledby="collapseEleven" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                                         <div class="row mb-3">
@@ -2754,15 +2734,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingTwelve">
+                                        <div class="card-header Header" id="headingTwelve">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Antecedentes escolares</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Antecedentes escolares</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseTwelve" class="collapse" aria-labelledby="collapseTwelve" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>Indique</span>
@@ -2884,15 +2864,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingThirdteen">
+                                        <div class="card-header Header" id="headingThirdteen">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThirdteen" aria-expanded="true" aria-controls="collapseOne">
-                                                    <i class="bi bi-caret-down-fill">Actitud de la familia</i>
+                                                    <i class="bi bi-caret-down-fill Titulo">Actitud de la familia</i>
                                                 </button>
                                             </h2>
                                         </div>
                                         <div id="collapseThirdteen" class="collapse" aria-labelledby="collapseThirdteen" data-parent="#accordionExample">
-                                            <div class="card-body">
+                                            <div class="card-body Cuerpo">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <span>¿Como evalúa usted el Desempeño Escolar de su hijo?</span>
@@ -3109,19 +3089,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-bottom: 10px">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="card text-center">
-                                    <div class="card-header">
-                                        Por favor verificar toda la informacion ingresada antes de registrar
+                                    <div class="card-header Header">
+                                        -- Por favor verificar toda la informacion ingresada antes de registrar --
                                     </div>
-                                    <div class="card-body">
-                                        <button type="button" class="btn btn-success">
+                                    <div class="card-body Cuerpo">
+                                        <button type="button" class="btn submit">
                                             Registrar entrevista
                                         </button>
                                     </div>
-                                    <div class="card-footer text-muted">
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

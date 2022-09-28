@@ -405,6 +405,12 @@ class Data {
         return $query;
     }
     
+    public function getAreaById($id) {
+        $sql = "SELECT * FROM a_usuario WHERE ID = $id";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
 }
 ?>
 

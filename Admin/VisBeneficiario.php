@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
@@ -28,23 +23,28 @@ switch ($_SESSION['tipo_u']) {
 }
 
 $data = new Data();
-
 $benefs = $data->getAllBenefi();
 ?>
-<html>
+
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
+-->
+
+<html lang="en" dir="ltr">
     <head>
         <title>Base de consultas</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-
-        <script src="../js/validarut.js"></script>
-        <script src="../js/jquery.rut.js"></script>
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
         <script src="../Materialize/js/funciones.js"></script>
 
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -56,8 +56,8 @@ $benefs = $data->getAllBenefi();
         <link rel="stylesheet" href="../AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
-
     </head>
     <body>
         <div class="sidebar open" style="overflow: hidden !important">
@@ -116,27 +116,27 @@ $benefs = $data->getAllBenefi();
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
-            <nav style="background-color: #00526a">
-                <div class="nav-wrapper" >
-                    <div class="container" style="display: flex; align-items: center; justify-content: center;">
-                        <a style="font-size: 30px;color: white">Ave</a>
+        <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
+            <nav>
+                <div class="nav-wrapper" style="background-color: #00526a">
+                    <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
+                        <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px;color: white;">Fenix</a>
+                        <a style="font-size: 30px">Fenix</a>
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid" style="padding-top: 15px;">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content" style="border-radius: 10px">
                                     <form action="../controller/controllerUpdateBene.php?dis=1" method="Post">
-                                        <div class="modal-header" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Beneficiario</h5>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body Cuerpo">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
@@ -191,9 +191,9 @@ $benefs = $data->getAllBenefi();
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                            <button type="submit" class="btn submitModal">Guardar Cambios</button>
                                         </div>
                                     </form>
                                 </div>
@@ -201,17 +201,17 @@ $benefs = $data->getAllBenefi();
                         </div>
                     </div>
                 </div>
-                <div class="row" style="display: flex; align-items: center; justify-content: center;">
-                    <div class="col-sm-12 col-md-10">
-                        <div class="card" style="border-radius: 10px">
-                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                <div class="row" style="display: flex; align-items: center; justify-content: center; padding-top: 10px">
+                    <div class="col-sm-12 col-md-10" >
+                        <div class="card">
+                            <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
                                 <h3 class="card-title center" style="font-size: 24px">Beneficiarios Registrados</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body Cuerpo">
                                 <div class="row justify-content-md-center">
                                     <div class="col-sm-4 col-md-10">
                                         <table id="myTable" class="table table-bordered table-striped">
-                                            <thead>
+                                            <thead class="HeaderModal">
                                                 <tr>
                                                     <th>#</th>
                                                     <th>R.U.T</th>
@@ -229,17 +229,17 @@ $benefs = $data->getAllBenefi();
                                                     $datos = $key['RUT'] . ".."
                                                             . $key['nombre'] . ".."
                                                             . $key['apellido'] . ".."
-                                                            . $key['direccion']. ".."
+                                                            . $key['direccion'] . ".."
                                                             . $key['comuna'];
-                                                    $escaped= htmlspecialchars(json_encode($datos));
+                                                    $escaped = htmlspecialchars(json_encode($datos));
                                                     echo '<tr>';
                                                     echo '<td>' . $key['ID'] . '</td>';
                                                     echo '<td>' . $key['RUT'] . '</td>';
                                                     echo '<td>' . $key['nombre'] . '</td>';
                                                     echo '<td>' . $key['apellido'] . '</td>';
                                                     echo '<td>' . $key['direccion'] . '</td>';
-                                                    echo '<td><a class="btn bg-success" style="background-color: #C8E6C9;" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-eye"></i></a></td>';
-                                                    echo '<td><button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateBene('.$escaped.')"><i class="bi bi-pencil-square"></i></a></td>';
+                                                    echo '<td><a class="btn submit" href="VerDatos.php?rut=' . $rutb . '"><i class="bi bi-eye"></i></a></td>';
+                                                    echo '<td><button type="button" class="btn submit" data-toggle="modal" data-target="#modalEdit" onclick="updateBene(' . $escaped . ')"><i class="bi bi-pencil-square"></i></a></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
@@ -272,7 +272,52 @@ $benefs = $data->getAllBenefi();
         <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <!-- AdminLTE App -->
         <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
-         <!-- <script>
+        <!-- AdminLTE for demo purposes -->
+        <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
+        <script type="text/javascript">
+                                                            var input = document.getElementById('telefonoU');
+                                                            input.addEventListener('input', function () {
+                                                                if (this.value.length > 9)
+                                                                    this.value = this.value.slice(0, 9);
+                                                            })
+        </script>
+
+        <script>
+            document.getElementById('emailU').addEventListener('input', function () {
+                campo = event.target;
+                valido = document.getElementById('emailVal');
+                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+
+                if (emailRegex.test(campo.value)) {
+                    valido.innerText = "Correo válido";
+                } else {
+                    valido.innerText = "Correo no válido";
+                }
+            }
+            );
+        </script>
+        <script>
+            $(function () {
+                $("#myTable").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "language": {
+                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                        "zeroRecords": "No se han encontrado registros",
+                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay registros disponibles",
+                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                        "search": "Buscar:",
+                        "paginate": {
+                            'next': 'Siguiente',
+                            'previous': 'Anterior',
+                        }
+                    }
+                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+            });
+        </script>
+        <!-- <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");
             let searchBtn = document.querySelector(".bx-search");
@@ -299,25 +344,4 @@ $benefs = $data->getAllBenefi();
             }
         </script> -->
     </body>
-    <script>
-                                                            $(function () {
-                                                                $("#myTable").DataTable({
-                                                                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                                                                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                                                                    "language": {
-                                                                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                                                                        "zeroRecords": "No se han encontrado registros",
-                                                                        "info": "Mostrando la página _PAGE_ de _PAGES_",
-                                                                        "infoEmpty": "No hay registros disponibles",
-                                                                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                                                                        "search": "Buscar:",
-                                                                        "paginate": {
-                                                                            'next': 'Siguiente',
-                                                                            'previous': 'Anterior',
-                                                                        }
-                                                                    }
-                                                                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
-
-                                                            });
-    </script>
 </html>

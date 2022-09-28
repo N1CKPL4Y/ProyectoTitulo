@@ -6,6 +6,51 @@
     box-sizing: border-box;
     font-family: "Poppins" , sans-serif;
 }
+/*botones de tipo submit*/
+.submit{
+    background-color:#558b2f !important;
+    color: white !important;
+}
+.submit:hover{
+    background-color: #00526a !important;
+    color: white !important;
+}
+
+/*header acordeon*/
+.Header{
+    background-color: #558b2f !important;
+    color: white !important;
+}
+
+/*titulo acordeon*/
+.Titulo{
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.Cuerpo{
+    background-color: #C8E6C9 !important;
+}
+
+.Cuerpo .table{
+    background-color: white !important;
+}
+
+.HeaderModal{
+    background-color: #00526a !important;
+    color: white !important;
+}
+
+.submitModal{
+    background-color:#558b2f !important;
+    color: white !important;
+}
+.submitModal:hover{
+    background-color: white !important;
+    color: #fbb416 !important;
+}
+
+
 
 .sidebar{
     overflow: hidden;

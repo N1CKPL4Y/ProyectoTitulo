@@ -18,6 +18,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
+        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
     </head>
     <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -59,7 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-10" style="display: flex; align-items: center; justify-content: center;">
-                                        <button type="submit" class="btn btn-success btn-lg">Iniciar Sesión</button>
+                                        <button type="submit" class="btn submit btn-lg">Iniciar Sesión</button>
                                     </div>
                                 </div>
                             </form>

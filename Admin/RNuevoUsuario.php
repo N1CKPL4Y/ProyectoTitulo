@@ -109,7 +109,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color: #C8E6C9; background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
@@ -122,11 +122,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px"> 
                 <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-10 col-lg-10">
-                        <div class="card" style="border-radius: 10px;">
-                            <div class="card-header">
-                                <h4 class="center" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">Registro Nuevos Usuarios</h4>
+                        <div class="card" style="" style="background-color: #558b2f">
+                            <div class="card-header" style="background-color: #558b2f">
+                                <h4 class="center" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px; color: white">Registro Nuevos Usuarios</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #C8E6C9">
                                 <div class="row justify-content-around">
                                     <div class="col-sm-10 col-md-10 col-lg-10">
                                         <form method="post" action="../controller/controllerRegistroUsuarios.php" name="datosUser">
@@ -241,7 +241,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                             <div class="row justify-content-lg-center">
                                                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
-                                                    <button type="submit" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Registrar</button>
+                                                    <button type="submit" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Registrar</button>
                                                 </div>
                                             </div>
                                         </form>

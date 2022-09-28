@@ -40,16 +40,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <!-- CSS only -->
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
@@ -109,7 +110,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container" style="display: flex; align-items: center; justify-content: center;">
@@ -124,7 +125,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="col s10 offset-s1">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
-                                <div class="card-header" id="headingOne" style="background-color: #558b2f">
+                                <div class="card-header Header" id="headingOne">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white">
                                             Agregar / Habilitar / Deshabilitar Areas de usuario
@@ -132,7 +133,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </h2>
                                 </div>
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
+                                    <div class="card-body Cuerpo">
                                         <div class="row">
                                             <form action="../controller/controllerRegistroNArea.php" method="post">
                                                 <div class="row">
@@ -144,7 +145,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col-md-6 col-sm-10">
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                            <button type="submit" class="btn submit">Registrar</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -159,7 +160,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-md-6 col-sm-10">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
-                                                        <thead style="font-size: 20px; text-align: center">
+                                                        <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
                                                                 <th>Areas Habilitadas</th>
                                                                 <th>Deshabilitar</th>
@@ -175,7 +176,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <tr>
                                                                     <td hidden=""><?php echo $key['id'] ?></td>
                                                                     <td><?php echo $key['nombre'] ?></td>
-                                                                    <td><?php echo '<a href="../controller/controllerUpdateArea.php?id=' . $id_a . '&p=0"><button name="btn_deshabilitar" class="btn btn-success">Deshabilitar</button></a>' ?></td>
+                                                                    <td><?php echo '<a href="../controller/controllerUpdateArea.php?id=' . $id_a . '&p=0"><button name="btn_deshabilitar" class="btn submit">Deshabilitar</button></a>' ?></td>
                                                                 </tr>
                                                                 <?php
                                                             }
@@ -187,7 +188,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-md-6 col-sm-10">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
-                                                        <thead style="font-size: 20px; text-align: center">
+                                                        <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
                                                                 <th>Areas Deshabilitadas</th>
                                                                 <th>Habilitar</th>
@@ -202,7 +203,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 ?>
                                                                 <tr>
                                                                     <td><?php echo $key['nombre'] ?></td>
-                                                                    <td><?php echo '<a href="../controller/controllerUpdateArea.php?id=' . $id_a . '&p=1"><button name="btn_deshabilitar" class="btn btn-success">habilitar</button></a>' ?></td>
+                                                                    <td><?php echo '<a href="../controller/controllerUpdateArea.php?id=' . $id_a . '&p=1"><button name="btn_deshabilitar" class="btn submit">habilitar</button></a>' ?></td>
                                                                 </tr>
                                                                 <?php
                                                             }
@@ -216,7 +217,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingTwo" style="background-color: #558b2f">
+                                <div class="card-header Header" id="headingTwo">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white">
                                             Agregar Condiciones nuevas
@@ -224,7 +225,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </h2>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                    <div class="card-body">
+                                    <div class="card-body Cuerpo">
                                         <div class="row">
                                             <form action="../controller/controllerRegistroNCondicion.php" method="post">
                                                 <div class="row">
@@ -254,7 +255,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="row">
                                                     <div class="col-md-2 col-sm-10 center">
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                            <button type="submit" class="btn submit">Registrar</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -269,7 +270,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-md-12 col-sm-10 center">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
-                                                        <thead style="font-size: 20px; text-align: center">
+                                                        <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
                                                                 <th>Nombre</th>
                                                                 <th>Codigo</th>
@@ -299,7 +300,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingThree" style="background-color: #558b2f">
+                                <div class="card-header Header" id="headingThree">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white">
                                             Agregar Pensiones
@@ -307,7 +308,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </h2>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
+                                    <div class="card-body Cuerpo">
                                         <div class="row">
                                             <form action="../controller/controllerRegistroNPension.php" method="post">
                                                 <div class="row">
@@ -319,7 +320,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col-md-2 col-sm-10 center">
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                            <button type="submit" class="btn submit">Registrar</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -334,7 +335,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-md-12 col-sm-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
-                                                        <thead style="font-size: 20px; text-align: center">
+                                                        <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
                                                                 <th>Pensiones Registradas</th>
                                                             </tr>
@@ -360,7 +361,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingThree" style="background-color: #558b2f">
+                                <div class="card-header Header" id="headingThree" style="background-color: #558b2f">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="color: white">
                                             Agregar Areas de Especialistas
@@ -368,7 +369,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     </h2>
                                 </div>
                                 <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
+                                    <div class="card-body Cuerpo">
                                         <div class="row">
                                             <form action="../controller/controllerRegistroNEsp.php" method="post">
                                                 <div class="row">
@@ -380,7 +381,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col-md-4 col-sm-10 center">
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-success">Registrar</button>
+                                                            <button type="submit" class="btn submit">Registrar</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -395,7 +396,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-md-12 col-sm-12" style="display: flex; align-items: center; justify-content: center;">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered">
-                                                        <thead style="font-size: 20px; text-align: center">
+                                                        <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
                                                                 <th>Areas de Especialistas registradas</th>
                                                             </tr>

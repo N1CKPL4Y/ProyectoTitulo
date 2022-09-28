@@ -62,16 +62,16 @@
                         });
             }
 
-            function Practicante() {
+            function Interno() {
                 swal({
                     title: "Bienvenido",
-                    text: "Practicante",
+                    text: "Interno",
                     type: "success",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                            window.location.href = '../MenuPracticante.php';
+                            window.location.href = '../MenuInterno.php';
                         });
             }
 
@@ -140,7 +140,7 @@ if ($rut && $pass) {
                                 echo '<script>Profesional();</script>';
                                 break;
                             case 4:
-                                echo '<script>Practicante();</script>';
+                                echo '<script>Interno();</script>';
                                 break;
                             default :
                                 break;

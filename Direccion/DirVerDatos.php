@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
 
@@ -33,40 +28,48 @@ $data = new Data();
 $benefs = $data->getAllBenefi();
 $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
 ?>
-<html>
+
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
+-->
+
+<html lang="en" dir="ltr">
     <head>
-        <meta charset="UTF-8">
         <title>Ver Datos</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../Materialize/js/funciones.js"></script>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
+        <script src="../Materialize/js/funciones.js"></script>
+        
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <!--<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>-->
-        <script src="../js/validarut.js"></script>
-        <script src="../js/jquery.rut.js"></script>
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
+    <body>
     <body>
         <div class="sidebar open">
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
-            <ul class="nav-list" style="margin-left: -2rem">
+            <ul class="nav-list">
                 <li>
                     <a href="../MenuDireccion.php">
                         <i class='bx bx-home' ></i>
@@ -103,7 +106,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav style="background-color: #00526a">
                 <div class="nav-wrapper" >
                     <div class="container" style="display: flex; align-items: center; justify-content: center;">
@@ -252,10 +255,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <form action="../controller/controllerUpdateTutor.php?dis=2&rut=<?php echo $rutBen; ?>" method="Post">
-                                        <div class="modal-header" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Tutor</h5>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body Cuerpo">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
@@ -354,9 +357,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                            <button type="submit" class="btn submitModal">Guardar Cambios</button>
                                         </div>
                                     </form>
                                 </div>
@@ -367,10 +370,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px">
-                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
                                 <h3>Datos del beneficiario</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body Cuerpo">
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <h4>Beneficios Generales:</h4>
@@ -419,7 +422,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="../Admin/Datos/Carnet.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <a href="../Admin/Datos/Carnet.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -496,7 +499,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="../Admin/Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
+                                        <a href="../Admin/Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -512,7 +515,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="../Admin/Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
+                                            <a href="../Admin/Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
                                         </div>
                                         <?php
                                     } else {
@@ -604,7 +607,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-10 col-lg-6">
-                                                <a href="../Admin/Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
+                                                <a href="../Admin/Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 10px">
@@ -754,7 +757,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="../Admin/Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <a href="../Admin/Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -857,7 +860,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <div class="row justify-content-start" style="padding-top: 10px;">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped ?>)" style="color: white">Editar datos del tutor</button>
+                                        <button type="button" class="btn submit" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped ?>)" style="color: white">Editar datos del tutor</button>
                                     </div>
                                 </div>
                             </div>

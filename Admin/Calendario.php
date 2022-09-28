@@ -112,7 +112,7 @@ $eventJson = json_encode($eventoA);
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container center" style="display: flex; align-items: center; justify-content: center;">
@@ -130,13 +130,10 @@ $eventJson = json_encode($eventoA);
                                 <div class="modal-dialog">
                                     <form name="form" id="form1" method="post" action="">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body Cuerpo">
                                                 <div class="input-group mb-3" id="id_event">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">#</span>
@@ -162,9 +159,9 @@ $eventJson = json_encode($eventoA);
                                                     <input type="color" class="form-control" name="txt_color" id="color" aria-label="Username"aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
+                                            <div class="modal-footer HeaderModal">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" id="btn_Action" class="btn btn-success">Registrar</button>
+                                                <button type="submit" id="btn_Action" class="btn submitModal">Registrar</button>
                                                 <button type="button" id="btn_Delete" class="btn btn-danger" >Eliminar</button>
                                             </div>
                                         </div>

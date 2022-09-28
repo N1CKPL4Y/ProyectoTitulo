@@ -112,15 +112,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <form action="controller/controllerIngreso.php" method="post" enctype="multipart/form-data">
                                     <div class="accordion" id="accordionExample">
                                         <div class="card">
-                                            <div class="card-header" id="headingOne" style="background-color: #558b2f">
+                                            <div class="card-header Header" id="headingOne">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne" style="color: white; font-size: 16px">
-                                                        <i class="bi bi-caret-down-fill">Datos Generales</i>
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
+                                                        <i class="bi bi-caret-down-fill Titulo">Datos Generales</i>
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                <div class="card-body" style="background-color: #C8E6C9">
+                                                <div class="card-body Cuerpo">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
@@ -156,15 +156,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="card-header" id="headingTwo" style="background-color: #558b2f">
+                                            <div class="card-header Header" id="headingTwo">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo" style="color: white; font-size: 16px">
-                                                        <i class="bi bi-caret-down-fill">Datos del beneficiario</i>
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">
+                                                        <i class="bi bi-caret-down-fill Titulo">Datos del beneficiario</i>
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                                <div class="card-body" style="background-color: #C8E6C9">
+                                                <div class="card-body Cuerpo">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
@@ -285,10 +285,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="card-header" id="headingThree" style="background-color: #558b2f">
+                                            <div class="card-header Header" id="headingThree">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white; font-size: 16px">
-                                                        <i class="bi bi-caret-down-fill">Diagnostico del beneficiario</i>
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        <i class="bi bi-caret-down-fill Titulo">Diagnostico del beneficiario</i>
                                                     </button>
                                                 </h2>
                                             </div>
@@ -368,10 +368,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="card-header" id="headingfour" style="background-color: #558b2f">
+                                            <div class="card-header Header" id="headingfour">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseThree" style="color: white; font-size: 16px">
-                                                        <i class="bi bi-caret-down-fill">Datos del tutor</i>
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
+                                                        <i class="bi bi-caret-down-fill Titulo">Datos del tutor</i>
                                                     </button>
                                                 </h2>
                                             </div>
@@ -510,10 +510,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="card-header" id="headingfive" style="background-color: #558b2f">
+                                            <div class="card-header Header" id="headingfive">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapseThree" style="color: white; font-size: 16px">
-                                                        <i class="bi bi-caret-down-fill">Datos de credencial de discapacidad</i>
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapseThree">
+                                                        <i class="bi bi-caret-down-fill Titulo">Datos de credencial de discapacidad</i>
                                                     </button>
                                                 </h2>
                                             </div>
@@ -654,10 +654,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="card-header" id="headingsix" style="background-color: #558b2f">
+                                            <div class="card-header Header" id="headingsix">
                                                 <h2 class="mb-0">
-                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapseThree" style="color: white; font-size: 16px">
-                                                        <i class="bi bi-caret-down-fill">Beneficios Sociales</i>
+                                                    <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapseThree">
+                                                        <i class="bi bi-caret-down-fill Titulo">Beneficios Sociales</i>
                                                     </button>
                                                 </h2>
                                             </div>
@@ -743,8 +743,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="row justify-content-lg-center">
-                                        <div class="col-sm-12 col-md-10 col-lg-8 col-xl-4" style="padding-top: 10px; padding-bottom: 10px">
-                                            <button type="submit" class="btn col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color: #558b2f; color: white">Registrar</button>
+                                        <div class="col-sm-12 col-md-10 col-lg-8 col-xl-5" style="padding-top: 10px; padding-bottom: 10px">
+                                            <button type="submit" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Registrar</button>
                                         </div>
                                     </div>
                                 </form>

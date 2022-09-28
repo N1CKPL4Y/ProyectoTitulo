@@ -15,20 +15,14 @@ if ($correo == null || "") {
     echo '<script language="javascript">alert("Acceso invalido");</script>';
     echo "<script> window.location.replace('index.php') </script>";
 }
-
-switch ($_SESSION['area_u']) {
-    case 1:
-        $area_u = "Fonoaudiolog@";
-        break;
-    case 2:
-        $area_u = "Oculista";
-        break;
-    case 3:
-        $area_u = "";
-        break;
+$data = new Data();
+$areas = $data->getAreaById($area_u);
+$a_usuario;
+foreach ($areas as $value){
+    $a_usuario = $value['nombre'];
 }
 
-$data = new Data();
+
 ?>
 
 <!DOCTYPE html>
@@ -41,44 +35,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title>Menú Profesional</title>
         <link rel="icon" href="IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="Materialize/css/materialize.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- Boxicons CDN Link -->
-        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+        <script src="js/validarut.js"></script>
+        <script src="js/jquery.rut.js"></script>
+        <script src="Materialize/js/funciones.js"></script>
+
+        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+
     </head>
     <body>
-        <div class="sidebar open">
+        <div class="sidebar open" style="overflow: hidden !important">
             <div class="logo-details">
-                <div class="logo_name">Fundación Inclusiva</div>
+                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
                 <i class='bx bx-menu' id="btn" ></i>        
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="#">
-                        <i class='bx bx-calendar' ></i>
-                        <span class="links_name">Visualizar Horario</span>
+                    <a href="controller/controllerLogout.php">
+                        <i class="material-icons">power_settings_new</i>
+                        <span class="links_name">Cerrar Sesión</span>
                     </a>
-                    <span class="tooltip">Visualizar Horario</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='material-icons'>assignment</i>
-                        <span class="links_name">Generar Informe Integral</span>
-                    </a>
-                    <span class="tooltip">Generar Informe Integral</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='material-icons'>assignment_turned_in</i>
-                        <span class="links_name">Registrar Bitacora</span>
-                    </a>
-                    <span class="tooltip">Registrar Bitacora</span>
+                    <span class="tooltip">Cerrar Sesión</span>
                 </li>
                 <li class="profile">
                     <div class="profile-details">
@@ -86,51 +71,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="name_job">
                             <div class="name"><?php echo $nombre ?></div>
                             <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $area_u ?></div>
+                            <div class="name"><?php echo $a_usuario ?></div>
                             <div class="job"><?php echo $correo ?></div>
 
                         </div>
-                        <a href="controller/controllerLogout.php"><i class='bx bx-log-out' id="log_out" ></i></a>
+                        <a><i id="log_out"></i></a>
                     </div>
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-image: url(IMG/2.jpg); background-attachment: fixed; background-size: cover">
-            <nav>
-                <div class="nav-wrapper" style="background-color: #00526a">
-                    <div class="container center">
-                        <a style="font-size: 30px">Ave</a>
-                        <img src="IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+        <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
+            <nav style="background-color: #00526a">
+                <div class="nav-wrapper" >
+                    <div class="container" style="display: flex; align-items: center; justify-content: center;">
+                        <a style="font-size: 30px;color: white">Ave</a>
+                        <img width="40" height="40" style="padding-bottom: 5px" src="IMG/iconNavbar.png"/>
+                        <a style="font-size: 30px;color: white;">Fenix</a>
                     </div>
                 </div>
             </nav>
+            
         </section>
-        <!-- <script>
-            let sidebar = document.querySelector(".sidebar");
-            let closeBtn = document.querySelector("#btn");
-            let searchBtn = document.querySelector(".bx-search");
-            let section = document.querySelector(".home-section");
-
-            closeBtn.addEventListener("click", () => {
-                sidebar.classList.toggle("open");
-                menuBtnChange();//calling the function(optional)
-                section.classList.toggle("move");
-            });
-
-            searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-                sidebar.classList.toggle("open");
-                menuBtnChange(); //calling the function(optional)
-            });
-
-            // following are the code to change sidebar button(optional)
-            function menuBtnChange() {
-                if (sidebar.classList.contains("open")) {
-                    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-                } else {
-                    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
-                }
-            }
-        </script> -->
     </body>
 </html>

@@ -115,7 +115,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
@@ -130,15 +130,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="col-sm-6">
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
+                                <div class="modal-content" style="border-radius: 50px">
                                     <form action="controller/controllerUpdateUser.php" method="Post">
-                                        <div class="modal-header">
+                                        <div class="modal-header HeaderModal" style="display: flex; align-items: center; justify-content: center; font-size: 24px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Usuario</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body Cuerpo">
                                             <div class="row">
                                                 <div class="col-md-4 col-sm-10">
                                                     <div class="form-group">
@@ -298,9 +295,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                            <button type="submit" class="btn submitModal">Guardar Cambios</button>
                                         </div>
                                     </form>
                                 </div>
@@ -309,16 +306,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
                 <div class="row justify-content-around" style="padding-top: 25px">
-                    <div class="col-sm-12 col-md-12">
-                        <div class="card" style="border-radius: 10px">
-                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                    <div class="col-sm-10 col-md-10">
+                        <div class="card">
+                            <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
                                 <h3 class="card-title" style="font-size: 24px">Usuarios Registrados</h3>
                             </div>
-                            <div class="card-body">
-                                <div class="row justify-content-md-center">
+                            <div class="card-body Cuerpo">
+                                <div class="row" style="display: flex; align-items: center; justify-content: center;">
                                     <div class="col-sm-4 col-md-10">
                                         <table id="myTable" class="table table-bordered table-striped">
-                                            <thead>
+                                            <thead class="HeaderModal">
                                                 <tr>
                                                     <th>R.U.T</th>
                                                     <th>Nombres</th>
@@ -372,7 +369,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     echo '<td>' . $key['telefono'] . '</td>';
                                                     echo '<td>' . $key['tipo usuario'] .' - '. $key['id_user'].'</td>';
                                                     echo '<td>' . $activo . '</td>';
-                                                    echo '<td><button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
+                                                    echo '<td><button type="button" class="btn submit" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
