@@ -397,12 +397,17 @@ if (!$existeBene) {
             //echo 'hola';
         }
         //$data->addPensionBene($rut, $pension);
-
+        
+        //insert teleton
         if ($teleton == 1) {
             $data->addTeleton($numeroTeleton, $rut);
         }
-
-        $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
+        
+        //insert beneficios sociales
+        if($hogar == 1){
+            $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
+        }
+        
         echo '<script language="javascript">Success()</script>';
         //echo "funciona";
     } else {

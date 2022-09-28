@@ -396,10 +396,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="modal fade" id="modalCreden" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase; ?></h5>
+                                    <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;">
+                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase . ' ' . $apelBase; ?></h5>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body Cuerpo">
 
                                         <?php
                                         $credenC = $data->getCredenByRut($rutBase);
@@ -422,9 +422,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         ?>
 
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer HeaderModal">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <a href="../Admin/Datos/Credencial.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn btn-success btn-primary">Descargar copia carnet</a>
+                                        <a href="../Admin/Datos/Credencial.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn submitModal">Descargar copia credencial</a>
                                     </div>
                                 </div>
                             </div>
@@ -564,9 +564,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $regiBase; ?>" readonly="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="../Admin/Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
-                                    </div>
+                                    <?php
+                                    if ($regiBase == "SI") {
+                                        ?>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <a href="../Admin/Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        
+                                    }
+                                    ?>
+
                                 </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
@@ -780,7 +789,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     $f_nacT = $valor4['fecha_nac'];
                                     $direccionT = $valor4['direccion'];
                                     $comunaT = $valor4['comuna'];
-                                    $c_identTutor=$valor4['c_identidad'];
+                                    $c_identTutor = $valor4['c_identidad'];
                                     $n_escolar = $valor4['n_escolar'];
                                     $ocupacionT = $valor4['ocupacion'];
                                     $telefonoT = $valor4['telefono'];
@@ -823,7 +832,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
-                                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombreT ; ?></h5>
+                                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombreT; ?></h5>
                                                     </div>
                                                     <div class="modal-body Cuerpo">
                                                         <div class="row justify-content-around">

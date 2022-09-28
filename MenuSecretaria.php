@@ -102,7 +102,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </nav>
             <div class="container-fluid">
-                <div class="row justify-content-around" style="padding-top: 25px">
+                <div class="row justify-content-around" style="padding-top: 25px; padding-bottom: 25px">
                     <div class="col-sm-12 col-md-10">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
