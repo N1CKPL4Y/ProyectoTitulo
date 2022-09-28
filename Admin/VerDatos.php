@@ -406,7 +406,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn btn-success btn-primary">Descargar copia carnet</a>
+                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase;?>"  target="_blank" class="btn btn-success btn-primary">Descargar copia carnet</a>
                                     </div>
                                 </div>
                             </div>
