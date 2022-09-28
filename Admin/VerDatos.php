@@ -392,7 +392,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
-                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase.' '.$apelBase;?></h5>
+                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase . ' ' . $apelBase; ?></h5>
                                     </div>
                                     <div class="modal-body Cuerpo">
                                         <div class="row justify-content-around">
@@ -403,7 +403,47 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     </div>
                                     <div class="modal-footer HeaderModal">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase;?>"  target="_blank" class="btn submitModal btn-primary">Descargar copia carnet</a>
+                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn submitModal btn-primary">Descargar copia carnet</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="modal fade" id="modalCreden" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase; ?></h5>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <?php
+                                        $credenC = $data->getCredenByRut($rutBase);
+                                        foreach ($credenC as $values) {
+                                            $imgCA = $values['c_parte_delantera'];
+                                            $imgCB = $values['c_parte_trasera'];
+                                            ?>
+                                            <div class = "row justify-content-around">
+                                                <div class = "col-sm-12 col-md-12 col-lg-12">
+                                                    <img name = "hola" width = "600" height = "300" src = "data:image/jpeg;base64,<?php echo base64_encode($imgCA) ?>"/>
+                                                </div>
+                                            </div>
+                                            <div class = "row justify-content-around">
+                                                <div class = "col-sm-12 col-md-12 col-lg-12">
+                                                    <img name = "hola" width = "600" height = "300" src = "data:image/jpeg;base64,<?php echo base64_encode($imgCB) ?>"/>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn btn-success btn-primary">Descargar copia carnet</a>
                                     </div>
                                 </div>
                             </div>
@@ -560,7 +600,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
+                                            <button type="button" class="btn btn-success col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCreden">
+                                                Ver Copia Credencial
+                                            </button>
                                         </div>
                                         <?php
                                     } else {
@@ -747,6 +789,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 $direccionT;
                                 $comunaT;
                                 $n_escolar;
+                                $c_identTutor;
                                 $ocupacionT;
                                 $telefonoT;
                                 $emailT;
@@ -756,6 +799,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     $f_nacT = $valor4['fecha_nac'];
                                     $direccionT = $valor4['direccion'];
                                     $comunaT = $valor4['comuna'];
+                                    $c_identTutor=$valor4['c_identidad'];
                                     $n_escolar = $valor4['n_escolar'];
                                     $ocupacionT = $valor4['ocupacion'];
                                     $telefonoT = $valor4['telefono'];
@@ -792,6 +836,30 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         . $valor4['email'];
                                 $escaped = htmlspecialchars(json_encode($datos));
                                 ?>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="modal fade" id="modalCTutor" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase . ' ' . $apelBase; ?></h5>
+                                                    </div>
+                                                    <div class="modal-body Cuerpo">
+                                                        <div class="row justify-content-around">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <img name="hola" width="700" height="400" src="data:image/jpeg;base64,<?php echo base64_encode($c_identTutor) ?>"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer HeaderModal">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $rutBase; ?>"  target="_blank" class="btn submitModal btn-primary">Descargar copia carnet</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
@@ -802,7 +870,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <button type="button" class="btn btn-success col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCTutor">
+                                            Ver Copia Carnet
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">

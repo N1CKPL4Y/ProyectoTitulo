@@ -13,23 +13,30 @@ $resul = $conexion->query($query) or die(mysql_error());
 
 if ($row = $resul->fetch_array()) {
     $rut = $row['RUT'];
+    $nom = $row['nombre'];
     $contenido = $row['c_identidad'];
     $tipo = 'image/jpg';
 }
 //header("Content-Type: $tipo");
 //echo $contenido;
+require '../../fpdf/fpdf.php';
+
+$dataUrl="data:image/jpeg;base64,".base64_encode($contenido)."";
+$img = explode(',',$dataUrl,2)[1];
+$pic = 'data://text/plain;base64,'. $img;
+
+$pdf = new FPDF();
+$pdf->AddPage('P', 'Legal');
+$pdf->SetFont('Arial', 'B', 16);
+$pdf->SetXY(70, 10);
+$pdf->Cell(60, 7, 'Copia Cedula de identidad');
+$pdf->Ln(20);
+$pdf->SetFont('Arial', '', 10);
+$pdf->MultiCell(180, 6, utf8_decode('Se presenta la copia de la cedula de identidad de: ' . $rut . ' correspondiente a Don: ' . $nom ));
+$pdf->Ln();
+$pdf->Image($pic,20,50,130,80,'jpg');
+$pdf->Output('Contrato.pdf', 'I');
 ?>
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <title>Carnet de Identidad</title>
-        <link rel="stylesheet" href="../../Materialize/css/styleBody.css"/>
-    </head>
-    <body>
-        <img name="hola" width="400" height="700" src="data:<?php echo $tipo; ?>;base64,<?php echo base64_encode($contenido) ?>" style="transform:rotate(-90deg);"/>
-    </body>
-</html>
+
 
 

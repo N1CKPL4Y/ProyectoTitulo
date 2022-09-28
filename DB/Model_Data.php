@@ -134,6 +134,14 @@ class Data {
 
         return false;
     }
+    
+    public function getCredenByRut($rut) {
+        $sql = "SELECT * FROM c_discapacidad WHERE beneficiario = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        return $query;
+    }
 
     public function getDiagValid($rut) {
         $sql = "SELECT COUNT(*) AS 'existe' 
