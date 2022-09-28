@@ -125,7 +125,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 </li>
             </ul>
         </div>
-        <section class="home-section" style="background-color:#C8E6C9 ; background-attachment: fixed; background-size: cover">
+        <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav style="background-color: #00526a">
                 <div class="nav-wrapper" >
                     <div class="container" style="display: flex; align-items: center; justify-content: center;">
@@ -274,10 +274,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <form action="../controller/controllerUpdateTutor.php?dis=1&rut=<?php echo $rutBen; ?>" method="Post">
-                                        <div class="modal-header" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Tutor</h5>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body Cuerpo">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
@@ -376,9 +376,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                            <button type="submit" class="btn submitModal">Guardar Cambios</button>
                                         </div>
                                     </form>
                                 </div>
@@ -391,22 +391,19 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase;?></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                    <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase.' '.$apelBase;?></h5>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body Cuerpo">
                                         <div class="row justify-content-around">
                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                 <img name="hola" width="700" height="400" src="data:image/jpeg;base64,<?php echo base64_encode($imgBase) ?>"/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer HeaderModal">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase;?>"  target="_blank" class="btn btn-success btn-primary">Descargar copia carnet</a>
+                                        <a href="Datos/dLoadCarnet.php?rut=<?php echo $rutBase;?>"  target="_blank" class="btn submitModal btn-primary">Descargar copia carnet</a>
                                     </div>
                                 </div>
                             </div>
@@ -416,10 +413,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px">
-                            <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
                                 <h3>Datos del beneficiario</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body Cuerpo">
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <h4>Datos Generales:</h4>
@@ -468,7 +465,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#staticBackdrop">
+                                        <button type="button" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#staticBackdrop">
                                             Ver Copia Carnet
                                         </button>
                                     </div>
@@ -547,7 +544,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
+                                        <a href="Datos/Cartola.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Cartola R. Social Hogares</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -563,7 +560,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
+                                            <a href="Datos/Credencial.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Credencial</a>
                                         </div>
                                         <?php
                                     } else {
@@ -655,7 +652,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-10 col-lg-6">
-                                                <a href="Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
+                                                <a href="Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 10px">
@@ -805,7 +802,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn btn-success col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
+                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Ver copia carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -908,7 +905,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <div class="row justify-content-start" style="padding-top: 10px;">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped ?>)" style="color: white">Editar datos del tutor</button>
+                                        <button type="button" class="btn submit" data-toggle="modal" data-target="#modalEdit" onclick="updateTutor(<?php echo $escaped ?>)" style="color: white">Editar datos del tutor</button>
                                     </div>
                                 </div>
                             </div>
