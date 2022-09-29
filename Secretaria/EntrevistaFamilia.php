@@ -48,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
         <script src="../js/validarut.js"></script>
         <script src="../Materialize/datepicke.js"></script>
         <script src="../js/jquery.rut.js"></script>
@@ -179,7 +179,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     }
 
                                     $diagnostico = $data->getDiagnostico($rutBuscado);
-
+                                    //echo $profeBD;
                                     if (!$diagValid) {
                                         $diagBD = "NO posee diagnostico";
                                         $profeBD = "No Aplica";
@@ -208,7 +208,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text" id="basic-addon1">Rut</span>
                                                                 </div>
-                                                                <input type="text" id="rut_b1" name="txt_rutb1" value="<?php echo $rutBd; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                <input type="text" id="rut_b1" name="txt_rutB1" value="<?php echo $rutBd; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-4 col-lg-4">
@@ -216,7 +216,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text" id="basic-addon1">Nombres</span>
                                                                 </div>
-                                                                <input type="text" id="nombre1" name="txt_nombre1" value="<?php echo $nombreBD; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                <input type="text" id="nombre1" name="txt_n1" value="<?php echo $nombreBD; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-4 col-lg-4">
@@ -267,18 +267,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-12 col-lg-6">
                                                             <?php
-                                                            $array = $data->getEspecialista($profeBD);
-                                                            $textEsp;
-                                                            foreach ($array as $valor1) {
-                                                                $textEsp = $valor1['nombre'];
+                                                            if ($profeBD == "No Aplica") {
+                                                                ?>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1">Profesional que lo deriva</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="txt_deriva" value="<?php echo $profeBD ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <?php
+                                                            } else {
+                                                                $array = $data->getEspecialista($profeBD);
+                                                                $textEsp;
+                                                                foreach ($array as $valor1) {
+                                                                    $textEsp = $valor1['nombre'];
+                                                                }
+                                                                ?>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1">Profesional que lo deriva</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="txt_deriva" value="<?php echo $textEsp ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <?php
                                                             }
                                                             ?>
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon1">Profesional que lo deriva</span>
-                                                                </div>
-                                                                <input type="text" class="form-control" name="txt_diag" value="<?php echo $textEsp ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -306,7 +320,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text" id="basic-addon1">Nombre</span>
                                                                 </div>
-                                                                <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $nombTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" name="txt_nT" value="<?php echo $nombTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -316,7 +330,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text" id="basic-addon1">Telefono</span>
                                                                 </div>
-                                                                <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $teleTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" name="txt_telefonoT" value="<?php echo $teleTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-12 col-lg-6">
@@ -324,7 +338,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text" id="basic-addon1">Correo electronico</span>
                                                                 </div>
-                                                                <input type="text" class="form-control" name="txt_rutTutor" value="<?php echo $corrTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" name="txt_emailT" value="<?php echo $corrTut ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -393,7 +407,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="0" onclick="noControlado()">
+                                                                <input class="form-control-label" name="embarazo1" id="noE" type="radio" value="2" onclick="noControlado()">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -405,7 +419,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">¿Cada cuanto?</span>
                                                             </div>
-                                                            <input type="text" id="embarazo" name="txt_embarazo" class="form-control" disabled aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" id="embarazo" name="txt_embarazo" disabled class="form-control" disabled aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -416,13 +430,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Consumió medicina, drogas y/o alcohol?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="siE1" value="1" onclick="consumio()">
+                                                                <input class="form-control-input" type="radio" name="embarazo2" id="siE1" value="1" onclick="consumio()">
                                                                 <label class="form-control-label" for="siE1">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE1" value="0" onclick="noConsumio()">
+                                                                <input class="form-control-input" type="radio" name="embarazo2" id="noE1" value="2" onclick="noConsumio()">
                                                                 <label class="form-control-label" for="noE1">
                                                                     No
                                                                 </label>
@@ -451,7 +465,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="complicaciones" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="complicaciones" id="noE2" value="2" onclick="sinComplicaciones()">
                                                                 <label class="form-control-label" for="noE2">
                                                                     No
                                                                 </label>
@@ -486,7 +500,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">¿Cuantas semanas de embarazo tuvo?</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_semanas" id="semanas" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -497,25 +511,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Tipo de embarazo</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo1" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Normal
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo2" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Inducido
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo3" value="3" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo3" value="3">
                                                                 <label class="form-control-label" for="tipo3">
                                                                     Fórceps
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4">
                                                                 <label class="form-control-label" for="tipo4">
                                                                     Cesarea (Indique)
                                                                 </label>
@@ -538,13 +552,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Tuvo asistencia medica?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="asistencia" value="1" ">
+                                                                <input class="form-control-input" type="radio" name="asistencia" value="1">
                                                                 <label class="form-control-label" for="siE2">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="asistencia" value="0" ">
+                                                                <input class="form-control-input" type="radio" name="asistencia" value="2">
                                                                 <label class="form-control-label" for="noE2">
                                                                     No
                                                                 </label>
@@ -571,7 +585,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Peso al nacer</span>
                                                             </div>
-                                                            <input type="text" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_peso" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
 
                                                         </div>
                                                         <span id="basic-addon1">Peso en gramos</span>
@@ -581,7 +595,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Talla al nacer</span>
                                                             </div>
-                                                            <input type="text" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_talla" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
 
                                                         </div>
                                                         <span id="basic-addon1">Talla en centimetros</span>
@@ -593,7 +607,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_apgar1" aria-label="Username" aria-describedby="basic-addon1">
 
                                                         </div>
                                                         <span id="basic-addon1">Al minuto</span>
@@ -603,7 +617,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_apgar2" aria-label="Username" aria-describedby="basic-addon1">
 
                                                         </div>
                                                         <span id="basic-addon1">A los 5 minutos</span>
@@ -636,7 +650,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Motivo</span>
                                                             </div>
-                                                            <input type="text" class="form-control" disabled id="hospitalizado" name="txt_motivo" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" disabled id="hospitalizado" name="txt_hospitalizado" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -656,7 +670,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma1" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Desnutrición</span>
@@ -664,7 +678,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma2" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Obesidad</span>
@@ -672,7 +686,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma3" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Fiebre Alta</span>
@@ -680,7 +694,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma4" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Convulsiones</span>
@@ -690,7 +704,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma5" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Traumatismos</span>
@@ -698,7 +712,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma6" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Intoxicación</span>
@@ -706,7 +720,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma7" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Enfermedades Respiratorias</span>
@@ -714,7 +728,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma8" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Asma</span>
@@ -724,7 +738,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma9" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma9" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Encefalitis</span>
@@ -732,7 +746,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma10" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma10" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Meningitis</span>
@@ -740,7 +754,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma11" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma11" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Hospitalizaciones</span>
@@ -748,7 +762,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma12" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma12" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de los anteriores</span>
@@ -756,11 +770,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sintoma13" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sintoma13" name="sintomasNacer[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" placeholder="Indique" disabled id="sintoma14" class="form-control" aria-label="Text input with checkbox">
+                                                            <input type="text" placeholder="Indique" disabled id="sintoma14" name="otroSintoNac" class="form-control" aria-label="Text input with checkbox">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -777,7 +791,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="controles" type="radio" value="0">
+                                                                <input class="form-control-label" name="controles" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -796,7 +810,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="vacunas" type="radio" value="0">
+                                                                <input class="form-control-label" name="vacunas" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -808,7 +822,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones primeros 12 meses de vida</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_meses" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -836,7 +850,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Con leche materna exclusiva</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_lactancia" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -844,7 +858,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Mixta: Leche materna y Relleno</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_mixto" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -854,7 +868,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Con Relleno y Formula de leche</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_relleno" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -882,7 +896,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Controla la cabeza</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Ccabeza" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-4">
@@ -890,7 +904,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Se sienta solo</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Ssolo" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-4">
@@ -898,7 +912,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Comienza a gatear</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_gatear" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -908,7 +922,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Camina con apoyo</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Capoyo" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-4">
@@ -916,7 +930,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Camina sin apoyo</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Sapoyo" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-4">
@@ -924,7 +938,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Emite sus 1ras palabras</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Ppalabras" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -934,7 +948,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Emite sus 1ras frases</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Pfrases" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-4">
@@ -942,7 +956,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Se viste solo/a</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Vsolo" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -953,13 +967,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Controla esfinter vesical Diurno</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterDV" type="radio" value="1" >
+                                                                <input class="form-control-label" name="EsfinterDV" type="radio" value="1">
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterDV" type="radio" value="0">
+                                                                <input class="form-control-label" name="EsfinterDV" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -972,13 +986,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Controla esfinter vesical Nocturno</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterNV" type="radio" value="1" >
+                                                                <input class="form-control-label" name="EsfinterNV" type="radio" value="1" >
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterNV" type="radio" value="0">
+                                                                <input class="form-control-label" name="EsfinterNV" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -993,13 +1007,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Controla esfinter anal Diurno</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterAD" type="radio" value="1" >
+                                                                <input class="form-control-label" name="EsfinterAD" type="radio" value="1" >
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterAD" type="radio" value="0">
+                                                                <input class="form-control-label" name="EsfinterAD" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -1012,13 +1026,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Controla esfinter anal Nocturno</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterNA" type="radio" value="1" >
+                                                                <input class="form-control-label" name="EsfinterNA" type="radio" value="1" >
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="esfinterNA" type="radio" value="0">
+                                                                <input class="form-control-label" name="EsfinterNA" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -1033,13 +1047,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Utiliza pañales?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="panales" type="radio" value="1" >
+                                                                <input class="form-control-label" name="Panales" type="radio" value="1" >
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="panales" type="radio" value="0">
+                                                                <input class="form-control-label" name="Panales" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -1052,13 +1066,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Utiliza pañal de entrenamiento?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="panalesE" type="radio" value="1" >
+                                                                <input class="form-control-label" name="PanalE" type="radio" value="1">
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="panalesE" type="radio" value="0">
+                                                                <input class="form-control-label" name="PanalE" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -1073,13 +1087,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Necesita asistencia para ir al baño?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="asistencia" id="siA" type="radio" value="1" >
+                                                                <input class="form-control-label" name="asistenciaB" id="siA" type="radio" value="1" >
                                                                 <label class="form-control-label" for="siA">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="asistencia" id="noA" type="radio" value="0">
+                                                                <input class="form-control-label" name="asistenciaB" id="noA" type="radio" value="2">
                                                                 <label class="form-control-label" for="noA">
                                                                     No
                                                                 </label>
@@ -1091,7 +1105,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Indique</span>
                                                             </div>
-                                                            <input type="text" class="form-control" disabled id="n_asistencia" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_Tasistencia" disabled id="n_asistencia" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1102,26 +1116,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Actividad motora general</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="motora" id="tipo" value="1" >
-                                                                <label class="form-control-label" for="tipo1">
+                                                                <input class="form-control-input" type="radio" name="Amotora" id="tipoM" value="1" >
+                                                                <label class="form-control-label" for="tipoM">
                                                                     Normal
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="motora" id="tipo" value="2" >
-                                                                <label class="form-control-label" for="tipo2">
+                                                                <input class="form-control-input" type="radio" name="Amotora" id="tipoM" value="2" >
+                                                                <label class="form-control-label" for="tipoM">
                                                                     Activo
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="motora" id="tipo" value="3" >
-                                                                <label class="form-control-label" for="tipo3">
+                                                                <input class="form-control-input" type="radio" name="Amotora" id="tipoM" value="3" >
+                                                                <label class="form-control-label" for="tipoM">
                                                                     Hiperactivo
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="motora" id="tipo" value="4" >
-                                                                <label class="form-control-label" for="tipo4">
+                                                                <input class="form-control-input" type="radio" name="Amotora" id="tipoM" value="4" >
+                                                                <label class="form-control-label" for="tipoM">
                                                                     Hipoactivo
                                                                 </label>
                                                             </div>
@@ -1135,20 +1149,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Tono muscular general</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tono" id="tipo1" value="1" >
-                                                                <label class="form-control-label" for="tipo1">
+                                                                <input class="form-control-input" type="radio" name="Tmuscular" id="tipoTM" value="1" >
+                                                                <label class="form-control-label" for="tipoTM">
                                                                     Normal
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tono" id="tipo2" value="2" >
-                                                                <label class="form-control-label" for="tipo2">
+                                                                <input class="form-control-input" type="radio" name="Tmuscular" id="tipoTM" value="2" >
+                                                                <label class="form-control-label" for="tipoTM">
                                                                     Hiperactivo
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tono" id="tipo3" value="3" >
-                                                                <label class="form-control-label" for="tipo3">
+                                                                <input class="form-control-input" type="radio" name="Tmuscular" id="tipoTM" value="3" >
+                                                                <label class="form-control-label" for="tipoTM">
                                                                     Hipoactivo
                                                                 </label>
                                                             </div>
@@ -1168,7 +1182,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="Ecaminar" type="radio" value="0">
+                                                                <input class="form-control-label" name="Ecaminar" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -1181,13 +1195,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Se cae con frecuencia</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="caerF" type="radio" value="1" >
+                                                                <input class="form-control-label" name="Cfrecuencia" type="radio" value="1" >
                                                                 <label class="form-control-label" for="siE">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="caerF" type="radio" value="0">
+                                                                <input class="form-control-label" name="Cfrecuencia" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     No
                                                                 </label>
@@ -1208,7 +1222,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-label" name="dominancia" type="radio" value="0">
+                                                                <input class="form-control-label" name="dominancia" type="radio" value="2">
                                                                 <label class="form-control-label" for="noE">
                                                                     Izquierda
                                                                 </label>
@@ -1228,7 +1242,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf1" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Agarrar</span>
@@ -1236,7 +1250,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf2" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text"  id="basic-addon1">Ensartar</span>
@@ -1244,7 +1258,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf3" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Presionar</span>
@@ -1252,7 +1266,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf4" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Dibujar</span>
@@ -1262,7 +1276,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf5" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Realizar pinza con indice y pulgar</span>
@@ -1270,7 +1284,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf6" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Escribir</span>
@@ -1278,7 +1292,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="mf7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="mf7" name="checkMFina[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -1297,7 +1311,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc1" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Reacciona a voces o caras familiares</span>
@@ -1305,7 +1319,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc2" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Demanda objetos y compañia</span>
@@ -1313,7 +1327,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc3" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Sonrie, balbucea, grita, llora, indica o señala</span>
@@ -1321,7 +1335,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc4" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Manipula y explora objetos</span>
@@ -1331,7 +1345,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc5" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Comprende prohibiciones</span>
@@ -1339,7 +1353,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc6" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Posee evidente descoordinacion ojo-mano</span>
@@ -1347,7 +1361,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="sc7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="sc7" name="check_Scog[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -1360,7 +1374,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_ObsLac" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1387,7 +1401,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v1" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Se interesa por los estimulos visuales</span>
@@ -1395,7 +1409,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v2" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">En ocaciones tiene los ojos irritados o llorosos</span>
@@ -1403,7 +1417,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v3" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Presenta dolores frecuentes de cabeza</span>
@@ -1411,7 +1425,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v4" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Se acerca o aleja demasiado los objetos</span>
@@ -1421,7 +1435,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v5" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Sigue el desplazamiento de los objetos o personas</span>
@@ -1429,7 +1443,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v6" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Presenta movimientos oculares "anormales"</span>
@@ -1437,7 +1451,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v7" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Manifiesta conductas "erroneas" (tropiezos, choques)</span>
@@ -1445,7 +1459,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="v8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="v8" name="check_vis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -1462,7 +1476,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="d1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="d1" name="check_DiagVis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Miopia</span>
@@ -1470,7 +1484,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="d2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="d2" name="check_DiagVis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Estrabismo</span>
@@ -1480,7 +1494,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="d3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="d3" name="check_DiagVis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Astigmatismo</span>
@@ -1488,7 +1502,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="d4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="d4" name="check_DiagVis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguno</span>
@@ -1498,11 +1512,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="d5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="d5" name="check_DiagVis[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="d6" disabled aria-label="Checkbox for following text input">
+                                                            <input type="text" id="d6" name="txt_OtroDiagVis" disabled aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1533,7 +1547,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_ObsVis" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1560,7 +1574,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a1" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Se interesa por los estimulos auditivos</span>
@@ -1568,7 +1582,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a2" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Reacciona o reconoce voces o sonidos familiares</span>
@@ -1576,7 +1590,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a3" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Gira la cabeza cuando se le llama o ante un ruido fuerte</span>
@@ -1584,7 +1598,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a4" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Acerca los oidos a la TV, radio o fuente de sonido</span>
@@ -1594,7 +1608,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a5" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">En ocaciones se tapa o golpea los oidos</span>
@@ -1602,7 +1616,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a6" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">La pronunciación oral es adecuada</span>
@@ -1610,7 +1624,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="a7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="a7" name="check_audi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -1627,7 +1641,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="da1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="da1" name="chech_DiagAudi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Hipoacusia Derecha</span>
@@ -1635,7 +1649,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="da2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="da2" name="chech_DiagAudi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Hipoacusia Izquierda</span>
@@ -1645,7 +1659,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="da3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="da3" name="chech_DiagAudi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Hipoacusia Bilateral</span>
@@ -1653,7 +1667,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="da4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="da4" name="chech_DiagAudi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otitis Cronicas</span>
@@ -1663,7 +1677,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="da5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="da5" name="chech_DiagAudi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguno</span>
@@ -1671,11 +1685,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="da6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="da6" name="chech_DiagAudi[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="da7" disabled aria-label="Checkbox for following text input">
+                                                            <input type="text" id="da7" name="otro_DiagAudi" disabled aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1686,13 +1700,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿El niño/a utiliza audifono?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="audicion" id="noE2" value="1" >
                                                                 <label class="form-control-label" for="siE2">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="exampleRadios" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="audicion" id="noE2" value="2" >
                                                                 <label class="form-control-label" for="noE2">
                                                                     No
                                                                 </label>
@@ -1735,25 +1749,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Comunicación</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c1" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c1" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Oral
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c2" value="2" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c2" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Gestual
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c3" value="3" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c3" value="3">
                                                                 <label class="form-control-label" for="tipo3">
                                                                     Mixto
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c4" value="4" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="comunicacion" id="c4" value="4">
                                                                 <label class="form-control-label" for="tipo4">
                                                                     Otro
                                                                 </label>
@@ -1767,7 +1781,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Indique</span>
                                                             </div>
-                                                            <input type="text" id="c5" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" id="c5" name="txt_otroCom" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1783,7 +1797,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc1" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Balbucea (oral o señas) / emite sonidos</span>
@@ -1791,7 +1805,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc2" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text"  id="basic-addon1">Vocaliza/realiza gestos o señas aisladas</span>
@@ -1799,7 +1813,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc3" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Emite palabras/produce señas</span>
@@ -1807,7 +1821,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc4" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Emite/produce frases</span>
@@ -1815,7 +1829,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc5" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Relata experiencias</span>
@@ -1825,7 +1839,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc6" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">La emision/pronunciacion/produccion es clara</span>
@@ -1833,7 +1847,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc7" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Opcion 8 emite palabras sueltas</span>
@@ -1841,7 +1855,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc8" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -1849,11 +1863,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="dc9" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="dc9" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="dc10" disabled="" aria-label="Checkbox for following text input">
+                                                            <input type="text" id="dc10" name="otro_LengEx" disabled="" aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1869,7 +1883,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl1" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Sigue instrucciones complejas (ven y sientate)</span>
@@ -1877,7 +1891,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl2" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Identifica personas</span>
@@ -1885,7 +1899,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl3" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Comprende conceptos abstractos (Amistad, Culpa, Cariño, etc)</span>
@@ -1893,7 +1907,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl4" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Responde en forma coherente preguntas de la vida diaria</span>
@@ -1901,7 +1915,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl5" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Sigue instrucciones simples (traeme un auto, sientate, etc)</span>
@@ -1909,7 +1923,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl6" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Identifica objetos</span>
@@ -1918,7 +1932,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl7" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Sigue instrucciones grupales (niños siéntense)</span>
@@ -1926,7 +1940,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl8" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Comprende relatos, noticias, cuentos cortos</span>
@@ -1934,7 +1948,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl9" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl9" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -1942,11 +1956,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="cl10" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="cl10" name="check_LengCom[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="cl11" disabled="" aria-label="Checkbox for following text input">
+                                                            <input type="text" id="cl11" name="otro_LengCom" disabled="" aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1957,13 +1971,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Manifestó perdida de lenguaje oral</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="perdidaL" id="pl1" value="1">
+                                                                <input class="form-control-input" type="radio" name="Plenguaje" id="pl1" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="perdidaL" id="pl2" value="2">
+                                                                <input class="form-control-input" type="radio" name="Plenguaje" id="pl2" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     No
                                                                 </label>
@@ -1975,7 +1989,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Indique</span>
                                                             </div>
-                                                            <input type="text" class="form-control" id="pl3" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" id="pl3" name="txt_perdidaL" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1985,7 +1999,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_ObsLeng" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2012,7 +2026,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds1" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Se relaciona espontáneamente con las personas de su entorno natural</span>
@@ -2020,7 +2034,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds2" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Explica razones de sus comportamientos y actitudes</span>
@@ -2028,7 +2042,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds3" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Participa en actividades grupales</span>
@@ -2036,7 +2050,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds4" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Opta por trabajo individual</span>
@@ -2044,7 +2058,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds5" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Presenta lenguaje ecolálico</span>
@@ -2052,7 +2066,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds6" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Exhibe dificultad para adaptarse a situaciones nuevas</span>
@@ -2060,7 +2074,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds7" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Se relaciona en forma colaborativa</span>
@@ -2070,7 +2084,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds8" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Respeta normas sociales</span>
@@ -2078,7 +2092,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds9" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds9" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Respeta normas escolares</span>
@@ -2086,7 +2100,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds10" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds10" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Muestra sentido del humor</span>
@@ -2094,7 +2108,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds11" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds11" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Movimientos estereotipados</span>
@@ -2102,7 +2116,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds12" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds12" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Pataletas frecuentes</span>
@@ -2110,7 +2124,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds13" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds13" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Nincuna de las anteriores</span>
@@ -2118,11 +2132,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ds14" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ds14" name="check_DesSoc[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="ds15" disabled="" aria-label="Checkbox for following text input">
+                                                            <input type="text" id="ds15" disabled="" name="txt_OtroDesSoc" aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2133,13 +2147,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Cuando se prende una luz, reacciona de forma...</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="pLuz" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="reaccion" id="noE2" value="1">
                                                                 <label class="form-control-label" for="siE2">
                                                                     Natural
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="pLuz" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="reaccion" id="noE2" value="2">
                                                                 <label class="form-control-label" for="noE2">
                                                                     Desmesurada
                                                                 </label>
@@ -2154,13 +2168,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Cuando escucha un sonido, reacciona de forma...</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="eS" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="reaccion1" id="noE2" value="1">
                                                                 <label class="form-control-label" for="siE2">
                                                                     Natural
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="eS" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="reaccion1" id="noE2" value="2">
                                                                 <label class="form-control-label" for="noE2">
                                                                     Desmesurada
                                                                 </label>
@@ -2175,13 +2189,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Cuando una persona extraña se le acerca, reacciona de forma...</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="extrano" id="noE2" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="reaccion2" value="1">
                                                                 <label class="form-control-label" for="siE2">
                                                                     Natural
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="extrano" id="noE2" value="0" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="reaccion2" value="2">
                                                                 <label class="form-control-label" for="noE2">
                                                                     Desmesurada
                                                                 </label>
@@ -2195,7 +2209,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_ObsDesSoc" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2222,7 +2236,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e1" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Vacunas al dia</span>
@@ -2230,7 +2244,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e2" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Epilepsia</span>
@@ -2238,7 +2252,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e3" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Problemas Cardiacos</span>
@@ -2246,7 +2260,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e4" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Paraplejia</span>
@@ -2254,7 +2268,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e5" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Perdida auditiva</span>
@@ -2264,7 +2278,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e6" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Perdida visual</span>
@@ -2272,7 +2286,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e7" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Trastorno Motor</span>
@@ -2280,7 +2294,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e8" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Problemas bronco-respiratorio</span>
@@ -2288,7 +2302,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e9" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e9" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Enfermedad infecto-contagiosa</span>
@@ -2296,7 +2310,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e10" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e10" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Trastorno Emocional</span>
@@ -2306,7 +2320,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e11" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e11" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Trastorno Conductual</span>
@@ -2314,7 +2328,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e12" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e12" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -2322,11 +2336,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="e13" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="e13" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="e14" disabled="" aria-label="Checkbox for following text input">
+                                                            <input type="text" id="e14" disabled="" name="otro_EstSal" aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2337,13 +2351,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Recibe algun tratamiento</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tratamiento" id="t1" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" id="t1" type="radio" name="tratamiento" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="tratamiento" id="t2" value="2" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" id="t2" type="radio" name="tratamiento" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     No
                                                                 </label>
@@ -2355,7 +2369,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Indique</span>
                                                             </div>
-                                                            <input class="form-control" id="t3" disabled="" aria-label="Checkbox for following text input"></input>
+                                                            <input class="form-control" id="t3" disabled name="txt_Ttratamiento" aria-label="Checkbox for following text input"></input>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2366,13 +2380,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Toma algun medicamento?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="medicamento" id="m1" value="1" onclick="conComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="medicamento" id="m1" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="medicamento" id="m2" value="2" onclick="sinComplicaciones()">
+                                                                <input class="form-control-input" type="radio" name="medicamento" id="m2" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     No
                                                                 </label>
@@ -2384,7 +2398,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Indique</span>
                                                             </div>
-                                                            <input class="form-control" id="m3" disabled="" aria-label="Checkbox for following text input"></input>
+                                                            <input class="form-control" id="m3" disabled="" name="txt_medicamento" aria-label="Checkbox for following text input"></input>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2432,7 +2446,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"  id="basic-addon1">Indique</span>
                                                             </div>
-                                                            <input type="text" class="form-control" id="al5" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_otroA" id="al5" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2442,7 +2456,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Estatura Actual</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_estaturaA" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2450,7 +2464,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Peso Actual</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_pesoA"olo aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2486,13 +2500,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">¿Come solo?</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="comeS" value="1">
+                                                                <input class="form-control-input" type="radio" name="comeSolo" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Si
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="comeS" value="2">
+                                                                <input class="form-control-input" type="radio" name="comeSolo" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     No
                                                                 </label>
@@ -2506,7 +2520,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">¿Que alimentos le gusta comer?</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_gustaComer" id="gustaComer" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2514,7 +2528,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">¿Que alimentos no le gusta comer?</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="txt_nogustaComer" id="nogustaComer" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2525,19 +2539,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">En cuanto al sueño</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="sueno" value="1">
+                                                                <input class="form-control-input" type="radio" name="dormir" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Normal
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="sueno" value="2">
+                                                                <input class="form-control-input" type="radio" name="dormir" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Tranquilo
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="sueno" value="3">
+                                                                <input class="form-control-input" type="radio" name="dormir" value="3">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Inquieto
                                                                 </label>
@@ -2549,16 +2563,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Hora a la que se duerme</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" name="txt_HorDormir" id="timepicker" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Duerme..</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="duerme" value="1" >
+                                                                <input class="form-control-input" type="radio" name="conQuienDuerme" value="1" >
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Solo
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="duerme" value="2" >
+                                                                <input class="form-control-input" type="radio" name="conQuienDuerme" value="2" >
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Acompañado
                                                                 </label>
@@ -2570,7 +2594,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Especifique la respuesta anterior</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="especificar" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2584,7 +2608,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p1" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Insomnio</span>
@@ -2592,7 +2616,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p2" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Pesadillas</span>
@@ -2602,7 +2626,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p3" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Terrores nocturnos</span>
@@ -2610,7 +2634,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p4" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Sonambulismo</span>
@@ -2620,7 +2644,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p5" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Despierta de buen humor</span>
@@ -2628,7 +2652,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p6" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -2636,11 +2660,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="p7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="p7" name="check_NocheP[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="p8" disabled="" aria-label="Checkbox for following text input">
+                                                            <input type="text" id="p8" disabled="" name="otro_NocheP" aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2650,7 +2674,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <label class="input-group-text" for="inputGroupSelect01">Humor/comportamiento</label>
                                                             </div>
-                                                            <select class="custom-select" id="humor" onclick="humor()">
+                                                            <select class="custom-select" name="cbo_humor" id="humor" onclick="humor()">
                                                                 <option value="" selected>--Seleccionar--</option>
                                                                 <option value="1">Alegre</option>
                                                                 <option value="2">Jugueton/bromista</option>
@@ -2670,7 +2694,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Indique</span>
                                                             </div>
-                                                            <input type="text" id="h1" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" id="h1" name="otro_Humor" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2680,7 +2704,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_ObsSalud" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2709,7 +2733,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Indique</span>
                                                             </div>
-                                                            <textarea class="form-control" placeholder="Escribir nombre, parentezco, edad, escolaridad y ocupacion.&#10;Ejemplo: Juan Perez, Papa, 45, 4 medio y obrero" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="integrantes" placeholder="Escribir nombre, parentezco, edad, escolaridad y ocupacion.&#10;Ejemplo: Juan Perez, Papa, 45, 4 medio y obrero" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2725,7 +2749,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Indique</span>
                                                             </div>
-                                                            <textarea class="form-control" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="Asalud" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2735,7 +2759,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Observaciones</span>
                                                             </div>
-                                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="txt_ObsAntFam" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2763,7 +2787,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Edad de ingreso al sistema escolar</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" name="edadE" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2792,7 +2816,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Indique</span>
                                                             </div>
-                                                            <textarea class="form-control" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
+                                                            <textarea class="form-control" name="colegios" id="colegios" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2802,7 +2826,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <label class="input-group-text" for="inputGroupSelect01">Modalidad de enseñanza</label>
                                                             </div>
-                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                            <select name="cbo_ModEns" class="custom-select" id="inputGroupSelect01">
                                                                 <option value="" selected>Seleccionar</option>
                                                                 <option value="1">Regular</option>
                                                                 <option value="2">Especial</option>
@@ -2816,7 +2840,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Motivo de cambio del ultimo colegio</span>
                                                             </div>
-                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="colegios1" id="colegios1" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2845,7 +2869,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Curso y motivo por el que repitio</span>
                                                             </div>
-                                                            <input type="text" class="form-control" id="r3" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" id="r3" name="repetir" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2855,7 +2879,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <label class="input-group-text" for="inputGroupSelect01">Situación</label>
                                                             </div>
-                                                            <select class="custom-select" id="inputGroupSelect01">
+                                                            <select name="cbo_situacion" class="custom-select" id="inputGroupSelect01">
                                                                 <option value="" selected>Seleccionar</option>
                                                                 <option value="1">Asiste al colegio regularmente</option>
                                                                 <option value="2">Presenta dificultades de aprendizaje</option>
@@ -2894,13 +2918,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Desempeño</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="desempeno" id="ev1" value="1">
+                                                                <input class="form-control-input" type="radio" name="descolar" id="ev1" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Satisdactorio
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="desempeno" id="ev2" value="2">
+                                                                <input class="form-control-input" type="radio" name="descolar" id="ev2" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Insatisfactorio
                                                                 </label>
@@ -2922,7 +2946,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <label class="input-group-text" for="inputGroupSelect01">¿Que hace cuando a su hijo(a) le va mal en el colegio?</label>
                                                             </div>
-                                                            <select class="custom-select" id="vaMal" onclick="vaMal()">
+                                                            <select name="cbo_vaMal" class="custom-select" id="vaMal" onclick="vaMal()">
                                                                 <option value="" selected>Seleccionar</option>
                                                                 <option value="1">Lo apoyo</option>
                                                                 <option value="2">Lo castigo</option>
@@ -2938,7 +2962,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Indique otro</span>
                                                             </div>
-                                                            <input type="text" id="vM1" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" name="txt_otrovMal" id="vM1" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2948,7 +2972,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <label class="input-group-text" for="inputGroupSelect01">¿Que hace cuando a su hijo(a) le va bien en el colegio?</label>
                                                             </div>
-                                                            <select class="custom-select" id="vaBien" onclick="vaBien()">
+                                                            <select name="cbo_vaBien" class="custom-select" id="vaBien" onclick="vaBien()">
                                                                 <option value="" selected>Seleccionar</option>
                                                                 <option value="1">Le entrego cariño</option>
                                                                 <option value="2">Le doy su comida favorita</option>
@@ -2968,7 +2992,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Indique otro</span>
                                                             </div>
-                                                            <input type="text" id="vB1" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" id="vB1" name="txt_otrovBien" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2982,7 +3006,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap1" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap1" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Madre</span>
@@ -2990,7 +3014,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap2" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap2" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Padre</span>
@@ -2998,7 +3022,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap3" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap3" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Hermanos</span>
@@ -3008,7 +3032,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap4" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap4" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Abuelos</span>
@@ -3016,7 +3040,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap5" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap5" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Tios</span>
@@ -3024,7 +3048,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap6" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap6" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otros Familiares</span>
@@ -3034,7 +3058,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap7" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap7" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otros Profesionales</span>
@@ -3042,7 +3066,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap8" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap8" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -3050,11 +3074,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <input type="checkbox" id="ap9" aria-label="Checkbox for following text input">
+                                                                    <input type="checkbox" id="ap9" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                             <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                            <input type="text" id="ap10" disabled="" aria-label="Checkbox for following text input">
+                                                            <input type="text" id="ap10" name="otro_quienApoya" disabled="" aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3070,25 +3094,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <span class="input-group-text" id="basic-addon1">Indique</span>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="ambienteF" value="1">
+                                                                <input class="form-control-input" type="radio" name="ambiente" value="1">
                                                                 <label class="form-control-label" for="tipo1">
                                                                     Ambos
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="ambienteF" value="2">
+                                                                <input class="form-control-input" type="radio" name="ambiente" value="2">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Solo fisico 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="ambienteF" value="3">
+                                                                <input class="form-control-input" type="radio" name="ambiente" value="3">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Solo emocional 
                                                                 </label>
                                                             </div>
                                                             <div class="form-control">
-                                                                <input class="form-control-input" type="radio" name="ambienteF" value="4">
+                                                                <input class="form-control-input" type="radio" name="ambiente" value="4">
                                                                 <label class="form-control-label" for="tipo2">
                                                                     Ninguno
                                                                 </label>
@@ -3109,7 +3133,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         -- Por favor verificar toda la informacion ingresada antes de registrar --
                                     </div>
                                     <div class="card-body Cuerpo">
-                                        <button type="button" class="btn submit">
+                                        <button type="button" class="btn submit" name="action">
                                             Registrar entrevista
                                         </button>
                                     </div>
@@ -3160,9 +3184,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             $('.collapsible').collapsible();
         });
 
-        $(document).ready(function () {
-            $('.timepicker').timepicker();
-        });
+
 
     </script>
     <script>
@@ -4126,37 +4148,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var al3 = document.getElementById('al3');
         var al4 = document.getElementById('al4');
         var al5 = document.getElementById('al5');
-        
+
         al1.addEventListener('click', function () {
             if (al1.checked) {
                 al5.disabled = true;
-            }else{
-                
+            } else {
+
             }
         })
         al2.addEventListener('click', function () {
             if (al2.checked) {
                 al5.disabled = true;
-            }else{
+            } else {
                 al5.disabled = true;
             }
         })
         al3.addEventListener('click', function () {
             if (al3.checked) {
                 al5.disabled = true;
-            }else{
+            } else {
                 al5.disabled = true;
             }
         })
         al4.addEventListener('click', function () {
             if (al4.checked) {
                 al5.disabled = false;
-            }else{
+            } else {
                 al5.disabled = true;
             }
         })
-        
-        
+
+
 
         var p1 = document.getElementById('p1');
         var p2 = document.getElementById('p2');
@@ -4337,4 +4359,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         })
     </script>
 </body>
+
 </html>
