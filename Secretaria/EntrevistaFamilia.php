@@ -55,6 +55,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="../Materialize/datepick.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+
+
+        <link rel="stylesheet" type="text/css" href="../Materialize/clockpicker.css">
+        <script src="../js/clockpicker.js"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -2560,14 +2564,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                                    <div class="col-sm-12 col-md-12 col-lg-4">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Hora a la que se duerme</span>
                                                             </div>
-                                                            <input type="text" class="form-control" name="txt_HorDormir" id="timepicker" aria-label="Username" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control clockpicker" placeholder="HH:mm" data-placement="right" data-align="top" data-autoclose="true">
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -3171,22 +3176,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }
         }
     </script> -->
-    <script>
-        $(document).ready(function () {
-            M.updateTextFields();
-        });
 
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-        });
-
-
-
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker();
     </script>
+    
     <script>
         var siE = document.getElementById('siE');
         var noE = document.getElementById('noE');
