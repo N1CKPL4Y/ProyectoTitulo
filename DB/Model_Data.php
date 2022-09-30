@@ -419,6 +419,132 @@ class Data {
         return $query;
     }
     
+    
+    //INSERTS PARA ENTREVISTA ANTECEDENTES
+    public function addEmbParto($Em_controlado, $per_control, $consumo, $indique_c, $semanas_em, $tipo_part, $motivo_Ces, $asiste_Med){
+        $sql = "INSERT INTO `embarazoparto` (`id`, `Em_controlado`, `per_control`, `consumo`, `indique_c`, `semanas_em`, `tipo_part`, `motivo_Ces`, `asiste_Med`) VALUES (NULL, $Em_controlado, '$per_control', $consumo, '$indique_c', $semanas_em, $tipo_part, '$motivo_Ces', $asiste_Med);";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addPostParto($peso, $talla, $apgar_1, $apgar_5, $hospit_nac, $motiv_Hos, $control_per, $vacunas, $obs_12m){
+        $sql = "INSERT INTO `postparto` (`id`, `peso`, `talla`, `apgar_1`, `apgar_5`, `hospit_nac`, `motiv_Hos`, `control_per`, `vacunas`, `obs_12m`) VALUES (NULL, $peso, $talla, $apgar_1, $apgar_5, $hospit_nac, '$motiv_Hos', $control_per, $vacunas, '$obs_12m');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompPosParto($idPostParto, $sintomas_12m){
+        $sql = "INSERT INTO `complementopparto` (`id`, `id_postParto`, `sintomas_12m`) VALUES (NULL, $idPostParto, '$sintomas_12m');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addLactancia($l_materna, $l_mixto, $l_relleno){
+        $sql = "INSERT INTO `lactancia` (`id`, `l_materna`, `l_mixto`, `l_relleno`) VALUES (NULL, '$l_materna', `$l_mixto`, `$l_relleno`);";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addDesMotriz($C_cabeza, $S_solo, $C_gatear, $C_apoyo, $S_apoyo, $E_1palabras, $E_1frases, $V_solo, $c_EsVDiurno, $c_EsVNocturno, $c_EsADiurno, $c_EsANocturno, $U_panal, $U_panalEntr, $A_bano, $indique_ABano, $A_motoraG, $T_muscG, $Es_Caminar, $C_frecuen, $D_lateral, $obs_DesMotriz){
+        $sql = "INSERT INTO `desmotriz` (`id`, `C_cabeza`, `S_solo`, `C_gatear`, `C_apoyo`, `S_apoyo`, `E_1palabras`, `E_1frases`, `V_solo`, `c_EsVDiurno`, `c_EsVNocturno`, `c_EsADiurno`, `c_EsANocturno`, `U_panal`, `U_panalEntr`, `A_bano`, `indique_ABano`, `A_motoraG`, `T_muscG`, `Es_Caminar`, `C_frecuen`, `D_lateral`, `obs_DesMotriz`) VALUES (NULL, $C_cabeza, $S_solo, $C_gatear, $C_apoyo, $S_apoyo, $E_1palabras, $E_1frases, $V_solo, $c_EsVDiurno, $c_EsVNocturno, $c_EsADiurno, $c_EsANocturno, $U_panal, $U_panalEntr, $A_bano, '$indique_ABano', '$A_motoraG', '$T_muscG', $Es_Caminar, $C_frecuen, '$D_lateral', '$obs_DesMotriz');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDesMotrizFina($id_DesMotriz, $logro){
+        $sql = "INSERT INTO `compdesmotrizfina` (`id`, `id_DesMotriz`, `Logro`) VALUES (NULL, $id_DesMotriz, '$logro');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDesMotrizSCog($id_DesMotriz, $signos){
+        $sql = "INSERT INTO `compdesmotrizscog` (`id`, `id_DesMotriz`, `signos`) VALUES (NULL, $id_DesMotriz, `$signos`);";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addVision($u_lentes, $obs_Vision){
+        $sql = "INSERT INTO `vision` (`id`, `u_lentes`, `obs_Vision`) VALUES (NULL, $u_lentes, '$obs_Vision');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompVision($id_vision, $descripcion){
+        $sql = "INSERT INTO `compvision` (`id`, `id_vision`, `descripcion`) VALUES (NULL, $id_vision, '$descripcion');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDiagVision($id_vision, $diagnostico){
+        $sql = "INSERT INTO `compdiagvision` (`id`, `id_vision`, `diagnostico`) VALUES (NULL, $id_vision, '$diagnostico');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addAudicion($U_audifonos, $obs_Audicion){
+        $sql = "INSERT INTO `audicion` (`id`, `U_audifonos`, `obs_Audicion`) VALUES (NULL, $U_audifonos, '$obs_Audicion');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompAudicion($id_audicion, $descripcion){
+        $sql = "INSERT INTO `compaudicion` (`id`, `id_audicion`, `descripcion`) VALUES (NULL, $id_audicion, '$descripcion');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDiagAudicion($id_audicion, $diagnostico){
+        $sql = "INSERT INTO `compdiagaudicion` (`id`, `id_audicion`, `diagnostico`) VALUES (NULL, $id_audicion, '$diagnostico');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addDesLenguaje($comunicacion, $indique, $perdida_leng, $indique_Pl, $obs_DesLengua){
+        $sql = "INSERT INTO `deslengua` (`id`, `comunicacion`, `indique`, `perdida_leng`, `indique_Pl`, `obs_DesLengua`) VALUES (NULL, '$comunicacion', '$indique', $perdida_leng, '$indique_Pl', '$obs_DesLengua');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDesLengua_compr($id_Des_Lengua, $caract){
+        $sql = "INSERT INTO `compdeslengua_compr` (`id`, `id_Des_Lengua`, `caract`) VALUES(NULL, $id_Des_Lengua, '$caract');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDesLengua_expre($id_Des_Lengua, $caract){
+        $sql = "INSERT INTO `compdeslengua_expre` (`id`, `id_Des_Lengua`, `caract`) VALUES(NULL, $id_Des_Lengua, '$caract');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addDesSocial($react_luz, $react_sonido, $react_persona, $obs_DesSocial){
+        $sql = "INSERT INTO `dessocial` (`id`, `react_luz`, `react_sonido`, `react_persona`, `obs_DesSocial`) VALUES (NULL, '$react_luz', '$react_sonido', '$react_persona', '$obs_DesSocial');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompDesSocial($id_DesSocial, $desarrollo){
+        $sql = "INSERT INTO `compdessocial` (`id`, `id_DesSocial`, `desarrollo`) VALUES (NULL, $id_DesSocial, '$desarrollo');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addSalud($tratamiento, $Ind_tratam, $medicamento, $ind_medic, $alimentacion, $talla_act, $peso_act, $peso_IMC, $c_solo, $gusta_comer, $nogusta_comer, $sueno, $hora_dormir, $duerme, $humor, $indique_h, $obs_Salud){
+        $sql = " INSERT INTO `salud` (`id`, `tratamiento`, `Ind_tratam`, `medicamento`, `ind_medic`, `alimentacion`, `talla_act`, `peso_act`, `peso_IMC`, `c_solo`, `gusta_comer`, `nogusta_comer`, `sueno`, `hora_dormir`, `duerme`, `humor`, `indique_h`, `obs_Salud`) VALUES (NULL, $tratamiento, '$Ind_tratam', $medicamento, '$ind_medic', '$alimentacion', $talla_act, $peso_act, '$peso_IMC', $c_solo, '$gusta_comer', '$nogusta_comer', '$sueno', '$hora_dormir', '$duerme', $humor, '$indique_h', '$obs_Salud');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompSaludActual($id_Salud, $estado){
+        $sql = "INSERT INTO `compsaludactual` (`id`, `id_Salud`, `estado`) VALUES (NULL, $id_Salud, '$estado');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompSaludNocturno($id_Salud, $estado){
+        $sql = "INSERT INTO `compsaludnocturno` (`id`, `id_Salud`, `estado`) VALUES (NULL, $id_Salud, '$estado');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addAntFam($pers_viven, $ant_salud, $obs_AntFam){
+        $sql = "INSERT INTO `antfam` (`id`, `pers_viven`, `ant_salud`, `obs_AntFam`) VALUES (NULL, '$pers_viven', '$ant_salud', '$obs_AntFam');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addAntEscolar($ingEsc, $aJardin, $antecedentes, $mod_Ensenanza, $motivo_c, $rep_curso, $c_motivorep, $situacion){
+        $sql = "INSERT INTO `antescolar` (`id`, `ingEsc`, `aJardin`, `antecedentes`, `mod_Ensenanza`, `motivo_c`, `rep_curso`, `c_motivorep`, `situacion`) VALUES (NULL, $ingEsc, $aJardin, '$antecedentes', '$mod_Ensenanza', '$motivo_c', $rep_curso, '$c_motivorep', '$situacion');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addActFam($desem, $motivo_ins, $do_malcolegio, $otro_vamal, $do_biencolegio, $otro_biencolegio, $ambiente){
+        $sql = "INSERT INTO `actfam` (`id`, `desem`, `motivo_ins`, `do_malcolegio`, `otro_vamal`, `do_biencolegio`, `otro_biencolegio`, `ambiente`) VALUES (NULL, '$desem', '$motivo_ins', '$do_malcolegio', '$otro_vamal', '$do_biencolegio', '$otro_biencolegio', '$ambiente');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addCompActFam($id_actFam, $apoyo){
+        $sql = "INSERT INTO `compactfam` (`id`, `id_actFam`, `apoyo`) VALUES (NULL, $id_actFam, '$apoyo');";
+        $query = $this->con->query($sql);
+    }
 }
 ?>
 
