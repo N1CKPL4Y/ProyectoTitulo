@@ -54,6 +54,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../js/jquery.rut.js"></script>
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <link rel="stylesheet" href="../Materialize/datepick.css">
+        <script src="../js/clockpicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Materialize/clockpicker.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
@@ -497,7 +499,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">¿Cuantas semanas de embarazo tuvo?</span>
                                                                         </div>
-                                                                        <input type="text" name="txt_semanas" id="semanas" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" name="txt_semanas" id="semanas" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -582,7 +584,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Peso al nacer</span>
                                                                         </div>
-                                                                        <input type="text" name="txt_peso" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" name="txt_peso" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                     </div>
                                                                     <span id="basic-addon1">Peso en gramos</span>
@@ -592,7 +594,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Talla al nacer</span>
                                                                         </div>
-                                                                        <input type="text" name="txt_talla" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" name="txt_talla" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                     </div>
                                                                     <span id="basic-addon1">Talla en centimetros</span>
@@ -604,7 +606,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_apgar1" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_apgar1" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                     </div>
                                                                     <span id="basic-addon1">Al minuto</span>
@@ -614,7 +616,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_apgar5" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_apgar5" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                     </div>
                                                                     <span id="basic-addon1">A los 5 minutos</span>
@@ -893,7 +895,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Controla la cabeza</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Ccabeza" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ccabeza" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -901,7 +903,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Se sienta solo</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Ssolo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ssolo" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -909,7 +911,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Comienza a gatear</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_gatear" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_gatear" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -919,7 +921,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Camina con apoyo</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Capoyo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Capoyo" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -927,7 +929,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Camina sin apoyo</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Sapoyo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Sapoyo" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -935,7 +937,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Emite sus 1ras palabras</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Ppalabras" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ppalabras" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -945,7 +947,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Emite sus 1ras frases</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Pfrases" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Pfrases" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -953,7 +955,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Se viste solo/a</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_Vsolo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Vsolo" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2453,7 +2455,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Estatura Actual</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_estaturaA" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_estaturaA" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2461,7 +2463,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Peso Actual</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_pesoA"olo aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" class="form-control" step="0.1" name="txt_pesoA"olo aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2557,12 +2559,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                                                <div class="col-sm-12 col-md-12 col-lg-4">
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Hora a la que se duerme</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_HorDormir" id="timepicker" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control clockpicker" name="txt_HorDormir" id="clockpicker">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2784,7 +2786,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Edad de ingreso al sistema escolar</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="edadE" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="number" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="edadE" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -3171,21 +3173,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }
         }
     </script> -->
-    <script>
-        $(document).ready(function () {
-            M.updateTextFields();
-        });
-
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-        });
-
-
-
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker();
     </script>
     <script>
         var siE = document.getElementById('siE');

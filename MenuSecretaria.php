@@ -191,7 +191,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
                                                                 <label for="datepicker">Fecha de nacimiento</label>
-                                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="txt_Fnac" id="datepicker" style=" text-indent: 18px;">
+                                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="txt_Fnac" id="datepicker" style=" text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                                                                 <span style="color: grey">Formato Año-Mes-Dia</span>
                                                             </div>
                                                         </div>
@@ -349,7 +349,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
                                                                 <label for="datepicker" class="col-sm-10 col-form-label">Indique fecha del ultimo control con el especialista</label>
-                                                                <input type="text" autocomplete="off" placeholder="--Seleccione--" class="form-control diag"  name="txt_control" id="datepicker" style=" text-indent: 18px;" disabled="">
+                                                                <input type="text"  autocomplete="off" placeholder="--Seleccione--" class="form-control diag"  name="txt_control" id="datepicker" style=" text-indent: 18px;" disabled="">
+                                                                <span style="color: grey">Formato Año-Mes-Dia</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -450,7 +451,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="telefono" style="margin-left: 10px">Indique el telefono del tutor</label>
-                                                                <input type="number" class="form-control" name="txt_telefono" id="telefono" required >
+                                                                <input type="number" class="form-control" name="txt_telefono" id="telefono" required  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                                                                 <span style="color: grey"></span>
                                                             </div>
                                                         </div>
@@ -587,7 +588,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="porcentaje_d" style="margin-left: 10px">Porcentaje de discapacidad</label>
-                                                                <input type="text" class="form-control numCred" name="txt_porcentaje_d" id="porcentaje_d" required disabled="">
+                                                                <input type="number" class="form-control numCred" name="txt_porcentaje_d" id="porcentaje_d" required disabled="" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                                                                 <span style="color: grey"></span>
                                                             </div>
                                                         </div>
@@ -721,7 +722,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="porcentajeF" style="margin-left: 10px">Porcentaje en registro social de hogares</label>
-                                                                <input type="text" class="form-control" name="txt_porcentajeF" id="porcentajeF" required disabled="">
+                                                                <input type="number" class="form-control" name="txt_porcentajeF" id="porcentajeF" required disabled="" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                                                                 <span style="color: grey"></span>
                                                             </div>
                                                         </div>

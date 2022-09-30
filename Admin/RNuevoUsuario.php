@@ -176,7 +176,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">+56</span>
                                                         </div>
-                                                        <input type="number" name="telefono" class="form-control" id="telefonoUser" aria-label="Username" aria-describedby="basic-addon1" style="border-radius: 0 50px 50px 0;">
+                                                        <input type="number" name="telefono" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" id="telefonoUser" aria-label="Username" aria-describedby="basic-addon1" style="border-radius: 0 50px 50px 0;">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-lg-6">

@@ -182,7 +182,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">+56</span>
                                                         </div> 
-                                                        <input type="text" name="telefonoU" class="form-control" id="telefonoU">
+                                                        <input type="text" name="telefonoU" class="form-control" id="telefonoU" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-10">
