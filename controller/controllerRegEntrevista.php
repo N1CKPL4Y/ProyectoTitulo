@@ -221,7 +221,7 @@ $diagAudicion = isset($_POST['check_DiagAudi']) ? $_POST['check_DiagAudi'] : nul
 $arrayDiagAudi = [];
 $otroDiagAudi;
 if (!empty($diagAudicion)) {
-    foreach ($arrayDiagAudi as $value) {
+    foreach ($diagAudicion as $value) {
         array_push($arrayDiagAudi, $value);
         if ($value == "Otro") {
             $otroDiagAudi = isset($_POST['otro_DiagAudi']) ? $_POST['otro_DiagAudi'] : null;
@@ -236,7 +236,7 @@ echo '<br>////////////////////////////////////////////Audicion//////////////////
 foreach ($arrayAudicion as $value) {
     echo '<br>' . $value;
 }
-echo '*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*';
+echo '<br>*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*';
 foreach ($arrayDiagAudi as $value) {
     echo '<br>' . $value;
 }
@@ -250,7 +250,7 @@ if ($comunicacion == 4) {
     $otroComuni = "No aplica";
 }
 
-$lengExpresivo = isset($_POST['check_LengEx']) ? $_POST['check_LencEx'] : null;
+$lengExpresivo = isset($_POST['check_LengEx']) ? $_POST['check_LengEx'] : null;
 $arrayExpres = [];
 $otroExpres;
 if (!empty($lengExpresivo)) {
@@ -273,4 +273,185 @@ if (!empty($lengComprensivo)) {
         }
     }
 }
-$perdida_L= isset($_POST['Plenguaje']) ? $_POST['Plenguaje'] : null;
+
+$perdida_L = isset($_POST['Plenguaje']) ? $_POST['Plenguaje'] : null;
+if ($perdida_L == 1) {
+    $txt_Perdi = isset($_POST['txt_perdidaL']) ? $_POST['txt_perdidaL'] : null;
+} else {
+    $txt_Perdi = "No aplica";
+}
+
+$obsLenguaje = isset($_POST['txt_ObsLeng']) ? $_POST['txt_ObsLeng'] : null;
+
+//////////////////////////prueba lenguaje
+echo '<br>////////////////////////////////////Lenguaje/////////////////////////////////<br>';
+echo '<br>' . $comunicacion . " " . $otroComuni . "<br>";
+foreach ($arrayExpres as $value) {
+    echo ' ' . $value . ' ';
+}
+echo '<br>' . $otroExpres . "<br>";
+echo '*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*<br>';
+foreach ($arrayCompren as $value) {
+    echo ' ' . $value . ' ';
+}
+echo '<br>' . $otroCompren . " " . $perdida_L . ' ' . $txt_Perdi . ' ' . $obsLenguaje . "<br>";
+
+/////////////////////Social
+$social = isset($_POST['check_DesSoc']) ? $_POST['check_DesSoc'] : null;
+$arraySocial = [];
+$otroSocial;
+if (!empty($social)) {
+    foreach ($social as $value) {
+        array_push($arraySocial, $value);
+        if ($value == "Otro") {
+            $otroSocial = isset($_POST['txt_OtroDesSoc']) ? $_POST['txt_OtroDesSoc'] : null;
+        }
+    }
+}
+
+$reactLuz = isset($_POST['reaccion']) ? $_POST['reaccion'] : null;
+$reactSonido = isset($_POST['reaccion1']) ? $_POST['reaccion1'] : null;
+$reactPersona = isset($_POST['reaccion2']) ? $_POST['reaccion2'] : null;
+$obsSocial = isset($_POST['txt_ObsDesSoc']) ? $_POST['txt_ObsDesSoc'] : null;
+///////////////prueba social
+echo '<br>////////////////////////////////////Social/////////////////////////////////<br>';
+foreach ($arraySocial as $value) {
+    echo ' ' . $value . ' ';
+}
+echo '<br>' . $otroSocial . ' ' . $reactLuz . ' ' . $reactSonido . ' ' . $reactPersona . ' ' . $obsSocial . '<br>';
+
+/////////////////////////////////Salud
+$salud = isset($_POST['check_EstSal']) ? $_POST['check_EstSal'] : null;
+$arraySalud = [];
+$otroSalud;
+if (!empty($salud)) {
+    foreach ($salud as $value) {
+        array_push($arraySalud, $value);
+        if ($value == "Otro") {
+            $otroSalud = isset($_POST['otro_EstSal']) ? $_POST['otro_EstSal'] : null;
+        }
+    }
+}
+$tratamiento = isset($_POST['tratamiento']) ? $_POST['tratamiento'] : null;
+if ($tratamiento == 1) {
+    $txt_Tratam = isset($_POST['txt_Tratamiento']) ? $_POST['txt_Tratamiento'] : null;
+} else {
+    $txt_Tratam = "No aplica";
+}
+$medicamento = isset($_POST['medicamento']) ? $_POST['medicamento'] : null;
+if ($medicamento == 1) {
+    $txt_Medic = isset($_POST['txt_medicamentos']) ? $_POST['txt_medicamentos'] : null;
+}
+$alimentacion = isset($_POST['alimentacion']) ? $_POST['alimentacion'] : null;
+if ($alimentacion == 4) {
+    $txt_aliment = isset($_POST['txt_otroA']) ? $_POST['txt_otroA'] : null;
+} else {
+    $txt_aliment = "No aplica";
+}
+
+$estaturaA = isset($_POST['txt_estaturaA']) ? $_POST['txt_estaturaA'] : null;
+$pesoA = isset($_POST['txt_pesoA']) ? $_POST['txt_pesoA'] : null;
+$pesoCh = isset($_POST['peso']) ? $_POST['peso'] : null;
+$c_solo = isset($_POST['comeSolo']) ? $_POST['comeSolo'] : null;
+$g_comer = isset($_POST['txt_gustaComer']) ? $_POST['txt_gustaComer'] : null;
+$ng_comer = isset($_POST['txt_nogustaComer']) ? $_POST['txt_nogustaComer'] : null;
+$dormir = isset($_POST['dormir']) ? $_POST['dormir'] : null;
+$hora_dormir = isset($_POST['txt_HorDormir']) ? $_POST['txt_HorDormir'] : null;
+$duerme = isset($_POST['conQuienDuerme']) ? $_POST['conQuienDuerme'] : null;
+$espDuerme = isset($_POST['especificar']) ? $_POST['especificar'] : null;
+$saludNoche = isset($_POST['check_NocheP']) ? $_POST['check_NocheP'] : null;
+$arraySaludN = [];
+$otroSalNoc;
+if (!empty($saludNoche)) {
+    foreach ($saludNoche as $value) {
+        array_push($arraySaludN, $value);
+        if ($value == "Otro") {
+            $otroSalNoc = isset($_POST['otro_NocheP']) ? $_POST['otro_NocheP'] : null;
+        }
+    }
+}
+
+$humor = isset($_POST['cbo_humor']) ? $_POST['cbo_humor'] : null;
+if ($humor == 10) {
+    $txt_humor = isset($_POST['otro_Humor']) ? $_POST['otro_Humor'] : null;
+}
+$obsSalud = isset($_POST['txt_ObsSalud']) ? $_POST['txt_ObsSalud'] : null;
+
+echo '<br>////////////////////////////////////////////Salud/////////////////////////////<br>';
+
+foreach ($arraySalud as $value) {
+    echo ' ' . $value . ' ';
+}
+echo '<br>' . $otroSalud . ' ' . $tratamiento . ' ' . $txt_Tratam . ' ' . $medicamento . ' ' . $txt_Medic . ' ' . $alimentacion . ' ' . $txt_aliment . '<br>';
+echo ' ' . $estaturaA . ' ' . $pesoA . ' ' . $pesoCh . ' ' . $c_solo . ' ' . $g_comer . ' ' . $ng_comer . ' ' . $dormir . ' ' . $hora_dormir;
+echo '<br>' . $duerme . ' ' . $espDuerme . '<br>';
+foreach ($arraySaludN as $value) {
+    echo ' ' . $value . ' ';
+}
+echo '<br>' . $humor . ' ' . $txt_humor . ' ' . $obsSalud;
+
+////////////////Antecedentes familiares
+$integrantes = isset($_POST['integrantes']) ? $_POST['integrantes'] : null;
+$antSalud = isset($_POST['Asalud']) ? $_POST['Asalud'] : null;
+$obsAntFam = isset($_POST['txt_ObsAntFam']) ? $_POST['txt_ObsAntFam'] : null;
+echo '<br>///////////////////////////////Ant familiares///////////////////////////////////<br>';
+echo '<br>' . $integrantes . '<br>' . $antSalud . '<br>' . $obsAntFam . '<br>';
+
+////////Antecedentes escolares
+$ingresoE = isset($_POST['edadE']) ? $_POST['edadE'] : null;
+$jardin = isset($_POST['jardin']) ? $_POST['jardin'] : null;
+$antecedentesE = isset($_POST['colegios']) ? $_POST['colegios'] : null;
+$modalidadE = isset($_POST['cbo_ModEns']) ? $_POST['cbo_ModEns'] : null;
+$motivoE = isset($_POST['colegios1']) ? $_POST['colegios1'] : null;
+$repetir = isset($_POST['repetir']) ? $_POST['repetir'] : null;
+if ($repetir == 1) {
+    $txt_repetir = isset($_POST['txt_repetir']) ? $_POST['txt_repetir'] : null;
+} else {
+    $txt_repetir = 'No aplica';
+}
+$situacion = isset($_POST['cbo_situacion']) ? $_POST['cbo_situacion'] : null;
+echo '<br>///////////////////////////////Ant estudios///////////////////////////////////<br>';
+echo '<br>' . $ingresoE . ' ' . $jardin . ' ' . $antecedentesE . ' ' . $modalidadE . ' ' . $motivoE . ' ' . $repetir . ' ' . $txt_repetir . ' ' . $situacion . '<br>';
+
+///////////Actitud familia
+$desempeno = isset($_POST['descolar']) ? $_POST['descolar'] : null;
+if ($desempeno == 1) {
+    $txDescolar = isset($_POST['txt_Descolar']) ? $_POST['txt_Descolar'] : null;
+} else {
+    $txtDescolar = "No aplica";
+}
+$badCole = isset($_POST['cbo_vaMal']) ? $_POST['cbo_vaMal'] : null;
+$txt_otrovMal;
+if ($badCole == 4) {
+    $txt_otrovMal = isset($_POST['txt_otrovMal']) ? $_POST['txt_otrovMal'] : null;
+} else {
+    $txt_otrovMal = "No aplica";
+}
+
+$goodCole = isset($_POST['cbo_vaBien']) ? $_POST['cbo_vaBien'] : null;
+if ($goodCole == 8) {
+    $txt_otroBien = isset($_POST['txt_otrovBien']) ? $_POST['txt_otrovBien'] : null;
+} else {
+    $txt_otroBien = "No aplica";
+}
+$apoyo = isset($_POST['check_quienApoya']) ? $_POST['check_quienApoya'] : null;
+$arrayApoyo = [];
+$otroApoyo;
+if (!empty($apoyo)) {
+    foreach ($apoyo as $value) {
+        array_push($arrayApoyo, $value);
+        if ($value == "Otro") {
+            $otroApoyo = isset($_POST['otro_quienApoya']) ? $_POST['otro_quienApoya'] : null;
+        }else{
+            $otroApoyo="No aplica";
+        }
+    }
+}
+$ambiente = isset($_POST['ambiente']) ? $_POST['ambiente'] : null;
+
+echo '<br>///////////////////////////Actitud Familia////////////////////////////<br>';
+echo '<br>'.$desempeno.' '.$txtDescolar.' '.$badCole.' '.$txt_otrovMal.' '.$goodCole.' '.$txt_otroBien.' '.$ambiente."<br>";
+foreach ($arrayApoyo as $value) {
+    echo ' '.$value.' ';
+}
+echo '<br>'.$otroApoyo.'<br>Final';

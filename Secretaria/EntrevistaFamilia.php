@@ -1705,7 +1705,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="audicion" id="noE2" value="2" >
+                                                                            <input class="form-control-input" type="radio" name="audicion" id="noE2" value="0" >
                                                                             <label class="form-control-label" for="noE2">
                                                                                 No
                                                                             </label>
@@ -1976,7 +1976,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="Plenguaje" id="pl2" value="2">
+                                                                            <input class="form-control-input" type="radio" name="Plenguaje" id="pl2" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 No
                                                                             </label>
@@ -2152,7 +2152,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="reaccion" id="noE2" value="2">
+                                                                            <input class="form-control-input" type="radio" name="reaccion" id="noE2" value="0">
                                                                             <label class="form-control-label" for="noE2">
                                                                                 Desmesurada
                                                                             </label>
@@ -2173,7 +2173,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="reaccion1" id="noE2" value="2">
+                                                                            <input class="form-control-input" type="radio" name="reaccion1" id="noE2" value="0">
                                                                             <label class="form-control-label" for="noE2">
                                                                                 Desmesurada
                                                                             </label>
@@ -2194,7 +2194,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="reaccion2" value="2">
+                                                                            <input class="form-control-input" type="radio" name="reaccion2" value="0">
                                                                             <label class="form-control-label" for="noE2">
                                                                                 Desmesurada
                                                                             </label>
@@ -2356,7 +2356,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" id="t2" type="radio" name="tratamiento" value="2">
+                                                                            <input class="form-control-input" id="t2" type="radio" name="tratamiento" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 No
                                                                             </label>
@@ -2385,7 +2385,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="medicamento" id="m2" value="2">
+                                                                            <input class="form-control-input" type="radio" name="medicamento" id="m2" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 No
                                                                             </label>
@@ -2505,7 +2505,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="comeSolo" value="2">
+                                                                            <input class="form-control-input" type="radio" name="comeSolo" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 No
                                                                             </label>
@@ -2575,13 +2575,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <span class="input-group-text" id="basic-addon1">Duerme..</span>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="conQuienDuerme" value="1" >
+                                                                            <input class="form-control-input" type="radio" name="conQuienDuerme" value="1">
                                                                             <label class="form-control-label" for="tipo1">
                                                                                 Solo
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="conQuienDuerme" value="2" >
+                                                                            <input class="form-control-input" type="radio" name="conQuienDuerme" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 Acompañado
                                                                             </label>
@@ -2801,7 +2801,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="jardin" value="2">
+                                                                            <input class="form-control-input" type="radio" name="jardin" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 No
                                                                             </label>
@@ -2856,7 +2856,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="repetir" id="r2" value="2" >
+                                                                            <input class="form-control-input" type="radio" name="repetir" id="r2" value="0" >
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 No
                                                                             </label>
@@ -2868,7 +2868,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Curso y motivo por el que repitio</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" id="r3" name="repetir" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" id="r3" name="txt_repetir" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2923,7 +2923,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-control">
-                                                                            <input class="form-control-input" type="radio" name="descolar" id="ev2" value="2">
+                                                                            <input class="form-control-input" type="radio" name="descolar" id="ev2" value="0">
                                                                             <label class="form-control-label" for="tipo2">
                                                                                 Insatisfactorio
                                                                             </label>
@@ -2935,7 +2935,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Si es insatisfactorio, por que motivo</span>
                                                                         </div>
-                                                                        <input type="text" id="ev3" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" id="ev3" disabled name="txt_descolar" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3005,7 +3005,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap1" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap1" value="Madre" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Madre</span>
@@ -3013,7 +3013,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap2" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap2" value="Padre" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Padre</span>
@@ -3021,7 +3021,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap3" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap3" value="Hermanos" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Hermanos</span>
@@ -3031,7 +3031,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap4" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap4" value="Abuelos" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Abuelos</span>
@@ -3039,7 +3039,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap5" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap5" value="Tios" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Tios</span>
@@ -3047,7 +3047,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap6" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap6" value="" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Otros Familiares</span>
@@ -3057,7 +3057,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap7" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap7" value="Otros Profesionales" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Otros Profesionales</span>
@@ -3065,7 +3065,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap8" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap8" value="Ninguna de las anteriores" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Ninguna de las anteriores</span>
@@ -3073,7 +3073,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group mb-3">
                                                                         <div class="input-group-prepend">
                                                                             <div class="input-group-text">
-                                                                                <input type="checkbox" id="ap9" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                                <input type="checkbox" id="ap9" value="Otro" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                             </div>
                                                                         </div>
                                                                         <span class="input-group-text" id="basic-addon1">Otro</span>
@@ -3132,7 +3132,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     -- Por favor verificar toda la informacion ingresada antes de registrar --
                                                 </div>
                                                 <div class="card-body Cuerpo">
-                                                    <button type="submit" class="btn submit" name="action">
+                                                    <button type="button" class="btn submit" id="btn_visualizar" data-toggle="modal" data-target="#staticBackdrop" name="action">
                                                         Registrar entrevista
                                                     </button>
                                                 </div>
@@ -3142,37 +3142,116 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 </form>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="text" name="txt_p" readonly id="pruebaX">
+                                                <input type="text" name="txt_p" id="pruebaD">
+                                                <div class="parto">
+
+                                                </div>
+                                                <div class="salud">
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Understood</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- <script>
-        let sidebar = document.querySelector(".sidebar");
-        let closeBtn = document.querySelector("#btn");
-        let searchBtn = document.querySelector(".bx-search");
-        let section = document.querySelector(".home-section");
-    
-        closeBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
-            menuBtnChange();//calling the function(optional)
-            section.classList.toggle("move");
-        });
-    
-        searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-            sidebar.classList.toggle("open");
-            menuBtnChange(); //calling the function(optional)
-        });
-    
-        // following are the code to change sidebar button(optional)
-        function menuBtnChange() {
-            if (sidebar.classList.contains("open")) {
-                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+    <script>
+        $("#btn_visualizar").click(function () {
+            let x = $("input[type=radio][name=embarazo1]:checked").val();
+            console.log(x);
+            document.getElementById('pruebaX').value = x;
+            if (x == 1) {
+                let emb = document.getElementById("embarazo").value;
+                document.getElementById('pruebaD').value = emb;
             } else {
-                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+                document.getElementById('pruebaD').value = "";
             }
+
+            let y = [];
+            let otroSintoma;
+            $("input[type=checkbox][name='sintomasNacer[]']:checked").each(function () {
+                y.push(this.value);
+                if (this.value == "Otro") {
+                    otroSintoma = document.getElementById("sintoma14").value;
+                } else {
+                    otroSintoma - "NO aplica";
+                }
+
+            });
+            const parto = document.querySelector('.parto');
+            parto.innerHTML = "";
+            y.forEach(el => {
+                parto.innerHTML += `<input type="text" name="txt_p2" id="pruebaX2" value="` + el + `"><br>`;
+            });
+            parto.innerHTML+=otroSintoma;
+            const salud = document.querySelector('.salud');
+            let combo = document.getElementById("humor");
+            let selected = combo.options[combo.selectedIndex].text;
+            let otroHumor;
+            salud.innerHTML = selected;
+            if (selected == "Otro:") {
+                otroHumor = document.getElementById("h1").value;
+                salud.innerHTML+=`<input type="text" name="txt_p2" id="pruebaX2" value="` + otroHumor + `">`
+            } else {
+                otroHumor = "No aplica";
+
+            }
+            
+            
+            console.log(otroHumor);
+            console.log(y);
+            console.log(otroSintoma);
+            console.dir(y);
+        });
+    </script> 
+<!-- <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+    let section = document.querySelector(".home-section");
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        menuBtnChange();//calling the function(optional)
+        section.classList.toggle("move");
+    });
+
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+        if (sidebar.classList.contains("open")) {
+            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+        } else {
+            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
         }
-    </script> -->
+    }
+</script> -->
     <script type="text/javascript">
         $('.clockpicker').clockpicker();
     </script>
@@ -3180,7 +3259,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var siE = document.getElementById('siE');
         var noE = document.getElementById('noE');
         var justificar = document.getElementById('embarazo');
-
         //scripts para input "el embarazo fue controlado?"
         function controlado() {
             if (siE.checked) {
@@ -3196,7 +3274,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var siE1 = document.getElementById('siE1');
         var noE1 = document.getElementById('noE1');
         var medicamentos = document.getElementById('medicamentos');
-
         // scripts para input "consumio medicamentos durante el embarazo?"
         function consumio() {
             if (siE1.checked) {
@@ -3212,7 +3289,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var siE2 = document.getElementById('siE2');
         var noE2 = document.getElementById('noE2');
         var complicaciones = document.getElementById('complicaciones');
-
         //scripts para input "tuvo complicaciones durante el embarazo?"
         function conComplicaciones() {
             if (siE2.checked) {
@@ -3230,7 +3306,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var tipo3 = document.getElementById('tipo3');
         var cesarea = document.getElementById('tipo4');
         var motivoC = document.getElementById('motivoC');
-
         //scripts par input "tipo de parto"
         tipo1.addEventListener('click', function () {
             if (tipo1.checked) {
@@ -3259,7 +3334,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var siH = document.getElementById('siH');
         var noH = document.getElementById('noH');
         var hospitalizado = document.getElementById('hospitalizado');
-
         //scripts para input "hospitalizado al nacer"
         siH.addEventListener('click', function () {
             if (siH.checked) {
@@ -3286,7 +3360,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var sintoma12 = document.getElementById('sintoma12');
         var sintoma13 = document.getElementById('sintoma13');
         var sintoma14 = document.getElementById('sintoma14');
-
         //script para input "se;ale si antes de que cumpliera un a;o...."
         sintoma12.addEventListener('click', function () {
             if (sintoma12.checked) {
@@ -3342,7 +3415,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var siA = document.getElementById('siA');
         var noA = document.getElementById('noA');
         var n_asistencia = document.getElementById('n_asistencia');
-
         //scripts para input "necesita de asistencia para ir al ba;o"
         siA.addEventListener('click', function () {
             if (siA.checked) {
@@ -3644,7 +3716,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var a5 = document.getElementById('a5');
         var a6 = document.getElementById('a6');
         var a7 = document.getElementById('a7');
-
         a1.addEventListener('click', function () {
             if (a1.checked) {
                 a7.disabled = true;
@@ -3712,7 +3783,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var da5 = document.getElementById('da5');
         var da6 = document.getElementById('da6');
         var da7 = document.getElementById('da7');
-
         da5.addEventListener('click', function () {
             if (da5.checked) {
                 da1.disabled = true;
@@ -3759,7 +3829,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var c3 = document.getElementById('c3');
         var c4 = document.getElementById('c4');
         var c5 = document.getElementById('c5');
-
         c1.addEventListener('click', function () {
             if (c1.checked) {
                 c5.disabled = true;
@@ -3793,7 +3862,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var dc8 = document.getElementById('dc8');
         var dc9 = document.getElementById('dc9');
         var dc10 = document.getElementById('dc10');
-
         dc8.addEventListener('click', function () {
             if (dc8.checked) {
                 dc1.disabled = true;
@@ -3845,7 +3913,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var cl9 = document.getElementById('cl9');
         var cl10 = document.getElementById('cl10');
         var cl11 = document.getElementById('cl11');
-
         cl1.addEventListener('click', function () {
             if (cl1.checked) {
                 cl9.disabled = true;
@@ -3947,7 +4014,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var pl1 = document.getElementById('pl1');
         var pl2 = document.getElementById('pl2');
         var pl3 = document.getElementById('pl3');
-
         pl2.addEventListener('click', function () {
             if (pl2.checked) {
                 pl3.disabled = true;
@@ -3978,7 +4044,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var ds13 = document.getElementById('ds13');
         var ds14 = document.getElementById('ds14');
         var ds15 = document.getElementById('ds15');
-
         ds13.addEventListener('click', function () {
             if (ds13.checked) {
                 ds1.disabled = true;
@@ -4049,7 +4114,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var e12 = document.getElementById('e12');
         var e13 = document.getElementById('e13');
         var e14 = document.getElementById('e14');
-
         e12.addEventListener('click', function () {
             if (e12.checked) {
                 e1.disabled = true;
@@ -4105,7 +4169,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var t1 = document.getElementById('t1');
         var t2 = document.getElementById('t2');
         var t3 = document.getElementById('t3');
-
         t2.addEventListener('click', function () {
             if (t2.checked) {
                 t3.disabled = true;
@@ -4120,7 +4183,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var m1 = document.getElementById('m1');
         var m2 = document.getElementById('m2');
         var m3 = document.getElementById('m3');
-
         m2.addEventListener('click', function () {
             if (m2.checked) {
                 m3.disabled = true;
@@ -4137,7 +4199,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var al3 = document.getElementById('al3');
         var al4 = document.getElementById('al4');
         var al5 = document.getElementById('al5');
-
         al1.addEventListener('click', function () {
             if (al1.checked) {
                 al5.disabled = true;
@@ -4177,7 +4238,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var p6 = document.getElementById('p6');
         var p7 = document.getElementById('p7');
         var p8 = document.getElementById('p8');
-
         p6.addEventListener('click', function () {
             if (p6.checked) {
                 p1.disabled = true;
@@ -4228,7 +4288,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var ev1 = document.getElementById('ev1');
         var ev2 = document.getElementById('ev2');
         var ev3 = document.getElementById('ev3');
-
         ev2.addEventListener('click', function () {
             if (ev2.checked) {
                 ev3.disabled = false;
@@ -4250,7 +4309,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         var ap8 = document.getElementById('ap8');
         var ap9 = document.getElementById('ap9');
         var ap10 = document.getElementById('ap10');
-
         ap8.addEventListener('click', function () {
             if (ap8.checked) {
                 ap1.disabled = true;
@@ -4330,7 +4388,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 vaBien();
             })
         });
-
     </script>
     <script>
         $(function () {
@@ -4339,7 +4396,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 minimumLength: 8, // validar largo mínimo; default: 2
                 validateOn: 'change' // si no se quiere validar, pasar null
             });
-
             var input = document.getElementById('rut_b');
             input.addEventListener('input', function () {
                 if (this.value.length >= 13)
