@@ -170,7 +170,7 @@ if ($param == 1) {
     $title = isset($_POST['txt_title']) ? $_POST['txt_title'] : null;
     $fecha = isset($_POST['txt_fecha']) ? $_POST['txt_fecha'] : null;
     $hora = isset($_POST['txt_hora']) ? $_POST['txt_hora'] : null;
-    $color = isset($_POST['txt_color']) ? $_POST['txt_color'] : null;
+    $color = '#000000';
 
     $date=$fecha." ".$hora;
     echo '<br>' . $title . '<br>' . $fecha .'<br>'.$hora.'<br>' . $color . '<br>';
