@@ -6,6 +6,15 @@
     box-sizing: border-box;
     font-family: "Poppins" , sans-serif;
 }
+
+.encabezado{
+    background-color: #00526a !important;
+    color: white !important;
+    padding: 10px !important;
+    font-size: 24px !important;
+    border-radius: 10px !important;
+    
+}
 /*botones de tipo submit*/
 .submit{
     background-color:#558b2f !important;
