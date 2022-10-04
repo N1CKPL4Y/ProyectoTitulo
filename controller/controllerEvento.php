@@ -126,16 +126,30 @@ $param = isset($_GET['p']) ? $_GET['p'] : null;
 $ar = isset($_GET['a']) ? $_GET['a'] : null;
 
 if ($param == 1) {
-    $title = isset($_POST['txt_title']) ? $_POST['txt_title'] : null;
-    $fecha = isset($_POST['txt_fecha']) ? $_POST['txt_fecha'] : null;
-    $color = isset($_POST['txt_color']) ? $_POST['txt_color'] : null;
+    $title = isset($_POST['txt_title1']) ? $_POST['txt_title1'] : null;
+    $fecha = isset($_POST['txt_fecha1']) ? $_POST['txt_fecha1'] : null;
+    $hora = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
+    $rutBene= isset($_POST['txt_beneFI']) ? $_POST['txt_beneFI'] : null;
+    $rutProfe= isset($_POST['cbo_profesional']) ?$_POST['cbo_profesional'] : null;
+    $color = '#000000';
+    $date=$fecha." ".$hora;
+    echo '<br>' . $title . '<br>' . $fecha .'<br>'.$hora.'<br>' . $color . '<br>';
+    echo '<br>'.$date." ".$rutProfe;
 
-    echo '<br>' . $title . '<br>' . $fecha . '<br>' . $color . '<br>';
-
-    $data->addEvento($title, $fecha, $color);
-//$eventosList=array();
+    $data->addEvento($title, $date, $color);
+    
+    $id1 = $data->getLimitEvent();
+    foreach ($id1 as $value) {
+        echo '<br>'.$value['id'];
+        $id1=$value['id'];
+    }
+    echo $id1;
+    $data->addConsulta($id1, $rutBene, $rutProfe);
+    $eventosList=array();
     $eventoA = array();
     $eventos = $data->getAllEvent();
+    
+    
     foreach ($eventos as $value) {
         $value['title'] . '<br>';
         $value['start'] . '<br>';
@@ -155,11 +169,14 @@ if ($param == 1) {
     $id = isset($_POST['txt_id']) ? $_POST['txt_id'] : null;
     $title = isset($_POST['txt_title']) ? $_POST['txt_title'] : null;
     $fecha = isset($_POST['txt_fecha']) ? $_POST['txt_fecha'] : null;
+    $hora = isset($_POST['txt_hora']) ? $_POST['txt_hora'] : null;
     $color = isset($_POST['txt_color']) ? $_POST['txt_color'] : null;
 
-    echo '<br>' . $id . '<br>' . $title . '<br>' . $fecha . '<br>' . $color . '<br>';
+    $date=$fecha." ".$hora;
+    echo '<br>' . $title . '<br>' . $fecha .'<br>'.$hora.'<br>' . $color . '<br>';
+    echo '<br>'.$date;
 
-    $data->updEvento($id, $title, $fecha, $color);
+    $data->updEvento($id, $title, $date, $color);
 //$eventosList=array();
     /* $eventoA = array();
       $eventos = $data->getAllEvent();
