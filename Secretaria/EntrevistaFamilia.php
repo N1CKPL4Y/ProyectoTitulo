@@ -2662,7 +2662,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="p8" disabled="" name="otro_NocheP" aria-label="Checkbox for following text input">
+                                                                    <input type="text" id="p8" disabled  aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -4621,18 +4621,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let otro_s;
             $("input[type=checkbox][name='check_NocheP[]']:checked").each(function () {
                 e_salud.push(this.value);
+                //console.log(this.value);
                 if (this.value == "Otro") {
                     otro_s = document.getElementById("p8").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+                    //console.log(otro_s);
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
+                    otro_s = "No aplica";
                 }
                 
             });
             const salud_e = document.querySelector('.estado_salud');
             salud_e.innerHTML = "";
             e_salud.forEach(el => {
+                console.log(el+" "+otro_s);
                 
                 if (el!="Otro") {
                     salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
@@ -4641,8 +4644,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_NocheP[]" id="pruebaX2" value="` + el + `">
                                                             </div>
-                                                            <input class="form-control" type="text" name="otro_NocheP" readonly value="` + otro_s + `" id="otroSintoma">
+                                                            <input class="form-control" type="text" name="otro_NocheP" readonly value="` + otro_s + `" >
                                                         </div>`;
+                                                                console.log(otro_s);
                 } else {
                     
                 }

@@ -120,6 +120,12 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function getDiagCom($rut) {
+        $sql = "SELECT diagnostico.codigo, condicion.nombre FROM `diagnostico` INNER JOIN condicion ON diagnostico.codigo=condicion.ID WHERE diagnostico.beneficiario='$rut';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function getCreden($rut) {
         $sql = "SELECT COUNT(*) AS 'existe' 

@@ -346,23 +346,26 @@ $consulJson = json_encode($consultas);
                         fecha = info.event.startStr;
                         document.getElementById('startEvent').value = fecha.substring(0, 10);
                         document.getElementById('startEventHour').value = fecha.substring(11);
-
-
-                        form.action = "controller/controllerGenerateBit.php";
-                        form.method = 'POST';
-                        console.log(info);
+                        
 
                         let consul = <?php echo $consulJson ?>;
-
+                        let rut;
                         consul.forEach(el => {
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
+                                rut=el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
                                 document.getElementById('nomb_bene').value = el['nombre'];
                                 document.getElementById('fono_bene').value = el['telefono'];
                             }
 
                         });
+                        
+                        console.log(rut);
+                        
+                        form.action = "controller/controllerGenerateBit.php?rut="+rut+"&id="+info.event.id;
+                        form.method = 'POST';
+                        console.log(info);
                         modal.show();
                     }/*,
                      eventDrop: function (info) {

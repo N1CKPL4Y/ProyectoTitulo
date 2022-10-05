@@ -1,3 +1,7 @@
+<?php
+$rut = isset($_GET['rut']) ? $_GET['rut'] : null;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,6 +14,8 @@
     </head>
     <body>
         <script>
+            let rut = '<?php echo $rut; ?>';
+            let id = <?php echo $id; ?>;
             function Generate() {
                 let timerInterval
                 Swal.fire({
@@ -26,7 +32,7 @@
                 }).then((result) => {
                     /* Read more about handling dismissals below */
                     if (result.dismiss === Swal.DismissReason.timer) {
-                        window.location.href = '../Admin/Calendario.php';
+                        window.location.href = '../ProfeInterno/Bitacora.php?rut='+rut+'&id='+id;
                     }
                 });
             }

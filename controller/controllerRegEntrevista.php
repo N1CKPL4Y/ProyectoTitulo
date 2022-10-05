@@ -381,10 +381,13 @@ $otroSalNoc;
 if (!empty($saludNoche)) {
     foreach ($saludNoche as $value) {
         array_push($arraySaludN, $value);
+        echo $value."<br>";
         if ($value == "Otro") {
             $otroSalNoc = isset($_POST['otro_NocheP']) ? $_POST['otro_NocheP'] : null;
+            echo $otroSalNoc;
         }else{
             $otroSalNoc = "No tiene otro estado de salud";
+            echo $otroSalNoc;
         }
     }
 }
@@ -408,7 +411,7 @@ echo '<br>' . $duerme . ' ' . $espDuerme . '<br>';
 foreach ($arraySaludN as $value) {
     echo ' ' . $value . ' ';
 }
-echo '<br>' . $humor . ' ' . $txt_humor . ' ' . $obsSalud;
+echo '<br>' . $humor . ' ' . $txt_humor . ' ' . $obsSalud.' '.$otroSalNoc;
 
 ////////////////Antecedentes familiares
 $integrantes = isset($_POST['integrantes']) ? $_POST['integrantes'] : null;
