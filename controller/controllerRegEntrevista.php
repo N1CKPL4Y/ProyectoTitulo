@@ -191,6 +191,8 @@ if (!empty($diagVision)) {
         array_push($arrayDiagVis, $value);
         if ($value == "Otro") {
             $otroDiagVis = isset($_POST['txt_OtroDiagVis']) ? $_POST['txt_OtroDiagVis'] : null;
+        }else{
+            $otroDiagVis = "No tiene otro diagnostico";
         }
     }
 }
@@ -227,6 +229,8 @@ if (!empty($diagAudicion)) {
         array_push($arrayDiagAudi, $value);
         if ($value == "Otro") {
             $otroDiagAudi = isset($_POST['otro_DiagAudi']) ? $_POST['otro_DiagAudi'] : null;
+        }else {
+            $otroDiagAudi = "No tiene otro diagnostico";
         }
     }
 }
@@ -260,6 +264,8 @@ if (!empty($lengExpresivo)) {
         array_push($arrayExpres, $value);
         if ($value == "Otro") {
             $otroExpres = isset($_POST['otro_LengEx']) ? $_POST['otro_LengEx'] : null;
+        }else{
+            $otroExpres = "No tiene otro lenguaje";
         }
     }
 }
@@ -272,6 +278,8 @@ if (!empty($lengComprensivo)) {
         array_push($arrayCompren, $value);
         if ($value == "Otro") {
             $otroCompren = isset($_POST['otro_LengCom']) ? $_POST['otro_LengCom'] : null;
+        }else {
+            $otroCompren = "No tiene otro lenguaje";
         }
     }
 }
@@ -307,6 +315,8 @@ if (!empty($social)) {
         array_push($arraySocial, $value);
         if ($value == "Otro") {
             $otroSocial = isset($_POST['txt_OtroDesSoc']) ? $_POST['txt_OtroDesSoc'] : null;
+        }else{
+            $otroSocial = "No tiene otro desarrollo social";
         }
     }
 }
@@ -331,6 +341,8 @@ if (!empty($salud)) {
         array_push($arraySalud, $value);
         if ($value == "Otro") {
             $otroSalud = isset($_POST['otro_EstSal']) ? $_POST['otro_EstSal'] : null;
+        }else{
+            $otroSalud = "No tiene otro estado de salud";
         }
     }
 }
@@ -343,6 +355,8 @@ if ($tratamiento == 1) {
 $medicamento = isset($_POST['medicamento']) ? $_POST['medicamento'] : null;
 if ($medicamento == 1) {
     $txt_Medic = isset($_POST['txt_medicamentos']) ? $_POST['txt_medicamentos'] : null;
+}else{
+    $txt_Medic = "No Aplica";
 }
 $alimentacion = isset($_POST['alimentacion']) ? $_POST['alimentacion'] : null;
 if ($alimentacion == 4) {
@@ -369,6 +383,8 @@ if (!empty($saludNoche)) {
         array_push($arraySaludN, $value);
         if ($value == "Otro") {
             $otroSalNoc = isset($_POST['otro_NocheP']) ? $_POST['otro_NocheP'] : null;
+        }else{
+            $otroSalNoc = "No tiene otro estado de salud";
         }
     }
 }
@@ -376,6 +392,8 @@ if (!empty($saludNoche)) {
 $humor = isset($_POST['cbo_humor']) ? $_POST['cbo_humor'] : null;
 if ($humor == 10) {
     $txt_humor = isset($_POST['otro_Humor']) ? $_POST['otro_Humor'] : null;
+}else {
+    $txt_humor = "No Aplica";
 }
 $obsSalud = isset($_POST['txt_ObsSalud']) ? $_POST['txt_ObsSalud'] : null;
 

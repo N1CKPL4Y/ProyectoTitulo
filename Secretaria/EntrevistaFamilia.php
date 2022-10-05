@@ -4267,15 +4267,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             vis.innerHTML = "";
             diag_vis.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    vis.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagVis[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     vis.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_DiagVis[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="txt_OtroDiagVis" readonly value="` + otroDiag_vis + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    vis.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagVis[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
@@ -4325,15 +4327,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             audicion.innerHTML = "";
             diag_audi.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    audicion.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     audicion.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_DiagAudi" readonly value="` + otroDiag_audi + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    audicion.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
@@ -4388,15 +4392,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             expre.innerHTML = "";
             leng_expre.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    expre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengEx[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     expre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_LengEx[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_LengEx" readonly value="` + otro_leng_expre + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    expre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengEx[]"  id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
@@ -4418,16 +4424,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             compre.innerHTML = "";
             leng_compre.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    compre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengCom[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     compre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_LengCom[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_LengCom" readonly value="` + otro_leng_compre + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    compre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengCom[]"  id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
+                
             });
             
             //manifesto perdida del lenguaje//
@@ -4466,15 +4475,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             social.innerHTML = "";
             des_social.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    social.innerHTML += `<input class="form-control" readonly type="text" name="check_DesSoc[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     social.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_DesSoc[]" id="pruebaX2" value="` + el + `">
                                                             </div>
-                                                            <input class="form-control" type="text" name="txt_OtroDesSoc"  readonly value="` + otro_des_social + `" id="otroSintoma">
+                                                            <input class="form-control" type="text" name="txt_OtroDesSoc" readonly value="` + otro_des_social + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    social.innerHTML += `<input class="form-control" readonly type="text" name="check_DesSoc[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
@@ -4514,15 +4525,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             salud_.innerHTML = "";
             e_Asalud.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    salud_.innerHTML += `<input class="form-control" readonly type="text" name="check_EstSal[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     salud_.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_EstSal[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_EstSal" readonly value="` + otro_salud + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    salud_.innerHTML += `<input class="form-control" readonly type="text" name="check_EstSal[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
@@ -4621,15 +4634,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             salud_e.innerHTML = "";
             e_salud.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     salud_e.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_NocheP[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_NocheP" readonly value="` + otro_s + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
@@ -4765,15 +4780,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             apoyo.innerHTML = "";
             quien_apoya.forEach(el => {
                 
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    apoyo.innerHTML += `<input class="form-control" readonly type="text" name="check_quienApoya[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     apoyo.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="check_quienApoya[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_quienApoya" readonly value="` + otro_apoyo + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    apoyo.innerHTML += `<input class="form-control" readonly type="text" name="check_quienApoya[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
             
