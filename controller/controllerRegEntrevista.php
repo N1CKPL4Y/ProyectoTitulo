@@ -81,6 +81,8 @@ if (!empty($sintomasNac)) {
 
         if ($value == "Otro") {
             $otroSintoma = isset($_POST['otroSintoNac']) ? $_POST['otroSintoNac'] : null;
+        }else{
+            $otroSintoma="No tiene otro sintoma";
         }
     }
 }

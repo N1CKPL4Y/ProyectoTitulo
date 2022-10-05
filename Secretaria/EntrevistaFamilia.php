@@ -3902,7 +3902,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <script>
         $("#btn_visualizar").click(function () {
             //Antecedentes embarazo
-
+            
             //embarazo controlado//
             let emb_c = $("input[type=radio][name=embarazo1]:checked").val();
             console.log(emb_c);
@@ -3915,7 +3915,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('pruebaX').value = "No";
                 document.getElementById('pruebaD').value = "No Aplica";
             }
-
+            
             //consumio medicamentos//
             let consumo = $("input[type=radio][name=embarazo2]:checked").val();
             document.getElementById('consumo').value = consumo;
@@ -3927,7 +3927,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('consumo').value = "No";
                 document.getElementById('otro_c').value = "No Aplica";
             }
-
+            
             //existieron complicaciones//
             let complic = $("input[type=radio][name=complicaciones]:checked").val();
             document.getElementById('comp').value = complic;
@@ -3939,13 +3939,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('comp').value = "No";
                 document.getElementById('otro_comp').value = "No Aplica";
             }
-
+            
             //Antecedentes del parto
-
+            
             //semanas de embarazo//
             let sem_emb = document.getElementById('semanas').value;
             document.getElementById('semanas_emb').value = sem_emb;
-
+            
             //Tipo embarazo//
             let tipo_parto = $("input[type=radio][name=tipo]:checked").val();
             document.getElementById('tipo_parto').value = tipo_parto;
@@ -3963,7 +3963,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 let motivo = document.getElementById('motivoC').value;
                 document.getElementById('motivo_c').value = motivo;
             }
-
+            
             //Asistencia medica//
             let asistencia_m = $("input[type=radio][name=asistencia]:checked").val();
             document.getElementById('asistencia_m').value = asistencia_m;
@@ -3972,25 +3972,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (asistencia_m == 2) {
                 document.getElementById('asistencia_m').value = "No";
             }
-
+            
             //Antecedentes del post parto
-
+            
             //peso al nacer//
             let peso = document.getElementById('peso').value;
             document.getElementById('peso_n').value = peso;
-
+            
             //talla al nacer//
             let talla = document.getElementById('talla').value;
             document.getElementById('talla_n').value = talla;
-
+            
             //apgar al minuto//
             let apgar = document.getElementById('apgar1').value;
             document.getElementById('apgar1_n').value = apgar;
-
+            
             //apgar a los 5 minutos//
             let apgar2 = document.getElementById('apgar2').value;
             document.getElementById('apgar2_n').value = apgar2;
-
+            
             //hospitalizado al nacer//
             let hospitalizado = $("input[type=radio][name=hospitalizado]:checked").val();
             document.getElementById('hospitalizado_n').value = hospitalizado;
@@ -4002,7 +4002,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('hospitalizado_n').value = "No";
                 document.getElementById('motivoH_n').value = "No Aplica";
             }
-
+            
             //sintomas al nacer//
             let sintoma = [];
             let otroSintoma;
@@ -4011,28 +4011,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otroSintoma = document.getElementById("sintoma14").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const parto = document.querySelector('.parto');
             parto.innerHTML = "";
             sintoma.forEach(el => {
-
-                if (el == "Otro") {
+                if (el!="Otro") {
+                    parto.innerHTML += `<input class="form-control" readonly type="text" name="sintomasNacer[]" id="pruebaX2" value="` + el + `"><br>`;
+                }else if (el == "Otro") {
                     parto.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Otro:</span>
+                                                                <input class="form-control" readonly type="text" size="1" name="sintomasNacer[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otroSintoNac" readonly value="` + otroSintoma + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    parto.innerHTML += `<input class="form-control" readonly type="text" name="sintomasNacer[]" id="pruebaX2" value="` + el + `"><br>`;
+                    
                 }
             });
-
+            
             //controles periodicos//
             let controles = $("input[type=radio][name=controles]:checked").val();
             document.getElementById('controles_p').value = controles;
@@ -4041,7 +4042,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (controles == 0) {
                 document.getElementById('controles_p').value = "No";
             }
-
+            
             //Vacunas//
             let vacuna = $("input[type=radio][name=vacunas]:checked").val();
             document.getElementById('vacuna').value = vacuna;
@@ -4050,59 +4051,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (vacuna == 0) {
                 document.getElementById('vacuna').value = "No";
             }
-
+            
             //Observaciones//
             let obs = document.getElementById('obs_12m').value;
             document.getElementById('obs_12').value = obs;
-
+            
             //Lactancia
-
+            
             //leche materna//
             let leche_m = document.getElementById('leche_materna').value;
             document.getElementById('l_materna').value = leche_m;
-
+            
             //relleno//
             let relleno = document.getElementById('l_relleno').value;
             document.getElementById('relleno').value = relleno;
-
+            
             //mixto//
             let mixto = document.getElementById('l_mixto').value;
             document.getElementById('mixto').value = mixto;
-
+            
             //Desarrollo sensoriomotriz
-
+            
             //controla la cabeza//
             let c_cabeza = document.getElementById('c_cabeza').value;
             document.getElementById('c_cabeza1').value = c_cabeza;
-
+            
             //se sienta solo//
             let s_solo = document.getElementById('s_solo').value;
             document.getElementById('s_solo1').value = s_solo;
-
+            
             //comienza a gatear//
             let c_gatear = document.getElementById('c_gatear').value;
             document.getElementById('c_gatear1').value = c_gatear;
-
+            
             //camina con apoyo//
             let c_apoyo = document.getElementById('c_apoyo').value;
             document.getElementById('c_apoyo1').value = c_apoyo;
-
+            
             //camina sin apoyo//
             let s_apoyo = document.getElementById('s_apoyo').value;
             document.getElementById('s_apoyo1').value = s_apoyo;
-
+            
             //emite sus 1ras palabras//
             let e_1palabras = document.getElementById('e_1palabras').value;
             document.getElementById('e_1palabras1').value = e_1palabras;
-
+            
             //emite sus 1ras frases//
             let e_1frases = document.getElementById('e_1frases').value;
             document.getElementById('e_1frases1').value = e_1frases;
-
+            
             //se viste solo/a//
             let v_solo = document.getElementById('v_solo').value;
             document.getElementById('v_solo1').value = v_solo;
-
+            
             //Controla esfinter vesical diurno//
             let c_EsV_Diurno = $("input[type=radio][name=EsfinterDV]:checked").val();
             document.getElementById('cEsV_diurno').value = c_EsV_Diurno;
@@ -4111,7 +4112,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (c_EsV_Diurno == 0) {
                 document.getElementById('cEsV_diurno').value = "No";
             }
-
+            
             //controla esfinter vesical nocturno//
             let c_EsV_Nocturno = $("input[type=radio][name=EsfinterNV]:checked").val();
             document.getElementById('cEsV_nocturno').value = c_EsV_Nocturno;
@@ -4120,7 +4121,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (c_EsV_Nocturno == 0) {
                 document.getElementById('cEsV_nocturno').value = "No";
             }
-
+            
             //Controla esfinter anal diurno//
             let c_EsA_diurno = $("input[type=radio][name=EsfinterAD]:checked").val();
             document.getElementById('cEsA_diurno').value = c_EsA_diurno;
@@ -4129,7 +4130,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (c_EsA_diurno == 0) {
                 document.getElementById('cEsA_diurno').value = "No";
             }
-
+            
             //Controla esfinter anal nocturno//
             let c_EsA_nocturno = $("input[type=radio][name=EsfinterNA]:checked").val();
             document.getElementById('cEsA_nocturno').value = c_EsA_nocturno;
@@ -4138,7 +4139,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (c_EsA_nocturno == 0) {
                 document.getElementById('cEsA_nocturno').value = "No";
             }
-
+            
             //Usa panal//
             let u_panal = $("input[type=radio][name=Panales]:checked").val();
             document.getElementById('u_panal').value = u_panal;
@@ -4147,7 +4148,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (u_panal == 0) {
                 document.getElementById('u_panal').value = "No";
             }
-
+            
             //usa panal de entrenamiento//
             let u_panalE = $("input[type=radio][name=PanalE]:checked").val();
             document.getElementById('u_panalE').value = u_panalE;
@@ -4156,7 +4157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (u_panalE == 0) {
                 document.getElementById('u_panalE').value = "No";
             }
-
+            
             //necesita asistencia para el bano//
             let asistencia_b = $("input[type=radio][name=asistenciaB]:checked").val();
             document.getElementById('asistencia_b').value = asistencia_b;
@@ -4168,15 +4169,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('asistencia_b').value = "No";
                 document.getElementById('indique_AB').value = "No Aplica";
             }
-
+            
             //actividad motora general//
             let a_motoraG = $("input[type=radio][name=Amotora]:checked").val();
             document.getElementById('a_motoraG').value = a_motoraG;
-
+            
             //tono muscular general//
             let t_muscularG = $("input[type=radio][name=Tmuscular]:checked").val();
             document.getElementById('t_muscularG').value = t_muscularG;
-
+            
             //es estable al caminar//
             let e_caminar = $("input[type=radio][name=Ecaminar]:checked").val();
             document.getElementById('e_caminar').value = e_caminar;
@@ -4185,7 +4186,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (e_caminar == 0) {
                 document.getElementById('e_caminar').value = "No";
             }
-
+            
             //se cae con frecuencia//
             let c_frecuencia = $("input[type=radio][name=Cfrecuencia]:checked").val();
             document.getElementById('c_frecuencia').value = c_frecuencia;
@@ -4194,61 +4195,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (c_frecuencia == 0) {
                 document.getElementById('c_frecuencia').value = "No";
             }
-
+            
             //dominancia lateral//
             let d_lateral = $("input[type=radio][name=dominancia]:checked").val();
             document.getElementById('d_lateral').value = d_lateral;
-
+            
             //motricidad fina//
-
+            
             let t_motricidad = [];
             $("input[type=checkbox][name='checkMFina[]']:checked").each(function () {
                 t_motricidad.push(this.value);
-
+                
             });
-
+            
             const motricidad = document.querySelector('.mFina');
             motricidad.innerHTML = "";
             t_motricidad.forEach(el => {
                 motricidad.innerHTML += `<input class="form-control" readonly type="text" name="checkMFina[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-
+            
             //signos cognitivos//
             let t_sCog = [];
             $("input[type=checkbox][name='check_Scog[]']:checked").each(function () {
                 t_sCog.push(this.value);
-
+                
             });
-
+            
             const sCog = document.querySelector('.sCog');
             sCog.innerHTML = "";
             t_sCog.forEach(el => {
                 sCog.innerHTML += `<input class="form-control" readonly type="text" name="check_Scog[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-
-
+            
+            
             //Observaciones//
             let obs_desMotriz = document.getElementById('obs_desMotriz1').value;
             document.getElementById('obs_DesMotriz').value = obs_desMotriz;
-
-
+            
+            
             //Vision
-
+            
             //vision//
             let t_vision = [];
             $("input[type=checkbox][name='check_vis[]']:checked").each(function () {
                 t_vision.push(this.value);
-
+                
             });
-
+            
             const vision = document.querySelector('.vision');
             vision.innerHTML = "";
             t_vision.forEach(el => {
                 vision.innerHTML += `<input class="form-control" readonly type="text" name="check_vis[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-
+            
             //diagnosticos del estudiante//
-
+            
             let diag_vis = [];
             let otroDiag_vis;
             $("input[type=checkbox][name='check_DiagVis[]']:checked").each(function () {
@@ -4256,16 +4257,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otroDiag_vis = document.getElementById("d6").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const vis = document.querySelector('.diag_vis');
             vis.innerHTML = "";
             diag_vis.forEach(el => {
-
+                
                 if (el == "Otro") {
                     vis.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4277,7 +4278,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     vis.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagVis[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //el estudiante utiliza lentes opticos//
             let u_lentes = $("input[type=radio][name=lentes]:checked").val();
             document.getElementById('u_lentes').value = u_lentes;
@@ -4286,26 +4287,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (u_lentes == 0) {
                 document.getElementById('u_lentes').value = "No";
             }
-
+            
             //observaciones//
             let obsVis = document.getElementById('obsVis').value;
             document.getElementById('obsVis1').value = obsVis;
-
+            
             //Audicion
-
+            
             //Audicion//
             let t_audi = [];
             $("input[type=checkbox][name='check_audi[]']:checked").each(function () {
                 t_audi.push(this.value);
-
+                
             });
-
+            
             const audi = document.querySelector('.audi');
             audi.innerHTML = "";
             t_audi.forEach(el => {
                 audi.innerHTML += `<input class="form-control" readonly type="text" name="check_audi[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-
+            
             //diagnosticos//
             let diag_audi = [];
             let otroDiag_audi;
@@ -4314,16 +4315,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otroDiag_audi = document.getElementById("da7").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const audicion = document.querySelector('.diag_audi');
             audicion.innerHTML = "";
             diag_audi.forEach(el => {
-
+                
                 if (el == "Otro") {
                     audicion.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4335,7 +4336,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     audicion.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //el ni;o utiliza audifono//
             let u_audifono = $("input[type=radio][name=audicion]:checked").val();
             document.getElementById('u_audifono').value = u_audifono;
@@ -4344,13 +4345,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (u_audifono == 0) {
                 document.getElementById('u_audifono').value = "No";
             }
-
+            
             //observaciones//
             let obs_audi = document.getElementById('obs_audi').value;
             document.getElementById('obsAudi').value = obs_audi;
-
+            
             //Desarrollo del lenguaje
-
+            
             //comunicacion//
             let comunicacion = $("input[type=radio][name=comunicacion]:checked").val();
             document.getElementById('comunicacion').value = comunicacion;
@@ -4368,7 +4369,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 let otro_com = document.getElementById('c5').value;
                 document.getElementById('otro_com').value = otro_com;
             }
-
+            
             //lenguaje expresivo//
             let leng_expre = [];
             let otro_leng_expre;
@@ -4377,16 +4378,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_leng_expre = document.getElementById("dc10").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const expre = document.querySelector('.leng_expre');
             expre.innerHTML = "";
             leng_expre.forEach(el => {
-
+                
                 if (el == "Otro") {
                     expre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4398,7 +4399,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     expre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengEx[]"  id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //Lenguaje comprensivo//
             let leng_compre = [];
             let otro_leng_compre;
@@ -4407,16 +4408,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_leng_compre = document.getElementById("cl11").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const compre = document.querySelector('.leng_compr');
             compre.innerHTML = "";
             leng_compre.forEach(el => {
-
+                
                 if (el == "Otro") {
                     compre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4428,7 +4429,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     compre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengCom[]"  id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //manifesto perdida del lenguaje//
             let p_leng = $("input[type=radio][name=Plenguaje]:checked").val();
             document.getElementById('p_leng').value = p_leng;
@@ -4440,13 +4441,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('p_leng').value = "No";
                 document.getElementById('indiquep_L').value = "No Aplica";
             }
-
+            
             //observaciones//
             let obs_leng = document.getElementById('obs_leng').value;
             document.getElementById('obs_leng1').value = obs_leng;
-
+            
             //Desarrollo Social
-
+            
             //desarrollo social//
             let des_social = [];
             let otro_des_social;
@@ -4455,16 +4456,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_des_social = document.getElementById("ds15").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const social = document.querySelector('.des_social');
             social.innerHTML = "";
             des_social.forEach(el => {
-
+                
                 if (el == "Otro") {
                     social.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4476,25 +4477,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     social.innerHTML += `<input class="form-control" readonly type="text" name="check_DesSoc[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //Cuando se prende una luz, reacciona de forma...//
             let reaccion = $("input[type=radio][name=reaccion]:checked").val();
             document.getElementById('reaccion').value = reaccion;
-
+            
             //Cuando escucha un sonido, reacciona de forma...//
             let reaccion1 = $("input[type=radio][name=reaccion1]:checked").val();
             document.getElementById('reaccion1').value = reaccion1;
-
+            
             //Cuando una persona extraña se le acerca, reacciona de forma...//
             let reaccion2 = $("input[type=radio][name=reaccion2]:checked").val();
             document.getElementById('reaccion2').value = reaccion2;
-
+            
             //Observaciones//
             let obs_desSocial = document.getElementById('obs_des_social').value;
             document.getElementById('obs_desSocial').value = obs_desSocial;
-
+            
             //Salud
-
+            
             //estado salud actual//
             let e_Asalud = [];
             let otro_salud;
@@ -4503,16 +4504,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_salud = document.getElementById("e14").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const salud_ = document.querySelector('.e_salud');
             salud_.innerHTML = "";
             e_Asalud.forEach(el => {
-
+                
                 if (el == "Otro") {
                     salud_.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4524,7 +4525,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     salud_.innerHTML += `<input class="form-control" readonly type="text" name="check_EstSal[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //recibe algun tratamiento//
             let tratamiento = $("input[type=radio][name=tratamiento]:checked").val();
             document.getElementById('tratamiento').value = tratamiento;
@@ -4536,7 +4537,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('tratamiento').value = "No";
                 document.getElementById('indique_t').value = "No Aplica";
             }
-
+            
             //toma algun medicamento//
             let medicamento = $("input[type=radio][name=medicamento]:checked").val();
             document.getElementById('medicamento').value = medicamento;
@@ -4548,7 +4549,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('medicamento').value = "No";
                 document.getElementById('indique_m').value = "No Aplica";
             }
-
+            
             //Alimentacion//
             let alimentacion = $("input[type=radio][name=alimentacion]:checked").val();
             document.getElementById('t_aliment').value = alimentacion;
@@ -4558,19 +4559,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else {
                 document.getElementById('indique_tAl').value = "No Aplica";
             }
-
+            
             //estatura actual//
             let e_actual = document.getElementById('est_actual').value;
             document.getElementById('e_actual').value = e_actual;
-
+            
             //peso actual//
             let peso_actual = document.getElementById('peso_actual').value;
             document.getElementById('p_actual').value = peso_actual;
-
+            
             //peso imc//
             let peso_imc = $("input[type=radio][name=peso]:checked").val();
             document.getElementById('peso_IMC').value = peso_imc;
-
+            
             //come solo//
             let come_solo = $("input[type=radio][name=comeSolo]:checked").val();
             document.getElementById('come_solo').value = come_solo;
@@ -4579,29 +4580,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (come_solo == 0) {
                 document.getElementById('come_solo').value = "No";
             }
-
+            
             //alimentos que le gusta comer//
             let gustaComer = document.getElementById('gustaComer').value;
             document.getElementById('gusta_comer').value = gustaComer;
-
+            
             //alimentos que no le gusta comer//
             let noGustaComer = document.getElementById('nogustaComer').value;
             document.getElementById('noGusta_comer').value = noGustaComer;
-
+            
             //en cuanto al sueno//
             let sueno = $("input[type=radio][name=dormir]:checked").val();
             document.getElementById('t_sueno').value = sueno;
-
+            
             //hora de dormir//
             let hora_dormir = document.getElementById('clockpicker').value;
             document.getElementById('hora_dormir').value = hora_dormir;
-
+            
             //duerme..//
             let duerme_c = $("input[type=radio][name=conQuienDuerme]:checked").val();
             document.getElementById('duerme').value = duerme_c;
             let indique_duermeC = document.getElementById('indique_duerme').value;
             document.getElementById('espe_duerme').value = indique_duermeC;
-
+            
             //estado salud//
             let e_salud = [];
             let otro_s;
@@ -4610,16 +4611,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_s = document.getElementById("p8").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const salud_e = document.querySelector('.estado_salud');
             salud_e.innerHTML = "";
             e_salud.forEach(el => {
-
+                
                 if (el == "Otro") {
                     salud_e.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4631,7 +4632,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //humor/comportamiento//
             let combo = document.getElementById("humor");
             let selected = combo.options[combo.selectedIndex].text;
@@ -4642,33 +4643,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('indique_humor_c').value = otroHumor;
             } else {
                 document.getElementById('indique_humor_c').value = "No Aplica";
-
+                
             }
-
+            
             //observaciones//
             let obs_salud = document.getElementById('obsSalud').value;
             document.getElementById('obs_salud').value = obs_salud;
-
+            
             //Antecedentes familiares
-
+            
             //personas que viven con el//
             let viveCon = document.getElementById('vive_con').value;
             document.getElementById('viveCon').value = viveCon;
-
+            
             //antecedentes familia//
             let antFam = document.getElementById('antFam').value;
             document.getElementById('ant_fam').value = antFam;
-
+            
             //observaciones//
             let obsAntfam = document.getElementById('obs_Ant_fam').value;
             document.getElementById('obsAnt_fam').value = obsAntfam;
-
+            
             //Antecedentes escolares
-
+            
             //edad de ingreso//
             let e_ingreso = document.getElementById('ingreso_e').value;
             document.getElementById('e_ingreso').value = e_ingreso;
-
+            
             //asistio a jardin//
             let jardin = $("input[type=radio][name=jardin]:checked").val();
             document.getElementById('aJardin').value = jardin;
@@ -4677,20 +4678,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             } else if (jardin == 0) {
                 document.getElementById('aJardin').value = "No";
             }
-
+            
             //antecedentes relevantes//
             let ant_rele = document.getElementById('colegios').value;
             document.getElementById('ant_rele').value = ant_rele;
-
+            
             //modalidad ensenanza//
             let comboM = document.getElementById("mEnsenanza");
             let select = comboM.options[comboM.selectedIndex].text;
             document.getElementById('m_ensenanza').value = select;
-
+            
             //motivo de cambio//
             let motivo_c = document.getElementById('colegios1').value;
             document.getElementById('m_cambio').value = motivo_c;
-
+            
             //ha repetido curso//
             let repetir = $("input[type=radio][name=repetir]:checked").val();
             document.getElementById('repetir').value = repetir;
@@ -4702,14 +4703,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('repetir').value = "No";
                 document.getElementById('repetir_m').value = "No Aplica";
             }
-
+            
             //situacion//
             let comboS = document.getElementById("cbo_situacion");
             let select1 = comboS.options[comboS.selectedIndex].text;
             document.getElementById('situacion').value = select1;
-
+            
             //Actitud de la familia
-
+            
             //desempeno//
             let desempeno = $("input[type=radio][name=descolar]:checked").val();
             document.getElementById('desempeno').value = desempeno;
@@ -4719,7 +4720,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 let insatis = document.getElementById('ev3').value;
                 document.getElementById('indique_insatis').value = insatis;
             }
-
+            
             //va mal//
             let vaMal = document.getElementById("vaMal");
             let select2 = vaMal.options[vaMal.selectedIndex].text;
@@ -4730,9 +4731,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('indique_otroVM').value = otrovaMal;
             } else {
                 document.getElementById('indique_otroVM').value = "No Aplica";
-
+                
             }
-
+            
             //va bien//
             let vaBien = document.getElementById("vaBien");
             let select3 = vaBien.options[vaBien.selectedIndex].text;
@@ -4743,9 +4744,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('indique_otroVB').value = otrovaBien;
             } else {
                 document.getElementById('indique_otroVB').value = "No Aplica";
-
+                
             }
-
+            
             //apoyo//
             let quien_apoya = [];
             let otro_apoyo;
@@ -4754,16 +4755,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_apoyo = document.getElementById("ap10").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-
+                    
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-
+                
             });
             const apoyo = document.querySelector('.p_aprendizaje');
             apoyo.innerHTML = "";
             quien_apoya.forEach(el => {
-
+                
                 if (el == "Otro") {
                     apoyo.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
@@ -4775,11 +4776,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     apoyo.innerHTML += `<input class="form-control" readonly type="text" name="check_quienApoya[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
-
+            
             //ambiente//
             let ambiente = $("input[type=radio][name=ambiente]:checked").val();
             document.getElementById('ambiente').value = ambiente;
-
+            
             /*console.log(otroHumor);
              console.log(y);
              console.log(otroSintoma);
@@ -4830,7 +4831,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 justificar.disabled = true;
             }
         }
-
+        
         var siE1 = document.getElementById('siE1');
         var noE1 = document.getElementById('noE1');
         var medicamentos = document.getElementById('medicamentos');
@@ -4845,7 +4846,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 medicamentos.disabled = true;
             }
         }
-
+        
         var siE2 = document.getElementById('siE2');
         var noE2 = document.getElementById('noE2');
         var complicaciones = document.getElementById('complicaciones');
@@ -4860,7 +4861,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 complicaciones.disabled = true;
             }
         }
-
+        
         var tipo1 = document.getElementById('tipo1');
         var tipo2 = document.getElementById('tipo2');
         var tipo3 = document.getElementById('tipo3');
@@ -4872,25 +4873,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 motivoC.disabled = true;
             }
         })
-
+        
         tipo2.addEventListener('click', function () {
             if (tipo2.checked) {
                 motivoC.disabled = true;
             }
         })
-
+        
         tipo3.addEventListener('click', function () {
             if (tipo3.checked) {
                 motivoC.disabled = true;
             }
         })
-
+        
         cesarea.addEventListener('click', function () {
             if (cesarea.checked) {
                 motivoC.disabled = false;
             }
         })
-
+        
         var siH = document.getElementById('siH');
         var noH = document.getElementById('noH');
         var hospitalizado = document.getElementById('hospitalizado');
@@ -4905,7 +4906,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 hospitalizado.disabled = true;
             }
         })
-
+        
         var sintoma1 = document.getElementById('sintoma1');
         var sintoma2 = document.getElementById('sintoma2');
         var sintoma3 = document.getElementById('sintoma3');
@@ -4969,9 +4970,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 sintoma14.disabled = true;
             }
         })
-
-
-
+        
+        
+        
         var siA = document.getElementById('siA');
         var noA = document.getElementById('noA');
         var n_asistencia = document.getElementById('n_asistencia');
@@ -4990,7 +4991,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 n_asistencia.disabled = false;
             }
         })
-
+        
         var mf1 = document.getElementById('mf1');
         var mf2 = document.getElementById('mf2');
         var mf3 = document.getElementById('mf3');
@@ -5064,7 +5065,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 mf7.disabled = false;
             }
         })
-
+        
         var sc1 = document.getElementById('sc1');
         var sc2 = document.getElementById('sc2');
         var sc3 = document.getElementById('sc3');
@@ -5096,7 +5097,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 sc6.disabled = false;
             }
         })
-
+        
         sc1.addEventListener('click', function () {
             if (sc1.checked) {
                 sc7.disabled = true;
@@ -5139,8 +5140,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 sc7.disabled = false;
             }
         })
-
-
+        
+        
         var v1 = document.getElementById('v1');
         var v2 = document.getElementById('v2');
         var v3 = document.getElementById('v3');
@@ -5175,7 +5176,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 v7.disabled = false;
             }
         })
-
+        
         v1.addEventListener('click', function () {
             if (v1.checked) {
                 v8.disabled = true;
@@ -5225,8 +5226,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 v8.disabled = false;
             }
         })
-
-
+        
+        
         var d1 = document.getElementById('d1');
         var d2 = document.getElementById('d2');
         var d3 = document.getElementById('d3');
@@ -5272,7 +5273,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 d6.disabled = true;
             }
         })
-
+        
         var a1 = document.getElementById('a1');
         var a2 = document.getElementById('a2');
         var a3 = document.getElementById('a3');
@@ -5339,7 +5340,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 a6.disabled = false;
             }
         })
-
+        
         var da1 = document.getElementById('da1');
         var da2 = document.getElementById('da2');
         var da3 = document.getElementById('da3');
@@ -5392,7 +5393,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 da7.disabled = true;
             }
         })
-
+        
         var c1 = document.getElementById('c1');
         var c2 = document.getElementById('c2');
         var c3 = document.getElementById('c3');
@@ -5420,7 +5421,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 c5.disabled = true;
             }
         })
-
+        
         var dc1 = document.getElementById('dc1');
         var dc2 = document.getElementById('dc2');
         var dc3 = document.getElementById('dc3');
@@ -5470,7 +5471,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 dc10.disabled = true;
             }
         })
-
+        
         var cl1 = document.getElementById('cl1');
         var cl2 = document.getElementById('cl2');
         var cl3 = document.getElementById('cl3');
@@ -5579,7 +5580,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 cl11.disabled = true;
             }
         })
-
+        
         var pl1 = document.getElementById('pl1');
         var pl2 = document.getElementById('pl2');
         var pl3 = document.getElementById('pl3');
@@ -5597,7 +5598,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 pl3.disabled = true;
             }
         })
-
+        
         var ds1 = document.getElementById('ds1');
         var ds2 = document.getElementById('ds2');
         var ds3 = document.getElementById('ds3');
@@ -5660,7 +5661,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ds15.disabled = true;
             }
         })
-
+        
         ds14.addEventListener('click', function () {
             if (ds14.checked) {
                 ds15.disabled = false;
@@ -5668,7 +5669,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ds15.disabled = true;
             }
         })
-
+        
         var e1 = document.getElementById('e1');
         var e2 = document.getElementById('e2');
         var e3 = document.getElementById('e3');
@@ -5734,7 +5735,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 e14.disabled = true;
             }
         })
-
+        
         var t1 = document.getElementById('t1');
         var t2 = document.getElementById('t2');
         var t3 = document.getElementById('t3');
@@ -5748,7 +5749,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 t3.disabled = false;
             }
         })
-
+        
         var m1 = document.getElementById('m1');
         var m2 = document.getElementById('m2');
         var m3 = document.getElementById('m3');
@@ -5762,7 +5763,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 m3.disabled = false;
             }
         })
-
+        
         var al1 = document.getElementById('al1');
         var al2 = document.getElementById('al2');
         var al3 = document.getElementById('al3');
@@ -5772,7 +5773,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             if (al1.checked) {
                 al5.disabled = true;
             } else {
-
+                
             }
         })
         al2.addEventListener('click', function () {
@@ -5796,9 +5797,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 al5.disabled = true;
             }
         })
-
-
-
+        
+        
+        
         var p1 = document.getElementById('p1');
         var p2 = document.getElementById('p2');
         var p3 = document.getElementById('p3');
@@ -5839,7 +5840,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 p8.disabled = true;
             }
         })
-
+        
         var r1 = document.getElementById('r1');
         var r2 = document.getElementById('r2');
         var r3 = document.getElementById('r3');
@@ -5853,7 +5854,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 r3.disabled = false;
             }
         })
-
+        
         var ev1 = document.getElementById('ev1');
         var ev2 = document.getElementById('ev2');
         var ev3 = document.getElementById('ev3');
@@ -5867,7 +5868,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ev3.disabled = true;
             }
         })
-
+        
         var ap1 = document.getElementById('ap1');
         var ap2 = document.getElementById('ap2');
         var ap3 = document.getElementById('ap3');
@@ -5914,8 +5915,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ap10.disabled = true;
             }
         })
-
-
+        
+        
         const h1 = document.getElementById('h1');
         function humor() {
             var selectH = document.getElementById('humor').value;
@@ -5925,7 +5926,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 h1.disabled = true;
             }
         }
-
+        
         const vM1 = document.getElementById('vM1');
         function vaMal() {
             var selectM = document.getElementById('vaMal').value;
@@ -5935,7 +5936,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 vM1.disabled = true;
             }
         }
-
+        
         const vB1 = document.getElementById('vB1');
         function vaBien() {
             var selectB = document.getElementById('vaBien').value;
@@ -5945,7 +5946,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 vB1.disabled = true;
             }
         }
-
+        
         $(document).ready(function () {
             $('#humor').change(function () {
                 humor();
