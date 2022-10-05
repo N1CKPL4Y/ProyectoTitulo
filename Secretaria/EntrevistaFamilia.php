@@ -2559,11 +2559,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-sm-12 col-md-12 col-lg-4">
-                                                                <div class="input-group mb-3">
+                                                                <div class="input-group mb-3 clockpicker" data-placement ="right" data-align="top" data-autoclose="true">
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Hora a la que se duerme</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control clockpicker" name="txt_HorDormir" id="clockpicker">
+                                                                    <input type="text" class="form-control" name="txt_HorDormir" autocomplete="off" id="timer">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2916,7 +2916,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <span class="input-group-text" id="basic-addon1">Desempeño</span>
                                                                     </div>
                                                                     <div class="form-control">
-                                                                        <input class="form-control-input" type="radio" name="descolar" id="ev1" value="Satisdactorio">
+                                                                        <input class="form-control-input" type="radio" name="descolar" id="ev1" value="Satisfactorio">
                                                                         <label class="form-control-label" for="tipo1">
                                                                             Satisdactorio
                                                                         </label>
@@ -3844,7 +3844,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                                 <label>Si es insatisfactorio, por que motivo</label>
-                                                                <input class="form-control" type="text" name="txt_descolar" readonly id="indique_insatis">
+                                                                <input class="form-control" type="text" name="txt_Descolar" readonly id="indique_insatis">
                                                             </div>
                                                         </div>
                                                         <br>
@@ -4607,7 +4607,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             document.getElementById('t_sueno').value = sueno;
             
             //hora de dormir//
-            let hora_dormir = document.getElementById('clockpicker').value;
+            let hora_dormir = document.getElementById('timer').value;
             document.getElementById('hora_dormir').value = hora_dormir;
             
             //duerme..//
@@ -4733,7 +4733,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //desempeno//
             let desempeno = $("input[type=radio][name=descolar]:checked").val();
             document.getElementById('desempeno').value = desempeno;
-            if (desempeno == 'Satisdactorio') {
+            if (desempeno == 'Satisfactorio') {
                 document.getElementById('indique_insatis').value = "No Aplica";
             } else if (desempeno == 'Insatisfactorio') {
                 let insatis = document.getElementById('ev3').value;

@@ -455,17 +455,29 @@ class Data {
     }
 
     //INSERTS PARA ENTREVISTA ANTECEDENTES
-    public function addEmbParto($Em_controlado, $per_control, $consumo, $indique_c, $semanas_em, $tipo_part, $motivo_Ces, $asiste_Med) {
-        $sql = "INSERT INTO `embarazoparto` (`id`, `Em_controlado`, `per_control`, `consumo`, `indique_c`, `semanas_em`, `tipo_part`, `motivo_Ces`, `asiste_Med`) VALUES (NULL, $Em_controlado, '$per_control', $consumo, '$indique_c', $semanas_em, $tipo_part, '$motivo_Ces', $asiste_Med);";
+    public function addEmbParto($Em_controlado, $per_control, $consumo, $indique_c, $complicaciones, $indique_com, $semanas_em, $tipo_part, $motivo_Ces, $asiste_Med) {
+        $sql = "INSERT INTO `embarazoparto` (`id`, `Em_controlado`, `per_control`, `consumo`, `indique_c`, `complicaciones`, `indique_com` , `semanas_em`, `tipo_part`, `motivo_Ces`, `asiste_Med`) VALUES (NULL, $Em_controlado, '$per_control', $consumo, '$indique_c', $complicaciones, '$indique_com' , $semanas_em, $tipo_part, '$motivo_Ces', $asiste_Med);";
         $query = $this->con->query($sql);
+    }
+    
+    public function getLastEmbParto(){
+        $sql = "select id from embarazoparto order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
     public function addPostParto($peso, $talla, $apgar_1, $apgar_5, $hospit_nac, $motiv_Hos, $control_per, $vacunas, $obs_12m) {
         $sql = "INSERT INTO `postparto` (`id`, `peso`, `talla`, `apgar_1`, `apgar_5`, `hospit_nac`, `motiv_Hos`, `control_per`, `vacunas`, `obs_12m`) VALUES (NULL, $peso, $talla, $apgar_1, $apgar_5, $hospit_nac, '$motiv_Hos', $control_per, $vacunas, '$obs_12m');";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastPostParto(){
+        $sql = "select id from postparto order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
-    public function addCompPosParto($idPostParto, $sintomas_12m) {
+    public function addCompPostParto($idPostParto, $sintomas_12m) {
         $sql = "INSERT INTO `complementopparto` (`id`, `id_postParto`, `sintomas_12m`) VALUES (NULL, $idPostParto, '$sintomas_12m');";
         $query = $this->con->query($sql);
     }
@@ -474,10 +486,22 @@ class Data {
         $sql = "INSERT INTO `lactancia` (`id`, `l_materna`, `l_mixto`, `l_relleno`) VALUES (NULL, '$l_materna', `$l_mixto`, `$l_relleno`);";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastLactancia(){
+        $sql = "select id from lactancia order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function addDesMotriz($C_cabeza, $S_solo, $C_gatear, $C_apoyo, $S_apoyo, $E_1palabras, $E_1frases, $V_solo, $c_EsVDiurno, $c_EsVNocturno, $c_EsADiurno, $c_EsANocturno, $U_panal, $U_panalEntr, $A_bano, $indique_ABano, $A_motoraG, $T_muscG, $Es_Caminar, $C_frecuen, $D_lateral, $obs_DesMotriz) {
         $sql = "INSERT INTO `desmotriz` (`id`, `C_cabeza`, `S_solo`, `C_gatear`, `C_apoyo`, `S_apoyo`, `E_1palabras`, `E_1frases`, `V_solo`, `c_EsVDiurno`, `c_EsVNocturno`, `c_EsADiurno`, `c_EsANocturno`, `U_panal`, `U_panalEntr`, `A_bano`, `indique_ABano`, `A_motoraG`, `T_muscG`, `Es_Caminar`, `C_frecuen`, `D_lateral`, `obs_DesMotriz`) VALUES (NULL, $C_cabeza, $S_solo, $C_gatear, $C_apoyo, $S_apoyo, $E_1palabras, $E_1frases, $V_solo, $c_EsVDiurno, $c_EsVNocturno, $c_EsADiurno, $c_EsANocturno, $U_panal, $U_panalEntr, $A_bano, '$indique_ABano', '$A_motoraG', '$T_muscG', $Es_Caminar, $C_frecuen, '$D_lateral', '$obs_DesMotriz');";
         $query = $this->con->query($sql);
+    }
+    
+    public function getLastDesMotriz(){
+        $sql = "select id from desmotriz order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
     public function addCompDesMotrizFina($id_DesMotriz, $logro) {
@@ -494,6 +518,12 @@ class Data {
         $sql = "INSERT INTO `vision` (`id`, `u_lentes`, `obs_Vision`) VALUES (NULL, $u_lentes, '$obs_Vision');";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastVision(){
+        $sql = "select id from vision order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function addCompVision($id_vision, $descripcion) {
         $sql = "INSERT INTO `compvision` (`id`, `id_vision`, `descripcion`) VALUES (NULL, $id_vision, '$descripcion');";
@@ -508,6 +538,12 @@ class Data {
     public function addAudicion($U_audifonos, $obs_Audicion) {
         $sql = "INSERT INTO `audicion` (`id`, `U_audifonos`, `obs_Audicion`) VALUES (NULL, $U_audifonos, '$obs_Audicion');";
         $query = $this->con->query($sql);
+    }
+    
+    public function getLastAudicion(){
+        $sql = "select id from audicion order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
     public function addCompAudicion($id_audicion, $descripcion) {
@@ -524,6 +560,12 @@ class Data {
         $sql = "INSERT INTO `deslengua` (`id`, `comunicacion`, `indique`, `perdida_leng`, `indique_Pl`, `obs_DesLengua`) VALUES (NULL, '$comunicacion', '$indique', $perdida_leng, '$indique_Pl', '$obs_DesLengua');";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastDesLeng(){
+        $sql = "select id from deslengua order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function addCompDesLengua_compr($id_Des_Lengua, $caract) {
         $sql = "INSERT INTO `compdeslengua_compr` (`id`, `id_Des_Lengua`, `caract`) VALUES(NULL, $id_Des_Lengua, '$caract');";
@@ -539,15 +581,27 @@ class Data {
         $sql = "INSERT INTO `dessocial` (`id`, `react_luz`, `react_sonido`, `react_persona`, `obs_DesSocial`) VALUES (NULL, '$react_luz', '$react_sonido', '$react_persona', '$obs_DesSocial');";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastDesSocial(){
+        $sql = "select id from dessocial order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function addCompDesSocial($id_DesSocial, $desarrollo) {
         $sql = "INSERT INTO `compdessocial` (`id`, `id_DesSocial`, `desarrollo`) VALUES (NULL, $id_DesSocial, '$desarrollo');";
         $query = $this->con->query($sql);
     }
 
-    public function addSalud($tratamiento, $Ind_tratam, $medicamento, $ind_medic, $alimentacion, $talla_act, $peso_act, $peso_IMC, $c_solo, $gusta_comer, $nogusta_comer, $sueno, $hora_dormir, $duerme, $humor, $indique_h, $obs_Salud) {
-        $sql = " INSERT INTO `salud` (`id`, `tratamiento`, `Ind_tratam`, `medicamento`, `ind_medic`, `alimentacion`, `talla_act`, `peso_act`, `peso_IMC`, `c_solo`, `gusta_comer`, `nogusta_comer`, `sueno`, `hora_dormir`, `duerme`, `humor`, `indique_h`, `obs_Salud`) VALUES (NULL, $tratamiento, '$Ind_tratam', $medicamento, '$ind_medic', '$alimentacion', $talla_act, $peso_act, '$peso_IMC', $c_solo, '$gusta_comer', '$nogusta_comer', '$sueno', '$hora_dormir', '$duerme', $humor, '$indique_h', '$obs_Salud');";
+    public function addSalud($tratamiento, $Ind_tratam, $medicamento, $ind_medic, $alimentacion, $indique_ali, $talla_act, $peso_act, $peso_IMC, $c_solo, $gusta_comer, $nogusta_comer, $sueno, $hora_dormir, $duerme, $humor, $indique_h, $obs_Salud) {
+        $sql = " INSERT INTO `salud` (`id`, `tratamiento`, `Ind_tratam`, `medicamento`, `ind_medic`, `alimentacion`, `indique_ali`, `talla_act`, `peso_act`, `peso_IMC`, `c_solo`, `gusta_comer`, `nogusta_comer`, `sueno`, `hora_dormir`, `duerme`, `humor`, `indique_h`, `obs_Salud`) VALUES (NULL, $tratamiento, '$Ind_tratam', $medicamento, '$ind_medic', '$alimentacion', '$indique_ali' , $talla_act, $peso_act, '$peso_IMC', $c_solo, '$gusta_comer', '$nogusta_comer', '$sueno', '$hora_dormir', '$duerme', $humor, '$indique_h', '$obs_Salud');";
         $query = $this->con->query($sql);
+    }
+    
+    public function getLastSalud(){
+        $sql = "select id from salud order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
     public function addCompSaludActual($id_Salud, $estado) {
@@ -564,19 +618,42 @@ class Data {
         $sql = "INSERT INTO `antfam` (`id`, `pers_viven`, `ant_salud`, `obs_AntFam`) VALUES (NULL, '$pers_viven', '$ant_salud', '$obs_AntFam');";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastAntFam(){
+        $sql = "select id from antfam order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function addAntEscolar($ingEsc, $aJardin, $antecedentes, $mod_Ensenanza, $motivo_c, $rep_curso, $c_motivorep, $situacion) {
         $sql = "INSERT INTO `antescolar` (`id`, `ingEsc`, `aJardin`, `antecedentes`, `mod_Ensenanza`, `motivo_c`, `rep_curso`, `c_motivorep`, `situacion`) VALUES (NULL, $ingEsc, $aJardin, '$antecedentes', '$mod_Ensenanza', '$motivo_c', $rep_curso, '$c_motivorep', '$situacion');";
         $query = $this->con->query($sql);
+    }
+    
+    public function getLastAntEscolar(){
+        $sql = "select id from antescolar order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
     public function addActFam($desem, $motivo_ins, $do_malcolegio, $otro_vamal, $do_biencolegio, $otro_biencolegio, $ambiente) {
         $sql = "INSERT INTO `actfam` (`id`, `desem`, `motivo_ins`, `do_malcolegio`, `otro_vamal`, `do_biencolegio`, `otro_biencolegio`, `ambiente`) VALUES (NULL, '$desem', '$motivo_ins', '$do_malcolegio', '$otro_vamal', '$do_biencolegio', '$otro_biencolegio', '$ambiente');";
         $query = $this->con->query($sql);
     }
+    
+    public function getLastActFam(){
+        $sql = "select id from actfam order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function addCompActFam($id_actFam, $apoyo) {
         $sql = "INSERT INTO `compactfam` (`id`, `id_actFam`, `apoyo`) VALUES (NULL, $id_actFam, '$apoyo');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function addEntrevista($rut_bene, $rut_usuario, $id_embParto, $id_postParto, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam){
+        $sql = "INSERT INTO `entrevista` (`id`, `rut_bene`, `rut_usuario`, `id_embParto`, `id_postParto`, `id_lactancia`, `id_DesMotriz`, `id_Vision`, `id_Audicion`, `id_DesLengua`, `id_DesSocial`, `id_Salud`, `id_AntFam`, `id_AntEscolar`, `id_ActFam`, `fecha`) VALUES (NULL, '$rut_bene', '$rut_usuario', $id_embParto, $id_postParto, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam, now());";
         $query = $this->con->query($sql);
     }
 
