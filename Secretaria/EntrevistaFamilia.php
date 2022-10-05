@@ -3046,7 +3046,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
-                                                                            <input type="checkbox" id="ap6" value="" name="check_quienApoya[]" aria-label="Checkbox for following text input">
+                                                                            <input type="checkbox" id="ap6" value="Otros Familiares" name="check_quienApoya[]" aria-label="Checkbox for following text input">
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otros Familiares</span>
@@ -4026,10 +4026,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1">Otro:</span>
                                                             </div>
-                                                            <input class="form-control" type="text" name="sintomasNacer[]" readonly value="` + otroSintoma + `" id="otroSintoma">
+                                                            <input class="form-control" type="text" name="otroSintoNac" readonly value="` + otroSintoma + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    parto.innerHTML += `<input class="form-control" readonly type="text" name="otroSintoNac" id="pruebaX2" value="` + el + `"><br>`;
+                    parto.innerHTML += `<input class="form-control" readonly type="text" name="sintomasNacer[]" id="pruebaX2" value="` + el + `"><br>`;
                 }
             });
 
