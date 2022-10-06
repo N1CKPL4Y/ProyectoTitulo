@@ -62,7 +62,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="../MenuInterno.php">
+                    <a href="../MenuProfesional.php">
                         <i class='bx bx-home' ></i>
                         <span class="links_name">Vover a Inicio</span>
                     </a>

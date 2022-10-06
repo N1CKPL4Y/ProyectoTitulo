@@ -373,6 +373,36 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function getConsEvent($rut_bene, $rut_profe) {
+        $sql= "SELECT COUNT(*) as 'Consultas' FROM consulta INNER JOIN evento ON consulta.id_evento=evento.id WHERE consulta.rut_bene='$rut_bene' AND consulta.rut_profe='$rut_profe' AND evento.start BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getCountPrograma($rut_bene, $rut_profe) {
+        $sql="SELECT COUNT(programa) as 'Programas'  FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
+        //AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()))
+        $query= $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getPrograma($rut_bene, $rut_profe) {
+        $sql="SELECT programa FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' ORDER BY id DESC LIMIT 1;;";
+        $query= $this->con->query($sql);
+        return $query;
+    }
+    
+    public function addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
+        $sql="INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', '$programa',now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
+        $query = $this->con->query($sql);
+    }
+    
+    public function getBitacora($rut) {
+        $sql="SELECT * from bitacora WHERE beneficiario='$rut';";
+        $query= $this->con->query($sql);
+        return $query;
+    }
 
     public function getAllEspecialista() {
         $sql = "SELECT * FROM especialista";
@@ -388,6 +418,11 @@ class Data {
 
     public function updEvento($id, $title, $fecha, $color) {
         $sql = "UPDATE `evento` SET `title` = '$title', `start` = '$fecha', `color` = '$color' WHERE `evento`.`id` = $id;";
+        $query = $this->con->query($sql);
+    }
+    
+    public function updColorEvento($id, $color) {
+        $sql = "UPDATE `evento` SET `color` = '$color' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
     }
 

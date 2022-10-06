@@ -4104,33 +4104,44 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //sintomas al nacer//
             let sintoma = [];
             let otroSintoma;
-            $("input[type=checkbox][name='sintomasNacer[]']:checked").each(function () {
-                sintoma.push(this.value);
-                if (this.value == "Otro") {
-                    otroSintoma = document.getElementById("sintoma14").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const parto = document.querySelector('.parto');
-            parto.innerHTML = "";
-            sintoma.forEach(el => {
-                if (el != "Otro") {
-                    parto.innerHTML += `<input class="form-control" readonly type="text" name="sintomasNacer[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    parto.innerHTML += `<div class="input-group mb-3">
+            let sintomas1 = $("input:checkbox[name='sintomasNacer[]']:checked").val();
+            if (!sintomas1) {
+                parto.innerHTML += '<input class="form-control" readonly type="text" id="psintoma" value="No se ha checkeado nada">';
+                const p = document.getElementById('psintoma');
+                p.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='sintomasNacer[]']:checked").each(function () {
+                    sintoma.push(this.value);
+                    if (this.value == "Otro") {
+                        otroSintoma = document.getElementById("sintoma14").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
+
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+                parto.innerHTML = "";
+                sintoma.forEach(el => {
+                    if (el != "Otro") {
+                        parto.innerHTML += `<input class="form-control" readonly type="text" name="sintomasNacer[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        parto.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="sintomasNacer[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otroSintoNac" readonly value="` + otroSintoma + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
+
+            }
+
+
+
             //controles periodicos//
             let controles = $("input[type=radio][name=controles]:checked").val();
             document.getElementById('controles_p').value = controles;
@@ -5309,10 +5320,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             if (select3 == "Seleccionar") {
                 document.getElementById('va_bien').value = "No se ha seleccionado nada";
                 document.getElementById('indique_otroVB').value = "No se ha ingresado nada";
-                va_bien.classList.add('c_faltante'); 
+                va_bien.classList.add('c_faltante');
                 otro_vb.classList.add('c_faltante');
             } else {
-                va_bien.classList.remove('c_faltante'); 
+                va_bien.classList.remove('c_faltante');
                 otro_vb.classList.remove('c_faltante');
                 if (select3 == "Otro") {
                     otrovaBien = document.getElementById("vB1").value;
@@ -5356,12 +5367,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             });
             //ambiente//
             let ambiente = $("input[type=radio][name=ambiente]:checked").val();
-            
+
             const amb = document.getElementById('ambiente');
-            if(!ambiente){
+            if (!ambiente) {
                 document.getElementById('ambiente').value = "No se ha checkeado nada";
                 amb.classList.add('c_faltante');
-            }else{
+            } else {
                 document.getElementById('ambiente').value = ambiente;
                 amb.classList.remove('c_faltante');
             }

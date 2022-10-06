@@ -43,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                             </div> 
-                                            <input type="text" placeholder="Ej: 15.111.222-3" name="txt_rut" class="form-control" id="rut" required="">
+                                            <input type="text" placeholder="Ej: 15.111.222-3" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
                                         </div>  
                                     </div>
                                 </div>

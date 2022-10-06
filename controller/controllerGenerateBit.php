@@ -1,6 +1,9 @@
 <?php
 $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
 $id = isset($_GET['id']) ? $_GET['id'] : null;
+session_start();
+$cargo = $_SESSION['cargo'];
+echo $cargo;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +35,12 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
                 }).then((result) => {
                     /* Read more about handling dismissals below */
                     if (result.dismiss === Swal.DismissReason.timer) {
-                        window.location.href = '../ProfeInterno/Bitacora.php?rut='+rut+'&id='+id;
+                        let cargo =<?php echo $cargo; ?>;
+                        if (cargo == 4) {
+                            window.location.href = '../ProfeInterno/Bitacora.php?rut=' + rut + '&id=' + id;
+                        } else if (cargo == 3) {
+                            window.location.href = '../ProfeInterno/BitacoraProfesional.php?rut=' + rut + '&id=' + id;
+                        }
                     }
                 });
             }

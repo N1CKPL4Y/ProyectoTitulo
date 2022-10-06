@@ -1,4 +1,4 @@
-    <?php
+<?php
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once './DB/Model_Data.php';
@@ -18,12 +18,13 @@ if ($correo == null || "") {
 $data = new Data();
 $areas = $data->getAreaById($area_u);
 $a_usuario;
-foreach ($areas as $value){
+foreach ($areas as $value) {
     $a_usuario = $value['nombre'];
 }
+
 $eventoA = array();
 $comienzo;
-$eventos = $data->getEventProf($area_u,$rut);
+$eventos = $data->getEventProf($area_u, $rut);
 foreach ($eventos as $value) {
     $value['title'] . '<br>';
     $value['start'] . '<br>';
@@ -201,39 +202,26 @@ $consulJson = json_encode($consultas);
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                                                        <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="color" class="form-control" name="txt_color" id="color" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_bene" readonly id="bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                                                        <span class="input-group-text" id="basic-addon1">Beneficiario</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_Nbene" readonly id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                                                        <span class="input-group-text" id="basic-addon1">Contacto</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_Nbene" id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_Fbene" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_Fbene" readonly id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                 <button type="submit" id="btn_Action" class="btn submitModal">Registrar</button>
-                                                <button type="button" id="btn_Delete" class="btn btn-danger" >Eliminar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -265,17 +253,21 @@ $consulJson = json_encode($consultas);
             $('.clockpicker').clockpicker();
         </script>
         <script type="text/javascript">
+            window.addEventListener('touchstart', function () {
+                // some logic
+            }, {passive: false});
             var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
             let form = document.getElementById('form1');
             let del = document.getElementById('btn_Delete');
             let consultas = document.getElementById('.consulta');
             let des = 3;
+            let eventosa =<?php echo $eventJson; ?>
             /*let eventJson=[];
              if (des == 2) {
              eventJson = [{'title':'The Title','start':'2022-09-01','end':'2022-09-02' }];
              console.log(eventJson);
              }else{
-             eventJson=<?php echo $eventJson; ?>;
+             eventJson=<?php //echo $eventJson;    ?>;
              console.log(eventJson);
              }*/
             document.addEventListener('DOMContentLoaded', function () {
@@ -329,28 +321,28 @@ $consulJson = json_encode($consultas);
                         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     },
                     footerToolbar: true/*,
-                    // funcion recibe info
-                    dateClick: function (info) {
-                        console.log(info);
-                        form.reset();
-                        document.getElementById('id').value = '';
-                        del.classList.add('d-none');
-                        document.getElementById('startEvent').readOnly = false;
-                        document.getElementById('id_event').classList.add('d-none');
-                        fecha = info.dateStr;
-                        document.getElementById('startEvent').value = fecha.substring(0, 10);
-                        document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
-                        document.getElementById('btn_Action').textContent = 'Registrar';
-                        form.action = "../controller/controllerEvento.php?p=1&a=1";
-                        form.method = 'POST';
-                        modal.show();
-                    }*/,
+                     // funcion recibe info
+                     dateClick: function (info) {
+                     console.log(info);
+                     form.reset();
+                     document.getElementById('id').value = '';
+                     del.classList.add('d-none');
+                     document.getElementById('startEvent').readOnly = false;
+                     document.getElementById('id_event').classList.add('d-none');
+                     fecha = info.dateStr;
+                     document.getElementById('startEvent').value = fecha.substring(0, 10);
+                     document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
+                     document.getElementById('btn_Action').textContent = 'Registrar';
+                     form.action = "../controller/controllerEvento.php?p=1&a=1";
+                     form.method = 'POST';
+                     modal.show();
+                     }*/,
                     eventClick: function (info) {
                         console.log(info.event.startStr);
-                        document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
-                        document.getElementById('btn_Action').textContent = 'Modificar';
+                        document.getElementById('staticBackdropLabel').textContent = 'Consulta';
+                        document.getElementById('btn_Action').textContent = 'Iniciar';
                         document.getElementById('id_event').classList.remove('d-none');
-                        del.classList.remove('d-none');
+
                         document.getElementById('startEvent').readOnly = true;
                         document.getElementById('id').value = info.event.id;
 
@@ -359,34 +351,43 @@ $consulJson = json_encode($consultas);
                         document.getElementById('startEvent').value = fecha.substring(0, 10);
                         document.getElementById('startEventHour').value = fecha.substring(11);
 
-                        document.getElementById('color').value = info.event.backgroundColor;
-                        form.action = "../controller/controllerEvento.php?p=2&a=1";
-                        form.method = 'POST';
-                        console.log(info);
 
                         let consul = <?php echo $consulJson ?>;
-
+                        let rut;
                         consul.forEach(el => {
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
+                                rut = el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
                                 document.getElementById('nomb_bene').value = el['nombre'];
                                 document.getElementById('fono_bene').value = el['telefono'];
-                                document.getElementById('profe').value = el['profesional'];
                             }
 
                         });
-                        modal.show();
+
+                        console.log(rut);
+
+                        form.action = "controller/controllerGenerateBit.php?rut=" + rut + "&id=" + info.event.id;
+                        form.method = 'POST';
+                        console.log(info);
+                        let color = info.event.backgroundColor;
+                        console.log(color);
+                        if (color == '#03EF1C') {
+                            modal.hide();
+                        } else {
+                            modal.show();
+                        }
+
                     }/*,
-                    eventDrop: function (info) {
-                        const id = info.event.id;
-                        const fecha = info.event.startStr;
-                        window.location = '../controller/controllerEvento.php?p=4&a=1&id=' + id + '&fecha=' + fecha;
-                        console.log(id, fecha);
-                    }*/
+                     eventDrop: function (info) {
+                     const id = info.event.id;
+                     const fecha = info.event.startStr;
+                     window.location = '../controller/controllerEvento.php?p=4&a=1&id=' + id + '&fecha=' + fecha;
+                     console.log(id, fecha);
+                     }*/
                 });
                 calendar.render();
-
+                console.log(eventosa[0].color);
                 del.addEventListener('click', function () {
                     modal.hide();
                     Swal.fire({
@@ -416,4 +417,5 @@ $consulJson = json_encode($consultas);
 
         </script>
     </body>
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 </html>

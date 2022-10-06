@@ -127,11 +127,18 @@ $consulJson = json_encode($consultas);
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="MenuProfesional.php">
+                    <a href="MenuInterno.php">
                         <i class='bx bx-home' ></i>
                         <span class="links_name">Vover a Inicio</span>
                     </a>
                     <span class="tooltip">Volver a Inicio</span>
+                </li>
+                <li>
+                    <a href="ProfeInterno/HistorialBitacoras.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Bitacoras</span>
                 </li>
                 <li>
                     <a href="controller/controllerLogout.php">
@@ -253,17 +260,21 @@ $consulJson = json_encode($consultas);
             $('.clockpicker').clockpicker();
         </script>
         <script type="text/javascript">
+            window.addEventListener('touchstart', function () {
+                // some logic
+            }, {passive: false});
             var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
             let form = document.getElementById('form1');
             let del = document.getElementById('btn_Delete');
             let consultas = document.getElementById('.consulta');
             let des = 3;
+            let eventosa =<?php echo $eventJson; ?>
             /*let eventJson=[];
              if (des == 2) {
              eventJson = [{'title':'The Title','start':'2022-09-01','end':'2022-09-02' }];
              console.log(eventJson);
              }else{
-             eventJson=<?php echo $eventJson; ?>;
+             eventJson=<?php //echo $eventJson;    ?>;
              console.log(eventJson);
              }*/
             document.addEventListener('DOMContentLoaded', function () {
@@ -346,27 +357,34 @@ $consulJson = json_encode($consultas);
                         fecha = info.event.startStr;
                         document.getElementById('startEvent').value = fecha.substring(0, 10);
                         document.getElementById('startEventHour').value = fecha.substring(11);
-                        
+
 
                         let consul = <?php echo $consulJson ?>;
                         let rut;
                         consul.forEach(el => {
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
-                                rut=el['RUT'];
+                                rut = el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
                                 document.getElementById('nomb_bene').value = el['nombre'];
                                 document.getElementById('fono_bene').value = el['telefono'];
                             }
 
                         });
-                        
+
                         console.log(rut);
-                        
-                        form.action = "controller/controllerGenerateBit.php?rut="+rut+"&id="+info.event.id;
+
+                        form.action = "controller/controllerGenerateBit.php?rut=" + rut + "&id=" + info.event.id;
                         form.method = 'POST';
                         console.log(info);
-                        modal.show();
+                        let color = info.event.backgroundColor;
+                        console.log(color);
+                        if (color == '#03EF1C') {
+                            modal.hide();
+                        } else {
+                            modal.show();
+                        }
+
                     }/*,
                      eventDrop: function (info) {
                      const id = info.event.id;
@@ -376,7 +394,7 @@ $consulJson = json_encode($consultas);
                      }*/
                 });
                 calendar.render();
-
+                console.log(eventosa[0].color);
                 del.addEventListener('click', function () {
                     modal.hide();
                     Swal.fire({
@@ -406,4 +424,5 @@ $consulJson = json_encode($consultas);
 
         </script>
     </body>
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 </html>

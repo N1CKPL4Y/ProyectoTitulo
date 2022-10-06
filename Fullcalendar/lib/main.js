@@ -10651,6 +10651,8 @@ var FullCalendar = (function (exports) {
                     // not necessary for touch, besides, browser would complain about passiveness.
                     if (!ev.isTouch) {
                         ev.origEvent.preventDefault();
+                    }else{
+                        passive:true;
                     }
                     _this.emitter.trigger('pointerdown', ev);
                     if (_this.isInteracting && // not destroyed via pointerdown handler
