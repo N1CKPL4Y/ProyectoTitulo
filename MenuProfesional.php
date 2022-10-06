@@ -134,6 +134,13 @@ $consulJson = json_encode($consultas);
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
+                    <a href="ProfeInterno/HistorialBitacoras.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Bitacoras</span>
+                </li>
+                <li>
                     <a href="controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>

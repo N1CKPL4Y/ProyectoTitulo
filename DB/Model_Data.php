@@ -398,8 +398,22 @@ class Data {
         $query = $this->con->query($sql);
     }
     
-    public function getBitacora($rut) {
-        $sql="SELECT * from bitacora WHERE beneficiario='$rut';";
+    /*public function getExisBitacora($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM bitacora
+	            WHERE beneficiario= '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }*/
+    
+    public function getBitacora($rut,$profe) {
+        $sql="SELECT * from bitacora WHERE beneficiario='$rut' AND usuario='$profe';";
         $query= $this->con->query($sql);
         return $query;
     }
