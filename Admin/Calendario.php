@@ -217,7 +217,7 @@ $consulJson = json_encode($consultas);
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_fecha1" id="Event" aria-label="Username" readonly aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3 clockpicker"  data-placement="left" data-align="top" data-autoclose="true">
+                                                <div class="input-group mb-3 clockpicker"  data-placement="right" data-align="top" data-autoclose="true">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
                                                     </div>

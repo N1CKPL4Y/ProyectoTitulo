@@ -313,7 +313,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             </div>
                             <div class="card-body Cuerpo">
                                 <div class="row" style="display: flex; align-items: center; justify-content: center;">
-                                    <div class="col-sm-4 col-md-10">
+                                    <div class="col-sm-12 col-md-12 col-lg-11">
                                         <table id="myTable" class="table table-bordered table-striped">
                                             <thead class="HeaderModal">
                                                 <tr>

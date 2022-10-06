@@ -69,7 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
-                    <a href="controller/controllerLogout.php">
+                    <a href="../controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
                     </a>
@@ -111,17 +111,236 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="row" style="margin-top: 15px">
                                         <div class="col-sm-12 col-md-12 col-lg-12">
                                             <div class="card">
-                                                <div class="card-header" style="background-color: #558b2f; color: white">
+                                                <div class="card-header Header" style="background-color: #558b2f; color: white">
                                                     <h5 class="col-sm-12 col-md-12 col-lg-12">Datos del beneficiario:</h5>
                                                 </div>
-                                                <div class="card-body" style="background-color: #C8E6C9">
-                                                    <?php
-                                                        $beneficiario=$data->getBenefi($rutB);
-                                                    ?>
+                                                <div class="card-body Cuerpo" style="background-color: #C8E6C9">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                                            <?php
+                                                            $beneficiario = $data->getBenefi($rutB);
+                                                            $edad = $data->getEdad($rutB);
+                                                            $diagnos = $data->getDiagValid($rutB);
+                                                            $diagnost = $data->getDiagCom($rutB);
+                                                            $nombreBe;
+                                                            $apellidoBe;
+                                                            $rutBe;
+                                                            $fechaN;
+                                                            $ano;
+                                                            $meses;
+                                                            $diagnosB;
+                                                            $codeB;
+                                                            foreach ($beneficiario as $value) {
+                                                                $nombreBe = $value['nombre'];
+                                                                $apellidoBe = $value['apellido'];
+                                                                $rutBe = $value['RUT'];
+                                                                $fechaN = $value['fecha_nac'];
+                                                            }
+                                                            foreach ($edad as $value) {
+                                                                $ano = $value['Años'];
+                                                                $meses = $value['Meses'];
+                                                                if ($meses < 0) {
+                                                                    $ano = $ano - $meses;
+                                                                    $meses = 12 + $meses;
+                                                                }
+                                                            }
+
+                                                            if ($diagnos) {
+                                                                foreach ($diagnost as $value) {
+                                                                    $diagnosB = $value['codigo'];
+                                                                    $codeB = $value['nombre'];
+                                                                }
+                                                            } else {
+                                                                $diagnosB = "No posee diagnostico";
+                                                                $codeB = "0";
+                                                            }
+                                                            ?>
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                                    <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Rut</span>
+                                                                        </div>
+                                                                        <input type="text" id="rut_b1" name="txt_rutB1" value="<?php echo $rutBe; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                                    <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Nombres</span>
+                                                                        </div>
+                                                                        <input type="text" id="nombre1" name="txt_n1" value="<?php echo $nombreBe; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                                    <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Apellidos</span>
+                                                                        </div>
+                                                                        <input type="text" id="apellido1" name="txt_a1" value="<?php echo $apellidoBe; ?>" readonly class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                                    <div class="input-group mb-3 dates">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Fecha de nacimiento</span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control"  readonly value="<?php echo $fechaN; ?>" name="txt_nac"  aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                                    <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Edad</span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" name="txt_dire" value="<?php echo $ano . " Años " . $meses . " Meses" ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                                    <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Diagnostico</span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $diagnosB . "-" . $codeB ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <form method="post" action="">
+                                        <div class="row" style="margin-top: 15px">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header Header" style="background-color: #558b2f; color: white">
+                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Programa:</h5>
+                                                    </div>
+                                                    <div class="card-body Cuerpo" style="background-color: #C8E6C9">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="input-group mb-3">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text" id="basic-addon1">N°</span>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" name="txt_program" placeholder="000001" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 15px">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header Header" style="background-color: #558b2f; color: white">
+                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Antecedentes Relevantes:</h5>
+                                                    </div>
+                                                    <div class="card-body Cuerpo" style="background-color: #C8E6C9">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">Antecedentes</span>
+                                                                            </div>
+                                                                            <textarea class="form-control" id="txtarea" name="txt_ant" aria-label="With textarea"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header Header" style="background-color: #558b2f; color: white">
+                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Bitacora:</h5>
+                                                    </div>
+                                                    <div class="card-body Cuerpo" style="background-color: #C8E6C9">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <input class="input-group-text" disabled type="text" size="10" value="Objetivos:">
+                                                                            </div>
+                                                                            <textarea class="form-control" id="txt_obj" name="txt_obs" aria-label="With textarea"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <input class="input-group-text" disabled type="text" size="10" value="Actividad:">
+                                                                            </div>
+                                                                            <textarea class="form-control" id="txt_act" name="txt_act" aria-label="With textarea"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <input class="input-group-text" disabled type="text" size="10" value="Acuerdo:">
+                                                                            </div>
+                                                                            <textarea class="form-control" id="txt_acu" name="txt_acu" aria-label="With textarea"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <input class="input-group-text" disabled type="text" size="10" value="Observaciones:">
+                                                                            </div>
+                                                                            <textarea class="form-control" id="txt_obs" name="txt_obs" aria-label="With textarea"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="card text-center">
+                                                    <div class="card-header Header">
+                                                        Por favor verificar bien la información ingresada
+                                                    </div>
+                                                    <div class="card-body Cuerpo">
+                                                        <div class="row justify-content-around">
+                                                            <div class="col-sm-12 col-md-8 col-lg-8">
+                                                                <button type="submit" id="btn_Action" class="btn btn-block submitModal">Registrar bitacora</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer Footer">
+                                                        Encontraras una copia de esta bitacora en el apartado Programas de tu menu. (En formato PDF)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -130,4 +349,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </section>
         </section>
     </body>
+    <script>
+        function expandTextarea(id) {
+            document.getElementById(id).addEventListener('keyup', function () {
+                this.style.overflow = 'hidden';
+                this.style.height = 0;
+                this.style.height = this.scrollHeight + 'px';
+            }, false);
+        }
+
+        expandTextarea('txtarea');
+        expandTextarea('txt_obj');
+        expandTextarea('txt_act');
+        expandTextarea('txt_acu');
+        expandTextarea('txt_obs');
+    </script>
 </html>

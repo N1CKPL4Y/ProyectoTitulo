@@ -292,6 +292,12 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function getEdad($rut) {
+        $sql = "SELECT YEAR(CURDATE())-YEAR(fecha_nac) AS 'Años', MONTH(CURDATE())-MONTH(fecha_nac) AS 'Meses' FROM beneficiario where RUT = '$rut'";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo) {
         $sql = "UPDATE `usuario` SET `email` = '$email', `passwd` = sha2('$passwd',0), `telefono` = '$telefono', `t_user` = '$t_user', `a_user` = '$a_user', `cargo` = '$cargo', `activo` = '$activo' WHERE `usuario`.`RUT` = '$rut';";
@@ -483,7 +489,7 @@ class Data {
     }
 
     public function addLactancia($l_materna, $l_mixto, $l_relleno) {
-        $sql = "INSERT INTO `lactancia` (`id`, `l_materna`, `l_mixto`, `l_relleno`) VALUES (NULL, '$l_materna', `$l_mixto`, `$l_relleno`);";
+        $sql = "INSERT INTO `lactancia` (`id`, `l_materna`, `l_mixto`, `l_relleno`) VALUES (NULL, '$l_materna', '$l_mixto', '$l_relleno');";
         $query = $this->con->query($sql);
     }
     
@@ -510,7 +516,7 @@ class Data {
     }
 
     public function addCompDesMotrizSCog($id_DesMotriz, $signos) {
-        $sql = "INSERT INTO `compdesmotrizscog` (`id`, `id_DesMotriz`, `signos`) VALUES (NULL, $id_DesMotriz, `$signos`);";
+        $sql = "INSERT INTO `compdesmotrizscog` (`id`, `id_DesMotriz`, `signos`) VALUES (NULL, $id_DesMotriz, '$signos');";
         $query = $this->con->query($sql);
     }
 
@@ -652,8 +658,9 @@ class Data {
         $query = $this->con->query($sql);
     }
     
-    public function addEntrevista($rut_bene, $rut_usuario, $id_embParto, $id_postParto, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam){
-        $sql = "INSERT INTO `entrevista` (`id`, `rut_bene`, `rut_usuario`, `id_embParto`, `id_postParto`, `id_lactancia`, `id_DesMotriz`, `id_Vision`, `id_Audicion`, `id_DesLengua`, `id_DesSocial`, `id_Salud`, `id_AntFam`, `id_AntEscolar`, `id_ActFam`, `fecha`) VALUES (NULL, '$rut_bene', '$rut_usuario', $id_embParto, $id_postParto, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam, now());";
+    public function addEntrevista($rut_bene, $rut_usuario, $id_embParto, $id_postParto, $id_Lactancia, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam){
+        $sql = "INSERT INTO `entrevista` (`id`, `rut_bene`, `rut_usuario`, `id_embPart`, `id_postParto`, `id_lactancia`, `id_DesMotriz`, `id_Vision`, `id_Audicion`, `id_DesLengua`, `id_DesSocial`, `id_Salud`, `id_AntFam`, `id_AntEscolar`, `id_ActFam`, `fecha`) VALUES "
+                . "(NULL, '$rut_bene', '$rut_usuario', '$id_embParto', '$id_postParto', '$id_Lactancia', '$id_DesMotriz', '$id_Vision', '$id_Audicion', '$id_DesLengua', '$id_DesSocial', '$id_Salud', '$id_AntFam', '$id_AntEscolar', '$id_ActFam', now());";
         $query = $this->con->query($sql);
     }
 

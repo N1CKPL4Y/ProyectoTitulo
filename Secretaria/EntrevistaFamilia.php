@@ -3640,7 +3640,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                                 <label>Indique el tratamiento</label>
-                                                                <input class="form-control" type="text" name="txt_Ttratamiento" readonly id="indique_t">
+                                                                <input class="form-control" type="text" name="txt_Tratamiento" readonly id="indique_t">
                                                             </div>
                                                         </div>
                                                         <br>
