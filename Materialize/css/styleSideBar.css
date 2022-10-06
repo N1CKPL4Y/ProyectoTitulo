@@ -7,6 +7,23 @@
     font-family: "Poppins" , sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #558b2f;
+  border-radius: 10px
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00526a; 
+}
+
 .c_faltante{
     background-color: rgba(246, 206, 206, 1) !important;
     border-color: rgba(254, 46, 46, 1) !important;

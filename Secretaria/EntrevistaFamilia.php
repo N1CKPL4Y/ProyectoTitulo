@@ -3144,7 +3144,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-xl">
+                                    <div class="modal-dialog modal-xl modal-dialog-scrollable ">
                                         <form action="../controller/controllerRegEntrevista.php" method="post">
                                             <div class="modal-content">
                                                 <div class="modal-header HeaderModal" style="display: flex; align-items: center; justify-content: center;">
@@ -3530,7 +3530,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <br>
                                                     <div class="card" style="padding: 15px">
                                                         <label>El niño(a) se comunica preferentemente en forma</label>
-                                                        <br>
                                                         <div class="row">
                                                             <div class="col-sm-12 col-md-4 col-lg-4">
                                                                 <label>Comunicación</label>
@@ -3591,6 +3590,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <br>
                                                         <div class="row">
                                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                                 <label>Cuando se prende una luz, reacciona de forma...</label>
@@ -4107,7 +4107,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             const parto = document.querySelector('.parto');
             let sintomas1 = $("input:checkbox[name='sintomasNacer[]']:checked").val();
             if (!sintomas1) {
-                parto.innerHTML += '<input class="form-control" readonly type="text" id="psintoma" value="No se ha checkeado nada">';
+                parto.innerHTML = '<input class="form-control" readonly type="text" id="psintoma" value="No se ha seleccionado nada">';
                 const p = document.getElementById('psintoma');
                 p.classList.add('c_faltante');
             } else {
@@ -4137,7 +4137,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                     }
                 });
-
             }
 
 
@@ -4483,24 +4482,40 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
             //motricidad fina//
             let t_motricidad = [];
-            $("input[type=checkbox][name='checkMFina[]']:checked").each(function () {
-                t_motricidad.push(this.value);
-            });
             const motricidad = document.querySelector('.mFina');
-            motricidad.innerHTML = "";
-            t_motricidad.forEach(el => {
-                motricidad.innerHTML += `<input class="form-control" readonly type="text" name="checkMFina[]" id="pruebaX2" value="` + el + `"><br>`;
-            });
+            let motricidad1 = $("input[type=checkbox][name='checkMFina[]']:checked").val();
+            if (!motricidad1) {
+                motricidad.innerHTML = `<input class="form-control" readonly type="text" name="" id="motricidadT" value="No se ha seleccionado nada">`;
+                const m = document.getElementById('motricidadT');
+                m.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='checkMFina[]']:checked").each(function () {
+                    t_motricidad.push(this.value);
+                });
+                motricidad.innerHTML = "";
+                t_motricidad.forEach(el => {
+                    motricidad.innerHTML += `<input class="form-control" readonly type="text" name="checkMFina[]" id="pruebaX2" value="` + el + `"><br>`;
+                });
+            }
+
             //signos cognitivos//
             let t_sCog = [];
-            $("input[type=checkbox][name='check_Scog[]']:checked").each(function () {
-                t_sCog.push(this.value);
-            });
             const sCog = document.querySelector('.sCog');
-            sCog.innerHTML = "";
-            t_sCog.forEach(el => {
-                sCog.innerHTML += `<input class="form-control" readonly type="text" name="check_Scog[]" id="pruebaX2" value="` + el + `"><br>`;
-            });
+            let cog = $("input[type=checkbox][name='check_Scog[]']:checked").val();
+            if (!cog) {
+                sCog.innerHTML = `<input class="form-control" readonly type="text" name="" id="cognitivo" value="No se ha seleccionado nada">`;
+                const c = document.getElementById('cognitivo');
+                c.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_Scog[]']:checked").each(function () {
+                    t_sCog.push(this.value);
+                });
+                sCog.innerHTML = "";
+                t_sCog.forEach(el => {
+                    sCog.innerHTML += `<input class="form-control" readonly type="text" name="check_Scog[]" id="pruebaX2" value="` + el + `"><br>`;
+                });
+            }
+
             //Observaciones//
             let obs_desMotriz = document.getElementById('obs_desMotriz1').value;
             const obsMotriz = document.getElementById('obs_DesMotriz');
@@ -4516,45 +4531,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
             //vision//
             let t_vision = [];
-            $("input[type=checkbox][name='check_vis[]']:checked").each(function () {
-                t_vision.push(this.value);
-            });
             const vision = document.querySelector('.vision');
-            vision.innerHTML = "";
-            t_vision.forEach(el => {
-                vision.innerHTML += `<input class="form-control" readonly type="text" name="check_vis[]" id="pruebaX2" value="` + el + `"><br>`;
-            });
+            let vision1 = $("input[type=checkbox][name='check_vis[]']:checked").val();
+            if (!vision1) {
+                vision.innerHTML = `<input class="form-control" readonly type="text" name="" id="vis" value="No se ha seleccionado nada">`;
+                const v = document.getElementById('vis');
+                v.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_vis[]']:checked").each(function () {
+                    t_vision.push(this.value);
+                });
+                vision.innerHTML = "";
+                t_vision.forEach(el => {
+                    vision.innerHTML += `<input class="form-control" readonly type="text" name="check_vis[]" id="pruebaX2" value="` + el + `"><br>`;
+                });
+            }
+
             //diagnosticos del estudiante//
             let diag_vis = [];
             let otroDiag_vis;
-            $("input[type=checkbox][name='check_DiagVis[]']:checked").each(function () {
-                diag_vis.push(this.value);
-                if (this.value == "Otro") {
-                    otroDiag_vis = document.getElementById("d6").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const vis = document.querySelector('.diag_vis');
-            vis.innerHTML = "";
-            diag_vis.forEach(el => {
+            let diagVis = $("input[type=checkbox][name='check_DiagVis[]']:checked").val();
+            if (!diagVis) {
+                vis.innerHTML = `<input class="form-control" readonly type="text" name="" id="diagVis1" value="No se ha seleccionado nada">`;
+                const Dv = document.getElementById('diagVis1');
+                Dv.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_DiagVis[]']:checked").each(function () {
+                    diag_vis.push(this.value);
+                    if (this.value == "Otro") {
+                        otroDiag_vis = document.getElementById("d6").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                if (el != "Otro") {
-                    vis.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagVis[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    vis.innerHTML += `<div class="input-group mb-3">
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+                vis.innerHTML = "";
+                diag_vis.forEach(el => {
+
+                    if (el != "Otro") {
+                        vis.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagVis[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        vis.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_DiagVis[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="txt_OtroDiagVis" readonly value="` + otroDiag_vis + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
+            }
+
             //el estudiante utiliza lentes opticos//
             let u_lentes = $("input[type=radio][name=lentes]:checked").val();
             document.getElementById('u_lentes').value = u_lentes;
@@ -4586,45 +4617,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
             //Audicion//
             let t_audi = [];
-            $("input[type=checkbox][name='check_audi[]']:checked").each(function () {
-                t_audi.push(this.value);
-            });
             const audi = document.querySelector('.audi');
-            audi.innerHTML = "";
-            t_audi.forEach(el => {
-                audi.innerHTML += `<input class="form-control" readonly type="text" name="check_audi[]" id="pruebaX2" value="` + el + `"><br>`;
-            });
+            let audi1 = $("input[type=checkbox][name='check_audi[]']:checked").val();
+            if (!audi1) {
+                audi.innerHTML = `<input class="form-control" readonly type="text" name="" id="audiT" value="No se ha seleccionado nada">`;
+                const aud = document.getElementById('audiT');
+                aud.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_audi[]']:checked").each(function () {
+                    t_audi.push(this.value);
+                });
+                audi.innerHTML = "";
+                t_audi.forEach(el => {
+                    audi.innerHTML += `<input class="form-control" readonly type="text" name="check_audi[]" id="pruebaX2" value="` + el + `"><br>`;
+                });
+            }
+
             //diagnosticos//
             let diag_audi = [];
             let otroDiag_audi;
-            $("input[type=checkbox][name='check_DiagAudi[]']:checked").each(function () {
-                diag_audi.push(this.value);
-                if (this.value == "Otro") {
-                    otroDiag_audi = document.getElementById("da7").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const audicion = document.querySelector('.diag_audi');
-            audicion.innerHTML = "";
-            diag_audi.forEach(el => {
+            let diagAudi = $("input[type=checkbox][name='check_DiagAudi[]']:checked").val();
+            if (!diagAudi) {
+                audicion.innerHTML = `<input class="form-control" readonly type="text" name="" id="DiagAudi" value="No se ha seleccionado nada">`;
+                const dA = document.getElementById('DiagAudi');
+                dA.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_DiagAudi[]']:checked").each(function () {
+                    diag_audi.push(this.value);
+                    if (this.value == "Otro") {
+                        otroDiag_audi = document.getElementById("da7").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                if (el != "Otro") {
-                    audicion.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    audicion.innerHTML += `<div class="input-group mb-3">
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+                audicion.innerHTML = "";
+                diag_audi.forEach(el => {
+
+                    if (el != "Otro") {
+                        audicion.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        audicion.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_DiagAudi" readonly value="` + otroDiag_audi + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
+            }
+
             //el ni;o utiliza audifono//
             let u_audifono = $("input[type=radio][name=audicion]:checked").val();
             document.getElementById('u_audifono').value = u_audifono;
@@ -4687,66 +4734,82 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //lenguaje expresivo//
             let leng_expre = [];
             let otro_leng_expre;
-            $("input[type=checkbox][name='check_LengEx[]']:checked").each(function () {
-                leng_expre.push(this.value);
-                if (this.value == "Otro") {
-                    otro_leng_expre = document.getElementById("dc10").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const expre = document.querySelector('.leng_expre');
-            expre.innerHTML = "";
-            leng_expre.forEach(el => {
+            let lExpres = $("input[type=checkbox][name='check_LengEx[]']:checked").val();
+            if (!lExpres) {
+                expre.innerHTML = `<input class="form-control" readonly type="text" name="" id="l_expres" value="No se ha seleccionado nada">`;
+                const leg_ex = document.getElementById('l_expres');
+                leg_ex.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_LengEx[]']:checked").each(function () {
+                    leng_expre.push(this.value);
+                    if (this.value == "Otro") {
+                        otro_leng_expre = document.getElementById("dc10").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                if (el != "Otro") {
-                    expre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengEx[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    expre.innerHTML += `<div class="input-group mb-3">
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+                expre.innerHTML = "";
+                leng_expre.forEach(el => {
+
+                    if (el != "Otro") {
+                        expre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengEx[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        expre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_LengEx[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_LengEx" readonly value="` + otro_leng_expre + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
+            }
+
             //Lenguaje comprensivo//
             let leng_compre = [];
             let otro_leng_compre;
-            $("input[type=checkbox][name='check_LengCom[]']:checked").each(function () {
-                leng_compre.push(this.value);
-                if (this.value == "Otro") {
-                    otro_leng_compre = document.getElementById("cl11").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const compre = document.querySelector('.leng_compr');
-            compre.innerHTML = "";
-            leng_compre.forEach(el => {
+            let Lcompr = $("input[type=checkbox][name='check_LengCom[]']:checked").val();
+            if (!Lcompr) {
+                compre.innerHTML = `<input class="form-control" readonly type="text" name="" id="LeCompr" value="No se ha seleccionado nada">`;
+                const LengCompr = document.getElementById('LeCompr');
+                LengCompr.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_LengCom[]']:checked").each(function () {
+                    leng_compre.push(this.value);
+                    if (this.value == "Otro") {
+                        otro_leng_compre = document.getElementById("cl11").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                if (el != "Otro") {
-                    compre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengCom[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    compre.innerHTML += `<div class="input-group mb-3">
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+                compre.innerHTML = "";
+                leng_compre.forEach(el => {
+
+                    if (el != "Otro") {
+                        compre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengCom[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        compre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_LengCom[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_LengCom" readonly value="` + otro_leng_compre + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
+                    }
 
-            });
+                });
+            }
+
             //manifesto perdida del lenguaje//
             let p_leng = $("input[type=radio][name=Plenguaje]:checked").val();
             document.getElementById('p_leng').value = p_leng;
@@ -4786,34 +4849,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //desarrollo social//
             let des_social = [];
             let otro_des_social;
-            $("input[type=checkbox][name='check_DesSoc[]']:checked").each(function () {
-                des_social.push(this.value);
-                if (this.value == "Otro") {
-                    otro_des_social = document.getElementById("ds15").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const social = document.querySelector('.des_social');
-            social.innerHTML = "";
-            des_social.forEach(el => {
+            let dSocial = $("input[type=checkbox][name='check_DesSoc[]']:checked").val();
+            if (!dSocial) {
+                social.innerHTML = `<input class="form-control" readonly type="text" name="" id="desSocial" value="No se ha seleccionado nada">`;
+                const ds = document.getElementById('desSocial');
+                ds.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_DesSoc[]']:checked").each(function () {
+                    des_social.push(this.value);
+                    if (this.value == "Otro") {
+                        otro_des_social = document.getElementById("ds15").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                if (el != "Otro") {
-                    social.innerHTML += `<input class="form-control" readonly type="text" name="check_DesSoc[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    social.innerHTML += `<div class="input-group mb-3">
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+
+                social.innerHTML = "";
+                des_social.forEach(el => {
+
+                    if (el != "Otro") {
+                        social.innerHTML += `<input class="form-control" readonly type="text" name="check_DesSoc[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        social.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_DesSoc[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="txt_OtroDesSoc" readonly value="` + otro_des_social + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
+            }
+
             //Cuando se prende una luz, reacciona de forma...//
             let reaccion = $("input[type=radio][name=reaccion]:checked").val();
             const react = document.getElementById('reaccion');
@@ -4860,34 +4932,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //estado salud actual//
             let e_Asalud = [];
             let otro_salud;
-            $("input[type=checkbox][name='check_EstSal[]']:checked").each(function () {
-                e_Asalud.push(this.value);
-                if (this.value == "Otro") {
-                    otro_salud = document.getElementById("e14").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
-
-            });
             const salud_ = document.querySelector('.e_salud');
-            salud_.innerHTML = "";
-            e_Asalud.forEach(el => {
+            let estadoSalud = $("input[type=checkbox][name='check_EstSal[]']:checked").val();
+            if (!estadoSalud) {
+                salud_.innerHTML = `<input class="form-control" readonly type="text" name="" id="eSalud" value="No se ha seleccionado nada">`;
+                const es = document.getElementById('eSalud');
+                es.classList.add('c_faltante');
+            } else {
+                $("input[type=checkbox][name='check_EstSal[]']:checked").each(function () {
+                    e_Asalud.push(this.value);
+                    if (this.value == "Otro") {
+                        otro_salud = document.getElementById("e14").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                if (el != "Otro") {
-                    salud_.innerHTML += `<input class="form-control" readonly type="text" name="check_EstSal[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    salud_.innerHTML += `<div class="input-group mb-3">
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
+
+                });
+                salud_.innerHTML = "";
+                e_Asalud.forEach(el => {
+
+                    if (el != "Otro") {
+                        salud_.innerHTML += `<input class="form-control" readonly type="text" name="check_EstSal[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        salud_.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_EstSal[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_EstSal" readonly value="` + otro_salud + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
+            }
+
             //recibe algun tratamiento//
             let tratamiento = $("input[type=radio][name=tratamiento]:checked").val();
             document.getElementById('tratamiento').value = tratamiento;
@@ -5066,7 +5146,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //estado salud//
             let e_salud = [];
             let otro_s;
-            $("input[type=checkbox][name='check_NocheP[]']:checked").each(function () {
+            const salud_e = document.querySelector('.estado_salud');
+            let eSaludN = $("input[type=checkbox][name='check_NocheP[]']:checked").val();
+            if(!eSaludN){
+                salud_e.innerHTML = `<input class="form-control" readonly type="text" name="" id="estadoSalN" value="No se ha seleccionado nada">`;
+                const eSN = document.getElementById('estadoSalN');
+                eSN.classList.add('c_faltante');
+            }else{
+                $("input[type=checkbox][name='check_NocheP[]']:checked").each(function () {
                 e_salud.push(this.value);
                 //console.log(this.value);
                 if (this.value == "Otro") {
@@ -5079,7 +5166,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 }
 
             });
-            const salud_e = document.querySelector('.estado_salud');
+            
             salud_e.innerHTML = "";
             e_salud.forEach(el => {
                 console.log(el + " " + otro_s);
@@ -5097,6 +5184,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 }
             });
+            }
+            
             //humor/comportamiento//
             let combo = document.getElementById("humor");
             let selected = combo.options[combo.selectedIndex].text;
@@ -5144,7 +5233,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }
             //antecedentes familia//
             let antFam = document.getElementById('antFam').value;
-
             const ant_fam = document.getElementById('ant_fam');
             if (antFam == "") {
                 document.getElementById('ant_fam').value = "No se ha ingresado nada";
@@ -5169,7 +5257,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
             //edad de ingreso//
             let e_ingreso = document.getElementById('ingreso_e').value;
-
             const ingresoE = document.getElementById('e_ingreso');
             if (e_ingreso == "") {
                 document.getElementById('e_ingreso').value = "No se ha ingresado nada";
@@ -5196,7 +5283,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
             //antecedentes relevantes//
             let ant_rele = document.getElementById('colegios').value;
-
             const antRele = document.getElementById('ant_rele');
             if (ant_rele == "") {
                 document.getElementById('ant_rele').value = "No se ha ingresado nada";
@@ -5208,7 +5294,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //modalidad ensenanza//
             let comboM = document.getElementById("mEnsenanza");
             let select = comboM.options[comboM.selectedIndex].text;
-
             const modoE = document.getElementById('m_ensenanza');
             if (select == "Seleccionar") {
                 document.getElementById('m_ensenanza').value = "No se ha seleccionado nada";
@@ -5219,7 +5304,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }
             //motivo de cambio//
             let motivo_c = document.getElementById('colegios1').value;
-
             const motivoC = document.getElementById('m_cambio');
             if (motivo_c == "") {
                 document.getElementById('m_cambio').value = "No se ha ingresado nada";
@@ -5254,7 +5338,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //situacion//
             let comboS = document.getElementById("cbo_situacion");
             let select1 = comboS.options[comboS.selectedIndex].text;
-
             const situacion = document.getElementById('situacion');
             if (select1 == "Seleccionar") {
                 document.getElementById('situacion').value = "No se ha seleccionado nada";
@@ -5337,7 +5420,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             //apoyo//
             let quien_apoya = [];
             let otro_apoyo;
-            $("input[type=checkbox][name='check_quienApoya[]']:checked").each(function () {
+            const apoyo = document.querySelector('.p_aprendizaje');
+            let ap = $("input[type=checkbox][name='check_quienApoya[]']:checked").val();
+            if(!ap){
+                apoyo.innerHTML = `<input class="form-control" readonly type="text" name="" id="noApoyo" value="No se ha seleccionado nada">`;
+                const apo = document.getElementById('noApoyo');
+                apo.classList.add('c_faltante');
+            }else{
+                $("input[type=checkbox][name='check_quienApoya[]']:checked").each(function () {
                 quien_apoya.push(this.value);
                 if (this.value == "Otro") {
                     otro_apoyo = document.getElementById("ap10").value;
@@ -5348,7 +5438,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 }
 
             });
-            const apoyo = document.querySelector('.p_aprendizaje');
+            
             apoyo.innerHTML = "";
             quien_apoya.forEach(el => {
 
@@ -5365,9 +5455,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 }
             });
+            }
+            
             //ambiente//
             let ambiente = $("input[type=radio][name=ambiente]:checked").val();
-
             const amb = document.getElementById('ambiente');
             if (!ambiente) {
                 document.getElementById('ambiente').value = "No se ha checkeado nada";

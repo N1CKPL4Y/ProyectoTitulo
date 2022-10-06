@@ -37,15 +37,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="card-body">
                             <form action="controller/controllerLogin.php" method="post">
                                 <div class="form-group">
-                                    <div class="col-md-12 col-sm-10 ">
-                                        <label for="exampleInputEmail1">R.U.T del usuario</label>
-                                        <div class="input-group mb-3">      
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
-                                            </div> 
-                                            <input type="text" placeholder="Ej: 15.111.222-3" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
-                                        </div>  
-                                    </div>
+                                    <label for="exampleInputEmail1">R.U.T del usuario</label>
+                                    <div class="input-group mb-3">      
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+                                        </div> 
+                                        <input type="text" placeholder="Si termina con K, reemplacelo por un 0" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
+                                    </div>       
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Contraseña del usuario</label>
