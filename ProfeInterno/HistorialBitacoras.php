@@ -115,7 +115,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <button type="button" class="btn btn-block submitModal btn-success" name="btn_buscar">Buscar</button>
+                                                <button type="submit" class="btn btn-block submitModal btn-success" name="btn_buscar">Buscar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -123,30 +123,67 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-around">
+                    <div class="row justify-content-around" style="padding-top: 15px">
                         <?php
                         if (isset($_POST['btn_buscar'])) {
                             $rutBusqueda = isset($_POST['txt_rut']) ? $_POST['txt_rut'] : null;
-
+                            //echo $rutBusqueda;
                             if (!empty($rutBusqueda)) {
+                                //$existe = $data->getExisBitacora($rutBusqueda);
+                                $bitacoras = $data->getBitacora($rutBusqueda,$rut);
                                 
-                            } else {
-                                ?>
-                                <div class = "col-sm-12 col-md-6 col-lg-6">
-                                    <div class = "card text-center">
-                                        <div class = "card-header">
-                                            Registro
-                                        </div>
-                                        <div class = "card-body">
-                                            <h5 class = "card-title">No existe un beneficiario asociado al rut indicado</h5>
-                                        </div>
-                                        <div class = "card-footer text-muted">
-                                            ...
+                                if (mysqli_num_rows($bitacoras) > 0) {
+                                    $cont=1;
+                                    ?>
+                                    <div class = "col-sm-12 col-md-10 col-lg-8">
+                                        <div class = "card text-center">
+                                            <div class = "card-header">
+                                                Registro
+                                            </div>
+                                            <div class = "card-body">
+                                                <?php
+                                                foreach ($bitacoras as $value) {
+                                                    ?>
+                                                    <div class="row justify-content-around">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <a role="button" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id'];?>">
+                                                                <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont." Codigo: ".$value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                    $cont+=1;
+                                                }
+                                                ?>
+                                            </div>
+                                            <div class = "card-footer text-muted">
+                                                ...
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class = "col-sm-12 col-md-6 col-lg-6">
+                                        <div class = "card text-center">
+                                            <div class = "card-header">
+                                                Registro
+                                            </div>
+                                            <div class = "card-body">
+                                                <h5 class = "card-title">No existe un beneficiario asociado al rut indicado</h5>
+                                            </div>
+                                            <div class = "card-footer text-muted">
+                                                ...
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            } else {
+                                
                             }
+                        } else {
+                            
                         }
                         ?>
                     </div>
