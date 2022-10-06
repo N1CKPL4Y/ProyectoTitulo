@@ -3902,107 +3902,205 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <script>
         $("#btn_visualizar").click(function () {
             //Antecedentes embarazo
-            
+
             //embarazo controlado//
+
             let emb_c = $("input[type=radio][name=embarazo1]:checked").val();
             console.log(emb_c);
+            const pruebaX = document.getElementById('pruebaX');
+            const pruebaD = document.getElementById('pruebaD');
             document.getElementById('pruebaX').value = emb_c;
-            if (emb_c == 1) {
-                document.getElementById('pruebaX').value = "Si";
-                let emb = document.getElementById("embarazo").value;
-                document.getElementById('pruebaD').value = emb;
-            } else if (emb_c == 0) {
-                document.getElementById('pruebaX').value = "No";
-                document.getElementById('pruebaD').value = "No Aplica";
+            if (!emb_c) {
+                document.getElementById('pruebaX').value = "No se ha checkeado nada";
+                pruebaX.classList.add('c_faltante');
+                document.getElementById('pruebaD').value = "No se ha checkeado nada";
+                pruebaD.classList.add('c_faltante');
+            } else {
+                pruebaX.classList.remove('c_faltante');
+                pruebaD.classList.remove('c_faltante');
+                if (emb_c == 1) {
+                    document.getElementById('pruebaX').value = "Si";
+                    let emb = document.getElementById("embarazo").value;
+                    document.getElementById('pruebaD').value = emb;
+                } else if (emb_c == 0) {
+                    document.getElementById('pruebaX').value = "No";
+                    document.getElementById('pruebaD').value = "No Aplica";
+                }
             }
-            
+
+
             //consumio medicamentos//
             let consumo = $("input[type=radio][name=embarazo2]:checked").val();
+            const consumo1 = document.getElementById('consumo');
+            const otro_c1 = document.getElementById('otro_c');
             document.getElementById('consumo').value = consumo;
-            if (consumo == 1) {
-                document.getElementById('consumo').value = "Si";
-                let otro_c = document.getElementById("medicamentos").value;
-                document.getElementById('otro_c').value = otro_c;
-            } else if (consumo == 0) {
-                document.getElementById('consumo').value = "No";
-                document.getElementById('otro_c').value = "No Aplica";
+            if (!consumo) {
+                document.getElementById('consumo').value = "No se ha checkeado nada";
+                document.getElementById('otro_c').value = "No se ha checkeado nada";
+                consumo1.classList.add('c_faltante');
+                otro_c1.classList.add('c_faltante');
+            } else {
+                consumo1.classList.remove('c_faltante');
+                otro_c1.classList.remove('c_faltante');
+                if (consumo == 1) {
+                    document.getElementById('consumo').value = "Si";
+                    let otro_c = document.getElementById("medicamentos").value;
+                    document.getElementById('otro_c').value = otro_c;
+                } else if (consumo == 0) {
+                    document.getElementById('consumo').value = "No";
+                    document.getElementById('otro_c').value = "No Aplica";
+                }
             }
-            
+
             //existieron complicaciones//
             let complic = $("input[type=radio][name=complicaciones]:checked").val();
+            const complic1 = document.getElementById('comp');
+            const otro_comp1 = document.getElementById('otro_comp');
             document.getElementById('comp').value = complic;
-            if (complic == 1) {
-                document.getElementById('comp').value = "Si";
-                let otro_comp = document.getElementById('complicaciones').value;
-                document.getElementById('otro_comp').value = otro_comp;
-            } else if (complic == 0) {
-                document.getElementById('comp').value = "No";
-                document.getElementById('otro_comp').value = "No Aplica";
+            if (!complic) {
+                document.getElementById('comp').value = "No se ha chekeado nada";
+                document.getElementById('otro_comp').value = "No se ha checkeado nada";
+                complic1.classList.add('c_faltante');
+                otro_comp1.classList.add('c_faltante');
+            } else {
+                complic1.classList.remove('c_faltante');
+                otro_comp1.classList.remove('c_faltante');
+                if (complic == 1) {
+                    document.getElementById('comp').value = "Si";
+                    let otro_comp = document.getElementById('complicaciones').value;
+                    document.getElementById('otro_comp').value = otro_comp;
+                } else if (complic == 0) {
+                    document.getElementById('comp').value = "No";
+                    document.getElementById('otro_comp').value = "No Aplica";
+                }
             }
-            
+
             //Antecedentes del parto
-            
+
             //semanas de embarazo//
             let sem_emb = document.getElementById('semanas').value;
-            document.getElementById('semanas_emb').value = sem_emb;
-            
+            const semanas = document.getElementById('semanas_emb');
+            if (sem_emb == "") {
+                document.getElementById('semanas_emb').value = "No se ha ingresado nada";
+                semanas.classList.add('c_faltante');
+            } else {
+                semanas.classList.remove('c_faltante');
+                document.getElementById('semanas_emb').value = sem_emb;
+            }
+
             //Tipo embarazo//
             let tipo_parto = $("input[type=radio][name=tipo]:checked").val();
             document.getElementById('tipo_parto').value = tipo_parto;
-            if (tipo_parto == 1) {
-                document.getElementById('tipo_parto').value = "Normal";
-                document.getElementById('motivo_c').value = "No Aplica";
-            } else if (tipo_parto == 2) {
-                document.getElementById('tipo_parto').value = "Inducido";
-                document.getElementById('motivo_c').value = "No Aplica";
-            } else if (tipo_parto == 3) {
-                document.getElementById('tipo_parto').value = "Fórceps";
-                document.getElementById('motivo_c').value = "No Aplica";
-            } else if (tipo_parto == 4) {
-                document.getElementById('tipo_parto').value = "Cesarea (Indique)";
-                let motivo = document.getElementById('motivoC').value;
-                document.getElementById('motivo_c').value = motivo;
+            const parto1 = document.getElementById('tipo_parto');
+            const motivo_c1 = document.getElementById('motivo_c');
+            if (!tipo_parto) {
+                document.getElementById('tipo_parto').value = "No se ha checkeado nada";
+                document.getElementById('motivo_c').value = "No se ha checkeado nada";
+                parto1.classList.add('c_faltante');
+                motivo_c1.classList.add('c_faltante');
+            } else {
+                parto1.classList.remove('c_faltante');
+                motivo_c1.classList.remove('c_faltante');
+                if (tipo_parto == 1) {
+                    document.getElementById('tipo_parto').value = "Normal";
+                    document.getElementById('motivo_c').value = "No Aplica";
+                } else if (tipo_parto == 2) {
+                    document.getElementById('tipo_parto').value = "Inducido";
+                    document.getElementById('motivo_c').value = "No Aplica";
+                } else if (tipo_parto == 3) {
+                    document.getElementById('tipo_parto').value = "Fórceps";
+                    document.getElementById('motivo_c').value = "No Aplica";
+                } else if (tipo_parto == 4) {
+                    document.getElementById('tipo_parto').value = "Cesarea (Indique)";
+                    let motivo = document.getElementById('motivoC').value;
+                    document.getElementById('motivo_c').value = motivo;
+                }
             }
-            
+
             //Asistencia medica//
             let asistencia_m = $("input[type=radio][name=asistencia]:checked").val();
             document.getElementById('asistencia_m').value = asistencia_m;
-            if (asistencia_m == 1) {
-                document.getElementById('asistencia_m').value = "Si";
-            } else if (asistencia_m == 2) {
-                document.getElementById('asistencia_m').value = "No";
+            const asist = document.getElementById('asistencia_m');
+            if (!asistencia_m) {
+                document.getElementById('asistencia_m').value = "No se ha checkeado nada";
+                asist.classList.add('c_faltante');
+            } else {
+                asist.classList.remove('c_faltante');
+                if (asistencia_m == 1) {
+                    document.getElementById('asistencia_m').value = "Si";
+                } else if (asistencia_m == 2) {
+                    document.getElementById('asistencia_m').value = "No";
+                }
             }
-            
+
+
             //Antecedentes del post parto
-            
+
             //peso al nacer//
             let peso = document.getElementById('peso').value;
-            document.getElementById('peso_n').value = peso;
-            
+            const peso1 = document.getElementById('peso_n');
+            if (peso == "") {
+                document.getElementById('peso_n').value = "No se ha ingresado nada";
+                peso1.classList.add('c_faltante');
+            } else {
+                document.getElementById('peso_n').value = peso;
+                peso1.classList.remove('c_faltante');
+            }
             //talla al nacer//
             let talla = document.getElementById('talla').value;
-            document.getElementById('talla_n').value = talla;
-            
+            const talla1 = document.getElementById('talla_n');
+            if (talla == "") {
+                document.getElementById('talla_n').value = "No se ha ingresado nada";
+                talla1.classList.add('c_faltante');
+            } else {
+                talla1.classList.remove('c_faltante');
+                document.getElementById('talla_n').value = talla;
+            }
             //apgar al minuto//
             let apgar = document.getElementById('apgar1').value;
-            document.getElementById('apgar1_n').value = apgar;
-            
+            const apgar1 = document.getElementById('apgar1_n');
+            if (apgar == "") {
+                document.getElementById('apgar1_n').value = "No se ha ingresado nada";
+                apgar1.classList.add('c_faltante');
+            } else {
+                document.getElementById('apgar1_n').value = apgar;
+                apgar1.classList.remove('c_faltante');
+            }
             //apgar a los 5 minutos//
             let apgar2 = document.getElementById('apgar2').value;
-            document.getElementById('apgar2_n').value = apgar2;
-            
+            const apgar5 = document.getElementById('apgar2_n');
+            if (apgar2 == "") {
+                document.getElementById('apgar2_n').value = "No se ha ingresado nada";
+                apgar5.classList.add('c_faltante');
+            } else {
+                document.getElementById('apgar2_n').value = apgar2;
+                apgar5.classList.remove('c_faltante');
+            }
+
             //hospitalizado al nacer//
             let hospitalizado = $("input[type=radio][name=hospitalizado]:checked").val();
             document.getElementById('hospitalizado_n').value = hospitalizado;
-            if (hospitalizado == 1) {
-                document.getElementById('hospitalizado_n').value = "Si";
-                let motivo = document.getElementById('hospitalizado').value;
-                document.getElementById('motivoH_n').value = motivo;
-            } else if (hospitalizado == 0) {
-                document.getElementById('hospitalizado_n').value = "No";
-                document.getElementById('motivoH_n').value = "No Aplica";
+            const hosp = document.getElementById('hospitalizado_n');
+            const motivoH = document.getElementById('motivoH_n');
+            if (!hospitalizado) {
+                document.getElementById('hospitalizado_n').value = "No se ha checkeado nada";
+                document.getElementById('motivoH_n').value = "No se ha checkeado nada";
+                hosp.classList.add('c_faltante');
+                motivoH.classList.add('c_faltante');
+            } else {
+                hosp.classList.remove('c_faltante');
+                motivoH.classList.remove('c_faltante');
+                if (hospitalizado == 1) {
+                    document.getElementById('hospitalizado_n').value = "Si";
+                    let motivo = document.getElementById('hospitalizado').value;
+                    document.getElementById('motivoH_n').value = motivo;
+                } else if (hospitalizado == 0) {
+                    document.getElementById('hospitalizado_n').value = "No";
+                    document.getElementById('motivoH_n').value = "No Aplica";
+                }
             }
-            
+
+
             //sintomas al nacer//
             let sintoma = [];
             let otroSintoma;
@@ -4011,18 +4109,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otroSintoma = document.getElementById("sintoma14").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const parto = document.querySelector('.parto');
             parto.innerHTML = "";
             sintoma.forEach(el => {
-                if (el!="Otro") {
+                if (el != "Otro") {
                     parto.innerHTML += `<input class="form-control" readonly type="text" name="sintomasNacer[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     parto.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="sintomasNacer[]" id="pruebaX2" value="` + el + `">
@@ -4030,226 +4128,392 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="otroSintoNac" readonly value="` + otroSintoma + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //controles periodicos//
             let controles = $("input[type=radio][name=controles]:checked").val();
             document.getElementById('controles_p').value = controles;
-            if (controles == 1) {
-                document.getElementById('controles_p').value = "Si";
-            } else if (controles == 0) {
-                document.getElementById('controles_p').value = "No";
+            const control = document.getElementById('controles_p');
+            if (!controles) {
+                document.getElementById('controles_p').value = "No se ha checkeado nada";
+                control.classList.add('c_faltante');
+            } else {
+                control.classList.remove('c_faltante');
+                if (controles == 1) {
+                    document.getElementById('controles_p').value = "Si";
+                } else if (controles == 0) {
+                    document.getElementById('controles_p').value = "No";
+                }
             }
-            
+
             //Vacunas//
             let vacuna = $("input[type=radio][name=vacunas]:checked").val();
             document.getElementById('vacuna').value = vacuna;
-            if (vacuna == 1) {
-                document.getElementById('vacuna').value = "Si";
-            } else if (vacuna == 0) {
-                document.getElementById('vacuna').value = "No";
+            const vacuna1 = document.getElementById('vacuna');
+            if (!vacuna) {
+                document.getElementById('vacuna').value = "No se ha checkeado nada";
+                vacuna1.classList.add('c_faltante');
+            } else {
+                if (vacuna == 1) {
+                    document.getElementById('vacuna').value = "Si";
+                } else if (vacuna == 0) {
+                    document.getElementById('vacuna').value = "No";
+                }
             }
-            
+
             //Observaciones//
             let obs = document.getElementById('obs_12m').value;
-            document.getElementById('obs_12').value = obs;
-            
+            const obs1 = document.getElementById('obs_12');
+            if (obs == "") {
+                document.getElementById('obs_12').value = "No se ha ingresado nada";
+                obs1.classList.add('c_faltante');
+            } else {
+                document.getElementById('obs_12').value = obs;
+                obs1.classList.remove('c_faltante');
+            }
+
             //Lactancia
-            
+
             //leche materna//
             let leche_m = document.getElementById('leche_materna').value;
-            document.getElementById('l_materna').value = leche_m;
-            
+            const materna = document.getElementById('l_materna');
+            if (leche_m == "") {
+                document.getElementById('l_materna').value = "No se ha ingresado nada";
+                materna.classList.add('c_faltante');
+            } else {
+                document.getElementById('l_materna').value = leche_m;
+                materna.classList.remove('c_faltante');
+            }
             //relleno//
             let relleno = document.getElementById('l_relleno').value;
-            document.getElementById('relleno').value = relleno;
-            
+            const relleno1 = document.getElementById('relleno');
+            if (relleno == "") {
+                document.getElementById('relleno').value = "No se ha ingresado nada";
+                relleno1.classList.add('c_faltante');
+            } else {
+                document.getElementById('relleno').value = relleno;
+                relleno1.classList.remove('c_faltante');
+            }
             //mixto//
             let mixto = document.getElementById('l_mixto').value;
-            document.getElementById('mixto').value = mixto;
-            
+            const mixto1 = document.getElementById('mixto');
+            if (mixto == "") {
+                document.getElementById('mixto').value = "No se ha ingresado nada";
+                mixto1.classList.add('c_faltante');
+            } else {
+                document.getElementById('mixto').value = mixto;
+                mixto1.classList.remove('c_faltante');
+            }
             //Desarrollo sensoriomotriz
-            
+
             //controla la cabeza//
             let c_cabeza = document.getElementById('c_cabeza').value;
-            document.getElementById('c_cabeza1').value = c_cabeza;
-            
+            const cabeza = document.getElementById('c_cabeza1');
+            if (c_cabeza == "") {
+                document.getElementById('c_cabeza1').value = "No se ha ingresado nada";
+                cabeza.classList.add('c_faltante');
+            } else {
+                document.getElementById('c_cabeza1').value = c_cabeza;
+                cabeza.classList.remove('c_faltante');
+            }
             //se sienta solo//
             let s_solo = document.getElementById('s_solo').value;
-            document.getElementById('s_solo1').value = s_solo;
-            
+            const sienta = document.getElementById('s_solo1');
+            if (s_solo == "") {
+                document.getElementById('s_solo1').value = "No se ha ingresado nada";
+                sienta.classList.add('c_faltante');
+            } else {
+                document.getElementById('s_solo1').value = s_solo;
+                sienta.classList.remove('c_faltante');
+            }
             //comienza a gatear//
             let c_gatear = document.getElementById('c_gatear').value;
-            document.getElementById('c_gatear1').value = c_gatear;
-            
+            const gatear = document.getElementById('c_gatear1');
+            if (c_gatear == "") {
+                document.getElementById('c_gatear1').value = "No se ha ingresado nada";
+                gatear.classList.add('c_faltante');
+            } else {
+                document.getElementById('c_gatear1').value = c_gatear;
+                gatear.classList.remove('c_faltante');
+            }
             //camina con apoyo//
             let c_apoyo = document.getElementById('c_apoyo').value;
-            document.getElementById('c_apoyo1').value = c_apoyo;
-            
+            const camina1 = document.getElementById('c_apoyo1');
+            if (c_apoyo == "") {
+                document.getElementById('c_apoyo1').value = "No se ha ingresado nada";
+                camina1.classList.add('c_faltante');
+            } else {
+                document.getElementById('c_apoyo1').value = c_apoyo;
+                camina1.classList.remove('c_faltante');
+            }
             //camina sin apoyo//
             let s_apoyo = document.getElementById('s_apoyo').value;
-            document.getElementById('s_apoyo1').value = s_apoyo;
-            
+            const camina2 = document.getElementById('s_apoyo1');
+            if (s_apoyo == "") {
+                document.getElementById('s_apoyo1').value = "No se ha ingresado nada";
+                camina2.classList.add('c_faltante');
+            } else {
+                document.getElementById('s_apoyo1').value = s_apoyo;
+                camina2.classList.remove('c_faltante');
+            }
             //emite sus 1ras palabras//
             let e_1palabras = document.getElementById('e_1palabras').value;
-            document.getElementById('e_1palabras1').value = e_1palabras;
-            
+            const palabra = document.getElementById('e_1palabras1');
+            if (e_1palabras == "") {
+                document.getElementById('e_1palabras1').value = "No se ha ingresado nada";
+                palabra.classList.add('c_faltante');
+            } else {
+                document.getElementById('e_1palabras1').value = e_1palabras;
+                palabra.classList.remove('c_faltante');
+            }
             //emite sus 1ras frases//
             let e_1frases = document.getElementById('e_1frases').value;
-            document.getElementById('e_1frases1').value = e_1frases;
-            
+            const frase = document.getElementById('e_1frases1');
+            if (e_1frases == "") {
+                document.getElementById('e_1frases1').value = "No se ha ingresado nada";
+                frase.classList.add('c_faltante');
+            } else {
+                document.getElementById('e_1frases1').value = e_1frases;
+                frase.classList.remove('c_faltante');
+            }
             //se viste solo/a//
             let v_solo = document.getElementById('v_solo').value;
-            document.getElementById('v_solo1').value = v_solo;
-            
+            const viste = document.getElementById('v_solo1');
+            if (v_solo == "") {
+                document.getElementById('v_solo1').value = "No se ha ingresado nada";
+                viste.classList.add('c_faltante');
+            } else {
+                document.getElementById('v_solo1').value = v_solo;
+                viste.classList.remove('c_faltante');
+            }
+
             //Controla esfinter vesical diurno//
             let c_EsV_Diurno = $("input[type=radio][name=EsfinterDV]:checked").val();
             document.getElementById('cEsV_diurno').value = c_EsV_Diurno;
-            if (c_EsV_Diurno == 1) {
-                document.getElementById('cEsV_diurno').value = "Si";
-            } else if (c_EsV_Diurno == 0) {
-                document.getElementById('cEsV_diurno').value = "No";
+            const esfinterVD = document.getElementById('cEsV_diurno');
+            if (!c_EsV_Diurno) {
+                document.getElementById('cEsV_diurno').value = "No se ha checkeado nada";
+                esfinterVD.classList.add('c_faltante');
+            } else {
+                esfinterVD.classList.remove('c_faltante');
+                if (c_EsV_Diurno == 1) {
+                    document.getElementById('cEsV_diurno').value = "Si";
+                } else if (c_EsV_Diurno == 0) {
+                    document.getElementById('cEsV_diurno').value = "No";
+                }
             }
-            
+
             //controla esfinter vesical nocturno//
             let c_EsV_Nocturno = $("input[type=radio][name=EsfinterNV]:checked").val();
             document.getElementById('cEsV_nocturno').value = c_EsV_Nocturno;
-            if (c_EsV_Nocturno == 1) {
-                document.getElementById('cEsV_nocturno').value = "Si";
-            } else if (c_EsV_Nocturno == 0) {
-                document.getElementById('cEsV_nocturno').value = "No";
+            const esfinterVN = document.getElementById('cEsV_nocturno');
+            if (!c_EsV_Nocturno) {
+                document.getElementById('cEsV_nocturno').value = "No se ha checkeado nada";
+                esfinterVN.classList.add('c_faltante');
+            } else {
+                esfinterVN.classList.remove('c_faltante');
+                if (c_EsV_Nocturno == 1) {
+                    document.getElementById('cEsV_nocturno').value = "Si";
+                } else if (c_EsV_Nocturno == 0) {
+                    document.getElementById('cEsV_nocturno').value = "No";
+                }
             }
-            
+
             //Controla esfinter anal diurno//
             let c_EsA_diurno = $("input[type=radio][name=EsfinterAD]:checked").val();
             document.getElementById('cEsA_diurno').value = c_EsA_diurno;
-            if (c_EsA_diurno == 1) {
-                document.getElementById('cEsA_diurno').value = "Si";
-            } else if (c_EsA_diurno == 0) {
-                document.getElementById('cEsA_diurno').value = "No";
+            const esfinterAD = document.getElementById('cEsA_diurno');
+            if (!c_EsA_diurno) {
+                document.getElementById('cEsA_diurno').value = "No se ha checkeado nada";
+                esfinterAD.classList.add('c_faltante');
+            } else {
+                esfinterAD.classList.remove('c_faltante');
+                if (c_EsA_diurno == 1) {
+                    document.getElementById('cEsA_diurno').value = "Si";
+                } else if (c_EsA_diurno == 0) {
+                    document.getElementById('cEsA_diurno').value = "No";
+                }
             }
-            
+
             //Controla esfinter anal nocturno//
             let c_EsA_nocturno = $("input[type=radio][name=EsfinterNA]:checked").val();
             document.getElementById('cEsA_nocturno').value = c_EsA_nocturno;
-            if (c_EsA_nocturno == 1) {
-                document.getElementById('cEsA_nocturno').value = "Si";
-            } else if (c_EsA_nocturno == 0) {
-                document.getElementById('cEsA_nocturno').value = "No";
+            const esfinterAN = document.getElementById('cEsA_nocturno');
+            if (!c_EsA_nocturno) {
+                document.getElementById('cEsA_nocturno').value = "No se ha checkeado nada";
+                esfinterAN.classList.add('c_faltante');
+            } else {
+                esfinterAN.classList.remove('c_faltante');
+                if (c_EsA_nocturno == 1) {
+                    document.getElementById('cEsA_nocturno').value = "Si";
+                } else if (c_EsA_nocturno == 0) {
+                    document.getElementById('cEsA_nocturno').value = "No";
+                }
             }
-            
+
             //Usa panal//
             let u_panal = $("input[type=radio][name=Panales]:checked").val();
             document.getElementById('u_panal').value = u_panal;
-            if (u_panal == 1) {
-                document.getElementById('u_panal').value = "Si";
-            } else if (u_panal == 0) {
-                document.getElementById('u_panal').value = "No";
+            const panal = document.getElementById('u_panal');
+            if (!u_panal) {
+                document.getElementById('u_panal').value = "No se ha checkeado nada";
+                panal.classList.add('c_faltante');
+            } else {
+                panal.classList.remove('c_faltante');
+                if (u_panal == 1) {
+                    document.getElementById('u_panal').value = "Si";
+                } else if (u_panal == 0) {
+                    document.getElementById('u_panal').value = "No";
+                }
             }
-            
+
             //usa panal de entrenamiento//
             let u_panalE = $("input[type=radio][name=PanalE]:checked").val();
             document.getElementById('u_panalE').value = u_panalE;
-            if (u_panalE == 1) {
-                document.getElementById('u_panalE').value = "Si";
-            } else if (u_panalE == 0) {
-                document.getElementById('u_panalE').value = "No";
+            const panalE = document.getElementById('u_panalE');
+            if (!u_panalE) {
+                document.getElementById('u_panalE').value = "No se ha checkeado nada";
+                panalE.classList.add('c_faltante');
+            } else {
+                panalE.classList.remove('c_faltante');
+                if (u_panalE == 1) {
+                    document.getElementById('u_panalE').value = "Si";
+                } else if (u_panalE == 0) {
+                    document.getElementById('u_panalE').value = "No";
+                }
             }
-            
+
             //necesita asistencia para el bano//
             let asistencia_b = $("input[type=radio][name=asistenciaB]:checked").val();
             document.getElementById('asistencia_b').value = asistencia_b;
-            if (asistencia_b == 1) {
-                document.getElementById('asistencia_b').value = "Si";
-                let indique_AB = document.getElementById('n_asistencia').value;
-                document.getElementById('indique_AB').value = indique_AB;
-            } else if (asistencia_b == 0) {
-                document.getElementById('asistencia_b').value = "No";
-                document.getElementById('indique_AB').value = "No Aplica";
+            const asistenciaB = document.getElementById('asistencia_b');
+            const indiqueAB = document.getElementById('indique_AB');
+            if (!asistencia_b) {
+                document.getElementById('asistencia_b').value = "No se ha checkeado nada";
+                document.getElementById('indique_AB').value = "No se ha checkeado nada";
+                asistenciaB.classList.add('c_faltante');
+                indiqueAB.classList.add('c_faltante');
+            } else {
+                asistenciaB.classList.remove('c_faltante');
+                indiqueAB.classList.remove('c_faltante');
+                if (asistencia_b == 1) {
+                    document.getElementById('asistencia_b').value = "Si";
+                    let indique_AB = document.getElementById('n_asistencia').value;
+                    document.getElementById('indique_AB').value = indique_AB;
+                } else if (asistencia_b == 0) {
+                    document.getElementById('asistencia_b').value = "No";
+                    document.getElementById('indique_AB').value = "No Aplica";
+                }
             }
-            
+
             //actividad motora general//
             let a_motoraG = $("input[type=radio][name=Amotora]:checked").val();
-            document.getElementById('a_motoraG').value = a_motoraG;
-            
+            const actMotora = document.getElementById('a_motoraG');
+            if (!a_motoraG) {
+                document.getElementById('a_motoraG').value = "No se ha checkeado nada";
+                actMotora.classList.add('c_faltante');
+            } else {
+                document.getElementById('a_motoraG').value = a_motoraG;
+                actMotora.classList.remove('c_faltante');
+            }
             //tono muscular general//
             let t_muscularG = $("input[type=radio][name=Tmuscular]:checked").val();
-            document.getElementById('t_muscularG').value = t_muscularG;
-            
+            const tonoM = document.getElementById('t_muscularG');
+            if (!t_muscularG) {
+                document.getElementById('t_muscularG').value = "No se ha checkeado nada";
+                tonoM.classList.add('c_faltante');
+            } else {
+                document.getElementById('t_muscularG').value = t_muscularG;
+                tonoM.classList.remove('c_faltante');
+            }
             //es estable al caminar//
             let e_caminar = $("input[type=radio][name=Ecaminar]:checked").val();
             document.getElementById('e_caminar').value = e_caminar;
-            if (e_caminar == 1) {
-                document.getElementById('e_caminar').value = "Si";
-            } else if (e_caminar == 0) {
-                document.getElementById('e_caminar').value = "No";
+            const caminar = document.getElementById('e_caminar');
+            if (!e_caminar) {
+                document.getElementById('e_caminar').value = "No se ha checkeado nada";
+                caminar.classList.add('c_faltante');
+            } else {
+                caminar.classList.remove('c_faltante');
+                if (e_caminar == 1) {
+                    document.getElementById('e_caminar').value = "Si";
+                } else if (e_caminar == 0) {
+                    document.getElementById('e_caminar').value = "No";
+                }
             }
-            
+
             //se cae con frecuencia//
             let c_frecuencia = $("input[type=radio][name=Cfrecuencia]:checked").val();
             document.getElementById('c_frecuencia').value = c_frecuencia;
-            if (c_frecuencia == 1) {
-                document.getElementById('c_frecuencia').value = "Si";
-            } else if (c_frecuencia == 0) {
-                document.getElementById('c_frecuencia').value = "No";
+            const frecuencia = document.getElementById('c_frecuencia');
+            if (!c_frecuencia) {
+                document.getElementById('c_frecuencia').value = "No se ha checkeado nada";
+                frecuencia.classList.add('c_faltante');
+            } else {
+                frecuencia.classList.remove('c_faltante');
+                if (c_frecuencia == 1) {
+                    document.getElementById('c_frecuencia').value = "Si";
+                } else if (c_frecuencia == 0) {
+                    document.getElementById('c_frecuencia').value = "No";
+                }
             }
-            
+
             //dominancia lateral//
             let d_lateral = $("input[type=radio][name=dominancia]:checked").val();
-            document.getElementById('d_lateral').value = d_lateral;
-            
+            const dominancia = document.getElementById('d_lateral');
+            if (!d_lateral) {
+                document.getElementById('d_lateral').value = "No se ha checkeado nada";
+                dominancia.classList.add('c_faltante');
+            } else {
+                document.getElementById('d_lateral').value = d_lateral;
+                dominancia.classList.remove('c_faltante');
+            }
+
             //motricidad fina//
-            
             let t_motricidad = [];
             $("input[type=checkbox][name='checkMFina[]']:checked").each(function () {
                 t_motricidad.push(this.value);
-                
             });
-            
             const motricidad = document.querySelector('.mFina');
             motricidad.innerHTML = "";
             t_motricidad.forEach(el => {
                 motricidad.innerHTML += `<input class="form-control" readonly type="text" name="checkMFina[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-            
             //signos cognitivos//
             let t_sCog = [];
             $("input[type=checkbox][name='check_Scog[]']:checked").each(function () {
                 t_sCog.push(this.value);
-                
             });
-            
             const sCog = document.querySelector('.sCog');
             sCog.innerHTML = "";
             t_sCog.forEach(el => {
                 sCog.innerHTML += `<input class="form-control" readonly type="text" name="check_Scog[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-            
-            
             //Observaciones//
             let obs_desMotriz = document.getElementById('obs_desMotriz1').value;
-            document.getElementById('obs_DesMotriz').value = obs_desMotriz;
-            
-            
+            const obsMotriz = document.getElementById('obs_DesMotriz');
+            if (obs_desMotriz == "") {
+                document.getElementById('obs_DesMotriz').value = "No se ha ingresado nada";
+                obsMotriz.classList.add('c_faltante');
+            } else {
+                document.getElementById('obs_DesMotriz').value = obs_desMotriz;
+                obsMotriz.classList.remove('c_faltante');
+            }
+
             //Vision
-            
+
             //vision//
             let t_vision = [];
             $("input[type=checkbox][name='check_vis[]']:checked").each(function () {
                 t_vision.push(this.value);
-                
             });
-            
             const vision = document.querySelector('.vision');
             vision.innerHTML = "";
             t_vision.forEach(el => {
                 vision.innerHTML += `<input class="form-control" readonly type="text" name="check_vis[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-            
             //diagnosticos del estudiante//
-            
             let diag_vis = [];
             let otroDiag_vis;
             $("input[type=checkbox][name='check_DiagVis[]']:checked").each(function () {
@@ -4257,19 +4521,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otroDiag_vis = document.getElementById("d6").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const vis = document.querySelector('.diag_vis');
             vis.innerHTML = "";
             diag_vis.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     vis.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagVis[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     vis.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_DiagVis[]" id="pruebaX2" value="` + el + `">
@@ -4277,38 +4541,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="txt_OtroDiagVis" readonly value="` + otroDiag_vis + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //el estudiante utiliza lentes opticos//
             let u_lentes = $("input[type=radio][name=lentes]:checked").val();
             document.getElementById('u_lentes').value = u_lentes;
-            if (u_lentes == 1) {
-                document.getElementById('u_lentes').value = "Si";
-            } else if (u_lentes == 0) {
-                document.getElementById('u_lentes').value = "No";
+            const lentes = document.getElementById('u_lentes');
+            if (!u_lentes) {
+                document.getElementById('u_lentes').value = "No se ha checkeado nada";
+                lentes.classList.add('c_faltante');
+            } else {
+                lentes.classList.remove('c_faltante');
+                if (u_lentes == 1) {
+                    document.getElementById('u_lentes').value = "Si";
+                } else if (u_lentes == 0) {
+                    document.getElementById('u_lentes').value = "No";
+                }
             }
-            
+
             //observaciones//
             let obsVis = document.getElementById('obsVis').value;
-            document.getElementById('obsVis1').value = obsVis;
-            
+            const obs_vis = document.getElementById('obsVis1');
+            if (obsVis == "") {
+                document.getElementById('obsVis1').value = "No se ha ingresado nada";
+                obs_vis.classList.add('c_faltante');
+            } else {
+                obs_vis.classList.remove('c_faltante');
+                document.getElementById('obsVis1').value = obsVis;
+            }
+
             //Audicion
-            
+
             //Audicion//
             let t_audi = [];
             $("input[type=checkbox][name='check_audi[]']:checked").each(function () {
                 t_audi.push(this.value);
-                
             });
-            
             const audi = document.querySelector('.audi');
             audi.innerHTML = "";
             t_audi.forEach(el => {
                 audi.innerHTML += `<input class="form-control" readonly type="text" name="check_audi[]" id="pruebaX2" value="` + el + `"><br>`;
             });
-            
             //diagnosticos//
             let diag_audi = [];
             let otroDiag_audi;
@@ -4317,19 +4591,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otroDiag_audi = document.getElementById("da7").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const audicion = document.querySelector('.diag_audi');
             audicion.innerHTML = "";
             diag_audi.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     audicion.innerHTML += `<input class="form-control" readonly type="text" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     audicion.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_DiagAudi[]" id="pruebaX2" value="` + el + `">
@@ -4337,43 +4611,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="otro_DiagAudi" readonly value="` + otroDiag_audi + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //el ni;o utiliza audifono//
             let u_audifono = $("input[type=radio][name=audicion]:checked").val();
             document.getElementById('u_audifono').value = u_audifono;
-            if (u_audifono == 1) {
-                document.getElementById('u_audifono').value = "Si";
-            } else if (u_audifono == 0) {
-                document.getElementById('u_audifono').value = "No";
+            const audifono = document.getElementById('u_audifono');
+            if (!u_audifono) {
+                document.getElementById('u_audifono').value = "No se ha checkeado nada";
+                audifono.classList.add('c_faltante');
+            } else {
+                audifono.classList.remove('c_faltante');
+                if (u_audifono == 1) {
+                    document.getElementById('u_audifono').value = "Si";
+                } else if (u_audifono == 0) {
+                    document.getElementById('u_audifono').value = "No";
+                }
             }
-            
+
+
             //observaciones//
             let obs_audi = document.getElementById('obs_audi').value;
-            document.getElementById('obsAudi').value = obs_audi;
-            
+            const obsAudi = document.getElementById('obsAudi');
+            if (obs_audi == "") {
+                document.getElementById('obsAudi').value = "No se ha ingresado nada";
+                obsAudi.classList.add('c_faltante');
+            } else {
+                document.getElementById('obsAudi').value = obs_audi;
+                obsAudi.classList.remove('c_faltante');
+            }
             //Desarrollo del lenguaje
-            
+
             //comunicacion//
             let comunicacion = $("input[type=radio][name=comunicacion]:checked").val();
             document.getElementById('comunicacion').value = comunicacion;
-            if (comunicacion == 1) {
-                document.getElementById('comunicacion').value = "Oral";
-                document.getElementById('otro_com').value = "No Aplica";
-            } else if (comunicacion == 2) {
-                document.getElementById('comunicacion').value = "Gestual";
-                document.getElementById('otro_com').value = "No Aplica";
-            } else if (comunicacion == 3) {
-                document.getElementById('comunicacion').value = "Mixto";
-                document.getElementById('otro_com').value = "No Aplica";
-            } else if (comunicacion == 4) {
-                document.getElementById('comunicacion').value = "Otro";
-                let otro_com = document.getElementById('c5').value;
-                document.getElementById('otro_com').value = otro_com;
+            const com = document.getElementById('comunicacion');
+            const otroCom = document.getElementById('otro_com');
+            if (!comunicacion) {
+                document.getElementById('comunicacion').value = "No se ha checkeado nada";
+                document.getElementById('otro_com').value = "No se ha ingresado nada";
+                com.classList.add('c_faltante');
+                otroCom.classList.add('c_faltante');
+            } else {
+                com.classList.remove('c_faltante');
+                otroCom.classList.remove('c_faltante');
+                if (comunicacion == 1) {
+                    document.getElementById('comunicacion').value = "Oral";
+                    document.getElementById('otro_com').value = "No Aplica";
+                } else if (comunicacion == 2) {
+                    document.getElementById('comunicacion').value = "Gestual";
+                    document.getElementById('otro_com').value = "No Aplica";
+                } else if (comunicacion == 3) {
+                    document.getElementById('comunicacion').value = "Mixto";
+                    document.getElementById('otro_com').value = "No Aplica";
+                } else if (comunicacion == 4) {
+                    document.getElementById('comunicacion').value = "Otro";
+                    let otro_com = document.getElementById('c5').value;
+                    document.getElementById('otro_com').value = otro_com;
+                }
             }
-            
+
+
             //lenguaje expresivo//
             let leng_expre = [];
             let otro_leng_expre;
@@ -4382,19 +4681,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_leng_expre = document.getElementById("dc10").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const expre = document.querySelector('.leng_expre');
             expre.innerHTML = "";
             leng_expre.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     expre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengEx[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     expre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_LengEx[]" id="pruebaX2" value="` + el + `">
@@ -4402,10 +4701,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="otro_LengEx" readonly value="` + otro_leng_expre + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //Lenguaje comprensivo//
             let leng_compre = [];
             let otro_leng_compre;
@@ -4414,19 +4712,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_leng_compre = document.getElementById("cl11").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const compre = document.querySelector('.leng_compr');
             compre.innerHTML = "";
             leng_compre.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     compre.innerHTML += `<input class="form-control" readonly type="text" name="check_LengCom[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     compre.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_LengCom[]" id="pruebaX2" value="` + el + `">
@@ -4434,29 +4732,46 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="otro_LengCom" readonly value="` + otro_leng_compre + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
-                
+
             });
-            
             //manifesto perdida del lenguaje//
             let p_leng = $("input[type=radio][name=Plenguaje]:checked").val();
             document.getElementById('p_leng').value = p_leng;
-            if (p_leng == 1) {
-                document.getElementById('p_leng').value = "Si";
-                let indiquep_L = document.getElementById('pl3').value;
-                document.getElementById('indiquep_L').value = indiquep_L;
-            } else if (p_leng == 0) {
-                document.getElementById('p_leng').value = "No";
-                document.getElementById('indiquep_L').value = "No Aplica";
+            const perdidaL = document.getElementById('p_leng');
+            const indiqueP = document.getElementById('indiquep_L');
+            if (!p_leng) {
+                document.getElementById('p_leng').value = "No se ha checkeado nada";
+                document.getElementById('indiquep_L').value = "No se ha ingresado nada";
+                perdidaL.classList.add('c_faltante');
+                indiqueP.classList.add('c_faltante');
+            } else {
+                perdidaL.classList.remove('c_faltante');
+                indiqueP.classList.remove('c_faltante');
+                if (p_leng == 1) {
+                    document.getElementById('p_leng').value = "Si";
+                    let indiquep_L = document.getElementById('pl3').value;
+                    document.getElementById('indiquep_L').value = indiquep_L;
+                } else if (p_leng == 0) {
+                    document.getElementById('p_leng').value = "No";
+                    document.getElementById('indiquep_L').value = "No Aplica";
+                }
             }
-            
+
+
             //observaciones//
             let obs_leng = document.getElementById('obs_leng').value;
-            document.getElementById('obs_leng1').value = obs_leng;
-            
+            const obsLeng = document.getElementById('obs_leng1');
+            if (obs_leng == "") {
+                document.getElementById('obs_leng1').value = "No se ha ingresado nada";
+                obsLeng.classList.add('c_faltante');
+            } else {
+                document.getElementById('obs_leng1').value = obs_leng;
+                obsLeng.classList.remove('c_faltante');
+            }
             //Desarrollo Social
-            
+
             //desarrollo social//
             let des_social = [];
             let otro_des_social;
@@ -4465,19 +4780,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_des_social = document.getElementById("ds15").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const social = document.querySelector('.des_social');
             social.innerHTML = "";
             des_social.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     social.innerHTML += `<input class="form-control" readonly type="text" name="check_DesSoc[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     social.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_DesSoc[]" id="pruebaX2" value="` + el + `">
@@ -4485,28 +4800,52 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="txt_OtroDesSoc" readonly value="` + otro_des_social + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //Cuando se prende una luz, reacciona de forma...//
             let reaccion = $("input[type=radio][name=reaccion]:checked").val();
-            document.getElementById('reaccion').value = reaccion;
-            
+            const react = document.getElementById('reaccion');
+            if (!reaccion) {
+                document.getElementById('reaccion').value = "No se ha checkeado nada";
+                react.classList.add('c_faltante');
+            } else {
+                document.getElementById('reaccion').value = reaccion;
+                react.classList.remove('c_faltante');
+            }
             //Cuando escucha un sonido, reacciona de forma...//
             let reaccion1 = $("input[type=radio][name=reaccion1]:checked").val();
-            document.getElementById('reaccion1').value = reaccion1;
-            
+            const react1 = document.getElementById('reaccion1');
+            if (!reaccion1) {
+                document.getElementById('reaccion1').value = "No se ha checkeado nada";
+                react1.classList.add('c_faltante');
+            } else {
+                document.getElementById('reaccion1').value = reaccion1;
+                react1.classList.remove('c_faltante');
+            }
             //Cuando una persona extraña se le acerca, reacciona de forma...//
             let reaccion2 = $("input[type=radio][name=reaccion2]:checked").val();
-            document.getElementById('reaccion2').value = reaccion2;
-            
+            const react2 = document.getElementById('reaccion2');
+            if (!reaccion2) {
+                document.getElementById('reaccion2').value = "No se ha checkeado nada";
+                react2.classList.add('c_faltante');
+            } else {
+                document.getElementById('reaccion2').value = reaccion2;
+                react2.classList.remove('c_faltante');
+            }
             //Observaciones//
             let obs_desSocial = document.getElementById('obs_des_social').value;
-            document.getElementById('obs_desSocial').value = obs_desSocial;
-            
+            const obsDesSocial = document.getElementById('obs_desSocial');
+            if (obs_desSocial == "") {
+                document.getElementById('obs_desSocial').value = "No se ha ingresado nada";
+                obsDesSocial.classList.add('c_faltante');
+            } else {
+                document.getElementById('obs_desSocial').value = obs_desSocial;
+                obsDesSocial.classList.remove('c_faltante');
+            }
+
             //Salud
-            
+
             //estado salud actual//
             let e_Asalud = [];
             let otro_salud;
@@ -4515,19 +4854,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_salud = document.getElementById("e14").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const salud_ = document.querySelector('.e_salud');
             salud_.innerHTML = "";
             e_Asalud.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     salud_.innerHTML += `<input class="form-control" readonly type="text" name="check_EstSal[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     salud_.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_EstSal[]" id="pruebaX2" value="` + el + `">
@@ -4535,87 +4874,184 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="otro_EstSal" readonly value="` + otro_salud + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //recibe algun tratamiento//
             let tratamiento = $("input[type=radio][name=tratamiento]:checked").val();
             document.getElementById('tratamiento').value = tratamiento;
-            if (tratamiento == 1) {
-                document.getElementById('tratamiento').value = "Si";
-                let indique_t = document.getElementById('t3').value;
-                document.getElementById('indique_t').value = indique_t;
-            } else if (tratamiento == 0) {
-                document.getElementById('tratamiento').value = "No";
-                document.getElementById('indique_t').value = "No Aplica";
+            const trata = document.getElementById('tratamiento');
+            const indiqueT = document.getElementById('indique_t');
+            if (!tratamiento) {
+                document.getElementById('tratamiento').value = "No se ha checkeado nada";
+                document.getElementById('indique_t').value = "No se ha ingresado nada";
+                trata.classList.add('c_faltante');
+                indiqueT.classList.add('c_faltante');
+            } else {
+                trata.classList.remove('c_faltante');
+                indiqueT.classList.remove('c_faltante');
+                if (tratamiento == 1) {
+                    document.getElementById('tratamiento').value = "Si";
+                    let indique_t = document.getElementById('t3').value;
+                    document.getElementById('indique_t').value = indique_t;
+                } else if (tratamiento == 0) {
+                    document.getElementById('tratamiento').value = "No";
+                    document.getElementById('indique_t').value = "No Aplica";
+                }
             }
-            
+
+
             //toma algun medicamento//
             let medicamento = $("input[type=radio][name=medicamento]:checked").val();
             document.getElementById('medicamento').value = medicamento;
-            if (medicamento == 1) {
-                document.getElementById('medicamento').value = "Si";
-                let indique_m = document.getElementById('m3').value;
-                document.getElementById('indique_m').value = indique_m;
-            } else if (medicamento == 0) {
-                document.getElementById('medicamento').value = "No";
-                document.getElementById('indique_m').value = "No Aplica";
+            const medi = document.getElementById('medicamento');
+            const indiqueMedi = document.getElementById('indique_m');
+            if (!medicamento) {
+                document.getElementById('medicamento').value = "No se ha checkeado nada";
+                document.getElementById('indique_m').value = "No se ha ingresado nada";
+                medi.classList.add('c_faltante');
+                indiqueMedi.classList.add('c_faltante');
+            } else {
+                medi.classList.remove('c_faltante');
+                indiqueMedi.classList.remove('c_faltante');
+                if (medicamento == 1) {
+                    document.getElementById('medicamento').value = "Si";
+                    let indique_m = document.getElementById('m3').value;
+                    document.getElementById('indique_m').value = indique_m;
+                } else if (medicamento == 0) {
+                    document.getElementById('medicamento').value = "No";
+                    document.getElementById('indique_m').value = "No Aplica";
+                }
             }
-            
+
+
             //Alimentacion//
             let alimentacion = $("input[type=radio][name=alimentacion]:checked").val();
             document.getElementById('t_aliment').value = alimentacion;
-            if (alimentacion == 'Otro') {
-                let indique_tAl = document.getElementById('al5').value;
-                document.getElementById('indique_tAl').value = indique_tAl;
+            const ali = document.getElementById('t_aliment');
+            const indiqueAli = document.getElementById('indique_tAl');
+            if (!alimentacion) {
+                document.getElementById('t_aliment').value = "No se ha checkeado nada";
+                document.getElementById('indique_tAl').value = "No se ha ingresado nada";
+                ali.classList.add('c_faltante');
+                indiqueAli.classList.add('c_faltante');
             } else {
-                document.getElementById('indique_tAl').value = "No Aplica";
+                ali.classList.remove('c_faltante');
+                indiqueAli.classList.remove('c_faltante');
+                if (alimentacion == 'Otro') {
+                    let indique_tAl = document.getElementById('al5').value;
+                    document.getElementById('indique_tAl').value = indique_tAl;
+                } else {
+                    document.getElementById('indique_tAl').value = "No Aplica";
+                }
             }
-            
+
             //estatura actual//
             let e_actual = document.getElementById('est_actual').value;
-            document.getElementById('e_actual').value = e_actual;
-            
+            const estatura = document.getElementById('e_actual');
+            if (e_actual == "") {
+                document.getElementById('e_actual').value = "No se ha ingresado nada";
+                estatura.classList.add('c_faltante');
+            } else {
+                document.getElementById('e_actual').value = e_actual;
+                estatura.classList.remove('c_faltante');
+            }
             //peso actual//
             let peso_actual = document.getElementById('peso_actual').value;
-            document.getElementById('p_actual').value = peso_actual;
-            
+            const pesoA = document.getElementById('p_actual');
+            if (peso_actual == "") {
+                document.getElementById('p_actual').value = "No se ha ingresado nada";
+                pesoA.classList.add('c_faltante');
+            } else {
+                document.getElementById('p_actual').value = peso_actual;
+                pesoA.classList.remove('c_faltante');
+            }
             //peso imc//
             let peso_imc = $("input[type=radio][name=peso]:checked").val();
-            document.getElementById('peso_IMC').value = peso_imc;
-            
+            const imc = document.getElementById('peso_IMC');
+            if (!peso_imc) {
+                document.getElementById('peso_IMC').value = "No se ha checkeado nada";
+                imc.classList.add('c_faltante');
+            } else {
+                document.getElementById('peso_IMC').value = peso_imc;
+                imc.classList.remove('c_faltante');
+            }
             //come solo//
             let come_solo = $("input[type=radio][name=comeSolo]:checked").val();
             document.getElementById('come_solo').value = come_solo;
-            if (come_solo == 1) {
-                document.getElementById('come_solo').value = "Si";
-            } else if (come_solo == 0) {
-                document.getElementById('come_solo').value = "No";
+            const comeS = document.getElementById('come_solo');
+            if (!come_solo) {
+                document.getElementById('come_solo').value = "No se ha checkeado nada";
+                comeS.classList.add('c_faltante');
+            } else {
+                comeS.classList.remove('c_faltante');
+                if (come_solo == 1) {
+                    document.getElementById('come_solo').value = "Si";
+                } else if (come_solo == 0) {
+                    document.getElementById('come_solo').value = "No";
+                }
             }
-            
+
             //alimentos que le gusta comer//
             let gustaComer = document.getElementById('gustaComer').value;
-            document.getElementById('gusta_comer').value = gustaComer;
-            
+            const gComer = document.getElementById('gusta_comer');
+            if (gustaComer == "") {
+                document.getElementById('gusta_comer').value = "No se ha ingresado nada";
+                gComer.classList.add('c_faltante');
+            } else {
+                document.getElementById('gusta_comer').value = gustaComer;
+                gComer.classList.remove('c_faltante');
+            }
             //alimentos que no le gusta comer//
             let noGustaComer = document.getElementById('nogustaComer').value;
-            document.getElementById('noGusta_comer').value = noGustaComer;
-            
+            const noGComer = document.getElementById('noGusta_comer');
+            if (noGustaComer == "") {
+                document.getElementById('noGusta_comer').value = "No se ha ingresado nada";
+                noGComer.classList.add('c_faltante');
+            } else {
+                document.getElementById('noGusta_comer').value = noGustaComer;
+                noGComer.classList.remove('c_faltante');
+            }
             //en cuanto al sueno//
             let sueno = $("input[type=radio][name=dormir]:checked").val();
-            document.getElementById('t_sueno').value = sueno;
-            
+            const sueno1 = document.getElementById('t_sueno');
+            if (!sueno) {
+                document.getElementById('t_sueno').value = "No se ha checkeado nada";
+                sueno1.classList.add('c_faltante');
+            } else {
+                document.getElementById('t_sueno').value = sueno;
+                sueno1.classList.remove('c_faltante');
+            }
             //hora de dormir//
             let hora_dormir = document.getElementById('timer').value;
-            document.getElementById('hora_dormir').value = hora_dormir;
-            
+            const horaD = document.getElementById('hora_dormir');
+            if (hora_dormir == "") {
+                document.getElementById('hora_dormir').value = "No se ha ingresado nada";
+                horaD.classList.add('c_faltante');
+            } else {
+                document.getElementById('hora_dormir').value = hora_dormir;
+                horaD.classList.remove('c_faltante');
+            }
             //duerme..//
             let duerme_c = $("input[type=radio][name=conQuienDuerme]:checked").val();
-            document.getElementById('duerme').value = duerme_c;
+            const duermeC = document.getElementById('duerme');
+            if (!duerme_c) {
+                document.getElementById('duerme').value = "No se ha checkeado nada";
+                duermeC.classList.add('c_faltante');
+            } else {
+                document.getElementById('duerme').value = duerme_c;
+                duermeC.classList.remove('c_faltante');
+            }
+
             let indique_duermeC = document.getElementById('indique_duerme').value;
-            document.getElementById('espe_duerme').value = indique_duermeC;
-            
+            const indiqueDC = document.getElementById('espe_duerme');
+            if (indique_duermeC == "") {
+                document.getElementById('espe_duerme').value = "No se ha ingresado nada";
+                indiqueDC.classList.add('c_faltante');
+            } else {
+                document.getElementById('espe_duerme').value = indique_duermeC;
+                indiqueDC.classList.remove('c_faltante');
+            }
             //estado salud//
             let e_salud = [];
             let otro_s;
@@ -4630,142 +5066,263 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     //document.getElementById('otroSintoma').value = "No Aplica";
                     otro_s = "No aplica";
                 }
-                
+
             });
             const salud_e = document.querySelector('.estado_salud');
             salud_e.innerHTML = "";
             e_salud.forEach(el => {
-                console.log(el+" "+otro_s);
-                
-                if (el!="Otro") {
+                console.log(el + " " + otro_s);
+                if (el != "Otro") {
                     salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     salud_e.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_NocheP[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_NocheP" readonly value="` + otro_s + `" >
                                                         </div>`;
-                                                                console.log(otro_s);
+                    console.log(otro_s);
                 } else {
-                    
+
                 }
             });
-            
             //humor/comportamiento//
             let combo = document.getElementById("humor");
             let selected = combo.options[combo.selectedIndex].text;
             document.getElementById('humor_c').value = selected;
             let otroHumor;
-            if (selected == "Otro:") {
-                otroHumor = document.getElementById("h1").value;
-                document.getElementById('indique_humor_c').value = otroHumor;
+            const Humor = document.getElementById('humor_c');
+            const otroH = document.getElementById('indique_humor_c');
+            if (selected == "--Seleccionar--") {
+                document.getElementById('humor_c').value = "No se ha seleccionado nada";
+                document.getElementById('indique_humor_c').value = "No se ha ingresado nada";
+                Humor.classList.add('c_faltante');
+                otroH.classList.add('c_faltante');
             } else {
-                document.getElementById('indique_humor_c').value = "No Aplica";
-                
+                Humor.classList.remove('c_faltante');
+                otroH.classList.remove('c_faltante');
+                if (selected == "Otro:") {
+                    otroHumor = document.getElementById("h1").value;
+                    document.getElementById('indique_humor_c').value = otroHumor;
+                } else {
+                    document.getElementById('indique_humor_c').value = "No Aplica";
+                }
             }
-            
+
             //observaciones//
             let obs_salud = document.getElementById('obsSalud').value;
-            document.getElementById('obs_salud').value = obs_salud;
-            
+            const obsSalud = document.getElementById('obs_salud');
+            if (obs_salud == "") {
+                document.getElementById('obs_salud').value = "No se ha ingresado nada";
+                obsSalud.classList.add('c_faltante');
+            } else {
+                document.getElementById('obs_salud').value = obs_salud;
+                obsSalud.classList.remove('c_faltante');
+            }
             //Antecedentes familiares
-            
+
             //personas que viven con el//
             let viveCon = document.getElementById('vive_con').value;
-            document.getElementById('viveCon').value = viveCon;
-            
+            const vive_con = document.getElementById('viveCon');
+            if (viveCon == "") {
+                document.getElementById('viveCon').value = "No se ha ingresado nada";
+                vive_con.classList.add('c_faltante');
+            } else {
+                document.getElementById('viveCon').value = viveCon;
+                vive_con.classList.remove('c_faltante');
+            }
             //antecedentes familia//
             let antFam = document.getElementById('antFam').value;
-            document.getElementById('ant_fam').value = antFam;
-            
+
+            const ant_fam = document.getElementById('ant_fam');
+            if (antFam == "") {
+                document.getElementById('ant_fam').value = "No se ha ingresado nada";
+                ant_fam.classList.add('c_faltante');
+            } else {
+                document.getElementById('ant_fam').value = antFam;
+                ant_fam.classList.remove('c_faltante');
+            }
             //observaciones//
             let obsAntfam = document.getElementById('obs_Ant_fam').value;
             document.getElementById('obsAnt_fam').value = obsAntfam;
-            
+            const obsAFam = document.getElementById('obsAnt_fam');
+            if (obsAntfam == "") {
+                document.getElementById('obsAnt_fam').value = "No se ha ingresado nada";
+                obsAFam.classList.add('c_faltante');
+            } else {
+                document.getElementById('obsAnt_fam').value = obsAntfam;
+                obsAFam.classList.remove('c_faltante');
+            }
+
             //Antecedentes escolares
-            
+
             //edad de ingreso//
             let e_ingreso = document.getElementById('ingreso_e').value;
-            document.getElementById('e_ingreso').value = e_ingreso;
-            
+
+            const ingresoE = document.getElementById('e_ingreso');
+            if (e_ingreso == "") {
+                document.getElementById('e_ingreso').value = "No se ha ingresado nada";
+                ingresoE.classList.add('c_faltante');
+            } else {
+                document.getElementById('e_ingreso').value = e_ingreso;
+                ingresoE.classList.remove('c_faltante');
+            }
             //asistio a jardin//
             let jardin = $("input[type=radio][name=jardin]:checked").val();
             document.getElementById('aJardin').value = jardin;
-            if (jardin == 1) {
-                document.getElementById('aJardin').value = "Si";
-            } else if (jardin == 0) {
-                document.getElementById('aJardin').value = "No";
+            const a_jardin = document.getElementById('aJardin');
+            if (!jardin) {
+                document.getElementById('aJardin').value = "No se ha checkeado nada";
+                a_jardin.classList.add('c_faltante');
+            } else {
+                a_jardin.classList.remove('c_faltante');
+                if (jardin == 1) {
+                    document.getElementById('aJardin').value = "Si";
+                } else if (jardin == 0) {
+                    document.getElementById('aJardin').value = "No";
+                }
             }
-            
+
             //antecedentes relevantes//
             let ant_rele = document.getElementById('colegios').value;
-            document.getElementById('ant_rele').value = ant_rele;
-            
+
+            const antRele = document.getElementById('ant_rele');
+            if (ant_rele == "") {
+                document.getElementById('ant_rele').value = "No se ha ingresado nada";
+                antRele.classList.add('c_faltante');
+            } else {
+                document.getElementById('ant_rele').value = ant_rele;
+                antRele.classList.remove('c_faltante');
+            }
             //modalidad ensenanza//
             let comboM = document.getElementById("mEnsenanza");
             let select = comboM.options[comboM.selectedIndex].text;
-            document.getElementById('m_ensenanza').value = select;
-            
+
+            const modoE = document.getElementById('m_ensenanza');
+            if (select == "Seleccionar") {
+                document.getElementById('m_ensenanza').value = "No se ha seleccionado nada";
+                modoE.classList.add('c_faltante');
+            } else {
+                document.getElementById('m_ensenanza').value = select;
+                modoE.classList.remove('c_faltante');
+            }
             //motivo de cambio//
             let motivo_c = document.getElementById('colegios1').value;
-            document.getElementById('m_cambio').value = motivo_c;
-            
+
+            const motivoC = document.getElementById('m_cambio');
+            if (motivo_c == "") {
+                document.getElementById('m_cambio').value = "No se ha ingresado nada";
+                motivoC.classList.add('c_faltante');
+            } else {
+                document.getElementById('m_cambio').value = motivo_c;
+                motivoC.classList.remove('c_faltante');
+            }
             //ha repetido curso//
             let repetir = $("input[type=radio][name=repetir]:checked").val();
             document.getElementById('repetir').value = repetir;
-            if (repetir == 1) {
-                document.getElementById('repetir').value = "Si";
-                let motivo_r = document.getElementById('r3').value;
-                document.getElementById('repetir_m').value = motivo_r;
-            } else if (repetir == 0) {
-                document.getElementById('repetir').value = "No";
-                document.getElementById('repetir_m').value = "No Aplica";
+            const repetir_c = document.getElementById('repetir');
+            const motivo_r = document.getElementById('repetir_m');
+            if (!repetir) {
+                document.getElementById('repetir').value = "No se ha checkeado nada";
+                document.getElementById('repetir_m').value = "No se ha ingresado nada";
+                repetir_c.classList.add('c_faltante');
+                motivo_r.classList.add('c_faltante');
+            } else {
+                repetir_c.classList.remove('c_faltante');
+                motivo_r.classList.remove('c_faltante');
+                if (repetir == 1) {
+                    document.getElementById('repetir').value = "Si";
+                    let motivo_r = document.getElementById('r3').value;
+                    document.getElementById('repetir_m').value = motivo_r;
+                } else if (repetir == 0) {
+                    document.getElementById('repetir').value = "No";
+                    document.getElementById('repetir_m').value = "No Aplica";
+                }
             }
-            
+
             //situacion//
             let comboS = document.getElementById("cbo_situacion");
             let select1 = comboS.options[comboS.selectedIndex].text;
-            document.getElementById('situacion').value = select1;
-            
+
+            const situacion = document.getElementById('situacion');
+            if (select1 == "Seleccionar") {
+                document.getElementById('situacion').value = "No se ha seleccionado nada";
+                situacion.classList.add('c_faltante');
+            } else {
+                document.getElementById('situacion').value = select1;
+                situacion.classList.remove('c_faltante');
+            }
+
             //Actitud de la familia
-            
+
             //desempeno//
             let desempeno = $("input[type=radio][name=descolar]:checked").val();
             document.getElementById('desempeno').value = desempeno;
-            if (desempeno == 'Satisfactorio') {
-                document.getElementById('indique_insatis').value = "No Aplica";
-            } else if (desempeno == 'Insatisfactorio') {
-                let insatis = document.getElementById('ev3').value;
-                document.getElementById('indique_insatis').value = insatis;
+            const desem = document.getElementById('desempeno');
+            const otroDesem = document.getElementById('indique_insatis');
+            if (!desempeno) {
+                document.getElementById('desempeno').value = "No se ha checkeado nada";
+                document.getElementById('indique_insatis').value = "No se ha ingresado nada";
+                desem.classList.add('c_faltante');
+                otroDesem.classList.add('c_faltante');
+            } else {
+                desem.classList.remove('c_faltante');
+                otroDesem.classList.remove('c_faltante');
+                if (desempeno == 'Satisfactorio') {
+                    document.getElementById('indique_insatis').value = "No Aplica";
+                } else if (desempeno == 'Insatisfactorio') {
+                    let insatis = document.getElementById('ev3').value;
+                    document.getElementById('indique_insatis').value = insatis;
+                }
             }
-            
+
             //va mal//
             let vaMal = document.getElementById("vaMal");
             let select2 = vaMal.options[vaMal.selectedIndex].text;
             document.getElementById('va_mal').value = select2;
             let otrovaMal;
-            if (select2 == "Otro") {
-                otrovaMal = document.getElementById("vM1").value;
-                document.getElementById('indique_otroVM').value = otrovaMal;
+            const va_mal = document.getElementById('va_mal');
+            const otro_vm = document.getElementById('indique_otroVM');
+            if (select2 == "Seleccionar") {
+                document.getElementById('va_mal').value = "No se ha seleccionado nada";
+                document.getElementById('indique_otroVM').value = "No se ha ingresado nada";
+                va_mal.classList.add('c_faltante');
+                otro_vm.classList.add('c_faltante');
             } else {
-                document.getElementById('indique_otroVM').value = "No Aplica";
-                
+                va_mal.classList.remove('c_faltante');
+                otro_vm.classList.remove('c_faltante');
+                if (select2 == "Otro") {
+                    otrovaMal = document.getElementById("vM1").value;
+                    document.getElementById('indique_otroVM').value = otrovaMal;
+                } else {
+                    document.getElementById('indique_otroVM').value = "No Aplica";
+                }
             }
-            
+
             //va bien//
             let vaBien = document.getElementById("vaBien");
             let select3 = vaBien.options[vaBien.selectedIndex].text;
             document.getElementById('va_bien').value = select3;
             let otrovaBien;
-            if (select3 == "Otro") {
-                otrovaBien = document.getElementById("vB1").value;
-                document.getElementById('indique_otroVB').value = otrovaBien;
+            const va_bien = document.getElementById('va_bien');
+            const otro_vb = document.getElementById('indique_otroVB');
+            if (select3 == "Seleccionar") {
+                document.getElementById('va_bien').value = "No se ha seleccionado nada";
+                document.getElementById('indique_otroVB').value = "No se ha ingresado nada";
+                va_bien.classList.add('c_faltante'); 
+                otro_vb.classList.add('c_faltante');
             } else {
-                document.getElementById('indique_otroVB').value = "No Aplica";
-                
+                va_bien.classList.remove('c_faltante'); 
+                otro_vb.classList.remove('c_faltante');
+                if (select3 == "Otro") {
+                    otrovaBien = document.getElementById("vB1").value;
+                    document.getElementById('indique_otroVB').value = otrovaBien;
+                } else {
+                    document.getElementById('indique_otroVB').value = "No Aplica";
+                }
             }
-            
+
+
             //apoyo//
             let quien_apoya = [];
             let otro_apoyo;
@@ -4774,19 +5331,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if (this.value == "Otro") {
                     otro_apoyo = document.getElementById("ap10").value;
                     //document.getElementById('otroSintoma').value = otroSintoma;
-                    
+
                 } else {
                     //document.getElementById('otroSintoma').value = "No Aplica";
                 }
-                
+
             });
             const apoyo = document.querySelector('.p_aprendizaje');
             apoyo.innerHTML = "";
             quien_apoya.forEach(el => {
-                
-                if (el!="Otro") {
+
+                if (el != "Otro") {
                     apoyo.innerHTML += `<input class="form-control" readonly type="text" name="check_quienApoya[]" id="pruebaX2" value="` + el + `"><br>`;
-                }else if (el == "Otro") {
+                } else if (el == "Otro") {
                     apoyo.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_quienApoya[]" id="pruebaX2" value="` + el + `">
@@ -4794,14 +5351,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <input class="form-control" type="text" name="otro_quienApoya" readonly value="` + otro_apoyo + `" id="otroSintoma">
                                                         </div>`;
                 } else {
-                    
+
                 }
             });
-            
             //ambiente//
             let ambiente = $("input[type=radio][name=ambiente]:checked").val();
-            document.getElementById('ambiente').value = ambiente;
             
+            const amb = document.getElementById('ambiente');
+            if(!ambiente){
+                document.getElementById('ambiente').value = "No se ha checkeado nada";
+                amb.classList.add('c_faltante');
+            }else{
+                document.getElementById('ambiente').value = ambiente;
+                amb.classList.remove('c_faltante');
+            }
             /*console.log(otroHumor);
              console.log(y);
              console.log(otroSintoma);
@@ -4852,7 +5415,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 justificar.disabled = true;
             }
         }
-        
+
         var siE1 = document.getElementById('siE1');
         var noE1 = document.getElementById('noE1');
         var medicamentos = document.getElementById('medicamentos');
@@ -4867,7 +5430,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 medicamentos.disabled = true;
             }
         }
-        
+
         var siE2 = document.getElementById('siE2');
         var noE2 = document.getElementById('noE2');
         var complicaciones = document.getElementById('complicaciones');
@@ -4882,7 +5445,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 complicaciones.disabled = true;
             }
         }
-        
+
         var tipo1 = document.getElementById('tipo1');
         var tipo2 = document.getElementById('tipo2');
         var tipo3 = document.getElementById('tipo3');
@@ -4894,25 +5457,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 motivoC.disabled = true;
             }
         })
-        
+
         tipo2.addEventListener('click', function () {
             if (tipo2.checked) {
                 motivoC.disabled = true;
             }
         })
-        
+
         tipo3.addEventListener('click', function () {
             if (tipo3.checked) {
                 motivoC.disabled = true;
             }
         })
-        
+
         cesarea.addEventListener('click', function () {
             if (cesarea.checked) {
                 motivoC.disabled = false;
             }
         })
-        
+
         var siH = document.getElementById('siH');
         var noH = document.getElementById('noH');
         var hospitalizado = document.getElementById('hospitalizado');
@@ -4927,7 +5490,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 hospitalizado.disabled = true;
             }
         })
-        
+
         var sintoma1 = document.getElementById('sintoma1');
         var sintoma2 = document.getElementById('sintoma2');
         var sintoma3 = document.getElementById('sintoma3');
@@ -4991,9 +5554,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 sintoma14.disabled = true;
             }
         })
-        
-        
-        
+
+
+
         var siA = document.getElementById('siA');
         var noA = document.getElementById('noA');
         var n_asistencia = document.getElementById('n_asistencia');
@@ -5012,7 +5575,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 n_asistencia.disabled = false;
             }
         })
-        
+
         var mf1 = document.getElementById('mf1');
         var mf2 = document.getElementById('mf2');
         var mf3 = document.getElementById('mf3');
@@ -5086,7 +5649,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 mf7.disabled = false;
             }
         })
-        
+
         var sc1 = document.getElementById('sc1');
         var sc2 = document.getElementById('sc2');
         var sc3 = document.getElementById('sc3');
@@ -5118,7 +5681,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 sc6.disabled = false;
             }
         })
-        
+
         sc1.addEventListener('click', function () {
             if (sc1.checked) {
                 sc7.disabled = true;
@@ -5161,8 +5724,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 sc7.disabled = false;
             }
         })
-        
-        
+
+
         var v1 = document.getElementById('v1');
         var v2 = document.getElementById('v2');
         var v3 = document.getElementById('v3');
@@ -5197,7 +5760,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 v7.disabled = false;
             }
         })
-        
+
         v1.addEventListener('click', function () {
             if (v1.checked) {
                 v8.disabled = true;
@@ -5247,8 +5810,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 v8.disabled = false;
             }
         })
-        
-        
+
+
         var d1 = document.getElementById('d1');
         var d2 = document.getElementById('d2');
         var d3 = document.getElementById('d3');
@@ -5294,7 +5857,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 d6.disabled = true;
             }
         })
-        
+
         var a1 = document.getElementById('a1');
         var a2 = document.getElementById('a2');
         var a3 = document.getElementById('a3');
@@ -5361,7 +5924,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 a6.disabled = false;
             }
         })
-        
+
         var da1 = document.getElementById('da1');
         var da2 = document.getElementById('da2');
         var da3 = document.getElementById('da3');
@@ -5414,7 +5977,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 da7.disabled = true;
             }
         })
-        
+
         var c1 = document.getElementById('c1');
         var c2 = document.getElementById('c2');
         var c3 = document.getElementById('c3');
@@ -5442,7 +6005,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 c5.disabled = true;
             }
         })
-        
+
         var dc1 = document.getElementById('dc1');
         var dc2 = document.getElementById('dc2');
         var dc3 = document.getElementById('dc3');
@@ -5492,7 +6055,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 dc10.disabled = true;
             }
         })
-        
+
         var cl1 = document.getElementById('cl1');
         var cl2 = document.getElementById('cl2');
         var cl3 = document.getElementById('cl3');
@@ -5601,7 +6164,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 cl11.disabled = true;
             }
         })
-        
+
         var pl1 = document.getElementById('pl1');
         var pl2 = document.getElementById('pl2');
         var pl3 = document.getElementById('pl3');
@@ -5619,7 +6182,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 pl3.disabled = true;
             }
         })
-        
+
         var ds1 = document.getElementById('ds1');
         var ds2 = document.getElementById('ds2');
         var ds3 = document.getElementById('ds3');
@@ -5682,7 +6245,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ds15.disabled = true;
             }
         })
-        
+
         ds14.addEventListener('click', function () {
             if (ds14.checked) {
                 ds15.disabled = false;
@@ -5690,7 +6253,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ds15.disabled = true;
             }
         })
-        
+
         var e1 = document.getElementById('e1');
         var e2 = document.getElementById('e2');
         var e3 = document.getElementById('e3');
@@ -5756,7 +6319,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 e14.disabled = true;
             }
         })
-        
+
         var t1 = document.getElementById('t1');
         var t2 = document.getElementById('t2');
         var t3 = document.getElementById('t3');
@@ -5770,7 +6333,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 t3.disabled = false;
             }
         })
-        
+
         var m1 = document.getElementById('m1');
         var m2 = document.getElementById('m2');
         var m3 = document.getElementById('m3');
@@ -5784,7 +6347,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 m3.disabled = false;
             }
         })
-        
+
         var al1 = document.getElementById('al1');
         var al2 = document.getElementById('al2');
         var al3 = document.getElementById('al3');
@@ -5794,7 +6357,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             if (al1.checked) {
                 al5.disabled = true;
             } else {
-                
+
             }
         })
         al2.addEventListener('click', function () {
@@ -5818,9 +6381,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 al5.disabled = true;
             }
         })
-        
-        
-        
+
+
+
         var p1 = document.getElementById('p1');
         var p2 = document.getElementById('p2');
         var p3 = document.getElementById('p3');
@@ -5861,7 +6424,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 p8.disabled = true;
             }
         })
-        
+
         var r1 = document.getElementById('r1');
         var r2 = document.getElementById('r2');
         var r3 = document.getElementById('r3');
@@ -5875,7 +6438,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 r3.disabled = false;
             }
         })
-        
+
         var ev1 = document.getElementById('ev1');
         var ev2 = document.getElementById('ev2');
         var ev3 = document.getElementById('ev3');
@@ -5889,7 +6452,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ev3.disabled = true;
             }
         })
-        
+
         var ap1 = document.getElementById('ap1');
         var ap2 = document.getElementById('ap2');
         var ap3 = document.getElementById('ap3');
@@ -5936,8 +6499,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 ap10.disabled = true;
             }
         })
-        
-        
+
+
         const h1 = document.getElementById('h1');
         function humor() {
             var selectH = document.getElementById('humor').value;
@@ -5947,7 +6510,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 h1.disabled = true;
             }
         }
-        
+
         const vM1 = document.getElementById('vM1');
         function vaMal() {
             var selectM = document.getElementById('vaMal').value;
@@ -5957,7 +6520,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 vM1.disabled = true;
             }
         }
-        
+
         const vB1 = document.getElementById('vB1');
         function vaBien() {
             var selectB = document.getElementById('vaBien').value;
@@ -5967,7 +6530,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 vB1.disabled = true;
             }
         }
-        
+
         $(document).ready(function () {
             $('#humor').change(function () {
                 humor();

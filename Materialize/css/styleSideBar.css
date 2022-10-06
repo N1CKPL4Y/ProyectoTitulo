@@ -7,6 +7,11 @@
     font-family: "Poppins" , sans-serif;
 }
 
+.c_faltante{
+    background-color: rgba(246, 206, 206, 1) !important;
+    border-color: rgba(254, 46, 46, 1) !important;
+}
+
 .encabezado{
     background-color: #00526a !important;
     color: white !important;
