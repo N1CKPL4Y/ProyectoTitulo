@@ -514,6 +514,12 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function getEntrevistaByRut($rut){
+        $sql = "SELECT COUNT(*) FROM entrevista WHERE rut_bene = '$rut';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     //INSERTS PARA ENTREVISTA ANTECEDENTES
     public function addEmbParto($Em_controlado, $per_control, $consumo, $indique_c, $complicaciones, $indique_com, $semanas_em, $tipo_part, $motivo_Ces, $asiste_Med) {

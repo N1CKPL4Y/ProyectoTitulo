@@ -132,6 +132,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             </div>
                         </div>
                         <?php
+                        $rutBd = '';
                         if (isset($_POST['buscar'])) {
 
                             $rutBuscado = isset($_POST['txt_rut']) ? $_POST['txt_rut'] : null;
@@ -144,7 +145,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     $diagValid = $data->getDiagValid($rutBuscado);
                                     $credencial = $data->getCreden($rutBuscado);
 
-                                    $rutBd;
+                                    
                                     $nombreBD;
                                     $apellidoBD;
                                     $fech_nacBD;
@@ -160,7 +161,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     $corrTut;
                                     foreach ($beneficiario as $key) {
                                         $rutBd = $key['RUT'];
-                                        $_SESSION['rut_bene'] = $key['RUT'];
+                                        //$_SESSION['rut_bene'] = $key['RUT'];
                                         $nombreBD = $key['nombre'];
                                         $apellidoBD = $key['apellido'];
                                         $fech_nacBD = $key['fecha_nac'];
@@ -3153,7 +3154,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="modal-body Cuerpo">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
-                                                            <h5 class="encabezado">Antecedentes Embarazo</h5>
+                                                            <input type="hidden" name="rrx_rutBenef" value="<?php echo $rutBd;?>"><h5 class="encabezado">Antecedentes Embarazo</h5>
                                                         </div>
                                                     </div>
                                                     <br>

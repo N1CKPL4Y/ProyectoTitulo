@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <title>Bitacora</title>
+        <title>Registrando Entrevista</title>
         <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
         <script src="../js/sweetalert2.all.min.js"></script>
         <link href="../Materialize/css/sweetalert2.min.css" rel="stylesheet"/>
@@ -33,12 +33,30 @@
                     })
                 });
             }
+
+            function existeE() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Este beneficiario ya tiene una entrevista registrada',
+                    confirmButtonText: 'Aceptar',
+                }).then(resultado => {
+                    window.location.href = '../Secretaria/EntrevistaFamilia.php';
+                })
+            }
+
+            function BeneVacio() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ingrese el RUT del beneficiario por favor',
+                    confirmButtonText: 'Aceptar',
+                }).then(resultado => {
+                    window.location.href = '../Secretaria/EntrevistaFamilia.php';
+                })
+            }
+
         </script>
     </body>
 </html>
-<?php
-echo '<script>GenerarEntre();</script>';
-?>
 <?php
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -55,10 +73,9 @@ $conect = $data->getConnection();
 
 session_start();
 $rut_user = $_SESSION['rut'];
-$rut_bene = $_SESSION['rut_bene'];
+$rut_bene = isset($_POST['rrx_rutBenef']) ? $_POST['rrx_rutBenef'] : null;
 
 //echo $rut_user . "<br>" . $rut_bene . "<br>";
-
 ////antecedentes del embrarazo y parto
 $embControl = isset($_POST['embarazo1']) ? $_POST['embarazo1'] : null;
 
@@ -118,7 +135,6 @@ if ($asistencia == 'Si') {
 ///Prueba de echo
 //echo '<br>////////////////////////////////////////////////Prueba embarazo y parto //////////////////////////////////////////////////<br>';
 //echo $embControl . "<br>" . $controltxt . "<br>" . $consumo . "<br>" . $consumotxt . "<br>" . $complicaciones . "<br>" . $compliTxt . "<br>" . $semanas . "<br>" . $tipoEmb . "<br>" . $motivoCes . "<br>" . $asistencia . "<br>";
-
 ///////antecedentes postparto
 
 $pesoNac = isset($_POST['txt_peso']) ? $_POST['txt_peso'] : null;
@@ -168,13 +184,11 @@ $obsPostParto = isset($_POST['txt_meses']) ? $_POST['txt_meses'] : null;
 
 ////////////Pruebas post parto
 //echo '<br>/////////////////////////////////////////////Pruebas post parto ///////////////////////////////////////////////<br>';
-
 //echo $pesoNac . "<br>" . $tallaNac . "<br>" . $apgar1 . "<br>" . $apgar5 . "<br>" . $hospitNac . "<br>" . $motivoHos . "<br>";
 foreach ($arraySint as $x) {
-    //echo "<br>" . $x . "<br>";
+//echo "<br>" . $x . "<br>";
 }
 //echo $otroSintoma . "<br>" . $controlesP . "<br>" . $vacunas . "<br>" . $obsPostParto;
-
 ////////////Lactancia
 //echo '<br>///////////////////////////////////////////////////////Prubas lactancia////////////////////////////////////////////////////////////////<br>';
 $l_materna = isset($_POST['txt_lactancia']) ? $_POST['txt_lactancia'] : null;
@@ -182,9 +196,7 @@ $mixto = isset($_POST['txt_mixto']) ? $_POST['txt_mixto'] : null;
 $relleno = isset($_POST['txt_relleno']) ? $_POST['txt_relleno'] : null;
 
 ///////////Prueba echo lactancia
-
 //echo "<br>" . $l_materna . "<br>" . $mixto . "<br>" . $relleno . "<br>";
-
 ////////////Desarrollo  sensoriomotriz
 
 $c_Cabeza = isset($_POST['txt_Ccabeza']) ? $_POST['txt_Ccabeza'] : null;
@@ -277,15 +289,14 @@ if (!empty($cognitivo)) {
 
 //////////////////////Pruebas sensoriomotriz
 //echo '<br>////////////////////////////////////////////////Desarrollo sensoriomotriz////////////////////////////////////////////////////////////////////<br>';
-
 //echo '<br>' . $c_Cabeza . '<br>' . $s_Solo . '<br>' . $gateo . '<br>' . $c_Apoyo . '<br>' . $s_apoyo . '<br>' . $p_Palabras . '<br>' . $p_Frases . '<br>' . $v_Solo . '<br>' . $esf_DV . '<br>' . $esf_NV . '<br>' . $esf_AD . '<br>' . $esf_AN . '<br>';
 //echo '<br>' . $panales . '<br>' . $panalE . '<br>' . $asistBano . '<br>' . $tipAsis . '<br>' . $motoraG . '<br>' . $tonoMg . '<br>' . $e_caminar . '<br>' . $c_frecuencia . '<br>' . $dominancia . '<br>' . $obsDesSens . '<br>';
 foreach ($arrayMotri as $motri) {
-    //echo '<br>' . $motri . '<br>';
+//echo '<br>' . $motri . '<br>';
 }
 //echo '*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-';
 foreach ($arrayCog as $cog) {
-    //echo '<br>' . $cog . '<br>';
+//echo '<br>' . $cog . '<br>';
 }
 
 ///////////////////Vision
@@ -322,14 +333,13 @@ $obsVision = isset($_POST['txt_ObsVis']) ? $_POST['txt_ObsVis'] : null;
 ////////////////////////Prueba vision
 //echo '<br>////////////////////////////////////////////Vision/////////////////////////////////<br>';
 foreach ($arrayVision as $value) {
-    //echo '<br>' . $value . '<br>';
+//echo '<br>' . $value . '<br>';
 }
 //echo '*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*';
 foreach ($arrayDiagVis as $value) {
-    //echo '<br>' . $value . '<br>';
+//echo '<br>' . $value . '<br>';
 }
 //echo $otroDiagVis . "<br>" . $lentes . " " . $obsVision . "<br>";
-
 /////////////////////////////Audicion
 
 $audicion = isset($_POST['check_audi']) ? $_POST['check_audi'] : null;
@@ -365,14 +375,13 @@ $obsAudicion = isset($_POST['obs_Audicion']) ? $_POST['obs_Audicion'] : null;
 ///////////////prueba audicion
 //echo '<br>////////////////////////////////////////////Audicion/////////////////////////////////<br>';
 foreach ($arrayAudicion as $value) {
-    //echo '<br>' . $value;
+//echo '<br>' . $value;
 }
 //echo '<br>*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*';
 foreach ($arrayDiagAudi as $value) {
-    //echo '<br>' . $value;
+//echo '<br>' . $value;
 }
 //echo '<br>' . $otroDiagAudi . ' ' . $audifonos . ' ' . $obsAudicion . '<br>';
-
 //////////////////////////Lenguaje
 $comunicacion = isset($_POST['comunicacion']) ? $_POST['comunicacion'] : null;
 if ($comunicacion == 'Otro') {
@@ -424,15 +433,14 @@ $obsLenguaje = isset($_POST['txt_ObsLeng']) ? $_POST['txt_ObsLeng'] : null;
 //echo '<br>////////////////////////////////////Lenguaje/////////////////////////////////<br>';
 //echo '<br>' . $comunicacion . " " . $otroComuni . "<br>";
 foreach ($arrayExpres as $value) {
-    //echo ' ' . $value . ' ';
+//echo ' ' . $value . ' ';
 }
 //echo '<br>' . $otroExpres . "<br>";
 //echo '*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*<br>';
 foreach ($arrayCompren as $value) {
-    //echo ' ' . $value . ' ';
+//echo ' ' . $value . ' ';
 }
 //echo '<br>' . $otroCompren . " " . $perdida_L . ' ' . $txt_Perdi . ' ' . $obsLenguaje . "<br>";
-
 /////////////////////Social
 $social = isset($_POST['check_DesSoc']) ? $_POST['check_DesSoc'] : null;
 $arraySocial = [];
@@ -456,10 +464,9 @@ $obsSocial = isset($_POST['txt_ObsDesSoc']) ? $_POST['txt_ObsDesSoc'] : null;
 ///////////////prueba social
 //echo '<br>////////////////////////////////////Social/////////////////////////////////<br>';
 foreach ($arraySocial as $value) {
-    //echo ' ' . $value . ' ';
+//echo ' ' . $value . ' ';
 }
 //echo '<br>' . $otroSocial . ' ' . $reactLuz . ' ' . $reactSonido . ' ' . $reactPersona . ' ' . $obsSocial . '<br>';
-
 /////////////////////////////////Salud
 $salud = isset($_POST['check_EstSal']) ? $_POST['check_EstSal'] : null;
 $arraySalud = [];
@@ -519,13 +526,13 @@ $otroSalNoc;
 if (!empty($saludNoche)) {
     foreach ($saludNoche as $value) {
         array_push($arraySaludN, $value);
-        //echo $value . "<br>";
+//echo $value . "<br>";
         if ($value == "Otro") {
             $otroSalNoc = isset($_POST['otro_NocheP']) ? $_POST['otro_NocheP'] : null;
-            //echo $otroSalNoc;
+//echo $otroSalNoc;
         } else {
             $otroSalNoc = "No tiene otro estado de salud";
-            //echo $otroSalNoc;
+//echo $otroSalNoc;
         }
     }
 }
@@ -534,49 +541,48 @@ $humor = isset($_POST['cbo_humor']) ? $_POST['cbo_humor'] : null;
 if ($humor == 'Otro:') {
     $humor = 10;
     $txt_humor = isset($_POST['otro_Humor']) ? $_POST['otro_Humor'] : null;
-} else  if ($humor == 'Alegre'){
+} else if ($humor == 'Alegre') {
     $humor = 1;
     $txt_humor = "No Aplica";
-}else if ($humor == 'Jugueton/bromista'){
+} else if ($humor == 'Jugueton/bromista') {
     $humor = 2;
     $txt_humor = "No Aplica";
-}else if($humor == 'Risueño'){
+} else if ($humor == 'Risueño') {
     $humor = 3;
-    $txt_humor = "No Aplica"; 
-}else if($humor == 'Triste'){
+    $txt_humor = "No Aplica";
+} else if ($humor == 'Triste') {
     $humor = 4;
-    $txt_humor = "No Aplica"; 
-}else if($humor == 'Serio'){
+    $txt_humor = "No Aplica";
+} else if ($humor == 'Serio') {
     $humor = 5;
-    $txt_humor = "No Aplica"; 
-}else if ($humor == 'Rebelde'){
+    $txt_humor = "No Aplica";
+} else if ($humor == 'Rebelde') {
     $humor = 6;
-    $txt_humor = "No Aplica"; 
-}else if ($humor == 'Apático'){
+    $txt_humor = "No Aplica";
+} else if ($humor == 'Apático') {
     $humor = 7;
-    $txt_humor = "No Aplica"; 
-}else if($humor == 'Violento(a)'){
+    $txt_humor = "No Aplica";
+} else if ($humor == 'Violento(a)') {
     $humor = 8;
-    $txt_humor = "No Aplica"; 
-}else if($humor == 'Ninguna'){
+    $txt_humor = "No Aplica";
+} else if ($humor == 'Ninguna') {
     $humor = 9;
-    $txt_humor = "No Aplica"; 
+    $txt_humor = "No Aplica";
 }
 $obsSalud = isset($_POST['txt_ObsSalud']) ? $_POST['txt_ObsSalud'] : null;
 
 //echo '<br>////////////////////////////////////////////Salud/////////////////////////////<br>';
 
 foreach ($arraySalud as $value) {
-    //echo ' ' . $value . ' ';
+//echo ' ' . $value . ' ';
 }
 //echo '<br>' . $otroSalud . ' ' . $tratamiento . ' ' . $txt_Tratam . ' ' . $medicamento . ' ' . $txt_Medic . ' ' . $alimentacion . ' ' . $txt_aliment . '<br>';
 //echo ' ' . $estaturaA . ' ' . $pesoA . ' ' . $pesoCh . ' ' . $c_solo . ' ' . $g_comer . ' ' . $ng_comer . ' ' . $dormir . ' ' . $hora_dormir;
 //echo '<br>' . $duerme . ' ' . $espDuerme . '<br>';
 foreach ($arraySaludN as $value) {
-    //echo ' ' . $value . ' ';
+//echo ' ' . $value . ' ';
 }
 //echo '<br>' . $humor . ' ' . $txt_humor . ' ' . $obsSalud . ' ' . $otroSalNoc;
-
 ////////////////Antecedentes familiares
 $integrantes = isset($_POST['integrantes']) ? $_POST['integrantes'] : null;
 $antSalud = isset($_POST['Asalud']) ? $_POST['Asalud'] : null;
@@ -584,7 +590,6 @@ $obsAntFam = isset($_POST['txt_ObsAntFam']) ? $_POST['txt_ObsAntFam'] : null;
 
 //echo '<br>///////////////////////////////Ant familiares///////////////////////////////////<br>';
 //echo '<br>' . $integrantes . '<br>' . $antSalud . '<br>' . $obsAntFam . '<br>';
-
 ////////Antecedentes escolares
 $ingresoE = isset($_POST['edadE']) ? $_POST['edadE'] : null;
 $jardin = isset($_POST['jardin']) ? $_POST['jardin'] : null;
@@ -608,7 +613,6 @@ $situacion = isset($_POST['cbo_situacion']) ? $_POST['cbo_situacion'] : null;
 
 //echo '<br>///////////////////////////////Ant estudios///////////////////////////////////<br>';
 //echo '<br>' . $ingresoE . ' ' . $jardin . ' ' . $antecedentesE . ' ' . $modalidadE . ' ' . $motivoE . ' ' . $repetir . ' ' . $txt_repetir . ' ' . $situacion . '<br>';
-
 ///////////Actitud familia
 $desempeno = isset($_POST['descolar']) ? $_POST['descolar'] : null;
 if ($desempeno == 'Insatisfactorio') {
@@ -648,176 +652,189 @@ $ambiente = isset($_POST['ambiente']) ? $_POST['ambiente'] : null;
 //echo '<br>///////////////////////////Actitud Familia////////////////////////////<br>';
 //echo '<br>' . $desempeno . ' ' . $txtDescolar . ' ' . $badCole . ' ' . $txt_otrovMal . ' ' . $goodCole . ' ' . $txt_otroBien . ' ' . $ambiente . "<br>";
 foreach ($arrayApoyo as $value) {
-    //echo ' ' . $value . ' ';
+//echo ' ' . $value . ' ';
 }
-//echo '<br>' . $otroApoyo . '<br>Final';
 
+//echo '<br>' . $otroApoyo . '<br>Final';
+///////////////////////////////Se evalua si existe la entrevista////////////////////////////////////////////////////
+
+echo $rut_bene;
+
+if (empty($rut_bene)) {
+    echo '<script>BeneVacio();</script>';
+} else {
+    $existeE = $data->getEntrevistaByRut($rut_bene);
+    if ($existeE) {
+        echo '<script>existeE();</script>';
+    } else {
+        echo '<script>GenerarEntre();</script>';
 /////////////////////////////////////////////////////////Inserts////////////////////////////////////////////////////////
 //embarazoparto//
-
-$data->addEmbParto($embControl, $controltxt, $consumo, $consumotxt, $complicaciones, $compliTxt, $semanas, $tipoEmb, $motivoCes, $asistencia);
-$lastEmbParto = $data->getLastEmbParto();
-foreach ($lastEmbParto as $value) {
-    $lastEmbParto = $value['id'];
-}
+        $data->addEmbParto($embControl, $controltxt, $consumo, $consumotxt, $complicaciones, $compliTxt, $semanas, $tipoEmb, $motivoCes, $asistencia);
+        $lastEmbParto = $data->getLastEmbParto();
+        foreach ($lastEmbParto as $value) {
+            $lastEmbParto = $value['id'];
+        }
 //postparto//
-$data->addPostParto($pesoNac, $tallaNac, $apgar1, $apgar5, $hospitNac, $motivoHos, $controlesP, $vacunas, $obsPostParto);
-$lastPParto = $data->getLastPostParto();
-foreach ($lastPParto as $value) {
-    $lastPParto = $value['id'];
-}
-foreach ($arraySint as $value1) {
-    if ($value1 != 'Otro') {
-        $data->addCompPostParto($lastPParto, $value1);
-    } else if ($value1 == 'Otro') {
-        $data->addCompPostParto($lastPParto, $otroSintoma);
-    }
-}
+        $data->addPostParto($pesoNac, $tallaNac, $apgar1, $apgar5, $hospitNac, $motivoHos, $controlesP, $vacunas, $obsPostParto);
+        $lastPParto = $data->getLastPostParto();
+        foreach ($lastPParto as $value) {
+            $lastPParto = $value['id'];
+        }
+        foreach ($arraySint as $value1) {
+            if ($value1 != 'Otro') {
+                $data->addCompPostParto($lastPParto, $value1);
+            } else if ($value1 == 'Otro') {
+                $data->addCompPostParto($lastPParto, $otroSintoma);
+            }
+        }
 
 //lactancia//
 
-$data->addLactancia($l_materna, $mixto, $relleno);
-$lastLactancia = $data->getLastLactancia();
-foreach ($lastLactancia as $value) {
-    $lastLactancia = $value['id'];
-}
+        $data->addLactancia($l_materna, $mixto, $relleno);
+        $lastLactancia = $data->getLastLactancia();
+        foreach ($lastLactancia as $value) {
+            $lastLactancia = $value['id'];
+        }
 //desarrollo sensoriomotriz//
-$data->addDesMotriz($c_Cabeza, $s_Solo, $gateo, $c_Apoyo, $s_apoyo, $p_Palabras, $p_Frases, $v_Solo, $esf_DV, $esf_NV, $esf_AD, $esf_AN, $panales, $panalE, $asistBano, $tipAsis, $motoraG, $tonoMg, $e_caminar, $c_frecuencia, $dominancia, $obsDesSens);
+        $data->addDesMotriz($c_Cabeza, $s_Solo, $gateo, $c_Apoyo, $s_apoyo, $p_Palabras, $p_Frases, $v_Solo, $esf_DV, $esf_NV, $esf_AD, $esf_AN, $panales, $panalE, $asistBano, $tipAsis, $motoraG, $tonoMg, $e_caminar, $c_frecuencia, $dominancia, $obsDesSens);
 
-$lastDesMotriz = $data->getLastDesMotriz();
-foreach ($lastDesMotriz as $value) {
-    $lastDesMotriz = $value['id'];
-}
-foreach ($arrayMotri as $value) {
-    $data->addCompDesMotrizFina($lastDesMotriz, $value);
-}
+        $lastDesMotriz = $data->getLastDesMotriz();
+        foreach ($lastDesMotriz as $value) {
+            $lastDesMotriz = $value['id'];
+        }
+        foreach ($arrayMotri as $value) {
+            $data->addCompDesMotrizFina($lastDesMotriz, $value);
+        }
 
-foreach ($arrayCog as $value) {
-    $data->addCompDesMotrizSCog($lastDesMotriz, $value);
-}
+        foreach ($arrayCog as $value) {
+            $data->addCompDesMotrizSCog($lastDesMotriz, $value);
+        }
 
 //vision//
-$data->addVision($lentes, $obsVision);
-$lastVision = $data->getLastVision();
-foreach ($lastVision as $value) {
-    $lastVision = $value['id'];
-}
-foreach ($arrayVision as $value) {
-    $data->addCompVision($lastVision, $value);
-}
+        $data->addVision($lentes, $obsVision);
+        $lastVision = $data->getLastVision();
+        foreach ($lastVision as $value) {
+            $lastVision = $value['id'];
+        }
+        foreach ($arrayVision as $value) {
+            $data->addCompVision($lastVision, $value);
+        }
 
-foreach ($arrayDiagVis as $value) {
-    if ($value != 'Otro') {
-        $data->addCompDiagVision($lastVision, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompDiagVision($lastVision, $otroDiagVis);
-    }
-}
+        foreach ($arrayDiagVis as $value) {
+            if ($value != 'Otro') {
+                $data->addCompDiagVision($lastVision, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompDiagVision($lastVision, $otroDiagVis);
+            }
+        }
 
 //audicion//
-$data->addAudicion($audifonos, $obsAudicion);
-$lastAudi = $data->getLastAudicion();
-foreach ($lastAudi as $value) {
-    $lastAudi = $value['id'];
-}
-foreach ($arrayAudicion as $value) {
-    $data->addCompAudicion($lastAudi, $value);
-}
+        $data->addAudicion($audifonos, $obsAudicion);
+        $lastAudi = $data->getLastAudicion();
+        foreach ($lastAudi as $value) {
+            $lastAudi = $value['id'];
+        }
+        foreach ($arrayAudicion as $value) {
+            $data->addCompAudicion($lastAudi, $value);
+        }
 
-foreach ($arrayDiagAudi as $value) {
-    if ($value != 'Otro') {
-        $data->addCompDiagAudicion($lastAudi, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompDiagAudicion($lastAudi, $otroDiagAudi);
-    }
-}
+        foreach ($arrayDiagAudi as $value) {
+            if ($value != 'Otro') {
+                $data->addCompDiagAudicion($lastAudi, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompDiagAudicion($lastAudi, $otroDiagAudi);
+            }
+        }
 
 //desarrollo del lenguaje//
-$data->addDesLenguaje($comunicacion, $otroComuni, $perdida_L, $txt_Perdi, $obsLenguaje);
-$lastDesLeng = $data->getLastDesLeng();
-foreach ($lastDesLeng as $value) {
-    $lastDesLeng = $value['id'];
-}
-foreach ($arrayExpres as $value) {
-    if ($value != 'Otro') {
-        $data->addCompDesLengua_expre($lastDesLeng, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompDesLengua_expre($lastDesLeng, $otroExpres);
-    }
-}
+        $data->addDesLenguaje($comunicacion, $otroComuni, $perdida_L, $txt_Perdi, $obsLenguaje);
+        $lastDesLeng = $data->getLastDesLeng();
+        foreach ($lastDesLeng as $value) {
+            $lastDesLeng = $value['id'];
+        }
+        foreach ($arrayExpres as $value) {
+            if ($value != 'Otro') {
+                $data->addCompDesLengua_expre($lastDesLeng, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompDesLengua_expre($lastDesLeng, $otroExpres);
+            }
+        }
 
-foreach ($arrayCompren as $value) {
-    if ($value != 'Otro') {
-        $data->addCompDesLengua_compr($lastDesLeng, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompDesLengua_compr($lastDesLeng, $otroCompren);
-    }
-}
+        foreach ($arrayCompren as $value) {
+            if ($value != 'Otro') {
+                $data->addCompDesLengua_compr($lastDesLeng, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompDesLengua_compr($lastDesLeng, $otroCompren);
+            }
+        }
 
 //desarrollo social//
-$data->addDesSocial($reactLuz, $reactSonido, $reactPersona, $obsSocial);
-$lastDesSocial = $data->getLastDesSocial();
-foreach ($lastDesSocial as $value) {
-    $lastDesSocial = $value['id'];
-}
-foreach ($arraySocial as $value) {
-    if ($value != 'Otro') {
-        $data->addCompDesSocial($lastDesSocial, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompDesSocial($lastDesSocial, $otroSocial);
-    }
-}
+        $data->addDesSocial($reactLuz, $reactSonido, $reactPersona, $obsSocial);
+        $lastDesSocial = $data->getLastDesSocial();
+        foreach ($lastDesSocial as $value) {
+            $lastDesSocial = $value['id'];
+        }
+        foreach ($arraySocial as $value) {
+            if ($value != 'Otro') {
+                $data->addCompDesSocial($lastDesSocial, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompDesSocial($lastDesSocial, $otroSocial);
+            }
+        }
 
 //salud//
-$data->addSalud($tratamiento, $txt_Tratam, $medicamento, $txt_Medic, $alimentacion, $txt_aliment, $estaturaA, $pesoA, $pesoCh, $c_solo, $g_comer, $ng_comer, $dormir, $hora_dormir, $duerme, $humor, $txt_humor, $obsSalud);
-$lastSalud = $data->getLastSalud();
-foreach ($lastSalud as $value) {
-    $lastSalud = $value['id'];
-}
-foreach ($arraySalud as $value) {
-    if ($value != 'Otro') {
-        $data->addCompSaludActual($lastSalud, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompSaludActual($lastSalud, $otroSalud);
-    }
-}
+        $data->addSalud($tratamiento, $txt_Tratam, $medicamento, $txt_Medic, $alimentacion, $txt_aliment, $estaturaA, $pesoA, $pesoCh, $c_solo, $g_comer, $ng_comer, $dormir, $hora_dormir, $duerme, $humor, $txt_humor, $obsSalud);
+        $lastSalud = $data->getLastSalud();
+        foreach ($lastSalud as $value) {
+            $lastSalud = $value['id'];
+        }
+        foreach ($arraySalud as $value) {
+            if ($value != 'Otro') {
+                $data->addCompSaludActual($lastSalud, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompSaludActual($lastSalud, $otroSalud);
+            }
+        }
 
-foreach ($arraySaludN as $value) {
-    if ($value != 'Otro') {
-        $data->addCompSaludNocturno($lastSalud, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompSaludNocturno($lastSalud, $otroSalNoc);
-    }
-}
+        foreach ($arraySaludN as $value) {
+            if ($value != 'Otro') {
+                $data->addCompSaludNocturno($lastSalud, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompSaludNocturno($lastSalud, $otroSalNoc);
+            }
+        }
 
 //antecedentes familiares//
 
-$data->addAntFam($integrantes, $antSalud, $obsAntFam);
-$lastAntFam = $data->getLastAntFam();
-foreach ($lastAntFam as $value) {
-    $lastAntFam = $value['id'];
-}
+        $data->addAntFam($integrantes, $antSalud, $obsAntFam);
+        $lastAntFam = $data->getLastAntFam();
+        foreach ($lastAntFam as $value) {
+            $lastAntFam = $value['id'];
+        }
 //antecedentes escolares//
 
-$data->addAntEscolar($ingresoE, $jardin, $antecedentesE, $modalidadE, $motivoE, $repetir, $txt_repetir, $situacion);
-$lastAntEscolar = $data->getLastAntEscolar();
-foreach ($lastAntEscolar as $value) {
-    $lastAntEscolar = $value['id'];
-}
+        $data->addAntEscolar($ingresoE, $jardin, $antecedentesE, $modalidadE, $motivoE, $repetir, $txt_repetir, $situacion);
+        $lastAntEscolar = $data->getLastAntEscolar();
+        foreach ($lastAntEscolar as $value) {
+            $lastAntEscolar = $value['id'];
+        }
 //actitud de la familia//
-$data->addActFam($desempeno, $txtDescolar, $badCole, $txt_otrovMal, $goodCole, $txt_otroBien, $ambiente);
-$lastActFam = $data->getLastActFam();
-foreach ($lastActFam as $value) {
-    $lastActFam = $value['id'];
-}
-foreach ($arrayApoyo as $value) {
-    if ($value != 'Otro') {
-        $data->addCompActFam($lastActFam, $value);
-    } else if ($value == 'Otro') {
-        $data->addCompActFam($lastActFam, $otroApoyo);
-    }
-}
+        $data->addActFam($desempeno, $txtDescolar, $badCole, $txt_otrovMal, $goodCole, $txt_otroBien, $ambiente);
+        $lastActFam = $data->getLastActFam();
+        foreach ($lastActFam as $value) {
+            $lastActFam = $value['id'];
+        }
+        foreach ($arrayApoyo as $value) {
+            if ($value != 'Otro') {
+                $data->addCompActFam($lastActFam, $value);
+            } else if ($value == 'Otro') {
+                $data->addCompActFam($lastActFam, $otroApoyo);
+            }
+        }
 
 //entrevista//
-$data->addEntrevista($rut_bene, $rut_user, $lastEmbParto, $lastPParto, $lastLactancia, $lastDesMotriz, $lastVision, $lastAudi, $lastDesLeng, $lastDesSocial, $lastSalud, $lastAntFam, $lastAntEscolar, $lastActFam);
-
+        $data->addEntrevista($rut_bene, $rut_user, $lastEmbParto, $lastPParto, $lastLactancia, $lastDesMotriz, $lastVision, $lastAudi, $lastDesLeng, $lastDesSocial, $lastSalud, $lastAntFam, $lastAntEscolar, $lastActFam);
+    }
+}
+ 
