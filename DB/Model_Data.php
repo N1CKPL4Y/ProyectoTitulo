@@ -120,7 +120,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getDiagCom($rut) {
         $sql = "SELECT diagnostico.codigo, condicion.nombre FROM `diagnostico` INNER JOIN condicion ON diagnostico.codigo=condicion.ID WHERE diagnostico.beneficiario='$rut';";
         $query = $this->con->query($sql);
@@ -292,7 +292,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getEdad($rut) {
         $sql = "SELECT YEAR(CURDATE())-YEAR(fecha_nac) AS 'Años', MONTH(CURDATE())-MONTH(fecha_nac) AS 'Meses' FROM beneficiario where RUT = '$rut'";
         $query = $this->con->query($sql);
@@ -338,18 +338,18 @@ class Data {
         $sql = "INSERT INTO `evento` (`id`, `title`, `start`, `color`) VALUES (NULL, '$title', '$fecha', '$color');";
         $query = $this->con->query($sql);
     }
-    
+
     public function getLimitEvent() {
         $sql = "select id from evento order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function addConsulta($id, $rutBene, $rutProfe) {
         $sql = "INSERT INTO `consulta` (`id`, `id_evento`, `rut_bene`, `rut_profe`) VALUES (NULL, '$id', '$rutBene', '$rutProfe');";
         $query = $this->con->query($sql);
     }
-    
+
     public function getProfesional() {
         $sql = "SELECT * FROM `usuario` WHERE cargo=3 OR cargo=4;";
         $query = $this->con->query($sql);
@@ -361,7 +361,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getEventProf($area, $rut) {
         $sql = "SELECT evento.* FROM `evento` INNER JOIN consulta ON consulta.id_evento=evento.id INNER JOIN usuario ON usuario.RUT=consulta.rut_profe INNER JOIN a_usuario ON usuario.a_user=a_usuario.ID WHERE usuario.a_user=$area AND usuario.RUT='$rut';";
         $query = $this->con->query($sql);
@@ -373,54 +373,54 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getConsEvent($rut_bene, $rut_profe) {
-        $sql= "SELECT COUNT(*) as 'Consultas' FROM consulta INNER JOIN evento ON consulta.id_evento=evento.id WHERE consulta.rut_bene='$rut_bene' AND consulta.rut_profe='$rut_profe' AND evento.start BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
+        $sql = "SELECT COUNT(*) as 'Consultas' FROM consulta INNER JOIN evento ON consulta.id_evento=evento.id WHERE consulta.rut_bene='$rut_bene' AND consulta.rut_profe='$rut_profe' AND evento.start BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getCountPrograma($rut_bene, $rut_profe) {
-        $sql="SELECT COUNT(programa) as 'Programas'  FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
+        $sql = "SELECT COUNT(programa) as 'Programas'  FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
         //AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()))
-        $query= $this->con->query($sql);
+        $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getPrograma($rut_bene, $rut_profe) {
-        $sql="SELECT programa FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' ORDER BY id DESC LIMIT 1;";
-        $query= $this->con->query($sql);
+        $sql = "SELECT programa FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' ORDER BY id DESC LIMIT 1;";
+        $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
-        $sql="INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $programa, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
+        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $programa, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
         $query = $this->con->query($sql);
     }
-    
-    /*public function getExisBitacora($rut) {
-        $sql = "SELECT COUNT(*) AS 'existe' 
-	            FROM bitacora
-	            WHERE beneficiario= '$rut';";
 
+    /* public function getExisBitacora($rut) {
+      $sql = "SELECT COUNT(*) AS 'existe'
+      FROM bitacora
+      WHERE beneficiario= '$rut';";
+
+      $query = $this->con->query($sql);
+
+      while ($fila = $query->fetch_row()) {
+      return ($fila[0] == 1);
+      }
+
+      return false;
+      } */
+
+    public function getBitacora($rut, $profe) {
+        $sql = "SELECT * from bitacora WHERE beneficiario='$rut' AND usuario='$profe';";
         $query = $this->con->query($sql);
-
-        while ($fila = $query->fetch_row()) {
-            return ($fila[0] == 1);
-        }
-
-        return false;
-    }*/
-    
-    public function getBitacora($rut,$profe) {
-        $sql="SELECT * from bitacora WHERE beneficiario='$rut' AND usuario='$profe';";
-        $query= $this->con->query($sql);
         return $query;
     }
-    
+
     public function getBitacoraByID($id) {
-        $sql="SELECT * from bitacora WHERE id=$id;";
-        $query= $this->con->query($sql);
+        $sql = "SELECT * from bitacora WHERE id=$id;";
+        $query = $this->con->query($sql);
         return $query;
     }
 
@@ -440,7 +440,7 @@ class Data {
         $sql = "UPDATE `evento` SET `title` = '$title', `start` = '$fecha', `color` = '$color' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
     }
-    
+
     public function updColorEvento($id, $color) {
         $sql = "UPDATE `evento` SET `color` = '$color' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
@@ -514,11 +514,15 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getEntrevistaByRut($rut){
-        $sql = "SELECT COUNT(*) FROM entrevista WHERE rut_bene = '$rut';";
+
+    public function getEntrevistaByRut($rut) {
+        $sql = "SELECT COUNT(*) as 'existe' FROM entrevista WHERE rut_bene = '$rut';";
         $query = $this->con->query($sql);
-        return $query;
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        };
+
+        return false;
     }
 
     //INSERTS PARA ENTREVISTA ANTECEDENTES
@@ -526,8 +530,8 @@ class Data {
         $sql = "INSERT INTO `embarazoparto` (`id`, `Em_controlado`, `per_control`, `consumo`, `indique_c`, `complicaciones`, `indique_com` , `semanas_em`, `tipo_part`, `motivo_Ces`, `asiste_Med`) VALUES (NULL, $Em_controlado, '$per_control', $consumo, '$indique_c', $complicaciones, '$indique_com' , $semanas_em, $tipo_part, '$motivo_Ces', $asiste_Med);";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastEmbParto(){
+
+    public function getLastEmbParto() {
         $sql = "select id from embarazoparto order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -537,8 +541,8 @@ class Data {
         $sql = "INSERT INTO `postparto` (`id`, `peso`, `talla`, `apgar_1`, `apgar_5`, `hospit_nac`, `motiv_Hos`, `control_per`, `vacunas`, `obs_12m`) VALUES (NULL, $peso, $talla, $apgar_1, $apgar_5, $hospit_nac, '$motiv_Hos', $control_per, $vacunas, '$obs_12m');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastPostParto(){
+
+    public function getLastPostParto() {
         $sql = "select id from postparto order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -553,8 +557,8 @@ class Data {
         $sql = "INSERT INTO `lactancia` (`id`, `l_materna`, `l_mixto`, `l_relleno`) VALUES (NULL, '$l_materna', '$l_mixto', '$l_relleno');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastLactancia(){
+
+    public function getLastLactancia() {
         $sql = "select id from lactancia order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -564,8 +568,8 @@ class Data {
         $sql = "INSERT INTO `desmotriz` (`id`, `C_cabeza`, `S_solo`, `C_gatear`, `C_apoyo`, `S_apoyo`, `E_1palabras`, `E_1frases`, `V_solo`, `c_EsVDiurno`, `c_EsVNocturno`, `c_EsADiurno`, `c_EsANocturno`, `U_panal`, `U_panalEntr`, `A_bano`, `indique_ABano`, `A_motoraG`, `T_muscG`, `Es_Caminar`, `C_frecuen`, `D_lateral`, `obs_DesMotriz`) VALUES (NULL, $C_cabeza, $S_solo, $C_gatear, $C_apoyo, $S_apoyo, $E_1palabras, $E_1frases, $V_solo, $c_EsVDiurno, $c_EsVNocturno, $c_EsADiurno, $c_EsANocturno, $U_panal, $U_panalEntr, $A_bano, '$indique_ABano', '$A_motoraG', '$T_muscG', $Es_Caminar, $C_frecuen, '$D_lateral', '$obs_DesMotriz');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastDesMotriz(){
+
+    public function getLastDesMotriz() {
         $sql = "select id from desmotriz order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -585,8 +589,8 @@ class Data {
         $sql = "INSERT INTO `vision` (`id`, `u_lentes`, `obs_Vision`) VALUES (NULL, $u_lentes, '$obs_Vision');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastVision(){
+
+    public function getLastVision() {
         $sql = "select id from vision order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -606,8 +610,8 @@ class Data {
         $sql = "INSERT INTO `audicion` (`id`, `U_audifonos`, `obs_Audicion`) VALUES (NULL, $U_audifonos, '$obs_Audicion');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastAudicion(){
+
+    public function getLastAudicion() {
         $sql = "select id from audicion order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -627,8 +631,8 @@ class Data {
         $sql = "INSERT INTO `deslengua` (`id`, `comunicacion`, `indique`, `perdida_leng`, `indique_Pl`, `obs_DesLengua`) VALUES (NULL, '$comunicacion', '$indique', $perdida_leng, '$indique_Pl', '$obs_DesLengua');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastDesLeng(){
+
+    public function getLastDesLeng() {
         $sql = "select id from deslengua order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -648,8 +652,8 @@ class Data {
         $sql = "INSERT INTO `dessocial` (`id`, `react_luz`, `react_sonido`, `react_persona`, `obs_DesSocial`) VALUES (NULL, '$react_luz', '$react_sonido', '$react_persona', '$obs_DesSocial');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastDesSocial(){
+
+    public function getLastDesSocial() {
         $sql = "select id from dessocial order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -664,8 +668,8 @@ class Data {
         $sql = " INSERT INTO `salud` (`id`, `tratamiento`, `Ind_tratam`, `medicamento`, `ind_medic`, `alimentacion`, `indique_ali`, `talla_act`, `peso_act`, `peso_IMC`, `c_solo`, `gusta_comer`, `nogusta_comer`, `sueno`, `hora_dormir`, `duerme`, `humor`, `indique_h`, `obs_Salud`) VALUES (NULL, $tratamiento, '$Ind_tratam', $medicamento, '$ind_medic', '$alimentacion', '$indique_ali' , $talla_act, $peso_act, '$peso_IMC', $c_solo, '$gusta_comer', '$nogusta_comer', '$sueno', '$hora_dormir', '$duerme', $humor, '$indique_h', '$obs_Salud');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastSalud(){
+
+    public function getLastSalud() {
         $sql = "select id from salud order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -685,8 +689,8 @@ class Data {
         $sql = "INSERT INTO `antfam` (`id`, `pers_viven`, `ant_salud`, `obs_AntFam`) VALUES (NULL, '$pers_viven', '$ant_salud', '$obs_AntFam');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastAntFam(){
+
+    public function getLastAntFam() {
         $sql = "select id from antfam order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -696,8 +700,8 @@ class Data {
         $sql = "INSERT INTO `antescolar` (`id`, `ingEsc`, `aJardin`, `antecedentes`, `mod_Ensenanza`, `motivo_c`, `rep_curso`, `c_motivorep`, `situacion`) VALUES (NULL, $ingEsc, $aJardin, '$antecedentes', '$mod_Ensenanza', '$motivo_c', $rep_curso, '$c_motivorep', '$situacion');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastAntEscolar(){
+
+    public function getLastAntEscolar() {
         $sql = "select id from antescolar order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -707,8 +711,8 @@ class Data {
         $sql = "INSERT INTO `actfam` (`id`, `desem`, `motivo_ins`, `do_malcolegio`, `otro_vamal`, `do_biencolegio`, `otro_biencolegio`, `ambiente`) VALUES (NULL, '$desem', '$motivo_ins', '$do_malcolegio', '$otro_vamal', '$do_biencolegio', '$otro_biencolegio', '$ambiente');";
         $query = $this->con->query($sql);
     }
-    
-    public function getLastActFam(){
+
+    public function getLastActFam() {
         $sql = "select id from actfam order by id desc limit 1;";
         $query = $this->con->query($sql);
         return $query;
@@ -718,8 +722,8 @@ class Data {
         $sql = "INSERT INTO `compactfam` (`id`, `id_actFam`, `apoyo`) VALUES (NULL, $id_actFam, '$apoyo');";
         $query = $this->con->query($sql);
     }
-    
-    public function addEntrevista($rut_bene, $rut_usuario, $id_embParto, $id_postParto, $id_Lactancia, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam){
+
+    public function addEntrevista($rut_bene, $rut_usuario, $id_embParto, $id_postParto, $id_Lactancia, $id_DesMotriz, $id_Vision, $id_Audicion, $id_DesLengua, $id_DesSocial, $id_Salud, $id_AntFam, $id_AntEscolar, $id_ActFam) {
         $sql = "INSERT INTO `entrevista` (`id`, `rut_bene`, `rut_usuario`, `id_embPart`, `id_postParto`, `id_lactancia`, `id_DesMotriz`, `id_Vision`, `id_Audicion`, `id_DesLengua`, `id_DesSocial`, `id_Salud`, `id_AntFam`, `id_AntEscolar`, `id_ActFam`, `fecha`) VALUES "
                 . "(NULL, '$rut_bene', '$rut_usuario', '$id_embParto', '$id_postParto', '$id_Lactancia', '$id_DesMotriz', '$id_Vision', '$id_Audicion', '$id_DesLengua', '$id_DesSocial', '$id_Salud', '$id_AntFam', '$id_AntEscolar', '$id_ActFam', now());";
         $query = $this->con->query($sql);

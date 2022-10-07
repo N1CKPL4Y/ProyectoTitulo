@@ -1,4 +1,3 @@
-
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -664,13 +663,16 @@ if (empty($rut_bene)) {
     echo '<script>BeneVacio();</script>';
 } else {
     $existeE = $data->getEntrevistaByRut($rut_bene);
+    
     if ($existeE) {
+        echo '<br>nada';
         echo '<script>existeE();</script>';
     } else {
+        echo '<br>pasa';
         echo '<script>GenerarEntre();</script>';
 /////////////////////////////////////////////////////////Inserts////////////////////////////////////////////////////////
 //embarazoparto//
-        $data->addEmbParto($embControl, $controltxt, $consumo, $consumotxt, $complicaciones, $compliTxt, $semanas, $tipoEmb, $motivoCes, $asistencia);
+       $data->addEmbParto($embControl, $controltxt, $consumo, $consumotxt, $complicaciones, $compliTxt, $semanas, $tipoEmb, $motivoCes, $asistencia);
         $lastEmbParto = $data->getLastEmbParto();
         foreach ($lastEmbParto as $value) {
             $lastEmbParto = $value['id'];
@@ -835,6 +837,8 @@ if (empty($rut_bene)) {
 
 //entrevista//
         $data->addEntrevista($rut_bene, $rut_user, $lastEmbParto, $lastPParto, $lastLactancia, $lastDesMotriz, $lastVision, $lastAudi, $lastDesLeng, $lastDesSocial, $lastSalud, $lastAntFam, $lastAntEscolar, $lastActFam);
+         
+        
     }
 }
  
