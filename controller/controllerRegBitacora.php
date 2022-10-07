@@ -18,27 +18,26 @@ $consultas = $data->getConsEvent($rut_bene, $rut_profe);
 $programas = $data->getCountPrograma($rut_bene, $rut_profe);
 $cuentaConsu;
 $cuentaProgram;
-$programa = $data->getPrograma($rut_bene, $rut_profe);
-$countP;
+$programa = $data->getPrograma($rut_bene, $rut_profe); $programa;
 //var_dump($programa);
 if (mysqli_num_rows($programa) > 0) {
     foreach ($programa as $value) {
-        echo '<br>programa existente' . $value['programa'] . '<br>';
-        $countP = $value['programa'];
+        echo '<br>programa existente (Ultimo)' . $value['programa'] . '<br>';
+        $programa = $value['programa'];
     }
 } else {
-    $countP = 0;
+    $programa = 0;
 }
 /* foreach ($programa as $value) {
   echo '<br>' . $value['programa'];
   } */
 
-if ($countP == 0) {
-    $countP += 1;
-    echo 'programa ' . $countP;
+if  ($programa == 0) {
+    $programa += 1;
+    echo 'programa ' . $programa;
 } else {
-    $countP = $countP;
-    echo 'programa ' . $countP;
+    
+    echo 'programa ' . $programa;
 }
 foreach ($consultas as $value) {
     echo '<br> Consultas del mes' . $value['Consultas'];
@@ -50,9 +49,9 @@ foreach ($programas as $value) {
     $cuentaProgram = $value['Programas'];
 }
 if ($cuentaConsu == $cuentaProgram) {
-    echo 'se ha actualizado el programa: ' . $countP += 1;
+    echo 'se ha actualizado el programa: ' . $programa += 1;
 } else {
-    echo 'el programa es: ' . $countP;
+    echo 'el programa es: ' . $programa;
 }
 ?>
 <!DOCTYPE html>
@@ -89,9 +88,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 </html>
 <?php
 if ($evento && $rut_bene) {
-    echo '<script>registrado();</script>';
-    $data->addBitacora($rut_bene, $rut_profe, $countP, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-    $data->updColorEvento($evento, $color);
+    //echo '<script>registrado();</script>';
+    //$data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    //$data->updColorEvento($evento, $color);
     
 }
 ?>

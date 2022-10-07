@@ -98,7 +98,7 @@ session_start();
 
 $rut = isset($_POST["txt_rut"]) ? $_POST["txt_rut"] : null;
 $pass = isset($_POST["txt_pass"]) ? $_POST["txt_pass"] : null;
-echo '<br>' . $rut . '<br>' . $pass;
+//echo '<br>' . $rut . '<br>' . $pass;
 $data = new Data();
 
 if ($rut && $pass) {
@@ -120,7 +120,7 @@ if ($rut && $pass) {
             $_SESSION['cargo'] = $key['cargo'];
             $_SESSION['activo'] = $key['activo'];
         }
-        echo '<br>' . $_SESSION['activo'];
+        //echo '<br>' . $_SESSION['activo'];
         //echo '<script language="javascript">alert("Bienvenida");window.location.href="../MenuPrincipal.php"</script>';
 
         switch ($_SESSION['activo']) {

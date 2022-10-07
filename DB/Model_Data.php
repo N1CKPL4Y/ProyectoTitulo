@@ -388,13 +388,13 @@ class Data {
     }
     
     public function getPrograma($rut_bene, $rut_profe) {
-        $sql="SELECT programa FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' ORDER BY id DESC LIMIT 1;;";
+        $sql="SELECT programa FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' ORDER BY id DESC LIMIT 1;";
         $query= $this->con->query($sql);
         return $query;
     }
     
     public function addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
-        $sql="INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', '$programa',now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
+        $sql="INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $programa, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
         $query = $this->con->query($sql);
     }
     
@@ -414,6 +414,12 @@ class Data {
     
     public function getBitacora($rut,$profe) {
         $sql="SELECT * from bitacora WHERE beneficiario='$rut' AND usuario='$profe';";
+        $query= $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getBitacoraByID($id) {
+        $sql="SELECT * from bitacora WHERE id=$id;";
         $query= $this->con->query($sql);
         return $query;
     }

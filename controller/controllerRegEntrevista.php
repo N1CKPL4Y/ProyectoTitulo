@@ -25,6 +25,7 @@
                     }
                 }).then((result) => {
                     Swal.fire({
+                        icon: 'success',
                         title: 'Entrevista Registrada con exito',
                         confirmButtonText: 'Aceptar',
                     }).then(resultado => {
