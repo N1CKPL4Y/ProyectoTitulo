@@ -418,7 +418,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">¿Cada cuanto?</span>
                                                                     </div>
-                                                                    <input type="text" id="embarazo" name="txt_embarazo" disabled class="form-control" disabled aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" id="embarazo" autocomplete="off" name="txt_embarazo" disabled class="form-control" disabled aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -447,7 +447,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_medicamentos" id="medicamentos" disabled aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" class="form-control" autocomplete="off" name="txt_medicamentos" id="medicamentos" disabled aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -476,7 +476,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_complicaciones" id="complicaciones" disabled aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" class="form-control" autocomplete="off" name="txt_complicaciones" id="complicaciones" disabled aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -499,7 +499,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">¿Cuantas semanas de embarazo tuvo?</span>
                                                                     </div>
-                                                                    <input type="number" name="txt_semanas" id="semanas" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" name="txt_semanas" id="semanas" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -542,7 +542,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Motivo cesarea</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" disabled="" id="motivoC" name="txt_motivo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" class="form-control" autocomplete="off" disabled="" id="motivoC" name="txt_motivo" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -584,7 +584,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Peso al nacer</span>
                                                                     </div>
-                                                                    <input type="number" id="peso" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" name="txt_peso" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="peso" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" name="txt_peso" class="form-control" placeholder="3420g" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                 </div>
                                                                 <span id="basic-addon1">Peso en gramos</span>
@@ -594,7 +594,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Talla al nacer</span>
                                                                     </div>
-                                                                    <input type="number" id="talla" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" name="txt_talla" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="talla" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" name="txt_talla" class="form-control" placeholder="30cm" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                 </div>
                                                                 <span id="basic-addon1">Talla en centimetros</span>
@@ -606,7 +606,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
                                                                     </div>
-                                                                    <input type="number" id="apgar1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_apgar1" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="apgar1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_apgar1" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                 </div>
                                                                 <span id="basic-addon1">Al minuto</span>
@@ -616,7 +616,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">A.P.G.A.R</span>
                                                                     </div>
-                                                                    <input type="number" id="apgar2" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_apgar5" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="apgar2" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_apgar5" aria-label="Username" aria-describedby="basic-addon1">
 
                                                                 </div>
                                                                 <span id="basic-addon1">A los 5 minutos</span>
@@ -649,7 +649,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Motivo</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" disabled id="hospitalizado" name="txt_hospitalizado" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" class="form-control" autocomplete="off" disabled id="hospitalizado" name="txt_hospitalizado" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -773,7 +773,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" placeholder="Indique" disabled id="sintoma14" name="otroSintoNac" class="form-control" aria-label="Text input with checkbox">
+                                                                    <input type="text" autocomplete="off" placeholder="Indique" disabled id="sintoma14" name="otroSintoNac" class="form-control" aria-label="Text input with checkbox">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -821,7 +821,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones primeros 12 meses de vida</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obs_12m" name="txt_meses" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obs_12m" name="txt_meses" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -849,7 +849,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Con leche materna exclusiva</span>
                                                                     </div>
-                                                                    <input type="text" name="txt_lactancia" id="leche_materna" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" name="txt_lactancia" id="leche_materna" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -857,7 +857,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Mixta: Leche materna y Relleno</span>
                                                                     </div>
-                                                                    <input type="text" name="txt_mixto" id="l_mixto" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" name="txt_mixto" id="l_mixto" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -867,7 +867,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Con Relleno y Formula de leche</span>
                                                                     </div>
-                                                                    <input type="text" name="txt_relleno" id="l_relleno" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" name="txt_relleno" id="l_relleno" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -895,7 +895,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Controla la cabeza</span>
                                                                     </div>
-                                                                    <input type="number" id="c_cabeza" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ccabeza" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="c_cabeza" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ccabeza" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -903,7 +903,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Se sienta solo</span>
                                                                     </div>
-                                                                    <input type="number" id="s_solo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ssolo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="s_solo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ssolo" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -911,7 +911,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Comienza a gatear</span>
                                                                     </div>
-                                                                    <input type="number" id="c_gatear" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_gatear" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="c_gatear" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_gatear" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -921,7 +921,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Camina con apoyo</span>
                                                                     </div>
-                                                                    <input type="number" id="c_apoyo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Capoyo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="c_apoyo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Capoyo" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -929,7 +929,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Camina sin apoyo</span>
                                                                     </div>
-                                                                    <input type="number" id="s_apoyo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Sapoyo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="s_apoyo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Sapoyo" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -937,7 +937,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Emite sus 1ras palabras</span>
                                                                     </div>
-                                                                    <input type="number" id="e_1palabras" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ppalabras" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="e_1palabras" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Ppalabras" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -947,7 +947,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Emite sus 1ras frases</span>
                                                                     </div>
-                                                                    <input type="number" id="e_1frases" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Pfrases" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="e_1frases" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Pfrases" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -955,7 +955,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Se viste solo/a</span>
                                                                     </div>
-                                                                    <input type="number" id="v_solo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Vsolo" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="v_solo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_Vsolo" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1104,7 +1104,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_Tasistencia" disabled id="n_asistencia" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" name="txt_Tasistencia" disabled id="n_asistencia" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1373,7 +1373,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" name="txt_ObsDesSens" id="obs_desMotriz1" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" name="txt_ObsDesSens" id="obs_desMotriz1" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1515,7 +1515,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="d6" name="txt_OtroDiagVis" disabled aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="d6" name="txt_OtroDiagVis" disabled aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1546,7 +1546,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obsVis" name="txt_ObsVis" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obsVis" name="txt_ObsVis" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1688,7 +1688,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="da7" name="otro_DiagAudi" disabled aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="da7" name="otro_DiagAudi" disabled aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1719,7 +1719,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obs_audi" name="obs_Audicion" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obs_audi" name="obs_Audicion" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1780,7 +1780,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" id="c5" name="txt_otroCom" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" id="c5" name="txt_otroCom" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1796,7 +1796,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
-                                                                            <input type="checkbox" id="dc1" value="Balbucea (oral o señas) / emite sonidos" name="check_LengEx[]" aria-label="Checkbox for following text input">
+                                                                            <input type="checkbox"  id="dc1" value="Balbucea (oral o señas) / emite sonidos" name="check_LengEx[]" aria-label="Checkbox for following text input">
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Balbucea (oral o señas) / emite sonidos</span>
@@ -1866,7 +1866,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="dc10" name="otro_LengEx" disabled="" aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="dc10" name="otro_LengEx" disabled="" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1959,7 +1959,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="cl11" name="otro_LengCom" disabled="" aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="cl11" name="otro_LengCom" disabled="" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1988,7 +1988,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="pl3" name="txt_perdidaL" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" id="pl3" name="txt_perdidaL" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1998,7 +1998,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obs_leng" name="txt_ObsLeng" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obs_leng" name="txt_ObsLeng" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2135,7 +2135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="ds15" disabled="" name="txt_OtroDesSoc" aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="ds15" disabled="" name="txt_OtroDesSoc" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2208,7 +2208,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obs_des_social" name="txt_ObsDesSoc" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obs_des_social" name="txt_ObsDesSoc" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2339,7 +2339,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="e14" disabled="" name="otro_EstSal" aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="e14" disabled="" name="otro_EstSal" aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2368,7 +2368,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Indique</span>
                                                                     </div>
-                                                                    <input class="form-control" id="t3" disabled name="txt_Ttratamiento" aria-label="Checkbox for following text input"></input>
+                                                                    <input class="form-control" autocomplete="off" id="t3" disabled name="txt_Ttratamiento" aria-label="Checkbox for following text input"></input>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2397,7 +2397,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Indique</span>
                                                                     </div>
-                                                                    <input class="form-control" id="m3" disabled="" name="txt_medicamento" aria-label="Checkbox for following text input"></input>
+                                                                    <input class="form-control" autocomplete="off" id="m3" disabled="" name="txt_medicamento" aria-label="Checkbox for following text input"></input>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2445,7 +2445,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text"  id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_otroA" id="al5" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" name="txt_otroA" id="al5" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2455,7 +2455,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Estatura Actual</span>
                                                                     </div>
-                                                                    <input type="number" id="est_actual" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_estaturaA" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="est_actual" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="txt_estaturaA" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2463,7 +2463,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Peso Actual</span>
                                                                     </div>
-                                                                    <input type="number" id="peso_actual" class="form-control" step="0.1" name="txt_pesoA"olo aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="peso_actual" class="form-control" step="0.1" name="txt_pesoA"olo aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2519,7 +2519,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">¿Que alimentos le gusta comer?</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_gustaComer" id="gustaComer" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" name="txt_gustaComer" id="gustaComer" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2527,7 +2527,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">¿Que alimentos no le gusta comer?</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_nogustaComer" id="nogustaComer" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" name="txt_nogustaComer" id="nogustaComer" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2564,7 +2564,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Hora a la que se duerme</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" name="txt_HorDormir" autocomplete="off" id="timer">
+                                                                    <input type="text" autocomplete="off" class="form-control" name="txt_HorDormir" autocomplete="off" id="timer">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2593,7 +2593,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Especifique la respuesta anterior</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="indique_duerme" name="especificar" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" id="indique_duerme" name="especificar" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2663,7 +2663,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         </div>
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Otro</span>
-                                                                    <input type="text" id="p8" disabled  aria-label="Checkbox for following text input">
+                                                                    <input type="text" autocomplete="off" id="p8" disabled  aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2693,7 +2693,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique</span>
                                                                     </div>
-                                                                    <input type="text" id="h1" name="otro_Humor" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" id="h1" name="otro_Humor" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2703,7 +2703,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obsSalud" name="txt_ObsSalud" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obsSalud" name="txt_ObsSalud" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2732,7 +2732,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Indique</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="vive_con" name="integrantes" placeholder="Escribir nombre, parentezco, edad, escolaridad y ocupacion.&#10;Ejemplo: Juan Perez, Papa, 45, 4 medio y obrero" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="vive_con" name="integrantes" placeholder="Escribir nombre, parentezco, edad, escolaridad y ocupacion.&#10;Ejemplo: Juan Perez, Papa, 45, 4 medio y obrero" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2748,7 +2748,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Indique</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="antFam" name="Asalud" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="antFam" name="Asalud" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2758,7 +2758,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Observaciones</span>
                                                                     </div>
-                                                                    <textarea class="form-control" id="obs_Ant_fam" name="txt_ObsAntFam" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" id="obs_Ant_fam" name="txt_ObsAntFam" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2786,7 +2786,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Edad de ingreso al sistema escolar</span>
                                                                     </div>
-                                                                    <input type="number" id="ingreso_e" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="edadE" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="number" autocomplete="off" id="ingreso_e" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" name="edadE" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -2815,7 +2815,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Indique</span>
                                                                     </div>
-                                                                    <textarea class="form-control" name="colegios" id="colegios" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
+                                                                    <textarea class="form-control" autocomplete="off" name="colegios" id="colegios" placeholder="Señale aquellos antecedentes que son relevantes en función de la entrega de apoyo que requiere el o la estudiante" aria-label="With textarea"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2839,7 +2839,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Motivo de cambio del ultimo colegio</span>
                                                                     </div>
-                                                                    <input type="text" name="colegios1" id="colegios1" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" name="colegios1" id="colegios1" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2868,7 +2868,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Curso y motivo por el que repitio</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="r3" name="txt_repetir" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" class="form-control" id="r3" name="txt_repetir" disabled="" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2935,7 +2935,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Si es insatisfactorio, por que motivo</span>
                                                                     </div>
-                                                                    <input type="text" id="ev3" disabled name="txt_descolar" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" id="ev3" disabled name="txt_descolar" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2961,7 +2961,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique otro</span>
                                                                     </div>
-                                                                    <input type="text" name="txt_otrovMal" id="vM1" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" name="txt_otrovMal" id="vM1" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2991,7 +2991,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1">Indique otro</span>
                                                                     </div>
-                                                                    <input type="text" id="vB1" name="txt_otrovBien" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" autocomplete="off" id="vB1" name="txt_otrovBien" disabled="" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>

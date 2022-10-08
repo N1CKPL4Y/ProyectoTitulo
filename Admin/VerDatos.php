@@ -416,7 +416,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;">
-                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase.' '.$apelBase; ?></h5>
+                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase . ' ' . $apelBase; ?></h5>
                                     </div>
                                     <div class="modal-body Cuerpo">
 
@@ -673,7 +673,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <?php
                                 $diag;
-//echo $exisDiagn;
+//ech                           o $exisDiagn;
                                 if ($exisDiagn) {
                                     $diag = $data->getDiagnostico($rutBase);
                                     foreach ($diag as $value) {
@@ -763,6 +763,44 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     <?php
                                 }
                                 ?>
+                                <br>
+                                <div class="row" style="padding-top: 10px">
+                                    <div class="col-sm-12 col-md-10 col-lg-6">
+                                        <h4>Entrevista de antecedentes:</h4>
+                                    </div>
+                                </div>
+                                <?php
+                                $existeEntre = $data->getEntrevistaByRut($rutBen);
+                                if ($existeEntre) {
+                                    ?>
+                                    <div class="row" style="padding-top: 10px">
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase;?>" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
+                                        </div>
+                                    </div>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="row" style="padding-top: 10px">
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <div class="card text-center">
+                                                <div class="card-header">
+                                                    Registro entrevista
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">El beneficiario no posee una entrevista registrada</h5>
+                                                </div>
+                                                <div class="card-footer text-muted">
+                                                    ...
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <?php
+                                }
+                                ?>
+
                                 <br>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">

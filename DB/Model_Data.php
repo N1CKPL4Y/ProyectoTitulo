@@ -525,6 +525,18 @@ class Data {
         return false;
     }
 
+    public function getEntrevista($rut){
+        $sql = "SELECT * FROM `entrevista` WHERE rut_bene = '$rut';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getCargobyId($id){
+        $sql = "SELECT * FROM `cargo` WHERE id = $id;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
     //INSERTS PARA ENTREVISTA ANTECEDENTES
     public function addEmbParto($Em_controlado, $per_control, $consumo, $indique_c, $complicaciones, $indique_com, $semanas_em, $tipo_part, $motivo_Ces, $asiste_Med) {
         $sql = "INSERT INTO `embarazoparto` (`id`, `Em_controlado`, `per_control`, `consumo`, `indique_c`, `complicaciones`, `indique_com` , `semanas_em`, `tipo_part`, `motivo_Ces`, `asiste_Med`) VALUES (NULL, $Em_controlado, '$per_control', $consumo, '$indique_c', $complicaciones, '$indique_com' , $semanas_em, $tipo_part, '$motivo_Ces', $asiste_Med);";
@@ -727,6 +739,25 @@ class Data {
         $sql = "INSERT INTO `entrevista` (`id`, `rut_bene`, `rut_usuario`, `id_embPart`, `id_postParto`, `id_lactancia`, `id_DesMotriz`, `id_Vision`, `id_Audicion`, `id_DesLengua`, `id_DesSocial`, `id_Salud`, `id_AntFam`, `id_AntEscolar`, `id_ActFam`, `fecha`) VALUES "
                 . "(NULL, '$rut_bene', '$rut_usuario', '$id_embParto', '$id_postParto', '$id_Lactancia', '$id_DesMotriz', '$id_Vision', '$id_Audicion', '$id_DesLengua', '$id_DesSocial', '$id_Salud', '$id_AntFam', '$id_AntEscolar', '$id_ActFam', now());";
         $query = $this->con->query($sql);
+    }
+    
+    //obtener info entrevista pdf
+    public function getEmbParto($id){
+        $sql = "SELECT * FROM `embarazoparto` WHERE id = $id;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getPostParto($id){
+        $sql = "SELECT * FROM `postparto` WHERE id = $id;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function getCompPostParto($id){
+        $sql = "SELECT * FROM `complementopparto` WHERE id_postParto = $id;";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
 }
