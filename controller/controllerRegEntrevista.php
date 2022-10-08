@@ -786,7 +786,7 @@ if (empty($rut_bene)) {
         }
 
 //salud//
-        $data->addSalud($tratamiento, $txt_Tratam, $medicamento, $txt_Medic, $alimentacion, $txt_aliment, $estaturaA, $pesoA, $pesoCh, $c_solo, $g_comer, $ng_comer, $dormir, $hora_dormir, $duerme, $humor, $txt_humor, $obsSalud);
+        $data->addSalud($tratamiento, $txt_Tratam, $medicamento, $txt_Medic, $alimentacion, $txt_aliment, $estaturaA, $pesoA, $pesoCh, $c_solo, $g_comer, $ng_comer, $dormir, $hora_dormir, $duerme, $espDuerme, $humor, $txt_humor, $obsSalud);
         $lastSalud = $data->getLastSalud();
         foreach ($lastSalud as $value) {
             $lastSalud = $value['id'];

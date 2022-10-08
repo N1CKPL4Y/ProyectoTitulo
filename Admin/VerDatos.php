@@ -775,7 +775,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     ?>
                                     <div class="row" style="padding-top: 10px">
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase;?>" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
+                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase;?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
                                         </div>
                                     </div>
                                     <?php
