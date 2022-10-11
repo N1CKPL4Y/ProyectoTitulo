@@ -61,8 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -99,7 +98,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+                        <a style="font-size: 30px">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -530,7 +529,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <div class="form-control">
                                                                         <input class="form-control-input" type="radio" name="tipo" id="tipo4" value="4">
                                                                         <label class="form-control-label" for="tipo4">
-                                                                            Cesarea (Indique)
+                                                                            Cesárea (Indique)
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -540,7 +539,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="col-sm-12 col-md-12 col-lg-6">
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
-                                                                        <span class="input-group-text" id="basic-addon1">Motivo cesarea</span>
+                                                                        <span class="input-group-text" id="basic-addon1">Motivo cesárea</span>
                                                                     </div>
                                                                     <input type="text" class="form-control" autocomplete="off" disabled="" id="motivoC" name="txt_motivo" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
@@ -1232,7 +1231,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row mb-3 ml-2">
                                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                                 <span>
-                                                                    En relacion con su motricidad Fina el niño(a)logra:
+                                                                    En relación con su motricidad Fina el niño(a)logra:
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -1301,7 +1300,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="row mb-3 ml-2">
                                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                                 <span>
-                                                                    En relacion con algunos signos cognitivcos el niño(a):
+                                                                    En relación con algunos signos cognitivcos el niño(a):
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -1392,7 +1391,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="card-body Cuerpo">
                                                         <div class="row mb-3">
                                                             <div class="col-sm-12 col-md-12 col-lg-12">
-                                                                <span>Vision (Marque las que correspondan)</span>
+                                                                <span>Visión (Marque las que correspondan)</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -3428,13 +3427,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <br>
                                                         <div class="row">
                                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                                <label>En relacion a su motricidad fina el niño(a) logra:</label>
+                                                                <label>En relación a su motricidad fina el niño(a) logra:</label>
                                                                 <div class="mFina">
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                                <label>En relacion con algunos signos cognitivos el niño(a):</label>
+                                                                <label>En relación con algunos signos cognitivos el niño(a):</label>
                                                                 <div class="sCog">
 
                                                                 </div>

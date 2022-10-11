@@ -59,8 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list" >
                 <li>
@@ -104,7 +103,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+                        <a style="font-size: 30px">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -154,7 +153,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="t_atencion" value="2">
                                                                 <label class="form-check-label" for="t_atencion">
-                                                                    Atención por programa pagado (Costo minimo asociado)
+                                                                    Atención por programa pagado (Costo mínimo asociado)
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -251,7 +250,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <br>
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-3 col-lg-3 align-self-start">
-                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-12 col-form-label" >Participa en instituto Teleton:</label>
+                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-12 col-form-label" >Participa en instituto Teletón:</label>
                                                             <div class="form-check">
                                                                 <input class="form-check-input teleton" type="radio" name="rd_teleton" value="1">
                                                                 <label class="form-check-label" for="rd_teleton">
@@ -303,7 +302,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="card-body" style="background-color: #C8E6C9">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
-                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-10 col-form-label" >¿El beneficiario presenta algun diagnostico?</label>
+                                                            <label for="rd_teleton" id="labelteleton" class="col-sm-10 col-form-label" >¿El beneficiario presenta algun diagnóstico?</label>
                                                             <div class="form-check">
                                                                 <input class="form-check-input diagnostico" type="radio" name="diagnostico" value="1">
                                                                 <label class="form-check-label" for="diagnostico">
@@ -319,7 +318,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
-                                                                <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnostico que presenta el beneficiario?</label>
+                                                                <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnóstico que presenta el beneficiario?</label>
                                                                 <div class="input-group mb-6">
                                                                     <select class="custom-select diag" id="inputGroupSelect01" name="cbo_condicion" disabled="">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
@@ -338,7 +337,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
-                                                                <label for="cbo_especialista" class="col-sm-10 col-form-label">Indique el especialista que emite el diagnostico</label>
+                                                                <label for="cbo_especialista" class="col-sm-10 col-form-label">Indique el especialista que emite el diagnóstico</label>
                                                                 <div class="input-group mb-6">
                                                                     <select class="custom-select diag" id="inputGroupSelect01" name="cbo_especialista" disabled="">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
@@ -1055,7 +1054,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     document.getElementById('comuT').disabled = true
                 }
                 function noViveCon() {
-                    dirTutor.innerHTML = "<div class='col s6'><div class='col-sm-12 col-md-12 col-lg-12'><input class='form-control' id='direccionT' type='text' name='txt_direTutor'><label for='direccionT'>Indique la direccion del tutor</label></div></div><div class='col-sm-12 col-md-12 col-lg-6'><div class='col-sm-12 col-md-6 col-lg-12'><input class='form-control' id='comuT' type='text' name='txt_comuTutor' ><label for='comuT'>Comuna</label></div> </div>";
+                    dirTutor.innerHTML = "<div class='col s6'><div class='col-sm-12 col-md-12 col-lg-12'><input class='form-control' id='direccionT' type='text' name='txt_direTutor'><label for='direccionT'>Indique la dirección del tutor</label></div></div><div class='col-sm-12 col-md-12 col-lg-6'><div class='col-sm-12 col-md-6 col-lg-12'><input class='form-control' id='comuT' type='text' name='txt_comuTutor' ><label for='comuT'>Comuna</label></div> </div>";
                 }
                 //Scripts en input "tiene registro social de hogares?"
                 function tieneR() {
