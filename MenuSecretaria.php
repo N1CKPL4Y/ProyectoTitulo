@@ -72,9 +72,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li>
                     <a href="Secretaria/CalendarioSecretaria.php">
                         <i class='bx bx-calendar-heart'></i>
-                        <span class="links_name">Calendario mensual</span>
+                        <span class="links_name">Calendario Mensual</span>
                     </a>
-                    <span class="tooltip">Registrar Entrevista</span>
+                    <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
                     <a href="controller/controllerLogout.php">
