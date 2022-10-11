@@ -7,6 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
+include_once '../controller/traduccionfecha.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
@@ -64,8 +65,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         ?>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list" style="margin-left: -2rem">
                 <li>
@@ -131,7 +131,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <div class="container" style="display: flex; align-items: center; justify-content: center;">
                         <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px;color: white;">Fenix</a>
+                        <a style="font-size: 30px;color: white;">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -149,7 +149,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             $pensBase;
             $chilBase;
             $regiBase;
-
+            
             $resulData = $data->getBenefi($rutBen);
             foreach ($resulData as $key) {
                 $rutBase = $key['RUT'];
@@ -175,6 +175,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             }
 //echo $prevBase." holi";
 
+            $fechaNacBen = fechaEsp($fechBase);
             $sisPrev = $data->getPrevForId($prevBase);
             $textPrev;
 
@@ -534,7 +535,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Fecha Nacimiento</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechBase; ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechaNacBen; ?>" readonly="">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
@@ -852,7 +853,8 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     $emailT = $valor4['email'];
                                     $previsionT = $valor4['prevision'];
                                 }
-
+                                
+                                $fechaNacT = fechaEsp($f_nacT);
                                 $prevT = $data->getPrevForId($previsionT);
                                 $prev;
                                 foreach ($prevT as $valor5) {
@@ -947,7 +949,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Fecha nacimiento</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $f_nacT; ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechaNacT; ?>" readonly="">
                                         </div>
                                     </div>
                                 </div>

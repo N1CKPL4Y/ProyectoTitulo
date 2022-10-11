@@ -16,6 +16,6 @@ function fechaEsp($fecha) {
 }
 
 $fechaN=fechaEsp('2022-12-15');
-echo $fechaN;
+///echo $fechaN;
 
 ?>

@@ -22,7 +22,7 @@ foreach ($benef as $value) {
     $comunaB = $value['comuna'];
 }
 
-$fechaN= fechaEsp($fecha);
+$fechaNBene= fechaEsp($fechaNacB);
 
 $parentesco = $data->getParentesco($rutBene);
 $parecido;
@@ -62,7 +62,7 @@ foreach ($tutor as $value) {
     $emailT = $value['email'];
 }
 
-echo '<script>fechaEsp('.$fechaNacT.')</script>';
+$fechaNTutor = fechaEsp($fechaNacT);
 
 $entrevista = $data->getEntrevista($rutBene);
 $rutU;
@@ -96,7 +96,7 @@ foreach ($entrevista as $value) {
     $fechaE = $value['fecha'];
 }
 
-echo '<script>fechaEsp('.$fechaNacT.')</script>';
+$fecha_entre = fechaEsp($fechaE);
 
 $usuario = $data->getUserbyRut($rutU);
 $nombreU;

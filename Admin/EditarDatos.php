@@ -56,8 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list" style="margin-left: -2rem;">
                 <li>
@@ -116,7 +115,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center;">
                         <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px;color: white;">Fenix</a>
+                        <a style="font-size: 30px;color: white;">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -128,7 +127,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="card-header Header" id="headingOne">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white">
-                                            Agregar / Habilitar / Deshabilitar Areas de usuario
+                                            Agregar / Habilitar / Deshabilitar Áreas de usuario
                                         </button>
                                     </h2>
                                 </div>
@@ -273,7 +272,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
                                                                 <th>Nombre</th>
-                                                                <th>Codigo</th>
+                                                                <th>Código</th>
                                                                 <th>Descripción</th>
                                                             </tr>
                                                         </thead>

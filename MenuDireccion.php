@@ -63,8 +63,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open" style="overflow: hidden !important">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -102,7 +101,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+                        <a style="font-size: 30px">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -254,29 +253,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="AdminLTE/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
-        <script type="text/javascript">
-                                                            var input = document.getElementById('telefonoU');
-                                                            input.addEventListener('input', function () {
-                                                                if (this.value.length > 9)
-                                                                    this.value = this.value.slice(0, 9);
-                                                            })
-        </script>
-
-        <script>
-            document.getElementById('emailU').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "Correo válido";
-                } else {
-                    valido.innerText = "Correo no válido";
-                }
-            }
-            );
-        </script>
         <script>
             $(function () {
                 $("#myTable").DataTable({

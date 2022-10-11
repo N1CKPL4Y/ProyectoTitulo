@@ -2,6 +2,7 @@
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
+include_once '../controller/traduccionfecha.php';
 session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
@@ -37,37 +38,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
 <html lang="en" dir="ltr">
     <head>
-        <title>Ver Datos</title>
+        <title>Datos Beneficiario</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="../js/validarut.js"></script>
-        <script src="../js/jquery.rut.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
         <script src="../Materialize/js/funciones.js"></script>
-
+        
+        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <!-- Theme style -->
-        <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <!--<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>-->
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -112,7 +111,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center;">
                         <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px;color: white;">Fenix</a>
+                        <a style="font-size: 30px;color: white;">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -155,7 +154,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $prevBase = $key['prevision'];
             }
 //echo $prevBase." holi";
-
+            $fechaNacBen = fechaEsp($fechBase);
             $sisPrev = $data->getPrevForId($prevBase);
             $textPrev;
 
@@ -515,7 +514,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Fecha Nacimiento</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechBase; ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechaNacBen; ?>" readonly="">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
@@ -757,7 +756,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     ?>
                                     <div class="row" style="padding-top: 10px">
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase;?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
+                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
                                         </div>
                                     </div>
                                     <?php
@@ -833,7 +832,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     $emailT = $valor4['email'];
                                     $previsionT = $valor4['prevision'];
                                 }
-
+                                $fechaNacT = fechaEsp($f_nacT);
                                 $prevT = $data->getPrevForId($previsionT);
                                 $prev;
                                 foreach ($prevT as $valor5) {
@@ -928,7 +927,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Fecha nacimiento</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $f_nacT; ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $fechaNacT; ?>" readonly="">
                                         </div>
                                     </div>
                                 </div>
