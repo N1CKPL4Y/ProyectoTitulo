@@ -33,6 +33,12 @@ foreach ($eventos as $value) {
     array_push($eventoA, $value);
 }
 $eventJson = json_encode($eventoA);
+$consulta2 = $data->getConsula();
+$consultas = [];
+foreach ($consulta2 as $value) {
+    array_push($consultas, $value);
+}
+$consulJson = json_encode($consultas);
 ?>
 
 <!DOCTYPE html>
@@ -71,13 +77,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css?v=3.2.0">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
-        
+
     </head>
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -114,7 +119,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+                        <a style="font-size: 30px">Fénix</a>
                     </div>
                 </div>
             </nav>
@@ -126,7 +131,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="modal-dialog">
                                     <form name="form" id="form1" method="post" action="">
                                         <div class="modal-content">
-                                            <div class="modal-header HeaderModal" style="display: flex; align-items: center; justify-content: center;">
+                                            <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
                                             </div>
                                             <div class="modal-body Cuerpo">
@@ -140,25 +145,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Titulo</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_title" id="title" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_title" readonly id="title" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
                                                     </div>
-                                                    <input type="date" class="form-control" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3 clockpicker"  data-placement="left" data-align="top" data-autoclose="true">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_hora" autocomplete="off" readonly id="startEventHour" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                                                        <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="color" class="form-control" name="txt_color" id="color" aria-label="Username"aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_bene" readonly id="bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Beneficiario</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_Nbene" readonly id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Contacto</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_Fbene" readonly id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" id="btn_Action" class="btn submitModal">Registrar</button>
-                                                <button type="button" id="btn_Delete" class="btn btn-danger" >Eliminar</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -216,47 +237,75 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                     ],
                     //events: ,
-                    editable: true,
-                    droppable: true,
+                    hiddenDays: [6, 0],
+                    editable: false,
+                    droppable: false,
                     // funcion recibe info
-                    dateClick: function (info) {
-                        form.reset();
-                        document.getElementById('id').value = '';
-                        del.classList.add('d-none');
-                        document.getElementById('startEvent').readOnly = true;
-                        document.getElementById('id_event').classList.add('d-none');
-                        document.getElementById('startEvent').value = info.dateStr;
-                        document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
-                        document.getElementById('btn_Action').textContent = 'Registrar';
-                        form.action = "../controller/controllerEvento.php?p=1&a=2";
-                        form.method = 'POST';
-                        modal.show();
-                        //traer input con id startEvent y darle el valor info.dateStr
-                        //info es el data de calendar y dateStr es la fecha tipo string
-                        //abrir modal
-
-                    },
+                    /*dateClick: function (info) {
+                     form.reset();
+                     document.getElementById('id').value = '';
+                     del.classList.add('d-none');
+                     document.getElementById('startEvent').readOnly = true;
+                     document.getElementById('id_event').classList.add('d-none');
+                     document.getElementById('startEvent').value = info.dateStr;
+                     document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
+                     document.getElementById('btn_Action').textContent = 'Registrar';
+                     form.action = "../controller/controllerEvento.php?p=1&a=2";
+                     form.method = 'POST';
+                     modal.show();
+                     //traer input con id startEvent y darle el valor info.dateStr
+                     //info es el data de calendar y dateStr es la fecha tipo string
+                     //abrir modal
+                     
+                     },*/
                     eventClick: function (info) {
-                        document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
-                        document.getElementById('btn_Action').textContent = 'Modificar';
+                        console.log(info.event.startStr);
+                        document.getElementById('staticBackdropLabel').textContent = 'Consulta';
+                        //document.getElementById('btn_Action').textContent = 'Iniciar';
                         document.getElementById('id_event').classList.remove('d-none');
-                        del.classList.remove('d-none');
-                        document.getElementById('startEvent').readOnly = false;
+
+                        //document.getElementById('startEvent').readOnly = true;
                         document.getElementById('id').value = info.event.id;
+
                         document.getElementById('title').value = info.event.title;
-                        document.getElementById('startEvent').value = info.event.startStr;
-                        document.getElementById('color').value = info.event.backgroundColor;
-                        form.action = "../controller/controllerEvento.php?p=2&a=2";
+                        fecha = info.event.startStr;
+                        document.getElementById('startEvent').value = fecha.substring(0, 10);
+                        document.getElementById('startEventHour').value = fecha.substring(11, 16);
+
+
+                        let consul = <?php echo $consulJson ?>;
+                        let rut;
+                        consul.forEach(el => {
+                            if (el['evento'] == info.event.id) {
+                                console.log(el);
+                                rut = el['RUT'];
+                                document.getElementById('bene').value = el['RUT'];
+                                document.getElementById('nomb_bene').value = el['nombre'];
+                                document.getElementById('fono_bene').value = el['telefono'];
+                            }
+
+                        });
+
+                        console.log(rut);
+
+                        form.action = "controller/controllerGenerateBit.php?rut=" + rut + "&id=" + info.event.id;
                         form.method = 'POST';
                         console.log(info);
-                        modal.show();
+                        let color = info.event.backgroundColor;
+                        console.log(color);
+                        if (color == '#03EF1C') {
+                            modal.hide();
+                        } else {
+                            modal.show();
+                        }
+
                     },
-                    eventDrop: function (info) {
-                        const id = info.event.id;
-                        const fecha = info.event.startStr;
-                        window.location = '../controller/controllerEvento.php?p=4&a=2&id=' + id + '&fecha=' + fecha;
-                        console.log(id, fecha);
-                    },
+                    /*eventDrop: function (info) {
+                     const id = info.event.id;
+                     const fecha = info.event.startStr;
+                     window.location = '../controller/controllerEvento.php?p=4&a=2&id=' + id + '&fecha=' + fecha;
+                     console.log(id, fecha);
+                     },*/
                     //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     headerToolbar: {
                         left: 'prev,next today',
@@ -265,31 +314,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     }
                 });
                 calendar.render();
-                del.addEventListener('click', function () {
-                    modal.hide();
-                    Swal.fire({
-                        title: 'Estas seguro?',
-                        text: "Se borrara el evento",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Si, Borrar!',
-                        cancelButtonText: 'Cancelar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            console.log('peeee');
-                            /*Swal.fire(
-                             'Deleted!',
-                             'Your file has been deleted.',
-                             'success'
-                             );*/
-                            var id = document.getElementById('id').value;
-                            console.log(id);
-                            window.location = '../controller/controllerEvento.php?p=3&a=2&id=' + id;
-                        }
-                    })
-                });
             });
 
         </script>
