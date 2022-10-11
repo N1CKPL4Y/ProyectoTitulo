@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once '../js/traduccionFechaNac.js';
 include_once '../DB/Model_Data.php';
 $data = new Data();
 $rutBene = isset($_GET['rutBene']) ? $_GET['rutBene'] : null;
@@ -21,22 +22,7 @@ foreach ($benef as $value) {
     $comunaB = $value['comuna'];
 }
 
-function fechaEsp($fecha) {
-    $fecha = substr($fecha, 0, 10);
-    $numeroDia = date('d', strtotime($fecha));
-    $dia = date('l', strtotime($fecha));
-    $mes = date('F', strtotime($fecha));
-    $anio = date('Y', strtotime($fecha));
-    $dias_ES = array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo");
-    $dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-    $nombredia = str_replace($dias_EN, $dias_ES, $dia);
-    $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-    $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-    $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
-    return $numeroDia . " de " . $nombreMes . " del " . $anio;
-}
-
-$fechaNBene = fechaEsp($fechaNacB);
+echo '<script>fechaEsp('.$fechaNacB.')</script>';
 
 $parentesco = $data->getParentesco($rutBene);
 $parecido;
@@ -76,7 +62,7 @@ foreach ($tutor as $value) {
     $emailT = $value['email'];
 }
 
-$fechaNTutor = fechaEsp($fechaNacT);
+echo '<script>fechaEsp('.$fechaNacT.')</script>';
 
 $entrevista = $data->getEntrevista($rutBene);
 $rutU;
@@ -110,7 +96,7 @@ foreach ($entrevista as $value) {
     $fechaE = $value['fecha'];
 }
 
-$fecha_entre = fechaEsp($fechaE);
+echo '<script>fechaEsp('.$fechaNacT.')</script>';
 
 $usuario = $data->getUserbyRut($rutU);
 $nombreU;

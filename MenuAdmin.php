@@ -61,8 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -121,7 +120,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="container" style="display: flex; align-items: center; justify-content: center; color: white">
                         <a style="font-size: 30px">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px">Fenix</a>
+                        <a style="font-size: 30px">Fénix</a>
                     </div>
                 </div>
             </nav>

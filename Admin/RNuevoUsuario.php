@@ -195,6 +195,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 }
                                                                 ?>
                                                             </select>
+                                                            <span style="color: grey">Define el nivel de acceso del usuario</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,6 +217,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 }
                                                                 ?>
                                                             </select>
+                                                            <span style="color: grey">Define el Area a la que pertenece el usuario</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -235,6 +237,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 }
                                                                 ?>
                                                             </select>
+                                                            <span style="color: grey">Define el modulo al que accederá el usuario</span>
                                                         </div>
                                                     </div>
                                                 </div>

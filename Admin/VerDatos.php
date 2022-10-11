@@ -348,13 +348,13 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="telefonoAT" class="col-sm-10 col-form-label">Numero de telefono actual</label>
+                                                        <label for="telefonoAT" class="col-sm-10 col-form-label">Número de teléfono actual</label>
                                                         <input type="number" name="telefonoAT" class="form-control" id="telefonoAT" readonly="" style="background-color: #e9ecef">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="telefonoT" class="col-sm-10 col-form-label">Nuevo numero de telefono</label>
+                                                        <label for="telefonoT" class="col-sm-10 col-form-label">Nuevo número de télefono</label>
                                                         <input type="number" name="telefonoT"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" on id="telefonoT">
                                                     </div>
                                                 </div>
@@ -362,14 +362,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="emailAT" class="col-sm-10 col-form-label">Correo electronico actual</label>
+                                                        <label for="emailAT" class="col-sm-10 col-form-label">Correo electrónico actual</label>
                                                         <input type="text" name="emailAT" class="form-control" id="emailAT" readonly="" style="background-color: #e9ecef">
 
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="emailT" class="col-sm-10 col-form-label">Nuevo correo electronico</label>
+                                                        <label for="emailT" class="col-sm-10 col-form-label">Nuevo correo electrónico</label>
                                                         <input type="text" name="emailT" class="form-control" id="emailT">
                                                         <span id="emailVal" style="color: gray"></span>
                                                     </div>
@@ -696,7 +696,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="col-sm-12 col-md-10 col-lg-6">
                                                 <div class="input-group flex-nowrap">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="addon-wrapping">Posee Diagnostico:</span>
+                                                        <span class="input-group-text" id="addon-wrapping">Posee Diagnóstico:</span>
                                                     </div>
                                                     <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $exisDiag; ?>" readonly="">
                                                 </div>
@@ -993,7 +993,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Telefono</span>
+                                                <span class="input-group-text" id="addon-wrapping">Teléfono</span>
                                             </div>
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $telefonoT; ?>" readonly="">
                                         </div>
@@ -1003,7 +1003,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     <div class="col-sm-12 col-md-10 col-lg-10">
                                         <div class="input-group flex-nowrap">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Correo Electronico</span>
+                                                <span class="input-group-text" id="addon-wrapping">Correo Electrónico</span>
                                             </div>
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $emailT; ?>" readonly="">
                                         </div>
