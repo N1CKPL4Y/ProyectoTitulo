@@ -72,7 +72,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
-                    <a href="Secretaria/CalendarioSecretaria.php">
+                    <a href="CalendarioSecretaria.php">
                         <i class='bx bx-calendar-heart'></i>
                         <span class="links_name">Calendario Mensual</span>
                     </a>

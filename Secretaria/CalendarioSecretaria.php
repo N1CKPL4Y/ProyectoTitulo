@@ -167,79 +167,7 @@ $consulJson = json_encode($consultas);
                 </div>
             </nav>
             <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
-                            <div class="modal fade" id="create" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form name="form2" id="form2" method="post" action="">
-                                        <div class="modal-content">
-                                            <div class="modal-header HeaderModal">
-                                                <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                                            </div>
-                                            <div class="modal-body Cuerpo">
-                                                <div class="input-group mb-3" id="id_event">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">#</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" readonly name="txt_id" id="idsT" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Titulo</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_title1" id="titlesT" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_fecha1" id="Event" aria-label="Username" readonly aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3 clockpicker"  data-placement="right" data-align="top" data-autoclose="true">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_hora1" autocomplete="off" id="EventHour" aria-label="Username"  aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut Beneficiario</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="txt_beneFI" id="beneFI" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="inputGroupSelect01">Profesional</label>
-                                                    </div>
-                                                    <select name="cbo_profesional" class="custom-select" id="inputGroupSelect01">
-                                                        <option selected>Seleccione una opcion...</option>
-                                                        <?php
-                                                        $profesionales = $data->getProfesional();
-                                                        foreach ($profesionales as $value) {
-                                                            $idArea = $value['a_user'];
-                                                            $areas = $data->getAreaById($idArea);
-                                                            $textAreas;
-                                                            foreach ($areas as $value2) {
-                                                                $textAreas = $value2['nombre'];
-                                                            }
-                                                            echo '<option value="' . $value['RUT'] . '">' . $value['nombre'] . " " . $value['apellido'] . "-" . $textAreas . '</option>';
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer HeaderModal">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" id="btn_Action1" class="btn submitModal">Registrar</button>
-                                                <button type="button" id="btn_Delete1" class="btn btn-danger" >Eliminar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -309,7 +237,7 @@ $consulJson = json_encode($consultas);
                                                         <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
                                                     </div>
                                                     <select name="cbo_evento" id="evento" class="custom-select" id="inputGroupSelect01">
-                                                        <option selected>Elija una opcion</option>
+                                                        <option selected value="0">Elija una opcion</option>
                                                         <option value="#10E706">Asitira</option>
                                                         <option value="#F00505">No asistira</option>
                                                         <option value="#E8F005">Reagendar</option>

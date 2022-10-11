@@ -51,7 +51,7 @@ session_start();
                             window.location.href = '../Admin/Calendario.php';
                         });
             }
-            
+
             function SuccessUpSec() {
                 swal({
                     title: "Actualización Exitosa",
@@ -77,7 +77,7 @@ session_start();
                             window.location.href = '../Direccion/DirCalendario.php';
                         });
             }
-            
+
             function SuccessUpSec() {
                 swal({
                     title: "Actualización Exitosa",
@@ -154,7 +154,7 @@ session_start();
                             window.location.href = '../Direccion/DirCalendario.php';
                         });
             }
-            
+
             function ErrorSec() {
                 swal({
                     title: "ERROR",
@@ -183,27 +183,26 @@ if ($param == 1) {
     $title = isset($_POST['txt_title1']) ? $_POST['txt_title1'] : null;
     $fecha = isset($_POST['txt_fecha1']) ? $_POST['txt_fecha1'] : null;
     $hora = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
-    $rutBene= isset($_POST['txt_beneFI']) ? $_POST['txt_beneFI'] : null;
-    $rutProfe= isset($_POST['cbo_profesional']) ?$_POST['cbo_profesional'] : null;
+    $rutBene = isset($_POST['txt_beneFI']) ? $_POST['txt_beneFI'] : null;
+    $rutProfe = isset($_POST['cbo_profesional']) ? $_POST['cbo_profesional'] : null;
     $color = '#000000';
-    $date=$fecha." ".$hora;
-    echo '<br>' . $title . '<br>' . $fecha .'<br>'.$hora.'<br>' . $color . '<br>';
-    echo '<br>'.$date." ".$rutProfe;
+    $date = $fecha . " " . $hora;
+    echo '<br>' . $title . '<br>' . $fecha . '<br>' . $hora . '<br>' . $color . '<br>';
+    echo '<br>' . $date . " " . $rutProfe;
 
     $data->addEvento($title, $date, $color);
-    
+
     $id1 = $data->getLimitEvent();
     foreach ($id1 as $value) {
-        echo '<br>'.$value['id'];
-        $id1=$value['id'];
+        echo '<br>' . $value['id'];
+        $id1 = $value['id'];
     }
     echo $id1;
     $data->addConsulta($id1, $rutBene, $rutProfe);
-    $eventosList=array();
+    $eventosList = array();
     $eventoA = array();
     $eventos = $data->getAllEvent();
-    
-    
+
     foreach ($eventos as $value) {
         $value['title'] . '<br>';
         $value['start'] . '<br>';
@@ -224,13 +223,13 @@ if ($param == 1) {
     $title = isset($_POST['txt_title']) ? $_POST['txt_title'] : null;
     $fecha = isset($_POST['txt_fecha']) ? $_POST['txt_fecha'] : null;
     $hora = isset($_POST['txt_hora']) ? $_POST['txt_hora'] : null;
+    $evento = isset($_POST['cbo_evento']) ? $_POST['cbo_evento'] : null;
     $color = '#000000';
 
-    $date=$fecha." ".$hora;
-    echo '<br>' . $title . '<br>' . $fecha .'<br>'.$hora.'<br>' . $color . '<br>';
-    echo '<br>'.$date;
+    $date = $fecha . " " . $hora;
+    echo '<br>' . $title . '<br>' . $fecha . '<br>' . $hora . '<br>' . $color . '<br>';
+    echo '<br>' . $date . '<br>' . $evento;
 
-    $data->updEvento($id, $title, $date, $color);
 //$eventosList=array();
     /* $eventoA = array();
       $eventos = $data->getAllEvent();
@@ -244,47 +243,52 @@ if ($param == 1) {
       $popo = json_encode($eventoA); */
 //echo '<br>' . $popo;
     if ($ar == 1) {
+        $data->updEvento($id, $title, $date, $color);
         echo '<script>SuccessUp();</script>';
     } else if ($ar == 2) {
+        $data->updEvento($id, $title, $date, $color);
         echo '<script>SuccessUpDir();</script>';
-    }else if($_SESSION['cargo']=='2'){
-        echo 'putitotttt';
-        //echo '<script>SuccessUpSec();</script>';
+    } else if ($_SESSION['cargo'] == '2') {
+        $data->updEvento($id, $title, $date, $evento);
+        $evento = isset($_POST['cbo_evento']) ? $_POST['cbo_evento'] : null;
+        echo '<script>SuccessUpSec();</script>';
     }
 } else if ($param == 3) {
     echo 'edio';
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $data->delEvento($id);
     echo '<br>' . $id;
-    if ($ar==1){
-       echo '<script>SuccessDel();</script>'; 
-   }else if($ar==2){
-       echo '<script>SuccessDelDir();</script>'; 
-   }
+    if ($ar == 1) {
+        echo '<script>SuccessDel();</script>';
+    } else if ($ar == 2) {
+        echo '<script>SuccessDelDir();</script>';
+    }
 } else if ($param == 4) {
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $fecha = isset($_GET['fecha']) ? $_GET['fecha'] : null;
-    echo '<br>' . $id . '<br>' . $fecha;
-    $data->dropEvent($id, $fecha);
     
+    $data->dropEvent($id, $fecha);
+    echo '<br>' . $id . '<br>' . $fecha;
+
     if ($ar == 1) {
         echo 'x';
+        
         echo '<script>SuccessUp();</script>';
     } else if ($ar == 2) {
         echo 'ahsdhash';
+        
         echo '<script>SuccessUpDir();</script>';
-    }else if($_SESSION['cargo']==2){
+    } else if ($_SESSION['cargo'] == 2) {
         
         echo '<script>SuccessUpSec();</script>';
     }
-    
 } else {
-    
+
     if ($ar == 1) {
         echo '<script>Error();</script>';
     } else if ($ar == 2) {
         echo '<script>ErrorDir();</script>';
-    }else if($_SESSION['cargo']==2){
+    } else if ($_SESSION['cargo'] == 2) {
         echo '<script>ErrorSec();</script>';
     }
 }

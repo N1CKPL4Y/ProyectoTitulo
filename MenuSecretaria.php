@@ -835,11 +835,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         format: 'yyyy-mm-dd'
                     });
                 });
-                $(document).ready(function () {
-                    $('.timepicker').timepicker({
-                        twelveHour: false
-                    });
-                });
             </script>
             <script type="text/javascript">
                 $(function () {

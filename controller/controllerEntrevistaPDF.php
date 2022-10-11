@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once '../js/traduccionFechaNac.js';
+include_once './traduccionfecha.php';
 include_once '../DB/Model_Data.php';
 $data = new Data();
 $rutBene = isset($_GET['rutBene']) ? $_GET['rutBene'] : null;
@@ -22,7 +22,7 @@ foreach ($benef as $value) {
     $comunaB = $value['comuna'];
 }
 
-echo '<script>fechaEsp('.$fechaNacB.')</script>';
+$fechaN= fechaEsp($fecha);
 
 $parentesco = $data->getParentesco($rutBene);
 $parecido;

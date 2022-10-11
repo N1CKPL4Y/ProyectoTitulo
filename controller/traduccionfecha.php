@@ -1,3 +1,4 @@
+<?php
 
 function fechaEsp($fecha) {
     $fecha = substr($fecha, 0, 10);
@@ -14,5 +15,7 @@ function fechaEsp($fecha) {
     return $numeroDia . " de " . $nombreMes . " del " . $anio;
 }
 
+$fechaN=fechaEsp('2022-12-15');
+echo $fechaN;
 
-
+?>
