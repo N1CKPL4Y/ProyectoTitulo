@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -48,6 +51,19 @@
                             window.location.href = '../Admin/Calendario.php';
                         });
             }
+            
+            function SuccessUpSec() {
+                swal({
+                    title: "Actualización Exitosa",
+                    text: "Evento actualizado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Calendario/CalendarioSecretaria.php';
+                        });
+            }
 
             function SuccessUpDir() {
                 swal({
@@ -59,6 +75,19 @@
                 },
                         function () {
                             window.location.href = '../Direccion/DirCalendario.php';
+                        });
+            }
+            
+            function SuccessUpSec() {
+                swal({
+                    title: "Actualización Exitosa",
+                    text: "Evento actualizado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Secretaria/CalendarioSecretaria.php';
                         });
             }
 
@@ -87,6 +116,18 @@
                             window.location.href = '../Direccion/DirCalendario.php';
                         });
             }
+            function SuccessDelSec() {
+                swal({
+                    title: "Eliminación Exitosa",
+                    text: "Evento eliminado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Secretaria/CalendarioSecretaria.php';
+                        });
+            }
 
             function Error() {
                 swal({
@@ -111,6 +152,19 @@
                 },
                         function () {
                             window.location.href = '../Direccion/DirCalendario.php';
+                        });
+            }
+            
+            function ErrorSec() {
+                swal({
+                    title: "ERROR",
+                    text: "Intentelo nuevamente",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Secretaria/CalendarioSecretaria.php';
                         });
             }
 
@@ -193,6 +247,9 @@ if ($param == 1) {
         echo '<script>SuccessUp();</script>';
     } else if ($ar == 2) {
         echo '<script>SuccessUpDir();</script>';
+    }else if($_SESSION['cargo']=='2'){
+        echo 'putitotttt';
+        //echo '<script>SuccessUpSec();</script>';
     }
 } else if ($param == 3) {
     echo 'edio';
@@ -211,9 +268,14 @@ if ($param == 1) {
     $data->dropEvent($id, $fecha);
     
     if ($ar == 1) {
+        echo 'x';
         echo '<script>SuccessUp();</script>';
     } else if ($ar == 2) {
+        echo 'ahsdhash';
         echo '<script>SuccessUpDir();</script>';
+    }else if($_SESSION['cargo']==2){
+        
+        echo '<script>SuccessUpSec();</script>';
     }
     
 } else {
@@ -222,6 +284,8 @@ if ($param == 1) {
         echo '<script>Error();</script>';
     } else if ($ar == 2) {
         echo '<script>ErrorDir();</script>';
+    }else if($_SESSION['cargo']==2){
+        echo '<script>ErrorSec();</script>';
     }
 }
 ?>

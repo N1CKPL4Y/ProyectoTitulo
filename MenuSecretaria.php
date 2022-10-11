@@ -71,6 +71,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Registrar Entrevista</span>
                 </li>
                 <li>
+                    <a href="Secretaria/CalendarioSecretaria.php">
+                        <i class='bx bx-calendar-heart'></i>
+                        <span class="links_name">Calendario mensual</span>
+                    </a>
+                    <span class="tooltip">Registrar Entrevista</span>
+                </li>
+                <li>
                     <a href="controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
