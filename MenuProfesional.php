@@ -122,8 +122,7 @@ $consulJson = json_encode($consultas);
     <body class="hold-transition sidebar-mini">
         <div class="sidebar open" >
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -167,7 +166,7 @@ $consulJson = json_encode($consultas);
                     <div class="container center" style="display: flex; align-items: center; justify-content: center;">
                         <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px;color: white;">Fenix</a>
+                        <a style="font-size: 30px;color: white;">Fénix</a>
                     </div>
                 </div>
             </nav>

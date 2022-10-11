@@ -2,6 +2,7 @@
 
 session_start();
 include_once '../DB/Model_Data.php';
+include_once './traduccionfecha.php';
 $data = new Data();
 $id_Bitacora = isset($_GET['id']) ? $_GET['id'] : null;
 
@@ -52,10 +53,9 @@ foreach ($benefs as $value) {
     $pdf->Cell(50, 7, utf8_decode('Rut: ' . $value['RUT']));
     $pdf->Ln();
     $pdf->SetXY(20, 64);
-    $time = strtotime($value['fecha_nac']);
-    setlocale(LC_ALL, "es_ES");
-    $newformat = date('d-M-Y', $time);
-    $pdf->Cell(50, 7, utf8_decode('Fecha de Nacimiento: ' . $newformat));
+    $fechaN = $value['fecha_nac'];
+    $fechaNac = fechaEsp($fechaN);
+    $pdf->Cell(50, 7, utf8_decode('Fecha de Nacimiento: ' . $fechaNac));
     $pdf->Ln();
     $pdf->SetXY(20, 71);
     $edad = $data->getEdad($value['RUT']);
@@ -93,19 +93,20 @@ foreach ($benefs as $value) {
     $pdf->SetXY(20, 100);
     $pdf->MultiCell(180, 7, utf8_decode($antecedentes . "\n\n Objetivos\n\n" . $objetivos . "\n\n Actividad \n\n " . $actividad . "\n\n Acuerdo \n\n " . $acuerdo . " \n\n Observaciones \n\n" . $observacion));
     $pdf->Ln(50);
-    $pdf->SetX(60);
-    $pdf->Cell(100, 7, utf8_decode($_SESSION['nombre'] . " " . $_SESSION['apellido']));
+    $pdf->SetX(55);
+    $pdf->Cell(100, 7, utf8_decode($_SESSION['nombre'] . " " . $_SESSION['apellido']), 0, 0, 'C');
     $pdf->Ln();
     $pdf->SetX(87);
-    $areas = $data->getAreaById($_SESSION['area_u']);
+    $areas = $data->getAreaById($_SESSION['area_u'], 0, 0, 'C');
     $a_usuario;
     foreach ($areas as $value) {
         $a_usuario = $value['nombre'];
     }
     $pdf->Cell(100, 7, utf8_decode($a_usuario));
     $pdf->Ln();
-    $pdf->SetX(75);
-    $pdf->Cell(100, 7, utf8_decode($fecha_hora));
+    $pdf->SetX(55);
+    $fechaB = fechaEsp($fecha_hora);
+    $pdf->Cell(100, 7, utf8_decode($fechaB), 0, 0, 'C');
 }
 
 $pdf->Output('Bitacora'.$beneficiario.'_'.$programa.'.pdf', 'I');
