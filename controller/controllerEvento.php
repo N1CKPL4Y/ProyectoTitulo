@@ -266,20 +266,19 @@ if ($param == 1) {
 } else if ($param == 4) {
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $fecha = isset($_GET['fecha']) ? $_GET['fecha'] : null;
-    
-    $data->dropEvent($id, $fecha);
-    echo '<br>' . $id . '<br>' . $fecha;
+    $evento = isset($_GET['colorEvent']) ? $_GET['colorEvent'] : null;
+    $evento = '#' . $evento;
+    $data->dropEvent($id, $fecha, $evento);
+    echo '<br>' . $id . '<br>' . $fecha . '<br>' . $evento;
 
     if ($ar == 1) {
         echo 'x';
-        
+
         echo '<script>SuccessUp();</script>';
     } else if ($ar == 2) {
         echo 'ahsdhash';
-        
         echo '<script>SuccessUpDir();</script>';
     } else if ($_SESSION['cargo'] == 2) {
-        
         echo '<script>SuccessUpSec();</script>';
     }
 } else {

@@ -21,7 +21,7 @@ if ($correo == null || "") {
 
 $cUser = $data->getCargobyId($cargoU);
 $cargo;
-foreach($cUser as $value){
+foreach ($cUser as $value) {
     $cargo = $value['nombre'];
 }
 
@@ -70,6 +70,7 @@ $consulJson = json_encode($consultas);
         <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
 
         <link rel="stylesheet" href="../AdminLTE/plugins/fullcalendar/main.css">
+        <link rel="stylesheet" href="../Materialize/datepick.css">
 
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css?v=3.2.0">
         <!--<script nonce="dad866f0-7b4e-459c-92df-8e1fe510a0c2">(function (w, d) {
@@ -175,7 +176,7 @@ $consulJson = json_encode($consultas);
                 </div>
             </nav>
             <section class="content">
-            <div class="container-fluid">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -198,11 +199,11 @@ $consulJson = json_encode($consultas);
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_title" readonly id="title" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3 dates">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" autocomplete="off" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3 clockpicker"  data-placement="left" data-align="top" data-autoclose="true">
                                                     <div class="input-group-prepend">
@@ -285,9 +286,16 @@ $consulJson = json_encode($consultas);
         <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
         <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
         <script  src="../Fullcalendar/lib/locales/es.js"></script>
+        <script src="../Materialize/datepicke.js"></script>
         <script src="../js/clockpicker.js"></script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
+            $(function () {
+                $('.dates #startEvent').datepicker({
+                    'format': 'yyyy-mm-dd',
+                    'autoclose': true
+                });
+            });
         </script>
         <script>
             $(document).ready(function () {
@@ -295,9 +303,9 @@ $consulJson = json_encode($consultas);
             });
 
             function colorPreview() {
-                let color=$('#evento').val();
+                let color = $('#evento').val();
                 console.log(color);
-                $('#colorPrevH').css('background-color',color);
+                $('#colorPrevH').css('background-color', color);
             }
         </script>
         <script type="text/javascript">
@@ -419,7 +427,9 @@ $consulJson = json_encode($consultas);
                     eventDrop: function (info) {
                         const id = info.event.id;
                         const fecha = info.event.startStr;
-                        window.location = '../controller/controllerEvento.php?p=4&a=3&id=' + id + '&fecha=' + fecha;
+                        const colorEvent = info.event.backgroundColor;
+                        const color = colorEvent.substring(1);
+                        window.location = '../controller/controllerEvento.php?p=4&a=3&id=' + id + '&fecha=' + fecha + '&colorEvent=' + color + '';
                         console.log(id, fecha);
                     }
                 });

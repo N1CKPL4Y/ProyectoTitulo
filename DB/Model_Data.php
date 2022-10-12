@@ -446,8 +446,8 @@ class Data {
         $query = $this->con->query($sql);
     }
 
-    public function dropEvent($id, $fecha) {
-        $sql = "UPDATE `evento` SET `start` = '$fecha' WHERE `evento`.`id` = $id;";
+    public function dropEvent($id, $fecha,$color) {
+        $sql = "UPDATE `evento` SET `start` = '$fecha', color='$color' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
     }
 
