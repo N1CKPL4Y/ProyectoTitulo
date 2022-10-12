@@ -452,7 +452,7 @@ class Data {
     }
 
     public function delEvento($id) {
-        $sql = "DELETE from evento WHERE id = '$id';";
+        $sql = "DELETE from evento WHERE id = $id;";
         $query = $this->con->query($sql);
     }
 
@@ -507,6 +507,11 @@ class Data {
         $sql = "SELECT * FROM `datosgenerales` WHERE beneficiario = '$rut';";
         $query = $this->con->query($sql);
         return $query;
+    }
+    
+    public function updDatosGenerales($rut_bene, $tipoAtencion) {
+        $sql = "UPDATE `datosgenerales` SET `atencion` = '$tipoAtencion' WHERE beneficiario='$rut_bene';";
+        $query = $this->con->query($sql);
     }
 
     public function getAreaById($id) {

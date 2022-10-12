@@ -77,6 +77,8 @@ $ar = isset($_GET['dis']) ? $_GET['dis'] : null;
 $rut = isset($_POST["txt_rut"]) ? $_POST["txt_rut"] : null;
 $nombre = isset($_POST["nombreB"]) ? $_POST["nombreB"] : null;
 $apellido = isset($_POST["apellidoB"]) ? $_POST["apellidoB"] : null;
+$atencion = isset($_POST["atencion"]) ? $_POST["atencion"] : null;
+$tipoAtencion;
 
 if (empty($_POST["comunaB"])) {
     $comunaB = isset($_POST["comunaA"]) ? $_POST["comunaA"] : null;
@@ -90,10 +92,22 @@ if (empty($_POST["direccionB"])) {
     $direccionB = isset($_POST["direccionB"]) ? $_POST["direccionB"] : null;
 }
 
+if (empty($_POST["atencionTipo"])) {
+    if ($atencion=="Atencion por beneficio") {
+        $tipoAtencion=1;
+    }else{
+        $tipoAtencion=2;
+    }
+    
+} else {
+    $tipoAtencion = isset($_POST["atencionTipo"]) ? $_POST["atencionTipo"] : null;
+}
+
 //echo $comunaB." ".$direccionB;
 
 if ($comunaB && $direccionB) {
     $data->updateBene($rut, $direccionB, $comunaB);
+    $data->updDatosGenerales($rut, $tipoAtencion);
     if ($ar == 1) {
         echo '<script>Success();</script>';
     } else if ($ar == 2) {

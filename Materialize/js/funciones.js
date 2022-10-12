@@ -62,6 +62,20 @@ function updateBene(datos){
     $('#apellidoB').val(d[2]);
     $('#direccionA').val(d[3]);
     $('#comunaA').val(d[4]);   
+    if (d[5]==1) {
+        $('#atencion').val("Atencion por beneficio");
+        $('#labelDes').text("¿Desea cambiar a atencion por programa pagado?");
+        $('#atencionTipo1').val(2);
+        $('#atencionTipo2').val(1);
+        //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea desactivar el usuario?</label>');
+    }else{
+        $('#atencion').val("Atencion por programa pagado");
+        $('#labelDes').text("¿Desea cambiar a atencion por beneficio?");
+        $('#atencionTipo1').val(1);
+        $('#atencionTipo2').val(2);
+        //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea activar el usuario?</label>');
+    }
+    //$('#atencion').val(d[5]);   
 }
 
 function updateTutor(datos){

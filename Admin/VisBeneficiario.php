@@ -189,6 +189,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="atencion" class="col-sm-10 col-form-label">Tipo de atencion</label>
+                                                        <input type="text" name="atencion" class="form-control" id="atencion" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <label for="atencionTipo" id="labelDes" class="col-sm-10 col-form-label" >¿Dese cambiar el tipo de atención?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atencionTipo" id="atencionTipo1" >
+                                                        <label class="form-check-label" for="atencionTipo">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atencionTipo" id="atencionTipo2" >
+                                                        <label class="form-check-label" for="atencionTipo">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -223,13 +246,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </thead>
                                             <tbody>
                                                 <?php
+                                                $aten;
                                                 foreach ($benefs as $key) {
                                                     $rutb = $key['RUT'];
+                                                    $datosExtras = $data->getDatosGenerales($rutb);
+                                                    
+                                                    foreach ($datosExtras as $value) {
+                                                        $aten = $value['atencion'];
+                                                    }
+                                                    
                                                     $datos = $key['RUT'] . ".."
                                                             . $key['nombre'] . ".."
                                                             . $key['apellido'] . ".."
                                                             . $key['direccion'] . ".."
-                                                            . $key['comuna'];
+                                                            . $key['comuna'] . ".."
+                                                            . $aten;
                                                     $escaped = htmlspecialchars(json_encode($datos));
                                                     echo '<tr>';
                                                     echo '<td>' . $key['ID'] . '</td>';
@@ -273,7 +304,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
-     
+
 
         <script>
             $(function () {

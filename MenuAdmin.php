@@ -1,8 +1,10 @@
 <?php
 error_reporting(E_NOTICE ^ E_ALL);
-
 include_once 'DB/Model_Data.php';
+session_set_cookie_params(0, '/', 'localhost',true,true);
 session_start();
+
+$p=session_get_cookie_params();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
