@@ -10650,9 +10650,9 @@ var FullCalendar = (function (exports) {
                     // also prevents selection in older browsers (maybe?).
                     // not necessary for touch, besides, browser would complain about passiveness.
                     if (!ev.isTouch) {
-                        ev.origEvent.preventDefault();
+                        ev.origEvent.preventDefault()
                     }else{
-                        passive:true;
+                        passive:true
                     }
                     _this.emitter.trigger('pointerdown', ev);
                     if (_this.isInteracting && // not destroyed via pointerdown handler

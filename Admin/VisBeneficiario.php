@@ -41,8 +41,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="js/validarut.js"></script>
-        <script src="js/jquery.rut.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
         <script src="../Materialize/js/funciones.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -140,7 +140,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
                                                         <label for="rutU" class="col-sm-8 col-form-label">R.U.T del beneficiario</label>
-                                                        <input type="text" name="txt_rut" class="form-control" id="rutU" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="">
+                                                        <input type="text" name="txt_rut" class="form-control" id="rutU" aria-describedby="rut1"  readonly="">
                                                         <small id="rut1" class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
@@ -273,29 +273,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
-        <script type="text/javascript">
-                                                            var input = document.getElementById('telefonoU');
-                                                            input.addEventListener('input', function () {
-                                                                if (this.value.length > 9)
-                                                                    this.value = this.value.slice(0, 9);
-                                                            })
-        </script>
+     
 
-        <script>
-            document.getElementById('emailU').addEventListener('input', function () {
-                campo = event.target;
-                valido = document.getElementById('emailVal');
-                emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-
-                if (emailRegex.test(campo.value)) {
-                    valido.innerText = "Correo válido";
-                } else {
-                    valido.innerText = "Correo no válido";
-                }
-            }
-            );
-        </script>
         <script>
             $(function () {
                 $("#myTable").DataTable({

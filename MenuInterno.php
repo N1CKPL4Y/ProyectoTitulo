@@ -371,7 +371,7 @@ $consulJson = json_encode($consultas);
                         console.log(info);
                         let color = info.event.backgroundColor;
                         console.log(color);
-                        if (color == '#03EF1C') {
+                        if (color == '#0387EF') {
                             modal.hide();
                         } else {
                             modal.show();
@@ -386,32 +386,7 @@ $consulJson = json_encode($consultas);
                      }*/
                 });
                 calendar.render();
-                console.log(eventosa[0].color);
-                del.addEventListener('click', function () {
-                    modal.hide();
-                    Swal.fire({
-                        title: 'Estas seguro?',
-                        text: "Se borrara el evento",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Si, Borrar!',
-                        cancelButtonText: 'Cancelar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            console.log('peeee');
-                            /*Swal.fire(
-                             'Deleted!',
-                             'Your file has been deleted.',
-                             'success'
-                             );*/
-                            var id = document.getElementById('id').value;
-                            console.log(id);
-                            window.location = '../controller/controllerEvento.php?p=3&a=1&id=' + id;
-                        }
-                    })
-                });
+                
             });
 
         </script>

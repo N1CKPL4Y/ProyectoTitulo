@@ -403,7 +403,7 @@ $consulJson = json_encode($consultas);
                         document.getElementById('title').value = info.event.title;
                         fecha = info.event.startStr;
                         document.getElementById('startEvent').value = fecha.substring(0, 10);
-                        document.getElementById('startEventHour').value = fecha.substring(11);
+                        document.getElementById('startEventHour').value = fecha.substring(11,16);
 
                         //document.getElementById('color').value = info.event.backgroundColor;
                         form.action = "../controller/controllerEvento.php?p=2&a=3";

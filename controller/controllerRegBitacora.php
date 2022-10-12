@@ -4,7 +4,7 @@ $data = new Data();
 session_start();
 $rut_bene = isset($_POST['txt_rutB']) ? $_POST['txt_rutB'] : null;
 $evento = intval(isset($_POST['txt_evento']) ? $_POST['txt_evento'] : null);
-$color = '#03EF1C';
+$color = '#0387EF';
 //echo '<br>' . $evento . '<br>';
 //var_dump($evento);
 $rut_profe = $_SESSION['rut'];
@@ -48,16 +48,33 @@ if (mysqli_num_rows($programa) > 0) {
         echo '<br>programa del mes' . $value['Programas'] . '<br>';
         $cuentaProgram = $value['Programas'];
     }
+    if ($cuentaConsu == $cuentaProgram) {
+        echo '<br>se ha actualizado el programa: ' . $programa += 1;
+        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    } else {
+        echo '<br>el programa es: ' . $programa;
+        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    }
 } else {
     $programa = 1;
     echo 'No existen programas registrado, se definira como: ' . $programa;
-}
-if ($cuentaConsu == $cuentaProgram) {
-    echo '<br>se ha actualizado el programa: ' . $programa += 1;
-    $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-} else {
-    echo '<br>el programa es: ' . $programa;
-    $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+
+    foreach ($consultas as $value) {
+        echo '<br> Consultas del mes' . $value['Consultas'];
+        $cuentaConsu = $value['Consultas'];
+    }
+
+    foreach ($programas as $value) {
+        echo '<br>programa del mes' . $value['Programas'] . '<br>';
+        $cuentaProgram = $value['Programas'];
+    }
+    if ($cuentaConsu == $cuentaProgram) {
+        echo '<br>se ha actualizado el programa: ' . $programa += 1;
+        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    } else {
+        echo '<br>el programa es: ' . $programa;
+        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -78,23 +95,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
     </body>
     <script>
+        var cargo =<?php echo $_SESSION['cargo']; ?>
         function registrado() {
             swal({
-                title: "Bienvenido",
-                text: "Administrador",
+                title: "Registrada",
+                text: "Bitacpra registrada Exitosamente",
                 type: "success",
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Aceptar"
             },
                     function () {
-                        window.location.href = '../MenuInterno.php';
+                        if (cargo == 3) {
+                            window.location.href = '../MenuProfesional.php';
+                        } else if (cargo == 4) {
+                            window.location.href = '../MenuInterno.php';
+                        }
                     });
         }
     </script>
 </html>
 <?php
 if ($evento && $rut_bene) {
-    //echo '<script>registrado();</script>';
-    //$data->updColorEvento($evento, $color);
+    echo '<script>registrado();</script>';
+    $data->updColorEvento($evento, $color);
 }
 ?>
