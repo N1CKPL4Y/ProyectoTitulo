@@ -10,19 +10,21 @@ $passwd = $_SESSION['passwd'];
 $correo = $_SESSION['email'];
 $area_u = $_SESSION['area_u'];
 $tipo_u = $_SESSION['tipo_u'];
+$cargoU = $_SESSION['cargo'];
+
+$data = new Data();
 
 if ($correo == null || "") {
     echo '<script language="javascript">alert("Acceso invalido");</script>';
     echo "<script> window.location.replace('index.php') </script>";
 }
 
-switch ($_SESSION['tipo_u']) {
-    case 1:
-        $tipo_u = "Administrador";
-        break;
+$cUser = $data->getCargobyId($cargoU);
+$cargo;
+foreach($cUser as $value){
+    $cargo = $value['nombre'];
 }
 
-$data = new Data();
 $eventoA = array();
 $comienzo;
 $eventos = $data->getAllEvent();
@@ -123,8 +125,7 @@ $consulJson = json_encode($consultas);
     <body class="hold-transition sidebar-mini">
         <div class="sidebar open" >
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px">Fundación Inclusiva</div></a>
-                <i class='bx bx-menu' id="btn" ></i>        
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -133,6 +134,13 @@ $consulJson = json_encode($consultas);
                         <span class="links_name">Vover a Inicio</span>
                     </a>
                     <span class="tooltip">Volver a Inicio</span>
+                </li>
+                <li>
+                    <a href="EntrevistaFamilia.php">
+                        <i class='bx bx-folder' ></i>
+                        <span class="links_name">Registrar Entrevista</span>
+                    </a>
+                    <span class="tooltip">Registrar Entrevista</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">
@@ -147,7 +155,7 @@ $consulJson = json_encode($consultas);
                         <div class="name_job">
                             <div class="name"><?php echo $nombre ?></div>
                             <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $tipo_u ?></div>
+                            <div class="name"><?php echo $cargo ?></div>
                             <div class="job"><?php echo $correo ?></div>
 
                         </div>
@@ -162,7 +170,7 @@ $consulJson = json_encode($consultas);
                     <div class="container center" style="display: flex; align-items: center; justify-content: center;">
                         <a style="font-size: 30px;color: white">Ave</a>
                         <img width="40" height="40" style="padding-bottom: 5px" src="../IMG/iconNavbar.png"/>
-                        <a style="font-size: 30px;color: white;">Fenix</a>
+                        <a style="font-size: 30px;color: white;">Fénix</a>
                     </div>
                 </div>
             </nav>

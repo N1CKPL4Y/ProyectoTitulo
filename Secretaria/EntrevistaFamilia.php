@@ -9,22 +9,20 @@ $apellido = $_SESSION['apellido'];
 $passwd = $_SESSION['passwd'];
 $correo = $_SESSION['email'];
 $area_u = $_SESSION['area_u'];
-$cargo = $_SESSION['cargo'];
+$cargoU = $_SESSION['cargo'];
 
 if ($correo == null || "") {
     echo '<script language="javascript">alert("Acceso invalido");</script>';
     echo "<script> window.location.replace('index.php') </script>";
 }
 
-
-switch ($_SESSION['cargo']) {
-    case 2:
-        $area_u = "Secretari@";
-        break;
-}
-
-
 $data = new Data();
+
+$cUser = $data->getCargobyId($cargoU);
+$cargo;
+foreach($cUser as $value){
+    $cargo = $value['nombre'];
+}
 ?>
 
 
@@ -91,7 +89,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="name_job">
                             <div class="name"><?php echo $nombre ?></div>
                             <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $area_u ?></div>
+                            <div class="name"><?php echo $cargo ?></div>
                             <div class="job"><?php echo $correo ?></div>
                         </div>
                         <a><i id="log_out" ></i></a>
