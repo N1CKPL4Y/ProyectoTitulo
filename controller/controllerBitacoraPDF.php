@@ -30,6 +30,24 @@ foreach ($bitacora as $value) {
     $observacion = $value['observacion'];
 }
 
+$tipoA = $data->getDatosGenerales($beneficiario);
+$tAtencion;
+foreach ($tipoA as $value) {
+    $tAtencion = $value['atencion'];
+}
+$textAt;
+switch ($tAtencion) {
+    case 1:
+        $textAt = 'Atención por beneficio (Programas sociales previo evaluación social)';
+        break;
+    case 2:
+        $textAt = 'Atención por programa pagado (Costo mínimo asociado)';
+        break;
+    default:
+        break;
+}
+
+
 require '../fpdf/fpdf.php';
 
 $pdf = new FPDF();
@@ -87,7 +105,11 @@ foreach ($benefs as $value) {
     $pdf->SetXY(20, 78);
     $pdf->Cell(50, 7, utf8_decode('Diagnostico: ' . $diagnosB . ' - ' . $codeB));
     $pdf->Ln();
+    $pdf->SetXY(20, 85);
+    $pdf->MultiCell(160, 7, utf8_decode('Tipo de atención: ' . $textAt));
+    $pdf->Ln();
     $pdf->SetXY(10, 130);
+    $pdf->Ln();
     $pdf->SetFillColor(200, 230, 201);
     $pdf->MultiCell(195, 7, utf8_decode('Antecedentes relevantes'), 0, '', true);
     $pdf->Ln();
@@ -102,7 +124,7 @@ foreach ($benefs as $value) {
     $pdf->MultiCell(195, 7, utf8_decode('Actividad'), 0, '', true);
     $pdf->Ln();
     $pdf->MultiCell(195, 7, utf8_decode($actividad), 0, 'J');
-     $pdf->Ln();
+    $pdf->Ln();
     $pdf->SetX(10);
     $pdf->MultiCell(195, 7, utf8_decode('Acuerdo'), 0, '', true);
     $pdf->Ln();
@@ -112,8 +134,7 @@ foreach ($benefs as $value) {
     $pdf->MultiCell(195, 7, utf8_decode('Observaciones'), 0, '', true);
     $pdf->Ln();
     $pdf->MultiCell(195, 7, utf8_decode($observacion), 0, 'J');
-    
-    
+
     $pdf->Ln(50);
     $pdf->SetX(55);
     $pdf->Cell(100, 7, utf8_decode($_SESSION['nombre'] . " " . $_SESSION['apellido']), 0, 0, 'C');

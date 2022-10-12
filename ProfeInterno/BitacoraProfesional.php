@@ -183,6 +183,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 $diagnosB = "No posee diagnostico";
                                                                 $codeB = "0";
                                                             }
+                                                            
+                                                            $tipoA = $data->getDatosGenerales($rutBe);
+                                                            $tAtencion;
+                                                            foreach($tipoA as $value){
+                                                                $tAtencion = $value['atencion'];
+                                                            }
+                                                            $textAt;
+                                                            switch($tAtencion){
+                                                                case 1:
+                                                                    $textAt = 'Atención por beneficio (Programas sociales previo evaluación social)';
+                                                                    break;
+                                                                case 2:
+                                                                    $textAt = 'Atención por programa pagado (Costo mínimo asociado)';
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
                                                             ?>
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-md-4 col-lg-4">
@@ -235,6 +252,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <span class="input-group-text" id="basic-addon1">Diagnostico</span>
                                                                         </div>
                                                                         <input type="text" class="form-control" name="txt_diag" value="<?php echo $diagnosB . "-" . $codeB ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-10 col-lg-10">
+                                                                    <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text" id="basic-addon1">Tipo de Atención</span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $textAt?>" readonly aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
