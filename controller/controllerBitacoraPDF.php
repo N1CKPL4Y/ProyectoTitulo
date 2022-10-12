@@ -35,13 +35,13 @@ require '../fpdf/fpdf.php';
 $pdf = new FPDF();
 $pdf->AddPage('P', 'Legal');
 $pdf->SetTitle(utf8_decode("Bitacora de atención"));
-$pdf->SetFont('Arial', 'B', 16);
+$pdf->SetFont('Arial', 'BU', 16);
 $pdf->SetXY(70, 10);
-$pdf->Image('../IMG/Bitacora.png', 10, 2, 40, 40);
+$pdf->Image('../IMG/Bitacora.png', 22, 6, 20, 20);
 $pdf->SetXY(70, 10);
 $pdf->Cell(60, 7, utf8_decode('Bitacora de atención N° ' . $id));
-$pdf->SetXY(65, 30);
-$pdf->Cell(60, 7, utf8_decode('IDENTIFICACIÓN DEL USUARIO'));
+$pdf->SetXY(75, 30);
+$pdf->Cell(60, 7, utf8_decode('IDENTIFICACIÓN DEL USUARIO'), 0, 0, 'C');
 
 $pdf->SetFont('Arial');
 $benefs = $data->getBenefi($beneficiario);
@@ -87,11 +87,33 @@ foreach ($benefs as $value) {
     $pdf->SetXY(20, 78);
     $pdf->Cell(50, 7, utf8_decode('Diagnostico: ' . $diagnosB . ' - ' . $codeB));
     $pdf->Ln();
-    $pdf->SetXY(20, 92);
-    $pdf->Cell(50, 7, utf8_decode('Antecedentes relevantes'));
+    $pdf->SetXY(10, 130);
+    $pdf->SetFillColor(200, 230, 201);
+    $pdf->MultiCell(195, 7, utf8_decode('Antecedentes relevantes'), 0, '', true);
     $pdf->Ln();
-    $pdf->SetXY(20, 100);
-    $pdf->MultiCell(180, 7, utf8_decode($antecedentes . "\n\n Objetivos\n\n" . $objetivos . "\n\n Actividad \n\n " . $actividad . "\n\n Acuerdo \n\n " . $acuerdo . " \n\n Observaciones \n\n" . $observacion));
+    $pdf->MultiCell(195, 7, utf8_decode($antecedentes), 0, 'J');
+    $pdf->Ln();
+    $pdf->SetX(10);
+    $pdf->MultiCell(195, 7, utf8_decode('Objetivos'), 0, '', true);
+    $pdf->Ln();
+    $pdf->MultiCell(195, 7, utf8_decode($objetivos), 0, 'J');
+    $pdf->Ln();
+    $pdf->SetX(10);
+    $pdf->MultiCell(195, 7, utf8_decode('Actividad'), 0, '', true);
+    $pdf->Ln();
+    $pdf->MultiCell(195, 7, utf8_decode($actividad), 0, 'J');
+     $pdf->Ln();
+    $pdf->SetX(10);
+    $pdf->MultiCell(195, 7, utf8_decode('Acuerdo'), 0, '', true);
+    $pdf->Ln();
+    $pdf->MultiCell(195, 7, utf8_decode($acuerdo), 0, 'J');
+    $pdf->Ln();
+    $pdf->SetX(10);
+    $pdf->MultiCell(195, 7, utf8_decode('Observaciones'), 0, '', true);
+    $pdf->Ln();
+    $pdf->MultiCell(195, 7, utf8_decode($observacion), 0, 'J');
+    
+    
     $pdf->Ln(50);
     $pdf->SetX(55);
     $pdf->Cell(100, 7, utf8_decode($_SESSION['nombre'] . " " . $_SESSION['apellido']), 0, 0, 'C');
@@ -109,6 +131,6 @@ foreach ($benefs as $value) {
     $pdf->Cell(100, 7, utf8_decode($fechaB), 0, 0, 'C');
 }
 
-$pdf->Output('Bitacora'.$beneficiario.'_'.$programa.'.pdf', 'I');
+$pdf->Output('Bitacora' . $beneficiario . '_' . $programa . '.pdf', 'I');
 ?>
 

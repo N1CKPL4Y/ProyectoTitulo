@@ -145,7 +145,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     ?>
                                                     <div class="row justify-content-around">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
-                                                            <a role="button" target="_blank"  href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id'];?>">
+                                                            <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id'];?>">
                                                                 <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont." Codigo: ".$value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?>
                                                             </a>
                                                         </div>
