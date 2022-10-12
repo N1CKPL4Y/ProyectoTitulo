@@ -33,7 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Calendario Mensual</title>
+        <title>Bitacora de atención</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
