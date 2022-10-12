@@ -219,14 +219,14 @@ $pdf->MultiCell(195, 6, utf8_decode('Este documento contiene la entrevista de an
 $pdf->Footer();
 $pdf->SetFont('Arial', '', 12);
 $pdf->SetXY(50, 325);
-$pdf->Cell(60, 6, utf8_decode('Fundación Inclusiva Ave Fénix - Derechos Reservados'));
+$pdf->Cell(60, 6, utf8_decode('Fundación Inclusiva Ave Fénix - Derechos Reservados'), 0, 'C');
 
 $pdf->AddPage('P', 'Legal');
 $pdf->Image('../IMG/iconEntrevista.png', 10, 5, 25, 20);
 $pdf->Image('../IMG/iconEntrevista.png', 180, 5, 25, 20);
 $pdf->SetFont('Arial', 'BU', 20);
 $pdf->SetXY(75, 15);
-$pdf->Cell(60, 6, utf8_decode('Antecedentes'));
+$pdf->Cell(60, 6, utf8_decode('Antecedentes'), 0, 0, 'C');
 $pdf->Ln();
 $pdf->SetFont('Arial', 'BU', 14);
 $pdf->SetXY(10, 33);
@@ -2010,7 +2010,7 @@ $pdf->MultiCell(195, 6, utf8_decode('Fin de la entrevista de antecedentes'), 0, 
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 12);
     $pdf->SetX(10);
-    $pdf->MultiCell(195, 6, utf8_decode('                                 Fundación Inclusiva Ave Fénix - Derechos Reservados'));
+    $pdf->MultiCell(195, 6, utf8_decode('Fundación Inclusiva Ave Fénix - Derechos Reservados'), 0, 'C');
     $pdf->Ln();
 
 $pdf->Output('Entrevista' . '_' . $rutBene . 'pdf', 'I');

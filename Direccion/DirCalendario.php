@@ -188,7 +188,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-sm-12 col-md-10 col-lg-8">
+                        <div class="col-sm-12 col-md-11 col-lg-10">
                             <div class="card card-primary">
                                 <div class="card-body p-0">
                                     <div id="calendar"></div>
@@ -310,7 +310,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     }
                 });
                 calendar.render();

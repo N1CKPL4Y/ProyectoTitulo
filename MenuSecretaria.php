@@ -203,7 +203,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group dates">
                                                                 <label for="datepicker">Fecha de nacimiento</label>
-                                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="txt_Fnac" id="datepicker" style=" text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+                                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="txt_Fnac" id="datepicker" style=" text-indent: 18px;">
                                                                 <span style="color: grey">Formato Año-Mes-Dia</span>
                                                             </div>
                                                         </div>

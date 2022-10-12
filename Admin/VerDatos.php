@@ -149,7 +149,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             $pensBase;
             $chilBase;
             $regiBase;
-            
+
             $resulData = $data->getBenefi($rutBen);
             foreach ($resulData as $key) {
                 $rutBase = $key['RUT'];
@@ -765,18 +765,16 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 }
                                 ?>
                                 <br>
-                                <div class="row" style="padding-top: 10px">
-                                    <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <h4>Entrevista de antecedentes:</h4>
-                                    </div>
-                                </div>
                                 <?php
                                 $existeEntre = $data->getEntrevistaByRut($rutBen);
                                 if ($existeEntre) {
                                     ?>
                                     <div class="row" style="padding-top: 10px">
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase;?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
+                                            <h4>Entrevista de antecedentes:</h4>
+                                        </div>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
                                         </div>
                                     </div>
                                     <?php
@@ -784,17 +782,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     ?>
                                     <div class="row" style="padding-top: 10px">
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <div class="card text-center">
-                                                <div class="card-header">
-                                                    Registro entrevista
-                                                </div>
-                                                <div class="card-body">
-                                                    <h5 class="card-title">El beneficiario no posee una entrevista registrada</h5>
-                                                </div>
-                                                <div class="card-footer text-muted">
-                                                    ...
-                                                </div>
-                                            </div>
+                                            <h4>Entrevista de antecedentes:</h4>
+                                        </div>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <a class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Este beneficiario no cuenta con una entrevista registrada</a>
                                         </div>
                                     </div>
 
@@ -853,7 +844,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     $emailT = $valor4['email'];
                                     $previsionT = $valor4['prevision'];
                                 }
-                                
+
                                 $fechaNacT = fechaEsp($f_nacT);
                                 $prevT = $data->getPrevForId($previsionT);
                                 $prev;
