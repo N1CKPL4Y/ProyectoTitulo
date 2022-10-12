@@ -262,7 +262,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </div>
                                                                             <input type="hidden" class="form-control" name="txt_rutB" value="<?php echo $rutBe; ?>" aria-label="Username" aria-describedby="basic-addon1">
                                                                             <input type="hidden" class="form-control" name="txt_evento" value="<?php echo $idB; ?>" aria-label="Username" aria-describedby="basic-addon1">
-                                                                            <input type="text" class="form-control" readonly name="txt_program" value="<?php echo $countP; ?>" aria-label="Username" aria-describedby="basic-addon1">
+                                                                            <input type="text" class="form-control" name="txt_program" placeholder="ej: 1" aria-label="Username" aria-describedby="basic-addon1">
                                                                         </div>
                                                                     </div>
                                                                 </div>

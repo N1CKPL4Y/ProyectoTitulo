@@ -13,12 +13,13 @@ $objetivos = isset($_POST['txt_obs']) ? $_POST['txt_obs'] : null;
 $actividad = isset($_POST['txt_act']) ? $_POST['txt_act'] : null;
 $acuerdo = isset($_POST['txt_acu']) ? $_POST['txt_acu'] : null;
 $observaciones = isset($_POST['txt_obs']) ? $_POST['txt_obs'] : null;
+$programa = isset($_POST['txt_program']) ? $_POST['txt_program'] : null;
 
-$consultas = $data->getConsEvent($rut_bene, $rut_profe);
+/*$consultas = $data->getConsEvent($rut_bene, $rut_profe);
 $programas = $data->getCountPrograma($rut_bene, $rut_profe);
 $cuentaConsu;
 $cuentaProgram;
-$programa = $data->getPrograma($rut_bene, $rut_profe);
+$programa = $data->getPrograma($rut_bene, $rut_profe);*/
 //var_dump($programa);
 
 /* foreach ($programa as $value) {
@@ -34,7 +35,7 @@ $programa = $data->getPrograma($rut_bene, $rut_profe);
   } */
 
 
-if (mysqli_num_rows($programa) > 0) {
+/*if (mysqli_num_rows($programa) > 0) {
     foreach ($programa as $value) {
         echo '<br>programa existente (Ultimo)' . $value['programa'] . '<br>';
         $programa = $value['programa'];
@@ -75,7 +76,7 @@ if (mysqli_num_rows($programa) > 0) {
         echo '<br>el programa es: ' . $programa;
         $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
     }
-}
+}*/
 ?>
 <!DOCTYPE html>
 <!--
@@ -95,7 +96,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
     </body>
     <script>
-        var cargo =<?php echo $_SESSION['cargo']; ?>
+        var cargo =<?php echo $_SESSION['cargo']; ?>;
         function registrado() {
             swal({
                 title: "Registrada",
@@ -117,6 +118,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <?php
 if ($evento && $rut_bene) {
     echo '<script>registrado();</script>';
+    $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
     $data->updColorEvento($evento, $color);
 }
 ?>
