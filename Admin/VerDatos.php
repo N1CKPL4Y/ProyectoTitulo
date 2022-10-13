@@ -271,6 +271,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
                 <div class="row">
                     <div class="col-sm-6">
+                        <!-- Modal edit tutor -->
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -380,6 +381,47 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn submitModal">Guardar Cambios</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Modal edit tutor -->
+                        <div class="modal fade" id="modalIngDiag" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form action="../controller/controllerUpdateTutor.php?dis=1&rut=<?php echo $rutBen; ?>" method="Post">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Registrar datos de diagnostico</h5>
+                                        </div>
+                                        <div class="modal-body Cuerpo">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnóstico que presenta el beneficiario?</label>
+                                                        <div class="input-group mb-6">
+                                                            <select class="custom-select diag" id="inputGroupSelect01" name="cbo_condicion" disabled="">
+                                                                <option value="" disabled selected> -- Seleccione -- </option>
+                                                                <?php
+                                                                $condiciones = $data->getAllCondition();
+
+                                                                foreach ($condiciones as $key) {
+                                                                    echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer HeaderModal">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn submitModal">Registrar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -609,7 +651,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <button type="button" class="btn btn-success col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCreden">
+                                            <button type="button" class="btn col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCreden">
                                                 Ver Copia Credencial
                                             </button>
                                         </div>
@@ -760,6 +802,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row justify-content-around" style="padding-top: 10px">
+                                        <a data-toggle="modal" data-target="#modalIngDiag" class="btn submit col-sm-12 col-md-6 col-lg-6 col-xl-6">Ingresar datos de diagnostico</a>
                                     </div>
                                     <?php
                                 }
