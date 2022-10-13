@@ -498,10 +498,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <label for="discapacidad" style="margin-left: 10px">Numero de credencial de discapacidad</label>
-                                                        <input type="text" class="form-control" name="txt_credencial" autocomplete="off" id="discapacidad" required>
-                                                        <span style="color: grey"></span>
+                                                    <label for="discapacidad" style="margin-left: 10px">Numero de credencial de discapacidad</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">N°</span>
+                                                        <input type="text" class="form-control" name="txt_credencial" autocomplete="off" id="discapacidad"  aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -547,10 +547,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <label for="porcentaje_d" style="margin-left: 10px">Porcentaje de discapacidad</label>
-                                                        <input type="number" class="form-control" autocomplete="off" name="txt_porcentaje_d" id="porcentaje_d" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
-                                                        <span style="color: grey"></span>
+                                                    <label class="col-form-label" for="porcentaje_d" style="margin-left: 10px">Porcentaje de discapacidad</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">N°</span>
+                                                        <input type="number" class="form-control" name="txt_credencial" autocomplete="off" name="txt_porcentaje_d" id="porcentaje_d" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
