@@ -734,7 +734,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="porcentajeF" style="margin-left: 10px">Porcentaje en registro social de hogares</label>
-                                                                <input type="number" class="form-control" name="txt_porcentajeF" id="porcentajeF" required disabled="" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+                                                                <input type="number" class="form-control" name="txt_porcentHogar" id="porcentajeF" required disabled="" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                                                                 <span style="color: grey"></span>
                                                             </div>
                                                         </div>

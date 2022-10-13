@@ -7,6 +7,10 @@
     font-family: "Poppins" , sans-serif;
 }
 
+.modal-open {
+    overflow: hidden;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

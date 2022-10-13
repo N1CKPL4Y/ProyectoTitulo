@@ -14,6 +14,7 @@ $actividad = isset($_POST['txt_act']) ? $_POST['txt_act'] : null;
 $acuerdo = isset($_POST['txt_acu']) ? $_POST['txt_acu'] : null;
 $observaciones = isset($_POST['txt_obs']) ? $_POST['txt_obs'] : null;
 $programa = isset($_POST['txt_program']) ? $_POST['txt_program'] : null;
+$t_atencion = isset($_POST['t_atencion']) ? $_POST['t_atencion'] : null;
 
 /*$consultas = $data->getConsEvent($rut_bene, $rut_profe);
 $programas = $data->getCountPrograma($rut_bene, $rut_profe);
@@ -88,7 +89,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <title>Registrando</title>
-        <!--<link rel="stylesheet" href="../Materialize/css/styleBody.css"/>-->
+        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -100,7 +101,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         function registrado() {
             swal({
                 title: "Registrada",
-                text: "Bitacpra registrada Exitosamente",
+                text: "Bitacora registrada Exitosamente",
                 type: "success",
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Aceptar"
@@ -116,9 +117,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     </script>
 </html>
 <?php
+echo $t_atencion;
 if ($evento && $rut_bene) {
     echo '<script>registrado();</script>';
-    $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    $data->addBitacora($rut_bene, $rut_profe, $programa, $t_atencion, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
     $data->updColorEvento($evento, $color);
 }
 ?>

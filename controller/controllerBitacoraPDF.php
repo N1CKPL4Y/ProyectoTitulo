@@ -11,6 +11,7 @@ $id;
 $beneficiario;
 $usuario;
 $programa;
+$t_atencion;
 $fecha_hora;
 $antecedentes;
 $objetivos;
@@ -22,6 +23,7 @@ foreach ($bitacora as $value) {
     $beneficiario = $value['beneficiario'];
     $usuario = $value['usuario'];
     $programa = $value['programa'];
+    $t_atencion = $value['t_atencion'];
     $fecha_hora = $value['fecha_hora'];
     $antecedentes = $value['antecedentes_r'];
     $objetivos = $value['objetivo'];
@@ -30,13 +32,8 @@ foreach ($bitacora as $value) {
     $observacion = $value['observacion'];
 }
 
-$tipoA = $data->getDatosGenerales($beneficiario);
-$tAtencion;
-foreach ($tipoA as $value) {
-    $tAtencion = $value['atencion'];
-}
 $textAt;
-switch ($tAtencion) {
+switch ($t_atencion) {
     case 1:
         $textAt = 'Atención por beneficio (Programas sociales previo evaluación social)';
         break;

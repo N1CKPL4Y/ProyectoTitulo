@@ -405,7 +405,7 @@ if (!$existeBene) {
         
         //insert beneficios sociales
         if($hogar == 1){
-            $data->addRegisSocial($hogarFile, $tipoDocu, $rut);
+            $data->addRegisSocial($hogarFile, $porcentHogar, $tipoDocu, $rut);
         }
         
         echo '<script language="javascript">Success()</script>';

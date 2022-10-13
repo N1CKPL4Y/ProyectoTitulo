@@ -483,7 +483,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="modalIngCreden" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateDiag.php" method="Post" enctype="multipart/form-data">
+                                    <form action="../controller/controllerUpdateCredDisc.php" method="Post" enctype="multipart/form-data">
                                         <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Registrar datos Credencial Discapacidad</h5>
                                         </div>
@@ -550,7 +550,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                     <label class="col-form-label" for="porcentaje_d" style="margin-left: 10px">Porcentaje de discapacidad</label>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">N°</span>
-                                                        <input type="number" class="form-control" name="txt_credencial" autocomplete="off" name="txt_porcentaje_d" id="porcentaje_d" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="number" class="form-control" name="txt_porcentaje_d" autocomplete="off" name="txt_porcentaje_d" id="porcentaje_d" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -560,7 +560,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                             <div class="input-group-prepend">
                                                                 <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
                                                             </div>
-                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_origenS">
+                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_grado">
                                                                 <option value="" disabled selected>-- Seleccione --</option>
                                                                 <option value="1">Leve</option>
                                                                 <option value="2">Moderado</option>
@@ -572,12 +572,82 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br>
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-8 col-lg-8">
-                                                    <label style="margin-left: 10px">Copia informe ultimo control (PDF)</label>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-12 col-form-label">Movilidad</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                            </div>
+                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_movilidad">
+                                                                <option value="" disabled selected>-- Seleccione --</option>
+                                                                <option value="1">Leve</option>
+                                                                <option value="2">Moderado</option>
+                                                                <option value="3">Severo</option>
+                                                                <option value="4">Profundo</option>
+                                                                <option value="5">No aplica</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label style="margin-left: 10px">C. Discapacidad (Parte delantera) (Imagen)</label>
                                                     <div class="mb-3">
-                                                        <input class="form-control" name="file_control" accept="application/pdf" type="file">
+                                                        <input class="form-control" name="file_credenFront" accept="image/jpeg" type="file">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label style="margin-left: 10px">C. Discapacidad (Parte trasera) (Imagen)</label>
+                                                    <div class="mb-3">
+                                                        <input class="form-control" name="file_credenBack" accept="image/jpeg" type="file">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer HeaderModal">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn submitModal">Registrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Modal edit Registro S. Hogares -->
+                        <div class="modal fade" id="modalIngRHogar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form action="../controller/controllerUpdateRSocial.php" method="Post" enctype="multipart/form-data">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Ingresar Registro S. Hogares</h5>
+                                        </div>
+                                        <div class="modal-body Cuerpo">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">R.U.T Beneficiario</span>
+                                                        <input type="text" class="form-control" readonly="" name="rutBene" aria-label="Username" value="<?php echo $rutBen; ?>" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                    <label for="discapacidad" style="margin-left: 10px">Porcentaje Registro</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                                        <input type="number" class="form-control" name="txt_porcentHogar" autocomplete="off" id="discapacidad"  aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-8 col-lg-8">
+                                                    <label style="margin-left: 10px">Copia del registro (PDF)</label>
+                                                    <div class="mb-3">
+                                                        <input class="form-control" name="file_Hogar" accept="application/pdf" type="file">
                                                     </div>
                                                 </div>
                                             </div>
@@ -797,7 +867,11 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                         <?php
                                     } else {
-                                        
+                                        ?>
+                                        <div class = "col-sm-12 col-md-10 col-lg-6">
+                                            <a class = "btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalIngRHogar">Ingresar Registro S. Hogares</a>
+                                        </div>
+                                        <?php
                                     }
                                     ?>
                                 </div>

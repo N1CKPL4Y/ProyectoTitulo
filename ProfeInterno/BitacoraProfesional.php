@@ -183,14 +183,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 $diagnosB = "No posee diagnostico";
                                                                 $codeB = "0";
                                                             }
-                                                            
+
                                                             $tipoA = $data->getDatosGenerales($rutBe);
                                                             $tAtencion;
-                                                            foreach($tipoA as $value){
+                                                            foreach ($tipoA as $value) {
                                                                 $tAtencion = $value['atencion'];
                                                             }
                                                             $textAt;
-                                                            switch($tAtencion){
+                                                            switch ($tAtencion) {
                                                                 case 1:
                                                                     $textAt = 'Atención por beneficio (Programas sociales previo evaluación social)';
                                                                     break;
@@ -255,16 +255,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col-sm-12 col-md-10 col-lg-10">
-                                                                    <div class="input-group mb-3">
-                                                                        <div class="input-group-prepend">
-                                                                            <span class="input-group-text" id="basic-addon1">Tipo de Atención</span>
-                                                                        </div>
-                                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $textAt?>" readonly aria-label="Username" aria-describedby="basic-addon1">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -290,6 +280,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <input type="hidden" class="form-control" name="txt_rutB" value="<?php echo $rutBe; ?>" aria-label="Username" aria-describedby="basic-addon1">
                                                                             <input type="hidden" class="form-control" name="txt_evento" value="<?php echo $idB; ?>" aria-label="Username" aria-describedby="basic-addon1">
                                                                             <input type="text" class="form-control" name="txt_program" placeholder="ej: 1" aria-label="Username" aria-describedby="basic-addon1">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 15px">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header Header" style="background-color: #558b2f; color: white">
+                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Tipo de atención:</h5>
+                                                    </div>
+                                                    <div class="card-body Cuerpo" style="background-color: #C8E6C9">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="col-md-10 col-sm-10">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="t_atencion" value="1">
+                                                                                <label class="form-check-label" for="t_atencion">
+                                                                                    Atención por beneficio (Programas sociales previo evaluación social)
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="t_atencion" value="2">
+                                                                                <label class="form-check-label" for="t_atencion">
+                                                                                    Atención por programa pagado (Costo mínimo asociado)
+                                                                                </label>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

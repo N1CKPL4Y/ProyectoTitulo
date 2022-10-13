@@ -60,8 +60,8 @@ class Data {
         $this->con->query($sql);
     }
 
-    public function addRegisSocial($copia, $tipoDocu, $beneficiario) {
-        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `tipoDocumento`, `beneficiario`) VALUES (NULL, '$copia', '$tipoDocu', '$beneficiario');";
+    public function addRegisSocial($copia, $porcentaje, $tipoDocu, $beneficiario) {
+        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `porcentaje`, `tipoDocumento`, `beneficiario`) VALUES (NULL, '$copia', $porcentaje, '$tipoDocu', '$beneficiario');";
         $this->con->query($sql);
     }
 
@@ -362,6 +362,18 @@ class Data {
         return $query;
     }
 
+    public function getAllEventAdministrative() {
+        $sql = "SELECT * FROM evento_admin";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+
+    public function getLastEventAdministrative() {
+        $sql = "select * from evento_admin order by id desc limit 1;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+
     public function getEventProf($area, $rut) {
         $sql = "SELECT evento.* FROM `evento` INNER JOIN consulta ON consulta.id_evento=evento.id INNER JOIN usuario ON usuario.RUT=consulta.rut_profe INNER JOIN a_usuario ON usuario.a_user=a_usuario.ID WHERE usuario.a_user=$area AND usuario.RUT='$rut';";
         $query = $this->con->query($sql);
@@ -393,8 +405,8 @@ class Data {
         return $query;
     }
 
-    public function addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
-        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $programa, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
+    public function addBitacora($rut_bene, $rut_profe, $programa, $t_atencion, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
+        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `t_atencion`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $programa, $t_atencion, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
         $query = $this->con->query($sql);
     }
 
@@ -446,7 +458,7 @@ class Data {
         $query = $this->con->query($sql);
     }
 
-    public function dropEvent($id, $fecha,$color) {
+    public function dropEvent($id, $fecha, $color) {
         $sql = "UPDATE `evento` SET `start` = '$fecha', color='$color' WHERE `evento`.`id` = $id;";
         $query = $this->con->query($sql);
     }
@@ -508,7 +520,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function updDatosGenerales($rut_bene, $tipoAtencion) {
         $sql = "UPDATE `datosgenerales` SET `atencion` = '$tipoAtencion' WHERE beneficiario='$rut_bene';";
         $query = $this->con->query($sql);
@@ -530,18 +542,18 @@ class Data {
         return false;
     }
 
-    public function getEntrevista($rut){
+    public function getEntrevista($rut) {
         $sql = "SELECT * FROM `entrevista` WHERE rut_bene = '$rut';";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCargobyId($id){
+
+    public function getCargobyId($id) {
         $sql = "SELECT * FROM `cargo` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     //INSERTS PARA ENTREVISTA ANTECEDENTES
     public function addEmbParto($Em_controlado, $per_control, $consumo, $indique_c, $complicaciones, $indique_com, $semanas_em, $tipo_part, $motivo_Ces, $asiste_Med) {
         $sql = "INSERT INTO `embarazoparto` (`id`, `Em_controlado`, `per_control`, `consumo`, `indique_c`, `complicaciones`, `indique_com` , `semanas_em`, `tipo_part`, `motivo_Ces`, `asiste_Med`) VALUES (NULL, $Em_controlado, '$per_control', $consumo, '$indique_c', $complicaciones, '$indique_com' , $semanas_em, $tipo_part, '$motivo_Ces', $asiste_Med);";
@@ -745,157 +757,168 @@ class Data {
                 . "(NULL, '$rut_bene', '$rut_usuario', '$id_embParto', '$id_postParto', '$id_Lactancia', '$id_DesMotriz', '$id_Vision', '$id_Audicion', '$id_DesLengua', '$id_DesSocial', '$id_Salud', '$id_AntFam', '$id_AntEscolar', '$id_ActFam', now());";
         $query = $this->con->query($sql);
     }
-    
+
     //obtener info entrevista pdf
-    public function getEmbParto($id){
+    public function getEmbParto($id) {
         $sql = "SELECT * FROM `embarazoparto` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getPostParto($id){
+
+    public function getPostParto($id) {
         $sql = "SELECT * FROM `postparto` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompPostParto($id){
+
+    public function getCompPostParto($id) {
         $sql = "SELECT * FROM `complementopparto` WHERE id_postParto = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getLactancia($id){
+
+    public function getLactancia($id) {
         $sql = "SELECT * FROM `lactancia` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getDesMotriz($id){
+
+    public function getDesMotriz($id) {
         $sql = "SELECT * FROM `desmotriz` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getDesMotrizFina($id){
+
+    public function getDesMotrizFina($id) {
         $sql = "SELECT * FROM `compdesmotrizfina` WHERE id_DesMotriz = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getDesMotrizCog($id){
+
+    public function getDesMotrizCog($id) {
         $sql = "SELECT * FROM `compdesmotrizscog` WHERE id_DesMotriz = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getVision($id){
+
+    public function getVision($id) {
         $sql = "SELECT * FROM `vision` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompVision($id){
+
+    public function getCompVision($id) {
         $sql = "SELECT * FROM `compvision` WHERE id_vision = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompDiagVision($id){
+
+    public function getCompDiagVision($id) {
         $sql = "SELECT * FROM `compdiagvision` WHERE id_vision = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAudicion($id){
+
+    public function getAudicion($id) {
         $sql = "SELECT * FROM `audicion` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompAudicion($id){
+
+    public function getCompAudicion($id) {
         $sql = "SELECT * FROM `compaudicion` WHERE id_audicion = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompDiagAudicion($id){
+
+    public function getCompDiagAudicion($id) {
         $sql = "SELECT * FROM `compdiagaudicion` WHERE id_audicion = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getDesLeng($id){
+
+    public function getDesLeng($id) {
         $sql = "SELECT * FROM `deslengua` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompDesLengExp($id){
+
+    public function getCompDesLengExp($id) {
         $sql = "SELECT * FROM `compdeslengua_expre` WHERE id_Des_Lengua = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompDesLengComp($id){
+
+    public function getCompDesLengComp($id) {
         $sql = "SELECT * FROM `compdeslengua_compr` WHERE id_Des_lengua = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getDesSocial($id){
+
+    public function getDesSocial($id) {
         $sql = "SELECT * FROM `dessocial` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompDesSocial($id){
+
+    public function getCompDesSocial($id) {
         $sql = "SELECT * FROM `compdessocial` WHERE id_DesSocial = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getSalud($id){
+
+    public function getSalud($id) {
         $sql = "SELECT * FROM `salud` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompSaludActual($id){
+
+    public function getCompSaludActual($id) {
         $sql = "SELECT * FROM `compsaludactual` WHERE id_Salud = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompSaludNocturno($id){
+
+    public function getCompSaludNocturno($id) {
         $sql = "SELECT * FROM `compsaludnocturno` WHERE id_Salud = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAntFam($id){
+
+    public function getAntFam($id) {
         $sql = "SELECT * FROM `antfam` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getAntEscolar($id){
+
+    public function getAntEscolar($id) {
         $sql = "SELECT * FROM `antescolar` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getActFam($id){
+
+    public function getActFam($id) {
         $sql = "SELECT * FROM `actfam` WHERE id = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getCompActFam($id){
+
+    public function getCompActFam($id) {
         $sql = "SELECT * FROM `compactfam` WHERE id_actFam = $id;";
         $query = $this->con->query($sql);
         return $query;
     }
+
+    public function updateBeneCred($rut) {
+        $sql = "UPDATE `beneficiario` SET `c_discapacidad` = '1' WHERE `beneficiario`.`RUT` = '$rut';";
+        $query = $this->con->query($sql);
+    }
+
+    public function updateBeneHogar($rut) {
+        $sql = "UPDATE `beneficiario` SET `r_s_hogares` = '1' WHERE `beneficiario`.`RUT` = '$rut';";
+        $query = $this->con->query($sql);
+    }
+
 }
 ?>
 
