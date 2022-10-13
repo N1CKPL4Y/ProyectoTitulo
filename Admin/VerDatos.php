@@ -400,21 +400,22 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                         </div>
                                         <div class="modal-body Cuerpo">
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnóstico que presenta el beneficiario?</label>
-                                                        <div class="input-group mb-6">
-                                                            <select class="custom-select diag" id="inputGroupSelect01" name="cbo_condicion" disabled="">
-                                                                <option value="" disabled selected> -- Seleccione -- </option>
-                                                                <?php
-                                                                $condiciones = $data->getAllCondition();
-
-                                                                foreach ($condiciones as $key) {
-                                                                    echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
-                                                                }
-                                                                ?>
-                                                            </select>
+                                                <div class="col-sm-12 col-md-10 col-lg-10">
+                                                    <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnóstico que presenta el beneficiario?</label>
+                                                    <div class="input-group mb-3"> 
+                                                        <div class="input-group-prepend">
+                                                            <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Options</label>
                                                         </div>
+                                                        <select class="custom-select" id="inputGroupSelect01" style="border-radius: 0 5px 5px 0;">
+                                                            <option value="" selected> -- Seleccione -- </option>
+                                                            <?php
+                                                            $condiciones = $data->getAllCondition();
+
+                                                            foreach ($condiciones as $key) {
+                                                                echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                            }
+                                                            ?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
