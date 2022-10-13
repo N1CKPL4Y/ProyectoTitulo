@@ -56,6 +56,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         <script src="../js/jquery.rut.js"></script>
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
+        <script src="../Materialize/datepicke.js"></script>
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 
     </head>
@@ -416,6 +417,46 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                             }
                                                             ?>
                                                         </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="cbo_condicion" class="col-sm-10 col-form-label">Indique el especialista que emite el diagnóstico</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Options</label>
+                                                            </div>
+                                                            <select class="custom-select" id="inputGroupSelect01" name="cbo_especialista" style="border-radius: 0 5px 5px 0;">
+                                                                <option value="" disabled selected> -- Seleccione -- </option>
+                                                                <?php
+                                                                $especialista = $data->getAllEspecialista();
+
+                                                                foreach ($especialista as $key) {
+                                                                    echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group dates">
+                                                        <label for="datepicker" class="col-sm-12 col-form-label">Indique fecha del ultimo control con el especialista</label>
+                                                        <input type="text" placeholder="--Seleccione--" class="form-control diag"  name="txt_control" id="datepicker" style=" text-indent: 18px;">
+                                                        <span style="color: grey">Formato Año-Mes-Dia</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-8 col-lg-8">
+                                                    <label style="margin-left: 10px">Copia informe ultimo control (PDF)</label>
+                                                    <div class="input-group mb-3">
+                                                        <div class="custom-file ">
+                                                            <input type="file" name="file_control" accept="application/pdf" class="custom-file-input diag" id="copiaUltimoInforme" lang="es">
+                                                            <label class="custom-file-label" data-browse="Seleccionar" for="copiaUltimoInforme">Seleccionar Archivo</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1070,6 +1111,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             </div>
         </section>
     </body>
+    <script>
+        $(function () {
+            $('.dates #datepicker').datepicker({
+                'format': 'yyyy-mm-dd',
+                'autoclose': true
+            });
+        });
+    </script>
     <script>
         document.getElementById('emailT').addEventListener('input', function () {
             campo = event.target;
