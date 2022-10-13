@@ -361,7 +361,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-
+    
     public function getAllEventAdministrative() {
         $sql = "SELECT * FROM evento_admin";
         $query = $this->con->query($sql);

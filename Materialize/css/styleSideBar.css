@@ -106,7 +106,7 @@
 }
 
 .sidebar.open{
-    width: 250px;
+    width: 265px;
     overflow: hidden;
 }
 
@@ -263,7 +263,7 @@
     overflow: hidden;
 }
 .sidebar.open li.profile{
-    width: 250px;
+    width: 265px;
     height: 100px;
 }
 .sidebar li .profile-details{
