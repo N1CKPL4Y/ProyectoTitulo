@@ -59,7 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -108,7 +108,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </nav>
             <div class="container-fluid">
-                <div class="row" style="padding-top: 15px">
+                <div class="row" style="padding-top: 15px; padding-left: 10px">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-header" style="background-color: #558b2f; color: white">
@@ -2235,7 +2235,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                                            <div class="col-sm-12 col-md-12 col-lg-3">
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
@@ -2255,11 +2255,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
-                                                                            <input type="checkbox" id="e3" value="Problemas Cardiacos" name="check_EstSal[]" aria-label="Checkbox for following text input">
+                                                                            <input type="checkbox" id="e6" value="perdida visual" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                         </div>
                                                                     </div>
-                                                                    <span class="input-group-text" id="basic-addon1">Problemas Cardiacos</span>
+                                                                    <span class="input-group-text" id="basic-addon1">Perdida visual</span>
                                                                 </div>
+                                                                
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
@@ -2277,14 +2278,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     <span class="input-group-text" id="basic-addon1">Perdida auditiva</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                                            <div class="col-sm-12 col-md-12 col-lg-5">
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
-                                                                            <input type="checkbox" id="e6" value="erdida visual" name="check_EstSal[]" aria-label="Checkbox for following text input">
+                                                                            <input type="checkbox" id="e3" value="Problemas Cardiacos" name="check_EstSal[]" aria-label="Checkbox for following text input">
                                                                         </div>
                                                                     </div>
-                                                                    <span class="input-group-text" id="basic-addon1">Perdida visual</span>
+                                                                    <span class="input-group-text" id="basic-addon1">Problemas Cardiacos</span>
                                                                 </div>
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">

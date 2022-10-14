@@ -67,7 +67,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         ?>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list" style="margin-left: -2rem">
                 <li>
@@ -396,7 +396,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="modalIngDiag" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateDiag.php" method="Post" enctype="multipart/form-data">
+                                    <form action="../controller/controllerUpdateDiag.php?dis=1" method="Post" enctype="multipart/form-data">
                                         <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Registrar datos de diagnostico</h5>
                                         </div>
@@ -483,7 +483,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="modalIngCreden" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateCredDisc.php" method="Post" enctype="multipart/form-data">
+                                    <form action="../controller/controllerUpdateCredDisc.php?dis=1" method="Post" enctype="multipart/form-data">
                                         <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Registrar datos Credencial Discapacidad</h5>
                                         </div>
@@ -623,7 +623,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="modal fade" id="modalIngRHogar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateRSocial.php" method="Post" enctype="multipart/form-data">
+                                    <form action="../controller/controllerUpdateRSocial.php?dis=1" method="Post" enctype="multipart/form-data">
                                         <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Ingresar Registro S. Hogares</h5>
                                         </div>

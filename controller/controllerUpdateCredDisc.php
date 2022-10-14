@@ -1,5 +1,6 @@
 <?php
 $bene = isset($_POST['rutBene']) ? $_POST['rutBene'] : null;
+$dis = isset($_GET['dis']) ? $_GET['dis'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,6 +27,19 @@ $bene = isset($_POST['rutBene']) ? $_POST['rutBene'] : null;
                             window.location.href = '../Admin/VerDatos.php?rut=' + rut;
                         });
             }
+            
+            function SuccessDir() {
+                swal({
+                    title: "Registro Exitoso",
+                    text: "Datos de Credencial registrados correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirVerDatos.php?rut=' + rut;
+                        });
+            }
 
             function Error() {
                 swal({
@@ -37,6 +51,19 @@ $bene = isset($_POST['rutBene']) ? $_POST['rutBene'] : null;
                 },
                         function () {
                             window.location.href = '../Admin/VerDatos.php?rut=' + rut;
+                        });
+            }
+            
+            function ErrorDir() {
+                swal({
+                    title: "ERROR",
+                    text: "Intentelo nuevamente",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Direccion/DirVerDatos.php?rut=' + rut;
                         });
             }
         </script>
@@ -135,11 +162,21 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
 
 //echo $bene.' | '.$numCrede.' | '.$origenP.' | '.$origenS.' | '.$pDisc.' | '.$gDisc.' | '.$movilidad.' | '.$credenFileFront.' | '.$credenFileBack;
 if ($bene && $numCrede && $origenP && $origenS && $pDisc && $gDisc && $movilidad && $credenFileFront && $credenFileBack){
-    echo'<script>Success()</script>';
+    
     $data->addCredencialD($numCrede, $origenP, $origenS, $pDisc, $gDisc, $movilidad, $credenFileFront, $credenFileBack, $bene);
     $data->updateBeneCred($bene);
+    if($dis == 1){
+        echo'<script>Success()</script>';
+    }else if($dis == 2){
+        echo'<script>SuccessDir()</script>';
+    }
 }else{
-    echo'<script>Error()</script>';
+    if($dis == 1){
+        echo'<script>Error()</script>';
+    }else if($dis == 2){
+        echo'<script>ErrorDir()</script>';
+    }
+    
 }
 ?>
 

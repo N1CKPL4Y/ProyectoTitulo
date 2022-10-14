@@ -16,6 +16,14 @@ $observaciones = isset($_POST['txt_obs']) ? $_POST['txt_obs'] : null;
 $programa = isset($_POST['txt_program']) ? $_POST['txt_program'] : null;
 $t_atencion = isset($_POST['t_atencion']) ? $_POST['t_atencion'] : null;
 
+$user = $data->getUserbyRut($rut_profe);
+$areaId;
+foreach($user as $value){
+    $areaId = $value['a_user'];
+}
+
+echo $areaId;
+
 /*$consultas = $data->getConsEvent($rut_bene, $rut_profe);
 $programas = $data->getCountPrograma($rut_bene, $rut_profe);
 $cuentaConsu;
@@ -120,7 +128,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 echo $t_atencion;
 if ($evento && $rut_bene) {
     echo '<script>registrado();</script>';
-    $data->addBitacora($rut_bene, $rut_profe, $programa, $t_atencion, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+    $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
     $data->updColorEvento($evento, $color);
 }
 ?>

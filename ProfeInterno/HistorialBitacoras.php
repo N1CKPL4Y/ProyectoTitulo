@@ -53,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open" >
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -110,7 +110,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rut" id="rut" required placeholder="11.111.111-1" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_rut" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -169,7 +169,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 Registro
                                             </div>
                                             <div class = "card-body">
-                                                <h5 class = "card-title">No existe un beneficiario asociado al rut indicado</h5>
+                                                <h5 class = "center">No existe un beneficiario asociado al rut indicado</h5>
                                             </div>
                                             <div class = "card-footer text-muted">
                                                 ...

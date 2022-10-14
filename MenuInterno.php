@@ -122,7 +122,7 @@ $consulJson = json_encode($consultas);
     <body class="hold-transition sidebar-mini">
         <div class="sidebar open" >
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>

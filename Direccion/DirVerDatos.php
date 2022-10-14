@@ -60,12 +60,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        <link rel="stylesheet" href="../Materialize/datepick.css">
+        <script src="../Materialize/datepicke.js"></script>
     </head>
     <body>
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list" style="padding-left: 0">
                 <li>
@@ -81,6 +83,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="DirHistorialBitacora.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Historial Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">
@@ -247,12 +256,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }
             ?>
             <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px">
+                <!-- Modal edit tutor -->
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form action="../controller/controllerUpdateTutor.php?dis=1&rut=<?php echo $rutBen; ?>" method="Post">
+                                    <form action="../controller/controllerUpdateTutor.php?dis=2&rut=<?php echo $rutBen; ?>" method="Post">
                                         <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
                                             <h5 class="modal-title" id="staticBackdropLabel">Editar Datos del Tutor</h5>
                                         </div>
@@ -358,6 +368,278 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn submitModal">Guardar Cambios</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal edit diagnostico -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="modal fade" id="modalIngDiag" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form action="../controller/controllerUpdateDiag.php?dis=2" method="Post" enctype="multipart/form-data">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Registrar datos de diagnostico</h5>
+                                        </div>
+                                        <div class="modal-body Cuerpo">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">R.U.T Beneficiario</span>
+                                                        <input type="text" class="form-control" readonly="" name="rutBene" aria-label="Username" value="<?php echo $rutBen; ?>" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-10 col-lg-10">
+                                                    <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnóstico que presenta el beneficiario?</label>
+                                                    <div class="input-group mb-3"> 
+                                                        <div class="input-group-prepend">
+                                                            <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                        </div>
+                                                        <select class="form-select" name="cbo_condicion" aria-label="Default select example">
+                                                            <option value="" selected disabled=""> -- Seleccione -- </option>
+                                                            <?php
+                                                            $condiciones = $data->getAllCondition();
+
+                                                            foreach ($condiciones as $key) {
+                                                                echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="cbo_condicion" class="col-sm-10 col-form-label">Indique el especialista que emite el diagnóstico</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                            </div>
+                                                            <select class="form-select" name="cbo_especialista" aria-label="Default select example">
+                                                                <option value="" disabled selected> -- Seleccione -- </option>
+                                                                <?php
+                                                                $especialista = $data->getAllEspecialista();
+
+                                                                foreach ($especialista as $key) {
+                                                                    echo '<option value="' . $key['ID'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group dates">
+                                                        <label for="datepicker" class="col-sm-12 col-form-label">Indique fecha del ultimo control con el especialista</label>
+                                                        <input type="text" placeholder="--Seleccione--" class="form-control diag" autocomplete="off"  name="txt_control" id="datepicker" style=" text-indent: 18px;">
+                                                        <span style="color: grey">Formato Año-Mes-Dia</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-8 col-lg-8">
+                                                    <label style="margin-left: 10px">Copia informe ultimo control (PDF)</label>
+                                                    <div class="mb-3">
+                                                        <input class="form-control" name="file_control" accept="application/pdf" type="file">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer HeaderModal">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn submitModal">Registrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal edit credencial discapacidad -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="modal fade" id="modalIngCreden" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form action="../controller/controllerUpdateCredDisc.php?dis=2" method="Post" enctype="multipart/form-data">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Registrar datos Credencial Discapacidad</h5>
+                                        </div>
+                                        <div class="modal-body Cuerpo">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">R.U.T Beneficiario</span>
+                                                        <input type="text" class="form-control" readonly="" name="rutBene" aria-label="Username" value="<?php echo $rutBen; ?>" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="discapacidad" style="margin-left: 10px">Numero de credencial de discapacidad</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">N°</span>
+                                                        <input type="text" class="form-control" name="txt_credencial" autocomplete="off" id="discapacidad"  aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="cbo_condicion" class="col-sm-10 col-form-label">Origen principal</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                            </div>
+                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_origenP">
+                                                                <option value="" disabled selected>-- Seleccione --</option>
+                                                                <option value="1">Fisico</option>
+                                                                <option value="2">Sensorial Visual</option>
+                                                                <option value="3">Sensorial Auditivo</option>
+                                                                <option value="4">Mental Psiquico</option>
+                                                                <option value="5">Mental Intelectual</option>
+                                                                <option value="6">No aplica</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="datepicker" class="col-sm-12 col-form-label">Origen Secundario</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                            </div>
+                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_origenS">
+                                                                <option value="" disabled selected>-- Seleccione --</option>
+                                                                <option value="1">Fisico</option>
+                                                                <option value="2">Sensorial Visual</option>
+                                                                <option value="3">Sensorial Auditivo</option>
+                                                                <option value="4">Mental Psiquico</option>
+                                                                <option value="5">Mental Intelectual</option>
+                                                                <option value="6">No aplica</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label class="col-form-label" for="porcentaje_d" style="margin-left: 10px">Porcentaje de discapacidad</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">N°</span>
+                                                        <input type="number" class="form-control" name="txt_porcentaje_d" autocomplete="off" name="txt_porcentaje_d" id="porcentaje_d" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-12 col-form-label">Grado de discapacidad</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                            </div>
+                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_grado">
+                                                                <option value="" disabled selected>-- Seleccione --</option>
+                                                                <option value="1">Leve</option>
+                                                                <option value="2">Moderado</option>
+                                                                <option value="3">Severo</option>
+                                                                <option value="4">Profundo</option>
+                                                                <option value="5">No aplica</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-12 col-form-label">Movilidad</label>
+                                                        <div class="input-group mb-3"> 
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
+                                                            </div>
+                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_movilidad">
+                                                                <option value="" disabled selected>-- Seleccione --</option>
+                                                                <option value="1">Leve</option>
+                                                                <option value="2">Moderado</option>
+                                                                <option value="3">Severo</option>
+                                                                <option value="4">Profundo</option>
+                                                                <option value="5">No aplica</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label style="margin-left: 10px">C. Discapacidad (Parte delantera) (Imagen)</label>
+                                                    <div class="mb-3">
+                                                        <input class="form-control" name="file_credenFront" accept="image/jpeg" type="file">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <label style="margin-left: 10px">C. Discapacidad (Parte trasera) (Imagen)</label>
+                                                    <div class="mb-3">
+                                                        <input class="form-control" name="file_credenBack" accept="image/jpeg" type="file">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer HeaderModal">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn submitModal">Registrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal edit Registro S. Hogares -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="modal fade" id="modalIngRHogar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form action="../controller/controllerUpdateRSocial.php?dis=2" method="Post" enctype="multipart/form-data">
+                                        <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Ingresar Registro S. Hogares</h5>
+                                        </div>
+                                        <div class="modal-body Cuerpo">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">R.U.T Beneficiario</span>
+                                                        <input type="text" class="form-control" readonly="" name="rutBene" aria-label="Username" value="<?php echo $rutBen; ?>" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                                    <label for="discapacidad" style="margin-left: 10px">Porcentaje Registro</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                                        <input type="number" class="form-control" name="txt_porcentHogar" autocomplete="off" id="discapacidad"  aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-8 col-lg-8">
+                                                    <label style="margin-left: 10px">Copia del registro (PDF)</label>
+                                                    <div class="mb-3">
+                                                        <input class="form-control" name="file_Hogar" accept="application/pdf" type="file">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer HeaderModal">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn submitModal">Registrar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -570,10 +852,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <?php
                                     } else {
-                                        
+                                        ?>
+                                        <div class = "col-sm-12 col-md-10 col-lg-6">
+                                            <a class = "btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalIngRHogar">Ingresar Registro S. Hogares</a>
+                                        </div>
+                                        <?php
                                     }
                                     ?>
-
                                 </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
@@ -594,7 +879,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <?php
                                     } else {
-                                        
+                                        ?>
+                                        <div class="col-sm-12 col-md-10 col-lg-6">
+                                            <button type="button" class="btn col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalIngCreden">
+                                                Registrar Datos Credencial
+                                            </button>
+                                        </div>
+                                        <?php
                                     }
                                     ?>
                                 </div>
@@ -739,6 +1030,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row justify-content-around" style="padding-top: 10px">
+                                        <a data-toggle="modal" data-target="#modalIngDiag" class="btn submit col-sm-12 col-md-6 col-lg-6 col-xl-6">Ingresar datos de diagnostico</a>
                                     </div>
                                     <br>
                                     <br>
@@ -1003,6 +1297,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
         </section>
     </body>
+    <script>
+        $(function () {
+            $('.dates #datepicker').datepicker({
+                'format': 'yyyy-mm-dd',
+                'autoclose': true
+            });
+        });
+    </script>
     <script>
         document.getElementById('emailT').addEventListener('input', function () {
             campo = event.target;

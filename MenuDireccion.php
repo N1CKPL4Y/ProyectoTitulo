@@ -63,7 +63,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open" style="overflow: hidden !important">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -72,6 +72,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="Direccion/DirHistorialBitacora.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Historial Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
                     <a href="controller/controllerLogout.php">
@@ -169,6 +176,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-10">
+                                                    <div class="form-group">
+                                                        <label for="atencion" class="col-sm-10 col-form-label">Tipo de atencion</label>
+                                                        <input type="text" name="atencion" class="form-control" id="atencion" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-10">
+                                                    <label for="atencionTipo" id="labelDes" class="col-sm-10 col-form-label" >¿Dese cambiar el tipo de atención?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atencionTipo" id="atencionTipo1" >
+                                                        <label class="form-check-label" for="atencionTipo">
+                                                            Si
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atencionTipo" id="atencionTipo2" >
+                                                        <label class="form-check-label" for="atencionTipo">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="modal-footer HeaderModal">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -254,24 +284,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
         <script>
-            $(function () {
-                $("#myTable").DataTable({
-                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                    "language": {
-                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                        "zeroRecords": "No se han encontrado registros",
-                        "info": "Mostrando la página _PAGE_ de _PAGES_",
-                        "infoEmpty": "No hay registros disponibles",
-                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                        "search": "Buscar:",
-                        "paginate": {
-                            'next': 'Siguiente',
-                            'previous': 'Anterior',
-                        }
-                    }
-                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
-            });
+                                                            $(function () {
+                                                                $("#myTable").DataTable({
+                                                                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                                                                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                                                                    "language": {
+                                                                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                                                                        "zeroRecords": "No se han encontrado registros",
+                                                                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                                                                        "infoEmpty": "No hay registros disponibles",
+                                                                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                                                                        "search": "Buscar:",
+                                                                        "paginate": {
+                                                                            'next': 'Siguiente',
+                                                                            'previous': 'Anterior',
+                                                                        }
+                                                                    }
+                                                                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+                                                            });
         </script>
         <!-- <script>
             let sidebar = document.querySelector(".sidebar");

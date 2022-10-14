@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <body>
         <div class="sidebar open">
             <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 15px">Fundación Inclusiva</div></a>       
+                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
                 <li>
@@ -86,6 +86,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="links_name">Editar Datos</span>
                     </a>
                     <span class="tooltip">Editar Datos</span>
+                </li>
+                <li>
+                    <a href="../C_Administrativo/Administrativo.php">
+                        <i class='bx bx-calendar'></i>
+                        <span class="links_name">Calendario Administrativo</span>
+                    </a>
+                    <span class="tooltip">Calendario Administrativo</span>
+                </li>
+                <li>
+                    <a href="Admin/historialBitacora.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Historial Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">

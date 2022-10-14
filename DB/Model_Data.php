@@ -405,8 +405,8 @@ class Data {
         return $query;
     }
 
-    public function addBitacora($rut_bene, $rut_profe, $programa, $t_atencion, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
-        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `programa`, `t_atencion`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $programa, $t_atencion, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
+    public function addBitacora($rut_bene, $rut_profe, $area, $programa, $t_atencion, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
+        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `area_u`, `programa`, `t_atencion`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $area, $programa, $t_atencion, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
         $query = $this->con->query($sql);
     }
 
@@ -429,11 +429,31 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
+    
+    public function getBitacoraByArea($rut, $area){
+        $sql = "SELECT * FROM `bitacora` WHERE beneficiario = '$rut' AND area_u = $area;";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function getBitacoraByID($id) {
         $sql = "SELECT * from bitacora WHERE id=$id;";
         $query = $this->con->query($sql);
         return $query;
+    }
+    
+    public function getExistBicatora($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM bitacora
+	            WHERE beneficiario = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
     }
 
     public function getAllEspecialista() {
