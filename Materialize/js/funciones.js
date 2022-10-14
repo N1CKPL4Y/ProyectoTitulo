@@ -70,7 +70,7 @@ function updateBene(datos){
         //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea desactivar el usuario?</label>');
     }else{
         $('#atencion').val("Atencion por programa pagado");
-        $('#labelDes').text("¿Desea cambiar a atencion por beneficio");
+        $('#labelDes').text("¿Desea cambiar a atencion por beneficio?");
         $('#atencionTipo1').val(1);
         $('#atencionTipo2').val(2);
         //$('#estado').prepend('<label for="deshabilitar" id="deshabilitar" class="col-sm-10 col-form-label" >¿Desea activar el usuario?</label>');

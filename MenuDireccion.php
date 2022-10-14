@@ -235,11 +235,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <?php
                                                 foreach ($benefs as $key) {
                                                     $rutb = $key['RUT'];
+                                                    $datosExtras = $data->getDatosGenerales($rutb);
+
+                                                    foreach ($datosExtras as $value) {
+                                                        $aten = $value['atencion'];
+                                                    }
+
                                                     $datos = $key['RUT'] . ".."
-                                                            . $key['nombre'] . ".."
-                                                            . $key['apellido'] . ".."
-                                                            . $key['direccion'] . ".."
-                                                            . $key['comuna'];
+                                                    . $key['nombre'] . ".."
+                                                    . $key['apellido'] . ".."
+                                                    . $key['direccion'] . ".."
+                                                    . $key['comuna'].".."
+                                                    .$aten;
                                                     $escaped = htmlspecialchars(json_encode($datos));
                                                     echo '<tr>';
                                                     echo '<td>' . $key['ID'] . '</td>';
