@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -55,7 +58,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 /////////////Datos Generales
 $motivo = isset($_POST['txt_motivo']) ? $_POST['txt_motivo'] : null;

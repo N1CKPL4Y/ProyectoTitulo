@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
 include_once '../controller/traduccionfecha.php';
-session_start();
+
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -32,6 +28,11 @@ $data = new Data();
 
 $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
 ?>
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
+-->
 <html>
     <head>
         <title>Datos Beneficiario</title>
@@ -104,6 +105,20 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <span class="links_name">Editar Datos</span>
                     </a>
                     <span class="tooltip">Editar Datos</span>
+                </li>
+                <li>
+                    <a href="C_Administrativo/Administrativo.php">
+                        <i class='bx bx-calendar'></i>
+                        <span class="links_name">Calendario Administrativo</span>
+                    </a>
+                    <span class="tooltip">Calendario Administrativo</span>
+                </li>
+                <li>
+                    <a href="Admin/historialBitacora.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Historial Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">

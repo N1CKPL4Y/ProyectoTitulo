@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -44,7 +47,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 $rut = isset($_POST["txt_rut"]) ? $_POST["txt_rut"] : null;
 $nombre = isset($_POST["nombreU"]) ? $_POST["nombreU"] : null;

@@ -1,8 +1,9 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
-session_start();
+
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -131,7 +132,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="row">
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="create" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-xl">
                                     <form name="form2" id="form2" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
@@ -156,43 +157,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_fecha1" id="Event" aria-label="Username" readonly aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3 clockpicker"  data-placement="right" data-align="top" data-autoclose="true">
+                                                <span class="input-group-text" id="basic-addon1">Evento</span>
+                                                <div class="input-group mb-3">
+                                                    <div class="form-control">
+                                                        <input class="form-control-input eventos" type="radio" name="tipo" id="tipo1" value="1">
+                                                        <label class="form-control-label" for="tipo1">
+                                                            Todo el día
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input class="form-control-input eventos" type="radio" name="tipo" id="tipo2" value="2">
+                                                        <label class="form-control-label" for="tipo2">
+                                                            Hora en especif.
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input class="form-control-input eventos" type="radio" name="tipo" id="tipo3" value="3">
+                                                        <label class="form-control-label" for="tipo3">
+                                                            Extendido
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input class="form-control-input eventos" type="radio" name="tipo" id="tipo4" value="4">
+                                                        <label class="form-control-label" for="tipo4">
+                                                            Hora Inicio-Fin
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group mb-3 clockpicker d-none" id="clockDiv" data-placement="right" data-align="top" data-autoclose="true">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"> Inicio</i></span>
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_hora1" autocomplete="off" id="EventHour" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3 clockpicker d-none" id="clockDivEnd" data-placement="right" data-align="top" data-autoclose="true">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut Beneficiario</span>
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"> Termino</i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_beneFI" id="beneFI" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_hora1End" autocomplete="off" id="EventHour1" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3 d-none dates" id="endDiv">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="inputGroupSelect01">Profesional</label>
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"> Fecha termino</i></span>
                                                     </div>
-                                                    <select name="cbo_profesional" class="custom-select" id="inputGroupSelect01">
-                                                        <option selected>Seleccione una opcion...</option>
-                                                        <?php
-                                                        $profesionales = $data->getProfesional();
-                                                        foreach ($profesionales as $value) {
-                                                            $idArea = $value['a_user'];
-                                                            $areas = $data->getAreaById($idArea);
-                                                            $textAreas;
-                                                            foreach ($areas as $value2) {
-                                                                $textAreas = $value2['nombre'];
-                                                            }
-                                                            echo '<option value="' . $value['RUT'] . '">' . $value['nombre'] . " " . $value['apellido'] . "-" . $textAreas . '</option>';
-                                                        }
-                                                        ?>
-                                                    </select>
+                                                    <input type="text" class="form-control" name="txt_fechaend" autocomplete="off" id="endEvent" aria-label="Username"  aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Detalles</span>
+                                                    </div>
+                                                    <textarea class="form-control" name="txt_detalles" aria-label="Detalles"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                 <button type="submit" id="btn_Action1" class="btn submitModal">Registrar</button>
-                                                <button type="button" id="btn_Delete1" class="btn btn-danger" >Eliminar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -222,50 +241,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_title" id="title" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3 dates">
+                                                <div class="input-group mb-3" id="divStart">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3 clockpicker"  data-placement="left" data-align="top" data-autoclose="true">
+                                                <div class="input-group mb-3 clockpicker d-none" id="clockDiv2"  data-placement="left" data-align="top" data-autoclose="true">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_hora" autocomplete="off" id="startEventHour" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Datos del beneficiario</span>
-                                                </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3 d-none dates" id="endDiv2">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut</span>
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_fecha2" autocomplete="off" id="endEvent2" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3 clockpicker d-none" id="clockDivEnd2"  data-placement="left" data-align="top" data-autoclose="true">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_Nbene" id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_horaend2" autocomplete="off" id="endEvent2Hour" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Datos de contacto</span>
-                                                </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3 d-none">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-outbound"></i></span>
+                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_Fbene" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="hidden" class="form-control" name="txt_color2" autocomplete="off" id="colorEvent2" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Profesional que lo atendera</span>
-                                                </div>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-medical" ></i></span>
+                                                        <span class="input-group-text">Detalles</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <textarea class="form-control" name="txt_detalles2" id="detallesEvent" aria-label="Detalles"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
@@ -302,29 +312,90 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../js/clockpicker.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
+        <script>
+            $('document').ready(function () {
+                $('#tipo1').change(function () {
+                    document.getElementById('clockDiv').classList.add('d-none');
+                    document.getElementById('clockDivEnd').classList.add('d-none');
+                    document.getElementById('endDiv').classList.add('d-none');
+                    document.getElementById('divHourEnd').classList.add('d-none');
+
+                    document.getElementById('EventHour').value = "";
+                    document.getElementById('endEvent').value = "";
+
+                    //tipoEvent.classList.add('d-block');
+                    console.log('holiwi');
+                });
+                $('#tipo2').change(function () {
+                    document.getElementById('endDiv').classList.add('d-none');
+                    document.getElementById('clockDivEnd').classList.add('d-none');
+                    document.getElementById('clockDiv').classList.remove('d-none');
+                    document.getElementById('divHourEnd').classList.remove('d-none');
+
+                    document.getElementById('EventHour').value = "";
+                    document.getElementById('endEvent').value = "";
+                    //tipoEvent.classList.add('d-block');
+                    console.log('holiwi');
+                });
+                $('#tipo3').change(function () {
+                    document.getElementById('clockDiv').classList.add('d-none');
+                    document.getElementById('clockDivEnd').classList.add('d-none');
+                    document.getElementById('endDiv').classList.remove('d-none');
+                    document.getElementById('divHourEnd').classList.add('d-none');
+
+                    document.getElementById('EventHour').value = "";
+                    document.getElementById('endEvent').value = "";
+                    //tipoEvent.classList.add('d-block');
+                    console.log('holiwi');
+                });
+                $('#tipo4').change(function () {
+                    document.getElementById('clockDiv').classList.remove('d-none');
+                    document.getElementById('clockDivEnd').classList.remove('d-none');
+                    document.getElementById('endDiv').classList.add('d-none');
+                    document.getElementById('divHourEnd').classList.add('d-none');
+
+                    //tipoEvent.classList.add('d-block');
+                    document.getElementById('EventHour1').value = "";
+                    console.log('holiwi');
+                });
+            });
+        </script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
             $(function () {
-            $('.dates #startEvent').datepicker({
-            'format': 'yyyy-mm-dd',
-                    'autoclose': true
-            });
+                $('.dates #startEvent').datepicker({
+                    'format': 'yyyy-mm-dd',
+                    'autoclose': true,
+                    startDate: '+1d'
+                });
             });
             $(function () {
-            $("input#beneFI").rut({
-            formatOn: 'keyup',
+                $('.dates #endEvent2').datepicker({
+                    'format': 'yyyy-mm-dd',
+                    'autoclose': true
+                });
+            });
+            $(function () {
+                $('.dates #endEvent').datepicker({
+                    'format': 'yyyy-mm-dd',
+                    'autoclose': true
+                });
+            });
+            $(function () {
+                $("input#beneFI").rut({
+                    formatOn: 'keyup',
                     minimumLength: 8, // validar largo mínimo; default: 2
                     validateOn: 'change' // si no se quiere validar, pasar null
-            });
-            var input = document.getElementById('beneFI');
-            input.addEventListener('input', function () {
-            if (this.value.length >= 13)
-                    this.value = this.value.slice(0, 12);
-            })
+                });
+                var input = document.getElementById('beneFI');
+                input.addEventListener('input', function () {
+                    if (this.value.length >= 13)
+                        this.value = this.value.slice(0, 12);
+                })
             })
         </script>
         <script type="text/javascript">
-                    var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+            var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
             var modal2 = new bootstrap.Modal(document.getElementById('create'));
             let form = document.getElementById('form1');
             let form2 = document.getElementById('form2');
@@ -332,19 +403,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let del2 = document.getElementById('btn_Delete1');
             let consultas = document.getElementById('.consulta');
             let des = 3;
-<?php
-$eventoAd = $data->getAllEventAdministrative();
-$eventoA = array();
-foreach ($eventoAd as $value) {
-    array_push($eventoA, $value);
-}
-$eventJson = json_encode($eventoA);
-?>
-            let array =<?php echo $eventJson; ?>;
             document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
                     themeSystem: 'bootstrap',
                     locale: 'es',
                     contentHeight: 'auto',
@@ -353,147 +415,210 @@ $eventJson = json_encode($eventoA);
                     nowIndicator: true,
                     navLinks: true,
                     eventTimeFormat: {
-                    hour: '2-digit',
-                            minute: '2-digit',
-                            meridiem: 'short'
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        meridiem: 'short'
                     },
                     timeZone: 'UTC-4',
                     eventMaxStack: 2,
                     dayHeaders: true,
                     views: {
-                    dayGridMonth: {
-                    titleFormat: {year: 'numeric', month: 'long'}
-                    },
-                            dayGrid: {
+                        dayGridMonth: {
                             titleFormat: {year: 'numeric', month: 'long'}
-                            },
-                            timeGrid: {
+                        },
+                        dayGrid: {
+                            titleFormat: {year: 'numeric', month: 'long'}
+                        },
+                        timeGrid: {
                             titleFormat: {year: 'numeric', month: 'long', day: '2-digit'}
-                            },
-                            week: {
+                        },
+                        week: {
                             titleFormat: {year: 'numeric', month: 'long', day: '2-digit'}
-                            },
-                            day: {
+                        },
+                        day: {
                             titleFormat: {year: 'numeric', month: 'long', day: '2-digit', weekday: 'long'}
-                            }
+                        }
                     },
                     showNonCurrentDates: false,
                     events: [
                         <?php
+                        $eventoAd = $data->getAllEventAdministrative();
                         foreach ($eventoAd as $value) {
                             ?>{
-                                title: '<?php echo $value['title']; ?>',
+                            id: '<?php echo $value['id']; ?>',
+                            title: '<?php echo $value['title']; ?>',
                             <?php
                             if (empty($value['startHour'])) {
-                                ?>
-                                start: '<?php echo $value['start']; ?>',
-                                <?php
+                            ?>
+                            start: '<?php echo $value['start']; ?>',
+                            <?php
                             } else {
-                                ?>
-                                 start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
-                                <?php
+                            ?>
+                            start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
+                            <?php
+                            }
+                            if (empty($value['endHour'])) {
+                            ?>
+                            end: '<?php echo $value['end']; ?>',
+                            <?php
+                            } else {
+                            ?>
+                            end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
+                            <?php
                             }
                             ?>
-                                end: '<?php echo $value['end']; ?>',
-                                color:'<?php echo $value['color']; ?>'
-                            }<?php $last=$data->getLastEventAdministrative();
-                                $ex;
-                                foreach ($last as $valueX) {
-                                    $ex=$valueX['id'];
-                                }
-                                if($ex==$value['id']){}else{    echo ',';};
-                        }
+                            color:'<?php echo $value['color']; ?>',
+                            descripcion: '<?php echo $value['descripcion']?>'
+                            }<?php
+                            $last = $data->getLastEventAdministrative();
+                            $ex;
+                            foreach ($last as $valueX) {
+                            $ex = $valueX['id'];
+                            }
+                            if ($ex == $value['id']) {
+
+                            } else {
+                            echo ',';
+                            };
+                            } 
                         ?>
-                    ]
-                    ,
+                    ],
                     editable: true,
                     droppable: true,
                     //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     headerToolbar: {
-                    left: 'prev,next today',
-                            center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     },
                     footerToolbar: true,
                     // funcion recibe info
                     dateClick: function (info) {
-                    console.log(info);
-                    form.reset();
-                    document.getElementById('idsT').value = '';
-                    del.classList.add('d-none');
-                    document.getElementById('Event').readOnly = false;
-                    document.getElementById('id_event').classList.add('d-none');
-                    fecha = info.dateStr;
-                    document.getElementById('Event').value = fecha.substring(0, 10);
-                    document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
-                    document.getElementById('btn_Action1').textContent = 'Registrar';
-                    form2.action = "../controller/controllerEvento.php?p=1&a=1";
-                    form2.method = 'POST';
-                    modal2.show();
+                        console.log(info);
+                        form.reset();
+                        form2.reset();
+                        document.getElementById('idsT').value = '';
+                        document.getElementById('Event').readOnly = true;
+                        document.getElementById('id_event').classList.add('d-none');
+                        fecha = info.dateStr;
+                        document.getElementById('Event').value = fecha.substring(0, 10);
+                        document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
+                        document.getElementById('btn_Action1').textContent = 'Registrar';
+                        form2.action = "../controller/controllerEventAdmin.php?p=1&a=1";
+                        form2.method = 'POST';
+                        modal2.show();
                     },
                     eventClick: function (info) {
-                    console.log(info.event.startStr);
-                    document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
-                    document.getElementById('btn_Action').textContent = 'Modificar';
-                    document.getElementById('id_event').classList.remove('d-none');
-                    del.classList.remove('d-none');
-                    document.getElementById('startEvent').readOnly = false;
-                    document.getElementById('id').value = info.event.id;
-                    document.getElementById('title').value = info.event.title;
-                    fecha = info.event.startStr;
-                    document.getElementById('startEvent').value = fecha.substring(0, 10);
-                    document.getElementById('startEventHour').value = fecha.substring(11);
-                    //document.getElementById('color').value = info.event.backgroundColor;
-                    form.action = "../controller/controllerEvento.php?p=2&a=1";
-                    form.method = 'POST';
-                    console.log(info);
-                    consul.forEach(el => {
-                    if (el['evento'] == info.event.id) {
-                    console.log(el);
-                    document.getElementById('bene').value = el['RUT'];
-                    document.getElementById('nomb_bene').value = el['nombre'];
-                    document.getElementById('fono_bene').value = el['telefono'];
-                    document.getElementById('profe').value = el['profesional'];
-                    }
+                        console.log(info.event.startStr);
+                        document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
+                        document.getElementById('btn_Action').textContent = 'Modificar';
+                        document.getElementById('id_event').classList.remove('d-none');
+                        del.classList.remove('d-none');
+                        document.getElementById('startEvent').readOnly = true;
+                        document.getElementById('id').value = info.event.id;
+                        document.getElementById('title').value = info.event.title;
+                        fecha = info.event.startStr;
+                        document.getElementById('startEvent').value = fecha.substring(0, 10);
 
-                    });
-                    modal.show();
+                        if (fecha.substring(11) == "") {
+                            console.log('Hola');
+
+                            document.getElementById('endDiv2').classList.add('d-none');
+                            document.getElementById('clockDiv2').classList.add('d-none');
+                            document.getElementById('clockDivEnd2').classList.add('d-none');
+
+                        }
+                        ;
+                        if (fecha.substring(11) != "") {
+                            document.getElementById('endDiv2').classList.add('d-none');
+                            document.getElementById('clockDiv2').classList.remove('d-none');
+                            document.getElementById('clockDivEnd2').classList.add('d-none');
+                            console.log('rango hora');
+                            document.getElementById('startEventHour').value = fecha.substring(11);
+                        }
+                        ;
+                        endSub = info.event.endStr;
+
+
+                        if (endSub.substring(11) != "") {
+                            document.getElementById('endDiv2').classList.remove('d-none');
+                            document.getElementById('clockDiv2').classList.remove('d-none');
+                            document.getElementById('clockDivEnd2').classList.remove('d-none');
+                            document.getElementById('endEvent2').value = endSub.substring(0, 10);
+                            document.getElementById('endEvent2Hour').value = endSub.substring(11);
+                        } else if (endSub.substring(0, 10) != "" && fecha.substring(0, 10) != "") {
+                            document.getElementById('endDiv2').classList.remove('d-none');
+                            document.getElementById('clockDiv2').classList.add('d-none');
+                            document.getElementById('clockDivEnd2').classList.add('d-none');
+                            document.getElementById('endEvent2').value = endSub.substring(0, 10);
+                            document.getElementById('endEvent2Hour').value = endSub.substring(11);
+                        }
+                        //
+                        document.getElementById('detallesEvent').value = info.event.extendedProps.descripcion;
+                        document.getElementById('colorEvent2').value = info.event.backgroundColor;
+                        //document.getElementById('color').value = info.event.backgroundColor;
+                        form.action = "../controller/controllerEventAdmin.php?p=2&a=1";
+                        form.method = 'POST';
+                        console.log(info);
+                        modal.show();
                     },
                     eventDrop: function (info) {
-                    const id = info.event.id;
-                    const fecha = info.event.startStr;
-                    const colorEvent = info.event.backgroundColor;
-                    const color = colorEvent.substring(1);
-                    window.location = '../controller/controllerEvento.php?p=4&a=1&id=' + id + '&fecha=' + fecha + '&colorEvent=' + color + '';
-                    console.log(id, fecha, color);
+                        const id = info.event.id;
+                        const title = info.event.title;
+                        const fecha = info.event.startStr;
+                        const start = fecha.substring(0, 10);
+                        const startHour = fecha.substring(11);
+                        const fechaend = info.event.endStr;
+                        const end = fechaend.substring(0, 10);
+                        const endHour = fechaend.substring(11);
+                        const colorEvent = info.event.backgroundColor;
+                        const color = colorEvent.substring(1);
+                        const description = info.event.extendedProps.descripcion;
+                        window.location = '../controller/controllerEventAdmin.php?p=4&a=1&id=' + id + '&title=' + title + '&start=' + start + '&startHour=' + startHour + '&end=' + end + '&endHour=' + endHour + '&color=' + color + '&description=' + description + '';
+                        console.log(id, start, startHour, end, endHour, color, description);
+                    },
+                    eventResize: function (info) {
+                        const id = info.event.id;
+                        const title = info.event.title;
+                        const fecha = info.event.startStr;
+                        const start = fecha.substring(0, 10);
+                        const startHour = fecha.substring(11);
+                        const fechaend = info.event.endStr;
+                        const end = fechaend.substring(0, 10);
+                        const endHour = fechaend.substring(11);
+                        const colorEvent = info.event.backgroundColor;
+                        const color = colorEvent.substring(1);
+                        const description = info.event.extendedProps.descripcion;
+                        window.location = '../controller/controllerEventAdmin.php?p=4&a=1&id=' + id + '&title=' + title + '&start=' + start + '&startHour=' + startHour + '&end=' + end + '&endHour=' + endHour + '&color=' + color + '&description=' + description + '';
+                        console.log(id, start, startHour, end, endHour, color, description);
                     }
-            });
-            calendar.render();
-            del.addEventListener('click', function () {
-            modal.hide();
-            Swal.fire({
-            title: 'Estas seguro?',
-                    text: "Se borrara el evento",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Borrar!',
-                    cancelButtonText: 'Cancelar',
-            }).then((result) => {
-            if (result.isConfirmed) {
-            console.log('peeee');
-            /*Swal.fire(
-             'Deleted!',
-             'Your file has been deleted.',
-             'success'
-             );*/
-            var id = document.getElementById('id').value;
-            console.log(id);
-            window.location = '../controller/controllerEvento.php?p=3&a=1&id=' + id;
-            }
-            })
-            });
+                });
+                calendar.render();
+                del.addEventListener('click', function () {
+                    modal.hide();
+                    Swal.fire({
+                        title: 'Estas seguro?',
+                        text: "Se borrara el evento",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Borrar!',
+                        cancelButtonText: 'Cancelar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            console.log('peeee');
+                            /*Swal.fire(
+                             'Deleted!',
+                             'Your file has been deleted.',
+                             'success'
+                             );*/
+                            var id = document.getElementById('id').value;
+                            console.log(id);
+                            window.location = '../controller/controllerEventAdmin.php?p=3&a=1&id=' + id;
+                        }
+                    })
+                });
             });
 
         </script>

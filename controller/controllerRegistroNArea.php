@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -44,7 +47,7 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
+
 
 $nombre = isset($_POST["txt_narea"]) ? $_POST["txt_narea"] : null;
 //echo $nombre;

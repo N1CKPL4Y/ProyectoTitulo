@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -25,9 +28,7 @@
         </script>
     </body>
 </html>
-
 <?php
-session_start();
 session_unset();
 session_destroy();
 echo '<script>Salir();</script>';

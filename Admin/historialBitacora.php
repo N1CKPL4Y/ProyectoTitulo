@@ -1,8 +1,8 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
-session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -34,7 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
 <html lang="en" dir="ltr">
     <head>
-        <title>Base de consultas</title>
+        <title>Historial Bitacoras</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
 

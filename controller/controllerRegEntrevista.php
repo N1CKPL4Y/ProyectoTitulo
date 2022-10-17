@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -70,7 +73,6 @@ $data = new Data();
 
 $conect = $data->getConnection();
 
-session_start();
 $rut_user = $_SESSION['rut'];
 $rut_bene = isset($_POST['rrx_rutBenef']) ? $_POST['rrx_rutBenef'] : null;
 

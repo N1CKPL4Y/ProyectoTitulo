@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -44,7 +47,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 $pension = isset($_POST["txt_nPension"]) ? $_POST["txt_nPension"] : null;
 //echo $pension;

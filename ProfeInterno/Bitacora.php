@@ -1,8 +1,9 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
-session_start();
+
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -281,39 +282,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <input type="hidden" class="form-control" name="txt_rutB" value="<?php echo $rutBe; ?>" aria-label="Username" aria-describedby="basic-addon1">
                                                                             <input type="hidden" class="form-control" name="txt_evento" value="<?php echo $idB; ?>" aria-label="Username" aria-describedby="basic-addon1">
                                                                             <input type="text" class="form-control"  name="txt_program"  aria-label="Username" aria-describedby="basic-addon1">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-top: 15px">
-                                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header Header" style="background-color: #558b2f; color: white">
-                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Tipo de atención:</h5>
-                                                    </div>
-                                                    <div class="card-body Cuerpo" style="background-color: #C8E6C9">
-                                                        <div class="row">
-                                                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                                                <div class="row">
-                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                                                        <div class="col-md-10 col-sm-10">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="t_atencion" value="1">
-                                                                                <label class="form-check-label" for="t_atencion">
-                                                                                    Atención por beneficio (Programas sociales previo evaluación social)
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="t_atencion" value="2">
-                                                                                <label class="form-check-label" for="t_atencion">
-                                                                                    Atención por programa pagado (Costo mínimo asociado)
-                                                                                </label>
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

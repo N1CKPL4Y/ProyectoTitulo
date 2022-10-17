@@ -1,4 +1,5 @@
 <?php
+session_start();
 $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
 $dis = isset($_GET['dis']) ? $_GET['dis'] : null;
 ?>
@@ -75,7 +76,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 $rut = isset($_POST["rutT"]) ? $_POST["rutT"] : null;
 

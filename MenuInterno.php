@@ -1,8 +1,9 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once './DB/Model_Data.php';
-session_start();
+
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];

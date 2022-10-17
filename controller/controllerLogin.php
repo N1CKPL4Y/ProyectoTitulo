@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -90,11 +93,8 @@
         </script>
     </body>
 </html>
-
-
 <?php
 include_once '../DB/Model_Data.php';
-session_start();
 
 $rut = isset($_POST["txt_rut"]) ? $_POST["txt_rut"] : null;
 $pass = isset($_POST["txt_pass"]) ? $_POST["txt_pass"] : null;

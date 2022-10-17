@@ -1,4 +1,5 @@
 <?php
+session_start();
 $bene = isset($_POST['rutBene']) ? $_POST['rutBene'] : null;
 $dis = isset($_GET['dis']) ? $_GET['dis'] : null;
 ?>
@@ -75,7 +76,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 $pHogar = isset($_POST['txt_porcentHogar']) ? $_POST['txt_porcentHogar'] : null;
 

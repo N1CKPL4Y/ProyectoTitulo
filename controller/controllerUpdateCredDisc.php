@@ -1,4 +1,5 @@
 <?php
+session_start();
 $bene = isset($_POST['rutBene']) ? $_POST['rutBene'] : null;
 $dis = isset($_GET['dis']) ? $_GET['dis'] : null;
 ?>
@@ -75,7 +76,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 $numCrede = isset($_POST['txt_credencial']) ? $_POST['txt_credencial'] : null;
 $origenP = isset($_POST['cbo_origenP']) ? $_POST['cbo_origenP'] : null;

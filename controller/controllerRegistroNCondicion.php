@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -44,7 +47,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
 
 $nombre = isset($_POST["txt_nCondicion"]) ? $_POST["txt_nCondicion"] : null;
 $codigo = isset($_POST["txt_nCodigo"]) ? $_POST["txt_nCodigo"] : null;

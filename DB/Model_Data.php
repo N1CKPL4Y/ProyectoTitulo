@@ -339,6 +339,66 @@ class Data {
         $query = $this->con->query($sql);
     }
 
+    public function addEventAdminDefault($title, $start, $color, $detalle) {
+        $sql = "INSERT INTO `evento_admin` (`id`, `title`, `start`, `startHour`, `end`, `color`, `descripcion`) VALUES (NULL, '$title', '$start', NULL, NULL, '$color', '$detalle');";
+        $query = $this->con->query($sql);
+    }
+
+    public function addEventAdminSpecific($title, $start, $startHour, $color, $detalle) {
+        $sql = "INSERT INTO `evento_admin` (`id`, `title`, `start`, `startHour`, `end`, `color`, `descripcion`) VALUES (NULL, '$title', '$start', '$startHour', NULL, '$color', '$detalle');";
+        $query = $this->con->query($sql);
+    }
+
+    public function addEventAdminEnd($title, $start, $end, $color, $detalle) {
+        $sql = "INSERT INTO `evento_admin` (`id`, `title`, `start`, `startHour`, `end`, `color`, `descripcion`) VALUES (NULL, '$title', '$start', NULL, date_add('$end', interval 1 day), '$color', '$detalle');";
+        $query = $this->con->query($sql);
+    }
+
+    public function addEventAdminEndHour($title, $start, $startHour, $end, $endHour, $color, $detalle) {
+        $sql = "INSERT INTO `evento_admin` (`id`, `title`, `start`, `startHour`, `end`, `endHour`, `color`, `descripcion`) VALUES (NULL, '$title', '$start', '$startHour', '$end', '$endHour', '$color', '$detalle');";
+        $query = $this->con->query($sql);
+    }
+
+    public function delEventAdmin($id) {
+        $sql = "DELETE from evento_admin WHERE id = $id;";
+        $query = $this->con->query($sql);
+    }
+
+    public function updEventAdmin($id, $title, $start, $startHour, $end, $endHour, $color, $description) {
+        if ($startHour == null && $end == null && $endHour == null) {
+            //echo '<br>' . "evento todo el dia";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = NULL, `end` = NULL, `endHour`= NULL, `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        } else if ($end == null && $endHour == null) {
+            //echo '<br>' . "evento especifico";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = '$startHour', `end` = NULL, `endHour`= NULL, `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        } else if ($startHour == null && $endHour == null) {
+            //echo '<br>' . "extendido";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = NULL, `end` = '$end', `endHour`= NULL, `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        } else {
+            //echo '<br>' . "rango en el dia";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = '$startHour', `end` = '$end', `endHour`= '$endHour', `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        };
+
+        $query = $this->con->query($sql);
+    }
+
+    public function dropEventAdmin($id, $title, $start, $startHour, $end, $endHour, $color, $description) {
+        if ($startHour == null && $end == null && $endHour == null) {
+            //echo '<br>' . "evento todo el dia";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = NULL, `end` = NULL, `endHour`= NULL, `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        } else if ($end == null && $endHour == null) {
+            //echo '<br>' . "evento especifico";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = '$startHour', `end` = NULL, `endHour`= NULL, `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        } else if ($startHour == null && $endHour == null) {
+            //echo '<br>' . "extendido";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = NULL, `end` = '$end', `endHour`= NULL, `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        } else {
+            //echo '<br>' . "rango en el dia";
+            $sql = "UPDATE `evento_admin` SET `title` = '$title', `start` = '$start', `startHour` = '$startHour', `end` = '$end', `endHour`= '$endHour', `color` = '$color', `descripcion` = '$description' WHERE `id` = $id;";
+        };
+        $query = $this->con->query($sql);
+    }
+
     public function getLimitEvent() {
         $sql = "select id from evento order by id desc limit 1;";
         $query = $this->con->query($sql);
@@ -361,7 +421,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getAllEventAdministrative() {
         $sql = "SELECT * FROM evento_admin";
         $query = $this->con->query($sql);
@@ -429,8 +489,8 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
-    public function getBitacoraByArea($rut, $area){
+
+    public function getBitacoraByArea($rut, $area) {
         $sql = "SELECT * FROM `bitacora` WHERE beneficiario = '$rut' AND area_u = $area;";
         $query = $this->con->query($sql);
         return $query;
@@ -441,7 +501,7 @@ class Data {
         $query = $this->con->query($sql);
         return $query;
     }
-    
+
     public function getExistBicatora($rut) {
         $sql = "SELECT COUNT(*) AS 'existe' 
 	            FROM bitacora
@@ -938,7 +998,20 @@ class Data {
         $sql = "UPDATE `beneficiario` SET `r_s_hogares` = '1' WHERE `beneficiario`.`RUT` = '$rut';";
         $query = $this->con->query($sql);
     }
+    
+    public function existeUser($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+                FROM usuario
+                WHERE RUT = '$rut';";
 
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
 }
 ?>
 

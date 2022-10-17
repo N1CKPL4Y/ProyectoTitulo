@@ -1,7 +1,8 @@
 <?php
+session_start();
 $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
 $id = isset($_GET['id']) ? $_GET['id'] : null;
-session_start();
+
 $cargo = $_SESSION['cargo'];
 echo $cargo;
 ?>

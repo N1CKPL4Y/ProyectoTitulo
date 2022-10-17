@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 include_once '../../DB/Model_Data.php';
 
@@ -40,7 +40,7 @@ $pdf->AddPage('P', 'Legal');
 $pdf->SetTitle("Copia Credencial");
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->SetXY(70, 10);
-$pdf->Cell(60, 7, 'Copia Cedula de identidad');
+$pdf->Cell(60, 7, 'Copia Credencial De Discapacidad');
 $pdf->Ln(20);
 $pdf->SetFont('Arial', '', 10);
 $pdf->MultiCell(180, 6, utf8_decode('Se presenta la copia de la cedula de identidad de: ' . $rut . ' correspondiente a Don: ' . $nom . ' ' . $ape));

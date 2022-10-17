@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once '../DB/Model_Data.php';
 $data = new Data();
-session_start();
+
 $rut_bene = isset($_POST['txt_rutB']) ? $_POST['txt_rutB'] : null;
 $evento = intval(isset($_POST['txt_evento']) ? $_POST['txt_evento'] : null);
 $color = '#0387EF';
@@ -127,8 +128,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <?php
 echo $t_atencion;
 if ($evento && $rut_bene) {
-    echo '<script>registrado();</script>';
-    $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-    $data->updColorEvento($evento, $color);
+    if ($_SESSION['cargo'] == 3) {
+        echo '<script>registrado();</script>';
+        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+        $data->updColorEvento($evento, $color);
+    } else if ($_SESSION['cargo'] == 4) {
+        echo '<script>registrado();</script>';
+        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+        $data->updColorEvento($evento, $color);
+    }
 }
 ?>

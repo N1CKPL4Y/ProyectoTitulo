@@ -1,4 +1,5 @@
 <?php
+session_start();
 $bene = isset($_POST['rutBene']) ? $_POST['rutBene'] : null;
 $dis = isset($_GET['dis']) ? $_GET['dis'] : null;
 ?>
@@ -77,8 +78,6 @@ include_once '../DB/Model_Data.php';
 $data = new Data();
 
 $conect = $data->getConnection();
-session_start();
-
 
 $condicion = isset($_POST['cbo_condicion']) ? $_POST['cbo_condicion'] : null;
 $especialista = isset($_POST['cbo_especialista']) ? $_POST['cbo_especialista'] : null;

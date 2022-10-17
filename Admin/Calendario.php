@@ -1,8 +1,8 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
-session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -426,6 +426,7 @@ $consulJson = json_encode($consultas);
                     dateClick: function (info) {
                         console.log(info);
                         form.reset();
+                        form2.reset();
                         document.getElementById('idsT').value = '';
                         del.classList.add('d-none');
                         document.getElementById('Event').readOnly = false;

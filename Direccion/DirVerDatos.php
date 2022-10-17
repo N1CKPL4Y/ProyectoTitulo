@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
@@ -720,7 +721,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="card-body Cuerpo">
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <h4>Beneficios Generales:</h4>
+                                        <h4>Datos Generales:</h4>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">

@@ -1,8 +1,8 @@
 <?php
+session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
-session_start();
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -133,7 +133,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid" style="padding-top: 30px">
+            <div class="container-fluid" style="padding-top: 30px; padding-left: 30px">
                 <div class="row">
                     <div class="col s10 offset-s1">
                         <div class="accordion" id="accordionExample">
