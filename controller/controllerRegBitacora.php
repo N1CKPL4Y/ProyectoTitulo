@@ -126,15 +126,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     </script>
 </html>
 <?php
-echo $t_atencion;
+$fecha = $data->fechaActual();
+$fechaB;
+foreach($fecha as $value){
+    $fechaB = $value['fecha'];
+}
+$hora = $data->horaActual();
+$horaB;
+foreach($hora as $value){
+    $horaB = $value['hora'];
+}
+//echo $t_atencion;
 if ($evento && $rut_bene) {
     if ($_SESSION['cargo'] == 3) {
-        echo '<script>registrado();</script>';
-        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+        //echo '<script>registrado();</script>';
+        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
         $data->updColorEvento($evento, $color);
     } else if ($_SESSION['cargo'] == 4) {
-        echo '<script>registrado();</script>';
-        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+        //echo '<script>registrado();</script>';
+        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $fecha, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
         $data->updColorEvento($evento, $color);
     }
 }

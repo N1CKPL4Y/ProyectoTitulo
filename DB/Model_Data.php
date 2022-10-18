@@ -453,7 +453,7 @@ class Data {
     }
 
     public function getCountPrograma($rut_bene, $rut_profe) {
-        $sql = "SELECT COUNT(programa) as 'Programas'  FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
+        $sql = "SELECT COUNT(programa) as 'Programas'  FROM bitacora WHERE beneficiario='$rut_bene' AND usuario='$rut_profe' AND DATE(fecha) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()));";
         //AND DATE(fecha_hora) BETWEEN (SELECT CAST(DATE_FORMAT(NOW() ,'%Y-%m-01') AS DATE)) AND (SELECT LAST_DAY(NOW()))
         $query = $this->con->query($sql);
         return $query;
@@ -465,9 +465,21 @@ class Data {
         return $query;
     }
 
-    public function addBitacora($rut_bene, $rut_profe, $area, $programa, $t_atencion, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
-        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `area_u`, `programa`, `t_atencion`, `fecha_hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $area, $programa, $t_atencion, now(), '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
+    public function addBitacora($rut_bene, $rut_profe, $area, $programa, $fecha, $hora, $t_atencion, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
+        $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `area_u`, `programa`, `t_atencion`, `fecha`, `hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $area, $programa, $t_atencion, '$fecha', '$hora', '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
         $query = $this->con->query($sql);
+    }
+    
+    public function fechaActual(){
+        $sql = "SELECT CURRENT_DATE as 'fecha';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function horaActual(){
+        $sql = "SELECT CURRENT_TIME as 'hora';";
+        $query = $this->con->query($sql);
+        return $query;
     }
 
     /* public function getExisBitacora($rut) {

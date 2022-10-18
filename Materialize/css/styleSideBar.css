@@ -107,7 +107,7 @@
 
 .sidebar.open{
     width: 265px;
-    overflow: hidden;
+    *overflow-y: scroll;
 }
 
 .sidebar.open-webkit-scrollbar{
