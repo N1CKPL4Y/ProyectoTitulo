@@ -10,6 +10,7 @@ $passwd = $_SESSION['passwd'];
 $correo = $_SESSION['email'];
 $area_u = $_SESSION['area_u'];
 $tipo_u = $_SESSION['tipo_u'];
+$cargo = $_SESSION['cargo'];
 
 if ($correo == null || "") {
     echo '<script language="javascript">alert("Acceso invalido");</script>';
@@ -51,39 +52,81 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
-        <div class="sidebar open" >
-            <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
-            </div>
-            <ul class="nav-list">
-                <li>
-                    <a href="../MenuInterno.php">
-                        <i class='bx bx-home' ></i>
-                        <span class="links_name">Vover a Inicio</span>
-                    </a>
-                    <span class="tooltip">Volver a Inicio</span>
-                </li>
-                <li>
-                    <a href="../controller/controllerLogout.php">
-                        <i class="material-icons">power_settings_new</i>
-                        <span class="links_name">Cerrar Sesión</span>
-                    </a>
-                    <span class="tooltip">Cerrar Sesión</span>
-                </li>
-                <li class="profile">
-                    <div class="profile-details">
-                      <!--<img src="profile.jpg" alt="profileImg">-->
-                        <div class="name_job">
-                            <div class="name"><?php echo $nombre ?></div>
-                            <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $a_usuario ?></div>
-                            <div class="job"><?php echo $correo ?></div>
+        <?php
+        if ($_SESSION['cargo'] == 4) {
+            ?>
+            <div class="sidebar open" >
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuInterno.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $a_usuario ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out"></i></a>
                         </div>
-                        <a><i id="log_out"></i></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        } else if ($_SESSION['cargo'] == 3) {
+            ?>
+            <div class="sidebar open" >
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuProfesional.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $a_usuario ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
         <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
@@ -97,7 +140,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-around">
-                        <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 15px">
+                        <div class="col-sm-12 col-md-10 col-lg-10" style="padding-top: 15px">
                             <div class="card text-center">
                                 <form method="post">
                                     <div class="card-header Header">
@@ -129,12 +172,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             //echo $rutBusqueda;
                             if (!empty($rutBusqueda)) {
                                 //$existe = $data->getExisBitacora($rutBusqueda);
-                                $bitacoras = $data->getBitacora($rutBusqueda,$rut);
-                                
+                                $bitacoras = $data->getBitacora($rutBusqueda, $rut);
+
                                 if (mysqli_num_rows($bitacoras) > 0) {
-                                    $cont=1;
+                                    $cont = 1;
                                     ?>
-                                    <div class = "col-sm-12 col-md-10 col-lg-8">
+                                    <div class = "col-sm-12 col-md-10 col-lg-10">
                                         <div class = "card text-center">
                                             <div class = "card-header">
                                                 Registro
@@ -144,14 +187,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 foreach ($bitacoras as $value) {
                                                     ?>
                                                     <div class="row justify-content-around">
-                                                        <div class="col-sm-12 col-md-6 col-lg-6">
-                                                            <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id'];?>">
-                                                                <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont." Codigo: ".$value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?>
+                                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                                            <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id']; ?>">
+                                                                <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Fecha <?php echo $value['fecha']; ?> - Hora <?php echo $value['hora']; ?>
                                                             </a>
                                                         </div>
                                                     </div>
                                                     <?php
-                                                    $cont+=1;
+                                                    $cont += 1;
                                                 }
                                                 ?>
                                             </div>

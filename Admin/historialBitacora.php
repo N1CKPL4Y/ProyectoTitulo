@@ -106,7 +106,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
-                    <a href="C_Administrativo/Administrativo.php">
+                    <a href="../C_Administrativo/Administrativo.php">
                         <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>

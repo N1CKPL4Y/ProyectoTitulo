@@ -75,7 +75,7 @@ $consulJson = json_encode($consultas);
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body class="hold-transition sidebar-mini">
-        <div class="sidebar open" >
+        <div class="sidebar open" style="overflow-y: hidden !important">
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
@@ -109,7 +109,7 @@ $consulJson = json_encode($consultas);
                     <span class="tooltip">Editar Datos</span>
                 </li>
                 <li>
-                    <a href="C_Administrativo/Administrativo.php">
+                    <a href="../C_Administrativo/Administrativo.php">
                         <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>

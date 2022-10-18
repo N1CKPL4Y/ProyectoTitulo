@@ -121,18 +121,11 @@ $consulJson = json_encode($consultas);
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body class="hold-transition sidebar-mini">
-        <div class="sidebar open" >
+        <div class="sidebar open" style="overflow-y: hidden !important">
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
-                <li>
-                    <a href="MenuProfesional.php">
-                        <i class='bx bx-home' ></i>
-                        <span class="links_name">Vover a Inicio</span>
-                    </a>
-                    <span class="tooltip">Volver a Inicio</span>
-                </li>
                 <li>
                     <a href="ProfeInterno/HistorialBitacoras.php">
                         <i class='bx bx-library'></i>
