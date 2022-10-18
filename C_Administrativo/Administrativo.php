@@ -11,6 +11,7 @@ $passwd = $_SESSION['passwd'];
 $correo = $_SESSION['email'];
 $area_u = $_SESSION['area_u'];
 $tipo_u = $_SESSION['tipo_u'];
+$cargo = $_SESSION['cargo'];
 
 if ($correo == null || "") {
     echo '<script language="javascript">alert("Acceso invalido");</script>';
@@ -21,7 +22,19 @@ switch ($_SESSION['tipo_u']) {
     case 1:
         $tipo_u = "Administrador";
         break;
+    case 2:
+        $tipo_u = "Trabajador";
+        break;
 }
+switch ($_SESSION['cargo']) {
+    case 1:
+        $cargo = "Dirección";
+        break;
+    case 2:
+        $cargo = "Secretaria";
+        break;
+}
+
 
 $data = new Data();
 ?>
@@ -62,61 +75,168 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
-        <div class="sidebar open" >
-            <div class="logo-details">
-                <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
-            </div>
-            <ul class="nav-list">
-                <li>
-                    <a href="../MenuAdmin.php">
-                        <i class='bx bx-home' ></i>
-                        <span class="links_name">Vover a Inicio</span>
-                    </a>
-                    <span class="tooltip">Volver a Inicio</span>
-                </li>
-                <li>
-                    <a href="RNuevoUsuario.php">
-                        <i class="material-icons">person_add</i>
-                        <span class="links_name">Registrar Usuarios</span>
-                    </a>
-                    <span class="tooltip">Registrar Usuarios</span>
-                </li>
-                <li>
-                    <a href="VisBeneficiario.php">
-                        <i class="material-icons">people</i>
-                        <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
-                    </a>
-                    <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
-                </li>
-                <li>
-                    <a href="EditarDatos.php">
-                        <i class="material-icons">border_color</i>
-                        <span class="links_name">Editar Datos</span>
-                    </a>
-                    <span class="tooltip">Editar Datos</span>
-                </li>
-                <li>
-                    <a href="../controller/controllerLogout.php">
-                        <i class="material-icons">power_settings_new</i>
-                        <span class="links_name">Cerrar Sesión</span>
-                    </a>
-                    <span class="tooltip">Cerrar Sesión</span>
-                </li>
-                <li class="profile">
-                    <div class="profile-details">
-                      <!--<img src="profile.jpg" alt="profileImg">-->
-                        <div class="name_job">
-                            <div class="name"><?php echo $nombre ?></div>
-                            <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $tipo_u ?></div>
-                            <div class="job"><?php echo $correo ?></div>
-
+        <?php
+        if ($_SESSION['tipo_u'] == '1' && $_SESSION['cargo'] == '1') {
+            ?>
+            <div class="sidebar open">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuAdmin.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/RNuevoUsuario.php">
+                            <i class="material-icons">person_add</i>
+                            <span class="links_name">Registrar Usuarios</span>
+                        </a>
+                        <span class="tooltip">Registrar Usuarios</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/VisBeneficiario.php">
+                            <i class="material-icons">people</i>
+                            <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
+                        </a>
+                        <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/EditarDatos.php">
+                            <i class="material-icons">border_color</i>
+                            <span class="links_name">Editar Datos</span>
+                        </a>
+                        <span class="tooltip">Editar Datos</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $tipo_u ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out"></i></a>
                         </div>
-                        <a><i id="log_out"></i></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '1') {
+            ?>
+            <div class="sidebar open">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuDireccion.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../Direccion/DirCalendario.php">
+                            <i class='bx bx-calendar'></i>
+                            <span class="links_name">Calendario Mensual</span>
+                        </a>
+                        <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
+                        <a href="../Direccion/DirHistorialBitacora.php">
+                            <i class='bx bx-library'></i>
+                            <span class="links_name">Historial Bitacoras</span>
+                        </a>
+                        <span class="tooltip">Historial Bitacoras</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+
+                            </div>
+                            <a><i id="log_out"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '2') {
+            ?>
+            <div class="sidebar open">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuSecretaria.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="Secretaria/EntrevistaFamilia.php">
+                            <i class='bx bx-folder' ></i>
+                            <span class="links_name">Registrar Entrevista</span>
+                        </a>
+                        <span class="tooltip">Registrar Entrevista</span>
+                    </li>
+                    <li>
+                        <a href="Secretaria/CalendarioSecretaria.php">
+                            <i class='bx bx-calendar-heart'></i>
+                            <span class="links_name">Calendario Mensual</span>
+                        </a>
+                        <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out" ></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
+
         <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav class="center">
                 <div class="nav-wrapper" style="background-color: #00526a">
@@ -314,88 +434,83 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../js/jquery.rut.js"></script>
         <script>
             $('document').ready(function () {
-                $('#tipo1').change(function () {
-                    document.getElementById('clockDiv').classList.add('d-none');
-                    document.getElementById('clockDivEnd').classList.add('d-none');
-                    document.getElementById('endDiv').classList.add('d-none');
-                    document.getElementById('divHourEnd').classList.add('d-none');
-
-                    document.getElementById('EventHour').value = "";
-                    document.getElementById('endEvent').value = "";
-
-                    //tipoEvent.classList.add('d-block');
-                    console.log('holiwi');
-                });
-                $('#tipo2').change(function () {
-                    document.getElementById('endDiv').classList.add('d-none');
-                    document.getElementById('clockDivEnd').classList.add('d-none');
-                    document.getElementById('clockDiv').classList.remove('d-none');
-                    document.getElementById('divHourEnd').classList.remove('d-none');
-
-                    document.getElementById('EventHour').value = "";
-                    document.getElementById('endEvent').value = "";
-                    //tipoEvent.classList.add('d-block');
-                    console.log('holiwi');
-                });
-                $('#tipo3').change(function () {
-                    document.getElementById('clockDiv').classList.add('d-none');
-                    document.getElementById('clockDivEnd').classList.add('d-none');
-                    document.getElementById('endDiv').classList.remove('d-none');
-                    document.getElementById('divHourEnd').classList.add('d-none');
-
-                    document.getElementById('EventHour').value = "";
-                    document.getElementById('endEvent').value = "";
-                    //tipoEvent.classList.add('d-block');
-                    console.log('holiwi');
-                });
-                $('#tipo4').change(function () {
-                    document.getElementById('clockDiv').classList.remove('d-none');
-                    document.getElementById('clockDivEnd').classList.remove('d-none');
-                    document.getElementById('endDiv').classList.add('d-none');
-                    document.getElementById('divHourEnd').classList.add('d-none');
-
-                    //tipoEvent.classList.add('d-block');
-                    document.getElementById('EventHour1').value = "";
-                    console.log('holiwi');
-                });
+            $('#tipo1').change(function () {
+            document.getElementById('clockDiv').classList.add('d-none');
+            document.getElementById('clockDivEnd').classList.add('d-none');
+            document.getElementById('endDiv').classList.add('d-none');
+            document.getElementById('divHourEnd').classList.add('d-none');
+            document.getElementById('EventHour').value = "";
+            document.getElementById('endEvent').value = "";
+            //tipoEvent.classList.add('d-block');
+            console.log('holiwi');
+            });
+            $('#tipo2').change(function () {
+            document.getElementById('endDiv').classList.add('d-none');
+            document.getElementById('clockDivEnd').classList.add('d-none');
+            document.getElementById('clockDiv').classList.remove('d-none');
+            document.getElementById('divHourEnd').classList.remove('d-none');
+            document.getElementById('EventHour').value = "";
+            document.getElementById('endEvent').value = "";
+            //tipoEvent.classList.add('d-block');
+            console.log('holiwi');
+            });
+            $('#tipo3').change(function () {
+            document.getElementById('clockDiv').classList.add('d-none');
+            document.getElementById('clockDivEnd').classList.add('d-none');
+            document.getElementById('endDiv').classList.remove('d-none');
+            document.getElementById('divHourEnd').classList.add('d-none');
+            document.getElementById('EventHour').value = "";
+            document.getElementById('endEvent').value = "";
+            //tipoEvent.classList.add('d-block');
+            console.log('holiwi');
+            });
+            $('#tipo4').change(function () {
+            document.getElementById('clockDiv').classList.remove('d-none');
+            document.getElementById('clockDivEnd').classList.remove('d-none');
+            document.getElementById('endDiv').classList.add('d-none');
+            document.getElementById('divHourEnd').classList.add('d-none');
+            //tipoEvent.classList.add('d-block');
+            document.getElementById('EventHour1').value = "";
+            console.log('holiwi');
+            });
             });
         </script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
             $(function () {
-                $('.dates #startEvent').datepicker({
-                    'format': 'yyyy-mm-dd',
+            $('.dates #startEvent').datepicker({
+            'format': 'yyyy-mm-dd',
                     'autoclose': true,
                     startDate: '+1d'
-                });
+            });
             });
             $(function () {
-                $('.dates #endEvent2').datepicker({
-                    'format': 'yyyy-mm-dd',
+            $('.dates #endEvent2').datepicker({
+            'format': 'yyyy-mm-dd',
                     'autoclose': true
-                });
+            });
             });
             $(function () {
-                $('.dates #endEvent').datepicker({
-                    'format': 'yyyy-mm-dd',
+            $('.dates #endEvent').datepicker({
+            'format': 'yyyy-mm-dd',
                     'autoclose': true
-                });
+            });
             });
             $(function () {
-                $("input#beneFI").rut({
-                    formatOn: 'keyup',
+            $("input#beneFI").rut({
+            formatOn: 'keyup',
                     minimumLength: 8, // validar largo mínimo; default: 2
                     validateOn: 'change' // si no se quiere validar, pasar null
-                });
-                var input = document.getElementById('beneFI');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
+            });
+            var input = document.getElementById('beneFI');
+            input.addEventListener('input', function () {
+            if (this.value.length >= 13)
+                    this.value = this.value.slice(0, 12);
+            })
             })
         </script>
         <script type="text/javascript">
-            var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+                    var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
             var modal2 = new bootstrap.Modal(document.getElementById('create'));
             let form = document.getElementById('form1');
             let form2 = document.getElementById('form2');
@@ -404,9 +519,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let consultas = document.getElementById('.consulta');
             let des = 3;
             document.addEventListener('DOMContentLoaded', function () {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
                     themeSystem: 'bootstrap',
                     locale: 'es',
                     contentHeight: 'auto',
@@ -415,210 +530,205 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     nowIndicator: true,
                     navLinks: true,
                     eventTimeFormat: {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        meridiem: 'short'
+                    hour: '2-digit',
+                            minute: '2-digit',
+                            meridiem: 'short'
                     },
                     timeZone: 'UTC-4',
                     eventMaxStack: 2,
                     dayHeaders: true,
                     views: {
-                        dayGridMonth: {
+                    dayGridMonth: {
+                    titleFormat: {year: 'numeric', month: 'long'}
+                    },
+                            dayGrid: {
                             titleFormat: {year: 'numeric', month: 'long'}
-                        },
-                        dayGrid: {
-                            titleFormat: {year: 'numeric', month: 'long'}
-                        },
-                        timeGrid: {
+                            },
+                            timeGrid: {
                             titleFormat: {year: 'numeric', month: 'long', day: '2-digit'}
-                        },
-                        week: {
+                            },
+                            week: {
                             titleFormat: {year: 'numeric', month: 'long', day: '2-digit'}
-                        },
-                        day: {
+                            },
+                            day: {
                             titleFormat: {year: 'numeric', month: 'long', day: '2-digit', weekday: 'long'}
-                        }
+                            }
                     },
                     showNonCurrentDates: false,
                     events: [
-                        <?php
-                        $eventoAd = $data->getAllEventAdministrative();
-                        foreach ($eventoAd as $value) {
-                            ?>{
-                            id: '<?php echo $value['id']; ?>',
-                            title: '<?php echo $value['title']; ?>',
-                            <?php
-                            if (empty($value['startHour'])) {
-                            ?>
+<?php
+$eventoAd = $data->getAllEventAdministrative();
+foreach ($eventoAd as $value) {
+    ?>{
+                        id: '<?php echo $value['id']; ?>',
+                                title: '<?php echo $value['title']; ?>',
+    <?php
+    if (empty($value['startHour'])) {
+        ?>
                             start: '<?php echo $value['start']; ?>',
-                            <?php
-                            } else {
-                            ?>
+        <?php
+    } else {
+        ?>
                             start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
-                            <?php
-                            }
-                            if (empty($value['endHour'])) {
-                            ?>
+        <?php
+    }
+    if (empty($value['endHour'])) {
+        ?>
                             end: '<?php echo $value['end']; ?>',
-                            <?php
-                            } else {
-                            ?>
+        <?php
+    } else {
+        ?>
                             end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
-                            <?php
-                            }
-                            ?>
-                            color:'<?php echo $value['color']; ?>',
-                            descripcion: '<?php echo $value['descripcion']?>'
-                            }<?php
-                            $last = $data->getLastEventAdministrative();
-                            $ex;
-                            foreach ($last as $valueX) {
-                            $ex = $valueX['id'];
-                            }
-                            if ($ex == $value['id']) {
-
-                            } else {
-                            echo ',';
-                            };
-                            } 
-                        ?>
+        <?php
+    }
+    ?>
+                        color:'<?php echo $value['color']; ?>',
+                                descripcion: '<?php echo $value['descripcion'] ?>'
+                        }<?php
+    $last = $data->getLastEventAdministrative();
+    $ex;
+    foreach ($last as $valueX) {
+        $ex = $valueX['id'];
+    }
+    if ($ex == $value['id']) {
+        
+    } else {
+        echo ',';
+    };
+}
+?>
                     ],
                     editable: true,
                     droppable: true,
                     //schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     },
                     footerToolbar: true,
                     // funcion recibe info
                     dateClick: function (info) {
-                        console.log(info);
-                        form.reset();
-                        form2.reset();
-                        document.getElementById('idsT').value = '';
-                        document.getElementById('Event').readOnly = true;
-                        document.getElementById('id_event').classList.add('d-none');
-                        fecha = info.dateStr;
-                        document.getElementById('Event').value = fecha.substring(0, 10);
-                        document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
-                        document.getElementById('btn_Action1').textContent = 'Registrar';
-                        form2.action = "../controller/controllerEventAdmin.php?p=1&a=1";
-                        form2.method = 'POST';
-                        modal2.show();
+                    console.log(info);
+                    form.reset();
+                    form2.reset();
+                    document.getElementById('idsT').value = '';
+                    document.getElementById('Event').readOnly = true;
+                    document.getElementById('id_event').classList.add('d-none');
+                    fecha = info.dateStr;
+                    document.getElementById('Event').value = fecha.substring(0, 10);
+                    document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
+                    document.getElementById('btn_Action1').textContent = 'Registrar';
+                    form2.action = "../controller/controllerEventAdmin.php?p=1&a=1";
+                    form2.method = 'POST';
+                    modal2.show();
                     },
                     eventClick: function (info) {
-                        console.log(info.event.startStr);
-                        document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
-                        document.getElementById('btn_Action').textContent = 'Modificar';
-                        document.getElementById('id_event').classList.remove('d-none');
-                        del.classList.remove('d-none');
-                        document.getElementById('startEvent').readOnly = true;
-                        document.getElementById('id').value = info.event.id;
-                        document.getElementById('title').value = info.event.title;
-                        fecha = info.event.startStr;
-                        document.getElementById('startEvent').value = fecha.substring(0, 10);
-
-                        if (fecha.substring(11) == "") {
-                            console.log('Hola');
-
-                            document.getElementById('endDiv2').classList.add('d-none');
-                            document.getElementById('clockDiv2').classList.add('d-none');
-                            document.getElementById('clockDivEnd2').classList.add('d-none');
-
-                        }
-                        ;
-                        if (fecha.substring(11) != "") {
-                            document.getElementById('endDiv2').classList.add('d-none');
-                            document.getElementById('clockDiv2').classList.remove('d-none');
-                            document.getElementById('clockDivEnd2').classList.add('d-none');
-                            console.log('rango hora');
-                            document.getElementById('startEventHour').value = fecha.substring(11);
-                        }
-                        ;
-                        endSub = info.event.endStr;
-
-
-                        if (endSub.substring(11) != "") {
-                            document.getElementById('endDiv2').classList.remove('d-none');
-                            document.getElementById('clockDiv2').classList.remove('d-none');
-                            document.getElementById('clockDivEnd2').classList.remove('d-none');
-                            document.getElementById('endEvent2').value = endSub.substring(0, 10);
-                            document.getElementById('endEvent2Hour').value = endSub.substring(11);
-                        } else if (endSub.substring(0, 10) != "" && fecha.substring(0, 10) != "") {
-                            document.getElementById('endDiv2').classList.remove('d-none');
-                            document.getElementById('clockDiv2').classList.add('d-none');
-                            document.getElementById('clockDivEnd2').classList.add('d-none');
-                            document.getElementById('endEvent2').value = endSub.substring(0, 10);
-                            document.getElementById('endEvent2Hour').value = endSub.substring(11);
-                        }
-                        //
-                        document.getElementById('detallesEvent').value = info.event.extendedProps.descripcion;
-                        document.getElementById('colorEvent2').value = info.event.backgroundColor;
-                        //document.getElementById('color').value = info.event.backgroundColor;
-                        form.action = "../controller/controllerEventAdmin.php?p=2&a=1";
-                        form.method = 'POST';
-                        console.log(info);
-                        modal.show();
+                    console.log(info.event.startStr);
+                    document.getElementById('staticBackdropLabel').textContent = 'Modificar Evento';
+                    document.getElementById('btn_Action').textContent = 'Modificar';
+                    document.getElementById('id_event').classList.remove('d-none');
+                    del.classList.remove('d-none');
+                    document.getElementById('startEvent').readOnly = true;
+                    document.getElementById('id').value = info.event.id;
+                    document.getElementById('title').value = info.event.title;
+                    fecha = info.event.startStr;
+                    document.getElementById('startEvent').value = fecha.substring(0, 10);
+                    if (fecha.substring(11) == "") {
+                    console.log('Hola');
+                    document.getElementById('endDiv2').classList.add('d-none');
+                    document.getElementById('clockDiv2').classList.add('d-none');
+                    document.getElementById('clockDivEnd2').classList.add('d-none');
+                    }
+                    ;
+                    if (fecha.substring(11) != "") {
+                    document.getElementById('endDiv2').classList.add('d-none');
+                    document.getElementById('clockDiv2').classList.remove('d-none');
+                    document.getElementById('clockDivEnd2').classList.add('d-none');
+                    console.log('rango hora');
+                    document.getElementById('startEventHour').value = fecha.substring(11);
+                    }
+                    ;
+                    endSub = info.event.endStr;
+                    if (endSub.substring(11) != "") {
+                    document.getElementById('endDiv2').classList.remove('d-none');
+                    document.getElementById('clockDiv2').classList.remove('d-none');
+                    document.getElementById('clockDivEnd2').classList.remove('d-none');
+                    document.getElementById('endEvent2').value = endSub.substring(0, 10);
+                    document.getElementById('endEvent2Hour').value = endSub.substring(11);
+                    } else if (endSub.substring(0, 10) != "" && fecha.substring(0, 10) != "") {
+                    document.getElementById('endDiv2').classList.remove('d-none');
+                    document.getElementById('clockDiv2').classList.add('d-none');
+                    document.getElementById('clockDivEnd2').classList.add('d-none');
+                    document.getElementById('endEvent2').value = endSub.substring(0, 10);
+                    document.getElementById('endEvent2Hour').value = endSub.substring(11);
+                    }
+                    //
+                    document.getElementById('detallesEvent').value = info.event.extendedProps.descripcion;
+                    document.getElementById('colorEvent2').value = info.event.backgroundColor;
+                    //document.getElementById('color').value = info.event.backgroundColor;
+                    form.action = "../controller/controllerEventAdmin.php?p=2&a=1";
+                    form.method = 'POST';
+                    console.log(info);
+                    modal.show();
                     },
                     eventDrop: function (info) {
-                        const id = info.event.id;
-                        const title = info.event.title;
-                        const fecha = info.event.startStr;
-                        const start = fecha.substring(0, 10);
-                        const startHour = fecha.substring(11);
-                        const fechaend = info.event.endStr;
-                        const end = fechaend.substring(0, 10);
-                        const endHour = fechaend.substring(11);
-                        const colorEvent = info.event.backgroundColor;
-                        const color = colorEvent.substring(1);
-                        const description = info.event.extendedProps.descripcion;
-                        window.location = '../controller/controllerEventAdmin.php?p=4&a=1&id=' + id + '&title=' + title + '&start=' + start + '&startHour=' + startHour + '&end=' + end + '&endHour=' + endHour + '&color=' + color + '&description=' + description + '';
-                        console.log(id, start, startHour, end, endHour, color, description);
+                    const id = info.event.id;
+                    const title = info.event.title;
+                    const fecha = info.event.startStr;
+                    const start = fecha.substring(0, 10);
+                    const startHour = fecha.substring(11);
+                    const fechaend = info.event.endStr;
+                    const end = fechaend.substring(0, 10);
+                    const endHour = fechaend.substring(11);
+                    const colorEvent = info.event.backgroundColor;
+                    const color = colorEvent.substring(1);
+                    const description = info.event.extendedProps.descripcion;
+                    window.location = '../controller/controllerEventAdmin.php?p=4&a=1&id=' + id + '&title=' + title + '&start=' + start + '&startHour=' + startHour + '&end=' + end + '&endHour=' + endHour + '&color=' + color + '&description=' + description + '';
+                    console.log(id, start, startHour, end, endHour, color, description);
                     },
                     eventResize: function (info) {
-                        const id = info.event.id;
-                        const title = info.event.title;
-                        const fecha = info.event.startStr;
-                        const start = fecha.substring(0, 10);
-                        const startHour = fecha.substring(11);
-                        const fechaend = info.event.endStr;
-                        const end = fechaend.substring(0, 10);
-                        const endHour = fechaend.substring(11);
-                        const colorEvent = info.event.backgroundColor;
-                        const color = colorEvent.substring(1);
-                        const description = info.event.extendedProps.descripcion;
-                        window.location = '../controller/controllerEventAdmin.php?p=4&a=1&id=' + id + '&title=' + title + '&start=' + start + '&startHour=' + startHour + '&end=' + end + '&endHour=' + endHour + '&color=' + color + '&description=' + description + '';
-                        console.log(id, start, startHour, end, endHour, color, description);
+                    const id = info.event.id;
+                    const title = info.event.title;
+                    const fecha = info.event.startStr;
+                    const start = fecha.substring(0, 10);
+                    const startHour = fecha.substring(11);
+                    const fechaend = info.event.endStr;
+                    const end = fechaend.substring(0, 10);
+                    const endHour = fechaend.substring(11);
+                    const colorEvent = info.event.backgroundColor;
+                    const color = colorEvent.substring(1);
+                    const description = info.event.extendedProps.descripcion;
+                    window.location = '../controller/controllerEventAdmin.php?p=4&a=1&id=' + id + '&title=' + title + '&start=' + start + '&startHour=' + startHour + '&end=' + end + '&endHour=' + endHour + '&color=' + color + '&description=' + description + '';
+                    console.log(id, start, startHour, end, endHour, color, description);
                     }
-                });
-                calendar.render();
-                del.addEventListener('click', function () {
-                    modal.hide();
-                    Swal.fire({
-                        title: 'Estas seguro?',
-                        text: "Se borrara el evento",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Si, Borrar!',
-                        cancelButtonText: 'Cancelar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            console.log('peeee');
-                            /*Swal.fire(
-                             'Deleted!',
-                             'Your file has been deleted.',
-                             'success'
-                             );*/
-                            var id = document.getElementById('id').value;
-                            console.log(id);
-                            window.location = '../controller/controllerEventAdmin.php?p=3&a=1&id=' + id;
-                        }
-                    })
-                });
+            });
+            calendar.render();
+            del.addEventListener('click', function () {
+            modal.hide();
+            Swal.fire({
+            title: 'Estas seguro?',
+                    text: "Se borrara el evento",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Borrar!',
+                    cancelButtonText: 'Cancelar',
+            }).then((result) => {
+            if (result.isConfirmed) {
+            console.log('peeee');
+            /*Swal.fire(
+             'Deleted!',
+             'Your file has been deleted.',
+             'success'
+             );*/
+            var id = document.getElementById('id').value;
+            console.log(id);
+            window.location = '../controller/controllerEventAdmin.php?p=3&a=1&id=' + id;
+            }
+            })
+            });
             });
 
         </script>

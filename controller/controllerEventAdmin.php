@@ -80,7 +80,6 @@ function rand_color() {
 }
 
 $param = isset($_GET['p']) ? $_GET['p'] : null;
-$ar = isset($_GET['a']) ? $_GET['a'] : null;
 
 if ($param == 1) {
     $title = isset($_POST['txt_title1']) ? $_POST['txt_title1'] : null;
@@ -103,14 +102,15 @@ if ($param == 1) {
         $endHour = isset($_POST['txt_hora1End']) ? $_POST['txt_hora1End'] : null;
         $data->addEventAdminEndHour($title, $start, $startHour, $start, $endHour, $color, $detalle);
     }
+    
+    echo '<script>Success();</script>';
 
-    if ($ar == 1) {
-        echo '<script>Success();</script>';
-    } else if ($ar == 2) {
-        echo '<script>SuccessDir();</script>';
-    }
+    /* if ($ar == 1) {
+      
+      } else if ($ar == 2) {
+      echo '<script>SuccessDir();</script>';
+      } */
 } else if ($param == 2) {
-    echo 'hola';
     $id = isset($_POST['txt_id']) ? $_POST['txt_id'] : null;
     $title = isset($_POST['txt_title']) ? $_POST['txt_title'] : null;
     $start = isset($_POST['txt_fecha']) ? $_POST['txt_fecha'] : null;
@@ -120,10 +120,8 @@ if ($param == 1) {
     $description = isset($_POST['txt_detalles2']) ? $_POST['txt_detalles2'] : null;
     $color = isset($_POST['txt_color2']) ? $_POST['txt_color2'] : null;
 
-    $date = $start . " " . $startHour;
-    echo '<br>' . $title . '<br>' . $start . '<br>' . $startHour . '<br>' . $end . '<br>' . $endHour . '<br>' . $description . '<br>';
-
     $data->updEventAdmin($id, $title, $start, $startHour, $end, $endHour, $color, $description);
+    echo '<script>SuccessUp();</script>';
 //$eventosList=array();
     /* $eventoA = array();
       $eventos = $data->getAllEvent();
@@ -136,23 +134,24 @@ if ($param == 1) {
       print_r($eventoA);
       $popo = json_encode($eventoA); */
 //echo '<br>' . $popo;
-    if ($ar == 1) {
-        echo '<script>SuccessUp();</script>';
-    } else if ($ar == 2) {
-        echo '<script>SuccessUpDir();</script>';
-    } else if ($_SESSION['cargo'] == '2') {
-        echo '<script>SuccessUpSec();</script>';
-    }
+    /* if ($ar == 1) {
+      echo '<script>SuccessUp();</script>';
+      } else if ($ar == 2) {
+      echo '<script>SuccessUpDir();</script>';
+      } else if ($_SESSION['cargo'] == '2') {
+      echo '<script>SuccessUpSec();</script>';
+      } */
 } else if ($param == 3) {
-    echo 'edio';
+   
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $data->delEventAdmin($id);
-    echo '<br>' . $id;
-    if ($ar == 1) {
-        echo '<script>SuccessDel();</script>';
-    } else if ($ar == 2) {
-        echo '<script>SuccessDelDir();</script>';
-    }
+    echo '<script>SuccessDel();</script>';
+    //echo '<br>' . $id;
+    /* if ($ar == 1) {
+      
+      } else if ($ar == 2) {
+      echo '<script>SuccessDelDir();</script>';
+      } */
 } else if ($param == 4) {
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $title = isset($_GET['title']) ? $_GET['title'] : null;
@@ -165,26 +164,26 @@ if ($param == 1) {
 
     $color = '#' . $color;
     //$data->dropEvent($id, $fecha, $evento);
-    echo '<br>' . $id . '<br>' . $title . '<br>' . $start . '<br>' . $startHour . '<br>' . $end . '<br>' . $endHour . '<br>' . $color . '<br>' . $description;
+    //echo '<br>' . $id . '<br>' . $title . '<br>' . $start . '<br>' . $startHour . '<br>' . $end . '<br>' . $endHour . '<br>' . $color . '<br>' . $description;
     $data->dropEventAdmin($id, $title, $start, $startHour, $end, $endHour, $color, $description);
+    echo '<script>SuccessUp();</script>';
+    /* if ($ar == 1) {
+      echo 'x';
 
-    if ($ar == 1) {
-        echo 'x';
-        echo '<script>SuccessUp();</script>';
-    } else if ($ar == 2) {
-        echo 'ahsdhash';
-        echo '<script>SuccessUpDir();</script>';
-    } else if ($_SESSION['cargo'] == 2) {
-        echo '<script>SuccessUpSec();</script>';
-    }
+      } else if ($ar == 2) {
+      echo 'ahsdhash';
+      echo '<script>SuccessUpDir();</script>';
+      } else if ($_SESSION['cargo'] == 2) {
+      echo '<script>SuccessUpSec();</script>';
+      } */
 } else {
+    echo '<script>Error();</script>';
+    /* if ($ar == 1) {
 
-    if ($ar == 1) {
-        echo '<script>Error();</script>';
-    } else if ($ar == 2) {
-        echo '<script>ErrorDir();</script>';
-    } else if ($_SESSION['cargo'] == 2) {
-        echo '<script>ErrorSec();</script>';
-    }
+      } else if ($ar == 2) {
+      echo '<script>ErrorDir();</script>';
+      } else if ($_SESSION['cargo'] == 2) {
+      echo '<script>ErrorSec();</script>';
+      } */
 }
 ?>

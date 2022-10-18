@@ -77,6 +77,13 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
+                    <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 242px">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Calendario Administrativo</span>
+                    </a>
+                    <span class="tooltip">Calendario Administrativo</span>
+                </li>
+                <li>
                     <a href="../controller/controllerLogout.php" style="height: 50px; width: 242px">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>

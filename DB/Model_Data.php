@@ -465,7 +465,7 @@ class Data {
         return $query;
     }
 
-    public function addBitacora($rut_bene, $rut_profe, $area, $programa, $fecha, $hora, $t_atencion, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
+    public function addBitacora($rut_bene, $rut_profe, $area, $programa, $t_atencion, $fecha, $hora, $antecedentes, $objetivo, $actividad, $acuerdo, $observacion) {
         $sql = "INSERT INTO `bitacora` (`id`, `beneficiario`, `usuario`, `area_u`, `programa`, `t_atencion`, `fecha`, `hora`, `antecedentes_r`, `objetivo`, `actividad`, `acuerdo`, `observacion`) VALUES (NULL, '$rut_bene', '$rut_profe', $area, $programa, $t_atencion, '$fecha', '$hora', '$antecedentes', '$objetivo', '$actividad', '$acuerdo', '$observacion');";
         $query = $this->con->query($sql);
     }

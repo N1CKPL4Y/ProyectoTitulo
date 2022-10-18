@@ -470,7 +470,13 @@ $consulJson = json_encode($consultas);
                             }
 
                         });
-                        modal.show();
+                        let color = info.event.backgroundColor;
+                        console.log(color);
+                        if (color == '#0387EF') {
+                            modal.hide();
+                        } else {
+                            modal.show();
+                        }
                     },
                     eventDrop: function (info) {
                         const id = info.event.id;

@@ -136,6 +136,7 @@ $horaB;
 foreach($hora as $value){
     $horaB = $value['hora'];
 }
+//echo '<br>'.$fechaB.'<br>'.$horaB;
 //echo $t_atencion;
 if ($evento && $rut_bene) {
     if ($_SESSION['cargo'] == 3) {

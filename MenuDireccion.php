@@ -82,6 +82,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
+                    <a href="C_Administrativo/Administrativo.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Calendario Administrativo</span>
+                    </a>
+                    <span class="tooltip">Calendario Administrativo</span>
+                </li>
+                <li>
                     <a href="controller/controllerLogout.php">
                         <i class="material-icons">power_settings_new</i>
                         <span class="links_name">Cerrar Sesión</span>
