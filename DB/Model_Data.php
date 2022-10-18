@@ -6,7 +6,7 @@ class Data {
         "host" => "localhost",
         "user" => "root",
         "passwd" => "",
-        "database" => "fund_afenix",
+        "database" => "fundaf",
         "port" => 3306
     ];
     private $con = null;

@@ -64,8 +64,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
             <ul class="nav-list">
-                <li>
+                <!--<li>
                     <a href="Admin/RNuevoUsuario.php">
+                        <i class="material-icons">person_add</i>
+                        <span class="links_name">Registrar Usuarios</span>
+                    </a>
+                    <span class="tooltip">Registrar Usuarios</span>
+                </li>-->
+                <li>
+                    <a href="Prueba.php">
                         <i class="material-icons">person_add</i>
                         <span class="links_name">Registrar Usuarios</span>
                     </a>

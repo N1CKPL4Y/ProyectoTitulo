@@ -490,24 +490,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             });
         </script>
         <script type="text/javascript">
-            $('.clockpicker').clockpicker();
+            $('.clockpicker').clockpicker({
+                placement:'top',
+                align: 'right'
+            });
             $(function () {
             $('.dates #startEvent').datepicker({
-            'format': 'yyyy-mm-dd',
-                    'autoclose': true,
-                    startDate: '+1d'
+            format: 'yyyy-mm-dd',
+                    'autoclose': true
             });
             });
             $(function () {
             $('.dates #endEvent2').datepicker({
             'format': 'yyyy-mm-dd',
-                    'autoclose': true
+                    autoclose: true
             });
             });
             $(function () {
             $('.dates #endEvent').datepicker({
             'format': 'yyyy-mm-dd',
-                    'autoclose': true
+                    autoclose: true
             });
             });
             $(function () {
