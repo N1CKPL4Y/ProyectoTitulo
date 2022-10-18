@@ -78,7 +78,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <?php
         if ($_SESSION['tipo_u'] == '1' && $_SESSION['cargo'] == '1') {
             ?>
-            <div class="sidebar open">
+            <div class="sidebar open" style="overflow-y: hidden !important">
                 <div class="logo-details">
                     <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
                 </div>
@@ -105,11 +105,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </li>
                     <li>
+                        <a href="../Admin/Calendario.php">
+                            <i class='bx bx-calendar'></i>
+                            <span class="links_name">Calendario Mensual</span>
+                        </a>
+                        <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
                         <a href="../Admin/EditarDatos.php">
                             <i class="material-icons">border_color</i>
                             <span class="links_name">Editar Datos</span>
                         </a>
                         <span class="tooltip">Editar Datos</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/historialBitacora.php">
+                            <i class='bx bx-library'></i>
+                            <span class="links_name">Historial Bitacoras</span>
+                        </a>
+                        <span class="tooltip">Historial Bitacoras</span>
                     </li>
                     <li>
                         <a href="../controller/controllerLogout.php">
@@ -135,7 +149,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <?php
         } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '1') {
             ?>
-            <div class="sidebar open">
+            <div class="sidebar open" style="overflow-y: hidden !important">
                 <div class="logo-details">
                     <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
                 </div>
@@ -186,7 +200,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <?php
         } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '2') {
             ?>
-            <div class="sidebar open">
+            <div class="sidebar open" style="overflow-y: hidden !important">
                 <div class="logo-details">
                     <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
                 </div>

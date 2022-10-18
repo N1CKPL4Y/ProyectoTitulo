@@ -527,6 +527,12 @@ class Data {
 
         return false;
     }
+    
+    public function getBitacoraByFecha($rut, $area, $fecha){
+        $sql = "SELECT * FROM `bitacora` WHERE beneficiario = '$rut' AND area_u = $area AND fecha = '$fecha';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
 
     public function getAllEspecialista() {
         $sql = "SELECT * FROM especialista";

@@ -41,6 +41,8 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
         <script src="../Materialize/js/funciones.js"></script>
+        <link rel="stylesheet" href="../Materialize/datepick.css">
+        <script src="../Materialize/datepicke.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -125,22 +127,22 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 </div>
                                 <div class="card-body Cuerpo">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-5 col-lg-5">
+                                        <div class="col-sm-12 col-md-6 col-lg-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">Rut</span>
                                                 </div>
-                                                <input type="text" class="form-control" name="txt_rut" id="rut" style="border-radius: 0 50px 50px 0;" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-5 col-lg-5">
+                                        <div class="col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-group">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Area</label>
                                                     </div>
                                                     <select class="custom-select" id="cbo_aUser" name="cbo_aUser" style="border-radius: 0 50px 50px 0;">
-                                                        <option value="" disabled selected>Seleccione el area del usuario</option>
+                                                        <option value="" disabled selected>Seleccione el area Profesional</option>
                                                         <?php
                                                         $areaU = $data->getAllA_users();
                                                         foreach ($areaU as $key) {
@@ -155,8 +157,20 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-2 col-lg-2">
-                                            <button type="submit" class="btn btn-block submit " name="btn_buscar">Buscar</button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                            <div class="input-group mb-3 dates">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">Fecha</span>
+                                                </div>
+                                                <input type="text" autocomplete="off" placeholder="AAAA-MM-DD" class="form-control"  name="registro" id="datepicker" style="border-radius: 0px 50px 50px 0px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-3 col-lg-3">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <button type="submit" class="btn btn-block submit " name="btn_buscar">Buscar</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -169,9 +183,10 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     if (isset($_POST['btn_buscar'])) {
                         $rutBene = isset($_POST['txt_rut']) ? $_POST['txt_rut'] : null;
                         $area = isset($_POST['cbo_aUser']) ? $_POST['cbo_aUser'] : null;
+                        $fecha = isset($_POST['registro']) ? $_POST['registro'] : null;
                         //$existB = $data->getExistBicatora($rutBene);
                         if (!empty($rutBene)) {
-                            $bitacoras = $data->getBitacoraByArea($rutBene, $area);
+                            $bitacoras = $data->getBitacoraByFecha($rutBene, $area, $fecha);
                             if (mysqli_num_rows($bitacoras) > 0) {
                                 $cont = 1;
                                 ?>
@@ -191,9 +206,9 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 }
                                                 ?>
                                                 <div class="row justify-content-around">
-                                                    <div class="col-sm-12 col-md-10 col-lg-10">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id']; ?>">
-                                                            <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Area <?php echo $area1; ?>
+                                                            <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Area "<?php echo $area1; ?>" - <?php echo $value['fecha']; ?> / <?php echo $value['hora']; ?>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -236,6 +251,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
             </div> 
         </section>
     </body>
+    <script>
+        $(function () {
+            $('.dates #datepicker').datepicker({
+                'format': 'yyyy-mm-dd',
+                'autoclose': true
+            });
+        });
+    </script>
     <script>
         $(function () {
             $("input#rut").rut({

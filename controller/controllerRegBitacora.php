@@ -97,7 +97,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <head>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <title>Registrando</title>
+        <title>Registrando Bitácora</title>
         <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
@@ -140,11 +140,11 @@ foreach($hora as $value){
 //echo $t_atencion;
 if ($evento && $rut_bene) {
     if ($_SESSION['cargo'] == 3) {
-        //echo '<script>registrado();</script>';
+        echo '<script>registrado();</script>';
         $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
         $data->updColorEvento($evento, $color);
     } else if ($_SESSION['cargo'] == 4) {
-        //echo '<script>registrado();</script>';
+        echo '<script>registrado();</script>';
         $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $fecha, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
         $data->updColorEvento($evento, $color);
     }

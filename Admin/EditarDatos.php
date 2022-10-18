@@ -95,7 +95,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Calendario Administrativo</span>
                 </li>
                 <li>
-                    <a href="Admin/historialBitacora.php">
+                    <a href="historialBitacora.php">
                         <i class='bx bx-library'></i>
                         <span class="links_name">Historial Bitacoras</span>
                     </a>
