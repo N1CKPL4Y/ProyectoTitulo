@@ -41,29 +41,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="card-body">
                             <h5 class="card-title">Mantenimiento</h5>
                             <p class="card-text">La página que deseas visitar esta en mantenimiento o estan en fase de pruebas.</p>
-                            <?php
-                            if ($_SESSION['tipo_u'] == '1' && $_SESSION['cargo'] == '1') {
-                                ?>
-                                <a href="MenuAdmin.php" class="btn btn-primary"><i class="bi bi-arrow-left"></i>Volver</a>
-                                <?php
-                            } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '1') {
-                                ?>
-                                <a href="MenuDireccion.php" class="btn btn-primary"><i class="bi bi-arrow-left"></i>Volver</a>
-                                <?php
-                            } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] = '2') {
-                                ?>
-                                <a href="MenuSecretaria.php" class="btn btn-primary"><i class="bi bi-arrow-left"></i>Volver</a>
-                                <?php
-                            } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '3') {
-                                ?>
-                                <a href="MenuProfesional.php" class="btn btn-primary"><i class="bi bi-arrow-left"></i>Volver</a>
-                                <?php
-                            } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '4') {
-                                ?>
-                                <a href="MenuInterno.php" class="btn btn-primary"><i class="bi bi-arrow-left"></i>Volver</a>
-                                <?php
-                            }
-                            ?>
                         </div>
                         <div class="card-footer text-muted">
                             ...

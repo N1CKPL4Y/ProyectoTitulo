@@ -59,6 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
         <link rel="stylesheet" href="../Materialize/datepick.css">
         <script src="../Materialize/datepicke.js"></script>
+        <script src="../js/html2pdf.bundle.min.js"></script>
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 
     </head>
@@ -303,6 +304,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <label for="rutU" class="col-sm-8 col-form-label">R.U.T del Tutor</label>
                                                         <input type="text" name="rutT" class="form-control" id="rutT" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="" style="background-color: #e9ecef">
                                                         <small id="rut1" class="form-text text-muted"></small>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
@@ -741,11 +743,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-around">
+                <div class="row justify-content-around" id="pdf">
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
-                                <h3>Datos del beneficiario</h3>
+                                <h3>Datos del beneficiario</h3><a class="btn btn-primary" href="Datos/Pruebapdf.php" target="_blank" name="btn_pdf" id="btn_pdf" >PDF</a>
                             </div>
                             <div class="card-body Cuerpo">
                                 <div class="row" style="padding-top: 10px">
@@ -1327,6 +1329,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
         </section>
     </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Escuchamos el click del botón
+            const $boton = document.querySelector("#btn_pdf");
+            $boton.addEventListener("click", () => {
+                const $elementoParaConvertir = document.getElementById('pdf'); // <-- Aquí puedes elegir cualquier elemento del DOM
+                html2pdf()
+                        .set({
+                            margin: 1,
+                            filename: '<?php echo $rutBase;?>.pdf',
+                            image: {
+                                type: 'jpeg',
+                                quality: 0.98
+                            },
+                            html2canvas: {
+                                scale: 3, // A mayor escala, mejores gráficos, pero más peso
+                                letterRendering: true,
+                            },
+                            jsPDF: {
+                                unit: "in",
+                                format: "a4",
+                                orientation: 'portrait' // landscape o portrait
+                            }
+                        })
+                        .from($elementoParaConvertir)
+                        .save()
+                        .catch(err => console.log(err));
+            });
+        });
+    </script>
     <script>
         $(function () {
             $('.dates #datepicker').datepicker({

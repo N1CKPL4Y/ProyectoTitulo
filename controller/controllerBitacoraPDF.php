@@ -11,7 +11,8 @@ $beneficiario;
 $usuario;
 $programa;
 $t_atencion;
-$fecha_hora;
+$fecha;
+$hora;
 $antecedentes;
 $objetivos;
 $actividad;
@@ -23,7 +24,8 @@ foreach ($bitacora as $value) {
     $usuario = $value['usuario'];
     $programa = $value['programa'];
     $t_atencion = $value['t_atencion'];
-    $fecha_hora = $value['fecha_hora'];
+    $fecha = $value['fecha'];
+    $hora = $value['hora'];
     $antecedentes = $value['antecedentes_r'];
     $objetivos = $value['objetivo'];
     $actividad = $value['actividad'];
@@ -144,7 +146,7 @@ foreach ($benefs as $value) {
     $pdf->Cell(100, 7, utf8_decode($a_usuario));
     $pdf->Ln();
     $pdf->SetX(55);
-    $fechaB = fechaEsp($fecha_hora);
+    $fechaB = fechaEsp($fecha);
     $pdf->Cell(100, 7, utf8_decode($fechaB), 0, 0, 'C');
 }
 
