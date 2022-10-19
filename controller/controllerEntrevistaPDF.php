@@ -139,7 +139,16 @@ foreach ($cargoU as $value) {
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
+        <div class="container-fluid" style="padding-top: 15px;">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <button class="btn btn-primary" id="btn_pdf">Descargar</button>
+                </div>
+            </div>
+            <br>
+        </div>
         <div class="container-fluid" id="cuerpo">
+
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <img src="../IMG/iconEntrevista.png" alt="iconoEntrevista" height="80" width="110" style="padding-left: 10px;"/>
@@ -244,7 +253,7 @@ foreach ($cargoU as $value) {
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left: 30px; padding-right: 30px; height: auto">
+                <div class="col-sm-10 col-md-10 col-lg-12" style="padding-left: 30px; padding-right: 30px; height: auto">
                     <p align="justify">Este documento contiene la entrevista de antecedentes realizada el dia "<?php echo $fecha_entre ?>".
                         Dicha entrevista fue registrada en el sistema por el(la) colaborador(a) "<?php echo $nombreU . ' ' . $apellidoU ?>" con el cargo de "<?php echo $nombreCargo ?>". La cual a partir de la información proporcionada por el(la)
                         Sr(a) "<?php echo $nombreT ?>", cuyo parentesco con el beneficiario es el de "<?php echo $textParecido ?>", se
@@ -257,8 +266,15 @@ foreach ($cargoU as $value) {
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-6 col-md-5 col-lg-5" style="padding-left: 30px">
-                    <button class="btn btn-primary" id="btn_pdf">Descargar</button>
+                <div class="col-sm-10 col-md-10 col-lg-12" style="padding-left: 30px; padding-right: 30px; height: auto">
+                    <p align="justify">Este documento contiene la entrevista de antecedentes realizada el dia "<?php echo $fecha_entre ?>".
+                        Dicha entrevista fue registrada en el sistema por el(la) colaborador(a) "<?php echo $nombreU . ' ' . $apellidoU ?>" con el cargo de "<?php echo $nombreCargo ?>". La cual a partir de la información proporcionada por el(la)
+                        Sr(a) "<?php echo $nombreT ?>", cuyo parentesco con el beneficiario es el de "<?php echo $textParecido ?>", se
+                        registraron los siguientes antecedentes: Antecedentes del embarazo, Antecedentes del parto,
+                        Antecedentes del post parto, Lactancia, Desarrollo SensorioMotriz, Visión, Audición, Desarrollo del
+                        Lenguaje, Desarrollo &#10;&#13; Social, Salud, Antecedentes Familiares, Antecedentes escolares y Actitud de la
+                        familia.
+                    </p>
                 </div>
             </div>
         </div>
@@ -290,15 +306,14 @@ foreach ($cargoU as $value) {
                 const $elementoParaConvertir = document.querySelector('#cuerpo'); // <-- Aquí puedes elegir cualquier elemento del DOM
                 html2pdf()
                         .set({
-                            margin: [1,0],
+                            margin: [.5, 0],
                             filename: 'Prueba.pdf',
-
                             image: {
                                 type: 'jpeg',
                                 quality: 0.98
                             },
                             html2canvas: {
-                                scale: 4, // A mayor escala, mejores gráficos, pero más peso
+                                scale: 1, // A mayor escala, mejores gráficos, pero más peso
                                 letterRendering: true,
                             },
                             jsPDF: {
