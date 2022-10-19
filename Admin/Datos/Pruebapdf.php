@@ -38,18 +38,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     </body>
     <script>
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: '¿Desea Descargar esto?',
+            text: "Se descargará este documento en formato PDF",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Si, Descargar'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
+                        'Descargado!',
+                        'Revise su carpeta de descargas',
                         'success'
                         )
                 const $boton = document.querySelector("#btn_pdf");

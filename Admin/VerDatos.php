@@ -747,7 +747,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="col-sm-12 col-md-10 col-lg-10">
                         <div class="card" style="border-radius: 10px">
                             <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
-                                <h3>Datos del beneficiario</h3><a class="btn btn-primary" href="Datos/Pruebapdf.php" target="_blank" name="btn_pdf" id="btn_pdf" >PDF</a>
+                                <h3>Datos del beneficiario</h3>
                             </div>
                             <div class="card-body Cuerpo">
                                 <div class="row" style="padding-top: 10px">
@@ -1079,7 +1079,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <h4>Entrevista de antecedentes:</h4>
                                         </div>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
+                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase; ?>" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
                                         </div>
                                     </div>
                                     <?php
@@ -1329,36 +1329,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
         </section>
     </body>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Escuchamos el click del botón
-            const $boton = document.querySelector("#btn_pdf");
-            $boton.addEventListener("click", () => {
-                const $elementoParaConvertir = document.getElementById('pdf'); // <-- Aquí puedes elegir cualquier elemento del DOM
-                html2pdf()
-                        .set({
-                            margin: 1,
-                            filename: '<?php echo $rutBase;?>.pdf',
-                            image: {
-                                type: 'jpeg',
-                                quality: 0.98
-                            },
-                            html2canvas: {
-                                scale: 3, // A mayor escala, mejores gráficos, pero más peso
-                                letterRendering: true,
-                            },
-                            jsPDF: {
-                                unit: "in",
-                                format: "a4",
-                                orientation: 'portrait' // landscape o portrait
-                            }
-                        })
-                        .from($elementoParaConvertir)
-                        .save()
-                        .catch(err => console.log(err));
-            });
-        });
-    </script>
     <script>
         $(function () {
             $('.dates #datepicker').datepicker({

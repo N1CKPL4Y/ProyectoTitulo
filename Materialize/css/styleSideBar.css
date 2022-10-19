@@ -7,6 +7,15 @@
     font-family: "Poppins" , sans-serif;
 }
 
+/*CSS para los pdf*/
+.titleEn{
+    background-color: #C8E6C9 !important;
+    border-color: #C8E6C9 !important;
+}
+
+
+/*FIN CSS para los pdf*/
+
 .modal-open {
     overflow: hidden;
 }
