@@ -79,14 +79,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
-        <div class="container-fluid" style="padding-top: 15px;">
-            <div class="row justify-content-center">
-                <div class="col-sm-4 col-md-4 col-lg-4" style="display: flex; align-items: center; justify-content: center;">
-                    <button class="btn btn-primary" id="btn_pdf">Descargar</button>
-                    <button class="btn btn-secondary" id="cerrar">Cerrar</button>
+        <div class="container" style="padding-top: 15px; border-radius: 10px;">
+            <div class="row justify-content-between">
+                <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important; align-items: start; justify-content: start">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <span>Desea descargar este documento como PDF?</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <button class="btn submit" id="btn_pdf">Descargar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important; align-items: end; justify-content: end">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <span>Si termino de ver el pdf, cierre esta pestaña con el siguente boton</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <button class="btn btn-secondary" id="cerrar">Cerrar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <br>
         </div>
         <div class="container-fluid" id="cuerpo">
             <div class="row">
@@ -243,7 +262,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <?php
                         foreach ($area as $valueA) {
                             echo $valueA['nombre'];
-                            $areauser=$valueA['nombre'];
+                            $areauser = $valueA['nombre'];
                         }
                         ?>
                     </div>
@@ -292,7 +311,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 html2pdf()
                         .set({
                             margin: [.5, 0],
-                            filename: '<?php echo $beneficiario.'_N'.$id.'_'.$areauser;?>.pdf',
+                            filename: '<?php echo $beneficiario . '_N' . $id . '_' . $areauser; ?>.pdf',
                             image: {
                                 type: 'jpeg',
                                 quality: 0.98
@@ -312,6 +331,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         .from($elementoParaConvertir)
                         .save()
                         .catch(err => console.log(err));
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Excelente',
+                    text: 'Se ha generado y descargado el documento con el nombre <?php echo $beneficiario . '_N' . $id . '_' . $areauser; ?>.pdf',
+                    showConfirmButton: true
+                })
             });
         });
     </script>
