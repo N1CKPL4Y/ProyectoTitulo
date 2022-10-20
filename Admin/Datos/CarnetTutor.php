@@ -126,7 +126,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             },
                             jsPDF: {
                                 unit: "in",
-                                format: "legal",
+                                format: "letter",
                                 orientation: 'portrait' // landscape o portrait
                             }
                         })

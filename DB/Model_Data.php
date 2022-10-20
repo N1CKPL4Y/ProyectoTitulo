@@ -70,8 +70,12 @@ class Data {
         $this->con->query($sql);
     }
 
-    public function addDiagnos($espec, $ultiControl, $inf_Diagnos, $tipoDocu, $benefi, $cod) {
-        $sql = "INSERT INTO `diagnostico` (`id`, `especialista`, `fecha_u_control`, `informe_diagnostico`, `tipoDocumento`, `beneficiario`, `codigo`) VALUES (NULL, '$espec', '$ultiControl', '$inf_Diagnos', '$tipoDocu', '$benefi', '$cod');";
+    public function addDiagnos($espec, $ultiControl, $inf_Diagnos, $tipoDocu, $benefi, $cod, $otro) {
+        if ($otro==null) {
+            $sql = "INSERT INTO `diagnostico` (`id`, `especialista`, `fecha_u_control`, `informe_diagnostico`, `tipoDocumento`, `beneficiario`, `codigo`, `otroDiagnos`) VALUES (NULL, '$espec', '$ultiControl', '$inf_Diagnos', '$tipoDocu', '$benefi', '$cod', NULL);";
+        }else{
+            $sql = "INSERT INTO `diagnostico` (`id`, `especialista`, `fecha_u_control`, `informe_diagnostico`, `tipoDocumento`, `beneficiario`, `codigo`, `otroDiagnos`) VALUES (NULL, '$espec', '$ultiControl', '$inf_Diagnos', '$tipoDocu', '$benefi', '$cod', '$otro');";
+        }
         $this->con->query($sql);
     }
 

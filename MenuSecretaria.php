@@ -28,7 +28,7 @@ $data = new Data();
 
 $cUser = $data->getCargobyId($cargoU);
 $cargo;
-foreach($cUser as $value){
+foreach ($cUser as $value) {
     $cargo = $value['nombre'];
 }
 ?>
@@ -334,7 +334,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-group">
                                                                 <label for="cbo_condicion" class="col-sm-10 col-form-label">¿Cual es el diagnóstico que presenta el beneficiario?</label>
                                                                 <div class="input-group mb-6">
-                                                                    <select class="custom-select diag" id="inputGroupSelect01" name="cbo_condicion" disabled="">
+                                                                    <select class="custom-select diag" id="comboCondi" name="cbo_condicion" disabled="">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
                                                                         <?php
                                                                         $condiciones = $data->getAllCondition();
@@ -345,6 +345,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         ?>
                                                                     </select>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="cbo_condicion" class="col-sm-10 col-form-label">Indique si el beneficiario posee otro diagnostico</label>
+                                                                <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                                </div>
+                                                                    <input type="text" class="form-control diag" name="txt_otroDiag" disabled="" aria-label="Username" aria-describedby="basic-addon1">
+                                                            </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -802,7 +815,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </script> -->
             <script>
                 $(document).ready(function () {
-
                     $("#copiaCarnetBene").on('change', function () {
                         var fileName = $(this).val().split("\\").pop();
                         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);

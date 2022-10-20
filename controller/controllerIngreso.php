@@ -118,6 +118,7 @@ if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
 //////////////Diagnostico
 $havediag = isset($_POST['diagnostico']) ? $_POST['diagnostico'] : null;
 $condicion = isset($_POST['cbo_condicion']) ? $_POST['cbo_condicion'] : null;
+$otroDiagnos = isset($_POST['txt_otroDiag']) ? $_POST['txt_otroDiag'] : null;
 $especialista = isset($_POST['cbo_especialista']) ? $_POST['cbo_especialista'] : null;
 $fecha_control = isset($_POST['txt_control']) ? $_POST['txt_control'] : null;
 $data_control;
@@ -384,7 +385,7 @@ if (!$existeBene) {
         $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
         //insert datos diagnostico beneficiario
         if ($havediag == 1) {
-            $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion);
+            $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion, $otroDiagnos);
         } else {
             
         }
