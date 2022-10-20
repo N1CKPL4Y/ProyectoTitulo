@@ -184,14 +184,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 $diagnosB = "No posee diagnostico";
                                                                 $codeB = "0";
                                                             }
-                                                            
+
                                                             $tipoA = $data->getDatosGenerales($rutBe);
                                                             $tAtencion;
-                                                            foreach($tipoA as $value){
+                                                            foreach ($tipoA as $value) {
                                                                 $tAtencion = $value['atencion'];
                                                             }
                                                             $textAt;
-                                                            switch($tAtencion){
+                                                            switch ($tAtencion) {
                                                                 case 1:
                                                                     $textAt = 'Atención por beneficio (Programas sociales previo evaluación social)';
                                                                     break;
@@ -201,7 +201,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 default:
                                                                     break;
                                                             }
-                                                            
                                                             ?>
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-md-4 col-lg-4">
@@ -306,8 +305,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">Antecedentes</span>
                                                                             </div>
-                                                                            <textarea class="form-control" id="txtarea" name="txt_ant" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txtarea" name="txt_ant" aria-label="With textarea"></textarea>
                                                                         </div>
+                                                                        <div id="contador1">0/1500</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -331,8 +331,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Objetivos:">
                                                                             </div>
-                                                                            <textarea class="form-control" id="txt_obj" name="txt_obs" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_obj" name="txt_obs" aria-label="With textarea"></textarea>
                                                                         </div>
+                                                                        <div id="contador2">0/1500</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -341,8 +342,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Actividad:">
                                                                             </div>
-                                                                            <textarea class="form-control" id="txt_act" name="txt_act" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_act" name="txt_act" aria-label="With textarea"></textarea>
                                                                         </div>
+                                                                        <div id="contador3">0/1500</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -351,8 +353,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Acuerdo:">
                                                                             </div>
-                                                                            <textarea class="form-control" id="txt_acu" name="txt_acu" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_acu" name="txt_acu" aria-label="With textarea"></textarea>
                                                                         </div>
+                                                                        <div id="contador4">0/1500</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -361,10 +364,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Observaciones:">
                                                                             </div>
-                                                                            <textarea class="form-control" id="txt_obs" name="txt_obs" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_obs" name="txt_obs" aria-label="With textarea"></textarea>
                                                                         </div>
+                                                                        <div id="contador5">0/1500</div>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -400,6 +405,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </section>
     </body>
     <script>
+
         function expandTextarea(id) {
             document.getElementById(id).addEventListener('keyup', function () {
                 this.style.overflow = 'hidden';
@@ -407,7 +413,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 this.style.height = this.scrollHeight + 'px';
             }, false);
         }
-
+        ;
+        function countTextArea(id, cont) {
+            document.getElementById(id).addEventListener('input', function (e) {
+                const target = e.target;
+                const longitudMax = target.getAttribute('maxlength');
+                const longitudAct = target.value.length;
+                document.getElementById(cont).innerHTML = `${longitudAct}/${longitudMax}`;
+            });
+        }
+        countTextArea('txtarea','contador1');
+        countTextArea('txt_obj','contador2');
+        countTextArea('txt_act','contador3');
+        countTextArea('txt_acu','contador4');
+        countTextArea('txt_obs','contador5');
+        
         expandTextarea('txtarea');
         expandTextarea('txt_obj');
         expandTextarea('txt_act');

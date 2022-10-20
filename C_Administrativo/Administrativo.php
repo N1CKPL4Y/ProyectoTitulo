@@ -572,32 +572,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     },
                     showNonCurrentDates: false,
                     events: [
-<?php
-$eventoAd = $data->getAllEventAdministrative();
-foreach ($eventoAd as $value) {
-    ?>{
-                        id: '<?php echo $value['id']; ?>',
-                                title: '<?php echo $value['title']; ?>',
-    <?php
-    if (empty($value['startHour'])) {
-        ?>
-                            start: '<?php echo $value['start']; ?>',
-        <?php
-    } else {
-        ?>
-                            start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
-        <?php
-    }
-    if (empty($value['endHour'])) {
-        ?>
-                            end: '<?php echo $value['end']; ?>',
-        <?php
-    } else {
-        ?>
-                            end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
-        <?php
-    }
-    ?>
+                            <?php
+                            $eventoAd = $data->getAllEventAdministrative();
+                            foreach ($eventoAd as $value) {
+                                ?>{
+                                                    id: '<?php echo $value['id']; ?>',
+                                                            title: '<?php echo $value['title']; ?>',
+                                <?php
+                                if (empty($value['startHour'])) {
+                                    ?>
+                                                        start: '<?php echo $value['start']; ?>',
+                                    <?php
+                                } else {
+                                    ?>
+                                                        start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
+                                    <?php
+                                }
+                                if (empty($value['endHour'])) {
+                                    ?>
+                                                        end: '<?php echo $value['end']; ?>',
+                                    <?php
+                                } else {
+                                    ?>
+                                                        end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
+                                    <?php
+                                }
+                                ?>
                         color:'<?php echo $value['color']; ?>',
                                 descripcion: '<?php echo $value['descripcion'] ?>'
                         }<?php
