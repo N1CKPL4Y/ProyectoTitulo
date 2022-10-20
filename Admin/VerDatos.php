@@ -1079,7 +1079,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <h4>Entrevista de antecedentes:</h4>
                                         </div>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase; ?>" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
+                                            <a href="../controller/controllerEntrevistaPDF.php?rutBene=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Visualizar entrevista de antecedentes</a>
                                         </div>
                                     </div>
                                     <?php
