@@ -304,7 +304,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <label for="rutU" class="col-sm-8 col-form-label">R.U.T del Tutor</label>
                                                         <input type="text" name="rutT" class="form-control" id="rutT" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="" style="background-color: #e9ecef">
                                                         <small id="rut1" class="form-text text-muted"></small>
-                                                        
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
@@ -681,30 +681,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
-                                        <h5 class="modal-title" id="staticBackdropLabel"><?php echo $nombBase . ' ' . $apelBase; ?></h5>
-                                    </div>
-                                    <div class="modal-body Cuerpo">
-                                        <div class="row justify-content-around">
-                                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                                <img name="hola" width="700" height="400" src="data:image/jpeg;base64,<?php echo base64_encode($imgBase) ?>"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer HeaderModal">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <a href="Datos/carnetPDF.php?rut=<?php echo $rutBase; ?>" class="btn submitModal btn-primary">Descargar copia carnet</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="modal fade" id="modalCreden" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -798,9 +774,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#staticBackdrop">
-                                            Ver Copia Carnet
-                                        </button>
+                                        <a href="Datos/carnetPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -905,9 +879,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <button type="button" class="btn col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCreden">
-                                                Ver Copia Credencial
-                                            </button>
+                                            <a href="Datos/CredencialPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Credencial</a>
                                         </div>
                                         <?php
                                     } else {
@@ -1214,9 +1186,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn btn-success col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCTutor">
-                                            Ver Copia Carnet
-                                        </button>
+                                        <a href="Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">

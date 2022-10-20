@@ -774,9 +774,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#staticBackdrop">
-                                            Ver Copia Carnet
-                                        </button>
+                                        <a href="../Admin/Datos/carnetPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -881,9 +879,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     if ($discBase == "SI") {
                                         ?>
                                         <div class="col-sm-12 col-md-10 col-lg-6">
-                                            <button type="button" class="btn btn-success col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCreden">
-                                                Ver Copia Credencial
-                                            </button>
+                                            <a href="../Admin/Datos/CredencialPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Credencial</a>
                                         </div>
                                         <?php
                                     } else {
@@ -1190,9 +1186,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <button type="button" class="btn btn-success col-sm-12 submit col-md-12 col-lg-12 col-xl-12" data-toggle="modal" data-target="#modalCTutor">
-                                            Ver Copia Carnet
-                                        </button>
+                                        <a href="../Admin/Datos/CarnetTutor.php?rut=<?php echo $Rtutorbase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">

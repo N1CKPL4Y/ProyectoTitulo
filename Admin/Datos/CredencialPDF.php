@@ -2,21 +2,19 @@
 include_once '../../DB/Model_Data.php';
 
 $data = new Data();
+$conexion = $data->getConnection();
+
 $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
+//echo $rut;
 ?>
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
 <html>
     <head>
-        <title>Copia carnet Tutor PDF</title>
+        <meta charset="UTF-8">
+        <title>Copia Credencial - PDF</title>
         <link rel="icon" href="../../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
         <script src="../../Materialize/js/funciones.js"></script>
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -28,7 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../../js/validarut.js"></script>
         <script src="../../js/jquery.rut.js"></script>
-        <link rel="stylesheet" href="../../Materialize/datepick.css">
+        <link rel="stylesheet" href="../Materialize/datepick.css">
         <link rel="stylesheet" href="../../Materialize/css/sweetalert2.min.css">
         <script src="../../Materialize/datepicke.js"></script>
         <script src="../../js/sweetalert2.all.min.js"></script>
@@ -75,24 +73,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
-                    <h2 class="tituloPDF">Copia de Carnet de Identidad<hr noshade style="border-top: 5px solid black; margin-top: -5px;"/></h2>
+                    <h2 class="tituloPDF">Copia Credencial Discapacidad<hr noshade style="border-top: 5px solid black; margin-top: -5px;"/></h2>
                 </div>
             </div>
             <?php
-            $tutor = $data->getTutor($rut);
-            foreach ($tutor as $value) {
+            $bene = $data->getBenefi($rut);
+            $creden = $data->getCredenByRut($rut);
+            foreach ($bene as $value) {
                 ?>
-                <div class="row pt-4" style="padding-left: 10px;">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <p align="justify">Se presenta la copia de la cedula de identidad de: <?php echo $value['RUT'] . ' correspondiente a Don: ' . $value['nombre']; ?></p>
-                    </div>
-                </div>
-                <div class="row pt-4" style="padding-left: 10px;">
-                    <div class="col-sm-12 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
-                        <img width="500" height="300" src="data:image/jpeg;base64,<?php echo base64_encode($value['c_identidad']) ?>">
-                    </div>
+                <div class="row">
+                    <p align="justify">
+                        Se presenta la copia de la Credencial de Discapacidad de: <?php echo $value['RUT']; ?>. Correspondiente a Don(ña): <?php echo $value['nombre'] . ' ' . $value['apellido'] ?>
+                    </p>
                 </div>
                 <?php
+                foreach ($creden as $value1) {
+                    ?>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
+                            <img width="500" height="300" src="data:image/*;base64,<?php echo base64_encode($value1['c_parte_delantera']) ?>">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
+                            <img width="500" height="300" src="data:image/*;base64,<?php echo base64_encode($value1['c_parte_trasera']) ?>">
+                        </div>
+                    </div>
+                    <?php
+                }
             }
             ?>
 
@@ -108,22 +117,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             // Escuchamos el click del botón
             const $boton = document.querySelector("#btn_pdf");
             $boton.addEventListener("click", () => {
-
                 const $elementoParaConvertir = document.querySelector('#cuerpo'); // <-- Aquí puedes elegir cualquier elemento del DOM
                 html2pdf()
                         .set({
-                            margin: [.5, 0],
-                            filename: 'Carnet Identidad <?php echo $rut ?>.pdf',
+                            margin: [.5, .5, .5, .5],
+                            filename: 'Credencial Discapacidad - <?php echo $rut ?>.pdf',
                             image: {
                                 type: 'jpeg',
                                 quality: 0.98
                             },
                             html2canvas: {
-                                scale: 3, // A mayor escala, mejores gráficos, pero más peso
+                                scale: 2, // A mayor escala, mejores gráficos, pero más peso
                                 letterRendering: true,
-                            }, pagebreak: {
-                                mode: 'avoid-all', before: ['#obj']
                             },
+                            pagebreak: {mode: 'avoid-all', before: '#postParto'},
                             jsPDF: {
                                 unit: "in",
                                 format: "letter",
@@ -137,14 +144,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     position: 'center',
                     icon: 'success',
                     title: 'Excelente',
-                    text: 'Se ha generado y descargado el documento con el nombre "Carnet Identidad <?php echo $rut ?>.pdf"',
-                    showConfirmButton: true
+                    text: 'Se ha generado y se esta descargando el documento con el nombre "Credencial Discapacidad <?php echo $rut ?>.pdf"',
+                    showConfirmButton: true,
                 })
             });
         });
     </script>
 </html>
-
-
-
-

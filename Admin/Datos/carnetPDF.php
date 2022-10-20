@@ -33,20 +33,33 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
-        <div class="container-fluid" style="padding-top: 15px; border-radius: 10px;">
-            <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important">
-                <div class="row">
-                    <div class="col-sm-6 col-md-12 col-lg-12">
-                        <span>Desea descargar este documento como PDF?</span>
+        <div class="container" style="padding-top: 15px; border-radius: 10px;">
+            <div class="row justify-content-between">
+                <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important; align-items: start; justify-content: start">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <span>Desea descargar este documento como PDF?</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <button class="btn submit" id="btn_pdf">Descargar</button>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6 col-md-12 col-lg-12">
-                        <button class="btn submit" id="btn_pdf">Descargar</button>
+                <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important; align-items: end; justify-content: end">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <span>Si termino de ver el pdf, cierre esta pestaña con el siguente boton</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12 col-lg-12">
+                            <button class="btn btn-secondary" id="cerrar">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <br>
         </div>
         <div class="container-fluid" id="cuerpo">
             <div class="row">
@@ -82,6 +95,11 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
 
         </div>
     </body>
+    <script>
+        $("#cerrar").click(function () {
+            window.close();
+        });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Escuchamos el click del botón
