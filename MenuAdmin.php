@@ -72,7 +72,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Registrar Usuarios</span>
                 </li>-->
                 <li>
-                    <a href="Prueba.php">
+                    <a href="Admin/RNuevoUsuario.php">
                         <i class="material-icons">person_add</i>
                         <span class="links_name">Registrar Usuarios</span>
                     </a>

@@ -412,8 +412,10 @@ $consulJson = json_encode($consultas);
                         fecha = info.event.startStr;
                         document.getElementById('startEvent').value = fecha.substring(0, 10);
                         document.getElementById('startEventHour').value = fecha.substring(11,16);
-
-                        //document.getElementById('color').value = info.event.backgroundColor;
+                        
+                        //document.getElementById('color').backgroundColor = info.event.backgroundColor;
+                        document.getElementById("colorPrevH").style.backgroundColor = info.event.backgroundColor;
+                        
                         form.action = "../controller/controllerEvento.php?p=2&a=3";
                         form.method = 'POST';
                         console.log(info);

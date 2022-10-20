@@ -213,14 +213,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
                     <li>
-                        <a href="Secretaria/EntrevistaFamilia.php">
+                        <a href="../Secretaria/EntrevistaFamilia.php">
                             <i class='bx bx-folder' ></i>
                             <span class="links_name">Registrar Entrevista</span>
                         </a>
                         <span class="tooltip">Registrar Entrevista</span>
                     </li>
                     <li>
-                        <a href="Secretaria/CalendarioSecretaria.php">
+                        <a href="../Secretaria/CalendarioSecretaria.php">
                             <i class='bx bx-calendar-heart'></i>
                             <span class="links_name">Calendario Mensual</span>
                         </a>

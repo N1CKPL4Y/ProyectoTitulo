@@ -221,6 +221,7 @@ $consulJson = json_encode($consultas);
                                             </div>
                                             <div class="modal-footer HeaderModal">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="button" class="btn btn-danger" id="btn_No" data-dismiss="modal">No Asistio</button>
                                                 <button type="submit" id="btn_Action" class="btn submitModal">Registrar</button>
                                             </div>
                                         </div>
@@ -267,7 +268,7 @@ $consulJson = json_encode($consultas);
              eventJson = [{'title':'The Title','start':'2022-09-01','end':'2022-09-02' }];
              console.log(eventJson);
              }else{
-             eventJson=<?php //echo $eventJson;    ?>;
+             eventJson=<?php //echo $eventJson;      ?>;
              console.log(eventJson);
              }*/
             document.addEventListener('DOMContentLoaded', function () {
@@ -372,7 +373,7 @@ $consulJson = json_encode($consultas);
                         console.log(info);
                         let color = info.event.backgroundColor;
                         console.log(color);
-                        if (color == '#0387EF') {
+                        if (color == '#0387EF' || color=='#000000' || color=='#ff0000') {
                             modal.hide();
                         } else {
                             modal.show();
@@ -388,6 +389,31 @@ $consulJson = json_encode($consultas);
                 });
                 calendar.render();
                 console.log(eventosa[0].color);
+                $('#btn_No').click(function () {
+                    modal.hide();
+                    Swal.fire({
+                        title: '¿Seguro?',
+                        text: "Asegurate de que realmente el beneficiario no asisitio antes de cancelar la hora",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Cancelar!',
+                        cancelButtonText: 'Cancelar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            console.log('peeee');
+                            /*Swal.fire(
+                             'Deleted!',
+                             'Your file has been deleted.',
+                             'success'
+                             );*/
+                            var id = document.getElementById('id').value;
+                            console.log(id);
+                            window.location = 'controller/controllerEvento.php?p=5&a=3&id=' + id;
+                        }
+                    })
+                });
                 del.addEventListener('click', function () {
                     modal.hide();
                     Swal.fire({

@@ -168,6 +168,43 @@ session_start();
                         });
             }
 
+            function ErrorSec() {
+                swal({
+                    title: "ERROR",
+                    text: "Intentelo nuevamente",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Secretaria/CalendarioSecretaria.php';
+                        });
+            }
+
+            function SuccessUpProfeInt() {
+                swal({
+                    title: "Actualización Exitosa",
+                    text: "Evento actualizado correctamente",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                                <?php
+                                if ($_SESSION['cargo'] == 3) {
+                                    ?>
+                                    window.location.href = '../MenuProfesional.php';
+                                    <?php
+                                }else if($_SESSION['cargo']==4){
+                                    ?>
+                                      window.location.href = '../MenuInterno.php';
+                                    <?php
+                                }
+                                ?>
+
+                        });
+            }
+
         </script>
     </body>
 </html>
@@ -269,7 +306,7 @@ if ($param == 1) {
     $evento = isset($_GET['colorEvent']) ? $_GET['colorEvent'] : null;
     $evento = '#' . $evento;
     $data->dropEvent($id, $fecha, $evento);
-    echo '<br>' . $id . '<br>' . $fecha . '<br>' . $evento;
+    //echo '<br>' . $id . '<br>' . $fecha . '<br>' . $evento;
 
     if ($ar == 1) {
         echo 'x';
@@ -281,6 +318,11 @@ if ($param == 1) {
     } else if ($_SESSION['cargo'] == 2) {
         echo '<script>SuccessUpSec();</script>';
     }
+} else if ($param == 5) {
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $color = '#ff0000';
+    $data->updColorEvento($id, $color);
+    echo '<script>SuccessUpProfeInt()</script>';
 } else {
 
     if ($ar == 1) {
