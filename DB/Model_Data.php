@@ -6,7 +6,7 @@ class Data {
         "host" => "localhost",
         "user" => "root",
         "passwd" => "",
-        "database" => "fund_afenix",
+        "database" => "fundaf",
         "port" => 3306
     ];
     private $con = null;
@@ -135,6 +135,19 @@ class Data {
         $sql = "SELECT COUNT(*) AS 'existe' 
 	            FROM c_discapacidad
 	            WHERE beneficiario = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    public function getExistTutor($rut) {
+        $sql = "SELECT COUNT(*) AS 'existe' 
+	            FROM tutor
+	            WHERE RUT = '$rut';";
 
         $query = $this->con->query($sql);
 

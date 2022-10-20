@@ -390,9 +390,16 @@ if (!$existeBene) {
             
         }
         //insert datos tutor
-        $data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
+        $existTutor=$data->getExistTutor($rutTutor);
+        if ($existTutor) {
+            $data->addParentezo($parentezco, $rut, $rutTutor);
+        }else{
+            $data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
+            $data->addParentezo($parentezco, $rut, $rutTutor);
+        }
+        
         //insert datos parentesco
-        $data->addParentezo($parentezco, $rut, $rutTutor);
+        
         //insert datos credencial d.
         if ($haveCreden == 1) {
             $data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
@@ -418,11 +425,11 @@ if (!$existeBene) {
         //echo "no pasa na";
     }
 } else if ($existeBene) {
-    echo '<script language="javascript">ErrorExistencia()</script>';
+   echo '<script language="javascript">ErrorExistencia()</script>';
 }
 
 //echo $previBene . "<br>";
-/*echo "<br>" . $prevision;
+echo "<br>" . $prevision;
 //echo $existeBene.'<br>';
 echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pension . " " . $chSolid . " " . $hogar . " " . $previBene . "<br>";
 echo '<br>' . $rut . " " . $pension;
@@ -432,6 +439,6 @@ echo '<br>' . $numeroTeleton . " " . $rut;
 echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
 echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
 
-echo '<br>' . $haveCreden;*/
+echo '<br>' . $haveCreden;
 //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>
