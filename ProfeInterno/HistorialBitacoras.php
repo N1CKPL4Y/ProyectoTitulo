@@ -3,6 +3,7 @@ session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
+include_once '../controller/traduccionfecha.php';
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -157,7 +158,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <button type="submit" class="btn btn-block submitModal btn-success" name="btn_buscar">Buscar</button>
+                                                <button type="submit" class="btn btn-block submit" name="btn_buscar">Buscar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +174,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             if (!empty($rutBusqueda)) {
                                 //$existe = $data->getExisBitacora($rutBusqueda);
                                 $bitacoras = $data->getBitacora($rutBusqueda, $rut);
-
+                                
                                 if (mysqli_num_rows($bitacoras) > 0) {
                                     $cont = 1;
                                     ?>
@@ -185,11 +186,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class = "card-body">
                                                 <?php
                                                 foreach ($bitacoras as $value) {
+                                                    $fecha = $value['fecha'];
+                                                    $fechaB = fechaEsp($fecha);
                                                     ?>
                                                     <div class="row justify-content-around">
                                                         <div class="col-sm-12 col-md-12 col-lg-12">
                                                             <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id']; ?>">
-                                                                <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Fecha <?php echo $value['fecha']; ?> - Hora <?php echo $value['hora']; ?>
+                                                                <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Fecha: <?php echo $fechaB; ?> / Hora: <?php echo $value['hora']; ?>
                                                             </a>
                                                         </div>
                                                     </div>

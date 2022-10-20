@@ -3,6 +3,7 @@ session_start();
 error_reporting(E_NOTICE ^ E_ALL);
 
 include_once '../DB/Model_Data.php';
+include_once '../controller/traduccionfecha.php';
 $rut = $_SESSION['rut'];
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
@@ -226,6 +227,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class = "card-body">
                                             <?php
                                             foreach ($bitacoras as $value) {
+                                                $fecha = $value['fecha'];
+                                                $fechaB = fechaEsp($fecha);
                                                 $area = $value['area_u'];
                                                 $aUser = $data->getAreaById($area);
                                                 $area1;
@@ -236,7 +239,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="row justify-content-around">
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id']; ?>">
-                                                            <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Area "<?php echo $area1; ?>" - <?php echo $value['fecha']; ?> / <?php echo $value['hora']; ?>
+                                                            <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Area "<?php echo $area1; ?>" - <?php echo $fechaB; ?> / <?php echo $value['hora']; ?>
                                                         </a>
                                                     </div>
                                                 </div>
