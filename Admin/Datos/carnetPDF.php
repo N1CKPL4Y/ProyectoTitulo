@@ -72,7 +72,7 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
                     </p>
                 </div>
                 <div class="row">
-                    <img src="data:image/*;base64,<?php base64_encode($value['c_identidad'])?>">
+                    <img width="500" height="300" src="data:image/*;base64,<?php echo base64_encode($value['c_identidad'])?>">
                 </div>
                 <?php
             }

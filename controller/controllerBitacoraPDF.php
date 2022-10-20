@@ -283,24 +283,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         });
     </script>
     <script>
-        /*Swal.fire({
-         title: '¿Desea Descargar esto?',
-         text: "Se descargará este documento en formato PDF",
-         icon: 'warning',
-         showCancelButton: true,
-         confirmButtonColor: '#3085d6',
-         cancelButtonColor: '#d33',
-         cancelButtonText: 'Cancelar',
-         confirmButtonText: 'Si, Descargar'
-         }).then((result) => {
-         if (result.isConfirmed) {
-         Swal.fire(
-         'Descargado!',
-         'Revise su carpeta de descargas',
-         'success'
-         )
-         }
-         });*/
 
         document.addEventListener("DOMContentLoaded", () => {
             // Escuchamos el click del botón
