@@ -79,6 +79,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Registrar Usuarios</span>
                 </li>
                 <li>
+                    <a href="Secretaria/EntrevistaFamilia.php">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
+                </li>
+                <li>
                     <a href="Admin/VisBeneficiario.php">
                         <i class="material-icons">people</i>
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>

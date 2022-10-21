@@ -127,6 +127,13 @@ $consulJson = json_encode($consultas);
             </div>
             <ul class="nav-list">
                 <li>
+                    <a href="Secretaria/EntrevistaFamilia.php">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la Familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
+                </li>
+                <li>
                     <a href="ProfeInterno/HistorialBitacoras.php">
                         <i class='bx bx-library'></i>
                         <span class="links_name">Bitacoras</span>

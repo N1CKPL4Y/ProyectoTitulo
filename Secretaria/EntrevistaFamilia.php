@@ -24,6 +24,12 @@ $cargo;
 foreach($cUser as $value){
     $cargo = $value['nombre'];
 }
+
+switch ($_SESSION['tipo_u']) {
+    case 1:
+        $tipo_u = "Administrador";
+        break;
+}
 ?>
 
 
@@ -58,7 +64,254 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
-        <div class="sidebar open">
+        <?php
+        if ($_SESSION['tipo_u'] == '1' && $_SESSION['cargo'] == '1') {
+            ?>
+            <div class="sidebar open" style="overflow-y: hidden !important">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuAdmin.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/RNuevoUsuario.php">
+                            <i class="material-icons">person_add</i>
+                            <span class="links_name">Registrar Usuarios</span>
+                        </a>
+                        <span class="tooltip">Registrar Usuarios</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/VisBeneficiario.php">
+                            <i class="material-icons">people</i>
+                            <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
+                        </a>
+                        <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/Calendario.php">
+                            <i class='bx bx-calendar'></i>
+                            <span class="links_name">Calendario Mensual</span>
+                        </a>
+                        <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/EditarDatos.php">
+                            <i class="material-icons">border_color</i>
+                            <span class="links_name">Editar Datos</span>
+                        </a>
+                        <span class="tooltip">Editar Datos</span>
+                    </li>
+                    <li>
+                        <a href="../Admin/historialBitacora.php">
+                            <i class='bx bx-library'></i>
+                            <span class="links_name">Historial Bitacoras</span>
+                        </a>
+                        <span class="tooltip">Historial Bitacoras</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $tipo_u ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '1') {
+            ?>
+            <div class="sidebar open" style="overflow-y: hidden !important">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuDireccion.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../Direccion/DirCalendario.php">
+                            <i class='bx bx-calendar'></i>
+                            <span class="links_name">Calendario Mensual</span>
+                        </a>
+                        <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
+                        <a href="../Direccion/DirHistorialBitacora.php">
+                            <i class='bx bx-library'></i>
+                            <span class="links_name">Historial Bitacoras</span>
+                        </a>
+                        <span class="tooltip">Historial Bitacoras</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+
+                            </div>
+                            <a><i id="log_out"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '2') {
+            ?>
+            <div class="sidebar open" style="overflow-y: hidden !important">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuSecretaria.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../Secretaria/CalendarioSecretaria.php">
+                            <i class='bx bx-calendar-heart'></i>
+                            <span class="links_name">Calendario Mensual</span>
+                        </a>
+                        <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
+                        <a href="../C_Administrativo/Administrativo.php">
+                            <i class='bx bx-calendar-star'></i>
+                            <span class="links_name">Calendario Administrativo</span>
+                        </a>
+                        <span class="tooltip">Calendario Administrativo</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out" ></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '3') {
+            ?>
+            <div class="sidebar open" style="overflow-y: hidden !important">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuProfesional.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out" ></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '4') {
+            ?>
+            <div class="sidebar open" style="overflow-y: hidden !important">
+                <div class="logo-details">
+                    <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="../MenuInterno.php">
+                            <i class='bx bx-home' ></i>
+                            <span class="links_name">Vover a Inicio</span>
+                        </a>
+                        <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../controller/controllerLogout.php">
+                            <i class="material-icons">power_settings_new</i>
+                            <span class="links_name">Cerrar Sesión</span>
+                        </a>
+                        <span class="tooltip">Cerrar Sesión</span>
+                    </li>
+                    <li class="profile">
+                        <div class="profile-details">
+                          <!--<img src="profile.jpg" alt="profileImg">-->
+                            <div class="name_job">
+                                <div class="name"><?php echo $nombre ?></div>
+                                <div class="name"><?php echo $apellido ?></div>
+                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="job"><?php echo $correo ?></div>
+                            </div>
+                            <a><i id="log_out" ></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
+        <!--<div class="sidebar open">
             <div class="logo-details">
                 <a><div class="logo_name" style="font-size: 19px; padding-left: 23px">Fundación Inclusiva</div></a>       
             </div>
@@ -86,18 +339,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
                 <li class="profile">
                     <div class="profile-details">
-                      <!--<img src="profile.jpg" alt="profileImg">-->
                         <div class="name_job">
-                            <div class="name"><?php echo $nombre ?></div>
-                            <div class="name"><?php echo $apellido ?></div>
-                            <div class="name"><?php echo $cargo ?></div>
-                            <div class="job"><?php echo $correo ?></div>
+                            <div class="name"><?php //echo $nombre ?></div>
+                            <div class="name"><?php //echo $apellido ?></div>
+                            <div class="name"><?php //echo $cargo ?></div>
+                            <div class="job"><?php //echo $correo ?></div>
                         </div>
                         <a><i id="log_out" ></i></a>
                     </div>
                 </li>
             </ul>
-        </div>
+        </div>-->
         <section class="home-section" style="background-image: url(../IMG/1.jpg); background-attachment: fixed; background-size: cover">
             <nav>
                 <div class="nav-wrapper" style="background-color: #00526a">

@@ -72,7 +72,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
-                    <a href="Direccion/DirCalendario.php" style="height: 50px; width: 242px">
+                    <a href="DirCalendario.php" style="height: 50px; width: 242px">
                         <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Mensual</span>
                     </a>
