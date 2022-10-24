@@ -6,7 +6,7 @@ class Data {
         "host" => "localhost",
         "user" => "root",
         "passwd" => "",
-        "database" => "fundaf",
+        "database" => "fund_afenix",
         "port" => 3306
     ];
     private $con = null;
@@ -61,7 +61,11 @@ class Data {
     }
 
     public function addRegisSocial($copia, $porcentaje, $tipoDocu, $beneficiario) {
-        $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `porcentaje`, `tipoDocumento`, `beneficiario`) VALUES (NULL, '$copia', $porcentaje, '$tipoDocu', '$beneficiario');";
+        if($copia == null && $tipoDocu == null){
+            $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `porcentaje`, `tipoDocumento`, `beneficiario`) VALUES (NULL, NULL, $porcentaje, NULL, '$beneficiario');";
+        }else{
+            $sql = "INSERT INTO `registro_socialh` (`ID`, `copia_cartola`, `porcentaje`, `tipoDocumento`, `beneficiario`) VALUES (NULL, '$copia', $porcentaje, '$tipoDocu', '$beneficiario');";
+        }
         $this->con->query($sql);
     }
 

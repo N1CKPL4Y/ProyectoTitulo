@@ -252,12 +252,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
-                                                            <label style="margin-left: 10px"> Copia Carnet (Imagen)</label>
-                                                            <div class="input-group mb-3">
-                                                                <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" name="file_carnet" accept="image/jpeg" id="copiaCarnetBene" lang="es">
-                                                                    <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo</label>
-                                                                </div>
+                                                            <label for="rd_carnet" id="labelCarnet" class="col-sm-12 col-form-label" >Tipo de documento que desea adjuntar:</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input teleton" type="radio" id="rd_carnet1" name="rd_carnet" value="1">
+                                                                <label class="form-check-label" for="rd_carnet">
+                                                                    Copia Certificado Nacimiento (PDF).
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input teleton" type="radio" id="rd_carnet2" name="rd_carnet" value="2">
+                                                                <label class="form-check-label" for="rd_carnet">
+                                                                    Copia Carnet Identidad (Imagen).
+                                                                </label>
+                                                            </div>
+                                                            <div class="custom-file d-none" id="pdfB">
+                                                                <input type="file" class="custom-file-input" name="file_carnet" accept="application/pdf" id="copiaCarnetBene" lang="es">
+                                                                <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo (PDF)</label>
+                                                            </div>
+                                                            <div class="custom-file d-none" id="imagenB">
+                                                                <input type="file" class="custom-file-input" name="file_carnet" accept="image/jpeg" id="copiaCarnetBene" lang="es">
+                                                                <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo (Imagen)</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -353,11 +367,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             <div class="form-group">
                                                                 <label for="cbo_condicion" class="col-sm-10 col-form-label">Indique si el beneficiario posee otro diagnostico</label>
                                                                 <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon1">Indique</span>
-                                                                </div>
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1">Indique</span>
+                                                                    </div>
                                                                     <input type="text" class="form-control diag" name="txt_otroDiag" disabled="" aria-label="Username" aria-describedby="basic-addon1">
-                                                            </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -813,6 +827,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 }
             }
         </script> -->
+
             <script>
                 $(document).ready(function () {
                     $("#copiaCarnetBene").on('change', function () {
@@ -838,6 +853,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     $("#cR").on('change', function () {
                         var fileName = $(this).val().split("\\").pop();
                         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $('#rd_carnet1').change(function () {
+                        document.getElementById('pdfB').classList.remove('d-none');
+                        document.getElementById('imagenB').classList.add('d-none');
+                    })
+                    $('#rd_carnet2').change(function () {
+                        document.getElementById('imagenB').classList.remove('d-none');
+                        document.getElementById('pdfB').classList.add('d-none');
                     })
                 });
             </script>
