@@ -79,20 +79,20 @@ $existeBene = $data->getExistBen($rut);
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
 $tipo_DocuBene = isset($_POST['rd_carnet']) ? $_POST['rd_carnet'] : null;
 if ($tipo_DocuBene == 1) {
-    if (!isset($_FILES["file_carnetImage"]) || $_FILES["file_carnetImage"]["error"] > 0) {
+    if (!isset($_FILES["file_carnetPDF"]) || $_FILES["file_carnetPDF"]["error"] > 0) {
         echo "Ha ocurrido un error. 1";
     } else {
         // Verificamos si el tipo de archivo es un tipo de imagen permitido.
         // y que el tamaño del archivo no exceda los 16MB
-        $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+        $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png", "application/pdf");
         $limite_kb = 16384;
 
-        if (in_array($_FILES['file_carnet']['type'], $permitidos) && $_FILES['file_carnet']['size'] <= $limite_kb * 1024) {
-            echo 'carnet bene <br>';
+        if (in_array($_FILES['file_carnetPDF']['type'], $permitidos) && $_FILES['file_carnetPDF']['size'] <= $limite_kb * 1024) {
+            echo 'carnet bene pdf <br>';
             // Archivo temporal
-            $imagen_temporal = $_FILES['file_carnet']['tmp_name'];
+            $imagen_temporal = $_FILES['file_carnetPDF']['tmp_name'];
             // Tipo de archivo
-            $tipo = $_FILES['file_carnet']['type'];
+            $tipoB = $_FILES['file_carnetPDF']['type'];
             // Leemos el contenido del archivo temporal en binario.
             $fp = fopen($imagen_temporal, 'r+b');
             $dataFile = fread($fp, filesize($imagen_temporal));
@@ -116,7 +116,7 @@ if ($tipo_DocuBene == 1) {
         }
     }
 } else if ($tipo_DocuBene == 2) {
-    if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
+    if (!isset($_FILES["file_carnetImage"]) || $_FILES["file_carnetImage"]["error"] > 0) {
         echo "Ha ocurrido un error. 1";
     } else {
         // Verificamos si el tipo de archivo es un tipo de imagen permitido.
@@ -124,12 +124,12 @@ if ($tipo_DocuBene == 1) {
         $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
         $limite_kb = 16384;
 
-        if (in_array($_FILES['file_carnet']['type'], $permitidos) && $_FILES['file_carnet']['size'] <= $limite_kb * 1024) {
-            echo 'carnet bene <br>';
+        if (in_array($_FILES['file_carnetImage']['type'], $permitidos) && $_FILES['file_carnetImage']['size'] <= $limite_kb * 1024) {
+            echo 'carnet bene imagen<br>';
             // Archivo temporal
-            $imagen_temporal = $_FILES['file_carnet']['tmp_name'];
+            $imagen_temporal = $_FILES['file_carnetImage']['tmp_name'];
             // Tipo de archivo
-            $tipo = $_FILES['file_carnet']['type'];
+            $tipoB = $_FILES['file_carnetImage']['type'];
             // Leemos el contenido del archivo temporal en binario.
             $fp = fopen($imagen_temporal, 'r+b');
             $dataFile = fread($fp, filesize($imagen_temporal));
@@ -299,7 +299,7 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
         // Archivo temporal
         $imagen_temporal = $_FILES['file_credenFront']['tmp_name'];
         // Tipo de archivo
-        $tipo = $_FILES['file_credenFront']['type'];
+        $tipoCredenA = $_FILES['file_credenFront']['type'];
         // Leemos el contenido del archivo temporal en binario.
         $fp = fopen($imagen_temporal, 'r+b');
         $credenFileFront = fread($fp, filesize($imagen_temporal));
@@ -337,7 +337,7 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
         // Archivo temporal
         $imagen_temporal = $_FILES['file_credenBack']['tmp_name'];
         // Tipo de archivo
-        $tipo = $_FILES['file_credenBack']['type'];
+        $tipoCredenB = $_FILES['file_credenBack']['type'];
         // Leemos el contenido del archivo temporal en binario.
         $fp = fopen($imagen_temporal, 'r+b');
         $credenFileBack = fread($fp, filesize($imagen_temporal));
@@ -426,59 +426,59 @@ if ($hogar == 1) {
 /////////////////////////////////Insercion de datos///////////////////////////
 
 if (!$existeBene) {
-    if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $dataFile && $pension && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $comuTutor && $prevision && $previBene) {
-        //echo '<script language="javascript">Success()</script>';
+    if ($rut && $nombre && $apellido && $fecha && $genero && $direccion && $comuna && $pension && $rutTutor && $nombreTutor && $fecha_tutor && $direTutor && $comuTutor && $carnetTutor && $nivelE && $ocupacion && $telefono && $comuTutor && $prevision && $previBene) {
+        
         //insert datos generales
         //insert datos beneficiario
-        //$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $teleton, $haveCreden, $pension, $chSolid, $hogar, $previBene);
-        //$data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
+        $data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, $tipoB, $teleton, $haveCreden, $pension, $chSolid, $hogar, $previBene);
+        $data->addGeneral($motivo, $derivacion, $tipo_atencion, $rut);
         //insert datos diagnostico beneficiario
         if ($havediag == 1) {
-            //$data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion, $otroDiagnos);
+            $data->addDiagnos($especialista, $fecha_control, $data_control, $tipoArchi, $rut, $condicion, $otroDiagnos);
         } else {
             
         }
         //insert datos tutor
-        //$existTutor = $data->getExistTutor($rutTutor);
+        $existTutor = $data->getExistTutor($rutTutor);
         if ($existTutor) {
-            //$data->addParentezo($parentezco, $rut, $rutTutor);
+            $data->addParentezo($parentezco, $rut, $rutTutor);
         } else {
-            //$data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
-            //$data->addParentezo($parentezco, $rut, $rutTutor);
+            $data->addTutor($rutTutor, $nombreTutor, $fecha_tutor, $direTutor, $comuTutor, $carnetTutor, $nivelE, $ocupacion, $telefono, $correoTutor, $prevision);
+            $data->addParentezo($parentezco, $rut, $rutTutor);
         }
 
         //insert datos parentesco
         //insert datos credencial d.
         if ($haveCreden == 1) {
-            //$data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
+            $data->addCredencialD($numeroCreden, $origenP, $origenS, $porcent, $grado, $movilidad, $credenFileFront, $credenFileBack, $rut);
         } else {
             //echo 'hola';
         }
-        //$data->addPensionBene($rut, $pension);
+        $data->addPensionBene($rut, $pension);
         //insert teleton
         if ($teleton == 1) {
-            //$data->addTeleton($numeroTeleton, $rut);
+            $data->addTeleton($numeroTeleton, $rut);
         }
 
         //insert beneficios sociales
         if ($hogar == 1) {
-            //$data->addRegisSocial($hogarFile, $porcentHogar, $tipoDocu, $rut);
+            $data->addRegisSocial($hogarFile, $porcentHogar, $tipoDocu, $rut);
         }
 
-        //echo '<script language="javascript">Success()</script>';
+        echo '<script language="javascript">Success()</script>';
         //echo "funciona";
     } else {
-        //echo '<script language="javascript">Error()</script>';
+        echo '<script language="javascript">Error()</script>';
         //echo "no pasa na";
     }
 } else if ($existeBene) {
-    //echo '<script language="javascript">ErrorExistencia()</script>';
+    echo '<script language="javascript">ErrorExistencia()</script>';
 }
 
 //echo $previBene . "<br>";
-echo "<br>" . $prevision;
+/*echo "<br>" . $prevision;
 //echo $existeBene.'<br>';
-echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pension . " " . $chSolid . " " . $hogar . " " . $previBene . " " . $tipo . "<br>";
+echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pension . " " . $chSolid . " " . $hogar . " " . $previBene . " " . $tipoB . "<br>";
 echo '<br>' . $rut . " " . $pension;
 echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
 echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
@@ -486,6 +486,6 @@ echo '<br>' . $numeroTeleton . " " . $rut;
 echo '<br>' . $numeroCreden . " " . $origenP . " " . $origenS . " " . $porcent . " " . $grado . " " . $movilidad . " " . $rut;
 echo '<br>' . $especialista . " " . $fecha_control . " " . $rut . " " . $condicion . " " . $tipoArchi;
 
-echo '<br>' . $haveCreden;
+echo '<br>' . $haveCreden;*/
 //echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>'; */
 ?>
