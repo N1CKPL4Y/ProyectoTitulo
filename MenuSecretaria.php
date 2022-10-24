@@ -266,11 +266,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 </label>
                                                             </div>
                                                             <div class="custom-file d-none" id="pdfB">
-                                                                <input type="file" class="custom-file-input" name="file_carnet" accept="application/pdf" id="copiaCarnetBene" lang="es">
+                                                                <input type="file" class="custom-file-input" name="file_carnetPDF" accept="application/pdf" id="copiaCarnetBene" lang="es">
                                                                 <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo (PDF)</label>
                                                             </div>
                                                             <div class="custom-file d-none" id="imagenB">
-                                                                <input type="file" class="custom-file-input" name="file_carnet" accept="image/jpeg" id="copiaCarnetBene" lang="es">
+                                                                <input type="file" class="custom-file-input" name="file_carnetImage" accept="image/jpeg" id="copiaCarnetBene" lang="es">
                                                                 <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo (Imagen)</label>
                                                             </div>
                                                         </div>

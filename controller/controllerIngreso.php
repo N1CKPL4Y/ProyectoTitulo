@@ -77,43 +77,84 @@ $previBene = isset($_POST['cbo_prevision1']) ? $_POST['cbo_prevision1'] : null;
 $existeBene = $data->getExistBen($rut);
 
 //$carnet = isset($_POST['file_carnet']) ? $_POST['file_carnet'] : null;
-
-if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
-    echo "Ha ocurrido un error. 1";
-} else {
-    // Verificamos si el tipo de archivo es un tipo de imagen permitido.
-    // y que el tamaño del archivo no exceda los 16MB
-    $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
-    $limite_kb = 16384;
-
-    if (in_array($_FILES['file_carnet']['type'], $permitidos) && $_FILES['file_carnet']['size'] <= $limite_kb * 1024) {
-        echo 'carnet bene <br>';
-        // Archivo temporal
-        $imagen_temporal = $_FILES['file_carnet']['tmp_name'];
-        // Tipo de archivo
-        $tipo = $_FILES['file_carnet']['type'];
-        // Leemos el contenido del archivo temporal en binario.
-        $fp = fopen($imagen_temporal, 'r+b');
-        $dataFile = fread($fp, filesize($imagen_temporal));
-        fclose($fp);
-        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
-        // $data=file_get_contents($imagen_temporal);
-        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
-        /* @var $data type */
-
-        $dataFile = mysqli_escape_string($conect, $dataFile);
-        // Insertamos en la base de datos.
-        //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
-        //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
-        /* if ($resultado) {
-          echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
-          } else {
-          echo "Ocurrió algun error al copiar el archivo.";
-          } */
+$tipo_DocuBene = isset($_POST['rd_carnet']) ? $_POST['rd_carnet'] : null;
+if ($tipo_DocuBene == 1) {
+    if (!isset($_FILES["file_carnetImage"]) || $_FILES["file_carnetImage"]["error"] > 0) {
+        echo "Ha ocurrido un error. 1";
     } else {
-        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+        // y que el tamaño del archivo no exceda los 16MB
+        $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+        $limite_kb = 16384;
+
+        if (in_array($_FILES['file_carnet']['type'], $permitidos) && $_FILES['file_carnet']['size'] <= $limite_kb * 1024) {
+            echo 'carnet bene <br>';
+            // Archivo temporal
+            $imagen_temporal = $_FILES['file_carnet']['tmp_name'];
+            // Tipo de archivo
+            $tipo = $_FILES['file_carnet']['type'];
+            // Leemos el contenido del archivo temporal en binario.
+            $fp = fopen($imagen_temporal, 'r+b');
+            $dataFile = fread($fp, filesize($imagen_temporal));
+            fclose($fp);
+            //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+            // $data=file_get_contents($imagen_temporal);
+            // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+            /* @var $data type */
+
+            $dataFile = mysqli_escape_string($conect, $dataFile);
+            // Insertamos en la base de datos.
+            //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
+            //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
+            /* if ($resultado) {
+              echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+              } else {
+              echo "Ocurrió algun error al copiar el archivo.";
+              } */
+        } else {
+            echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        }
+    }
+} else if ($tipo_DocuBene == 2) {
+    if (!isset($_FILES["file_carnet"]) || $_FILES["file_carnet"]["error"] > 0) {
+        echo "Ha ocurrido un error. 1";
+    } else {
+        // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+        // y que el tamaño del archivo no exceda los 16MB
+        $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+        $limite_kb = 16384;
+
+        if (in_array($_FILES['file_carnet']['type'], $permitidos) && $_FILES['file_carnet']['size'] <= $limite_kb * 1024) {
+            echo 'carnet bene <br>';
+            // Archivo temporal
+            $imagen_temporal = $_FILES['file_carnet']['tmp_name'];
+            // Tipo de archivo
+            $tipo = $_FILES['file_carnet']['type'];
+            // Leemos el contenido del archivo temporal en binario.
+            $fp = fopen($imagen_temporal, 'r+b');
+            $dataFile = fread($fp, filesize($imagen_temporal));
+            fclose($fp);
+            //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+            // $data=file_get_contents($imagen_temporal);
+            // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+            /* @var $data type */
+
+            $dataFile = mysqli_escape_string($conect, $dataFile);
+            // Insertamos en la base de datos.
+            //echo 'aaa '.$data->addBenefi($rut, $nombre, $apellido, $fecha, $genero, $direccion, $comuna, $dataFile, 1, 0, 0, 0, 0, 0, 0, 0);
+            //$resultado = mysqli_query($conect, "INSERT INTO `beneficiario` (`ID`, `RUT`, `nombre`, `apellido`, `fecha_nac`, `genero`, `direccion`, `comuna`, `c_identidad`, `teleton`, `pension`, `pension_basicaS`, `subsidioD_mental`, `p_sobrevivencia`, `a_duplo`, `chile_solidario`, `r_s_hogares`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$fecha', '$genero', '$direccion', '$comuna', '$dataFile', '0', '0', '0', '0', '0', '0', '0', '0');");
+            /* if ($resultado) {
+              echo '<script language="javascript">alert("Excelente");window.location.href="../MenuSecretaria.php"</script>';
+              } else {
+              echo "Ocurrió algun error al copiar el archivo.";
+              } */
+        } else {
+            echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        }
     }
 }
+
+
 
 //////////////Diagnostico
 $havediag = isset($_POST['diagnostico']) ? $_POST['diagnostico'] : null;
@@ -339,7 +380,7 @@ if ($hogar == 1) {
     if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
         $hogarFile = null;
         $tipoDocu = null;
-        echo $hogarFile.'<br>';
+        echo $hogarFile . '<br>';
         echo $tipoDocu;
         //echo "Ha ocurrido un error. 6";
     } else {
@@ -437,7 +478,7 @@ if (!$existeBene) {
 //echo $previBene . "<br>";
 echo "<br>" . $prevision;
 //echo $existeBene.'<br>';
-echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pension . " " . $chSolid . " " . $hogar . " " . $previBene ." ".$tipo. "<br>";
+echo '<br>' . $rut . " " . $nombre . " " . $apellido . " " . $fecha . " " . $genero . " " . $direccion . " " . $comuna . " " . $teleton . " " . $pension . " " . $chSolid . " " . $hogar . " " . $previBene . " " . $tipo . "<br>";
 echo '<br>' . $rut . " " . $pension;
 echo '<br>' . $rutTutor . " " . $nombreTutor . " " . $fecha_tutor . " " . $direTutor . " " . $comuTutor . " " . $nivelE . " " . $ocupacion . " " . $telefono . " " . $correoTutor . " " . $prevision . " ";
 echo '<br>' . $parentezco . " " . $rut . " " . $rutTutor;
