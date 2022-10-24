@@ -481,7 +481,7 @@ foreach ($desMotriz as $value) {
             <div class="row">
                 <div class="col-sm-10 col-md-10 col-lg-12" style="padding-left: 30px; padding-right: 30px; height: auto">
                     <p align="justify">Este documento contiene la entrevista de antecedentes realizada el dia "<?php echo $fecha_entre ?>".
-                        Dicha entrevista fue registrada en el sistema por el(la) colaborador(a) "<?php echo $nombreU . ' ' . $apellidoU ?>" con el cargo de "<?php echo $nombreCargo ?>". La cual a partir de la información proporcionada por el(la)
+                        Dicha entrevista fue registrada en el sistema por el(la) colaborador(a) "<?php echo $nombreU . ' ' . $apellidoU ?>" con el cargo de "<?php echo utf8_encode($nombreCargo) ?>". La cual a partir de la información proporcionada por el(la)
                         Sr(a) "<?php echo $nombreT ?>", cuyo parentesco con el beneficiario es el de "<?php echo $textParecido ?>", se
                         registraron los siguientes antecedentes: Antecedentes del embarazo, Antecedentes del parto,
                         Antecedentes del post parto, Lactancia, Desarrollo SensorioMotriz, Visión, Audición, Desarrollo del

@@ -184,6 +184,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $direBase = $key['direccion'];
                 $comuBase = $key['comuna'];
                 $imgBase = $key['c_identidad'];
+                $tipoDoc = $key['tipoDocumento'];
+                echo $tipoDoc;
                 $teleBase = $key['teleton'];
                 $discBase = $key['c_discapacidad'];
                 $pensBase = $key['pension'];
@@ -304,7 +306,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <label for="rutU" class="col-sm-8 col-form-label">R.U.T del Tutor</label>
                                                         <input type="text" name="rutT" class="form-control" id="rutT" aria-describedby="rut1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" readonly="" style="background-color: #e9ecef">
                                                         <small id="rut1" class="form-text text-muted"></small>
-
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
@@ -774,7 +775,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <a href="Datos/carnetPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
+                                        <?php
+                                        if ($tipoDoc == 'image/jpeg') {
+                                            ?>
+                                            <a href="Datos/carnetPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
+                                            <?php
+                                        }else if($tipoDoc=='application/pdf'){
+                                            ?>
+                                            <a href="Datos/C_NacBene.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Certificado de Nacimiento</a>
+                                            <?php
+                                            
+                                        }
+                                        ?>
+
                                     </div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
@@ -837,7 +850,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Pensión</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textPens; ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo utf8_encode($textPens); ?>" readonly="">
                                         </div>
                                     </div>
                                 </div>

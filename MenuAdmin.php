@@ -372,7 +372,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         default:
                                                             break;
                                                     }
-                                                    $datos = $key['rut'] . ".."
+                                                    $datos = '"'.$key['rut'] . ".."
                                                             . $key['nombre'] . ".."
                                                             . $key['apellido'] . ".."
                                                             . $key['correo'] . ".."
@@ -384,10 +384,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                             . $key['a_user']. ".."
                                                             . $key['cargo'] . ".."
                                                             . $key['c_user']. ".."
-                                                            . $key['activo'];
+                                                            . $key['activo'].'"';
                                                     
                                                     $escaped= htmlspecialchars(json_encode($datos));
-
+                                                    echo $escaped;
                                                     echo '<tr>';
                                                     echo '<td>' . $key['rut'] . '</td>';
                                                     echo '<td>' . $key['nombre'] . '</td>';

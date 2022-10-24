@@ -204,12 +204,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <?php
                                                                 $tipoU = $data->getAllT_users();
                                                                 foreach ($tipoU as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . utf8_encode($key['nombre']) . '</option>';
                                                                 }
                                                                 ?>
                                                             </select>
-                                                            <span style="color: grey">Define el nivel de acceso del usuario</span>
                                                         </div>
+                                                    </div>
+                                                    <div style="margin-top: -15px; margin-left:  30px"> 
+                                                        <span style="color: grey">Define el nivel de acceso del usuario</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,12 +228,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <?php
                                                                 $areaU = $data->getAllA_users();
                                                                 foreach ($areaU as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . utf8_encode($key['nombre']) . '</option>';
                                                                 }
                                                                 ?>
                                                             </select>
-                                                            <span style="color: grey">Define el Area a la que pertenece el usuario</span>
                                                         </div>
+                                                    </div>
+                                                    <div style="margin-top: -15px; margin-left:  30px"> 
+                                                        <span style="color: grey">Define el Area a la que pertenece el usuario</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -246,16 +250,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <?php
                                                                 $cargo = $data->getAllCargos();
                                                                 foreach ($cargo as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre']  . '</option>';
                                                                 }
                                                                 ?>
                                                             </select>
-                                                            <span style="color: grey">Define el modulo al que accederá el usuario</span>
+                                                            
                                                         </div>
+                                                    </div>
+                                                    <div style="margin-top: -15px; margin-left:  30px"> 
+                                                        <span style="color: grey">Define el modulo al que accederá el usuario</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row justify-content-lg-center">
+                                            <div class="row justify-content-lg-center pt-5">
                                                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
                                                     <button type="submit" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Registrar</button>
                                                 </div>
