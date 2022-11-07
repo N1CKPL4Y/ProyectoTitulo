@@ -18,40 +18,46 @@ $consultas = $data->getConsEvent($rut_bene, $rut_profe);
 $programas = $data->getCountPrograma($rut_bene, $rut_profe);
 $cuentaConsu;
 $cuentaProgram;
-$programa = $data->getPrograma($rut_bene, $rut_profe); $programa;
+$programa = $data->getPrograma($rut_bene, $rut_profe);
 //var_dump($programa);
+
+/* foreach ($programa as $value) {
+  echo '<br>' . $value['programa'];
+  } */
+
+/* if  ($programa == 0) {
+  $programa += 1;
+  echo 'programa ' . $programa;
+  } else {
+
+  echo 'programa ' . $programa;
+  } */
+
+
 if (mysqli_num_rows($programa) > 0) {
     foreach ($programa as $value) {
         echo '<br>programa existente (Ultimo)' . $value['programa'] . '<br>';
         $programa = $value['programa'];
     }
-} else {
-    $programa = 0;
-}
-/* foreach ($programa as $value) {
-  echo '<br>' . $value['programa'];
-  } */
+    foreach ($consultas as $value) {
+        echo '<br> Consultas del mes' . $value['Consultas'];
+        $cuentaConsu = $value['Consultas'];
+    }
 
-if  ($programa == 0) {
-    $programa += 1;
-    echo 'programa ' . $programa;
+    foreach ($programas as $value) {
+        echo '<br>programa del mes' . $value['Programas'] . '<br>';
+        $cuentaProgram = $value['Programas'];
+    }
 } else {
-    
-    echo 'programa ' . $programa;
-}
-foreach ($consultas as $value) {
-    echo '<br> Consultas del mes' . $value['Consultas'];
-    $cuentaConsu = $value['Consultas'];
-}
-
-foreach ($programas as $value) {
-    echo '<br>programa del mes' . $value['Programas'] . '<br>';
-    $cuentaProgram = $value['Programas'];
+    $programa = 1;
+    echo 'No existen programas registrado, se definira como: ' . $programa;
 }
 if ($cuentaConsu == $cuentaProgram) {
-    echo 'se ha actualizado el programa: ' . $programa += 1;
+    echo '<br>se ha actualizado el programa: ' . $programa += 1;
+    $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
 } else {
-    echo 'el programa es: ' . $programa;
+    echo '<br>el programa es: ' . $programa;
+    $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
 }
 ?>
 <!DOCTYPE html>
@@ -89,8 +95,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <?php
 if ($evento && $rut_bene) {
     //echo '<script>registrado();</script>';
-    //$data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
     //$data->updColorEvento($evento, $color);
-    
 }
 ?>
