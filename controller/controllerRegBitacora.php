@@ -98,7 +98,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <title>Registrando Bitácora</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -145,7 +145,7 @@ if ($evento && $rut_bene) {
         $data->updColorEvento($evento, $color);
     } else if ($_SESSION['cargo'] == 4) {
         echo '<script>registrado();</script>';
-        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $fecha, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
         $data->updColorEvento($evento, $color);
     }
 }

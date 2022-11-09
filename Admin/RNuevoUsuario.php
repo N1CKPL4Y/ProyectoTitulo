@@ -47,7 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
         <script src="../js/validarut.js"></script>
@@ -147,8 +147,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group">
                                                         <label for="rut_input">Rut</label>
-                                                        <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
-                                                        <span style="color: grey; font-size: 14px">Si el RUT termina en K, reemplacelo por un 0</span>
+                                                        <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

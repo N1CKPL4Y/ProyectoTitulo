@@ -43,8 +43,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <script src="../Materialize/js/funciones.js"></script>
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
+        <script src="../Bootstrap/js/funciones.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -61,8 +61,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
-        <link rel="stylesheet" href="../Materialize/datepick.css">
-        <script src="../Materialize/datepicke.js"></script>
+        <link rel="stylesheet" href="../Bootstrap/datepick.css">
+        <script src="../Bootstrap/datepicke.js"></script>
     </head>
     <body>
     <body>
@@ -1131,13 +1131,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                                 switch ($n_escolar) {
                                     case 1:
-                                        $n_escolar = 'Basica';
+                                        $n_escolar = 'Básica Completa';
                                         break;
                                     case 2:
-                                        $n_escolar = 'Media';
+                                        $n_escolar = 'Básica Incompleta';
                                         break;
                                     case 3:
-                                        $n_escolar = 'Universitario';
+                                        $n_escolar = 'Media completa';
+                                        break;
+                                    case 4:
+                                        $n_escolar = 'Media incompleta';
+                                        break;
+                                    case 5:
+                                        $n_escolar = 'Técnica Completa';
+                                        break;
+                                    case 6:
+                                        $n_escolar = 'Técnica Incompleta';
+                                        break;
+                                    case 7:
+                                        $n_escolar = 'Universitaria completa';
+                                        break;
+                                    case 8:
+                                        $n_escolar = 'Universitaria Incompleta';
+                                        break;
+                                    case 9:
+                                        $n_escolar = 'Postgrados';
                                         break;
                                     default:
                                         break;

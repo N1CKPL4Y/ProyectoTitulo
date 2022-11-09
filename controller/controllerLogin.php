@@ -7,7 +7,7 @@ session_start();
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <title>Iniciando Sesion</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -90,6 +90,19 @@ session_start();
                             window.location.href = '../index.php';
                         });
             }
+
+            function ErrorLog() {
+                swal({
+                    title: "ERROR",
+                    text: "Este usuario ya ha iniciado sesión en el sistema",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../index.php';
+                        });
+            }
         </script>
     </body>
 </html>
@@ -119,44 +132,52 @@ if ($rut && $pass) {
             $_SESSION['area_u'] = $key['a_user'];
             $_SESSION['cargo'] = $key['cargo'];
             $_SESSION['activo'] = $key['activo'];
+            $_SESSION['logged'] = $key['logged'];
         }
         //echo '<br>' . $_SESSION['activo'];
         //echo '<script language="javascript">alert("Bienvenida");window.location.href="../MenuPrincipal.php"</script>';
-
-        switch ($_SESSION['activo']) {
-            case 1:
-                switch ($_SESSION['tipo_u']) {
-                    case 1:
-                        echo '<script>Admin();</script>';
-                        break;
-                    case 2:
-                        switch ($_SESSION['cargo']) {
-                            case 1:
-                                echo '<script>Gerencia();</script>';
-                                break;
-                            case 2:
-                                echo '<script>Secretaria();</script>';
-                                break;
-                            case 3:
-                                echo '<script>Profesional();</script>';
-                                break;
-                            case 4:
-                                echo '<script>Interno();</script>';
-                                break;
-                            default :
-                                break;
-                        }
-                        break;
-                    default:
-                        echo 'header("location: ../index.php");';
-                        break;
-                }
-                break;
-            case 0:
-                echo '<script>Error();</script>';
-                break;
-            default:
-                echo 'header("location: ../index.php");';
+        if ($_SESSION['logged'] == 1) {
+            echo '<script>ErrorLog();</script>';
+        } else {
+            $rut = $_SESSION['rut'];
+            $log = 1;
+            //echo $rut.' // '.$log;
+            $data->updateLog($rut, $log);
+            switch ($_SESSION['activo']) {
+                case 1:
+                    switch ($_SESSION['tipo_u']) {
+                        case 1:
+                            echo '<script>Admin();</script>';
+                            break;
+                        case 2:
+                            switch ($_SESSION['cargo']) {
+                                case 1:
+                                    echo '<script>Gerencia();</script>';
+                                    break;
+                                case 2:
+                                    echo '<script>Secretaria();</script>';
+                                    break;
+                                case 3:
+                                    echo '<script>Profesional();</script>';
+                                    break;
+                                case 4:
+                                    echo '<script>Interno();</script>';
+                                    break;
+                                default :
+                                    break;
+                            }
+                            break;
+                        default:
+                            echo 'header("location: ../index.php");';
+                            break;
+                    }
+                    break;
+                case 0:
+                    echo '<script>Error();</script>';
+                    break;
+                default:
+                    echo 'header("location: ../index.php");';
+            }
         }
     } else if (!$valid) {
         echo '<script>Error();</script>';

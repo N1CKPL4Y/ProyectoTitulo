@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="Bootstrap/css/styleSideBar.css">
     </head>
     <body style="background-image: url(IMG/5.jpg); background-attachment: fixed; background-size: cover">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -43,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                         </div> 
-                                        <input type="text" placeholder="Si termina con K, reemplacelo por un 0" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
+                                        <input type="text" placeholder="Si termina con K, reemplacelo por un 0" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
                                     </div>       
                                 </div>
                                 <div class="form-group">

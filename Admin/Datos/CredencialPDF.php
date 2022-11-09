@@ -14,7 +14,7 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
         <link rel="icon" href="../../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
-        <script src="../../Materialize/js/funciones.js"></script>
+        <script src="../../Bootstrap/js/funciones.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -22,13 +22,13 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../../Bootstrap/css/styleSideBar.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../../js/validarut.js"></script>
         <script src="../../js/jquery.rut.js"></script>
         <link rel="stylesheet" href="../Materialize/datepick.css">
-        <link rel="stylesheet" href="../../Materialize/css/sweetalert2.min.css">
-        <script src="../../Materialize/datepicke.js"></script>
+        <link rel="stylesheet" href="../../Bootstrap/css/sweetalert2.min.css">
+        <script src="../../Bootstrap/datepicke.js"></script>
         <script src="../../js/sweetalert2.all.min.js"></script>
         <script src="../../js/html2pdf.bundle.min.js"></script>
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>

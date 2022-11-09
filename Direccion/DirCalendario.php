@@ -58,8 +58,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
-        <script src="../Materialize/js/funciones.js"></script>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <script src="../Bootstrap/js/funciones.js"></script>
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>

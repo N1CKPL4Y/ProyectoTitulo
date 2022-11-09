@@ -36,7 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -154,7 +154,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rut" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_rut" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6 col-lg-6">

@@ -10,6 +10,7 @@ $passwd = $_SESSION['passwd'];
 $correo = $_SESSION['email'];
 $area_u = $_SESSION['area_u'];
 $tipo_u = $_SESSION['tipo_u'];
+$logged = $_SESSION['logged'];
 
 if ($correo == null || "") {
     echo '<script language="javascript">alert("Acceso invalido");</script>';
@@ -42,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="js/validarut.js"></script>
         <script src="js/jquery.rut.js"></script>
-        <script src="Materialize/js/funciones.js"></script>
+        <script src="Bootstrap/js/funciones.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -55,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="AdminLTE/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="Bootstrap/css/styleSideBar.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
@@ -372,31 +373,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         default:
                                                             break;
                                                     }
-                                                    $datos = '"'.$key['rut'] . ".."
+                                                    $datos = '' . $key['rut'] . ".."
                                                             . $key['nombre'] . ".."
                                                             . $key['apellido'] . ".."
                                                             . $key['correo'] . ".."
-                                                            . $key['passwd']. ".."
+                                                            . $key['passwd'] . ".."
                                                             . $key['telefono'] . ".."
                                                             . $key['tipo usuario'] . ".."
-                                                            . $key['id_user']. ".."
+                                                            . $key['id_user'] . ".."
                                                             . $key['area usuario'] . ".."
-                                                            . $key['a_user']. ".."
+                                                            . $key['a_user'] . ".."
                                                             . $key['cargo'] . ".."
-                                                            . $key['c_user']. ".."
-                                                            . $key['activo'].'"';
-                                                    
-                                                    $escaped= htmlspecialchars(json_encode($datos));
-                                                    echo $escaped;
+                                                            . $key['c_user'] . ".."
+                                                            . $key['activo'] . '';
+
+                                                    $escaped = htmlspecialchars(json_encode($datos));
+                                                    //echo $escaped;
                                                     echo '<tr>';
                                                     echo '<td>' . $key['rut'] . '</td>';
                                                     echo '<td>' . $key['nombre'] . '</td>';
                                                     echo '<td>' . $key['apellido'] . '</td>';
                                                     echo '<td>' . $key['correo'] . '</td>';
                                                     echo '<td>' . $key['telefono'] . '</td>';
-                                                    echo '<td>' . $key['tipo usuario'] .' - '. $key['id_user'].'</td>';
+                                                    echo '<td>' . $key['tipo usuario'] . ' - ' . $key['id_user'] . '</td>';
                                                     echo '<td>' . $activo . '</td>';
-                                                    echo '<td><button type="button" class="btn submit" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos('.$escaped.')"><i class="bi bi-pencil-square"></i></td>';
+                                                    echo '<td><button type="button" class="btn submit" data-toggle="modal" data-target="#modalEdit" onclick="cargarDatos(' . $escaped . ')"><i class="bi bi-pencil-square"></i></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
@@ -410,6 +411,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </div>
         </section>
+
         <script src="AdminLTE/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
         <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -432,13 +434,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
         <script type="text/javascript">
-                                                            var input = document.getElementById('telefonoU');
-                                                            input.addEventListener('input', function () {
-                                                                if (this.value.length > 9)
-                                                                    this.value = this.value.slice(0, 9);
-                                                            })
+            var input = document.getElementById('telefonoU');
+            input.addEventListener('input', function () {
+                if (this.value.length > 9)
+                    this.value = this.value.slice(0, 9);
+            })
         </script>
-
         <script>
             document.getElementById('emailU').addEventListener('input', function () {
                 campo = event.target;

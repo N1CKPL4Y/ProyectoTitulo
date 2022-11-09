@@ -52,7 +52,7 @@ $consulJson = json_encode($consultas);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Calendario Mensual</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -71,7 +71,7 @@ $consulJson = json_encode($consultas);
         <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
 
         <link rel="stylesheet" href="../AdminLTE/plugins/fullcalendar/main.css">
-        <link rel="stylesheet" href="../Materialize/datepick.css">
+        <link rel="stylesheet" href="../Bootstrap/datepick.css">
 
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css?v=3.2.0">
         <!--<script nonce="dad866f0-7b4e-459c-92df-8e1fe510a0c2">(function (w, d) {
@@ -121,7 +121,7 @@ $consulJson = json_encode($consultas);
                 }(w, d, 0, "script");
             })(window, document);</script>-->
 
-        <link rel="stylesheet" type="text/css" href="../Materialize/clockpicker.css">
+        <link rel="stylesheet" type="text/css" href="../Bootstrap/clockpicker.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body class="hold-transition sidebar-mini">
@@ -294,7 +294,7 @@ $consulJson = json_encode($consultas);
         <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
         <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
         <script  src="../Fullcalendar/lib/locales/es.js"></script>
-        <script src="../Materialize/datepicke.js"></script>
+        <script src="../Bootstrap/datepicke.js"></script>
         <script src="../js/clockpicker.js"></script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();

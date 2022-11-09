@@ -7,7 +7,7 @@ session_start();
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Cerrando Sesion</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -29,6 +29,15 @@ session_start();
     </body>
 </html>
 <?php
+include_once '../DB/Model_Data.php';
+
+$data = new Data();
+
+$conect = $data->getConnection();
+
+$rut = $_SESSION['rut'];
+$log = 0;
+$data->updateLog($rut, $log);
 session_unset();
 session_destroy();
 echo '<script>Salir();</script>';

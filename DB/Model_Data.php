@@ -209,7 +209,7 @@ class Data {
     }
 
     public function addUser($rut, $nombre, $apellido, $correo, $passwd, $telefono, $t_user, $a_user, $c_user) {
-        $sql = "INSERT INTO `usuario` (`ID`, `RUT`, `nombre`, `apellido`, `email`, `passwd`, `telefono`, `t_user`, `a_user`, `cargo`, `activo`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$correo', sha2('$passwd', 0), '$telefono', '$t_user', '$a_user', '$c_user', 1)";
+        $sql = "INSERT INTO `usuario` (`ID`, `RUT`, `nombre`, `apellido`, `email`, `passwd`, `telefono`, `t_user`, `a_user`, `cargo`, `activo`, `logged`) VALUES (NULL, '$rut', '$nombre', '$apellido', '$correo', sha2('$passwd', 0), '$telefono', '$t_user', '$a_user', '$c_user', 1, 0)";
         $query = $this->con->query($sql);
     }
 
@@ -1037,6 +1037,31 @@ class Data {
         $sql = "SELECT COUNT(*) AS 'existe' 
                 FROM usuario
                 WHERE RUT = '$rut';";
+
+        $query = $this->con->query($sql);
+
+        while ($fila = $query->fetch_row()) {
+            return ($fila[0] == 1);
+        }
+
+        return false;
+    }
+    
+    public function getLog($rut){
+        $sql = "SELECT usuario.logged as 'log' FROM `usuario` WHERE RUT = '$rut';";
+        $query = $this->con->query($sql);
+        return $query;
+    }
+    
+    public function updateLog($rut, $log){
+        $sql = "UPDATE `usuario` SET `logged` = '$log' WHERE `usuario`.`RUT` = '$rut';";
+        $query = $this->con->query($sql);
+    }
+    
+    public function existEntr($rut){
+        $sql = "SELECT COUNT(*) AS 'existe' 
+                FROM entrevista
+                WHERE rut_bene = '$rut';";
 
         $query = $this->con->query($sql);
 

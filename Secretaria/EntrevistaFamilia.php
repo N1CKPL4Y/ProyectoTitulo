@@ -21,7 +21,7 @@ $data = new Data();
 
 $cUser = $data->getCargobyId($cargoU);
 $cargo;
-foreach($cUser as $value){
+foreach ($cUser as $value) {
     $cargo = $value['nombre'];
 }
 
@@ -55,12 +55,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
         <script src="../js/validarut.js"></script>
-        <script src="../Materialize/datepicke.js"></script>
+        <script src="../Bootstrap/datepicke.js"></script>
         <script src="../js/jquery.rut.js"></script>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="../Materialize/datepick.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/datepick.css">
         <script src="../js/clockpicker.js"></script>
-        <link rel="stylesheet" type="text/css" href="../Materialize/clockpicker.css">
+        <link rel="stylesheet" type="text/css" href="../Bootstrap/clockpicker.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
@@ -237,7 +237,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </ul>
             </div>
             <?php
-        }else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '3') {
+        } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '3') {
             ?>
             <div class="sidebar open" style="overflow-y: hidden !important">
                 <div class="logo-details">
@@ -273,7 +273,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </ul>
             </div>
             <?php
-        }else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '4') {
+        } else if ($_SESSION['tipo_u'] == '2' && $_SESSION['cargo'] == '4') {
             ?>
             <div class="sidebar open" style="overflow-y: hidden !important">
                 <div class="logo-details">
@@ -340,10 +340,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li class="profile">
                     <div class="profile-details">
                         <div class="name_job">
-                            <div class="name"><?php //echo $nombre ?></div>
-                            <div class="name"><?php //echo $apellido ?></div>
-                            <div class="name"><?php //echo $cargo ?></div>
-                            <div class="job"><?php //echo $correo ?></div>
+                            <div class="name"><?php //echo $nombre                  ?></div>
+                            <div class="name"><?php //echo $apellido                  ?></div>
+                            <div class="name"><?php //echo $cargo                  ?></div>
+                            <div class="job"><?php //echo $correo                  ?></div>
                         </div>
                         <a><i id="log_out" ></i></a>
                     </div>
@@ -375,14 +375,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Rut del beneficiario</span>
                                                 </div>
-                                                <input type="text" id="rut_b" name="txt_rut" class="form-control" required placeholder="11.111.111-1" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                <input type="text" id="rut_b" name="txt_rut" class="form-control" required placeholder="11.111.111-1" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                             </div>
                                             <div class="row-centered">
                                                 <span style="color: grey; font-size: 13px">Si el R.U.T termina con K, reemplacelo con un 0.</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-6">
-                                            <button type="submit" name="buscar" class="btn submit">Buscar</button>
+                                            <button type="submit" name="buscar" id="btnBuscar" class="btn submit">Buscar</button>
                                         </div>
                                     </div>
                                 </form>
@@ -396,13 +396,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                             if (!empty($rutBuscado)) {
                                 $exist = $data->getExistBen($rutBuscado);
-                                if ($exist) {
+                                $entre = $data->existEntr($rutBuscado);
+                                if ($exist && $entre == 0) {
                                     $beneficiario = $data->getBenefi($rutBuscado);
                                     $tutor = $data->getTutorForBen($rutBuscado);
                                     $diagValid = $data->getDiagValid($rutBuscado);
                                     $credencial = $data->getCreden($rutBuscado);
 
-                                    
                                     $nombreBD;
                                     $apellidoBD;
                                     $fech_nacBD;
@@ -456,6 +456,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         }
                                     }
                                     ?>
+
                                     <div class="row" style="margin-top: 15px">
                                         <div class="col-sm-12 col-md-12 col-lg-12">
                                             <div class="card">
@@ -608,6 +609,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <?php
+                                } else if ($entre) {
+                                    ?>
+                                    <div class = "row justify-content-around" style = "padding-top: 10px">
+                                        <div class = "col-sm-12 col-md-10 col-lg-6">
+                                            <div class = "card text-center">
+                                                <div class = "card-header">
+                                                    Registro
+                                                </div>
+                                                <div class = "card-body">
+                                                    <h5 class = "card-title">Este beneficiario ya cuenta con una entrevista registrada</h5>
+                                                </div>
+                                                <div class = "card-footer text-muted">
+                                                    ...
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
                                 } else {
                                     ?>
                                     <div class = "row justify-content-around" style = "padding-top: 10px">
@@ -635,9 +654,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         }
                         ?>
 
-                        <div class="row">
+                        <div class="row" id="tarjeta">
                             <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="row" style="padding-top: 15px">
+                                <div class="row" style="padding-top: 15px" >
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <div class="accordion" id="accordionExample">
                                             <div class="card">
@@ -2513,7 +2532,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                     </div>
                                                                     <span class="input-group-text" id="basic-addon1">Perdida visual</span>
                                                                 </div>
-                                                                
+
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <div class="input-group-text">
@@ -3412,7 +3431,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="modal-body Cuerpo">
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
-                                                            <input type="hidden" name="rrx_rutBenef" value="<?php echo $rutBd;?>"><h5 class="encabezado">Antecedentes Embarazo</h5>
+                                                            <input type="hidden" name="rrx_rutBenef" value="<?php echo $rutBd; ?>"><h5 class="encabezado">Antecedentes Embarazo</h5>
                                                         </div>
                                                     </div>
                                                     <br>
@@ -4159,6 +4178,45 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </div>
     </section>
     <script>
+        $(window).on('mouseover', (function () {
+            window.onbeforeunload = null;
+        }));
+        $(window).on('mouseout', (function () {
+            window.onbeforeunload = ConfirmLeave;
+        }));
+        function ConfirmLeave() {
+            return "";
+        }
+        var prevKey = "";
+
+        $(document).keydown(function (e) {
+            if (e.key == "F5") {
+                window.onbeforeunload = ConfirmLeave;
+            } else if (e.key.toUpperCase() == "W" && prevKey == "CONTROL") {
+                window.onbeforeunload = ConfirmLeave;
+            } else if (e.key.toUpperCase() == "R" && prevKey == "CONTROL") {
+                window.onbeforeunload = ConfirmLeave;
+            } else if (e.key.toUpperCase() == "F4" && (prevKey == "ALT" || prevKey == "CONTROL")) {
+                window.onbeforeunload = ConfirmLeave;
+            }
+            prevKey = e.key.toUpperCase();
+        });
+    </script>
+    <script>
+        const existEntre = "<?php echo $entre ?>";
+        const existbene = "<?php echo $exist ?>";
+        //console.log("entrevista: " + existEntre + " bene: " + existbene);
+        if (existbene == 1){
+            if (existEntre == 1) {
+                document.getElementById('tarjeta').style.display = "none";
+            } else {
+                document.getElementById('tarjeta').style.display = "block";
+            }
+        }else{
+            document.getElementById('tarjeta').style.display = "none";
+        }
+    </script>
+    <script>
         $("#btn_visualizar").click(function () {
             //Antecedentes embarazo
 
@@ -4424,6 +4482,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById('vacuna').value = "No se ha checkeado nada";
                 vacuna1.classList.add('c_faltante');
             } else {
+                vacuna1.classList.remove('c_faltante');
                 if (vacuna == 1) {
                     document.getElementById('vacuna').value = "Si";
                 } else if (vacuna == 0) {
@@ -5407,44 +5466,44 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let otro_s;
             const salud_e = document.querySelector('.estado_salud');
             let eSaludN = $("input[type=checkbox][name='check_NocheP[]']:checked").val();
-            if(!eSaludN){
+            if (!eSaludN) {
                 salud_e.innerHTML = `<input class="form-control" readonly type="text" name="" id="estadoSalN" value="No se ha seleccionado nada">`;
                 const eSN = document.getElementById('estadoSalN');
                 eSN.classList.add('c_faltante');
-            }else{
+            } else {
                 $("input[type=checkbox][name='check_NocheP[]']:checked").each(function () {
-                e_salud.push(this.value);
-                //console.log(this.value);
-                if (this.value == "Otro") {
-                    otro_s = document.getElementById("p8").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
-                    //console.log(otro_s);
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                    otro_s = "No aplica";
-                }
+                    e_salud.push(this.value);
+                    //console.log(this.value);
+                    if (this.value == "Otro") {
+                        otro_s = document.getElementById("p8").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
+                        //console.log(otro_s);
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                        otro_s = "No aplica";
+                    }
 
-            });
-            
-            salud_e.innerHTML = "";
-            e_salud.forEach(el => {
-                console.log(el + " " + otro_s);
-                if (el != "Otro") {
-                    salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    salud_e.innerHTML += `<div class="input-group mb-3">
+                });
+
+                salud_e.innerHTML = "";
+                e_salud.forEach(el => {
+                    console.log(el + " " + otro_s);
+                    if (el != "Otro") {
+                        salud_e.innerHTML += `<input class="form-control" readonly type="text" name="check_NocheP[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        salud_e.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_NocheP[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_NocheP" readonly value="` + otro_s + `" >
                                                         </div>`;
-                    console.log(otro_s);
-                } else {
+                        console.log(otro_s);
+                    } else {
 
-                }
-            });
+                    }
+                });
             }
-            
+
             //humor/comportamiento//
             let combo = document.getElementById("humor");
             let selected = combo.options[combo.selectedIndex].text;
@@ -5681,41 +5740,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             let otro_apoyo;
             const apoyo = document.querySelector('.p_aprendizaje');
             let ap = $("input[type=checkbox][name='check_quienApoya[]']:checked").val();
-            if(!ap){
+            if (!ap) {
                 apoyo.innerHTML = `<input class="form-control" readonly type="text" name="" id="noApoyo" value="No se ha seleccionado nada">`;
                 const apo = document.getElementById('noApoyo');
                 apo.classList.add('c_faltante');
-            }else{
+            } else {
                 $("input[type=checkbox][name='check_quienApoya[]']:checked").each(function () {
-                quien_apoya.push(this.value);
-                if (this.value == "Otro") {
-                    otro_apoyo = document.getElementById("ap10").value;
-                    //document.getElementById('otroSintoma').value = otroSintoma;
+                    quien_apoya.push(this.value);
+                    if (this.value == "Otro") {
+                        otro_apoyo = document.getElementById("ap10").value;
+                        //document.getElementById('otroSintoma').value = otroSintoma;
 
-                } else {
-                    //document.getElementById('otroSintoma').value = "No Aplica";
-                }
+                    } else {
+                        //document.getElementById('otroSintoma').value = "No Aplica";
+                    }
 
-            });
-            
-            apoyo.innerHTML = "";
-            quien_apoya.forEach(el => {
+                });
 
-                if (el != "Otro") {
-                    apoyo.innerHTML += `<input class="form-control" readonly type="text" name="check_quienApoya[]" id="pruebaX2" value="` + el + `"><br>`;
-                } else if (el == "Otro") {
-                    apoyo.innerHTML += `<div class="input-group mb-3">
+                apoyo.innerHTML = "";
+                quien_apoya.forEach(el => {
+
+                    if (el != "Otro") {
+                        apoyo.innerHTML += `<input class="form-control" readonly type="text" name="check_quienApoya[]" id="pruebaX2" value="` + el + `"><br>`;
+                    } else if (el == "Otro") {
+                        apoyo.innerHTML += `<div class="input-group mb-3">
                                                             <div class="input-group-prepend">
                                                                 <input class="form-control" readonly type="text" size="1" name="check_quienApoya[]" id="pruebaX2" value="` + el + `">
                                                             </div>
                                                             <input class="form-control" type="text" name="otro_quienApoya" readonly value="` + otro_apoyo + `" id="otroSintoma">
                                                         </div>`;
-                } else {
+                    } else {
 
-                }
-            });
+                    }
+                });
             }
-            
+
             //ambiente//
             let ambiente = $("input[type=radio][name=ambiente]:checked").val();
             const amb = document.getElementById('ambiente');

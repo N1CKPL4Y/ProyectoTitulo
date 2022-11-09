@@ -44,9 +44,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
-        <script src="../Materialize/js/funciones.js"></script>
-        <link rel="stylesheet" href="../Materialize/datepick.css">
-        <script src="../Materialize/datepicke.js"></script>
+        <script src="../Bootstrap/js/funciones.js"></script>
+        <link rel="stylesheet" href="../Bootstrap/datepick.css">
+        <script src="../Bootstrap/datepicke.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -61,7 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="../AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
@@ -160,7 +160,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">Rut</span>
                                                 </div>
-                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6 col-lg-6">

@@ -9,7 +9,7 @@ $dis = isset($_GET['dis']) ? $_GET['dis'] : null;
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Ingresando Credencial</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -82,7 +82,7 @@ $origenP = isset($_POST['cbo_origenP']) ? $_POST['cbo_origenP'] : null;
 $origenS = isset($_POST['cbo_origenS']) ? $_POST['cbo_origenS'] : null;
 $pDisc = isset($_POST['txt_porcentaje_d']) ? $_POST['txt_porcentaje_d'] : null;
 $gDisc = isset($_POST['cbo_grado']) ? $_POST['cbo_grado'] : null;
-$movilidad = isset($_POST['cbo_movilidad']) ? $_POST['cbo_movilidad'] : null;
+$movilidad = isset($_POST['movilidad']) ? $_POST['movilidad'] : null;
 
 if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] > 0) {
     //echo "Ha ocurrido un error. 4";

@@ -6,9 +6,9 @@ session_start();
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Registrando Entrevista</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="../js/sweetalert2.all.min.js"></script>
-        <link href="../Materialize/css/sweetalert2.min.css" rel="stylesheet"/>
+        <link href="../Bootstrap/css/sweetalert2.min.css" rel="stylesheet"/>
     </head>
     <body>
         <script>

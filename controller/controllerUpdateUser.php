@@ -7,7 +7,7 @@ session_start();
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Actualizando Usuario</title>
-        <link rel="stylesheet" href="../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     </head>
@@ -77,7 +77,6 @@ if (!empty($activo)) {
     //echo $activo."<br>".$estado;
 }
 
-//input escondido pass
 //echo '<br>';
 //input escondido t_user
 if ($t_user == 0) {
@@ -118,22 +117,22 @@ if ($rut && $nombre && $apellido && $email && $telefono && $t_user && $a_user &&
         if (empty($_POST["passU"])) {
             $passwd = isset($_POST["pass"]) ? $_POST["pass"] : null;
             $data->updatePUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $estado);
-            echo $passwd;
+            //echo $passwd;
         } else {
             $passwd = isset($_POST["passU"]) ? $_POST["passU"] : null;
             $data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $estado);
-            echo $passwd;
+            //echo $passwd;
         }
         //$data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $estado);
     } else {
         if (empty($_POST["passU"])) {
             $passwd = isset($_POST["pass"]) ? $_POST["pass"] : null;
             $data->updatePUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo);
-            echo $passwd;
+            //echo $passwd;
         } else {
             $passwd = isset($_POST["passU"]) ? $_POST["passU"] : null;
             $data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo);
-            echo $passwd;
+            //echo $passwd;
         }
         //$data->updateUser($rut, $email, $passwd, $telefono, $t_user, $a_user, $cargo, $activo);
     }

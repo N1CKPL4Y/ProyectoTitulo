@@ -39,7 +39,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
-        <script src="../Materialize/js/funciones.js"></script>
+        <script src="../Bootstrap/js/funciones.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -48,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <!--<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
@@ -57,8 +57,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../js/jquery.rut.js"></script>
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.semanticui.min.css"/>-->
-        <link rel="stylesheet" href="../Materialize/datepick.css">
-        <script src="../Materialize/datepicke.js"></script>
+        <link rel="stylesheet" href="../Bootstrap/datepick.css">
+        <script src="../Bootstrap/datepicke.js"></script>
         <script src="../js/html2pdf.bundle.min.js"></script>
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 
@@ -592,24 +592,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-12 col-form-label">Movilidad</label>
-                                                        <div class="input-group mb-3"> 
-                                                            <div class="input-group-prepend">
-                                                                <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 5px 0 0 5px;">Opciones</label>
-                                                            </div>
-                                                            <select class=" form-select" id="inputGroupSelect01" name="cbo_movilidad">
-                                                                <option value="" disabled selected>-- Seleccione --</option>
-                                                                <option value="1">Leve</option>
-                                                                <option value="2">Moderado</option>
-                                                                <option value="3">Severo</option>
-                                                                <option value="4">Profundo</option>
-                                                                <option value="5">No aplica</option>
-                                                            </select>
-                                                        </div>
+                                                    <label for="chilesolidario" id="labelchsoli">¿Movilidad Reducida?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input numCred" type="radio" name="movilidad" value="1" >
+                                                        <label class="form-check-label" for="movilidad">
+                                                            SI
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input numCred" type="radio" name="movilidad" value="0" >
+                                                        <label class="form-check-label" for="movilidad">
+                                                            NO
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <br>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <label style="margin-left: 10px">C. Discapacidad (Parte delantera) (Imagen)</label>
@@ -760,6 +758,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <h4>Datos Personales:</h4>
@@ -780,11 +779,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             ?>
                                             <a href="Datos/carnetPDF.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Carnet</a>
                                             <?php
-                                        }else if($tipoDoc=='application/pdf'){
+                                        } else if ($tipoDoc == 'application/pdf') {
                                             ?>
                                             <a href="Datos/C_NacBene.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12">Descargar Copia Certificado de Nacimiento</a>
                                             <?php
-                                            
                                         }
                                         ?>
 
@@ -850,7 +848,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="addon-wrapping">Pensión</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo utf8_encode($textPens); ?>" readonly="">
+                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $textPens; ?>" readonly="">
                                         </div>
                                     </div>
                                 </div>
@@ -1144,13 +1142,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                                 switch ($n_escolar) {
                                     case 1:
-                                        $n_escolar = 'Basica';
+                                        $n_escolar = 'Básica Completa';
                                         break;
                                     case 2:
-                                        $n_escolar = 'Media';
+                                        $n_escolar = 'Básica Incompleta';
                                         break;
                                     case 3:
-                                        $n_escolar = 'Universitario';
+                                        $n_escolar = 'Media completa';
+                                        break;
+                                    case 4:
+                                        $n_escolar = 'Media incompleta';
+                                        break;
+                                    case 5:
+                                        $n_escolar = 'Técnica Completa';
+                                        break;
+                                    case 6:
+                                        $n_escolar = 'Técnica Incompleta';
+                                        break;
+                                    case 7:
+                                        $n_escolar = 'Universitaria completa';
+                                        break;
+                                    case 8:
+                                        $n_escolar = 'Universitaria Incompleta';
+                                        break;
+                                    case 9:
+                                        $n_escolar = 'Postgrados';
                                         break;
                                     default:
                                         break;

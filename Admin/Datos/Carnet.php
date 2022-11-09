@@ -27,7 +27,7 @@ if ($row = $resul->fetch_array()) {
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <title>Carnet de Identidad</title>
-        <link rel="stylesheet" href="../../Materialize/css/styleBody.css"/>
+        <link rel="stylesheet" href="../../Bootstrap/css/styleBody.css"/>
         
     </head>
     <body>

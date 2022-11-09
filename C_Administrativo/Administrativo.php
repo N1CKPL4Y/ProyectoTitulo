@@ -49,7 +49,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Calendario Mensual</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <link rel="stylesheet" href="../Materialize/css/styleSideBar.css">
+        <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -68,10 +68,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
 
         <link rel="stylesheet" href="../AdminLTE/plugins/fullcalendar/main.css">
-        <link rel="stylesheet" href="../Materialize/datepick.css">
+        <link rel="stylesheet" href="../Bootstrap/datepick.css">
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css?v=3.2.0">
 
-        <link rel="stylesheet" type="text/css" href="../Materialize/clockpicker.css">
+        <link rel="stylesheet" type="text/css" href="../Bootstrap/clockpicker.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body>
@@ -442,11 +442,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
         <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
         <script  src="../Fullcalendar/lib/locales/es.js"></script>
-        <script src="../Materialize/datepicke.js"></script>
+        <script src="../Bootstrap/datepicke.js"></script>
         <script src="../js/clockpicker.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
         <script>
+            
             $('document').ready(function () {
             $('#tipo1').change(function () {
             document.getElementById('clockDiv').classList.add('d-none');
@@ -456,7 +457,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             document.getElementById('EventHour').value = "";
             document.getElementById('endEvent').value = "";
             //tipoEvent.classList.add('d-block');
-            console.log('holiwi');
+
             });
             $('#tipo2').change(function () {
             document.getElementById('endDiv').classList.add('d-none');
@@ -466,7 +467,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             document.getElementById('EventHour').value = "";
             document.getElementById('endEvent').value = "";
             //tipoEvent.classList.add('d-block');
-            console.log('holiwi');
+
             });
             $('#tipo3').change(function () {
             document.getElementById('clockDiv').classList.add('d-none');
@@ -476,7 +477,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             document.getElementById('EventHour').value = "";
             document.getElementById('endEvent').value = "";
             //tipoEvent.classList.add('d-block');
-            console.log('holiwi');
+
             });
             $('#tipo4').change(function () {
             document.getElementById('clockDiv').classList.remove('d-none');
@@ -485,7 +486,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             document.getElementById('divHourEnd').classList.add('d-none');
             //tipoEvent.classList.add('d-block');
             document.getElementById('EventHour1').value = "";
-            console.log('holiwi');
+
             });
             });
         </script>
@@ -512,18 +513,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     autoclose: true
             });
             });
-            $(function () {
-            $("input#beneFI").rut({
-            formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-            });
-            var input = document.getElementById('beneFI');
-            input.addEventListener('input', function () {
-            if (this.value.length >= 13)
-                    this.value = this.value.slice(0, 12);
-            })
-            })
         </script>
         <script type="text/javascript">
                     var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));

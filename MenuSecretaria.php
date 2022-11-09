@@ -57,11 +57,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/validarut.js"></script>
-        <script src="Materialize/datepicke.js"></script>
+        <script src="Bootstrap/datepicke.js"></script>
         <script src="js/jquery.rut.js"></script>
-        <link rel="stylesheet" href="Materialize/css/styleSideBar.css">
-        <link rel="stylesheet" href="Materialize/datepick.css">
+        <link rel="stylesheet" href="Bootstrap/css/styleSideBar.css">
+        <link rel="stylesheet" href="Bootstrap/datepick.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <div class="sidebar open">
@@ -204,8 +205,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="rut" style="margin-left: 10px">R.U.T Beneficiario</label>
-                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-                                                                <span style="color: grey; margin-left: 10px">Si el R.U.T termina con K, reemplacelo con un 0</span>
+                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -270,8 +271,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo (PDF)</label>
                                                             </div>
                                                             <div class="custom-file d-none" id="imagenB">
-                                                                <input type="file" class="custom-file-input" name="file_carnetImage" accept="image/jpeg" id="copiaCarnetBene" lang="es">
-                                                                <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene">Seleccionar Archivo (Imagen)</label>
+                                                                <input type="file" class="custom-file-input" name="file_carnetImage" accept="image/jpeg" id="copiaCarnetBene1" lang="es">
+                                                                <label class="custom-file-label" data-browse="Seleccionar" for="copiaCarnetBene1">Seleccionar Archivo (Imagen)</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -451,8 +452,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="rutT" style="margin-left: 10px">R.U.T del tutor</label>
-                                                                <input type="text" class="form-control" name="txt_rtutor" id="rutT" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-                                                                <span style="color: grey">Si el R.U.T termina con K, reemplacelo con un 0</span>
+                                                                <input type="text" class="form-control" name="txt_rtutor" id="rutT" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -479,9 +480,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <div class="input-group mb-6">
                                                                     <select class="custom-select" id="inputGroupSelect01" name="cbo_nivel">
                                                                         <option value="" disabled selected> -- Seleccione -- </option>
-                                                                        <option value="1">basica</option>
-                                                                        <option value="2">media</option>
-                                                                        <option value="3">universitaria</option>
+                                                                        <option value="1">Basica Incompleta</option>
+                                                                        <option value="2">Basica Completa</option>
+                                                                        <option value="3">Media Incompleta</option>
+                                                                        <option value="4">Media Completa</option>
+                                                                        <option value="5">Tecnico Incompleto</option>
+                                                                        <option value="6">Tecnico Completo</option>
+                                                                        <option value="7">Universitaria Incompleta</option>
+                                                                        <option value="8">Universitaria Completa</option>
+                                                                        <option value="9">Postgrado</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -659,25 +666,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-12 col-md-6 col-lg-6 align-self-end">
-                                                            <div class="form-group">
-                                                                <label></label>
-                                                                <div class="input-group mb-12">
-                                                                    <div class="input-group-prepend">
-                                                                        <label class="input-group-text" for="inputGroupSelect01">Movilidad Reducida</label>
-                                                                    </div>
-                                                                    <select class="custom-select numCred" id="inputGroupSelect01" name="cbo_movilidad" disabled="">
-                                                                        <option value="" disabled selected>-- Seleccione --</option>
-                                                                        <option value="1">Leve</option>
-                                                                        <option value="2">Moderado</option>
-                                                                        <option value="3">Severo</option>
-                                                                        <option value="4">Profundo</option>
-                                                                        <option value="5">No aplica</option>
-                                                                    </select>
-                                                                </div>
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
+                                                            <label for="chilesolidario" id="labelchsoli">¿Movilidad Reducida?</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input numCred" type="radio" name="movilidad" value="1" disabled="">
+                                                                <label class="form-check-label" for="movilidad">
+                                                                    SI
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input numCred" type="radio" name="movilidad" value="0" disabled="">
+                                                                <label class="form-check-label" for="movilidad">
+                                                                    NO
+                                                                </label>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <br>
                                                     <div class="row">
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <label style="margin-left: 10px"> C. Discapacidad (Parte delantera) (Imagen)</label>
@@ -827,10 +832,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 }
             }
         </script> -->
+            <!-- <script>
+                (function ($) {
+                    var timeout;
+                    $(document).on('mousemove', function (event) {
+                        if (timeout !== undefined) {
+                            window.clearTimeout(timeout);
+                        }
+                        timeout = window.setTimeout(function () {
+                            //Creas una funcion nueva para jquery 
+                            $(event.target).trigger('mousemoveend');
+                        }, 5000); //determinas el tiempo en milisegundo aqui 5 segundos
+                    });
+                }(jQuery));
 
+                $(document).on('mousemoveend', function () { //agregas la nueva funcion creada, puede ser una clase o un id
+                    Swal.fire({
+                        title: 'Se ha detectado inactividad',
+                        text: "¿Desea cerrar sesión?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        cancelButtonText: 'Cancelar',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Cerrar Sesión'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'controller/controllerLogout.php';
+                        } else {
+                            var timeout;
+                            timeout = window.setTimeout(function () {
+                                //Creas una funcion nueva para jquery 
+                                $(event.target).trigger('mousemoveend');
+                            }, 5000);
+                        }
+                    })
+
+                });
+            </script> -->
             <script>
                 $(document).ready(function () {
                     $("#copiaCarnetBene").on('change', function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    })
+                    $("#copiaCarnetBene1").on('change', function () {
                         var fileName = $(this).val().split("\\").pop();
                         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
                     })
