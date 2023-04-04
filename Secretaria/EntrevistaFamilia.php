@@ -654,7 +654,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         }
                         ?>
 
-                        <div class="row" id="tarjeta">
+                        <div class="row" id="tarjeta" style="display: none">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="row" style="padding-top: 15px" >
                                     <div class="col-sm-12 col-md-12 col-lg-12">
