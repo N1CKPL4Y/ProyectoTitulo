@@ -404,6 +404,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </section>
         </section>
     </body>
+    <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
+    <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
+    <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
+    <script  src="../Fullcalendar/lib/locales/es.js"></script>
+    <script src="../Bootstrap/datepicke.js"></script>
+    <script src="../js/clockpicker.js"></script>
+    <script src="../js/validarut.js"></script>
+    <script src="../js/jquery.rut.js">
+    </script>
+    <script>$(window).on('unload', function () {
+            $.ajax({
+                url: "../controller/controllerLogout.php",
+                type: "get",
+                data: {rut: '<?php echo $rut ?>', log: 0}
+            });
+        });
+    </script>
     <script>
 
         function expandTextarea(id) {
@@ -422,12 +442,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 document.getElementById(cont).innerHTML = `${longitudAct}/${longitudMax}`;
             });
         }
-        countTextArea('txtarea','contador1');
-        countTextArea('txt_obj','contador2');
-        countTextArea('txt_act','contador3');
-        countTextArea('txt_acu','contador4');
-        countTextArea('txt_obs','contador5');
-        
+        countTextArea('txtarea', 'contador1');
+        countTextArea('txt_obj', 'contador2');
+        countTextArea('txt_act', 'contador3');
+        countTextArea('txt_acu', 'contador4');
+        countTextArea('txt_obs', 'contador5');
+
         expandTextarea('txtarea');
         expandTextarea('txt_obj');
         expandTextarea('txt_act');

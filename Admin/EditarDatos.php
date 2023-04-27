@@ -37,7 +37,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title>Editar Datos</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
         <!-- CSS only -->
 
@@ -439,11 +439,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </div>
         </section>
+        <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+        <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
+        <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
+        <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
+        <script  src="../Fullcalendar/lib/locales/es.js"></script>
+        <script src="../Bootstrap/datepicke.js"></script>
+        <script src="../js/clockpicker.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js"></script>
         <script>
-            $('document').ready(function () {
+            $(document).ready(function () {
                 $('#collapseOne').collapse({
                     toggle: false
-                })
+                });
+
+                $(window).on('unload', function () {
+                    $.ajax({
+                        url: "../controller/controllerLogout.php",
+                        type: "get",
+                        data: {rut: '<?php echo $rut ?>', log: 0}
+                    });
+                });
             });
         </script>
          <!-- <script>

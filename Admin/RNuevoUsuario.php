@@ -39,7 +39,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        
+
         <script src="Materialize/js/funciones.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
-        
+
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
@@ -147,8 +147,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group">
                                                         <label for="rut_input">Rut</label>
-                                                        <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
-                                                        
+                                                        <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -250,11 +250,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                 <?php
                                                                 $cargo = $data->getAllCargos();
                                                                 foreach ($cargo as $key) {
-                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre']  . '</option>';
+                                                                    echo '<option value="' . $key['id'] . '" id="options">' . $key['nombre'] . '</option>';
                                                                 }
                                                                 ?>
                                                             </select>
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div style="margin-top: -15px; margin-left:  30px"> 
@@ -276,6 +276,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </div>
         </section>
+        <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+        <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
+        <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
+        <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
+        <script  src="../Fullcalendar/lib/locales/es.js"></script>
+        <script src="../Bootstrap/datepicke.js"></script>
+        <script src="../js/clockpicker.js"></script>
+        <script src="../js/validarut.js"></script>
+        <script src="../js/jquery.rut.js">
+        </script>
+        <script>$(window).on('unload', function () {
+                $.ajax({
+                    url: "../controller/controllerLogout.php",
+                    type: "get",
+                    data: {rut: '<?php echo $rut ?>', log: 0}
+                });
+            });
+        </script>
         <script>
             $(function () {
                 $("input#rut_input").rut({

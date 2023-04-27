@@ -35,9 +35,12 @@ $data = new Data();
 
 $conect = $data->getConnection();
 
-$rut = $_SESSION['rut'];
-$log = 0;
-$data->updateLog($rut, $log);
+$rut1 = $_SESSION['rut'];
+//$log1 = $_SESSION['logged'];
+$rut = isset($_GET["rut"]) ? $_GET["rut"] : $rut1;
+//$log = isset($_GET["log"]) ? $_GET["log"]: $log1;
+
+$data->updateLog($rut, 0);
 session_unset();
 session_destroy();
 echo '<script>Salir();</script>';

@@ -257,11 +257,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     }
 
                                                     $datos = $key['RUT'] . ".."
-                                                    . $key['nombre'] . ".."
-                                                    . $key['apellido'] . ".."
-                                                    . $key['direccion'] . ".."
-                                                    . $key['comuna'].".."
-                                                    .$aten;
+                                                            . $key['nombre'] . ".."
+                                                            . $key['apellido'] . ".."
+                                                            . $key['direccion'] . ".."
+                                                            . $key['comuna'] . ".."
+                                                            . $aten;
                                                     $escaped = htmlspecialchars(json_encode($datos));
                                                     echo '<tr>';
                                                     echo '<td>' . $key['ID'] . '</td>';
@@ -305,25 +305,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="AdminLTE/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
+
         <script>
-                                                            $(function () {
-                                                                $("#myTable").DataTable({
-                                                                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                                                                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                                                                    "language": {
-                                                                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                                                                        "zeroRecords": "No se han encontrado registros",
-                                                                        "info": "Mostrando la página _PAGE_ de _PAGES_",
-                                                                        "infoEmpty": "No hay registros disponibles",
-                                                                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                                                                        "search": "Buscar:",
-                                                                        "paginate": {
-                                                                            'next': 'Siguiente',
-                                                                            'previous': 'Anterior',
-                                                                        }
-                                                                    }
-                                                                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+                                                            $(document).ready(function () {
+                                                                $(window).on('unload', function () {
+                                                                    $.ajax({
+                                                                        url: "controller/controllerLogout.php",
+                                                                        type: "get",
+                                                                        data: {rut: '<?php echo $rut ?>', log: 0}
+                                                                    });
+                                                                });
                                                             });
+
+        </script>
+        <script>
+            $(function () {
+                $("#myTable").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                    "language": {
+                        "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                        "zeroRecords": "No se han encontrado registros",
+                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay registros disponibles",
+                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                        "search": "Buscar:",
+                        "paginate": {
+                            'next': 'Siguiente',
+                            'previous': 'Anterior',
+                        }
+                    }
+                }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+            });
         </script>
         <!-- <script>
             let sidebar = document.querySelector(".sidebar");

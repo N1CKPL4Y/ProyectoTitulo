@@ -257,6 +257,19 @@ $consulJson = json_encode($consultas);
         <script  src="AdminLTE/plugins/fullcalendar/main.js"></script>
         <script  src="Fullcalendar/lib/locales/es.js"></script>
         <script src="js/clockpicker.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $(window).on('unload', function () {
+                    $.ajax({
+                        url: "controller/controllerLogout.php",
+                        type: "get",
+                        data: {rut: '<?php echo $rut ?>', log: 0}
+                    });
+                });
+            });
+
+        </script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
         </script>
@@ -275,7 +288,7 @@ $consulJson = json_encode($consultas);
              eventJson = [{'title':'The Title','start':'2022-09-01','end':'2022-09-02' }];
              console.log(eventJson);
              }else{
-             eventJson=<?php //echo $eventJson;     ?>;
+             eventJson=<?php //echo $eventJson;      ?>;
              console.log(eventJson);
              }*/
             document.addEventListener('DOMContentLoaded', function () {
@@ -380,7 +393,7 @@ $consulJson = json_encode($consultas);
                         console.log(info);
                         let color = info.event.backgroundColor;
                         console.log(color);
-                        if (color == '#0387EF' || color=='#000000' || color=='#ff0000') {
+                        if (color == '#0387EF' || color == '#000000' || color == '#ff0000') {
                             modal.hide();
                         } else {
                             modal.show();

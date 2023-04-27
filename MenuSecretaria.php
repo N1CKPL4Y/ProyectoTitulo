@@ -205,8 +205,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="rut" style="margin-left: 10px">R.U.T Beneficiario</label>
-                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-                                                                
+                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -452,8 +452,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="rutT" style="margin-left: 10px">R.U.T del tutor</label>
-                                                                <input type="text" class="form-control" name="txt_rtutor" id="rutT" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-                                                                
+                                                                <input type="text" class="form-control" name="txt_rtutor" id="rutT" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -870,6 +870,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 });
             </script> -->
+            <script src="AdminLTE/plugins/jquery/jquery.min.js"></script>
+            <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+            <script src="AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
+            <script src="AdminLTE/plugins/moment/moment.min.js"></script>
+            <script  src="AdminLTE/plugins/fullcalendar/main.js"></script>
+            <script  src="Fullcalendar/lib/locales/es.js"></script>
+            <script src="js/clockpicker.js"></script>
+            <script>
+                                                                    $(document).ready(function () {
+                                                                        $(window).on('unload', function () {
+                                                                            $.ajax({
+                                                                                url: "controller/controllerLogout.php",
+                                                                                type: "get",
+                                                                                data: {rut: '<?php echo $rut ?>', log: 0}
+                                                                            });
+                                                                        });
+                                                                    });
+
+            </script>
             <script>
                 $(document).ready(function () {
                     $("#copiaCarnetBene").on('change', function () {

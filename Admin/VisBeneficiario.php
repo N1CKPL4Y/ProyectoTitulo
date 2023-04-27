@@ -265,11 +265,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 foreach ($benefs as $key) {
                                                     $rutb = $key['RUT'];
                                                     $datosExtras = $data->getDatosGenerales($rutb);
-                                                    
+
                                                     foreach ($datosExtras as $value) {
                                                         $aten = $value['atencion'];
                                                     }
-                                                    
+
                                                     $datos = $key['RUT'] . ".."
                                                             . $key['nombre'] . ".."
                                                             . $key['apellido'] . ".."
@@ -319,7 +319,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
-
+        <script>$(window).on('unload', function () {
+                $.ajax({
+                    url: "../controller/controllerLogout.php",
+                    type: "get",
+                    data: {rut: '<?php echo $rut ?>', log: 0}
+                });
+            });
+        </script>
 
         <script>
             $(function () {

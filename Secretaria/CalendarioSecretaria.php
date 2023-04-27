@@ -308,6 +308,13 @@ $consulJson = json_encode($consultas);
         <script>
             $(document).ready(function () {
                 $('#evento').change(colorPreview);
+                $(window).on('unload', function () {
+                    $.ajax({
+                        url: "../controller/controllerLogout.php",
+                        type: "get",
+                        data: {rut: '<?php echo $rut ?>', log: 0}
+                    });
+                });
             });
 
             function colorPreview() {
@@ -411,11 +418,11 @@ $consulJson = json_encode($consultas);
                         document.getElementById('title').value = info.event.title;
                         fecha = info.event.startStr;
                         document.getElementById('startEvent').value = fecha.substring(0, 10);
-                        document.getElementById('startEventHour').value = fecha.substring(11,16);
-                        
+                        document.getElementById('startEventHour').value = fecha.substring(11, 16);
+
                         //document.getElementById('color').backgroundColor = info.event.backgroundColor;
                         document.getElementById("colorPrevH").style.backgroundColor = info.event.backgroundColor;
-                        
+
                         form.action = "../controller/controllerEvento.php?p=2&a=3";
                         form.method = 'POST';
                         console.log(info);

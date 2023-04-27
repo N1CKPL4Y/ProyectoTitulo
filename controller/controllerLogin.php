@@ -114,6 +114,7 @@ $pass = isset($_POST["txt_pass"]) ? $_POST["txt_pass"] : null;
 //echo '<br>' . $rut . '<br>' . $pass;
 $data = new Data();
 
+
 if ($rut && $pass) {
 
     $valid = $data->isUserPassValid($rut, $pass);
@@ -143,6 +144,7 @@ if ($rut && $pass) {
             $log = 1;
             //echo $rut.' // '.$log;
             $data->updateLog($rut, $log);
+            $_SESSION['logged'] = $log;
             switch ($_SESSION['activo']) {
                 case 1:
                     switch ($_SESSION['tipo_u']) {

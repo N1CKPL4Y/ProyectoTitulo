@@ -160,7 +160,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">Rut</span>
                                                 </div>
-                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -282,6 +282,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div> 
         </section>
     </body>
+    <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
+    <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
+    <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
+    <script  src="../Fullcalendar/lib/locales/es.js"></script>
+    <script src="../Bootstrap/datepicke.js"></script>
+    <script src="../js/clockpicker.js"></script>
+    <script src="../js/validarut.js"></script>
+    <script src="../js/jquery.rut.js">
+    </script>
+    <script>$(window).on('unload', function () {
+            $.ajax({
+                url: "../controller/controllerLogout.php",
+                type: "get",
+                data: {rut: '<?php echo $rut ?>', log: 0}
+            });
+        });
+    </script>
+
     <script>
         $(function () {
             $('.dates #datepicker').datepicker({

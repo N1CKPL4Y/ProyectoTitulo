@@ -340,10 +340,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li class="profile">
                     <div class="profile-details">
                         <div class="name_job">
-                            <div class="name"><?php //echo $nombre                  ?></div>
-                            <div class="name"><?php //echo $apellido                  ?></div>
-                            <div class="name"><?php //echo $cargo                  ?></div>
-                            <div class="job"><?php //echo $correo                  ?></div>
+                            <div class="name"><?php //echo $nombre                   ?></div>
+                            <div class="name"><?php //echo $apellido                   ?></div>
+                            <div class="name"><?php //echo $cargo                   ?></div>
+                            <div class="job"><?php //echo $correo                   ?></div>
                         </div>
                         <a><i id="log_out" ></i></a>
                     </div>
@@ -4177,42 +4177,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
         </div>
     </section>
-    <script>
-        $(window).on('mouseover', (function () {
-            window.onbeforeunload = null;
-        }));
-        $(window).on('mouseout', (function () {
-            window.onbeforeunload = ConfirmLeave;
-        }));
-        function ConfirmLeave() {
-            return "";
-        }
-        var prevKey = "";
-
-        $(document).keydown(function (e) {
-            if (e.key == "F5") {
-                window.onbeforeunload = ConfirmLeave;
-            } else if (e.key.toUpperCase() == "W" && prevKey == "CONTROL") {
-                window.onbeforeunload = ConfirmLeave;
-            } else if (e.key.toUpperCase() == "R" && prevKey == "CONTROL") {
-                window.onbeforeunload = ConfirmLeave;
-            } else if (e.key.toUpperCase() == "F4" && (prevKey == "ALT" || prevKey == "CONTROL")) {
-                window.onbeforeunload = ConfirmLeave;
-            }
-            prevKey = e.key.toUpperCase();
+    <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
+    <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
+    <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
+    <script  src="../Fullcalendar/lib/locales/es.js"></script>
+    <script src="../Bootstrap/datepicke.js"></script>
+    <script src="../js/clockpicker.js"></script>
+    <script src="../js/validarut.js"></script>
+    <script src="../js/jquery.rut.js">
+    </script>
+    <script>$(window).on('unload', function () {
+            $.ajax({
+                url: "../controller/controllerLogout.php",
+                type: "get",
+                data: {rut: '<?php echo $rut ?>', log: 0}
+            });
         });
     </script>
     <script>
         const existEntre = "<?php echo $entre ?>";
         const existbene = "<?php echo $exist ?>";
         //console.log("entrevista: " + existEntre + " bene: " + existbene);
-        if (existbene == 1){
+        if (existbene == 1) {
             if (existEntre == 1) {
                 document.getElementById('tarjeta').style.display = "none";
             } else {
                 document.getElementById('tarjeta').style.display = "block";
             }
-        }else{
+        } else {
             document.getElementById('tarjeta').style.display = "none";
         }
     </script>

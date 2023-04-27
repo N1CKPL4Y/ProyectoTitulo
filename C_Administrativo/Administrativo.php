@@ -446,8 +446,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <script src="../js/clockpicker.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
+
+        <script>$(window).on('unload', function () {
+            $.ajax({
+            url: "../controller/controllerLogout.php",
+                    type: "get",
+                    data: {rut: '<?php echo $rut ?>', log: 0}
+            });
+            });
+        </script>
+
         <script>
-            
+
             $('document').ready(function () {
             $('#tipo1').change(function () {
             document.getElementById('clockDiv').classList.add('d-none');
@@ -486,14 +496,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             document.getElementById('divHourEnd').classList.add('d-none');
             //tipoEvent.classList.add('d-block');
             document.getElementById('EventHour1').value = "";
-
             });
             });
         </script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker({
-                placement:'top',
-                align: 'right'
+            placement:'top',
+                    align: 'right'
             });
             $(function () {
             $('.dates #startEvent').datepicker({
@@ -515,7 +524,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             });
         </script>
         <script type="text/javascript">
-                    var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+            var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
             var modal2 = new bootstrap.Modal(document.getElementById('create'));
             let form = document.getElementById('form1');
             let form2 = document.getElementById('form2');
@@ -561,35 +570,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     },
                     showNonCurrentDates: false,
                     events: [
-                            <?php
-                            $eventoAd = $data->getAllEventAdministrative();
-                            foreach ($eventoAd as $value) {
-                                ?>{
-                                                    id: '<?php echo $value['id']; ?>',
-                                                            title: '<?php echo $value['title']; ?>',
-                                <?php
-                                if (empty($value['startHour'])) {
-                                    ?>
-                                                        start: '<?php echo $value['start']; ?>',
-                                    <?php
-                                } else {
-                                    ?>
-                                                        start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
-                                    <?php
-                                }
-                                if (empty($value['endHour'])) {
-                                    ?>
-                                                        end: '<?php echo $value['end']; ?>',
-                                    <?php
-                                } else {
-                                    ?>
-                                                        end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
-                                    <?php
-                                }
-                                ?>
-                        color:'<?php echo $value['color']; ?>',
-                                descripcion: '<?php echo $value['descripcion'] ?>'
-                        }<?php
+<?php
+$eventoAd = $data->getAllEventAdministrative();
+foreach ($eventoAd as $value) {
+    ?>{
+                                id: '<?php echo $value['id']; ?>',
+                                        title: '<?php echo $value['title']; ?>',
+    <?php
+    if (empty($value['startHour'])) {
+        ?>
+                                    start: '<?php echo $value['start']; ?>',
+        <?php
+    } else {
+        ?>
+                                    start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
+        <?php
+    }
+    if (empty($value['endHour'])) {
+        ?>
+                                    end: '<?php echo $value['end']; ?>',
+        <?php
+    } else {
+        ?>
+                                    end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
+        <?php
+    }
+    ?>
+                                color:'<?php echo $value['color']; ?>',
+                                        descripcion: '<?php echo $value['descripcion'] ?>'
+                                }<?php
     $last = $data->getLastEventAdministrative();
     $ex;
     foreach ($last as $valueX) {
