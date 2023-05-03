@@ -186,45 +186,81 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         $fecha = isset($_POST['registro']) ? $_POST['registro'] : null;
                         //$existB = $data->getExistBicatora($rutBene);
                         if (!empty($rutBene)) {
-                            $bitacoras = $data->getBitacoraByFecha($rutBene, $area, $fecha);
-                            if (mysqli_num_rows($bitacoras) > 0) {
-                                $cont = 1;
-                                ?>
-                                <div class = "col-sm-12 col-md-10 col-lg-10">
-                                    <div class = "card text-center">
-                                        <div class = "card-header">
-                                            Registro Bitacoras
-                                        </div>
-                                        <div class = "card-body">
-                                            <?php
-                                            foreach ($bitacoras as $value) {
-                                                $fecha = $value['fecha'];
-                                                $fechaB = fechaEsp($fecha);
-                                                $area = $value['area_u'];
-                                                $aUser = $data->getAreaById($area);
-                                                $area1;
-                                                foreach ($aUser as $value1) {
-                                                    $area1 = $value1['nombre'];
-                                                }
-                                                ?>
-                                                <div class="row justify-content-around">
-                                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                                        <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id']; ?>">
-                                                            <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Area "<?php echo $area1; ?>" - <?php echo $fechaB; ?> / <?php echo $value['hora']; ?>
-                                                        </a>
-                                                    </div>
+                            if ($area != null) {
+                                if ($fecha != null) {
+                                    $bitacoras = $data->getBitacoraByFecha($rutBene, $area, $fecha);
+                                    if (mysqli_num_rows($bitacoras) > 0) {
+                                        $cont = 1;
+                                        ?>
+                                        <div class = "col-sm-12 col-md-10 col-lg-10">
+                                            <div class = "card text-center">
+                                                <div class = "card-header">
+                                                    Registro Bitacoras
                                                 </div>
-                                                <?php
-                                                $cont += 1;
-                                            }
-                                            ?>
+                                                <div class = "card-body">
+                                                    <?php
+                                                    foreach ($bitacoras as $value) {
+                                                        $fecha = $value['fecha'];
+                                                        $fechaB = fechaEsp($fecha);
+                                                        $area = $value['area_u'];
+                                                        $aUser = $data->getAreaById($area);
+                                                        $area1;
+                                                        foreach ($aUser as $value1) {
+                                                            $area1 = $value1['nombre'];
+                                                        }
+                                                        ?>
+                                                        <div class="row justify-content-around">
+                                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                <a role="button" target="_blank" href="../controller/controllerBitacoraPDF.php?id=<?php echo $value['id']; ?>">
+                                                                    <i class='bx bxs-file-pdf'></i>Bitacora de Atención N° <?php echo $cont . " Codigo: " . $value['beneficiario']; ?> - Programa <?php echo $value['programa']; ?> - Area "<?php echo $area1; ?>" - <?php echo $fechaB; ?> / <?php echo $value['hora']; ?>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <?php
+                                                        $cont += 1;
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <div class = "card-footer text-muted">
+                                                    ...
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class = "card-footer text-muted">
-                                            ...
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class = "col-sm-12 col-md-10 col-lg-10">
+                                            <div class = "card text-center">
+                                                <div class = "card-header">
+                                                    Registro
+                                                </div>
+                                                <div class = "card-body" >
+                                                    <h5 class = "center">No existe un beneficiario asociado al rut indicado</h5>
+                                                </div>
+                                                <div class = "card-footer text-muted">
+                                                    ...
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                } else {
+                                    ?>
+                                    <div class = "col-sm-12 col-md-10 col-lg-10">
+                                        <div class = "card text-center">
+                                            <div class = "card-header">
+                                                Registro
+                                            </div>
+                                            <div class = "card-body" >
+                                                <h5 class = "center">Verifique la selección del área del profesional y/o fecha de registro de la bitácora</h5>
+                                            </div>
+                                            <div class = "card-footer text-muted">
+                                                ...
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php
+                                    <?php
+                                }
                             } else {
                                 ?>
                                 <div class = "col-sm-12 col-md-10 col-lg-10">
@@ -233,7 +269,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             Registro
                                         </div>
                                         <div class = "card-body" >
-                                            <h5 class = "center">No existe un beneficiario asociado al rut indicado</h5>
+                                            <h5 class = "center">Verifique la selección del area del profesional y/o fecha de registro de la bitácora</h5>
                                         </div>
                                         <div class = "card-footer text-muted">
                                             ...
@@ -243,7 +279,21 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                 <?php
                             }
                         } else {
-                            
+                            ?>
+                            <div class = "col-sm-12 col-md-10 col-lg-10">
+                                <div class = "card text-center">
+                                    <div class = "card-header">
+                                        Registro
+                                    </div>
+                                    <div class = "card-body" >
+                                        <h5 class = "center">Verifique que el area del colaborador y/o la fecha se encuentren seleccionadas</h5>
+                                    </div>
+                                    <div class = "card-footer text-muted">
+                                        ...
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
                         }
                     } else {
                         
