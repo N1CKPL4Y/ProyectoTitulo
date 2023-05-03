@@ -52,7 +52,7 @@ $consulJson = json_encode($consultas);
         <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -160,7 +160,7 @@ $consulJson = json_encode($consultas);
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="create" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form name="form2" id="form2" method="post" action="">
+                                    <form name="datosUser" id="form2" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
@@ -194,7 +194,7 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut Beneficiario</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_beneFI" id="beneFI" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75">
+                                                    <input type="text" class="form-control" name="txt_rut" id="beneFI" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -232,7 +232,7 @@ $consulJson = json_encode($consultas);
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form name="form" id="form1" method="post" action="">
+                                    <form name="datosUser" id="form1" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
@@ -269,7 +269,7 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75">
+                                                    <input type="text" class="form-control" name="txt_rut" id="bene" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -330,18 +330,7 @@ $consulJson = json_encode($consultas);
         <script src="../js/clockpicker.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
-        <script>
-                                                            $(document).ready(function () {
-                                                                $(window).on('unload', function () {
-                                                                    $.ajax({
-                                                                        url: "../controller/controllerLogout.php",
-                                                                        type: "get",
-                                                                        data: {rut: '<?php echo $rut?>', log: 0}
-                                                                    });
-                                                                });
-                                                            });
 
-        </script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
             $(function () {

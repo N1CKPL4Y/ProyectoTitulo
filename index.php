@@ -43,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                         </div> 
-                                        <input type="text" placeholder="Si termina con K, reemplacelo por un 0" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
+                                        <input type="text" placeholder="11.111.111-1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" autocomplete="off" name="txt_rut" class="form-control" id="rut" required="">
                                     </div>       
                                 </div>
                                 <div class="form-group">

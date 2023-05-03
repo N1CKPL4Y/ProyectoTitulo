@@ -308,13 +308,6 @@ $consulJson = json_encode($consultas);
         <script>
             $(document).ready(function () {
                 $('#evento').change(colorPreview);
-                $(window).on('unload', function () {
-                    $.ajax({
-                        url: "../controller/controllerLogout.php",
-                        type: "get",
-                        data: {rut: '<?php echo $rut ?>', log: 0}
-                    });
-                });
             });
 
             function colorPreview() {

@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!-- CSS only -->
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
         <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
@@ -439,29 +439,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </div>
             </div>
         </section>
-        <script src="../AdminLTE/plugins/jquery/jquery.min.js"></script>
-        <script src="../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
-        <script src="../AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
-        <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
-        <script  src="../AdminLTE/plugins/fullcalendar/main.js"></script>
-        <script  src="../Fullcalendar/lib/locales/es.js"></script>
-        <script src="../Bootstrap/datepicke.js"></script>
-        <script src="../js/clockpicker.js"></script>
-        <script src="../js/validarut.js"></script>
-        <script src="../js/jquery.rut.js"></script>
         <script>
             $(document).ready(function () {
                 $('#collapseOne').collapse({
                     toggle: false
-                });
-
-                $(window).on('unload', function () {
-                    $.ajax({
-                        url: "../controller/controllerLogout.php",
-                        type: "get",
-                        data: {rut: '<?php echo $rut ?>', log: 0}
-                    });
                 });
             });
         </script>

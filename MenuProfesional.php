@@ -258,18 +258,6 @@ $consulJson = json_encode($consultas);
         <script  src="Fullcalendar/lib/locales/es.js"></script>
         <script src="js/clockpicker.js"></script>
         
-        <script>
-                                                            $(document).ready(function () {
-                                                                $(window).on('unload', function () {
-                                                                    $.ajax({
-                                                                        url: "controller/controllerLogout.php",
-                                                                        type: "get",
-                                                                        data: {rut: '<?php echo $rut?>', log: 0}
-                                                                    });
-                                                                });
-                                                            });
-
-        </script>
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
         </script>

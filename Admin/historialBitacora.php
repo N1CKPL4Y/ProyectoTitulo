@@ -41,7 +41,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
         <script src="../js/validarut.js"></script>
         <script src="../js/jquery.rut.js"></script>
         <script src="../Bootstrap/js/funciones.js"></script>
@@ -160,7 +160,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">Rut</span>
                                                 </div>
-                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6 col-lg-6">

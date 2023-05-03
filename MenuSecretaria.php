@@ -47,9 +47,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
 
         <!-- CSS only -->
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <!-- Boxicons CDN Link -->
@@ -205,8 +206,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="rut" style="margin-left: 10px">R.U.T Beneficiario</label>
-                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
-
+                                                                <input type="text" class="form-control" name="txt_rut" id="rut" required onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -870,26 +870,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 });
             </script> -->
-            <script src="AdminLTE/plugins/jquery/jquery.min.js"></script>
-            <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <script src="AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
-            <script src="AdminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
-            <script src="AdminLTE/plugins/moment/moment.min.js"></script>
-            <script  src="AdminLTE/plugins/fullcalendar/main.js"></script>
-            <script  src="Fullcalendar/lib/locales/es.js"></script>
-            <script src="js/clockpicker.js"></script>
-            <script>
-                                                                    $(document).ready(function () {
-                                                                        $(window).on('unload', function () {
-                                                                            $.ajax({
-                                                                                url: "controller/controllerLogout.php",
-                                                                                type: "get",
-                                                                                data: {rut: '<?php echo $rut ?>', log: 0}
-                                                                            });
-                                                                        });
-                                                                    });
 
-            </script>
             <script>
                 $(document).ready(function () {
                     $("#copiaCarnetBene").on('change', function () {

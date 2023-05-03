@@ -307,18 +307,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
 
         <script>
-                                                            $(document).ready(function () {
-                                                                $(window).on('unload', function () {
-                                                                    $.ajax({
-                                                                        url: "controller/controllerLogout.php",
-                                                                        type: "get",
-                                                                        data: {rut: '<?php echo $rut ?>', log: 0}
-                                                                    });
-                                                                });
-                                                            });
-
-        </script>
-        <script>
             $(function () {
                 $("#myTable").DataTable({
                     "responsive": true, "lengthChange": false, "autoWidth": false,

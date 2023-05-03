@@ -434,19 +434,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <!-- AdminLTE for demo purposes -->
         <!--<script src="AdminLTE/dist/js/demo.js"></script>-->
 
-        <script>
-                                                            $(document).ready(function () {
-                                                                $(window).on('unload', function () {
-                                                                    $.ajax({
-                                                                        url: "controller/controllerLogout.php",
-                                                                        type: "get",
-                                                                        data: {rut: '<?php echo $rut?>', log: 0}
-                                                                    });
-                                                                });
-                                                            });
-
-        </script>
-
         <script type="text/javascript">
             var input = document.getElementById('telefonoU');
             input.addEventListener('input', function () {
