@@ -143,7 +143,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="row justify-content-around">
                         <div class="col-sm-12 col-md-10 col-lg-10" style="padding-top: 15px">
                             <div class="card text-center">
-                                <form method="post">
+                                <form name="datosUser" method="post">
                                     <div class="card-header Header">
                                         <h4>Bitacoras registradas</h4>
                                     </div>
@@ -154,7 +154,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rut" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_rut" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6 col-lg-6">
