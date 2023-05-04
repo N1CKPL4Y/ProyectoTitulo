@@ -100,7 +100,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </nav>
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row" style="padding-top: 25px">
+                    <div class="row" style="padding-top: 25px; padding-left: 20px">
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
