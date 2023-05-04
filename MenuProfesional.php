@@ -117,7 +117,7 @@ $consulJson = json_encode($consultas);
                 }(w, d, 0, "script");
             })(window, document);</script>-->
 
-        <link rel="stylesheet" type="text/css" href="Bootstrap/clockpicker.css">
+        <link rel="stylesheet" type="text/css" href="Materialize/clockpicker.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
     <body class="hold-transition sidebar-mini">
@@ -257,7 +257,6 @@ $consulJson = json_encode($consultas);
         <script  src="AdminLTE/plugins/fullcalendar/main.js"></script>
         <script  src="Fullcalendar/lib/locales/es.js"></script>
         <script src="js/clockpicker.js"></script>
-        
         <script type="text/javascript">
             $('.clockpicker').clockpicker();
         </script>
@@ -368,7 +367,7 @@ $consulJson = json_encode($consultas);
                                 console.log(el);
                                 rut = el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
+                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];;
                                 document.getElementById('fono_bene').value = el['telefono'];
                             }
 
@@ -381,7 +380,7 @@ $consulJson = json_encode($consultas);
                         console.log(info);
                         let color = info.event.backgroundColor;
                         console.log(color);
-                        if (color == '#0387EF' || color=='#000000' || color=='#FF0000') {
+                        if (color == '#0387EF' || color=='#000000' || color=='#FF0000' || color == '#F00505') {
                             modal.hide();
                         } else {
                             modal.show();
