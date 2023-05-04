@@ -310,7 +310,7 @@ class Data {
     }
 
     public function getEdad($rut) {
-        $sql = "SELECT YEAR(CURDATE())-YEAR(fecha_nac) AS 'Años', MONTH(CURDATE())-MONTH(fecha_nac) AS 'Meses' FROM beneficiario where RUT = '$rut'";
+        $sql = "SELECT TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) AS Años, TIMESTAMPDIFF(MONTH, fecha_nac, CURDATE()) % 12 AS Meses FROM beneficiario where RUT = '$rut';";
         $query = $this->con->query($sql);
         return $query;
     }
