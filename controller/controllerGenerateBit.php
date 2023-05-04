@@ -4,7 +4,7 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
 $cargo = $_SESSION['cargo'];
-echo $cargo;
+//echo $cargo;
 ?>
 <!DOCTYPE html>
 <html lang="es">

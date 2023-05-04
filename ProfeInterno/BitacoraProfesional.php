@@ -251,7 +251,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                         <div class="input-group-prepend">
                                                                             <span class="input-group-text" id="basic-addon1">Diagnostico</span>
                                                                         </div>
-                                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $diagnosB . "-" . $codeB ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" name="txt_diag" value="<?php echo $diagnosB . " - " . $codeB ?>" readonly aria-label="Username" aria-describedby="basic-addon1">
                                                                     </div>
                                                                 </div>
                                                             </div>
