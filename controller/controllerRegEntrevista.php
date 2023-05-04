@@ -667,10 +667,10 @@ if (empty($rut_bene)) {
     $existeE = $data->getEntrevistaByRut($rut_bene);
 
     if ($existeE) {
-        echo '<br>nada';
+        //echo '<br>nada';
         echo '<script>existeE();</script>';
     } else {
-        echo '<br>pasa';
+        //echo '<br>pasa';
         echo '<script>GenerarEntre();</script>';
 /////////////////////////////////////////////////////////Inserts////////////////////////////////////////////////////////
 //embarazoparto//
