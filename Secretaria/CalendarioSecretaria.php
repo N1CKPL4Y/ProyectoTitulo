@@ -426,7 +426,7 @@ $consulJson = json_encode($consultas);
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido']];
+                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
                                 document.getElementById('profe').value = el['profesional'];
                             }

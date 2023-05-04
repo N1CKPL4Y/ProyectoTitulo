@@ -381,7 +381,7 @@ $consulJson = json_encode($consultas);
                         console.log(info);
                         let color = info.event.backgroundColor;
                         console.log(color);
-                        if (color == '#0387EF' || color=='#000000' || color=='#ff0000') {
+                        if (color == '#0387EF' || color=='#000000' || color=='#FF0000') {
                             modal.hide();
                         } else {
                             modal.show();

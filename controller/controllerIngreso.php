@@ -80,7 +80,7 @@ $existeBene = $data->getExistBen($rut);
 $tipo_DocuBene = isset($_POST['rd_carnet']) ? $_POST['rd_carnet'] : null;
 if ($tipo_DocuBene == 1) {
     if (!isset($_FILES["file_carnetPDF"]) || $_FILES["file_carnetPDF"]["error"] > 0) {
-        echo "Ha ocurrido un error. 1";
+        //echo "Ha ocurrido un error. 1";
     } else {
         // Verificamos si el tipo de archivo es un tipo de imagen permitido.
         // y que el tamaño del archivo no exceda los 16MB
@@ -88,7 +88,7 @@ if ($tipo_DocuBene == 1) {
         $limite_kb = 16384;
 
         if (in_array($_FILES['file_carnetPDF']['type'], $permitidos) && $_FILES['file_carnetPDF']['size'] <= $limite_kb * 1024) {
-            echo 'carnet bene pdf <br>';
+            //echo 'carnet bene pdf <br>';
             // Archivo temporal
             $imagen_temporal = $_FILES['file_carnetPDF']['tmp_name'];
             // Tipo de archivo
@@ -117,7 +117,7 @@ if ($tipo_DocuBene == 1) {
     }
 } else if ($tipo_DocuBene == 2) {
     if (!isset($_FILES["file_carnetImage"]) || $_FILES["file_carnetImage"]["error"] > 0) {
-        echo "Ha ocurrido un error. 1";
+        //echo "Ha ocurrido un error. 1";
     } else {
         // Verificamos si el tipo de archivo es un tipo de imagen permitido.
         // y que el tamaño del archivo no exceda los 16MB
@@ -125,7 +125,7 @@ if ($tipo_DocuBene == 1) {
         $limite_kb = 16384;
 
         if (in_array($_FILES['file_carnetImage']['type'], $permitidos) && $_FILES['file_carnetImage']['size'] <= $limite_kb * 1024) {
-            echo 'carnet bene imagen<br>';
+            //echo 'carnet bene imagen<br>';
             // Archivo temporal
             $imagen_temporal = $_FILES['file_carnetImage']['tmp_name'];
             // Tipo de archivo
@@ -176,7 +176,7 @@ if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_control']['type'], $permitidos) && $_FILES['file_control']['size'] <= $limite_kb * 1024) {
-        echo 'informe control <br>';
+        //echo 'informe control <br>';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_control']['tmp_name'];
         //$tipoArchi = $_FILES['file_control']['type'];
@@ -201,7 +201,7 @@ if (!isset($_FILES["file_control"]) || $_FILES["file_control"]["error"] > 0) {
           echo "Ocurrió algun error al copiar el archivo.";
           } */
     } else {
-        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        //echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
 }
 
@@ -228,7 +228,7 @@ if ($equalDir == 1) {
 }
 
 if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
-    echo "Ha ocurrido un error. 3";
+    //echo "Ha ocurrido un error. 3";
 } else {
     // Verificamos si el tipo de archivo es un tipo de imagen permitido.
     // y que el tamaño del archivo no exceda los 16MB
@@ -236,7 +236,7 @@ if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_tutor']['type'], $permitidos) && $_FILES['file_tutor']['size'] <= $limite_kb * 1024) {
-        echo 'carnet tutor <br>';
+        //echo 'carnet tutor <br>';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_tutor']['tmp_name'];
         // Tipo de archivo
@@ -260,7 +260,7 @@ if (!isset($_FILES["file_tutor"]) || $_FILES["file_tutor"]["error"] > 0) {
           echo "Ocurrió algun error al copiar el archivo.";
           } */
     } else {
-        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        //echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
 }
 
@@ -295,7 +295,7 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_credenFront']['type'], $permitidos) && $_FILES['file_credenFront']['size'] <= $limite_kb * 1024) {
-        echo 'creden A';
+        //echo 'creden A';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_credenFront']['tmp_name'];
         // Tipo de archivo
@@ -319,7 +319,7 @@ if (!isset($_FILES["file_credenFront"]) || $_FILES["file_credenFront"]["error"] 
           echo "Ocurrió algun error al copiar el archivo.";
           } */
     } else {
-        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        //echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
 }
 
@@ -333,7 +333,7 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
     $limite_kb = 16384;
 
     if (in_array($_FILES['file_credenBack']['type'], $permitidos) && $_FILES['file_credenBack']['size'] <= $limite_kb * 1024) {
-        echo 'archivo creden b';
+        //echo 'archivo creden b';
         // Archivo temporal
         $imagen_temporal = $_FILES['file_credenBack']['tmp_name'];
         // Tipo de archivo
@@ -357,7 +357,7 @@ if (!isset($_FILES["file_credenBack"]) || $_FILES["file_credenBack"]["error"] > 
           echo "Ocurrió algun error al copiar el archivo.";
           } */
     } else {
-        echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+        //echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
     }
 }
 
@@ -380,8 +380,8 @@ if ($hogar == 1) {
     if (!isset($_FILES["file_Hogar"]) || $_FILES["file_Hogar"]["error"] > 0) {
         $hogarFile = null;
         $tipoDocu = null;
-        echo $hogarFile . '<br>';
-        echo $tipoDocu;
+        //echo $hogarFile . '<br>';
+        //echo $tipoDocu;
         //echo "Ha ocurrido un error. 6";
     } else {
         // Verificamos si el tipo de archivo es un tipo de imagen permitido.
@@ -390,7 +390,7 @@ if ($hogar == 1) {
         $limite_kb = 16384;
 
         if (in_array($_FILES['file_Hogar']['type'], $permitidos) && $_FILES['file_Hogar']['size'] <= $limite_kb * 1024) {
-            echo 'archivo hogar';
+            //echo 'archivo hogar';
             // Archivo temporal
             $imagen_temporal = $_FILES['file_Hogar']['tmp_name'];
             //$tipoArchi = $_FILES['file_control']['type'];
@@ -415,7 +415,7 @@ if ($hogar == 1) {
               echo "Ocurrió algun error al copiar el archivo.";
               } */
         } else {
-            echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+            //echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
         }
     }
 } else {

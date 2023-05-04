@@ -131,9 +131,10 @@ function Rut(texto)
         invertido = invertido + dtexto.charAt(i);
 
     window.document.datosUser.txt_rut.value = invertido.toUpperCase()
-
+    
     if (revisarDigito2(texto))
         return true;
 
     return false;
 }
+

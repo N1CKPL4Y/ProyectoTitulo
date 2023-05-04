@@ -68,6 +68,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             window.location.href = '../C_Administrativo/Administrativo.php';
                         });
             }
+            
+            function Vacio() {
+                swal({
+                    title: "ERROR",
+                    text: "Verifique el ingreso/selección de los campos",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../C_Administrativo/Administrativo.php';
+                        });
+            }
         </script>
     </body>
 </html>
@@ -89,24 +102,29 @@ if ($param == 1) {
     $tipEvent = isset($_POST['tipo']) ? $_POST['tipo'] : null;
     $color = rand_color();
 
-    if ($tipEvent == 1) {
-        $data->addEventAdminDefault($title, $start, $color, $detalle);
-    } else if ($tipEvent == 2) {
-        $startHour = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
-        $data->addEventAdminSpecific($title, $start, $startHour, $color, $detalle);
-    } else if ($tipEvent == 3) {
-        $end = isset($_POST['txt_fechaend']) ? $_POST['txt_fechaend'] : null;
-        $data->addEventAdminEnd($title, $start, $end, $color, $detalle);
-    } else if ($tipEvent == 4) {
-        $startHour = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
-        $endHour = isset($_POST['txt_hora1End']) ? $_POST['txt_hora1End'] : null;
-        $data->addEventAdminEndHour($title, $start, $startHour, $start, $endHour, $color, $detalle);
+    if ($title == '' || $start == '' || $tipEvent == '') {
+        echo'<script>Vacio()</script>';
+    } else {
+        if ($tipEvent == 1) {
+            $data->addEventAdminDefault($title, $start, $color, $detalle);
+        } else if ($tipEvent == 2) {
+            $startHour = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
+            $data->addEventAdminSpecific($title, $start, $startHour, $color, $detalle);
+        } else if ($tipEvent == 3) {
+            $end = isset($_POST['txt_fechaend']) ? $_POST['txt_fechaend'] : null;
+            $data->addEventAdminEnd($title, $start, $end, $color, $detalle);
+        } else if ($tipEvent == 4) {
+            $startHour = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
+            $endHour = isset($_POST['txt_hora1End']) ? $_POST['txt_hora1End'] : null;
+            $data->addEventAdminEndHour($title, $start, $startHour, $start, $endHour, $color, $detalle);
+        }
+
+        echo '<script>Success();</script>';
     }
-    
-    echo '<script>Success();</script>';
+
 
     /* if ($ar == 1) {
-      
+
       } else if ($ar == 2) {
       echo '<script>SuccessDir();</script>';
       } */
@@ -142,13 +160,13 @@ if ($param == 1) {
       echo '<script>SuccessUpSec();</script>';
       } */
 } else if ($param == 3) {
-   
+
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $data->delEventAdmin($id);
     echo '<script>SuccessDel();</script>';
     //echo '<br>' . $id;
     /* if ($ar == 1) {
-      
+
       } else if ($ar == 2) {
       echo '<script>SuccessDelDir();</script>';
       } */
