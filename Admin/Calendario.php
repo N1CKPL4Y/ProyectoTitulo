@@ -160,7 +160,7 @@ $consulJson = json_encode($consultas);
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="create" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form name="datosUser" id="form2" method="post" action="">
+                                    <form name="datosUser" id="datosUser" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
@@ -194,7 +194,7 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut Beneficiario</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rut" id="beneFI" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                    <input type="text" class="form-control" name="txt_rut" id="txt_rut" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -232,7 +232,7 @@ $consulJson = json_encode($consultas);
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form name="datosUser" id="form1" method="post" action="">
+                                    <form name="form" id="form1" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
@@ -269,7 +269,7 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rut" id="bene" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                    <input type="text" class="form-control" name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -357,7 +357,7 @@ $consulJson = json_encode($consultas);
             var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
             var modal2 = new bootstrap.Modal(document.getElementById('create'));
             let form = document.getElementById('form1');
-            let form2 = document.getElementById('form2');
+            let form2 = document.getElementById('datosUser');
             let del = document.getElementById('btn_Delete');
             let del2 = document.getElementById('btn_Delete1');
             let consultas = document.getElementById('.consulta');
@@ -427,7 +427,7 @@ $consulJson = json_encode($consultas);
                     dateClick: function (info) {
                         console.log(info);
                         form.reset();
-                        form2.reset();
+                        datosUser.reset();
                         document.getElementById('idsT').value = '';
                         del.classList.add('d-none');
                         document.getElementById('Event').readOnly = false;
@@ -436,8 +436,8 @@ $consulJson = json_encode($consultas);
                         document.getElementById('Event').value = fecha.substring(0, 10);
                         document.getElementById('staticBackdropLabel').textContent = 'Generar Evento';
                         document.getElementById('btn_Action1').textContent = 'Registrar';
-                        form2.action = "../controller/controllerEvento.php?p=1&a=1";
-                        form2.method = 'POST';
+                        datosUser.action = "../controller/controllerEvento.php?p=1&a=1";
+                        datosUser.method = 'POST';
                         modal2.show();
                     },
                     eventClick: function (info) {
@@ -465,9 +465,9 @@ $consulJson = json_encode($consultas);
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre'];
+                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
-                                document.getElementById('profe').value = el['profesional'];
+                                document.getElementById('profe').value = el['N_profesional']+' '+el['A_profesional'];
                             }
 
                         });

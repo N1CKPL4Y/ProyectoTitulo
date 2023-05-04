@@ -142,6 +142,32 @@ session_start();
                         });
             }
 
+            function ErrorBene() {
+                swal({
+                    title: "ERROR",
+                    text: "No existe un beneficiario asociado al rut indicado, favor verificar",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Admin/Calendario.php';
+                        });
+            }
+            
+            function vacio() {
+                swal({
+                    title: "ERROR",
+                    text: "Verifique el ingreso de todos los campos",
+                    type: "error",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Aceptar"
+                },
+                        function () {
+                            window.location.href = '../Admin/Calendario.php';
+                        });
+            }
+
             function ErrorDir() {
                 swal({
                     title: "ERROR",
@@ -190,17 +216,17 @@ session_start();
                     confirmButtonText: "Aceptar"
                 },
                         function () {
-                                <?php
-                                if ($_SESSION['cargo'] == 3) {
-                                    ?>
-                                    window.location.href = '../MenuProfesional.php';
-                                    <?php
-                                }else if($_SESSION['cargo']==4){
-                                    ?>
-                                      window.location.href = '../MenuInterno.php';
-                                    <?php
-                                }
-                                ?>
+<?php
+if ($_SESSION['cargo'] == 3) {
+    ?>
+                                window.location.href = '../MenuProfesional.php';
+    <?php
+} else if ($_SESSION['cargo'] == 4) {
+    ?>
+                                window.location.href = '../MenuInterno.php';
+    <?php
+}
+?>
 
                         });
             }
@@ -220,39 +246,50 @@ if ($param == 1) {
     $title = isset($_POST['txt_title1']) ? $_POST['txt_title1'] : null;
     $fecha = isset($_POST['txt_fecha1']) ? $_POST['txt_fecha1'] : null;
     $hora = isset($_POST['txt_hora1']) ? $_POST['txt_hora1'] : null;
-    $rutBene = isset($_POST['txt_beneFI']) ? $_POST['txt_beneFI'] : null;
+    $rutBene = isset($_POST['txt_rut']) ? $_POST['txt_rut'] : null;
     $rutProfe = isset($_POST['cbo_profesional']) ? $_POST['cbo_profesional'] : null;
     $color = '#000000';
     $date = $fecha . " " . $hora;
-    echo '<br>' . $title . '<br>' . $fecha . '<br>' . $hora . '<br>' . $color . '<br>';
-    echo '<br>' . $date . " " . $rutProfe;
+    //echo '<br>' . $title . '<br>' . $fecha . '<br>' . $hora . '<br>'. $rutBene .'<br>'. $color . '<br>';
+    //echo '<br>' . $date . " " . $rutProfe;
+    $existeBene = $data->getExistBen($rutBene);
+    //echo $existeBene;
 
-    $data->addEvento($title, $date, $color);
+    if ($title == '' || $fecha == '' || $hora == '' || $rutBene == '' || $rutProfe == '') {
+        echo '<script>vacio();</script>';
+    } else {
+        if ($existeBene == 1) {
+            $data->addEvento($title, $date, $color);
+            //echo'existe beneficiario';
+            $id1 = $data->getLimitEvent();
+            foreach ($id1 as $value) {
+                echo '<br>' . $value['id'];
+                $id1 = $value['id'];
+            }
+            //echo $id1;
+            $data->addConsulta($id1, $rutBene, $rutProfe);
+            $eventosList = array();
+            $eventoA = array();
+            $eventos = $data->getAllEvent();
 
-    $id1 = $data->getLimitEvent();
-    foreach ($id1 as $value) {
-        echo '<br>' . $value['id'];
-        $id1 = $value['id'];
-    }
-    echo $id1;
-    $data->addConsulta($id1, $rutBene, $rutProfe);
-    $eventosList = array();
-    $eventoA = array();
-    $eventos = $data->getAllEvent();
-
-    foreach ($eventos as $value) {
-        $value['title'] . '<br>';
-        $value['start'] . '<br>';
-        $value['color'] . '<br>';
-        array_push($eventoA, $value);
-    }
-    /* print_r($eventoA);
-      $popo = json_encode($eventoA);
-      echo '<br>' . $popo; */
-    if ($ar == 1) {
-        echo '<script>Success();</script>';
-    } else if ($ar == 2) {
-        echo '<script>SuccessDir();</script>';
+            foreach ($eventos as $value) {
+                $value['title'] . '<br>';
+                $value['start'] . '<br>';
+                $value['color'] . '<br>';
+                array_push($eventoA, $value);
+            }
+            /* print_r($eventoA);
+              $popo = json_encode($eventoA);
+              echo '<br>' . $popo; */
+            if ($ar == 1) {
+                echo '<script>Success();</script>';
+            } else if ($ar == 2) {
+                echo '<script>SuccessDir();</script>';
+            }
+        } else {
+            //echo 'no existe beneficiario';
+            echo '<script>ErrorBene();</script>';
+        }
     }
 } else if ($param == 2) {
     echo 'hola';
@@ -264,9 +301,8 @@ if ($param == 1) {
     $color = '#000000';
 
     $date = $fecha . " " . $hora;
-    echo '<br>' . $title . '<br>' . $fecha . '<br>' . $hora . '<br>' . $color . '<br>';
-    echo '<br>' . $date . '<br>' . $evento;
-
+    //echo '<br>' . $title . '<br>' . $fecha . '<br>' . $hora . '<br>' . $color . '<br>';
+    //echo '<br>' . $date . '<br>' . $evento;
 //$eventosList=array();
     /* $eventoA = array();
       $eventos = $data->getAllEvent();
@@ -291,10 +327,10 @@ if ($param == 1) {
         echo '<script>SuccessUpSec();</script>';
     }
 } else if ($param == 3) {
-    echo 'edio';
+    //echo 'edio';
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $data->delEvento($id);
-    echo '<br>' . $id;
+    //echo '<br>' . $id;
     if ($ar == 1) {
         echo '<script>SuccessDel();</script>';
     } else if ($ar == 2) {
@@ -313,7 +349,7 @@ if ($param == 1) {
 
         echo '<script>SuccessUp();</script>';
     } else if ($ar == 2) {
-        echo 'ahsdhash';
+        //echo 'ahsdhash';
         echo '<script>SuccessUpDir();</script>';
     } else if ($_SESSION['cargo'] == 2) {
         echo '<script>SuccessUpSec();</script>';

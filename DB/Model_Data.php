@@ -457,7 +457,7 @@ class Data {
     }
 
     public function getConsula() {
-        $sql = "SELECT consulta.id as 'id',evento.id as 'evento', beneficiario.RUT,beneficiario.nombre, tutor.telefono, usuario.nombre as 'profesional' FROM consulta INNER JOIN evento on evento.id=consulta.id_evento INNER JOIN beneficiario on beneficiario.RUT=consulta.rut_bene INNER JOIN usuario ON usuario.RUT=consulta.rut_profe INNER JOIN parentesco ON beneficiario.RUT=parentesco.beneficiario INNER JOIN tutor ON tutor.RUT=parentesco.tutor;";
+        $sql = "SELECT consulta.id as 'id',evento.id as 'evento', beneficiario.RUT,beneficiario.nombre, beneficiario.apellido , tutor.telefono, usuario.nombre as 'N_profesional', usuario.apellido as 'A_profesional' FROM consulta INNER JOIN evento on evento.id=consulta.id_evento INNER JOIN beneficiario on beneficiario.RUT=consulta.rut_bene INNER JOIN usuario ON usuario.RUT=consulta.rut_profe INNER JOIN parentesco ON beneficiario.RUT=parentesco.beneficiario INNER JOIN tutor ON tutor.RUT=parentesco.tutor;";
         $query = $this->con->query($sql);
         return $query;
     }

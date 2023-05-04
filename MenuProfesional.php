@@ -368,7 +368,7 @@ $consulJson = json_encode($consultas);
                                 console.log(el);
                                 rut = el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre'];
+                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
                             }
 

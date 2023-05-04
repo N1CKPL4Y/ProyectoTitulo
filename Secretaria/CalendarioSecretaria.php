@@ -258,7 +258,7 @@ $consulJson = json_encode($consultas);
                                                         <option value="#10E706">Asitira</option>
                                                         <option value="#F00505">No asistira</option>
                                                         <option value="#E8F005">Reagendar</option>
-                                                        <option value="#F07A05">Le dio COVID</option>
+                                                        <option value="#F07A05">Presenta sintomas de COVID-19</option>
                                                     </select>
                                                     <div class="input-group-prepend colorPrev" >
                                                         <label class="input-group-text colorPrevH" style="border-radius: 100px;" id="colorPrevH" for="inputGroupSelect01"></label>
@@ -426,7 +426,7 @@ $consulJson = json_encode($consultas);
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre'];
+                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido']];
                                 document.getElementById('fono_bene').value = el['telefono'];
                                 document.getElementById('profe').value = el['profesional'];
                             }
