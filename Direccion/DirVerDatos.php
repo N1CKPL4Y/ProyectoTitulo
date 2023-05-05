@@ -86,6 +86,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
+                    <a href="Secretaria/EntrevistaFamilia.php">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la Familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
+                </li>
+                <li>
                     <a href="DirHistorialBitacora.php">
                         <i class='bx bx-library'></i>
                         <span class="links_name">Historial Bitacoras</span>
@@ -93,7 +100,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
-                    <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 242px">
+                    <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 245px">
                         <i class='bx bx-library'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>
