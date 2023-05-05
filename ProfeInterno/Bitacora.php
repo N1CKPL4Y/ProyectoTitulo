@@ -64,7 +64,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li>
                     <a href="../MenuInterno.php">
                         <i class='bx bx-home' ></i>
-                        <span class="links_name">Vover a Inicio</span>
+                        <span class="links_name">Volver a Inicio</span>
                     </a>
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
