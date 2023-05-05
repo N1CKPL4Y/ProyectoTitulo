@@ -86,7 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuAdmin.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
@@ -96,6 +96,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <span class="links_name">Registrar Usuarios</span>
                         </a>
                         <span class="tooltip">Registrar Usuarios</span>
+                    </li>
+                    <li>
+                        <a href="../Secretaria/EntrevistaFamilia.php">
+                            <i class='bx bx-home-heart'></i>
+                            <span class="links_name">Entrevista a la Familia</span>
+                        </a>
+                        <span class="tooltip">Entrevista a la Familia</span>
                     </li>
                     <li>
                         <a href="../Admin/VisBeneficiario.php">
@@ -157,9 +164,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuDireccion.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="../Secretaria/EntrevistaFamilia.php">
+                            <i class='bx bx-home-heart'></i>
+                            <span class="links_name">Entrevista a la Familia</span>
+                        </a>
+                        <span class="tooltip">Entrevista a la Familia</span>
                     </li>
                     <li>
                         <a href="../Direccion/DirCalendario.php">
@@ -208,7 +222,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuSecretaria.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
@@ -565,31 +579,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 $eventoAd = $data->getAllEventAdministrative();
 foreach ($eventoAd as $value) {
     ?>{
-                                id: '<?php echo $value['id']; ?>',
-                                        title: '<?php echo $value['title']; ?>',
+                        id: '<?php echo $value['id']; ?>',
+                                title: '<?php echo $value['title']; ?>',
     <?php
     if (empty($value['startHour'])) {
         ?>
-                                    start: '<?php echo $value['start']; ?>',
+                            start: '<?php echo $value['start']; ?>',
         <?php
     } else {
         ?>
-                                    start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
+                            start: '<?php echo $value['start'] . ' ' . $value['startHour']; ?>',
         <?php
     }
     if (empty($value['endHour'])) {
         ?>
-                                    end: '<?php echo $value['end']; ?>',
+                            end: '<?php echo $value['end']; ?>',
         <?php
     } else {
         ?>
-                                    end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
+                            end: '<?php echo $value['end'] . ' ' . $value['endHour']; ?>',
         <?php
     }
     ?>
-                                color:'<?php echo $value['color']; ?>',
-                                        descripcion: '<?php echo $value['descripcion'] ?>'
-                                }<?php
+                        color:'<?php echo $value['color']; ?>',
+                                descripcion: '<?php echo $value['descripcion'] ?>'
+                        }<?php
     $last = $data->getLastEventAdministrative();
     $ex;
     foreach ($last as $valueX) {

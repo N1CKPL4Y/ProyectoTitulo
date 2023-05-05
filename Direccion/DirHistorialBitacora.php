@@ -67,7 +67,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                 <li>
                     <a href="../MenuDireccion.php" style="height: 50px; width: 242px">
                         <i class='bx bx-home' ></i>
-                        <span class="links_name">Vover a Inicio</span>
+                        <span class="links_name">Volver a Inicio</span>
                     </a>
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
@@ -77,6 +77,13 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="../Secretaria/EntrevistaFamilia.php" style="height: 50px; width: 242px">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la Familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
                 </li>
                 <li>
                     <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 242px">
@@ -123,14 +130,14 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                         <div class="card text-center">
                             <form method="post">
                                 <div class="card-header Header">
-                                    <h4>Bitacoras registradas</h4>
+                                    <h4>Bitácoras registradas</h4>
                                 </div>
                                 <div class="card-body Cuerpo">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">Rut</span>
+                                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">R.U.T</span>
                                                 </div>
                                                 <input type="text" class="form-control" name="txt_rut" style="border-radius: 0 50px 50px 0;" id="rut" required placeholder="11.111.111-1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode==107 || event.charCode==75" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
@@ -139,7 +146,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             <div class="form-group">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Area</label>
+                                                        <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Área</label>
                                                     </div>
                                                     <select class="custom-select" id="cbo_aUser" name="cbo_aUser" style="border-radius: 0 50px 50px 0;">
                                                         <option value="" disabled selected>Seleccione el area Profesional</option>

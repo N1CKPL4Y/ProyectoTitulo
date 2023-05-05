@@ -345,13 +345,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="telefonoAT" class="col-sm-10 col-form-label">Numero de telefono actual</label>
+                                                        <label for="telefonoAT" class="col-sm-10 col-form-label">Numero de teléfono actual</label>
                                                         <input type="number" name="telefonoAT" class="form-control" id="telefonoAT" readonly="" style="background-color: #e9ecef">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="telefonoT" class="col-sm-10 col-form-label">Nuevo numero de telefono</label>
+                                                        <label for="telefonoT" class="col-sm-10 col-form-label">Nuevo numero de teléfono</label>
                                                         <input type="number" name="telefonoT"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" on id="telefonoT">
                                                     </div>
                                                 </div>
@@ -359,14 +359,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="emailAT" class="col-sm-10 col-form-label">Correo electronico actual</label>
+                                                        <label for="emailAT" class="col-sm-10 col-form-label">Correo electrónico actual</label>
                                                         <input type="text" name="emailAT" class="form-control" id="emailAT" readonly="" style="background-color: #e9ecef">
 
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="emailT" class="col-sm-10 col-form-label">Nuevo correo electronico</label>
+                                                        <label for="emailT" class="col-sm-10 col-form-label">Nuevo correo electrónico</label>
                                                         <input type="text" name="emailT" class="form-control" id="emailT">
                                                         <span id="emailVal" style="color: gray"></span>
                                                     </div>
@@ -943,7 +943,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <br>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <h4>Datos de Diagnostico:</h4>
+                                        <h4>Datos de Diagnóstico:</h4>
                                     </div>
                                 </div>
                                 <?php
@@ -971,13 +971,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-sm-12 col-md-10 col-lg-6">
                                                 <div class="input-group flex-nowrap">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="addon-wrapping">Posee Diagnostico:</span>
+                                                        <span class="input-group-text" id="addon-wrapping">Posee Diagnóstico:</span>
                                                     </div>
                                                     <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $exisDiag; ?>" readonly="">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-10 col-lg-6">
-                                                <a href="../Admin/Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
+                                                <a href="../Admin/Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Último Control</a>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 10px">
@@ -1279,7 +1279,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="col-sm-12 col-md-10 col-lg-6">
                                         <div class="input-group flex-nowrap">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Telefono</span>
+                                                <span class="input-group-text" id="addon-wrapping">Teléfono</span>
                                             </div>
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $telefonoT; ?>" readonly="">
                                         </div>
@@ -1289,7 +1289,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <div class="col-sm-12 col-md-10 col-lg-10">
                                         <div class="input-group flex-nowrap">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Correo Electronico</span>
+                                                <span class="input-group-text" id="addon-wrapping">Correo Electrónico</span>
                                             </div>
                                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" value="<?php echo $emailT; ?>" readonly="">
                                         </div>

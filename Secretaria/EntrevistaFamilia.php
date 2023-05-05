@@ -75,7 +75,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuAdmin.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
@@ -99,6 +99,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <span class="links_name">Calendario Mensual</span>
                         </a>
                         <span class="tooltip">Calendario Mensual</span>
+                    </li>
+                    <li>
+                        <a href="../C_Administrativo/Administrativo.php">
+                            <i class='bx bx-library'></i>
+                            <span class="links_name">Calendario Administrativo</span>
+                        </a>
+                        <span class="tooltip">Calendario Administrativo</span>
                     </li>
                     <li>
                         <a href="../Admin/EditarDatos.php">
@@ -146,9 +153,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuDireccion.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
+                    </li>
+                    <li>
+                        <a href="C_Administrativo/Administrativo.php">
+                            <i class='bx bx-library'></i>
+                            <span class="links_name">Calendario Administrativo</span>
+                        </a>
+                        <span class="tooltip">Calendario Administrativo</span>
                     </li>
                     <li>
                         <a href="../Direccion/DirCalendario.php">
@@ -197,7 +211,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuSecretaria.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
@@ -247,7 +261,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuProfesional.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
@@ -283,7 +297,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li>
                         <a href="../MenuInterno.php">
                             <i class='bx bx-home' ></i>
-                            <span class="links_name">Vover a Inicio</span>
+                            <span class="links_name">Volver a Inicio</span>
                         </a>
                         <span class="tooltip">Volver a Inicio</span>
                     </li>
@@ -340,10 +354,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li class="profile">
                     <div class="profile-details">
                         <div class="name_job">
-                            <div class="name"><?php //echo $nombre                   ?></div>
-                            <div class="name"><?php //echo $apellido                   ?></div>
-                            <div class="name"><?php //echo $cargo                   ?></div>
-                            <div class="job"><?php //echo $correo                   ?></div>
+                            <div class="name"><?php //echo $nombre                     ?></div>
+                            <div class="name"><?php //echo $apellido                     ?></div>
+                            <div class="name"><?php //echo $cargo                     ?></div>
+                            <div class="job"><?php //echo $correo                     ?></div>
                         </div>
                         <a><i id="log_out" ></i></a>
                     </div>

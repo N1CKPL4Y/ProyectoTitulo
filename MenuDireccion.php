@@ -194,7 +194,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-10">
                                                     <div class="form-group">
-                                                        <label for="atencion" class="col-sm-10 col-form-label">Tipo de atencion</label>
+                                                        <label for="atencion" class="col-sm-10 col-form-label">Tipo de atención</label>
                                                         <input type="text" name="atencion" class="form-control" id="atencion" readonly="">
                                                     </div>
                                                 </div>

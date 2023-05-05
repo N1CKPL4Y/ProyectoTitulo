@@ -70,7 +70,7 @@ $consulJson = json_encode($consultas);
         <link rel="stylesheet" href="../AdminLTE/plugins/fullcalendar/main.css">
         <link rel="stylesheet" href="../Bootstrap/datepick.css">
         <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css?v=3.2.0">
-        
+
         <link rel="stylesheet" type="text/css" href="../Bootstrap/clockpicker.css">
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
     </head>
@@ -100,6 +100,13 @@ $consulJson = json_encode($consultas);
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
                     </a>
                     <span class="tooltip" style="font-size: 14px">Visualizar Beneficiarios</span>
+                </li>
+                <li>
+                    <a href="../Secretaria/EntrevistaFamilia.php">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la Familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
                 </li>
                 <li>
                     <a href="EditarDatos.php">
@@ -332,26 +339,26 @@ $consulJson = json_encode($consultas);
         <script src="../js/jquery.rut.js"></script>
 
         <script type="text/javascript">
-            $('.clockpicker').clockpicker();
-            $(function () {
-                $('.dates #startEvent').datepicker({
-                    'format': 'yyyy-mm-dd',
-                    'autoclose': true
-                });
-            });
-            $(function () {
-                $("input#beneFI").rut({
-                    formatOn: 'keyup',
-                    minimumLength: 8, // validar largo mínimo; default: 2
-                    validateOn: 'change' // si no se quiere validar, pasar null
-                });
+                                                        $('.clockpicker').clockpicker();
+                                                        $(function () {
+                                                            $('.dates #startEvent').datepicker({
+                                                                'format': 'yyyy-mm-dd',
+                                                                'autoclose': true
+                                                            });
+                                                        });
+                                                        $(function () {
+                                                            $("input#beneFI").rut({
+                                                                formatOn: 'keyup',
+                                                                minimumLength: 8, // validar largo mínimo; default: 2
+                                                                validateOn: 'change' // si no se quiere validar, pasar null
+                                                            });
 
-                var input = document.getElementById('beneFI');
-                input.addEventListener('input', function () {
-                    if (this.value.length >= 13)
-                        this.value = this.value.slice(0, 12);
-                })
-            })
+                                                            var input = document.getElementById('beneFI');
+                                                            input.addEventListener('input', function () {
+                                                                if (this.value.length >= 13)
+                                                                    this.value = this.value.slice(0, 12);
+                                                            })
+                                                        })
         </script>
         <script type="text/javascript">
             var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
@@ -465,9 +472,9 @@ $consulJson = json_encode($consultas);
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
+                                document.getElementById('nomb_bene').value = el['nombre'] + ' ' + el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
-                                document.getElementById('profe').value = el['N_profesional']+' '+el['A_profesional'];
+                                document.getElementById('profe').value = el['N_profesional'] + ' ' + el['A_profesional'];
                             }
 
                         });

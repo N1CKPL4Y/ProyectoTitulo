@@ -88,7 +88,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <li>
                     <a href="../MenuDireccion.php">
                         <i class='bx bx-home' ></i>
-                        <span class="links_name">Vover a Inicio</span>
+                        <span class="links_name">Volver a Inicio</span>
                     </a>
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
@@ -100,7 +100,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
-                    <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 242px">
+                    <a href="../Secretaria/EntrevistaFamilia.php">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la Familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
+                </li>
+                <li>
+                    <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 249px">
                         <i class='bx bx-library'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>
@@ -190,6 +197,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <span class="input-group-text" id="basic-addon1">Contacto</span>
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_Fbene" readonly id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Profesional / Interno</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_rpfesional" readonly="" id="profe" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
@@ -295,8 +308,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 console.log(el);
                                 rut = el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre'];
+                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];;
                                 document.getElementById('fono_bene').value = el['telefono'];
+                                document.getElementById('profe').value = el['N_profesional']+' '+el['A_profesional'];
                             }
 
                         });

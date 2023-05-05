@@ -86,6 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </a>
                     <span class="tooltip">Registrar Usuarios</span>
                 </li>
+                
                 <li>
                     <a href="VisBeneficiario.php">
                         <i class="material-icons">people</i>
