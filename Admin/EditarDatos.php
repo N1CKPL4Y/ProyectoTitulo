@@ -166,7 +166,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <span style="color: grey">Estas areas corresponden a las areas que posee cada profesional y practicante</span>
+                                            <span style="color: grey">Estas áreas corresponden a las áreas que posee cada profesional y practicante</span>
                                         </div>
                                         <br>
                                         <div class="row">
@@ -175,7 +175,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <table class="table table-striped table-bordered">
                                                         <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
-                                                                <th>Areas Habilitadas</th>
+                                                                <th>Áreas Habilitadas</th>
                                                                 <th>Deshabilitar</th>
                                                             </tr>
                                                         </thead>
@@ -203,7 +203,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <table class="table table-striped table-bordered">
                                                         <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
-                                                                <th>Areas Deshabilitadas</th>
+                                                                <th>Áreas Deshabilitadas</th>
                                                                 <th>Habilitar</th>
                                                             </tr>
                                                         </thead>
@@ -250,7 +250,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <div class="col-md-4 col-sm-10">
                                                         <div class="form-group">
-                                                            <input type="text" name="txt_nCodigo" placeholder="Ingrese el codigo de la condición" class="form-control" id="nCondigo" aria-describedby="ncodigo" required="">
+                                                            <input type="text" name="txt_nCodigo" placeholder="Ingrese el código de la condición" class="form-control" id="nCondigo" aria-describedby="ncodigo" required="">
                                                             <small id="ncodigo" class="form-text text-muted"></small>
                                                         </div>
                                                     </div>
@@ -377,7 +377,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="card-header Header" id="headingThree" style="background-color: #558b2f">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="color: white">
-                                            Agregar Areas de Especialistas
+                                            Agregar Áreas de Especialistas
                                         </button>
                                     </h2>
                                 </div>
@@ -402,7 +402,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <span style="color: grey">Estas areas de especialistas corresponden a los especialistas que derivan al beneficiario previo al registro en el sistema</span>
+                                            <span style="color: grey">Estas áreas de especialistas corresponden a los especialistas que derivan al beneficiario previo al registro en el sistema</span>
                                         </div>
                                         <br>
                                         <div class="row">
@@ -411,7 +411,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <table class="table table-striped table-bordered">
                                                         <thead class="HeaderModal" style="font-size: 20px; text-align: center">
                                                             <tr>
-                                                                <th>Areas de Especialistas registradas</th>
+                                                                <th>Áreas de Especialistas registradas</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody style="text-align: center">

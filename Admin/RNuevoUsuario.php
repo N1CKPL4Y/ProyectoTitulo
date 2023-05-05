@@ -146,7 +146,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group">
-                                                        <label for="rut_input">Rut</label>
+                                                        <label for="rut_input">R.U.T</label>
                                                         <input type="text" class="form-control" name="txt_rut" id="rut_input" style="border-radius: 50px; text-indent: 18px;" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" required>
 
                                                     </div>
@@ -184,7 +184,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="telefonoUser">Telefono</label>
+                                                    <label for="telefonoUser">Teléfono</label>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1" style="border-radius: 50px 0 0 50px;">+56</span>

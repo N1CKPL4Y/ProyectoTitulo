@@ -416,7 +416,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <div class="modal-content">
                                     <form action="../controller/controllerUpdateDiag.php?dis=1" method="Post" enctype="multipart/form-data">
                                         <div class="modal-header HeaderModal" style=" display: flex; align-items: center; justify-content: center;padding-top: 10px; padding-left: 10px">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Registrar datos de diagnostico</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">Registrar datos de diagnóstico</h5>
                                         </div>
                                         <div class="modal-body Cuerpo">
                                             <div class="row">
@@ -470,7 +470,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group dates">
-                                                        <label for="datepicker" class="col-sm-12 col-form-label">Indique fecha del ultimo control con el especialista</label>
+                                                        <label for="datepicker" class="col-sm-12 col-form-label">Indique fecha del último control con el especialista</label>
                                                         <input type="text" placeholder="--Seleccione--" class="form-control diag" autocomplete="off"  name="txt_control" id="datepicker" style=" text-indent: 18px;">
                                                         <span style="color: grey">Formato Año-Mes-Dia</span>
                                                     </div>
@@ -478,7 +478,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-8 col-lg-8">
-                                                    <label style="margin-left: 10px">Copia informe ultimo control (PDF)</label>
+                                                    <label style="margin-left: 10px">Copia informe último control (PDF)</label>
                                                     <div class="mb-3">
                                                         <input class="form-control" name="file_control" accept="application/pdf" type="file">
                                                     </div>
@@ -954,7 +954,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <br>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="col-sm-12 col-md-10 col-lg-6">
-                                        <h4>Datos de Diagnostico:</h4>
+                                        <h4>Datos de Diagnóstico:</h4>
                                     </div>
                                 </div>
                                 <?php
@@ -988,7 +988,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-10 col-lg-6">
-                                                <a href="Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Ultimo Control</a>
+                                                <a href="Datos/Control.php?rut=<?php echo $rutBase; ?>" target="_blank" class="btn submit col-sm-12 col-md-12 col-lg-12 col-xl-12"> Ver Informe Último Control</a>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 10px">
@@ -1038,7 +1038,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     Registro
                                                 </div>
                                                 <div class="card-body">
-                                                    <h5 class="card-title">El beneficiario no posee un diagnostico asociado</h5>
+                                                    <h5 class="card-title">El beneficiario no posee un diagnóstico asociado</h5>
                                                 </div>
                                                 <div class="card-footer text-muted">
                                                     ...
@@ -1047,7 +1047,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                         </div>
                                     </div>
                                     <div class="row justify-content-around" style="padding-top: 10px">
-                                        <a data-toggle="modal" data-target="#modalIngDiag" class="btn submit col-sm-12 col-md-6 col-lg-6 col-xl-6">Ingresar datos de diagnostico</a>
+                                        <a data-toggle="modal" data-target="#modalIngDiag" class="btn submit col-sm-12 col-md-6 col-lg-6 col-xl-6">Ingresar datos de diagnóstico</a>
                                     </div>
                                     <?php
                                 }

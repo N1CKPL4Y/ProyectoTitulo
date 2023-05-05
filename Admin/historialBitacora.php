@@ -151,7 +151,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="card text-center">
                             <form method="post" name="datosUser">
                                 <div class="card-header Header">
-                                    <h4>Bitacoras registradas</h4>
+                                    <h4>Bitácoras registradas</h4>
                                 </div>
                                 <div class="card-body Cuerpo">
                                     <div class="row">
@@ -167,7 +167,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="form-group">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Area</label>
+                                                        <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Área</label>
                                                     </div>
                                                     <select class="custom-select" id="cbo_aUser" name="cbo_aUser" style="border-radius: 0 50px 50px 0;">
                                                         <option value="" disabled selected>Seleccione el area Profesional</option>
@@ -344,15 +344,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <script src="../js/validarut.js"></script>
     <script src="../js/jquery.rut.js">
     </script>
-    <script>$(window).on('unload', function () {
-            $.ajax({
-                url: "../controller/controllerLogout.php",
-                type: "get",
-                data: {rut: '<?php echo $rut ?>', log: 0}
-            });
-        });
-    </script>
-
     <script>
         $(function () {
             $('.dates #datepicker').datepicker({

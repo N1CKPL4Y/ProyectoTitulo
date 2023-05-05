@@ -205,7 +205,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-10">
-                                                    <label for="telefonoU" class="col-sm-10 col-form-label">Telefono del usuario</label>
+                                                    <label for="telefonoU" class="col-sm-10 col-form-label">Teléfono del usuario</label>
                                                     <div class="input-group mb-3">      
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">+56</span>
@@ -349,7 +349,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <th>Nombres</th>
                                                     <th>Apellidos</th>
                                                     <th>Correo</th>
-                                                    <th>Telefono</th>
+                                                    <th>Teléfono</th>
                                                     <th>Tipo de usuario</th>
                                                     <th>Activo</th>
                                                     <th>Editar</th>

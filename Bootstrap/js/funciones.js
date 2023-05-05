@@ -63,14 +63,14 @@ function updateBene(datos){
     $('#direccionA').val(d[3]);
     $('#comunaA').val(d[4]);   
     if (d[5]==1) {
-        $('#atencion').val("Atencion por beneficio");
-        $('#labelDes').text("¿Desea cambiar a atencion por programa pagado?");
+        $('#atencion').val("Atención por beneficio");
+        $('#labelDes').text("¿Desea cambiar a atención por programa pagado?");
         $('#atencionTipo1').val(2);
         $('#atencionTipo2').val(1);
         
     }else{
-        $('#atencion').val("Atencion por programa pagado");
-        $('#labelDes').text("¿Desea cambiar a atencion por beneficio?");
+        $('#atencion').val("Atención por programa pagado");
+        $('#labelDes').text("¿Desea cambiar a atención por beneficio?");
         $('#atencionTipo1').val(1);
         $('#atencionTipo2').val(2);
         
