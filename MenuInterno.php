@@ -237,6 +237,34 @@ $consulJson = json_encode($consultas);
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-11 col-lg-11" style="padding-left: 100px">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left: 15px; padding-top: 5px">
+                                        <h5 style="text-align: center">Identificadores de Eventos según color</h5>
+                                    </div>
+                                </div>
+                                <div class="row" style="display: flex; justify-content: center">
+                                    <div class="col-sm-12 col-md-2 col-lg-2" style="padding-left: 15px">
+                                        <p style="background:#10E706; color:black; padding:2px; text-align: center; border-radius: 10px; font-weight:bold">Asistirá</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2 col-lg-2" style="padding-left: 15px">
+                                        <p style="background:#F00505; color:black; padding:2px; text-align: center; border-radius: 10px; font-weight:bold">No Asistirá</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2 col-lg-2" style="padding-left: 15px">
+                                        <p style="background:#E8F005; color:black; padding:2px; text-align: center; border-radius: 10px; font-weight:bold">Reagendar</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3 col-lg-3" style="padding-left: 15px">
+                                        <p style="background:#F07A05; color:black; padding:2px; text-align: center; border-radius: 10px; font-weight:bold">Sintomas COVID-19</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2 col-lg-2" style="padding-left: 15px; padding-right: 15px">
+                                        <p style="background:#0387EF; color:black; padding:2px; text-align: center; border-radius: 10px; font-weight:bold">Finalizado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-md-10 col-lg-10">
                             <div class="card card-primary">
@@ -276,7 +304,7 @@ $consulJson = json_encode($consultas);
              eventJson = [{'title':'The Title','start':'2022-09-01','end':'2022-09-02' }];
              console.log(eventJson);
              }else{
-             eventJson=<?php //echo $eventJson;      ?>;
+             eventJson=<?php //echo $eventJson;              ?>;
              console.log(eventJson);
              }*/
             document.addEventListener('DOMContentLoaded', function () {
@@ -368,7 +396,7 @@ $consulJson = json_encode($consultas);
                                 console.log(el);
                                 rut = el['RUT'];
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
+                                document.getElementById('nomb_bene').value = el['nombre'] + ' ' + el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
                             }
 
