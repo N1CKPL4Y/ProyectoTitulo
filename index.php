@@ -66,7 +66,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             </form>
                         </div>
                         <div class="card-footer text-center" style="background-color: #0B4C5F; color: white">
-                            Fundacion Ave Fenix © Derechos Reservados - 2022
+                            Fundación Ave Fénix © Derechos Reservados - 2022
                         </div>
                     </div>
                 </div>
