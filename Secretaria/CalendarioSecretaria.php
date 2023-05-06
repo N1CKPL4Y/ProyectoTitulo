@@ -139,7 +139,7 @@ $consulJson = json_encode($consultas);
                 </li>
                 <li>
                     <a href="EntrevistaFamilia.php">
-                        <i class='bx bx-folder' ></i>
+                        <i class='bx bx-home-heart'></i>
                         <span class="links_name">Registrar Entrevista</span>
                     </a>
                     <span class="tooltip">Registrar Entrevista</span>

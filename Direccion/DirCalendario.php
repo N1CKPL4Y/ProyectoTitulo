@@ -93,13 +93,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
-                    <a href="DirHistorialBitacora.php">
-                        <i class='bx bx-library'></i>
-                        <span class="links_name">Historial Bitacoras</span>
-                    </a>
-                    <span class="tooltip">Historial Bitacoras</span>
-                </li>
-                <li>
                     <a href="../Secretaria/EntrevistaFamilia.php">
                         <i class='bx bx-home-heart'></i>
                         <span class="links_name">Entrevista a la Familia</span>
@@ -108,10 +101,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </li>
                 <li>
                     <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 249px">
-                        <i class='bx bx-library'></i>
+                        <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>
                     <span class="tooltip">Calendario Administrativo</span>
+                </li>
+                <li>
+                    <a href="DirHistorialBitacora.php">
+                        <i class='bx bx-library'></i>
+                        <span class="links_name">Historial Bitacoras</span>
+                    </a>
+                    <span class="tooltip">Historial Bitacoras</span>
                 </li>
                 <li>
                     <a href="../controller/controllerLogout.php">

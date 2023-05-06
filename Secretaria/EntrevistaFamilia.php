@@ -100,19 +100,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         </a>
                         <span class="tooltip">Calendario Mensual</span>
                     </li>
-                    <li>
-                        <a href="../C_Administrativo/Administrativo.php">
-                            <i class='bx bx-library'></i>
-                            <span class="links_name">Calendario Administrativo</span>
-                        </a>
-                        <span class="tooltip">Calendario Administrativo</span>
-                    </li>
+                    
                     <li>
                         <a href="../Admin/EditarDatos.php">
                             <i class="material-icons">border_color</i>
                             <span class="links_name">Editar Datos</span>
                         </a>
                         <span class="tooltip">Editar Datos</span>
+                    </li>
+                    <li>
+                        <a href="../C_Administrativo/Administrativo.php">
+                            <i class='bx bx-calendar'></i>
+                            <span class="links_name">Calendario Administrativo</span>
+                        </a>
+                        <span class="tooltip">Calendario Administrativo</span>
                     </li>
                     <li>
                         <a href="../Admin/historialBitacora.php">
@@ -159,7 +160,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </li>
                     <li>
                         <a href="C_Administrativo/Administrativo.php">
-                            <i class='bx bx-library'></i>
+                            <i class='bx bx-calendar'></i>
                             <span class="links_name">Calendario Administrativo</span>
                         </a>
                         <span class="tooltip">Calendario Administrativo</span>
@@ -217,14 +218,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </li>
                     <li>
                         <a href="../Secretaria/CalendarioSecretaria.php">
-                            <i class='bx bx-calendar-heart'></i>
+                            <i class='bx bx-calendar'></i>
                             <span class="links_name">Calendario Mensual</span>
                         </a>
                         <span class="tooltip">Calendario Mensual</span>
                     </li>
                     <li>
                         <a href="../C_Administrativo/Administrativo.php">
-                            <i class='bx bx-calendar-star'></i>
+                            <i class='bx bx-calendar'></i>
                             <span class="links_name">Calendario Administrativo</span>
                         </a>
                         <span class="tooltip">Calendario Administrativo</span>

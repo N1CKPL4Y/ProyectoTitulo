@@ -67,6 +67,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
+                    <a href="../Secretaria/EntrevistaFamilia.php">
+                        <i class='bx bx-home-heart'></i>
+                        <span class="links_name">Entrevista a la Familia</span>
+                    </a>
+                    <span class="tooltip">Entrevista a la Familia</span>
+                </li>
+                <li>
                     <a href="VisBeneficiario.php">
                         <i class="material-icons">people</i>
                         <span class="links_name" style="font-size: 14px">Visualizar Beneficiarios</span>
@@ -80,13 +87,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
-                <li>
-                    <a href="../Secretaria/EntrevistaFamilia.php">
-                        <i class='bx bx-home-heart'></i>
-                        <span class="links_name">Entrevista a la Familia</span>
-                    </a>
-                    <span class="tooltip">Entrevista a la Familia</span>
-                </li>
+                
                 <li>
                     <a href="EditarDatos.php">
                         <i class="material-icons">border_color</i>

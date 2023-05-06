@@ -72,13 +72,6 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <span class="tooltip">Volver a Inicio</span>
                 </li>
                 <li>
-                    <a href="DirCalendario.php" style="height: 50px; width: 242px">
-                        <i class='bx bx-calendar'></i>
-                        <span class="links_name">Calendario Mensual</span>
-                    </a>
-                    <span class="tooltip">Calendario Mensual</span>
-                </li>
-                <li>
                     <a href="../Secretaria/EntrevistaFamilia.php" style="height: 50px; width: 242px">
                         <i class='bx bx-home-heart'></i>
                         <span class="links_name">Entrevista a la Familia</span>
@@ -86,8 +79,15 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                     <span class="tooltip">Entrevista a la Familia</span>
                 </li>
                 <li>
+                    <a href="DirCalendario.php" style="height: 50px; width: 242px">
+                        <i class='bx bx-calendar'></i>
+                        <span class="links_name">Calendario Mensual</span>
+                    </a>
+                    <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
                     <a href="../C_Administrativo/Administrativo.php" style="height: 50px; width: 242px">
-                        <i class='bx bx-library'></i>
+                        <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>
                     <span class="tooltip">Calendario Administrativo</span>

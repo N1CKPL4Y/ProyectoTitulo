@@ -68,13 +68,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <ul class="nav-list">
                 <li>
-                    <a href="Direccion/DirCalendario.php">
-                        <i class='bx bx-calendar'></i>
-                        <span class="links_name">Calendario Mensual</span>
-                    </a>
-                    <span class="tooltip">Calendario Mensual</span>
-                </li>
-                <li>
                     <a href="Secretaria/EntrevistaFamilia.php">
                         <i class='bx bx-home-heart'></i>
                         <span class="links_name">Entrevista a la Familia</span>
@@ -82,18 +75,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <span class="tooltip">Entrevista a la Familia</span>
                 </li>
                 <li>
+                    <a href="Direccion/DirCalendario.php">
+                        <i class='bx bx-calendar'></i>
+                        <span class="links_name">Calendario Mensual</span>
+                    </a>
+                    <span class="tooltip">Calendario Mensual</span>
+                </li>
+                <li>
+                    <a href="C_Administrativo/Administrativo.php">
+                        <i class='bx bx-calendar'></i>
+                        <span class="links_name">Calendario Administrativo</span>
+                    </a>
+                    <span class="tooltip">Calendario Administrativo</span>
+                </li>
+                <li>
                     <a href="Direccion/DirHistorialBitacora.php">
                         <i class='bx bx-library'></i>
                         <span class="links_name">Historial Bitacoras</span>
                     </a>
                     <span class="tooltip">Historial Bitacoras</span>
-                </li>
-                <li>
-                    <a href="C_Administrativo/Administrativo.php">
-                        <i class='bx bx-library'></i>
-                        <span class="links_name">Calendario Administrativo</span>
-                    </a>
-                    <span class="tooltip">Calendario Administrativo</span>
                 </li>
                 <li>
                     <a href="controller/controllerLogout.php">

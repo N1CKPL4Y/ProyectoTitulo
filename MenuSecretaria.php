@@ -73,21 +73,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <ul class="nav-list" >
                 <li>
                     <a href="Secretaria/EntrevistaFamilia.php">
-                        <i class='bx bx-folder' ></i>
+                        <i class='bx bx-home-heart'></i>
                         <span class="links_name">Registrar Entrevista</span>
                     </a>
                     <span class="tooltip">Registrar Entrevista</span>
                 </li>
                 <li>
                     <a href="Secretaria/CalendarioSecretaria.php">
-                        <i class='bx bx-calendar-heart'></i>
+                        <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Mensual</span>
                     </a>
                     <span class="tooltip">Calendario Mensual</span>
                 </li>
                 <li>
                     <a href="C_Administrativo/Administrativo.php">
-                        <i class='bx bx-calendar-star'></i>
+                        <i class='bx bx-calendar'></i>
                         <span class="links_name">Calendario Administrativo</span>
                     </a>
                     <span class="tooltip">Calendario Administrativo</span>
