@@ -452,7 +452,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="rutT" style="margin-left: 10px">R.U.T del tutor</label>
-                                                                <input type="text" class="form-control" name="txt_rtutor" id="rutT" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                                <input type="text" class="form-control" name="txt_rtutor" id="rutT" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107 || event.charCode == 75" onchange="javascript:return Rut(document.datosUser.txt_rtutor.value)">
 
                                                             </div>
                                                         </div>
