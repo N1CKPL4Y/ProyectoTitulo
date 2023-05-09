@@ -323,7 +323,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="card-header Header" id="headingThree">
                                                 <h2 class="mb-0">
                                                     <button class="btn text-left btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        <i class="bi bi-caret-down-fill Titulo">Diagnostico del beneficiario</i>
+                                                        <i class="bi bi-caret-down-fill Titulo">Diagnóstico del beneficiario</i>
                                                     </button>
                                                 </h2>
                                             </div>
