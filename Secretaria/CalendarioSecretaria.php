@@ -39,6 +39,10 @@ foreach ($eventos as $value) {
 $eventJson = json_encode($eventoA);
 
 $consulta2 = $data->getConsula();
+$rutBene;
+foreach($consulta2 as $value){
+    $rutBene = $value['RUT'];
+}
 $consultas = [];
 foreach ($consulta2 as $value) {
     array_push($consultas, $value);
@@ -241,13 +245,28 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Tutor</span>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="tutor" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Telefono</span>
                                                     </div>
                                                     <input type="text" class="form-control" readonly name="txt_Fbene" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="mb-2">
+                                                    <span class="input-group-text" id="basic-addon1">Datos de profesional / interno</span>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Area</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -428,7 +447,9 @@ $consulJson = json_encode($consultas);
                                 document.getElementById('bene').value = el['RUT'];
                                 document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
-                                document.getElementById('profe').value = el['profesional'];
+                                document.getElementById('tutor').value = el['n_tutor'];
+                                document.getElementById('profe').value = el['N_profesional']+' '+el['A_profesional'];
+                                document.getElementById('profe1').value = el['area'];
                             }
 
                         });

@@ -204,6 +204,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     </div>
                                                     <input type="text" class="form-control" name="txt_rpfesional" readonly="" id="profe" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Área</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txt_rpfesional" readonly="" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -311,6 +317,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];;
                                 document.getElementById('fono_bene').value = el['telefono'];
                                 document.getElementById('profe').value = el['N_profesional']+' '+el['A_profesional'];
+                                document.getElementById('profe1').value = el['area'];
                             }
 
                         });
