@@ -167,7 +167,7 @@ $consulJson = json_encode($consultas);
                     <div class="row">
                         <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
                             <div class="modal fade" id="create" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-lg">
                                     <form name="datosUser" id="datosUser" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
