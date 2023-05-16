@@ -40,7 +40,7 @@ $eventJson = json_encode($eventoA);
 
 $consulta2 = $data->getConsula();
 $rutBene;
-foreach($consulta2 as $value){
+foreach ($consulta2 as $value) {
     $rutBene = $value['RUT'];
 }
 $consultas = [];
@@ -190,83 +190,126 @@ $consulJson = json_encode($consultas);
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-12 col-md-10 col-lg-8" style="padding-top: 10px">
+                        <div class="col-sm-12 col-md-10 col-lg-12" style="padding-top: 10px">
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-lg">
                                     <form name="form" id="form1" method="post" action="">
                                         <div class="modal-content">
                                             <div class="modal-header HeaderModal">
                                                 <h5 class="modal-title" id="staticBackdropLabel"></h5>
                                             </div>
                                             <div class="modal-body Cuerpo">
-                                                <div class="input-group mb-3" id="id_event">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">#</span>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-3">
+                                                        <div class="input-group mb-3" id="id_event">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">#</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_id" id="id" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_id" id="id" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Titulo</span>
+                                                    <div class="col-sm-12 col-md-10 col-lg-9">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Titulo:</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" name="txt_title" readonly id="title" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_title" readonly id="title" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3 dates">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-4">
+                                                        <div class="input-group mb-3 dates">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-plus"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autocomplete="off" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" autocomplete="off" name="txt_fecha" id="startEvent" aria-label="Username" readonly aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3 clockpicker"  data-placement="left" data-align="top" data-autoclose="true">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
+                                                    <div class="col-sm-12 col-md-10 col-lg-4">
+                                                        <div class="input-group mb-3 clockpicker"  data-placement="left" data-align="top" data-autoclose="true">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-clock"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control" name="txt_hora" autocomplete="off" id="startEventHour" aria-label="Username"  aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_hora" autocomplete="off" id="startEventHour" aria-label="Username"  aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Datos beneficiario</span>
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut</span>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-12">
+                                                        <div class="mb-2">
+                                                            <span class="input-group-text" id="basic-addon1">Datos beneficiario:</span>
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1">
+
                                                 </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-3">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Rut</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_Nbene" id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Datos de contacto</span>
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Tutor</span>
+                                                    <div class="col-sm-12 col-md-10 col-lg-9">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_Nbene" id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="tutor" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Telefono</span>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-12">
+                                                        <div class="mb-2">
+                                                            <span class="input-group-text" id="basic-addon1">Datos de contacto:</span>
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_Fbene" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
-                                                <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Datos de profesional / interno</span>
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-8">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Tutor</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_rpfesional" id="tutor" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Area</span>
+                                                    <div class="col-sm-12 col-md-10 col-lg-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Telefono</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_Fbene" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-12">
+                                                        <div class="mb-2">
+                                                            <span class="input-group-text" id="basic-addon1">Datos de profesional / interno:</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10 col-lg-7">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-10 col-lg-5">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon1">Area</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -445,10 +488,10 @@ $consulJson = json_encode($consultas);
                             if (el['evento'] == info.event.id) {
                                 console.log(el);
                                 document.getElementById('bene').value = el['RUT'];
-                                document.getElementById('nomb_bene').value = el['nombre']+' '+el['apellido'];
+                                document.getElementById('nomb_bene').value = el['nombre'] + ' ' + el['apellido'];
                                 document.getElementById('fono_bene').value = el['telefono'];
                                 document.getElementById('tutor').value = el['n_tutor'];
-                                document.getElementById('profe').value = el['N_profesional']+' '+el['A_profesional'];
+                                document.getElementById('profe').value = el['N_profesional'] + ' ' + el['A_profesional'];
                                 document.getElementById('profe1').value = el['area'];
                             }
 
