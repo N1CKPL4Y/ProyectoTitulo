@@ -305,7 +305,7 @@ $consulJson = json_encode($consultas);
                                                     <div class="col-sm-12 col-md-10 col-lg-5">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1">Area</span>
+                                                                <span class="input-group-text" id="basic-addon1">Área</span>
                                                             </div>
                                                             <input type="text" class="form-control" readonly name="txt_rpfesional" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
@@ -317,8 +317,8 @@ $consulJson = json_encode($consultas);
                                                     </div>
                                                     <select name="cbo_evento" id="evento" class="custom-select" id="inputGroupSelect01">
                                                         <option selected value="0">Elija una opcion</option>
-                                                        <option value="#10E706">Asitira</option>
-                                                        <option value="#F00505">No asistira</option>
+                                                        <option value="#10E706">Asitirá</option>
+                                                        <option value="#F00505">No asistirá</option>
                                                         <option value="#E8F005">Reagendar</option>
                                                         <option value="#F07A05">Presenta sintomas de COVID-19</option>
                                                     </select>
