@@ -277,13 +277,13 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Rut</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_bene" id="bene" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
+                                                    <input type="text" class="form-control" name="txt_bene" readonly="" id="bene" aria-label="Username" aria-describedby="basic-addon1" onkeypress="return(event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" onchange="javascript:return Rut(document.datosUser.txt_rut.value)">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Nombre</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_Nbene" id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_Nbene" readonly="" id="nomb_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="mb-2">
                                                     <span class="input-group-text" id="basic-addon1">Datos de contacto</span>
@@ -292,7 +292,7 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-outbound"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_Fbene" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_Fbene" readonly="" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="mb-2">
                                                     <span class="input-group-text" id="basic-addon1">Profesional que lo atendera</span>
@@ -301,13 +301,13 @@ $consulJson = json_encode($consultas);
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-medical" ></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rpfesional" id="profe" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_rpfesional" readonly="" id="profe" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-medical" ></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="txt_rpfesional" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" name="txt_rpfesional" readonly="" id="profe1" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                             <div class="modal-footer HeaderModal">
