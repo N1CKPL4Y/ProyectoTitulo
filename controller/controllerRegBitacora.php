@@ -19,17 +19,17 @@ $t_atencion = isset($_POST['t_atencion']) ? $_POST['t_atencion'] : null;
 
 $user = $data->getUserbyRut($rut_profe);
 $areaId;
-foreach($user as $value){
+foreach ($user as $value) {
     $areaId = $value['a_user'];
 }
 
-echo $areaId;
+//echo $areaId;
 
-/*$consultas = $data->getConsEvent($rut_bene, $rut_profe);
-$programas = $data->getCountPrograma($rut_bene, $rut_profe);
-$cuentaConsu;
-$cuentaProgram;
-$programa = $data->getPrograma($rut_bene, $rut_profe);*/
+/* $consultas = $data->getConsEvent($rut_bene, $rut_profe);
+  $programas = $data->getCountPrograma($rut_bene, $rut_profe);
+  $cuentaConsu;
+  $cuentaProgram;
+  $programa = $data->getPrograma($rut_bene, $rut_profe); */
 //var_dump($programa);
 
 /* foreach ($programa as $value) {
@@ -45,48 +45,48 @@ $programa = $data->getPrograma($rut_bene, $rut_profe);*/
   } */
 
 
-/*if (mysqli_num_rows($programa) > 0) {
-    foreach ($programa as $value) {
-        echo '<br>programa existente (Ultimo)' . $value['programa'] . '<br>';
-        $programa = $value['programa'];
-    }
-    foreach ($consultas as $value) {
-        echo '<br> Consultas del mes' . $value['Consultas'];
-        $cuentaConsu = $value['Consultas'];
-    }
+/* if (mysqli_num_rows($programa) > 0) {
+  foreach ($programa as $value) {
+  echo '<br>programa existente (Ultimo)' . $value['programa'] . '<br>';
+  $programa = $value['programa'];
+  }
+  foreach ($consultas as $value) {
+  echo '<br> Consultas del mes' . $value['Consultas'];
+  $cuentaConsu = $value['Consultas'];
+  }
 
-    foreach ($programas as $value) {
-        echo '<br>programa del mes' . $value['Programas'] . '<br>';
-        $cuentaProgram = $value['Programas'];
-    }
-    if ($cuentaConsu == $cuentaProgram) {
-        echo '<br>se ha actualizado el programa: ' . $programa += 1;
-        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-    } else {
-        echo '<br>el programa es: ' . $programa;
-        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-    }
-} else {
-    $programa = 1;
-    echo 'No existen programas registrado, se definira como: ' . $programa;
+  foreach ($programas as $value) {
+  echo '<br>programa del mes' . $value['Programas'] . '<br>';
+  $cuentaProgram = $value['Programas'];
+  }
+  if ($cuentaConsu == $cuentaProgram) {
+  echo '<br>se ha actualizado el programa: ' . $programa += 1;
+  $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+  } else {
+  echo '<br>el programa es: ' . $programa;
+  $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+  }
+  } else {
+  $programa = 1;
+  echo 'No existen programas registrado, se definira como: ' . $programa;
 
-    foreach ($consultas as $value) {
-        echo '<br> Consultas del mes' . $value['Consultas'];
-        $cuentaConsu = $value['Consultas'];
-    }
+  foreach ($consultas as $value) {
+  echo '<br> Consultas del mes' . $value['Consultas'];
+  $cuentaConsu = $value['Consultas'];
+  }
 
-    foreach ($programas as $value) {
-        echo '<br>programa del mes' . $value['Programas'] . '<br>';
-        $cuentaProgram = $value['Programas'];
-    }
-    if ($cuentaConsu == $cuentaProgram) {
-        echo '<br>se ha actualizado el programa: ' . $programa += 1;
-        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-    } else {
-        echo '<br>el programa es: ' . $programa;
-        $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-    }
-}*/
+  foreach ($programas as $value) {
+  echo '<br>programa del mes' . $value['Programas'] . '<br>';
+  $cuentaProgram = $value['Programas'];
+  }
+  if ($cuentaConsu == $cuentaProgram) {
+  echo '<br>se ha actualizado el programa: ' . $programa += 1;
+  $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+  } else {
+  echo '<br>el programa es: ' . $programa;
+  $data->addBitacora($rut_bene, $rut_profe, $programa, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+  }
+  } */
 ?>
 <!DOCTYPE html>
 <!--
@@ -123,30 +123,46 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         }
                     });
         }
+        function Error() {
+            swal({
+                title: "Error",
+                text: "Verifique el ingreso de todos los datos",
+                type: "error",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Aceptar"
+            },
+                    function () {
+                        window.location.href = '../ProfeInterno/BitacoraProfesional.php?rut=<?php echo $rut_bene; ?>&id=<?php echo $evento; ?>';
+                    });
+        }
     </script>
 </html>
 <?php
 $fecha = $data->fechaActual();
 $fechaB;
-foreach($fecha as $value){
+foreach ($fecha as $value) {
     $fechaB = $value['fecha'];
 }
 $hora = $data->horaActual();
 $horaB;
-foreach($hora as $value){
+foreach ($hora as $value) {
     $horaB = $value['hora'];
 }
 //echo '<br>'.$fechaB.'<br>'.$horaB;
 //echo $t_atencion;
 if ($evento && $rut_bene) {
-    if ($_SESSION['cargo'] == 3) {
-        echo '<script>registrado();</script>';
-        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-        $data->updColorEvento($evento, $color);
-    } else if ($_SESSION['cargo'] == 4) {
-        echo '<script>registrado();</script>';
-        $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
-        $data->updColorEvento($evento, $color);
+    if ($programa == "" || $t_atencion == "" || $antecedentes == "" || $objetivos == "" || $actividad == "" || $acuerdo == "" || $observaciones == "") {
+        echo '<script>Error();</script>';
+    } else {
+        if ($_SESSION['cargo'] == 3) {
+            echo '<script>registrado();</script>';
+            $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, $t_atencion, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+            $data->updColorEvento($evento, $color);
+        } else if ($_SESSION['cargo'] == 4) {
+            echo '<script>registrado();</script>';
+            $data->addBitacora($rut_bene, $rut_profe, $areaId, $programa, 1, $fechaB, $horaB, $antecedentes, $objetivos, $actividad, $acuerdo, $observaciones);
+            $data->updColorEvento($evento, $color);
+        }
     }
 }
 ?>

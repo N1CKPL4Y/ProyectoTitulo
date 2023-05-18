@@ -262,7 +262,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             </div>
                                         </div>
                                     </div>
-                                    <form method="post" action="../controller/controllerRegBitacora.php">
+                                    <form method="post" action="../controller/controllerRegBitacora.php?id=<?php echo $idB;?>">
                                         <div class="row" style="margin-top: 15px">
                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                 <div class="card">
@@ -280,7 +280,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             </div>
                                                                             <input type="hidden" class="form-control" name="txt_rutB" value="<?php echo $rutBe; ?>" aria-label="Username" aria-describedby="basic-addon1">
                                                                             <input type="hidden" class="form-control" name="txt_evento" value="<?php echo $idB; ?>" aria-label="Username" aria-describedby="basic-addon1">
-                                                                            <input type="text" class="form-control"  name="txt_program"  aria-label="Username" aria-describedby="basic-addon1">
+                                                                            <input type="text" class="form-control" required=""  name="txt_program" required="" aria-label="Username" aria-describedby="basic-addon1">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -305,7 +305,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">Antecedentes</span>
                                                                             </div>
-                                                                            <textarea maxlength="1500" class="form-control" id="txtarea" name="txt_ant" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" required="" id="txtarea" name="txt_ant" aria-label="With textarea"></textarea>
                                                                         </div>
                                                                         <div id="contador1">0/1500</div>
                                                                     </div>
@@ -331,7 +331,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Objetivos:">
                                                                             </div>
-                                                                            <textarea maxlength="1500" class="form-control" id="txt_obj" name="txt_obs" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_obj" required="" name="txt_obs" aria-label="With textarea"></textarea>
                                                                         </div>
                                                                         <div id="contador2">0/1500</div>
                                                                     </div>
@@ -342,7 +342,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Actividad:">
                                                                             </div>
-                                                                            <textarea maxlength="1500" class="form-control" id="txt_act" name="txt_act" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_act" required="" name="txt_act" aria-label="With textarea"></textarea>
                                                                         </div>
                                                                         <div id="contador3">0/1500</div>
                                                                     </div>
@@ -353,7 +353,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Acuerdo:">
                                                                             </div>
-                                                                            <textarea maxlength="1500" class="form-control" id="txt_acu" name="txt_acu" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_acu" required="" name="txt_acu" aria-label="With textarea"></textarea>
                                                                         </div>
                                                                         <div id="contador4">0/1500</div>
                                                                     </div>
@@ -364,7 +364,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                                             <div class="input-group-prepend">
                                                                                 <input class="input-group-text" disabled type="text" size="10" value="Observaciones:">
                                                                             </div>
-                                                                            <textarea maxlength="1500" class="form-control" id="txt_obs" name="txt_obs" aria-label="With textarea"></textarea>
+                                                                            <textarea maxlength="1500" class="form-control" id="txt_obs" required="" name="txt_obs" aria-label="With textarea"></textarea>
                                                                         </div>
                                                                         <div id="contador5">0/1500</div>
                                                                     </div>
