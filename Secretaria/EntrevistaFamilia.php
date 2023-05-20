@@ -25,6 +25,12 @@ foreach ($cUser as $value) {
     $cargo = $value['nombre'];
 }
 
+$area1 = $data->getAreaById($area_u);
+$areaU;
+foreach ($area1 as $value) {
+    $areaU = $value['nombre'];
+}
+
 switch ($_SESSION['tipo_u']) {
     case 1:
         $tipo_u = "Administrador";
@@ -279,7 +285,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name_job">
                                 <div class="name"><?php echo $nombre ?></div>
                                 <div class="name"><?php echo $apellido ?></div>
-                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="name"><?php echo $cargo ?> | <?php echo $areaU ?></div>
                                 <div class="job"><?php echo $correo ?></div>
                             </div>
                             <a><i id="log_out" ></i></a>
@@ -315,7 +321,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="name_job">
                                 <div class="name"><?php echo $nombre ?></div>
                                 <div class="name"><?php echo $apellido ?></div>
-                                <div class="name"><?php echo $cargo ?></div>
+                                <div class="name"><?php echo $cargo ?> | <?php echo $areaU ?></div>
                                 <div class="job"><?php echo $correo ?></div>
                             </div>
                             <a><i id="log_out" ></i></a>
