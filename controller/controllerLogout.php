@@ -15,8 +15,8 @@ session_start();
         <script>
             function Salir() {
                 swal({
-                    title: "Cerrando Sesion",
-                    text: "Has cerrado sesion correctamente",
+                    title: "Cerrando Sesión",
+                    text: "Has cerrado sesión correctamente",
                     type: "success",
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Aceptar"

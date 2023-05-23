@@ -11,7 +11,7 @@ $cargo = $_SESSION['cargo'];
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
-        <title>Bitacora</title>
+        <title>Bitácora</title>
         <link rel="stylesheet" href="../Bootstrap/css/styleBody.css"/>
         <script src="../js/sweetalert2.all.min.js"></script>
         <link href="../Bootstrap/css/sweetalert2.min.css" rel="stylesheet"/>
@@ -24,7 +24,7 @@ $cargo = $_SESSION['cargo'];
                 let timerInterval
                 Swal.fire({
                     title: 'Atención!',
-                    html: 'Generando bitacora de atención.',
+                    html: 'Generando bitácora de atención.',
                     timer: 3000,
                     timerProgressBar: true,
                     didOpen: () => {

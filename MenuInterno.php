@@ -136,7 +136,7 @@ $consulJson = json_encode($consultas);
                 <li>
                     <a href="ProfeInterno/HistorialBitacoras.php">
                         <i class='bx bx-library'></i>
-                        <span class="links_name">Bitacoras</span>
+                        <span class="links_name">Bitácoras</span>
                     </a>
                     <span class="tooltip">Bitacoras</span>
                 </li>

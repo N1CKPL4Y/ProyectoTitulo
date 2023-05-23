@@ -33,7 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bitacora de atención</title>
+        <title>Bitácora de atención</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <link rel="stylesheet" href="../Bootstrap/css/styleSideBar.css">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -104,7 +104,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header Header" style="display: flex; align-items: center; justify-content: center;">
-                                    <h3 class="card-title" style="font-size: 24px">Bitacora de atención</h3>
+                                    <h3 class="card-title" style="font-size: 24px">Bitácora de atención</h3>
                                 </div>
                                 <div class="card-body Cuerpo">
                                     <div class="row" style="margin-top: 15px">
@@ -352,7 +352,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header Header" style="background-color: #558b2f; color: white">
-                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Bitacora:</h5>
+                                                        <h5 class="col-sm-12 col-md-12 col-lg-12">Bitácora:</h5>
                                                     </div>
                                                     <div class="card-body Cuerpo" style="background-color: #C8E6C9">
                                                         <div class="row">
@@ -416,7 +416,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     <div class="card-body Cuerpo">
                                                         <div class="row justify-content-around">
                                                             <div class="col-sm-12 col-md-8 col-lg-8">
-                                                                <button type="submit" id="btn_Action" class="btn btn-block submitModal">Registrar bitacora</button>
+                                                                <button type="submit" id="btn_Action" class="btn btn-block submitModal">Registrar bitácora</button>
                                                             </div>
                                                         </div>
                                                     </div>
