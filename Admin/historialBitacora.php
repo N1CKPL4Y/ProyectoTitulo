@@ -271,7 +271,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                     Registro
                                                 </div>
                                                 <div class = "card-body" >
-                                                    <h5 class = "center">No existe un beneficiario asociado al rut indicado</h5>
+                                                    <h5 class = "center">No existe una bitácora asociada a los parametros ingresados</h5>
                                                 </div>
                                                 <div class = "card-footer text-muted">
                                                     ...
@@ -288,7 +288,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                 Registro
                                             </div>
                                             <div class = "card-body" >
-                                                <h5 class = "center">Verifique la selección del área del profesional y/o fecha de registro de la bitácora</h5>
+                                                <h5 class = "center">Verifique la selección de la fecha de registro de la bitácora</h5>
                                             </div>
                                             <div class = "card-footer text-muted">
                                                 ...
@@ -305,7 +305,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                             Registro
                                         </div>
                                         <div class = "card-body" >
-                                            <h5 class = "center">Verifique la selección del area del profesional y/o fecha de registro de la bitácora</h5>
+                                            <h5 class = "center">Verifique la selección del área del profesional y fecha de registro de la bitácora</h5>
                                         </div>
                                         <div class = "card-footer text-muted">
                                             ...
