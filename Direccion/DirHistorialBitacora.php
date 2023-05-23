@@ -149,7 +149,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                         <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Área</label>
                                                     </div>
                                                     <select class="custom-select" id="cbo_aUser" name="cbo_aUser" style="border-radius: 0 50px 50px 0;">
-                                                        <option value="" disabled selected>Seleccione el area Profesional</option>
+                                                        <option value="" disabled selected>Seleccione el área Profesional</option>
                                                         <?php
                                                         $areaU = $data->getAllA_users();
                                                         foreach ($areaU as $key) {
@@ -242,7 +242,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                     Registro
                                                 </div>
                                                 <div class = "card-body" >
-                                                    <h5 class = "center">No existe un beneficiario asociado al rut indicado</h5>
+                                                    <h5 class = "center">No existe una bitácora asociada a los parametros ingresados</h5>
                                                 </div>
                                                 <div class = "card-footer text-muted">
                                                     ...
@@ -259,7 +259,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                                 Registro
                                             </div>
                                             <div class = "card-body" >
-                                                <h5 class = "center">Verifique la selección del área del profesional y/o fecha de registro de la bitácora</h5>
+                                                <h5 class = "center">Verifique la selección de la fecha de registro de la bitácora</h5>
                                             </div>
                                             <div class = "card-footer text-muted">
                                                 ...
@@ -276,7 +276,7 @@ $rutBen = isset($_GET['rut']) ? $_GET['rut'] : null;
                                             Registro
                                         </div>
                                         <div class = "card-body" >
-                                            <h5 class = "center">Verifique la selección del area del profesional y/o fecha de registro de la bitácora</h5>
+                                            <h5 class = "center">Verifique la selección del área del profesional y fecha de registro de la bitácora</h5>
                                         </div>
                                         <div class = "card-footer text-muted">
                                             ...

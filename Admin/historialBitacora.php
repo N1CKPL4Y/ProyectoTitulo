@@ -177,7 +177,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                                         <label class="input-group-text" for="inputGroupSelect01" style="border-radius: 50px 0 0 50px;">Área</label>
                                                     </div>
                                                     <select class="custom-select" id="cbo_aUser" name="cbo_aUser" style="border-radius: 0 50px 50px 0;">
-                                                        <option value="" disabled selected>Seleccione el area Profesional</option>
+                                                        <option value="" disabled selected>Seleccione el área Profesional</option>
                                                         <?php
                                                         $areaU = $data->getAllA_users();
                                                         foreach ($areaU as $key) {
