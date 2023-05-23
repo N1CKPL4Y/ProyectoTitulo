@@ -54,7 +54,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 -->
 <html>
     <head>
-        <title>Bitacora de atención PDF</title>
+        <title>Bitácora de atención PDF</title>
         <link rel="icon" href="../IMG/IconAveFenix.png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
@@ -96,7 +96,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important; align-items: end; justify-content: end">
                     <div class="row">
                         <div class="col-sm-6 col-md-12 col-lg-12">
-                            <span>Si termino de ver el pdf, cierre esta pestaña con el siguente boton</span>
+                            <span>Si terminó de ver el pdf, cierre esta pestaña con el siguente botón</span>
                         </div>
                     </div>
                     <div class="row">
@@ -118,7 +118,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-12 col-lg-12" style="display: flex; align-items: center; justify-content: center;">
-                    <h2 class="tituloPDF">Bitacora de atención N° <?php echo $id; ?><hr noshade style="border-top: 5px solid black; margin-top: -5px;"/></h2>
+                    <h2 class="tituloPDF">Bitácora de atención N° <?php echo $id; ?><hr noshade style="border-top: 5px solid black; margin-top: -5px;"/></h2>
                 </div>
             </div>
             <div class="row pt-5" style="padding-left: 10px;">

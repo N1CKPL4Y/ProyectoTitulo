@@ -295,7 +295,7 @@ $consulJson = json_encode($consultas);
                                                     <input type="text" class="form-control" name="txt_Fbene" readonly="" id="fono_bene" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                                 <div class="mb-2">
-                                                    <span class="input-group-text" id="basic-addon1">Profesional que lo atendera</span>
+                                                    <span class="input-group-text" id="basic-addon1">Profesional que lo atenderá</span>
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">

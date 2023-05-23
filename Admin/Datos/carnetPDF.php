@@ -50,7 +50,7 @@ $rut = isset($_GET['rut']) ? $_GET['rut'] : null;
                 <div class="card col-lg-4 Cuerpo" style="padding: 10px; border-color: #C8E6C9 !important; align-items: end; justify-content: end">
                     <div class="row">
                         <div class="col-sm-6 col-md-12 col-lg-12">
-                            <span>Si termino de ver el pdf, cierre esta pestaña con el siguente boton</span>
+                            <span>Si terminó de ver el pdf, cierre esta pestaña con el siguente botón</span>
                         </div>
                     </div>
                     <div class="row">
